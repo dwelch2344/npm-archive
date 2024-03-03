@@ -1,0 +1,31 @@
+name: Matrix from File
+
+on: [push]
+
+jobs:
+  prepare-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Read file and set matrix output
+        id: set-matrix
+        run: |
+          # Assuming the file is JSON and contains an array for the matrix
+          MATRIX_JSON=$(cat config/matrix.json)
+          echo "matrix=${MATRIX_JSON}" >> $GITHUB_OUTPUT
+
+  build:
+    needs: prepare-matrix
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{fromJson(needs.prepare-matrix.outputs.matrix)}}
+    steps:
+      - name: Your build step
+        env:
+          TARGET: ${{matrix.pkg}}
+        run: |
+          echo "Search for $TARGET "
