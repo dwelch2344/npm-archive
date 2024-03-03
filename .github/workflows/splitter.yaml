@@ -1,0 +1,63 @@
+name: Matrix from File
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  prepare-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Read file and set matrix output
+        id: set-matrix
+        run: |
+          # Assuming the file is JSON and contains an array for the matrix
+          MATRIX_JSON=$(node dist/splitter.ts)
+          echo "matrix=${MATRIX_JSON}" >> $GITHUB_OUTPUT
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: batches
+          path: tmp/jobs/
+
+  downloader:
+    needs: prepare-matrix
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{fromJson(needs.prepare-matrix.outputs.matrix)}}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ github.repository }}
+          ref: ${{ github.ref }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          
+      - run: npm i
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: batches
+          path: tmp/jobs/
+
+
+      - name: Batch Runner
+        env:
+          TARGET: ${{needs.prepare-matrix.outputs.matrix}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "About to initialize $TARGET"
+          echo "FINDME: root"
+          ls -alh
+          echo "FINDME: tmp"
+          ls -alh tmp
+          echo "FINDME: jobs"
+          ls -alh tmp/jobs
