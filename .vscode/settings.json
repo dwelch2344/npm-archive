@@ -1,0 +1,42 @@
+{
+  "eslint.validate": [
+    "javascript",
+    "html",
+    "vue",
+    "json"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
+  "vetur.validation.template": false,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Jest file",
+        "request": "launch",
+        "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/jest",
+        "args": [
+          // "${fileBasenameNoExtension}",
+          "${file}",
+          "--runInBand",
+          "--watch",
+          "--coverage=false",
+          "--no-cache"
+        ],
+        "cwd": "${workspaceRoot}",
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "sourceMaps": true,
+        "windows": {
+          "program": "${workspaceFolder}/node_modules/jest/bin/jest"
+        }
+      },
+    ],
+    "compounds": []
+  }
+}
