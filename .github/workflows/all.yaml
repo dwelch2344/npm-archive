@@ -19,8 +19,6 @@ jobs:
           MATRIX_JSON=$(cat config/matrix.json | tr -d '\n')
           echo "matrix=${MATRIX_JSON}" >> $GITHUB_OUTPUT
 
-          echo "HI THERE"
-
   downloader:
     needs: prepare-matrix
     runs-on: ubuntu-latest
@@ -36,8 +34,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
+          # cache: 'npm'
+          # cache-dependency-path: package-lock.json
       
       - run: npm i
       
@@ -49,10 +47,10 @@ jobs:
         run: |
           echo "About to initialize $TARGET"
           node dist/main.js "$TARGET"
-          git config --global user.name 'GitHub Action'
-          git config --global user.email 'action@github.com'
-          git add data; git commit -m "Automated run for $TARGET"
-          git pull --rebase --no-edit && git push
+          # git config --global user.name 'GitHub Action'
+          # git config --global user.email 'action@github.com'
+          # git add data; git commit -m "Automated run for $TARGET"
+          # git pull --rebase --no-edit && git push
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
