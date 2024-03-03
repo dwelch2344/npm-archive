@@ -44,9 +44,7 @@ jobs:
           # TARGET: ${{needs.prepare-matrix.outputs.matrix}}
           TARGET: ${{matrix.pkg}}
         run: |
-          echo "Search for $TARGET"
+          echo "About to initialize $TARGET"
           node dist/main.js "$TARGET"
-          ls -alh
-          tree data
-          git add -A; git commit -m "Running for $TARGET"
-          git pull --no-edit && git push
+          
+      - uses: stefanzweifel/git-auto-commit-action@v5
