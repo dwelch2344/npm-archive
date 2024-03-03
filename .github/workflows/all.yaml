@@ -11,13 +11,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
-      - run: npm i
       
       - name: Read file and set matrix output
         id: set-matrix
@@ -36,6 +29,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+      
+      - run: npm i
       
       - name: Your build step
         env:
