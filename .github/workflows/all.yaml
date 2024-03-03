@@ -15,10 +15,12 @@ jobs:
         id: set-matrix
         run: |
           # Assuming the file is JSON and contains an array for the matrix
-          MATRIX_JSON=$(cat config/matrix.json)
+          MATRIX_JSON=$(cat config/matrix.json | tr -d '\n')
           echo "matrix=${MATRIX_JSON}" >> $GITHUB_OUTPUT
 
-  build:
+          echo "$MATRIX_JSON"
+
+  downloader:
     needs: prepare-matrix
     runs-on: ubuntu-latest
     strategy:
@@ -26,6 +28,7 @@ jobs:
     steps:
       - name: Your build step
         env:
-          TARGET: ${{matrix.pkg}}
+          # TARGET: ${{needs.prepare-matrix.outputs.matrix}}
+          TARGET: ${{matrix}}
         run: |
           echo "Search for $TARGET "
