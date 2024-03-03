@@ -26,6 +26,9 @@ export async function splitJobs(){
   return matrix
 }
 
-if( !process.env.VITEST ){
-  console.log(JSON.stringify(splitJobs()))
-}
+
+;(async function() {
+  if( !process.env.VITEST ){
+    console.log(JSON.stringify(await splitJobs()))
+  }
+})();
