@@ -29,7 +29,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
+        with:
+          repository: ${{ github.repository }}
+          ref: ${{ github.ref }}
 
       - uses: actions/setup-node@v4
         with:
@@ -46,9 +48,5 @@ jobs:
         run: |
           echo "About to initialize $TARGET"
           node dist/main.js "$TARGET"
-
-      - uses: EndBug/add-and-commit@v9
-        with:
-          message: Show GitHub Actions logo
-          committer_name: GitHub Actions
-          committer_email: actions@github.com
+          git add -A; git commit -am "Automated run for $TARGET"
+          git pull --no-edit && git push
