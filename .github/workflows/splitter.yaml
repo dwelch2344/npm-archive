@@ -58,13 +58,10 @@ jobs:
 
       - name: Batch Runner
         env:
-          TARGET: ${{needs.prepare-matrix.outputs.matrix}}
+          # TARGET: ${{needs.prepare-matrix.outputs.matrix}}
+          # TARGET: ${{matrix}}
+          TARGET: ${{matrix.file}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "About to initialize $TARGET"
-          echo "FINDME: root"
-          ls -alh
-          echo "FINDME: tmp"
-          ls -alh tmp
-          echo "FINDME: jobs"
-          ls -alh tmp/jobs
+          node dist/gha/joiner.js "$TARGET"
