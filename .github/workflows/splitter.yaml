@@ -70,9 +70,9 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.NPM_ARCHIVER_TOKEN }}
-          commit-message: "Update from ${{ matrix.pkg }}"
-          title: "Automated update from ${{ matrix.pkg }}"
+          commit-message: "Update from ${{ matrix.file }}"
+          title: "Automated update from ${{ matrix.file }}"
           body: "This is an automated update."
-          branch: "update-from-${{ matrix.pkg }}-${{ github.run_number }}"
+          branch: "update-from-${{ github.job.id }}"
           base: "main"
           labels: auto-merge
