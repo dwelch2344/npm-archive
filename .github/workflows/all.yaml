@@ -53,3 +53,13 @@ jobs:
           git config --global user.email 'action@github.com'
           git add data; git commit -m "Automated run for $TARGET"
           git pull --rebase --no-edit && git push
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Update from ${{ matrix.pkg }}"
+          title: "Automated update from ${{ matrix.pkg }}"
+          body: "This is an automated update."
+          branch: "update-from-${{ matrix.pkg }}-${{ github.run_number }}"
+          base: "main"
