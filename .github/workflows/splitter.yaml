@@ -65,3 +65,14 @@ jobs:
         run: |
           echo "About to initialize $TARGET"
           node dist/gha/joiner.js "$TARGET"
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.NPM_ARCHIVER_TOKEN }}
+          commit-message: "Update from ${{ matrix.pkg }}"
+          title: "Automated update from ${{ matrix.pkg }}"
+          body: "This is an automated update."
+          branch: "update-from-${{ matrix.pkg }}-${{ github.run_number }}"
+          base: "main"
+          labels: auto-merge
