@@ -18,6 +18,9 @@ async function splitJobs() {
     await (0, execa_1.default)('mkdir', ['-p', node_path_1.default.join('tmp', 'jobs')]);
     await Promise.all(chunks.map((chunk, idx) => node_fs_1.promises.writeFile(node_path_1.default.join('tmp', 'jobs', chunkFile(idx)), JSON.stringify(chunk, null, 2), 'utf8')));
     const matrix = { include: chunks.map((_, idx) => ({ file: chunkFile(idx) })) };
-    console.log(JSON.stringify(matrix));
+    return matrix;
 }
 exports.splitJobs = splitJobs;
+if (!process.env.VITEST) {
+    console.log(JSON.stringify(splitJobs()));
+}

@@ -23,7 +23,9 @@ export async function splitJobs(){
   )
 
   const matrix = { include: chunks.map( (_,idx) => ({ file: chunkFile(idx) })) }
-  console.log(JSON.stringify(matrix))
-  
+  return matrix
+}
 
+if( !process.env.VITEST ){
+  console.log(JSON.stringify(splitJobs()))
 }
