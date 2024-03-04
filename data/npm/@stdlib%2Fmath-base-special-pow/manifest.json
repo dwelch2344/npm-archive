@@ -1,0 +1,1562 @@
+{
+  "_id": "@stdlib/math-base-special-pow",
+  "_rev": "10-e4e434d4216452391722738e544415ac",
+  "name": "@stdlib/math-base-special-pow",
+  "dist-tags": {
+    "latest": "0.2.1"
+  },
+  "versions": {
+    "0.0.1": {
+      "name": "@stdlib/math-base-special-pow",
+      "version": "0.0.1",
+      "description": "Exponential function.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://github.com/stdlib-js/stdlib",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/math-base-special-pow.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/constants-float64-exponent-bias": "^0.0.x",
+        "@stdlib/constants-float64-ln-two": "^0.0.x",
+        "@stdlib/constants-float64-ninf": "^0.0.x",
+        "@stdlib/constants-float64-pinf": "^0.0.x",
+        "@stdlib/math-base-assert-is-infinite": "^0.0.x",
+        "@stdlib/math-base-assert-is-integer": "^0.0.x",
+        "@stdlib/math-base-assert-is-nan": "^0.0.x",
+        "@stdlib/math-base-assert-is-odd": "^0.0.x",
+        "@stdlib/math-base-special-abs": "^0.0.x",
+        "@stdlib/math-base-special-copysign": "^0.0.x",
+        "@stdlib/math-base-special-ldexp": "^0.0.x",
+        "@stdlib/math-base-special-sqrt": "^0.0.x",
+        "@stdlib/number-float64-base-get-high-word": "^0.0.x",
+        "@stdlib/number-float64-base-set-high-word": "^0.0.x",
+        "@stdlib/number-float64-base-set-low-word": "^0.0.x",
+        "@stdlib/number-float64-base-to-words": "^0.0.x",
+        "@stdlib/number-uint32-base-to-int32": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/bench": "^0.0.x",
+        "@stdlib/constants-float64-eps": "^0.0.x",
+        "@stdlib/constants-float64-max-safe-integer": "^0.0.x",
+        "@stdlib/fs-write-file": "^0.0.x",
+        "@stdlib/math-base-assert-is-negative-zero": "^0.0.x",
+        "@stdlib/math-base-assert-is-positive-zero": "^0.0.x",
+        "@stdlib/math-base-special-round": "^0.0.x",
+        "@stdlib/math-base-tools-evalpoly-compile": "^0.0.x",
+        "@stdlib/random-base-randu": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdmath",
+        "mathematics",
+        "math",
+        "math.pow",
+        "pow",
+        "power",
+        "natural",
+        "exponential",
+        "function",
+        "number"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "c164fb0c0bc939d30f747e02a6cb433ba58ae025",
+      "_id": "@stdlib/math-base-special-pow@0.0.1",
+      "_nodeVersion": "15.14.0",
+      "_npmVersion": "7.7.6",
+      "dist": {
+        "integrity": "sha512-HwCx8L54riP8Tc1wwJVjJ+o93M2ppG+Bzbh9VJJ0O5p10tCooa/DVh9JCQzdH8ggXEhoPPjo9ObR20pLnjTQRQ==",
+        "shasum": "2ab7ad4a5ba9062beac11e3de05f14792c867d2d",
+        "tarball": "https://registry.npmjs.org/@stdlib/math-base-special-pow/-/math-base-special-pow-0.0.1.tgz",
+        "fileCount": 16,
+        "unpackedSize": 80303,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgyN98CRA9TVsSAnZWagAA4cUP/ReMLK4GxnBHxW5WXs1Y\n4gLmWk5GL0Jcac9mrcQkPgHQRF++W+XVPOvzgLbp7nDwzauTCyZzMfA6RGzS\n33jgYu/LkNC+YBngik2u8tNETV445P3hruy3SmmJJL5Zj6L8bCPWcF/T7dVp\nH7sThIyzKLVjKukBBdb5eWwaRKSLCzDyCjhKhzjf6D6SAVuBcdCTOSIG4N9+\nIUZPnx9yX+7lG6VfrPCNK2S3lD4h62BdNVPNOCzsVcoQ2ENFSYYysHj4Q51T\n90AR8F9lHX2X8ZUgAc6Q2mFtUI4Y2ANt8TJ3HtRy5Y1GQxVbeMI+Rxog+ALp\nKrrQnRibx9v6Mj3QjY8D+nEjeiFXAyoEC68oPypKHnpvhdGPW43CWOgLYGto\n+HZB3mSt7f0Ed0JJ5bprtY0Fxcgyj+aFpN+Nson+8qDZSuhOsFlj0Sa72rUx\nbC6ZJd8xtHbGv+Dc7UfAGxDvcyXoL3ZyBpyj4SubxwUytbpm7Pwz5lXU/flP\nyq1HKcLb9/WoUZkk1Vx5creXnETFlPTBGdW4AlIzcThVAW/0sTXBJhxE8XLx\nGu4pzV7PW6qWRqgvK/M52awWooYvpx8fAI+ek2FrvhjaPUO6/nyVe4CnD+u8\n6AjD+DwQUee7NaIX3FRVBcw8juGVWJ9HgpOGWMOw2pGfb1yNMsv3RYScMyoj\n9Ne3\r\n=SRiq\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDjvXp7qYW8fg0HBJ3ySLxomd03GvImuM4ZqmbRm3fJyAiEAqO7IjJa58xfjerKIT4bX9FmvBrhcozsRwxNef/OOBH4="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/math-base-special-pow_0.0.1_1623777147926_0.5172372484307031"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.2": {
+      "name": "@stdlib/math-base-special-pow",
+      "version": "0.0.2",
+      "description": "Exponential function.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://github.com/stdlib-js/stdlib",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/math-base-special-pow.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/constants-float64-exponent-bias": "^0.0.x",
+        "@stdlib/constants-float64-ln-two": "^0.0.x",
+        "@stdlib/constants-float64-ninf": "^0.0.x",
+        "@stdlib/constants-float64-pinf": "^0.0.x",
+        "@stdlib/math-base-assert-is-infinite": "^0.0.x",
+        "@stdlib/math-base-assert-is-integer": "^0.0.x",
+        "@stdlib/math-base-assert-is-nan": "^0.0.x",
+        "@stdlib/math-base-assert-is-odd": "^0.0.x",
+        "@stdlib/math-base-special-abs": "^0.0.x",
+        "@stdlib/math-base-special-copysign": "^0.0.x",
+        "@stdlib/math-base-special-ldexp": "^0.0.x",
+        "@stdlib/math-base-special-sqrt": "^0.0.x",
+        "@stdlib/number-float64-base-get-high-word": "^0.0.x",
+        "@stdlib/number-float64-base-set-high-word": "^0.0.x",
+        "@stdlib/number-float64-base-set-low-word": "^0.0.x",
+        "@stdlib/number-float64-base-to-words": "^0.0.x",
+        "@stdlib/number-uint32-base-to-int32": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/bench": "^0.0.x",
+        "@stdlib/constants-float64-eps": "^0.0.x",
+        "@stdlib/constants-float64-max-safe-integer": "^0.0.x",
+        "@stdlib/fs-write-file": "^0.0.x",
+        "@stdlib/math-base-assert-is-negative-zero": "^0.0.x",
+        "@stdlib/math-base-assert-is-positive-zero": "^0.0.x",
+        "@stdlib/math-base-special-round": "^0.0.x",
+        "@stdlib/math-base-tools-evalpoly-compile": "^0.0.x",
+        "@stdlib/random-base-randu": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdmath",
+        "mathematics",
+        "math",
+        "math.pow",
+        "pow",
+        "power",
+        "natural",
+        "exponential",
+        "function",
+        "number"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "745e75ccdd39de80e95ce27740733f8f25bb33c7",
+      "_id": "@stdlib/math-base-special-pow@0.0.2",
+      "_nodeVersion": "15.14.0",
+      "_npmVersion": "7.7.6",
+      "dist": {
+        "integrity": "sha512-7spIdc/Y7n8TVsFtH/wfuqoVvzTP3Jb2dg2DVvj1GdbxavxCx9YQBbpQKXts2TefDxSM/JDeCLADCDjurX6imw==",
+        "shasum": "869c9bea5f38096afdc9b5fc3d7c518722a9aa21",
+        "tarball": "https://registry.npmjs.org/@stdlib/math-base-special-pow/-/math-base-special-pow-0.0.2.tgz",
+        "fileCount": 20,
+        "unpackedSize": 72927,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgyYyoCRA9TVsSAnZWagAAjj8P/15HKXoSACdfshcm50A5\nmirJAU+1Fi+uT0LjTgx0x1zDBdDHZu3k/GgcKSKAWeoaS+/mWzaINYgELIUk\n4JGYixMIbf7bNwWh+x6ySuZWTWDR1x2NKBkgGbkiEPqP/pBLDClI7dp2pfSH\ne7rofGNXrmPYeYiSy4VSQRauPpUK/cQcJP0oKKQ6TJmSqCufY5ZVvN14wP1u\noBI/hEjPe0EjZLLq7s3dsmlhRFPV55J40cua5/hkU/CXoxEZLd3N4e9fy7Y3\noYeTNxSaUXkKR8ltTtln1xl8DMy+TYHDfojArwL2dUWHVVQMe3WBX/AKG1zS\nyg1CfsQJh99KchqvnuEJfIoKpjtgiNjQpbnusDByuTb86MB2KW5uRhUnpEab\nhw58Ns8XEBglOgDeVsm50ziaN5L/Crc8Ptr1qPRqvb18KeaZgwYX4vmkZhV2\nxpMCz/TkXSOVlN8aBnFfZPhNKCHeT5rIgp1ioDIS52afVry0wItadnQagoS/\nsCLtdcI3kXEgRv2amxci7D7lkgg6ZnR5tlMAnlagPDp8ytPc91vjSf7vupiV\n+JsSaH476ff/S1gt6QDXQqQlaM9KFPSSeQDd4mmPM3l6/2XZVCD5WsHuVQUw\n6Z+LwOGbpnc6usy8F5Cc1mBMEZ7V9Lxptax3LEKWcBJefc75hLZejbzEo+8j\nhsUT\r\n=0cIg\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBM6UN9eEKE/X5kjPjV8l1KvF+U0c5py68SnbsU25guMAiEAyaUpVPT2kUvxAcfz4J86DFOLsFV/+5NJN0Fa1oXknYs="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/math-base-special-pow_0.0.2_1623821480396_0.7700246663031891"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.3": {
+      "name": "@stdlib/math-base-special-pow",
+      "version": "0.0.3",
+      "description": "Exponential function.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/math-base-special-pow.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/constants-float64-exponent-bias": "^0.0.x",
+        "@stdlib/constants-float64-ln-two": "^0.0.x",
+        "@stdlib/constants-float64-ninf": "^0.0.x",
+        "@stdlib/constants-float64-pinf": "^0.0.x",
+        "@stdlib/math-base-assert-is-infinite": "^0.0.x",
+        "@stdlib/math-base-assert-is-integer": "^0.0.x",
+        "@stdlib/math-base-assert-is-nan": "^0.0.x",
+        "@stdlib/math-base-assert-is-odd": "^0.0.x",
+        "@stdlib/math-base-special-abs": "^0.0.x",
+        "@stdlib/math-base-special-copysign": "^0.0.x",
+        "@stdlib/math-base-special-ldexp": "^0.0.x",
+        "@stdlib/math-base-special-sqrt": "^0.0.x",
+        "@stdlib/number-float64-base-get-high-word": "^0.0.x",
+        "@stdlib/number-float64-base-set-high-word": "^0.0.x",
+        "@stdlib/number-float64-base-set-low-word": "^0.0.x",
+        "@stdlib/number-float64-base-to-words": "^0.0.x",
+        "@stdlib/number-uint32-base-to-int32": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/bench": "^0.0.x",
+        "@stdlib/constants-float64-eps": "^0.0.x",
+        "@stdlib/constants-float64-max-safe-integer": "^0.0.x",
+        "@stdlib/fs-write-file": "^0.0.x",
+        "@stdlib/math-base-assert-is-negative-zero": "^0.0.x",
+        "@stdlib/math-base-assert-is-positive-zero": "^0.0.x",
+        "@stdlib/math-base-special-round": "^0.0.x",
+        "@stdlib/math-base-tools-evalpoly-compile": "^0.0.x",
+        "@stdlib/random-base-randu": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdmath",
+        "mathematics",
+        "math",
+        "math.pow",
+        "pow",
+        "power",
+        "natural",
+        "exponential",
+        "function",
+        "number"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "a7401a4d41e9afe576c7264a94e25702e912513e",
+      "_id": "@stdlib/math-base-special-pow@0.0.3",
+      "_nodeVersion": "15.14.0",
+      "_npmVersion": "7.7.6",
+      "dist": {
+        "integrity": "sha512-EMhicoQXOSUadqMwgDbjzfLCfAGZcOwRwb9N5p3UOM5yNQ8+zbYl0Hyd1GArpqbfajfAanYsxyOwzVnyMrPnPQ==",
+        "shasum": "35e1659040fbea8e584bb28de1785d71e9ece4b3",
+        "tarball": "https://registry.npmjs.org/@stdlib/math-base-special-pow/-/math-base-special-pow-0.0.3.tgz",
+        "fileCount": 20,
+        "unpackedSize": 73081,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg2Q6CCRA9TVsSAnZWagAAz0sP/RRw5vRyZYCDXlYSWE+c\n/sYtOyIANZ8mxeSh9LMzZ03TwVAz0rDoEjYx9WC9o71HDaGKi1xie7u1v9ca\ncigmIcD25jPus8B5g43AGKZDJ+h2P8oVYJ2ccEydvwWrDVVA+jRRTZ4CHZ+y\nUrvACcq8lNVTvQjNniZ3smqRujbULejuN7V69rl4cAniEjxfRqA1t487MgCE\nnvb1bdAL/VslsWWaoDQmczn96YuwsNqZaWq6zSa8yOg9Cyslivo38ccHMgvD\nrewbhSYAOEunxhThVOlC2urPk9n9Uhq2RSq2p8PPX88O7v3SUBLHrcx3+yXV\nddkulitbCe84Nxy4fgCtUZ8He1FSOj02gahrrKfhYOWv7zm9Bqgk0g1SOxbf\nfgI+fIsftBKuIiEDhsRK0glQ4qNTseHXrBDLJYuot8fUgF8BT+FvJTZQrAll\nnJXGZz3ooMftHiHlD9hfhQ1aHrmZFVpSSo4AywJVIMlPEzigFsDidUi1596v\nzNKHzl66P8Db+gCnWJboycTKA7+uEWOdm2mHQfZhHbSOu04yxDXltu32xfeg\nXIgUp8Oi05Y4mZmxvwC06GsKeA8UryTbai9eNR8IlpPSDrH8tTWOXQeTVc8n\nEIVcREtrCKxd96GG59pXyiLczcc2pz1o1G+YhzMbcmpwVWM6nbnTlaE//1pr\nQTi0\r\n=7J8k\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGJKz81tKmjq1rhY0TooNW7nz2SVsDvQXhqxypjflq7dAiBemPw4MLiJZg5BtVPvHQEvQC0mk1WqtztOSqNizp7/HA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/math-base-special-pow_0.0.3_1624837761611_0.8606797562696689"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.4": {
+      "name": "@stdlib/math-base-special-pow",
+      "version": "0.0.4",
+      "description": "Exponential function.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/math-base-special-pow.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/constants-float64-exponent-bias": "^0.0.x",
+        "@stdlib/constants-float64-ln-two": "^0.0.x",
+        "@stdlib/constants-float64-ninf": "^0.0.x",
+        "@stdlib/constants-float64-pinf": "^0.0.x",
+        "@stdlib/math-base-assert-is-infinite": "^0.0.x",
+        "@stdlib/math-base-assert-is-integer": "^0.0.x",
+        "@stdlib/math-base-assert-is-nan": "^0.0.x",
+        "@stdlib/math-base-assert-is-odd": "^0.0.x",
+        "@stdlib/math-base-special-abs": "^0.0.x",
+        "@stdlib/math-base-special-copysign": "^0.0.x",
+        "@stdlib/math-base-special-ldexp": "^0.0.x",
+        "@stdlib/math-base-special-sqrt": "^0.0.x",
+        "@stdlib/number-float64-base-get-high-word": "^0.0.x",
+        "@stdlib/number-float64-base-set-high-word": "^0.0.x",
+        "@stdlib/number-float64-base-set-low-word": "^0.0.x",
+        "@stdlib/number-float64-base-to-words": "^0.0.x",
+        "@stdlib/number-uint32-base-to-int32": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/bench": "^0.0.x",
+        "@stdlib/constants-float64-eps": "^0.0.x",
+        "@stdlib/constants-float64-max-safe-integer": "^0.0.x",
+        "@stdlib/fs-write-file": "^0.0.x",
+        "@stdlib/math-base-assert-is-negative-zero": "^0.0.x",
+        "@stdlib/math-base-assert-is-positive-zero": "^0.0.x",
+        "@stdlib/math-base-special-round": "^0.0.x",
+        "@stdlib/math-base-tools-evalpoly-compile": "^0.0.x",
+        "@stdlib/random-base-randu": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdmath",
+        "mathematics",
+        "math",
+        "math.pow",
+        "pow",
+        "power",
+        "natural",
+        "exponential",
+        "function",
+        "number"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "b3c57c55262a6346cb37782f3d87eac43669f6f4",
+      "_id": "@stdlib/math-base-special-pow@0.0.4",
+      "_nodeVersion": "15.14.0",
+      "_npmVersion": "7.7.6",
+      "dist": {
+        "integrity": "sha512-iOMRv1E9IdCHUQNffgtLNhdtrRvCfk11F+HQ40B8J1m0P3z6FP7Ait6SSjfTRxgoYE5IoEg4BCq3NvQJq/YwWw==",
+        "shasum": "f055ce606b16f2054df9fada98531ef329a995d3",
+        "tarball": "https://registry.npmjs.org/@stdlib/math-base-special-pow/-/math-base-special-pow-0.0.4.tgz",
+        "fileCount": 20,
+        "unpackedSize": 73081,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg5PsuCRA9TVsSAnZWagAA2asP/0Sx3kMOoyWNaIwweJVy\n2QEjO3IO8+P/IBNUQm9Fg8JBawgMSan2RBRARCSGN9U1i9pqAtXkKqi3jslZ\ntSCJQ5/uPen1U0euyNGXddiU9csNxJZJtkG4Ta9RgDye9kuXuXfjHXs8CsGT\n+yRKTgrKLDMwh+LoROoZ8KnVGY6ulC4PgWL4HDk3X1XqiPbHAh6Vtzrbwi+g\ncy6J6oaqbV5LIshvOZ8jncupiU0iGbCwYuIavi9E9FM7Fx1Zs2QXhR+6XZgH\nkYg0v2Qh2Wm3ZbUcRgHJE5mredsohSZzWHxSN2F3yN+IBLfiiU19bCfE1sBW\nN8SEGjEjtbnmtJiWWbI+PGKDhQ7EqSAOfXYy4cnQnEeNPFPc8sF6kmkQRgKN\nCUjJrlAoMIYiytIpDS/k8G/msCNEbyrdD3XYdh6RoaOm78Boq9NN/Yp2w+pI\nI4vAMBp4EEFzLW5IafeIyYLxCCjRG0FzD7eh3HoH6wjE9Fe53JbmB4LMyNlU\nVU8ke7AQFEaiE2S9I9+0dRzPslEgKBYSvZ/HRaaG9iuhKW+54i4LPzs15srH\nd1RNXA45eJIuuuwusMjqshXifAzxaCEAWHzl++YcpO98IyvGTH0j2jHJVyQ3\ncg4eVFK+QNSOLbBWA5eT7Ki8wdJ7TgoJjvjzDRGuysV+SfB02cK5mD+0oeTN\n9k1q\r\n=HFJW\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQD9jK3WkuuIhtEEKSMvACiS7gIZ0RXxc7vQ3mstBXKnGQIhAM1TtstuZwchN0+0fAEutfaHzy8YZVeEFVDJEAO9l9js"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/math-base-special-pow_0.0.4_1625619246353_0.19439907254971067"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.5": {
+      "name": "@stdlib/math-base-special-pow",
+      "version": "0.0.5",
+      "description": "Exponential function.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "scripts": "./scripts",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/math-base-special-pow.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/constants-float64-exponent-bias": "^0.0.x",
+        "@stdlib/constants-float64-ln-two": "^0.0.x",
+        "@stdlib/constants-float64-ninf": "^0.0.x",
+        "@stdlib/constants-float64-pinf": "^0.0.x",
+        "@stdlib/math-base-assert-is-infinite": "^0.0.x",
+        "@stdlib/math-base-assert-is-integer": "^0.0.x",
+        "@stdlib/math-base-assert-is-nan": "^0.0.x",
+        "@stdlib/math-base-assert-is-odd": "^0.0.x",
+        "@stdlib/math-base-special-abs": "^0.0.x",
+        "@stdlib/math-base-special-copysign": "^0.0.x",
+        "@stdlib/math-base-special-ldexp": "^0.0.x",
+        "@stdlib/math-base-special-sqrt": "^0.0.x",
+        "@stdlib/number-float64-base-get-high-word": "^0.0.x",
+        "@stdlib/number-float64-base-set-high-word": "^0.0.x",
+        "@stdlib/number-float64-base-set-low-word": "^0.0.x",
+        "@stdlib/number-float64-base-to-words": "^0.0.x",
+        "@stdlib/number-uint32-base-to-int32": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/bench": "^0.0.x",
+        "@stdlib/constants-float64-eps": "^0.0.x",
+        "@stdlib/constants-float64-max-safe-integer": "^0.0.x",
+        "@stdlib/fs-write-file": "^0.0.x",
+        "@stdlib/math-base-assert-is-negative-zero": "^0.0.x",
+        "@stdlib/math-base-assert-is-positive-zero": "^0.0.x",
+        "@stdlib/math-base-special-round": "^0.0.x",
+        "@stdlib/math-base-tools-evalpoly-compile": "^0.0.x",
+        "@stdlib/random-base-randu": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdmath",
+        "mathematics",
+        "math",
+        "math.pow",
+        "pow",
+        "power",
+        "natural",
+        "exponential",
+        "function",
+        "number"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "c9455947d745cdc78c3dcebbfcf52bea9e0f1a96",
+      "_id": "@stdlib/math-base-special-pow@0.0.5",
+      "_nodeVersion": "16.7.0",
+      "_npmVersion": "7.20.3",
+      "dist": {
+        "integrity": "sha512-PQgvrX5mY2mnqopk8vxm3y/SkcYwImtmBySNl4IGt2DmhJbw16GJW/1u+r6xq1LGY6mm69pVmRlo69Ts+2Aw9w==",
+        "shasum": "851eac2b553ffea54527df973af34065ca9eed06",
+        "tarball": "https://registry.npmjs.org/@stdlib/math-base-special-pow/-/math-base-special-pow-0.0.5.tgz",
+        "fileCount": 19,
+        "unpackedSize": 72978,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhItRDCRA9TVsSAnZWagAAVJ4P/10NU4mftVk65AD1a/8Z\nBwS72HMmRvujngrylO/JBKdF8ulbMaFMClZoJKDmu5HsDKdVtugcKvAv5NpW\netmCoSLiIs91jFo+La74q8DhWnFL6MYJuH8NK4LEq1ZqhoooE0SkuQQXOhI2\nNtnS9lF2J/A8Fh+a47CiPn0YB5SoIoftmrV1vmSnJiQ3Gr/Fkb+uqcZnoWsw\nu/8PjOlA0zruuKB5jhXcXWylhoauJSPUQu8OxD2JV2etQpOIrLlz19Hmkpc+\nOCPhedtu0XubilfefmfuGSAJn9+xjTmMDrteCB0vkdbb0wqX7gOj0rbOqSTu\nl4F5hkldYpvrcmlKiMCSrHfmqbKPBp07u2T+IhhCUEIOfk6Jq+iCiTY1padz\n6y9HBrvnSpR0NEPJMJKe/R39T2sS6jInmlVJS/i8fOFHj5CfvbPkYbuuKFWD\nGiKj+QHIetW1OEPh4cPY/7mJ4KOt2LbUzXDkBkiNd7mvK1NuJ3HCbEzNfe9L\nC3CouKgUoUmEESBedPpvYx8JhAwxAN8QLaOeMTBagWv2NuHKhhfUIj1kI7Om\nJ6kzqO3ZfcieGUEG5gTmIVHBKDD9yhT8mTK+gzzWKIsKfecRsnRvnMPvbFOX\nWMpG30wFrY3D0/pBw7957QPJoswbe8phV+o6b9gqn1YRI2eEJNnA5EUEX+Vt\ncyFd\r\n=ywWi\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBmEH1tc6u1rR+q0kMdy7XvPYVuzU/xaMkTid9bYIAz2AiEAtPRXOsaEzus5t95Mi3ewhshVtPW+B/fegMasNd3qy84="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/math-base-special-pow_0.0.5_1629672515004_0.46874004194197516"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.6": {
+      "name": "@stdlib/math-base-special-pow",
+      "version": "0.0.6",
+      "description": "Exponential function.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "scripts": "./scripts",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/math-base-special-pow.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/constants-float64-exponent-bias": "^0.0.x",
+        "@stdlib/constants-float64-ln-two": "^0.0.x",
+        "@stdlib/constants-float64-ninf": "^0.0.x",
+        "@stdlib/constants-float64-pinf": "^0.0.x",
+        "@stdlib/math-base-assert-is-infinite": "^0.0.x",
+        "@stdlib/math-base-assert-is-integer": "^0.0.x",
+        "@stdlib/math-base-assert-is-nan": "^0.0.x",
+        "@stdlib/math-base-assert-is-odd": "^0.0.x",
+        "@stdlib/math-base-special-abs": "^0.0.x",
+        "@stdlib/math-base-special-copysign": "^0.0.x",
+        "@stdlib/math-base-special-ldexp": "^0.0.x",
+        "@stdlib/math-base-special-sqrt": "^0.0.x",
+        "@stdlib/number-float64-base-get-high-word": "^0.0.x",
+        "@stdlib/number-float64-base-set-high-word": "^0.0.x",
+        "@stdlib/number-float64-base-set-low-word": "^0.0.x",
+        "@stdlib/number-float64-base-to-words": "^0.0.x",
+        "@stdlib/number-uint32-base-to-int32": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/bench": "^0.0.x",
+        "@stdlib/constants-float64-eps": "^0.0.x",
+        "@stdlib/constants-float64-max-safe-integer": "^0.0.x",
+        "@stdlib/fs-write-file": "^0.0.x",
+        "@stdlib/math-base-assert-is-negative-zero": "^0.0.x",
+        "@stdlib/math-base-assert-is-positive-zero": "^0.0.x",
+        "@stdlib/math-base-special-round": "^0.0.x",
+        "@stdlib/math-base-tools-evalpoly-compile": "^0.0.x",
+        "@stdlib/random-base-randu": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdmath",
+        "mathematics",
+        "math",
+        "math.pow",
+        "pow",
+        "power",
+        "natural",
+        "exponential",
+        "function",
+        "number"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "7acd4493b620815276eab96d8d90d5097985268b",
+      "_id": "@stdlib/math-base-special-pow@0.0.6",
+      "_nodeVersion": "16.13.2",
+      "_npmVersion": "8.1.2",
+      "dist": {
+        "integrity": "sha512-cTfEkyIZag2CX9liKHrBvUIwqG6NMnSE9IoafDu66LvzTAtBvxOU15Fcwxy3CA0+ox8BirDhKsILM46wUSWYXA==",
+        "shasum": "88e3c5eddd9ffc71941d64f14761b5d3b05fccae",
+        "tarball": "https://registry.npmjs.org/@stdlib/math-base-special-pow/-/math-base-special-pow-0.0.6.tgz",
+        "fileCount": 19,
+        "unpackedSize": 74299,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJiDWSICRA9TVsSAnZWagAAc2sP/2XenXmPPN3JjcYNCyjq\na5a3L8EVl0xty3a3fkYc2KVrQ+0MbEyOqyMvnZQdnaZg9x2swUCFggNdaMJ3\nT4rniZ6U0HSIxKJYRHKUl3W5dHPUxoteaWnG0S4M3SzyDg5TPAZrHt1YZKGL\nyIqNwnQALOdx5+fP6Cij88ypWCejWrPUBg4xNuqFa6OMvwH0b7tyyYRZMEsL\nCr3Qtfw52LfMLbt256qbGJKVeBDrvSq9b/DuLGQCSENAdsa/gJ/jb7Yyt/zN\nP09qRe8YoFu1US+RklXRMEZeh56rY8dBkLtOEHKcsWzBbo/tt2MU5SvUq2O1\nix1KWddIZDurA91dcEn058XWrGxVRWiyWd2wkFiTMaCS7SK0ZFywa0d6BWAc\nQO0CWzeGq5bzhs8Gr0ncDBQGlt00cOQOQlatPzCvIFnGMcUYD33KT5PxNrpa\nEigqyUmOzceLoIniYwwkK+9+ucj2I/agoauH8CA8/Wq2AKsQm/7QSo9N3F82\nYulAiEBob25oTPjFG0UwwR5eFbVEXV98yL4ir7U4N3P+kU9oBMsL4nw1GHRl\n3DjWveFUKuWogRS5PxMqQeTujdWzGv6C7HEKEnxFi18LGwV2NHoyj+Q6UFNH\n3Ax04VJInex7WzqrlXuqwx7hp5UE+GblMJOMkY0Kn9WFgSLbR3xcP26z6rE+\neBFj\r\n=1wqA\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBWqMyoxeNjILPXeNAmVlskePkdjyXsOuwjXEruh+a3OAiBtcv79JnPm2ksHTX5PXbx2Noj4WTQBPVmFTVWJjmduyQ=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/math-base-special-pow_0.0.6_1645044872644_0.23296202124069776"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.7": {
+      "name": "@stdlib/math-base-special-pow",
+      "version": "0.0.7",
+      "description": "Exponential function.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "scripts": "./scripts",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/math-base-special-pow.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/constants-float64-exponent-bias": "^0.0.x",
+        "@stdlib/constants-float64-high-word-abs-mask": "^0.0.x",
+        "@stdlib/constants-float64-high-word-significand-mask": "^0.0.x",
+        "@stdlib/constants-float64-ln-two": "^0.0.x",
+        "@stdlib/constants-float64-ninf": "^0.0.x",
+        "@stdlib/constants-float64-pinf": "^0.0.x",
+        "@stdlib/math-base-assert-is-infinite": "^0.0.x",
+        "@stdlib/math-base-assert-is-integer": "^0.0.x",
+        "@stdlib/math-base-assert-is-nan": "^0.0.x",
+        "@stdlib/math-base-assert-is-odd": "^0.0.x",
+        "@stdlib/math-base-special-abs": "^0.0.x",
+        "@stdlib/math-base-special-copysign": "^0.0.x",
+        "@stdlib/math-base-special-ldexp": "^0.0.x",
+        "@stdlib/math-base-special-sqrt": "^0.0.x",
+        "@stdlib/number-float64-base-get-high-word": "^0.0.x",
+        "@stdlib/number-float64-base-set-high-word": "^0.0.x",
+        "@stdlib/number-float64-base-set-low-word": "^0.0.x",
+        "@stdlib/number-float64-base-to-words": "^0.0.x",
+        "@stdlib/number-uint32-base-to-int32": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/bench": "^0.0.x",
+        "@stdlib/constants-float64-eps": "^0.0.x",
+        "@stdlib/constants-float64-max-safe-integer": "^0.0.x",
+        "@stdlib/fs-write-file": "^0.0.x",
+        "@stdlib/math-base-assert-is-negative-zero": "^0.0.x",
+        "@stdlib/math-base-assert-is-positive-zero": "^0.0.x",
+        "@stdlib/math-base-special-round": "^0.0.x",
+        "@stdlib/math-base-tools-evalpoly-compile": "^0.0.x",
+        "@stdlib/random-base-randu": "^0.0.x",
+        "@stdlib/time-current-year": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdmath",
+        "mathematics",
+        "math",
+        "math.pow",
+        "pow",
+        "power",
+        "natural",
+        "exponential",
+        "function",
+        "number"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "edfbe3e5c8eb0e725c9b414fd2ad75ee48034118",
+      "_id": "@stdlib/math-base-special-pow@0.0.7",
+      "_nodeVersion": "16.18.0",
+      "_npmVersion": "8.19.2",
+      "dist": {
+        "integrity": "sha512-sOew6OWapY6uesIg/i4eOveORzE0MfA7XtFcNgkpdsLJ4A4AkSZTz4zMmDxX2C22vI30aHR47O2ro3UZHFWCzw==",
+        "shasum": "fac63ea4e55d990101ceea344ee2db11aaf85c95",
+        "tarball": "https://registry.npmjs.org/@stdlib/math-base-special-pow/-/math-base-special-pow-0.0.7.tgz",
+        "fileCount": 19,
+        "unpackedSize": 60993,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGvyhAOpkFMASXblf/xsu2PgjNo75DdgYMZWeAkfiK40AiEAjPiyKfWDA3wZlEYgut0JeeR0/oYUIBmh0W+4vltjQ8U="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjdAXqACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmq/vQ/+JNM869dhWJeZIDiOekXn0J/fpTRpY2z/OszmV2anFIJ6g83I\r\nrilhgiqBNbtHbZTDIiZsaRxRM8yuW/B2M4lY1plhgpUj2GnVACCv/PU7lHYU\r\nJURqF7U0yDpvo5YT04RX1kDclrVpecJGotECNfmwMy+lZp+44k1ZA59lYpRn\r\nQxrLo0udxRXHy1ZhukiR35ZVI5CYDEMiCnXGnpjqKrjmbXUsl38BoKtCEbZ2\r\ny5cmGITm0Y9bkMzGBZbHkPXYJyhnpBru0QwZ25toDNVKyVnyv8x5DjfcxCJC\r\nCG1E6cHFrswchx+qawsK+G8Y92zFoJg/AemSrnCqH4bnA+ZTFm6779t59g3w\r\n2WN4+HgET6LnWWpgTY/DyT57o/C2h/SR/kZwIjTwiDqWKA4CwNMgvUGrtYcD\r\n6kEc68wm+CPS4dWjQx/nEyfqVc9HLb9oJ5SeQoWkjTRDWW+5voscRez4Rvet\r\nekPyxs5grtVvJ5pRcaMHUg3D6j1FOp+8txzTl99bU8wI4bwNIbMXEFPBlOsU\r\n+RFDVuXnUjwaLPIVDN6JP0JaAMvzRfdYIIJ7A90F2lYRkRa6cACbNgX/z/3e\r\n36Rn91LGlTKupupjysJoFLgPt7K0ITwldgubDf17F06kJQLrbDvRZqhf+aTF\r\nD39hW1lvAS4YD8p9izJffIT/a6YgSwa4vIE=\r\n=WwXO\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "kgryte",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/math-base-special-pow_0.0.7_1668548074375_0.1668758627047222"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.0": {
+      "name": "@stdlib/math-base-special-pow",
+      "version": "0.1.0",
+      "description": "Exponential function.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "scripts": "./scripts",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/math-base-special-pow.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/constants-float64-exponent-bias": "^0.1.0",
+        "@stdlib/constants-float64-high-word-abs-mask": "^0.1.0",
+        "@stdlib/constants-float64-high-word-significand-mask": "^0.1.0",
+        "@stdlib/constants-float64-ln-two": "^0.1.0",
+        "@stdlib/constants-float64-ninf": "^0.1.0",
+        "@stdlib/constants-float64-pinf": "^0.1.0",
+        "@stdlib/math-base-assert-is-infinite": "^0.1.0",
+        "@stdlib/math-base-assert-is-integer": "^0.1.0",
+        "@stdlib/math-base-assert-is-nan": "^0.1.0",
+        "@stdlib/math-base-assert-is-odd": "^0.1.0",
+        "@stdlib/math-base-special-abs": "^0.1.0",
+        "@stdlib/math-base-special-copysign": "^0.1.0",
+        "@stdlib/math-base-special-ldexp": "^0.1.0",
+        "@stdlib/math-base-special-sqrt": "^0.1.0",
+        "@stdlib/number-float64-base-get-high-word": "^0.1.0",
+        "@stdlib/number-float64-base-set-high-word": "^0.1.0",
+        "@stdlib/number-float64-base-set-low-word": "^0.1.0",
+        "@stdlib/number-float64-base-to-words": "^0.1.0",
+        "@stdlib/number-uint32-base-to-int32": "^0.1.0"
+      },
+      "devDependencies": {
+        "@stdlib/bench": "^0.1.0",
+        "@stdlib/constants-float64-eps": "^0.1.0",
+        "@stdlib/constants-float64-max-safe-integer": "^0.1.0",
+        "@stdlib/fs-write-file": "^0.1.0",
+        "@stdlib/math-base-assert-is-negative-zero": "^0.1.0",
+        "@stdlib/math-base-assert-is-positive-zero": "^0.1.0",
+        "@stdlib/math-base-special-round": "^0.1.0",
+        "@stdlib/math-base-tools-evalpoly-compile": "^0.1.0",
+        "@stdlib/random-base-randu": "^0.0.8",
+        "@stdlib/time-current-year": "^0.1.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-min": "git+https://github.com/Planeshifter/tap-min.git"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdmath",
+        "mathematics",
+        "math",
+        "math.pow",
+        "pow",
+        "power",
+        "natural",
+        "exponential",
+        "function",
+        "number"
+      ],
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/stdlib"
+      },
+      "gitHead": "09e778888dc3ceb96e90fcf9e55bdfae4f1d729e",
+      "_id": "@stdlib/math-base-special-pow@0.1.0",
+      "_nodeVersion": "16.20.2",
+      "_npmVersion": "8.19.4",
+      "dist": {
+        "integrity": "sha512-Izzt6QDY4unXEePG/FPTOiSmDKmlZ2egT4/8kRCiCJrQPa/kV2rMNKcS6IGS6Eb7GljnEOAuSFrqmT5dRGyBxQ==",
+        "shasum": "26b15df50c97f3182acf82929d03322cd5eb6929",
+        "tarball": "https://registry.npmjs.org/@stdlib/math-base-special-pow/-/math-base-special-pow-0.1.0.tgz",
+        "fileCount": 21,
+        "unpackedSize": 112805,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDx0kDvJXKq/9s9yA8qHvSm8LIjx21Bkn4ZW8lKV9uUpgIhAOgUbzZc5qp8b7rcbG6LsAGaxf6QdJjCXTSKHcSh0ba0"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte+stdlibbot@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte+stdlibbot@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/math-base-special-pow_0.1.0_1695524756365_0.09864003112370057"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.0": {
+      "name": "@stdlib/math-base-special-pow",
+      "version": "0.2.0",
+      "description": "Exponential function.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "scripts": "./scripts",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/math-base-special-pow.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/constants-float64-exponent-bias": "^0.2.0",
+        "@stdlib/constants-float64-high-word-abs-mask": "^0.2.0",
+        "@stdlib/constants-float64-high-word-significand-mask": "^0.2.0",
+        "@stdlib/constants-float64-ln-two": "^0.2.0",
+        "@stdlib/constants-float64-ninf": "^0.2.0",
+        "@stdlib/constants-float64-pinf": "^0.2.0",
+        "@stdlib/math-base-assert-is-infinite": "^0.2.0",
+        "@stdlib/math-base-assert-is-integer": "^0.2.0",
+        "@stdlib/math-base-assert-is-nan": "^0.2.0",
+        "@stdlib/math-base-assert-is-odd": "^0.2.0",
+        "@stdlib/math-base-special-abs": "^0.2.0",
+        "@stdlib/math-base-special-copysign": "^0.2.0",
+        "@stdlib/math-base-special-ldexp": "^0.2.0",
+        "@stdlib/math-base-special-sqrt": "^0.2.0",
+        "@stdlib/number-float64-base-get-high-word": "^0.2.0",
+        "@stdlib/number-float64-base-set-high-word": "^0.2.0",
+        "@stdlib/number-float64-base-set-low-word": "^0.2.0",
+        "@stdlib/number-float64-base-to-words": "^0.2.0",
+        "@stdlib/number-uint32-base-to-int32": "^0.2.0"
+      },
+      "devDependencies": {
+        "@stdlib/constants-float64-eps": "^0.1.1",
+        "@stdlib/constants-float64-max-safe-integer": "^0.2.0",
+        "@stdlib/fs-write-file": "^0.1.1",
+        "@stdlib/math-base-assert-is-negative-zero": "^0.1.1",
+        "@stdlib/math-base-assert-is-positive-zero": "^0.1.1",
+        "@stdlib/math-base-special-round": "^0.1.1",
+        "@stdlib/math-base-tools-evalpoly-compile": "^0.1.0",
+        "@stdlib/random-base-randu": "^0.1.0",
+        "@stdlib/time-current-year": "^0.1.1",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-min": "git+https://github.com/Planeshifter/tap-min.git",
+        "@stdlib/bench-harness": "^0.2.0",
+        "@stdlib/bench": "^0.3.1"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdmath",
+        "mathematics",
+        "math",
+        "math.pow",
+        "pow",
+        "power",
+        "natural",
+        "exponential",
+        "function",
+        "number"
+      ],
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/stdlib"
+      },
+      "gitHead": "7137673f0798ef13d7c9fd7becf78e557b1d583b",
+      "_id": "@stdlib/math-base-special-pow@0.2.0",
+      "_nodeVersion": "16.20.2",
+      "_npmVersion": "8.19.4",
+      "dist": {
+        "integrity": "sha512-cPPxTWPNIZf+rlZjfBUaBDEsOtsgKxumwqPNcBLd6R8eM9iEVntfs953WPg8t7do4+PmFvJnndJ6tjw1uZnC5Q==",
+        "shasum": "4ac47df544fd72e4c7304d662db45f3adfa0b730",
+        "tarball": "https://registry.npmjs.org/@stdlib/math-base-special-pow/-/math-base-special-pow-0.2.0.tgz",
+        "fileCount": 21,
+        "unpackedSize": 112679,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBXWlZ3KPcC+R5lVPsMQkgweGytE2XJTYbs6bmd8LxkgAiEApv/9XRqQWMY/2nHj4KtjRPmQp2ruDLGlHRy4sQYSfiw="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte+stdlibbot@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte+stdlibbot@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/math-base-special-pow_0.2.0_1707898505222_0.8269658606488277"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.1": {
+      "name": "@stdlib/math-base-special-pow",
+      "version": "0.2.1",
+      "description": "Exponential function.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "doc": "./docs",
+        "lib": "./lib",
+        "scripts": "./scripts",
+        "dist": "./dist"
+      },
+      "types": "./docs/types",
+      "scripts": {},
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/math-base-special-pow.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/constants-float64-exponent-bias": "^0.2.1",
+        "@stdlib/constants-float64-high-word-abs-mask": "^0.2.1",
+        "@stdlib/constants-float64-high-word-significand-mask": "^0.2.1",
+        "@stdlib/constants-float64-ln-two": "^0.2.1",
+        "@stdlib/constants-float64-ninf": "^0.2.1",
+        "@stdlib/constants-float64-pinf": "^0.2.1",
+        "@stdlib/math-base-assert-is-infinite": "^0.2.1",
+        "@stdlib/math-base-assert-is-integer": "^0.2.1",
+        "@stdlib/math-base-assert-is-nan": "^0.2.1",
+        "@stdlib/math-base-assert-is-odd": "^0.2.1",
+        "@stdlib/math-base-special-abs": "^0.2.1",
+        "@stdlib/math-base-special-copysign": "^0.2.1",
+        "@stdlib/math-base-special-ldexp": "^0.2.1",
+        "@stdlib/math-base-special-sqrt": "^0.2.1",
+        "@stdlib/number-float64-base-get-high-word": "^0.2.1",
+        "@stdlib/number-float64-base-set-high-word": "^0.2.1",
+        "@stdlib/number-float64-base-set-low-word": "^0.2.1",
+        "@stdlib/number-float64-base-to-words": "^0.2.1",
+        "@stdlib/number-uint32-base-to-int32": "^0.2.1"
+      },
+      "devDependencies": {},
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdmath",
+        "mathematics",
+        "math",
+        "math.pow",
+        "pow",
+        "power",
+        "natural",
+        "exponential",
+        "function",
+        "number"
+      ],
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/stdlib"
+      },
+      "gitHead": "31aff930532b53e34d2c7386684375a079fcf6bb",
+      "_id": "@stdlib/math-base-special-pow@0.2.1",
+      "_nodeVersion": "16.20.2",
+      "_npmVersion": "8.19.4",
+      "dist": {
+        "integrity": "sha512-7SvgVzDkuilZKrHh4tPiXx9fypF/V7PSvAcUVjvcRj5kVEwv/15RpzlmCJlT9B20VPSx4gJ1S0UIA6xgmYFuAg==",
+        "shasum": "f9576d1cf458cf45cd3e98431f18d55e4f902184",
+        "tarball": "https://registry.npmjs.org/@stdlib/math-base-special-pow/-/math-base-special-pow-0.2.1.tgz",
+        "fileCount": 21,
+        "unpackedSize": 111804,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDkPYDDMk0/3wxXzsPi1m6ZapxB+DuXHwt8YqBt60buXQIhAKgJWZdYG1UhONO4JdnPiV+D7wsdkVGwQszwzDBNjk9t"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte+stdlibbot@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte+stdlibbot@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/math-base-special-pow_0.2.1_1708809302840_0.8730002290873966"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2021-06-15T17:12:27.787Z",
+    "0.0.1": "2021-06-15T17:12:28.029Z",
+    "modified": "2024-02-24T21:15:03.604Z",
+    "0.0.2": "2021-06-16T05:31:20.622Z",
+    "0.0.3": "2021-06-27T23:49:21.749Z",
+    "0.0.4": "2021-07-07T00:54:06.473Z",
+    "0.0.5": "2021-08-22T22:48:35.145Z",
+    "0.0.6": "2022-02-16T20:54:32.866Z",
+    "0.0.7": "2022-11-15T21:34:34.612Z",
+    "0.1.0": "2023-09-24T03:05:56.601Z",
+    "0.2.0": "2024-02-14T08:15:05.451Z",
+    "0.2.1": "2024-02-24T21:15:03.038Z"
+  },
+  "maintainers": [
+    {
+      "name": "stdlib-bot",
+      "email": "kgryte+stdlibbot@gmail.com"
+    },
+    {
+      "name": "kgryte",
+      "email": "kgryte@gmail.com"
+    },
+    {
+      "name": "planeshifter",
+      "email": "pgb@andrew.cmu.edu"
+    },
+    {
+      "name": "rreusser",
+      "email": "rsreusser@gmail.com"
+    }
+  ],
+  "description": "Exponential function.",
+  "homepage": "https://stdlib.io",
+  "keywords": [
+    "stdlib",
+    "stdmath",
+    "mathematics",
+    "math",
+    "math.pow",
+    "pow",
+    "power",
+    "natural",
+    "exponential",
+    "function",
+    "number"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stdlib-js/math-base-special-pow.git"
+  },
+  "contributors": [
+    {
+      "name": "The Stdlib Authors",
+      "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+    }
+  ],
+  "author": {
+    "name": "The Stdlib Authors",
+    "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+  },
+  "bugs": {
+    "url": "https://github.com/stdlib-js/stdlib/issues"
+  },
+  "license": "Apache-2.0",
+  "readme": "<!--\n\n@license Apache-2.0\n\nCopyright (c) 2018 The Stdlib Authors.\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n   http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n\n-->\n\n\n<details>\n  <summary>\n    About stdlib...\n  </summary>\n  <p>We believe in a future in which the web is a preferred environment for numerical computation. To help realize this future, we've built stdlib. stdlib is a standard library, with an emphasis on numerical and scientific computation, written in JavaScript (and C) for execution in browsers and in Node.js.</p>\n  <p>The library is fully decomposable, being architected in such a way that you can swap out and mix and match APIs and functionality to cater to your exact preferences and use cases.</p>\n  <p>When you use stdlib, you can be absolutely certain that you are using the most thorough, rigorous, well-written, studied, documented, tested, measured, and high-quality code out there.</p>\n  <p>To join us in bringing numerical computing to the web, get started by checking us out on <a href=\"https://github.com/stdlib-js/stdlib\">GitHub</a>, and please consider <a href=\"https://opencollective.com/stdlib\">financially supporting stdlib</a>. We greatly appreciate your continued support!</p>\n</details>\n\n# Exponential Function\n\n[![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] <!-- [![dependencies][dependencies-image]][dependencies-url] -->\n\n> [Exponential function][exponential-function].\n\n<section class=\"intro\">\n\nThe [exponential function][exponential-function] is defined as\n\n<!-- <equation class=\"equation\" label=\"eq:exponential_function\" align=\"center\" raw=\"y = b^x\" alt=\"Exponential function\"> -->\n\n<div class=\"equation\" align=\"center\" data-raw-text=\"y = b^x\" data-equation=\"eq:exponential_function\">\n    <img src=\"https://cdn.jsdelivr.net/gh/stdlib-js/stdlib@bb29798906e119fcb2af99e94b60407a270c9b32/lib/node_modules/@stdlib/math/base/special/pow/docs/img/equation_exponential_function.svg\" alt=\"Exponential function\">\n    <br>\n</div>\n\n<!-- </equation> -->\n\nwhere `b` is the **base** and `x` is the **exponent**.\n\n</section>\n\n<!-- /.intro -->\n\n<section class=\"installation\">\n\n## Installation\n\n```bash\nnpm install @stdlib/math-base-special-pow\n```\n\n</section>\n\n<section class=\"usage\">\n\n## Usage\n\n```javascript\nvar pow = require( '@stdlib/math-base-special-pow' );\n```\n\n#### pow( base, exponent )\n\nEvaluates the [exponential function][exponential-function].\n\n```javascript\nvar v = pow( 2.0, 3.0 );\n// returns 8.0\n\nv = pow( 4.0, 0.5 );\n// returns 2.0\n\nv = pow( 100.0, 0.0 );\n// returns 1.0\n\nv = pow( 3.141592653589793, 5.0 );\n// returns ~306.0197\n\nv = pow( 3.141592653589793, -0.2 );\n// returns ~0.7954\n\nv = pow( NaN, 3.0 );\n// returns NaN\n\nv = pow( 5.0, NaN );\n// returns NaN\n\nv = pow( NaN, NaN );\n// returns NaN\n```\n\n</section>\n\n<!-- /.usage -->\n\n<section class=\"examples\">\n\n## Examples\n\n<!-- eslint no-undef: \"error\" -->\n\n```javascript\nvar randu = require( '@stdlib/random-base-randu' );\nvar round = require( '@stdlib/math-base-special-round' );\nvar pow = require( '@stdlib/math-base-special-pow' );\n\nvar b;\nvar x;\nvar i;\n\nfor ( i = 0; i < 100; i++ ) {\n    b = round( randu()*10.0 );\n    x = round( randu()*10.0 ) - 5.0;\n    console.log( '%d^%d = %d', b, x, pow( b, x ) );\n}\n```\n\n</section>\n\n<!-- /.examples -->\n\n<!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->\n\n<section class=\"related\">\n\n* * *\n\n## See Also\n\n-   <span class=\"package-name\">[`@stdlib/math-base/special/exp`][@stdlib/math/base/special/exp]</span><span class=\"delimiter\">: </span><span class=\"description\">natural exponential function.</span>\n-   <span class=\"package-name\">[`@stdlib/math-base/special/powm1`][@stdlib/math/base/special/powm1]</span><span class=\"delimiter\">: </span><span class=\"description\">evaluate bˣ - 1.</span>\n\n</section>\n\n<!-- /.related -->\n\n<!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->\n\n\n<section class=\"main-repo\" >\n\n* * *\n\n## Notice\n\nThis package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.\n\nFor more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].\n\n#### Community\n\n[![Chat][chat-image]][chat-url]\n\n---\n\n## Copyright\n\nCopyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].\n\n</section>\n\n<!-- /.stdlib -->\n\n<!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->\n\n<section class=\"links\">\n\n[npm-image]: http://img.shields.io/npm/v/@stdlib/math-base-special-pow.svg\n[npm-url]: https://npmjs.org/package/@stdlib/math-base-special-pow\n\n[test-image]: https://github.com/stdlib-js/math-base-special-pow/actions/workflows/test.yml/badge.svg?branch=v0.2.1\n[test-url]: https://github.com/stdlib-js/math-base-special-pow/actions/workflows/test.yml?query=branch:v0.2.1\n\n[coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/math-base-special-pow/main.svg\n[coverage-url]: https://codecov.io/github/stdlib-js/math-base-special-pow?branch=main\n\n<!--\n\n[dependencies-image]: https://img.shields.io/david/stdlib-js/math-base-special-pow.svg\n[dependencies-url]: https://david-dm.org/stdlib-js/math-base-special-pow/main\n\n-->\n\n[chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg\n[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im\n\n[stdlib]: https://github.com/stdlib-js/stdlib\n\n[stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors\n\n[umd]: https://github.com/umdjs/umd\n[es-module]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules\n\n[deno-url]: https://github.com/stdlib-js/math-base-special-pow/tree/deno\n[deno-readme]: https://github.com/stdlib-js/math-base-special-pow/blob/deno/README.md\n[umd-url]: https://github.com/stdlib-js/math-base-special-pow/tree/umd\n[umd-readme]: https://github.com/stdlib-js/math-base-special-pow/blob/umd/README.md\n[esm-url]: https://github.com/stdlib-js/math-base-special-pow/tree/esm\n[esm-readme]: https://github.com/stdlib-js/math-base-special-pow/blob/esm/README.md\n[branches-url]: https://github.com/stdlib-js/math-base-special-pow/blob/main/branches.md\n\n[exponential-function]: https://en.wikipedia.org/wiki/Exponential_function\n\n<!-- <related-links> -->\n\n[@stdlib/math/base/special/exp]: https://www.npmjs.com/package/@stdlib/math-base-special-exp\n\n[@stdlib/math/base/special/powm1]: https://www.npmjs.com/package/@stdlib/math-base-special-powm1\n\n<!-- </related-links> -->\n\n</section>\n\n<!-- /.links -->\n",
+  "readmeFilename": "README.md"
+}

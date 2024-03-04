@@ -1,0 +1,3442 @@
+{
+  "_id": "redbox-react",
+  "_rev": "52-9d67656c9288ce551e513529cbed6dc8",
+  "name": "redbox-react",
+  "description": "A redbox (rsod) component to display your errors.",
+  "dist-tags": {
+    "latest": "1.6.0"
+  },
+  "versions": {
+    "1.0.0": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your uncaught errors.",
+      "main": "index.js",
+      "browser": {
+        "index.js": "dist/redbox.js"
+      },
+      "scripts": {
+        "clean": "rimraf dist tmp",
+        "build:dev": "webpack src/index.js dist/redbox.js",
+        "build:prod": "NODE_ENV=production webpack src/index.js dist/redbox.min.js",
+        "build:test": "TEST=true webpack src/index.js tmp/redbox.js",
+        "build": "npm run build:dev && npm run build:prod",
+        "lint": "standard ./src && csslint ./src/redbox.css --quiet",
+        "prepublish": "npm run clean && npm run build",
+        "test": "npm run lint -s && npm run build:test -s && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KeywordBrain/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler",
+        "email": "david@keywordbrain.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/KeywordBrain/redbox-react/issues"
+      },
+      "homepage": "https://github.com/KeywordBrain/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "babel": "^5.5.8",
+        "babel-core": "^5.6.18",
+        "babel-eslint": "^3.1.15",
+        "babel-loader": "^5.1.4",
+        "css-loader": "^0.15.5",
+        "csslint": "^0.10.0",
+        "csslint-loader": "^0.2.0",
+        "extract-text-webpack-plugin": "^0.8.2",
+        "rimraf": "^2.3.4",
+        "standard": "^5.0.0-2",
+        "style-loader": "^0.12.3",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.0.1",
+        "webpack": "^1.9.6",
+        "webpack-dev-server": "^1.8.2",
+        "semantic-release": "^4.0.0"
+      },
+      "peerDependencies": {
+        "react": ">=0.13.0 <0.15.0 || 0.14.0-beta1"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.2.0"
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "version": "1.0.0",
+      "gitHead": "53baf047f98cfa003e05edc825b8d8ac082306ab",
+      "_id": "redbox-react@1.0.0",
+      "_shasum": "6c85b6d384abec7c904df76e63630db5fdf464aa",
+      "_from": ".",
+      "_npmVersion": "2.13.2",
+      "_nodeVersion": "2.4.0",
+      "_npmUser": {
+        "name": "keywordbrain",
+        "email": "david@keywordbrain.com"
+      },
+      "dist": {
+        "shasum": "6c85b6d384abec7c904df76e63630db5fdf464aa",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.0.0.tgz",
+        "integrity": "sha512-bn6dCoxAOzZ1BACvajTv90o+DKwQhgCGiPBBbFk6JobK1N4A6WYaLlxGngx2b/1AB19AukGEwOq7U9eHWwv0eg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDaUlsWu6Jcin6+wUHU3B23iBqGLR9/QkqHYUXvVMtAswIhAJSb4Ej8bOk/Yj4RS2NL/XkD/3M6fIFRgIQaBOQUSbJ+"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "keywordbrain",
+          "email": "david@keywordbrain.com"
+        }
+      ],
+      "directories": {}
+    },
+    "1.0.1": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "dist/redbox.js",
+      "browser": {
+        "index.js": "dist/redbox.js"
+      },
+      "scripts": {
+        "clean": "rimraf dist tmp",
+        "build:dev": "webpack src/index.js dist/redbox.js",
+        "build:prod": "NODE_ENV=production webpack src/index.js dist/redbox.min.js",
+        "build:test": "TEST=true webpack src/index.js tmp/redbox.js",
+        "build": "npm run build:dev && npm run build:prod",
+        "lint": "standard ./src && csslint ./src/redbox.css --quiet",
+        "prepublish": "npm run clean && npm run build",
+        "test": "npm run lint -s && npm run build:test -s && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KeywordBrain/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler",
+        "email": "david@keywordbrain.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/KeywordBrain/redbox-react/issues"
+      },
+      "homepage": "https://github.com/KeywordBrain/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "babel": "^5.5.8",
+        "babel-core": "^5.6.18",
+        "babel-eslint": "^3.1.15",
+        "babel-loader": "^5.1.4",
+        "css-loader": "^0.15.5",
+        "csslint": "^0.10.0",
+        "csslint-loader": "^0.2.0",
+        "extract-text-webpack-plugin": "^0.8.2",
+        "rimraf": "^2.3.4",
+        "standard": "^5.0.0-2",
+        "style-loader": "^0.12.3",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.0.1",
+        "webpack": "^1.9.6",
+        "webpack-dev-server": "^1.8.2",
+        "semantic-release": "^4.0.0"
+      },
+      "peerDependencies": {
+        "react": ">=0.13.2 || ^0.14.0-beta3"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.2.0"
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "version": "1.0.1",
+      "gitHead": "c7c2117fa3731402a50aaf53fab164c7ed80ce79",
+      "_id": "redbox-react@1.0.1",
+      "_shasum": "ea27be56c0175961bcbf68bbfadb65f06670d977",
+      "_from": ".",
+      "_npmVersion": "2.14.1",
+      "_nodeVersion": "3.3.0",
+      "_npmUser": {
+        "name": "keywordbrain",
+        "email": "david@keywordbrain.com"
+      },
+      "dist": {
+        "shasum": "ea27be56c0175961bcbf68bbfadb65f06670d977",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.0.1.tgz",
+        "integrity": "sha512-D/apSY7KoAA2FLTl3HmPpPUznUJxk5EcKRQdps6mtpYJ7o/L7srvbZCiQ5njO6ESko21dFN/FCpMEjREOlPW0Q==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBgw3352g6bLCSBB5pTxdGDEu9mtsM2dIzRsV4gyAJEiAiEA4fKGK6Kddq0KS0MObU8atjuGrrc9h4JS+/82mazbt/0="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "keywordbrain",
+          "email": "david@keywordbrain.com"
+        }
+      ],
+      "directories": {}
+    },
+    "1.0.2": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "dist/redbox.js",
+      "browser": {
+        "index.js": "dist/redbox.js"
+      },
+      "scripts": {
+        "clean": "rimraf dist tmp",
+        "build:dev": "webpack src/index.js dist/redbox.js",
+        "build:prod": "NODE_ENV=production webpack src/index.js dist/redbox.min.js",
+        "build:test": "TEST=true webpack src/index.js tmp/redbox.js",
+        "build": "npm run build:dev && npm run build:prod",
+        "lint": "standard ./src && csslint ./src/redbox.css --quiet",
+        "prepublish": "npm run clean && npm run build",
+        "test": "npm run lint -s && npm run build:test -s && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KeywordBrain/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler",
+        "email": "david@keywordbrain.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/KeywordBrain/redbox-react/issues"
+      },
+      "homepage": "https://github.com/KeywordBrain/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "babel": "^5.5.8",
+        "babel-core": "^5.6.18",
+        "babel-eslint": "^3.1.15",
+        "babel-loader": "^5.1.4",
+        "css-loader": "^0.15.5",
+        "csslint": "^0.10.0",
+        "csslint-loader": "^0.2.0",
+        "extract-text-webpack-plugin": "^0.8.2",
+        "rimraf": "^2.3.4",
+        "standard": "^5.0.0-2",
+        "style-loader": "^0.12.3",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.0.1",
+        "webpack": "^1.9.6",
+        "webpack-dev-server": "^1.8.2",
+        "semantic-release": "^4.0.0"
+      },
+      "peerDependencies": {
+        "react": ">=0.13.2 || ^0.14.0-beta3"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.2.0"
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "version": "1.0.2",
+      "gitHead": "058d0923add75ef82d9ca0fd4ba32b03bff475af",
+      "_id": "redbox-react@1.0.2",
+      "_shasum": "776f572635ace567ff1979f8aa3544417bafbcb5",
+      "_from": ".",
+      "_npmVersion": "2.14.2",
+      "_nodeVersion": "3.3.0",
+      "_npmUser": {
+        "name": "keywordbrain",
+        "email": "david@keywordbrain.com"
+      },
+      "dist": {
+        "shasum": "776f572635ace567ff1979f8aa3544417bafbcb5",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.0.2.tgz",
+        "integrity": "sha512-esGERToHQcqXwV8JGjliAv7l0lAo0zt962A/7wmBjrazScMIdSd2PqP6mL1CeoA3O8rLMuOIB1yvYiuNSTtYEw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFTADo+M+ZSRjm+ugf7/IRwXSASqbNFtYhe+yxvR6yRcAiAPXI5cTKt2UsOj8ldduHhVHuRrG+L4BxVZzZTAtkX8Jw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "keywordbrain",
+          "email": "david@keywordbrain.com"
+        }
+      ],
+      "directories": {}
+    },
+    "1.0.3": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "dist/redbox.js",
+      "browser": {
+        "index.js": "dist/redbox.js"
+      },
+      "scripts": {
+        "clean": "rimraf dist tmp",
+        "build:dev": "webpack src/index.js dist/redbox.js",
+        "build:prod": "NODE_ENV=production webpack src/index.js dist/redbox.min.js",
+        "build:test": "TEST=true webpack src/index.js tmp/redbox.js",
+        "build": "npm run build:dev && npm run build:prod",
+        "lint": "standard ./src && csslint ./src/redbox.css --quiet",
+        "prepublish": "npm run clean && npm run build",
+        "test": "npm run lint -s && npm run build:test -s && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KeywordBrain/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler",
+        "email": "david@keywordbrain.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/KeywordBrain/redbox-react/issues"
+      },
+      "homepage": "https://github.com/KeywordBrain/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "babel": "^5.5.8",
+        "babel-core": "^5.6.18",
+        "babel-eslint": "^3.1.15",
+        "babel-loader": "^5.1.4",
+        "css-loader": "^0.15.5",
+        "csslint": "^0.10.0",
+        "csslint-loader": "^0.2.0",
+        "extract-text-webpack-plugin": "^0.8.2",
+        "rimraf": "^2.3.4",
+        "standard": "^5.0.0-2",
+        "style-loader": "^0.12.3",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.0.1",
+        "webpack": "^1.9.6",
+        "webpack-dev-server": "^1.8.2",
+        "semantic-release": "^4.0.0"
+      },
+      "peerDependencies": {
+        "react": ">=0.13.2 || ^0.14.0-beta3"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.2.0"
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "version": "1.0.3",
+      "gitHead": "b1f7d0bf071df3dda15c1debde8e83641545d035",
+      "_id": "redbox-react@1.0.3",
+      "_shasum": "f6f7554eb42276611cd7b0fceeeffcfa1bd05bc7",
+      "_from": ".",
+      "_npmVersion": "2.14.2",
+      "_nodeVersion": "3.3.0",
+      "_npmUser": {
+        "name": "keywordbrain",
+        "email": "david@keywordbrain.com"
+      },
+      "dist": {
+        "shasum": "f6f7554eb42276611cd7b0fceeeffcfa1bd05bc7",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.0.3.tgz",
+        "integrity": "sha512-7a7gSkLewdmHOgLPtlSaKC+lEF/NOX9K1RY+5Bfc9UZtuXX6iQjWxbEuCfxzkC/CCLmfW/DM4L9DPBdyQLUJ1w==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCofBHvY7zac1AZYtEiFdrKtgt0qEfOn3j+DE63ktMl/gIgIR4CWcmmV14QFbnoktBSSILnkm78/NnCg2ehHh3wiFU="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "keywordbrain",
+          "email": "david@keywordbrain.com"
+        }
+      ],
+      "directories": {}
+    },
+    "1.0.4": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "dist/redbox.js",
+      "browser": {
+        "index.js": "dist/redbox.js"
+      },
+      "scripts": {
+        "clean": "rimraf dist tmp",
+        "build:dev": "webpack src/index.js dist/redbox.js",
+        "build:prod": "NODE_ENV=production webpack src/index.js dist/redbox.min.js",
+        "build:test": "TEST=true webpack src/index.js tmp/redbox.js",
+        "build": "npm run build:dev && npm run build:prod",
+        "lint": "standard ./src",
+        "prepublish": "npm run clean && npm run build",
+        "test": "npm run lint -s && npm run build:test -s && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KeywordBrain/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler",
+        "email": "david@keywordbrain.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/KeywordBrain/redbox-react/issues"
+      },
+      "homepage": "https://github.com/KeywordBrain/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "babel": "^5.5.8",
+        "babel-core": "^5.6.18",
+        "babel-eslint": "^3.1.15",
+        "babel-loader": "^5.1.4",
+        "rimraf": "^2.3.4",
+        "standard": "^5.0.0-2",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.0.1",
+        "webpack": "^1.9.6",
+        "webpack-dev-server": "^1.8.2",
+        "semantic-release": "^4.0.0"
+      },
+      "peerDependencies": {
+        "react": ">=0.13.2 || ^0.14.0-rc1"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.2.0"
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "version": "1.0.4",
+      "gitHead": "79e674daa06998954729e85cde96d14a383cc11e",
+      "_id": "redbox-react@1.0.4",
+      "_shasum": "58e75ce7de05304920bd92387356ec0d7343a520",
+      "_from": ".",
+      "_npmVersion": "2.14.3",
+      "_nodeVersion": "3.3.0",
+      "_npmUser": {
+        "name": "keywordbrain",
+        "email": "david@keywordbrain.com"
+      },
+      "dist": {
+        "shasum": "58e75ce7de05304920bd92387356ec0d7343a520",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.0.4.tgz",
+        "integrity": "sha512-ui7msWAe6UsFDsPXE9Pc8PlQ5kn1q9SmHB6SdbDPk9GDQ0l0CM2iX48Yq7F3keX4MRfE0CQy4KyETQZB9lTp0A==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICD5+4/D2iAqAFcZo1Ih7AKH8ByCpxpcH5sLIEohYemrAiAXKhpXgOzFfgY6R2MsZkN/ePP9iN4YrZfrgUGh2gTsZQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "keywordbrain",
+          "email": "david@keywordbrain.com"
+        }
+      ],
+      "directories": {}
+    },
+    "1.0.5": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "dist/redbox.js",
+      "browser": {
+        "index.js": "dist/redbox.js"
+      },
+      "scripts": {
+        "clean": "rimraf dist tmp",
+        "build:dev": "webpack src/index.js dist/redbox.js",
+        "build:prod": "NODE_ENV=production webpack src/index.js dist/redbox.min.js",
+        "build:test": "TEST=true webpack src/index.js tmp/redbox.js",
+        "build": "npm run build:dev && npm run build:prod",
+        "lint": "standard ./src",
+        "prepublish": "npm run clean && npm run build",
+        "test": "npm run lint -s && npm run build:test -s && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KeywordBrain/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler",
+        "email": "david@keywordbrain.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/KeywordBrain/redbox-react/issues"
+      },
+      "homepage": "https://github.com/KeywordBrain/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "babel": "^5.5.8",
+        "babel-core": "^5.6.18",
+        "babel-eslint": "^3.1.15",
+        "babel-loader": "^5.1.4",
+        "rimraf": "^2.3.4",
+        "standard": "^5.0.0-2",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.0.1",
+        "webpack": "^1.9.6",
+        "webpack-dev-server": "^1.8.2",
+        "semantic-release": "^4.0.0"
+      },
+      "peerDependencies": {
+        "react": ">=0.13.2 || ^0.14.0-rc1"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.2.0"
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "version": "1.0.5",
+      "gitHead": "ade40b163a8bc210ade04fb4f52e42815f4c2c09",
+      "_id": "redbox-react@1.0.5",
+      "_shasum": "e4366cf3dfb462d8fdf2ecb5d70a409aaffd8926",
+      "_from": ".",
+      "_npmVersion": "2.14.3",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "keywordbrain",
+        "email": "david@keywordbrain.com"
+      },
+      "dist": {
+        "shasum": "e4366cf3dfb462d8fdf2ecb5d70a409aaffd8926",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.0.5.tgz",
+        "integrity": "sha512-8paCS4xT37acgrncB6vU3tWxX7WyhcItvA9/T4e8bHuEeO6GVHGQX8lMUGeQNv/0hSv5J6aOPS6bqY7ViWVAjQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC5Z0L7MHdFHlHLZkzTe5kWlBYMFKLK56hsT1D4egVFFAIgYfMsXBISdBtjpKvbtqsRhxA8BTnuZDI3PWrWAONHqRY="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "keywordbrain",
+          "email": "david@keywordbrain.com"
+        }
+      ],
+      "directories": {}
+    },
+    "1.0.6": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "NODE_ENV=production webpack src/index.js dist/redbox.min.js",
+        "build:lib": "NODE_ENV=production babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "lint": "standard ./src",
+        "prepublish": "npm run clean && npm run build",
+        "test": "npm run lint -s && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KeywordBrain/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler",
+        "email": "david@keywordbrain.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/KeywordBrain/redbox-react/issues"
+      },
+      "homepage": "https://github.com/KeywordBrain/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "babel": "^5.5.8",
+        "babel-core": "^5.6.18",
+        "babel-eslint": "^3.1.15",
+        "babel-loader": "^5.1.4",
+        "rimraf": "^2.3.4",
+        "standard": "^5.0.0-2",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.0.1",
+        "webpack": "^1.9.6",
+        "webpack-dev-server": "^1.8.2",
+        "semantic-release": "^4.0.0"
+      },
+      "peerDependencies": {
+        "react": ">=0.13.2 || ^0.14.0-rc1"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.2.0"
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "version": "1.0.6",
+      "gitHead": "c04f7964911b26987b81e9df24460aff960b7da0",
+      "_id": "redbox-react@1.0.6",
+      "_shasum": "6bee32a2f6ea02f6d2523e2179cd6d42297f09ad",
+      "_from": ".",
+      "_npmVersion": "2.14.5",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "keywordbrain",
+        "email": "david@keywordbrain.com"
+      },
+      "dist": {
+        "shasum": "6bee32a2f6ea02f6d2523e2179cd6d42297f09ad",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.0.6.tgz",
+        "integrity": "sha512-LnlbBgc5uJXfNl10Lj1Jcm6vxOBVAxzs+wgbsS8AQSI7oJCGJia7uEECgCNMP8fX1KT7VlKZviH5dW24NA6MeA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIF2AkxFwSJ8TmeoGUBF6FMSDCTvDJEyZiuiAcOjRBKLTAiEAvHztm7fbRunxrchEDzqEg3lgsJSkPqZSGJYEay0O1E0="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "keywordbrain",
+          "email": "david@keywordbrain.com"
+        }
+      ],
+      "directories": {}
+    },
+    "1.1.0": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "NODE_ENV=production webpack src/index.js dist/redbox.min.js",
+        "build:lib": "NODE_ENV=production babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "lint": "standard ./src",
+        "prepublish": "npm run clean && npm run build",
+        "test": "npm run lint -s && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KeywordBrain/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler",
+        "email": "david@keywordbrain.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/KeywordBrain/redbox-react/issues"
+      },
+      "homepage": "https://github.com/KeywordBrain/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "babel": "^5.5.8",
+        "babel-core": "^5.6.18",
+        "babel-eslint": "^3.1.15",
+        "babel-loader": "^5.1.4",
+        "rimraf": "^2.3.4",
+        "standard": "^5.0.0-2",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.0.1",
+        "webpack": "^1.9.6",
+        "webpack-dev-server": "^1.8.2",
+        "semantic-release": "^4.0.0"
+      },
+      "peerDependencies": {
+        "react": ">=0.13.2 || ^0.14.0-rc1"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.2.0"
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "version": "1.1.0",
+      "gitHead": "bbdb27448a6161ccec06be59ddf430fd7083726b",
+      "_id": "redbox-react@1.1.0",
+      "_shasum": "a927853a9ab0d7289075644ce8a8a339460549df",
+      "_from": ".",
+      "_npmVersion": "2.14.5",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "keywordbrain",
+        "email": "david@keywordbrain.com"
+      },
+      "dist": {
+        "shasum": "a927853a9ab0d7289075644ce8a8a339460549df",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.1.0.tgz",
+        "integrity": "sha512-YCI7AnndiWciNVeiQNFhye37R1bfjDaXX64m5ESQVtjp2HbFko3F/VUQ32xpCDj19KBPXlvulO7WUKerXSTJFA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAnGPEeIFPAhQpVohoqrkUXD6MHaxcd+J5gq7ye3VT1+AiEAwrpFruthaMbYVGvz5jRdRcCwTqduJG6C8ZXV+kllZco="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "keywordbrain",
+          "email": "david@keywordbrain.com"
+        }
+      ],
+      "directories": {}
+    },
+    "1.1.1": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "lint": "standard ./src",
+        "prepublish": "npm run clean && npm run build",
+        "test": "npm run lint -s && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KeywordBrain/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler",
+        "email": "david@keywordbrain.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/KeywordBrain/redbox-react/issues"
+      },
+      "homepage": "https://github.com/KeywordBrain/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "babel": "^5.5.8",
+        "babel-core": "^5.6.18",
+        "babel-eslint": "^3.1.15",
+        "babel-loader": "^5.1.4",
+        "rimraf": "^2.3.4",
+        "standard": "^5.0.0-2",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.0.1",
+        "webpack": "^1.9.6",
+        "webpack-dev-server": "^1.8.2",
+        "semantic-release": "^4.0.0"
+      },
+      "peerDependencies": {
+        "react": ">=0.13.2 || ^0.14.0-rc1"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.2.0",
+        "object-assign": "^4.0.1"
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "version": "1.1.1",
+      "gitHead": "8445b3f61069ed9224e6704c758574a7e573ac0e",
+      "_id": "redbox-react@1.1.1",
+      "_shasum": "a3e012bccc8a9816c081afe0654b1d63795581ba",
+      "_from": ".",
+      "_npmVersion": "2.14.6",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "keywordbrain",
+        "email": "david@keywordbrain.com"
+      },
+      "dist": {
+        "shasum": "a3e012bccc8a9816c081afe0654b1d63795581ba",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.1.1.tgz",
+        "integrity": "sha512-kj6oizDV1mSdS8aFZJq19VjsIWyp0aQffBDphEpROS0HEFxnBioMC7Cn7dCJqp+B9jyYk2fF/5pxrjQmtdc5Hg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCrNLDJnWpBtYzm5Bg3O+lqdITFm4zYwS5I2Fde1lWHcAIhAKS7WYhSiLpLosSeMI3wJ1ShOy9rKpp7yTHsKeB/pwrY"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "keywordbrain",
+          "email": "david@keywordbrain.com"
+        }
+      ],
+      "directories": {}
+    },
+    "1.2.0": {
+      "version": "1.2.0",
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "lint": "standard ./src",
+        "prepublish": "npm run clean && npm run build",
+        "test": "npm run lint -s && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KeywordBrain/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler",
+        "email": "david@keywordbrain.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/KeywordBrain/redbox-react/issues"
+      },
+      "homepage": "https://github.com/KeywordBrain/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "babel": "^5.5.8",
+        "babel-core": "^5.6.18",
+        "babel-eslint": "^3.1.15",
+        "babel-loader": "^5.1.4",
+        "babel-plugin-rewire": "^0.1.22",
+        "rimraf": "^2.3.4",
+        "semantic-release": "^4.0.0",
+        "standard": "^5.0.0-2",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.0.1",
+        "webpack": "^1.9.6",
+        "webpack-dev-server": "^1.8.2"
+      },
+      "peerDependencies": {
+        "react": ">=0.13.2 || ^0.14.0-rc1"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.2.0",
+        "object-assign": "^4.0.1"
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "gitHead": "6b44f19fd47242eafd297c9259addd21df72eae9",
+      "_id": "redbox-react@1.2.0",
+      "_shasum": "024a37be58c8c434f7edbd8f01e6996927e0f42b",
+      "_from": ".",
+      "_npmVersion": "2.14.7",
+      "_nodeVersion": "4.2.1",
+      "_npmUser": {
+        "name": "keywordbrain",
+        "email": "david@keywordbrain.com"
+      },
+      "dist": {
+        "shasum": "024a37be58c8c434f7edbd8f01e6996927e0f42b",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.2.0.tgz",
+        "integrity": "sha512-E9MB18mBM9qcn7oaStFQguFMjm6C4OCSQpwbO6pE/K/wT5EqT+aEz9H6g300LFjNMtRSfopOiC4HIhKMZIOctw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFnYP1v0u2Ad1o6sX+RQr0w2DKVnjRhej0B27HYMquj8AiEAyR+l4ojP7Rz7KaqxKj7axM0SGUmaoMeV4ovaWwJdQdE="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "keywordbrain",
+          "email": "david@keywordbrain.com"
+        }
+      ],
+      "directories": {}
+    },
+    "1.2.1": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "lint": "standard ./src",
+        "prepublish": "npm run clean && npm run build",
+        "test": "npm run lint -s && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KeywordBrain/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler",
+        "email": "david@keywordbrain.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/KeywordBrain/redbox-react/issues"
+      },
+      "homepage": "https://github.com/KeywordBrain/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "babel": "^5.5.8",
+        "babel-core": "^5.6.18",
+        "babel-eslint": "^3.1.15",
+        "babel-loader": "^5.1.4",
+        "babel-plugin-rewire": "^0.1.22",
+        "rimraf": "^2.3.4",
+        "semantic-release": "^4.0.0",
+        "standard": "^5.0.0-2",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.0.1",
+        "webpack": "^1.9.6",
+        "webpack-dev-server": "^1.8.2"
+      },
+      "peerDependencies": {
+        "react": ">=0.13.2 || ^0.14.0-rc1"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.2.0",
+        "object-assign": "^4.0.1"
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "version": "1.2.1",
+      "gitHead": "c2e624321fecb7de316b59f01f82981179cbc5c1",
+      "_id": "redbox-react@1.2.1",
+      "_shasum": "7e9db0e9b1ff31e05d9a1359cfbbf1508c7002d4",
+      "_from": ".",
+      "_npmVersion": "2.14.17",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "keywordbrain",
+        "email": "david@keywordbrain.com"
+      },
+      "dist": {
+        "shasum": "7e9db0e9b1ff31e05d9a1359cfbbf1508c7002d4",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.2.1.tgz",
+        "integrity": "sha512-hkHGi/gcAU1MgfhYm9S3FGKbTr6SKEcUiX1s4D60gsHa25TR9ZpbhwkP9t9ouRUG6OsQvjtFEmXcKV7VKvT8Aw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICsl5653MtsQul2e4oWc6uSrtKEmtO3HG0w1CPXl/IaIAiApGVLNWLLT/oermDWz9ocBIh5C3uLHxJrAQx1X4J/+bA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "keywordbrain",
+          "email": "david@keywordbrain.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-6-west.internal.npmjs.com",
+        "tmp": "tmp/redbox-react-1.2.1.tgz_1454380036149_0.9570652591064572"
+      },
+      "directories": {}
+    },
+    "1.2.2": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "files": [
+        "dist",
+        "lib",
+        "src"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "lint": "standard ./src",
+        "prepublish": "npm run clean && npm run build",
+        "test": "npm run lint -s && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KeywordBrain/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler",
+        "email": "david@keywordbrain.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/KeywordBrain/redbox-react/issues"
+      },
+      "homepage": "https://github.com/KeywordBrain/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "babel": "^5.5.8",
+        "babel-core": "^5.6.18",
+        "babel-eslint": "^3.1.15",
+        "babel-loader": "^5.1.4",
+        "babel-plugin-rewire": "^0.1.22",
+        "rimraf": "^2.3.4",
+        "semantic-release": "^4.0.0",
+        "standard": "^5.0.0-2",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.0.1",
+        "webpack": "^1.9.6",
+        "webpack-dev-server": "^1.8.2"
+      },
+      "peerDependencies": {
+        "react": ">=0.13.2 || ^0.14.0-rc1"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.2.0",
+        "object-assign": "^4.0.1"
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "version": "1.2.2",
+      "gitHead": "a38845b0cca384b982235a72fbd196b036970a5d",
+      "_id": "redbox-react@1.2.2",
+      "_shasum": "b3e0131d9483e621f1cf200a20b1fc727e8a79c0",
+      "_from": ".",
+      "_npmVersion": "2.14.17",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "keywordbrain",
+        "email": "david@keywordbrain.com"
+      },
+      "dist": {
+        "shasum": "b3e0131d9483e621f1cf200a20b1fc727e8a79c0",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.2.2.tgz",
+        "integrity": "sha512-naS+/XKxw1zEC3h9k9/g6Zis0SWuGMD5oY6o8S7zx6XuDD7teOIXu53Ht3jciq3zzS5NzqrtluJEEPvXgZGg2w==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCi0fIwGMvZfRA1WZ57MCnrZrUGc5IcTmuX5aMlS1rx4QIhAPeiTMv7p0POMVgLVHiSASSUinwYOrsvONmLI1I4EjzY"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "keywordbrain",
+          "email": "david@keywordbrain.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-9-west.internal.npmjs.com",
+        "tmp": "tmp/redbox-react-1.2.2.tgz_1454380566229_0.395546569256112"
+      },
+      "directories": {}
+    },
+    "1.2.3": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "files": [
+        "dist",
+        "lib",
+        "src"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "lint": "standard ./src",
+        "prepublish": "npm run clean && npm run build",
+        "test": "npm run lint -s && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KeywordBrain/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler",
+        "email": "david@keywordbrain.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/KeywordBrain/redbox-react/issues"
+      },
+      "homepage": "https://github.com/KeywordBrain/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "babel": "^5.5.8",
+        "babel-core": "^5.6.18",
+        "babel-eslint": "^3.1.15",
+        "babel-loader": "^5.1.4",
+        "babel-plugin-rewire": "^0.1.22",
+        "rimraf": "^2.3.4",
+        "semantic-release": "^4.0.0",
+        "standard": "^5.0.0-2",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.0.1",
+        "webpack": "^1.9.6",
+        "webpack-dev-server": "^1.8.2"
+      },
+      "peerDependencies": {
+        "react": ">=0.13.2 || ^0.14.0-rc1 || ^15.0.0-rc"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.2.0",
+        "object-assign": "^4.0.1"
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "version": "1.2.3",
+      "gitHead": "6a8783d7163fccd5c36c1ecadc126e8cf709d4de",
+      "_id": "redbox-react@1.2.3",
+      "_shasum": "b5604d935eae3cd61b65e464b28538402e358907",
+      "_from": ".",
+      "_npmVersion": "2.15.3",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "keywordbrain",
+        "email": "david@keywordbrain.com"
+      },
+      "dist": {
+        "shasum": "b5604d935eae3cd61b65e464b28538402e358907",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.2.3.tgz",
+        "integrity": "sha512-Svclha4tyqUjQmAwddiA9nxIe8ggHp9mveZwvLQXlF+Lw60v5WMynGfvTyBntDzbWVAPtgqV18rPGUtthieqrg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCSdnjTgbHKaxCZpzFNfRe82BiTvb+544TCCJRdIpodcwIgdLwQsjVSBUty0XCZ1f8c/Kw1xP7GlmtxNLMggjIQgcU="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "keywordbrain",
+          "email": "david@keywordbrain.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/redbox-react-1.2.3.tgz_1460022285265_0.3305090602952987"
+      },
+      "directories": {}
+    },
+    "1.2.4": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "files": [
+        "dist",
+        "lib",
+        "src"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "lint": "standard ./src",
+        "prepublish": "npm run clean && npm run build",
+        "test": "npm run lint -s && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KeywordBrain/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler",
+        "email": "david@keywordbrain.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/KeywordBrain/redbox-react/issues"
+      },
+      "homepage": "https://github.com/KeywordBrain/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "babel": "^5.5.8",
+        "babel-core": "^5.6.18",
+        "babel-eslint": "^3.1.15",
+        "babel-loader": "^5.1.4",
+        "babel-plugin-rewire": "^0.1.22",
+        "react-addons-test-utils": "^0.14.0 || ^15.0.0",
+        "rimraf": "^2.3.4",
+        "semantic-release": "^4.0.0",
+        "standard": "^5.0.0-2",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.0.1",
+        "webpack": "^1.9.6",
+        "webpack-dev-server": "^1.8.2"
+      },
+      "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.2.0",
+        "object-assign": "^4.0.1"
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "version": "1.2.4",
+      "gitHead": "4928e0e38c0660e9c0e6c67f0c1168ba348b174b",
+      "_id": "redbox-react@1.2.4",
+      "_shasum": "58025edc7f4f7914982c5f1379d77938434e4257",
+      "_from": ".",
+      "_npmVersion": "2.15.4",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "keywordbrain",
+        "email": "david@keywordbrain.com"
+      },
+      "dist": {
+        "shasum": "58025edc7f4f7914982c5f1379d77938434e4257",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.2.4.tgz",
+        "integrity": "sha512-Jj0JZKQyH7Ja+CWaegzYNGYWE4Hv/LSSOMNXUjJVMvOuexK/1NuTRriUeeACMsN1akSPxI07jg1/7m5is/b7XQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBRI8WSeuo/xQQ1VirwtMmLwDLQXPtkyXF5URS0sdbNkAiEA9POgyatlIJCQZh+K4smHff3vLkSpU42b8Bp3rT2chVE="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "keywordbrain",
+          "email": "david@keywordbrain.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/redbox-react-1.2.4.tgz_1462254633129_0.6417147608008236"
+      },
+      "directories": {}
+    },
+    "1.2.5": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "files": [
+        "dist",
+        "lib",
+        "src"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "lint": "standard ./src",
+        "prepublish": "npm run clean && npm run build",
+        "test": "npm run lint -s && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KeywordBrain/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler",
+        "email": "david@keywordbrain.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/KeywordBrain/redbox-react/issues"
+      },
+      "homepage": "https://github.com/KeywordBrain/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "babel": "^5.5.8",
+        "babel-core": "^5.6.18",
+        "babel-eslint": "^3.1.15",
+        "babel-loader": "^5.1.4",
+        "babel-plugin-rewire": "^0.1.22",
+        "react-addons-test-utils": "^0.14.0 || ^15.0.0",
+        "rimraf": "^2.3.4",
+        "semantic-release": "^4.0.0",
+        "standard": "^5.0.0-2",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.0.1",
+        "webpack": "^1.9.6",
+        "webpack-dev-server": "^1.8.2"
+      },
+      "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.3.6",
+        "object-assign": "^4.0.1"
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "version": "1.2.5",
+      "gitHead": "31fab66a4e55f35d07c489d84f4350f04cd4ff3e",
+      "_id": "redbox-react@1.2.5",
+      "_shasum": "15e2b33085350f60eee4963affdcc85d24000f56",
+      "_from": ".",
+      "_npmVersion": "2.15.6",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "keywordbrain",
+        "email": "david@keywordbrain.com"
+      },
+      "dist": {
+        "shasum": "15e2b33085350f60eee4963affdcc85d24000f56",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.2.5.tgz",
+        "integrity": "sha512-d17vTs88Smx7ghFigp//oDcHCbjgnTD4UgqOMTcYL2iMF2IuFUFKPkjPimIkWYbelyFWO2wPgdJEQuYn9iT+Sg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCmKT6wW6IOh7Xhd/9JKPqie9v+kar/roT7qdNhubfeyAIgfu95epEh4LT/0zRt+xvicVoEGnHzyYHZXNzSdvIfEsw="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "keywordbrain",
+          "email": "david@keywordbrain.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/redbox-react-1.2.5.tgz_1463588822710_0.5703166138846427"
+      },
+      "directories": {}
+    },
+    "1.2.6": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "files": [
+        "dist",
+        "lib",
+        "src"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "lint": "standard ./src",
+        "prepublish": "npm run clean && npm run build",
+        "test": "npm run lint -s && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KeywordBrain/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler",
+        "email": "david@keywordbrain.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/KeywordBrain/redbox-react/issues"
+      },
+      "homepage": "https://github.com/KeywordBrain/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "babel": "^5.5.8",
+        "babel-core": "^5.6.18",
+        "babel-eslint": "^3.1.15",
+        "babel-loader": "^5.1.4",
+        "babel-plugin-rewire": "^0.1.22",
+        "react-addons-test-utils": "^0.14.0 || ^15.0.0",
+        "rimraf": "^2.3.4",
+        "semantic-release": "^4.0.0",
+        "standard": "^5.0.0-2",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.0.1",
+        "webpack": "^1.9.6",
+        "webpack-dev-server": "^1.8.2"
+      },
+      "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.3.6",
+        "object-assign": "^4.0.1"
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "version": "1.2.6",
+      "gitHead": "719185de30fa1007ba368732080b903b71da2025",
+      "_id": "redbox-react@1.2.6",
+      "_shasum": "b88f5b5c579b4bbf23fa2ddd535285346aa89abc",
+      "_from": ".",
+      "_npmVersion": "2.15.6",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "keywordbrain",
+        "email": "david@keywordbrain.com"
+      },
+      "dist": {
+        "shasum": "b88f5b5c579b4bbf23fa2ddd535285346aa89abc",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.2.6.tgz",
+        "integrity": "sha512-o1rkH2XMi6LOckTsfEpGSwSfHTP+WXi0TjFEU12MTJGshtWlue5FEFhs0HdcsgRaIzDtl6tlkN7hwAR8wXlX5w==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCPxV3JseaSC1pc1Y2MPLEP0sd2mmv9DDxl2lBjk9Wf/wIgYCvoOmgulm1EYYKE3y/ojPNSIZ3xBdQwVlmVjDzsrdo="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "keywordbrain",
+          "email": "david@keywordbrain.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/redbox-react-1.2.6.tgz_1464154358361_0.5948352694977075"
+      },
+      "directories": {}
+    },
+    "1.2.7": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "files": [
+        "dist",
+        "lib",
+        "src"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "prepublish": "npm run clean && npm run build",
+        "test": "standard ./src && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KeywordBrain/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler",
+        "email": "david@keywordbrain.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/KeywordBrain/redbox-react/issues"
+      },
+      "homepage": "https://github.com/KeywordBrain/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "react": "^15.0.0",
+        "babel-cli": "^6.9.0",
+        "babel-core": "^6.9.0",
+        "babel-loader": "^6.2.4",
+        "babel-plugin-rewire": "^1.0.0-rc-3",
+        "babel-preset-es2015": "^6.3.3",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "react-addons-test-utils": "^15.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.0.0",
+        "standard": "^7.1.1",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.5.1",
+        "webpack": "^1.13.1"
+      },
+      "peerDependencies": {
+        "react": "^15.0.0"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.3.6",
+        "object-assign": "^4.0.1",
+        "react-dom": "^15.1.0"
+      },
+      "version": "1.2.7",
+      "gitHead": "43c7086a0af7c67a08aa061e77da434b712f1eaf",
+      "_id": "redbox-react@1.2.7",
+      "_shasum": "f79752e435dbb8067100779d7f1fc7288e56638a",
+      "_from": ".",
+      "_npmVersion": "3.9.3",
+      "_nodeVersion": "6.2.1",
+      "_npmUser": {
+        "name": "keywordbrain",
+        "email": "david@keywordbrain.com"
+      },
+      "dist": {
+        "shasum": "f79752e435dbb8067100779d7f1fc7288e56638a",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.2.7.tgz",
+        "integrity": "sha512-HKSGdtWrtQ6ciU9grbM2CZb3cpS0hNSB++IzkD1Fgt4SezPkxkWDAkNOlF82Wd0WccCcfp52p3quRZUWe3eUDQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFHuUse8ndD6ri0hIcJwoIGPJMrw9Cbmlu/O79gqn4K7AiEA8E1nn4qea2RUTn+RjJNReDDcfY+GouWH/tR1uXrhHRo="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "keywordbrain",
+          "email": "david@keywordbrain.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/redbox-react-1.2.7.tgz_1466173196827_0.9466269959229976"
+      },
+      "directories": {}
+    },
+    "1.2.8": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "files": [
+        "dist",
+        "lib",
+        "src"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "prepublish": "npm run clean && npm run build",
+        "test": "standard ./src && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KeywordBrain/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler",
+        "email": "david@keywordbrain.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/KeywordBrain/redbox-react/issues"
+      },
+      "homepage": "https://github.com/KeywordBrain/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "react": "^0.14.0 || ^15.0.0",
+        "babel-cli": "^6.9.0",
+        "babel-core": "^6.9.0",
+        "babel-loader": "^6.2.4",
+        "babel-plugin-rewire": "^1.0.0-rc-3",
+        "babel-preset-es2015": "^6.3.3",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "react-addons-test-utils": "^15.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.0.0",
+        "standard": "^7.1.1",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.5.1",
+        "webpack": "^1.13.1"
+      },
+      "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.3.6",
+        "object-assign": "^4.0.1",
+        "react-dom": "^15.1.0"
+      },
+      "version": "1.2.8",
+      "gitHead": "8930b195a014f99432c3dddd5a6f1a2c818f34a0",
+      "_id": "redbox-react@1.2.8",
+      "_shasum": "b3d82c95678fb15f25e9980e33b01a3bd31273c9",
+      "_from": ".",
+      "_npmVersion": "3.9.5",
+      "_nodeVersion": "6.2.2",
+      "_npmUser": {
+        "name": "keywordbrain",
+        "email": "david@keywordbrain.com"
+      },
+      "dist": {
+        "shasum": "b3d82c95678fb15f25e9980e33b01a3bd31273c9",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.2.8.tgz",
+        "integrity": "sha512-b2v5D6wMEZmHiQNI4KQpOkW95jKeb1ZBGBYXptbfcihOkuRiiADmOFUusXOxuc/y57ZqlCQyr3mbLBlylqofBA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCn+IJtctWh/7zx70zbD6QrwTJv/z6PZQparyggqGjGPwIgQ0dpxlq+vdWn5+vdeBwjSYOZArQOPgloaGrkoWXCkNw="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "keywordbrain",
+          "email": "david@keywordbrain.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/redbox-react-1.2.8.tgz_1466202113335_0.7960930922999978"
+      },
+      "directories": {}
+    },
+    "1.2.9": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "files": [
+        "dist",
+        "lib",
+        "src"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "prepublish": "npm run clean && npm run build",
+        "test": "standard ./src && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KeywordBrain/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler",
+        "email": "david@keywordbrain.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/KeywordBrain/redbox-react/issues"
+      },
+      "homepage": "https://github.com/KeywordBrain/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "react": "^0.14.0 || ^15.0.0",
+        "babel-cli": "^6.9.0",
+        "babel-core": "^6.9.0",
+        "babel-loader": "^6.2.4",
+        "babel-plugin-rewire": "^1.0.0-rc-3",
+        "babel-preset-es2015": "^6.3.3",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "react-addons-test-utils": "^15.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.0.0",
+        "standard": "^7.1.1",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.5.1",
+        "webpack": "^1.13.1"
+      },
+      "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.3.6",
+        "object-assign": "^4.0.1",
+        "react-dom": "^0.14.0 || ^15.0.0"
+      },
+      "version": "1.2.9",
+      "gitHead": "5571a0370e3c5b2f63bb96b420ff9bc5f9e9ff50",
+      "_id": "redbox-react@1.2.9",
+      "_shasum": "297d49cc4f1e7e637b016260af618d11e9eb9eb9",
+      "_from": ".",
+      "_npmVersion": "3.9.5",
+      "_nodeVersion": "6.2.2",
+      "_npmUser": {
+        "name": "keywordbrain",
+        "email": "david@keywordbrain.com"
+      },
+      "dist": {
+        "shasum": "297d49cc4f1e7e637b016260af618d11e9eb9eb9",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.2.9.tgz",
+        "integrity": "sha512-FzedMRguUfv/wMapHxHmU2ezsYJ4LDghS0DiPwRBX3l7SiLIimJfNMiWN8kgw6YcPYaj7T8zI2DfBXABmt4lYQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIE1UfPWsdFGpLljZI0cEd+ViF1gBk7JcIjTfX8vGjXzDAiBZMtZ+tWxmLGGNB12j6Tq1jF/DKCcOXnDv2ow2dyAs8w=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "keywordbrain",
+          "email": "david@keywordbrain.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/redbox-react-1.2.9.tgz_1466444147596_0.38396976864896715"
+      },
+      "directories": {}
+    },
+    "1.2.10": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "files": [
+        "dist",
+        "lib",
+        "src"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "prepublish": "npm run clean && npm run build",
+        "test": "standard ./src && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KeywordBrain/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler",
+        "email": "david@keywordbrain.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/KeywordBrain/redbox-react/issues"
+      },
+      "homepage": "https://github.com/KeywordBrain/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "react": "^0.14.0 || ^15.0.0",
+        "babel-cli": "^6.9.0",
+        "babel-core": "^6.9.0",
+        "babel-loader": "^6.2.4",
+        "babel-plugin-rewire": "^1.0.0-rc-3",
+        "babel-preset-es2015": "^6.3.3",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "react-addons-test-utils": "^15.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.0.0",
+        "standard": "^7.1.1",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.5.1",
+        "webpack": "^1.13.1"
+      },
+      "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.3.6",
+        "object-assign": "^4.0.1",
+        "react-dom": "^0.14.0 || ^15.0.0"
+      },
+      "version": "1.2.10",
+      "gitHead": "35e6090bac73ebca75fb00d541be79b55ae0042a",
+      "_id": "redbox-react@1.2.10",
+      "_shasum": "721254203e43d32165f17afc0eb37c2df4a119a9",
+      "_from": ".",
+      "_npmVersion": "3.9.5",
+      "_nodeVersion": "6.2.2",
+      "_npmUser": {
+        "name": "keywordbrain",
+        "email": "david@keywordbrain.com"
+      },
+      "dist": {
+        "shasum": "721254203e43d32165f17afc0eb37c2df4a119a9",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.2.10.tgz",
+        "integrity": "sha512-uQSenzF8bDVBsFGhU6yI52Pe+v/Cp7xGzmpof15pEC501/HhIj4vtNWuPZB6SO3b5RBShrhcXEXufvNyqBFp+g==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDkLgyEa0ilUfUb8vTJMCnji2BYP1pMC3/KDNoJ1Y8vJgIhALvxjvyai/5T4+QVdEN0VtFmQfDWPaWk7kwLe+UHbh8R"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "keywordbrain",
+          "email": "david@keywordbrain.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/redbox-react-1.2.10.tgz_1467314855600_0.8443225072696805"
+      },
+      "directories": {}
+    },
+    "1.3.0": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "files": [
+        "dist",
+        "lib",
+        "src"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "prepublish": "npm run clean && npm run build",
+        "test": "standard ./src && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/commissure/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/commissure/redbox-react/issues"
+      },
+      "homepage": "https://github.com/commissure/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "react": "^0.14.0 || ^15.0.0",
+        "babel-cli": "^6.9.0",
+        "babel-core": "^6.9.0",
+        "babel-loader": "^6.2.4",
+        "babel-plugin-rewire": "^1.0.0-rc-3",
+        "babel-preset-es2015": "^6.3.3",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "react-addons-test-utils": "^15.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.0.0",
+        "standard": "^7.1.1",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.5.1",
+        "webpack": "^1.13.1"
+      },
+      "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.3.6",
+        "object-assign": "^4.0.1",
+        "react-dom": "^0.14.0 || ^15.0.0"
+      },
+      "version": "1.3.0",
+      "gitHead": "8ac1d5f4d9587991b99cd65a26b8085ff93d7e9b",
+      "_id": "redbox-react@1.3.0",
+      "_shasum": "a3f9b5ce2d6fdd1a5b671f20f7611c411b18a2fc",
+      "_from": ".",
+      "_npmVersion": "3.10.3",
+      "_nodeVersion": "6.3.1",
+      "_npmUser": {
+        "name": "mxlje",
+        "email": "max@maxlielje.co"
+      },
+      "dist": {
+        "shasum": "a3f9b5ce2d6fdd1a5b671f20f7611c411b18a2fc",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.3.0.tgz",
+        "integrity": "sha512-YPwmHcuEQv6NqZiDE+UarT2T+Z/Vt4163rngzD986eXnh5mrLMgAzFqs1A9Pe3Ch4HSyUDF+GXbS4l4Hdw2tiA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDRHAexKjWTE7uGzfruTXaPThKTIqCW0WZWZlIO/bDK8AIhAKgb1FQUnm9VZfCr06Ty9/ZDeKzv0bYjwYW3KmsJrMXb"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "davidpfahler",
+          "email": "david@excellenteasy.com"
+        },
+        {
+          "name": "mxlje",
+          "email": "max@maxlielje.co"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/redbox-react-1.3.0.tgz_1470654953169_0.8025230334606022"
+      },
+      "directories": {}
+    },
+    "1.3.1": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "files": [
+        "dist",
+        "lib",
+        "src"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "prepublish": "npm run clean && npm run build",
+        "test": "standard ./src && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/commissure/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/commissure/redbox-react/issues"
+      },
+      "homepage": "https://github.com/commissure/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "react": "^0.14.0 || ^15.0.0",
+        "babel-cli": "^6.9.0",
+        "babel-core": "^6.9.0",
+        "babel-loader": "^6.2.4",
+        "babel-plugin-rewire": "^1.0.0-rc-3",
+        "babel-preset-es2015": "^6.3.3",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "react-addons-test-utils": "^15.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.0.0",
+        "standard": "^7.1.1",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.5.1",
+        "webpack": "^1.13.1"
+      },
+      "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.3.6",
+        "object-assign": "^4.0.1",
+        "react-dom": "^0.14.0 || ^15.0.0"
+      },
+      "version": "1.3.1",
+      "gitHead": "05aa8712ada88ac22414d378add98dece280884f",
+      "_id": "redbox-react@1.3.1",
+      "_shasum": "02ea395f93442ac43e5363004d50a9cd1327ce41",
+      "_from": ".",
+      "_npmVersion": "3.10.3",
+      "_nodeVersion": "6.6.0",
+      "_npmUser": {
+        "name": "mxlje",
+        "email": "max@maxlielje.co"
+      },
+      "dist": {
+        "shasum": "02ea395f93442ac43e5363004d50a9cd1327ce41",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.3.1.tgz",
+        "integrity": "sha512-M8tNdyqDanN6DbSA3pVgygWfg9x7Wm6DWU/n1Hb7Nv1AU4uGyDDk4b0omei6bn86GpH68yXXeykO5zdN8CAAgw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICm34qcbIlx5OzZLqC86CiiTc0qeTZXxwNWn/+eogO+8AiAWz1GDM3olCGp58VeJrx6CJ1EXDmIcBie612Qz9/M9fQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "davidpfahler",
+          "email": "david@excellenteasy.com"
+        },
+        {
+          "name": "mxlje",
+          "email": "max@maxlielje.co"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/redbox-react-1.3.1.tgz_1474351654950_0.033487216336652637"
+      },
+      "directories": {}
+    },
+    "1.3.2": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "files": [
+        "dist",
+        "lib",
+        "src"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "prepublish": "npm run clean && npm run build",
+        "test": "standard ./src && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/commissure/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/commissure/redbox-react/issues"
+      },
+      "homepage": "https://github.com/commissure/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "react": "^0.14.0 || ^15.0.0",
+        "babel-cli": "^6.9.0",
+        "babel-core": "^6.9.0",
+        "babel-loader": "^6.2.4",
+        "babel-plugin-rewire": "^1.0.0-rc-3",
+        "babel-preset-es2015": "^6.3.3",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "react-addons-test-utils": "^15.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.0.0",
+        "standard": "^7.1.1",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.5.1",
+        "webpack": "^1.13.1"
+      },
+      "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.3.6",
+        "object-assign": "^4.0.1"
+      },
+      "version": "1.3.2",
+      "gitHead": "f9217da9047381faebb343db8c7ffc9647073396",
+      "_id": "redbox-react@1.3.2",
+      "_shasum": "bc12ca4f88705d29aaace7a12183d3ec14dd33f1",
+      "_from": ".",
+      "_npmVersion": "3.10.8",
+      "_nodeVersion": "6.8.1",
+      "_npmUser": {
+        "name": "mxlje",
+        "email": "max@maxlielje.co"
+      },
+      "dist": {
+        "shasum": "bc12ca4f88705d29aaace7a12183d3ec14dd33f1",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.3.2.tgz",
+        "integrity": "sha512-9RGVbskefOgH+kPJ0fZ2WlCylurkncaX/LhO/UdoKye8Vxk86YdNMgEGYqY4KA2q6te3r9miC8Q64z4ePB0EeA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDcYBsYI9fs2KC393bqYilOy2FbJBdqgK7ZMqOvzQufGAiEA9HTJ2dxK59AbZHs5siYs3RqjsgYM5Ds43/aO6Qd12bg="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "davidpfahler",
+          "email": "david@excellenteasy.com"
+        },
+        {
+          "name": "mxlje",
+          "email": "max@maxlielje.co"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/redbox-react-1.3.2.tgz_1476558164553_0.8222746131941676"
+      },
+      "directories": {}
+    },
+    "1.3.3": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "files": [
+        "dist",
+        "lib",
+        "src"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "prepublish": "npm run clean && npm run build",
+        "test": "standard ./src && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/commissure/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/commissure/redbox-react/issues"
+      },
+      "homepage": "https://github.com/commissure/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "react": "^0.14.0 || ^15.0.0",
+        "babel-cli": "^6.9.0",
+        "babel-core": "^6.9.0",
+        "babel-loader": "^6.2.4",
+        "babel-plugin-rewire": "^1.0.0-rc-3",
+        "babel-preset-es2015": "^6.3.3",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "react-addons-test-utils": "^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.0.0",
+        "standard": "^7.1.1",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.5.1",
+        "webpack": "^1.13.1"
+      },
+      "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.3.6",
+        "object-assign": "^4.0.1"
+      },
+      "version": "1.3.3",
+      "gitHead": "cfba6df1ac4a7ecdc50dedd0990be1a2ad4e1dab",
+      "_id": "redbox-react@1.3.3",
+      "_shasum": "63ec9c2cb9c620c46e2b9f8543b4898f1b787e41",
+      "_from": ".",
+      "_npmVersion": "3.10.8",
+      "_nodeVersion": "7.0.0",
+      "_npmUser": {
+        "name": "mxlje",
+        "email": "max@maxlielje.co"
+      },
+      "dist": {
+        "shasum": "63ec9c2cb9c620c46e2b9f8543b4898f1b787e41",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.3.3.tgz",
+        "integrity": "sha512-2EUcXhm9Y0Dq//vqvtRbsiKjlpR84pvyB0XzU+zbL/he76sRMufLcNCn9k+4eDGJIasMXRGl0cRTsKscZVM98w==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAbJvVRDPrOSIvXI0YOu0uShiAQz1XIeRTPi1zD8L5AgAiAscSWC7C3QFNxLGK24iSdThhrZZFLVl3gBDY3oeiqm+w=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "davidpfahler",
+          "email": "david@excellenteasy.com"
+        },
+        {
+          "name": "mxlje",
+          "email": "max@maxlielje.co"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/redbox-react-1.3.3.tgz_1478633785600_0.14434735593385994"
+      },
+      "directories": {}
+    },
+    "1.3.4": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "files": [
+        "dist",
+        "lib",
+        "src"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "prepublish": "npm run clean && npm run build",
+        "test": "standard ./src && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/commissure/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/commissure/redbox-react/issues"
+      },
+      "homepage": "https://github.com/commissure/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "react": "^0.14.0 || ^15.0.0",
+        "babel-cli": "^6.9.0",
+        "babel-core": "^6.9.0",
+        "babel-loader": "^6.2.4",
+        "babel-plugin-rewire": "^1.0.0-rc-3",
+        "babel-preset-es2015": "^6.3.3",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "react-addons-test-utils": "^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.0.0",
+        "standard": "^7.1.1",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.5.1",
+        "webpack": "^1.13.1"
+      },
+      "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.3.6",
+        "object-assign": "^4.0.1"
+      },
+      "version": "1.3.4",
+      "gitHead": "1e18f1d036f39ded81fd2128804d9b28aea5cd61",
+      "_id": "redbox-react@1.3.4",
+      "_shasum": "3d882bb62cc7c8f6256279d12f05c6a5a96d24c6",
+      "_from": ".",
+      "_npmVersion": "4.1.2",
+      "_nodeVersion": "7.5.0",
+      "_npmUser": {
+        "name": "mxlje",
+        "email": "max@maxlielje.co"
+      },
+      "dist": {
+        "shasum": "3d882bb62cc7c8f6256279d12f05c6a5a96d24c6",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.3.4.tgz",
+        "integrity": "sha512-d5XXqwZ7nXEL/zDhrI3Z1zCPM6/BHh9oYtbxOQqTBSNEF4Yi9NJ21RVP0m9yn/0ycxNwqKgUfV/bEP88ID1BRg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFNWQ2rYI0R8rkaYATV2KdY8WTBZivCWo7CsxPpxvgxjAiBv0mSLE12nZ49a8rYAnsvZuWLBmoan28+BYlvYucoDFA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "davidpfahler",
+          "email": "david@excellenteasy.com"
+        },
+        {
+          "name": "mxlje",
+          "email": "max@maxlielje.co"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/redbox-react-1.3.4.tgz_1487579321966_0.8221313261892647"
+      },
+      "directories": {}
+    },
+    "1.3.5": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "files": [
+        "dist",
+        "lib",
+        "src"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "prepublish": "npm run clean && npm run build",
+        "test": "standard ./src && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/commissure/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/commissure/redbox-react/issues"
+      },
+      "homepage": "https://github.com/commissure/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "babel-cli": "^6.9.0",
+        "babel-core": "^6.9.0",
+        "babel-loader": "^6.2.4",
+        "babel-plugin-rewire": "^1.0.0-rc-3",
+        "babel-preset-es2015": "^6.3.3",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "prop-types": "^15.5.4",
+        "react": "^0.14.0 || ^15.0.0",
+        "react-addons-test-utils": "^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.0.0",
+        "standard": "^7.1.1",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.5.1",
+        "webpack": "^1.13.1"
+      },
+      "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.3.6",
+        "object-assign": "^4.0.1"
+      },
+      "version": "1.3.5",
+      "gitHead": "23b95cc39657842f7c4155c213923839003cc590",
+      "_id": "redbox-react@1.3.5",
+      "_shasum": "801d1d22f784d80fcab109b2174cbc169830435f",
+      "_from": ".",
+      "_npmVersion": "4.2.0",
+      "_nodeVersion": "7.8.0",
+      "_npmUser": {
+        "name": "mxlje",
+        "email": "max@maxlielje.co"
+      },
+      "dist": {
+        "shasum": "801d1d22f784d80fcab109b2174cbc169830435f",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.3.5.tgz",
+        "integrity": "sha512-MA3O93APOgj4l6vyt64gd5dmsmRNTQyQrayoeZ3/ttdKvrH7Ak9zTRW2vFJrzEL1HicaRxWhrkEplkki/fer8Q==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICjLeg4eqbPs9tMZPyguftZUrTQZ4vF3QW5B65H7rZLLAiARcf0GHAeB/ZRPtY/ZtqWUM4K5L2o2IXqOzXmBpdymVA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "davidpfahler",
+          "email": "david@excellenteasy.com"
+        },
+        {
+          "name": "mxlje",
+          "email": "max@maxlielje.co"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/redbox-react-1.3.5.tgz_1491663681756_0.10138236894272268"
+      },
+      "directories": {}
+    },
+    "1.3.6": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "files": [
+        "dist",
+        "lib",
+        "src"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "prepublish": "npm run clean && npm run build",
+        "test": "standard ./src && babel-node ./tests | tap-spec",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/commissure/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/commissure/redbox-react/issues"
+      },
+      "homepage": "https://github.com/commissure/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "babel-cli": "^6.9.0",
+        "babel-core": "^6.9.0",
+        "babel-loader": "^6.2.4",
+        "babel-plugin-rewire": "^1.0.0-rc-3",
+        "babel-preset-es2015": "^6.3.3",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "react": "^0.14.0 || ^15.0.0",
+        "react-addons-test-utils": "^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.0.0",
+        "standard": "^7.1.1",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.5.1",
+        "webpack": "^1.13.1"
+      },
+      "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.3.6",
+        "object-assign": "^4.0.1",
+        "prop-types": "^15.5.4"
+      },
+      "version": "1.3.6",
+      "gitHead": "015f38af2ef1d6c4d1a180050dbc807cc627e4e8",
+      "_id": "redbox-react@1.3.6",
+      "_shasum": "70314c57c066257eb70b0a24dc794b5cef4f1c4e",
+      "_from": ".",
+      "_npmVersion": "4.2.0",
+      "_nodeVersion": "7.8.0",
+      "_npmUser": {
+        "name": "mxlje",
+        "email": "max@maxlielje.co"
+      },
+      "dist": {
+        "shasum": "70314c57c066257eb70b0a24dc794b5cef4f1c4e",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.3.6.tgz",
+        "integrity": "sha512-Z6YbsOFPmIypFrHgGkH44/ah33asmq91sKMTeyslZhCj0xeiIAfLuGF0uLnhCImtDS3DRbq95kchMkgDm1fASg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIG80++sJemEkH9MTNEFkwE/Bu4iYqoSyRtg0lyTeyexKAiBn7/szi1qZUAg2Kecr3ZL4U3cdtK5b9d7H/xy9l1sGpg=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "davidpfahler",
+          "email": "david@excellenteasy.com"
+        },
+        {
+          "name": "mxlje",
+          "email": "max@maxlielje.co"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/redbox-react-1.3.6.tgz_1491725365257_0.9541104012168944"
+      },
+      "directories": {}
+    },
+    "1.3.7": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "types": "types/redbox-react.d.ts",
+      "files": [
+        "dist",
+        "lib",
+        "src",
+        "types"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "prepublish": "npm run clean && npm run build",
+        "start": "babel src --out-dir lib -w",
+        "test": "standard ./src && babel-node ./tests | tap-spec && tsc --project ./types",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/commissure/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/commissure/redbox-react/issues"
+      },
+      "homepage": "https://github.com/commissure/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "@types/react": "^15.0.24",
+        "babel-cli": "^6.9.0",
+        "babel-core": "^6.9.0",
+        "babel-loader": "^6.2.4",
+        "babel-plugin-rewire": "^1.0.0-rc-3",
+        "babel-plugin-transform-async-generator-functions": "^6.24.1",
+        "babel-plugin-transform-class-properties": "^6.19.0",
+        "babel-plugin-transform-do-expressions": "^6.22.0",
+        "babel-plugin-transform-export-extensions": "^6.8.0",
+        "babel-plugin-transform-object-rest-spread": "^6.19.0",
+        "babel-preset-env": "^1.4.0",
+        "babel-preset-react": "^6.5.0",
+        "react": "^0.14.0 || ^15.0.0",
+        "react-addons-test-utils": "^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.0.0",
+        "standard": "^7.1.1",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.5.1",
+        "typescript": "^2.3.2",
+        "webpack": "^1.13.1"
+      },
+      "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.3.6",
+        "object-assign": "^4.0.1",
+        "prop-types": "^15.5.4",
+        "sourcemapped-stacktrace": "^1.1.6"
+      },
+      "version": "1.3.7",
+      "gitHead": "dfddbb6352051addf9f04ca5360e8eb3bd233d92",
+      "_id": "redbox-react@1.3.7",
+      "_npmVersion": "5.0.0",
+      "_nodeVersion": "8.0.0",
+      "_npmUser": {
+        "name": "mxlje",
+        "email": "max@maxlielje.co"
+      },
+      "dist": {
+        "integrity": "sha512-Zm3OvQfX1q4O5nyhxrFZOefvEvd4nS7Z5y5o6/HofRgkUHiE5LI+6MddR6XRAfSg+mO46dXKgjqyVYAcO8+lJA==",
+        "shasum": "bb3a1a73c07ebe1d67b55860908ee2bc35386968",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.3.7.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDepIX8VENydfKFqBegYXxjeTCvDfdP8WDD/z+PtwbjogIhAOlvsjvzhKx2qHq1I8BcU0IG6U85XTb1aZswbZYHv5bp"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "davidpfahler",
+          "email": "david@excellenteasy.com"
+        },
+        {
+          "name": "mxlje",
+          "email": "max@maxlielje.co"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/redbox-react-1.3.7.tgz_1496226577255_0.7244676041882485"
+      },
+      "directories": {}
+    },
+    "1.4.0": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "types": "types/redbox-react.d.ts",
+      "files": [
+        "dist",
+        "lib",
+        "src",
+        "types"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "prepublish": "npm run clean && npm run build",
+        "start": "babel src --out-dir lib -w",
+        "test": "standard ./src && babel-node ./tests | tap-spec && tsc --project ./types",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/commissure/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/commissure/redbox-react/issues"
+      },
+      "homepage": "https://github.com/commissure/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "@types/react": "^15.0.24",
+        "babel-cli": "^6.9.0",
+        "babel-core": "^6.9.0",
+        "babel-loader": "^6.2.4",
+        "babel-plugin-rewire": "^1.0.0-rc-3",
+        "babel-plugin-transform-async-generator-functions": "^6.24.1",
+        "babel-plugin-transform-class-properties": "^6.19.0",
+        "babel-plugin-transform-do-expressions": "^6.22.0",
+        "babel-plugin-transform-export-extensions": "^6.8.0",
+        "babel-plugin-transform-object-rest-spread": "^6.19.0",
+        "babel-preset-env": "^1.4.0",
+        "babel-preset-react": "^6.5.0",
+        "react": "^0.14.0 || ^15.0.0",
+        "react-addons-test-utils": "^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.0.0",
+        "standard": "^7.1.1",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.5.1",
+        "typescript": "^2.3.2",
+        "webpack": "^1.13.1"
+      },
+      "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.3.6",
+        "object-assign": "^4.0.1",
+        "prop-types": "^15.5.4",
+        "sourcemapped-stacktrace": "^1.1.6"
+      },
+      "version": "1.4.0",
+      "gitHead": "50c8ccca14935fe5c6fd2f44608f22fe27c2a563",
+      "_id": "redbox-react@1.4.0",
+      "_npmVersion": "5.0.0",
+      "_nodeVersion": "8.0.0",
+      "_npmUser": {
+        "name": "mxlje",
+        "email": "max@maxlielje.co"
+      },
+      "dist": {
+        "integrity": "sha512-w8fMl0+uxMc3/rpS4QwTwZOxRxn1DjRApTyQHEkodT8Ah4D6p3lZJvkj+ct2wod9LCQF1d80Gqnrl5okaCebZQ==",
+        "shasum": "0b571dab6a7acbf3da0e0034825c44b5bd8dba34",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.4.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIH1qlndDOOokU9HdcesJCltzrkxDDUM5LIxQVMtih5n3AiBjjuuY8rSNHv4bGPyfyxFdKZPGf5f19RnFvM3ISLOjwA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "davidpfahler",
+          "email": "david@excellenteasy.com"
+        },
+        {
+          "name": "mxlje",
+          "email": "max@maxlielje.co"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/redbox-react-1.4.0.tgz_1496408818982_0.1676213734317571"
+      },
+      "directories": {}
+    },
+    "1.4.1": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "types": "types/redbox-react.d.ts",
+      "files": [
+        "dist",
+        "lib",
+        "src",
+        "types"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "prepublish": "npm run clean && npm run build",
+        "start": "babel src --out-dir lib -w",
+        "test": "standard ./src && babel-node ./tests | tap-spec && tsc --project ./types",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/commissure/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/commissure/redbox-react/issues"
+      },
+      "homepage": "https://github.com/commissure/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "@types/react": "^15.0.24",
+        "babel-cli": "^6.9.0",
+        "babel-core": "^6.9.0",
+        "babel-loader": "^6.2.4",
+        "babel-plugin-rewire": "^1.0.0-rc-3",
+        "babel-plugin-transform-async-generator-functions": "^6.24.1",
+        "babel-plugin-transform-class-properties": "^6.19.0",
+        "babel-plugin-transform-do-expressions": "^6.22.0",
+        "babel-plugin-transform-export-extensions": "^6.8.0",
+        "babel-plugin-transform-object-rest-spread": "^6.19.0",
+        "babel-preset-env": "^1.4.0",
+        "babel-preset-react": "^6.5.0",
+        "react": "^0.14.0 || ^15.0.0",
+        "react-addons-test-utils": "^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.0.0",
+        "standard": "^7.1.1",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.5.1",
+        "typescript": "^2.3.2",
+        "webpack": "^1.13.1"
+      },
+      "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.3.6",
+        "object-assign": "^4.0.1",
+        "prop-types": "^15.5.4",
+        "sourcemapped-stacktrace": "^1.1.6"
+      },
+      "version": "1.4.1",
+      "gitHead": "c26e2551fdb557588d23f8aa283658f098c5358c",
+      "_id": "redbox-react@1.4.1",
+      "_npmVersion": "5.0.3",
+      "_nodeVersion": "8.1.0",
+      "_npmUser": {
+        "name": "mxlje",
+        "email": "max@maxlielje.co"
+      },
+      "dist": {
+        "integrity": "sha512-gH9ruLjWHzsgVIau7qpIeJD9yPOW3DGwYMuZ5EHivkBZHNaRBrvnxgfHyNzfFnulvHeLM5BDg0x85n1zh/U4pQ==",
+        "shasum": "90552c45374e2003b9665ee5470b60d4bb74a5ba",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.4.1.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCcOFS8K3orFD3inMb2fmxA/lHRNtp4o0IGMitSTs/zqAIgDXJFBVVxwizLQ1LNggeNG4pJ5m7X9V7u9dVfjKwqtbk="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "davidpfahler",
+          "email": "david@excellenteasy.com"
+        },
+        {
+          "name": "mxlje",
+          "email": "max@maxlielje.co"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/redbox-react-1.4.1.tgz_1497106793278_0.46274337102659047"
+      },
+      "directories": {}
+    },
+    "1.4.2": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "types": "types/redbox-react.d.ts",
+      "files": [
+        "dist",
+        "lib",
+        "src",
+        "types"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "prepublish": "npm run clean && npm run build",
+        "start": "babel src --out-dir lib -w",
+        "test": "standard ./src && babel-node ./tests | tap-spec && tsc --project ./types",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/commissure/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/commissure/redbox-react/issues"
+      },
+      "homepage": "https://github.com/commissure/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "@types/react": "^15.0.24",
+        "babel-cli": "^6.9.0",
+        "babel-core": "^6.9.0",
+        "babel-loader": "^6.2.4",
+        "babel-plugin-rewire": "^1.0.0-rc-3",
+        "babel-plugin-transform-async-generator-functions": "^6.24.1",
+        "babel-plugin-transform-class-properties": "^6.19.0",
+        "babel-plugin-transform-do-expressions": "^6.22.0",
+        "babel-plugin-transform-export-extensions": "^6.8.0",
+        "babel-plugin-transform-object-rest-spread": "^6.19.0",
+        "babel-preset-env": "^1.4.0",
+        "babel-preset-react": "^6.5.0",
+        "react": "^0.14.0 || ^15.0.0",
+        "react-addons-test-utils": "^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.0.0",
+        "standard": "^7.1.1",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.5.1",
+        "typescript": "^2.3.2",
+        "webpack": "^1.13.1"
+      },
+      "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.3.6",
+        "object-assign": "^4.0.1",
+        "prop-types": "^15.5.4",
+        "sourcemapped-stacktrace": "^1.1.6"
+      },
+      "version": "1.4.2",
+      "gitHead": "e4573a1d4a304f28d90ba3d2aaa3506dff99b4f5",
+      "_id": "redbox-react@1.4.2",
+      "_npmVersion": "5.0.3",
+      "_nodeVersion": "8.1.1",
+      "_npmUser": {
+        "name": "mxlje",
+        "email": "max@maxlielje.co"
+      },
+      "dist": {
+        "integrity": "sha512-6fSDCG4E20EQl+JOVqwfGTRsHGI7nr4Ze/X53OzlffnB6vnIXDsALqrzLIzmiFU6XpR5OsIROtCQSLxbP09UJA==",
+        "shasum": "7fe35d3c567301e97938cc7fd6a10918f424c6b4",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.4.2.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC+msrJmFfdxi1h0RDRzkau3+A93UbwEmA5bzeIsO0TUAIgGVkMgqtz26Wf08hHvE4NTj8Kt2SB3ldUc9MvDBl1aw8="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "davidpfahler",
+          "email": "david@excellenteasy.com"
+        },
+        {
+          "name": "mxlje",
+          "email": "max@maxlielje.co"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/redbox-react-1.4.2.tgz_1497426716661_0.5079466379247606"
+      },
+      "directories": {}
+    },
+    "1.4.3": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "types": "types/redbox-react.d.ts",
+      "files": [
+        "dist",
+        "lib",
+        "src",
+        "types"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "prepublish": "npm run clean && npm run build",
+        "start": "babel src --out-dir lib -w",
+        "test": "standard ./src && babel-node ./tests | tap-spec && tsc --project ./types",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/commissure/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/commissure/redbox-react/issues"
+      },
+      "homepage": "https://github.com/commissure/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "@types/react": "^15.0.24",
+        "babel-cli": "^6.9.0",
+        "babel-core": "^6.9.0",
+        "babel-loader": "^6.2.4",
+        "babel-plugin-rewire": "1.0.0",
+        "babel-plugin-transform-async-generator-functions": "^6.24.1",
+        "babel-plugin-transform-class-properties": "^6.19.0",
+        "babel-plugin-transform-do-expressions": "^6.22.0",
+        "babel-plugin-transform-export-extensions": "^6.8.0",
+        "babel-plugin-transform-object-rest-spread": "^6.19.0",
+        "babel-preset-env": "^1.4.0",
+        "babel-preset-react": "^6.5.0",
+        "react": "^0.14.0 || ^15.0.0",
+        "react-addons-test-utils": "^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.0.0",
+        "standard": "^7.1.1",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.5.1",
+        "typescript": "^2.3.2",
+        "webpack": "^1.13.1"
+      },
+      "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.3.6",
+        "object-assign": "^4.0.1",
+        "prop-types": "^15.5.4",
+        "sourcemapped-stacktrace": "^1.1.6"
+      },
+      "version": "1.4.3",
+      "gitHead": "be4dc773907f173d1ab950d3e8a3816588547840",
+      "_id": "redbox-react@1.4.3",
+      "_npmVersion": "5.0.3",
+      "_nodeVersion": "8.1.3",
+      "_npmUser": {
+        "name": "mxlje",
+        "email": "max@maxlielje.co"
+      },
+      "dist": {
+        "integrity": "sha512-P/N+y57/FVUQWbgpfTf/2wjgxEhxQuA6FRLv0ipZKLFv5v8mp6qs5inFyBwJQYAgaMrntZRCvKdz1vGwkCNs7A==",
+        "shasum": "51744987867ea4627d58ccb1b0e5df5a5ae40e57",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.4.3.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCEZCMim7iVwUHy+Hi1PY1qpGxHz40n1Kg74BjlsN2/twIgLEiJQQe+0xM12Jo3YZke2D4LTFPMWdShgnuZgBb/li0="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "davidpfahler",
+          "email": "david@excellenteasy.com"
+        },
+        {
+          "name": "mxlje",
+          "email": "max@maxlielje.co"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/redbox-react-1.4.3.tgz_1499410395793_0.4561172970570624"
+      },
+      "directories": {}
+    },
+    "1.5.0": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "types": "types/redbox-react.d.ts",
+      "files": [
+        "dist",
+        "lib",
+        "src",
+        "types"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "prepublish": "npm run clean && npm run build",
+        "start": "babel src --out-dir lib -w",
+        "test": "standard ./src && babel-node ./tests | tap-spec && tsc --project ./types",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/commissure/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/commissure/redbox-react/issues"
+      },
+      "homepage": "https://github.com/commissure/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "@types/react": "^15.0.24",
+        "babel-cli": "^6.9.0",
+        "babel-core": "^6.9.0",
+        "babel-loader": "^6.2.4",
+        "babel-plugin-rewire": "1.0.0",
+        "babel-plugin-transform-async-generator-functions": "^6.24.1",
+        "babel-plugin-transform-class-properties": "^6.19.0",
+        "babel-plugin-transform-do-expressions": "^6.22.0",
+        "babel-plugin-transform-export-extensions": "^6.8.0",
+        "babel-plugin-transform-object-rest-spread": "^6.19.0",
+        "babel-preset-env": "^1.4.0",
+        "babel-preset-react": "^6.5.0",
+        "react": "^0.14.0 || ^15.0.0",
+        "react-addons-test-utils": "^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.0.0",
+        "standard": "^7.1.1",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.5.1",
+        "typescript": "^2.3.2",
+        "webpack": "^1.13.1"
+      },
+      "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0 || ^16.0.0-beta || ^16.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0-beta || ^16.0.0"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.3.6",
+        "object-assign": "^4.0.1",
+        "prop-types": "^15.5.4",
+        "sourcemapped-stacktrace": "^1.1.6"
+      },
+      "version": "1.5.0",
+      "gitHead": "1a7aae8394c8a08676e57671a5f2bee50caa8fe3",
+      "_id": "redbox-react@1.5.0",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.2.1",
+      "_npmUser": {
+        "name": "mxlje",
+        "email": "max@maxlielje.co"
+      },
+      "dist": {
+        "integrity": "sha512-mdxArOI3sF8K5Nay5NG+lv/VW516TbXjjd4h1wcV1Iy4IMDQPnCayjoQXBAycAFSME4nyXRUXCjHxsw2rYpVRw==",
+        "shasum": "04dab11557d26651bf3562a67c22ace56c5d3967",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.5.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDpPGi010vOBc3AAH9EeM8xx3r35UeX9p9UFygkK7AliQIhAOfkDF9iuTW/BO2elfeFGD+c04wk7T3/EubjGfXmgL/S"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "davidpfahler",
+          "email": "david@excellenteasy.com"
+        },
+        {
+          "name": "mxlje",
+          "email": "max@maxlielje.co"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/redbox-react-1.5.0.tgz_1501619553634_0.009411621140316129"
+      },
+      "directories": {}
+    },
+    "1.6.0": {
+      "name": "redbox-react",
+      "description": "A redbox (rsod) component to display your errors.",
+      "main": "lib/index.js",
+      "types": "types/redbox-react.d.ts",
+      "files": [
+        "dist",
+        "lib",
+        "src",
+        "types"
+      ],
+      "scripts": {
+        "clean": "rimraf dist lib tmp",
+        "build:umd": "webpack src/index.js dist/redbox.js",
+        "build:umd:min": "webpack --config webpack.config.prod.js src/index.js dist/redbox.min.js",
+        "build:lib": "babel src --out-dir lib",
+        "build": "npm run build:umd && npm run build:umd:min && npm run build:lib",
+        "prepublish": "npm run clean && npm run build",
+        "start": "babel src --out-dir lib -w",
+        "test": "standard ./src && babel-node ./tests | tap-spec && tsc --project ./types",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/commissure/redbox-react.git"
+      },
+      "author": {
+        "name": "David Pfahler"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/commissure/redbox-react/issues"
+      },
+      "homepage": "https://github.com/commissure/redbox-react",
+      "keywords": [
+        "redbox",
+        "rsod",
+        "react",
+        "react-native"
+      ],
+      "devDependencies": {
+        "@types/react": "^15.0.24",
+        "babel-cli": "^6.9.0",
+        "babel-core": "^6.9.0",
+        "babel-loader": "^6.2.4",
+        "babel-plugin-rewire": "1.0.0",
+        "babel-plugin-transform-async-generator-functions": "^6.24.1",
+        "babel-plugin-transform-class-properties": "^6.19.0",
+        "babel-plugin-transform-do-expressions": "^6.22.0",
+        "babel-plugin-transform-export-extensions": "^6.8.0",
+        "babel-plugin-transform-object-rest-spread": "^6.19.0",
+        "babel-preset-env": "^1.4.0",
+        "babel-preset-react": "^6.5.0",
+        "react": "^0.14.0 || ^15.0.0",
+        "react-addons-test-utils": "^15.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.0.0",
+        "standard": "^7.1.1",
+        "tap-spec": "^4.0.2",
+        "tape": "^4.5.1",
+        "typescript": "^2.3.2",
+        "webpack": "^1.13.1"
+      },
+      "peerDependencies": {
+        "react": "^0.14.0 || ^15.0.0 || ^16.0.0-beta || ^16.0.0",
+        "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0-beta || ^16.0.0"
+      },
+      "dependencies": {
+        "error-stack-parser": "^1.3.6",
+        "object-assign": "^4.0.1",
+        "prop-types": "^15.5.4",
+        "sourcemapped-stacktrace": "^1.1.6"
+      },
+      "version": "1.6.0",
+      "gitHead": "59c0b5e19266d21aff84650766f66bbfbffc570f",
+      "_id": "redbox-react@1.6.0",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "10.0.0",
+      "_npmUser": {
+        "name": "mxlje",
+        "email": "max@maxlielje.co"
+      },
+      "dist": {
+        "integrity": "sha512-mLjM5eYR41yOp5YKHpd3syFeGq6B4Wj5vZr64nbLvTZW5ZLff4LYk7VE4ITpVxkZpCY6OZuqh0HiP3A3uEaCpg==",
+        "shasum": "e753ac02595bc1bf695b3935889a4f5b1b5a21a1",
+        "tarball": "https://registry.npmjs.org/redbox-react/-/redbox-react-1.6.0.tgz",
+        "fileCount": 14,
+        "unpackedSize": 1063175,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa4ejyCRA9TVsSAnZWagAA+NEQAJJAl7tUh9NN0DGrtfeP\nkRRmU0NtdHHyOdXefFZwHdAIBba5rhDY4xvRrDRzXk4hNgcoxRcLS09VhttH\nDzJ/PbpD4tnxW4vMZ5MvI5ViKYakXj6S5grrG5k37X1FI988KXRndg/RIkiL\nsNC+zrehGZ86wvnrrdutVmHW5rz9T0eDqolavm2oBevKU9mcIyl4CpDrOmYk\nwejjkwuhqx0G+5fswRsdHe/ZP4VWACvGMuysn4la43kxba40jQPpue252XH+\nrB/nzRLflc9DG6ZEWhreGb+EXBj+Ux5mXRDoz6/92tFwLYvHkdrqlbdasJ2k\nXgsNWknNPaFeLU4eLia/nxUcNU8ohGaCTqN+jnk5FRQ1JCsswjVBsiZEz4j/\n/lh/ZzfSkmXFELeoZtSxXG+r9X0AhIMKofuLKoy1DpA63YuTpL8VLbW75vlC\ndyNXFCEKnl/t1kk+3JHkMTGB2IQfXqfLuR7b03PkD0ByIbUZvP/QzINhX7MZ\nSaIf6Khm8J95XPtn0Wk1IRgCvbsSRki1rUeshqIt4B/Y8QUiwaAkh8LD4lsw\n79eN+K8wb+nSVum2ZtfoOweFH69GwJ4NRiVikfdFpY3iFqdQBvHm3pJAmHPN\nQ5vrvezN1/4x2hYDKr21YfTdGaeIEtHeXRhn8KA/cSxG1xWNfuwGaOJQDJKt\n63l3\r\n=+uv2\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCfkr4m98Q3u5pvYf57GSDA//zcQF5cV9CX5V1CmGClhgIhANefKiSLZamZvOskMDKXkiX+DCtpB6EVHkE59nKDoCtM"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "davidpfahler",
+          "email": "david@excellenteasy.com"
+        },
+        {
+          "name": "mxlje",
+          "email": "max@maxlielje.co"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/redbox-react_1.6.0_1524754673355_0.39559523376182204"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "readme": "# redbox-react\n\n[![Build Status](https://travis-ci.org/commissure/redbox-react.svg?branch=master)](https://travis-ci.org/commissure/redbox-react)\n[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)\n\nThe red box (aka red screen of death) renders an error in this “pretty” format:\n\n<img src=\"http://i.imgur.com/9Jhlibk.png\" alt=\"red screen of death\" width=\"700\" />\n\n## Usage\n\nCatch an error and give it to `redbox-react`. Works great with\n\n- [react-transform-catch-errors]\n  - [Example][react-transform-example]\n  - [react-transform-boilerplate]\n- [react-hot-loader]\n  - :warning: ️ based on `3.0.0-beta.2`! This depends on `ErrorBoundaries` which\n    will likely not land in react! You should probably not use this\n    before 3.0.0 comes out.\n  - [Example][react-hot-loader-example]\n\n[react-transform-catch-errors]: https://github.com/gaearon/react-transform-catch-errors\n[react-transform-example]: https://github.com/commissure/redbox-react/tree/master/examples/react-transform-catch-errors\n[react-transform-boilerplate]: https://github.com/gaearon/react-transform-boilerplate/\n[react-hot-loader]: https://github.com/gaearon/react-hot-loader\n[react-hot-loader-example]: https://github.com/commissure/redbox-react/tree/master/examples/react-hot-loader\n\nor manually:\n\n```javascript\nimport RedBox from 'redbox-react'\n\nconst e = new Error('boom')\nconst box = <RedBox error={e} />\n```\n\nHere is a more useful, full-fleged example:\n\n```javascript\n/* global __DEV__ */\nimport React from 'react'\nimport { render } from 'react-dom'\nimport App from './components/App'\n\nconst root = document.getElementById('root')\n\nif (__DEV__) {\n  const RedBox = require('redbox-react').default\n  try {\n    render(<App />, root)\n  } catch (e) {\n    render(<RedBox error={e} />, root)\n  }\n} else {\n  render(<App />, root)\n}\n```\n\n## What Is This Good For?\n\nAn error that's only in the console is only half the fun. Now you can\nuse all the wasted space where your app would be if it didn’t crash to\ndisplay the error that made it crash.\n\n**Please use this in development only.**\n\n## Will this catch errors for me?\nNo. This is only a UI component for rendering errors and their stack\ntraces. It is intended to be used with with other existing solutions\nthat automate the error catching for you. See the list at the top of\nthis document or take a look at the [examples].\n\n  [examples]: https://github.com/commissure/redbox-react/tree/master/examples\n\n## Optional Props\n\nThe `RedBox` component takes a couple of props that you can use to\ncustomize its behaviour:\n\n### `editorScheme` `[?string]`\nIf a filename in the stack trace is local, the component can create the\nlink to open your editor using this scheme eg:\n  - `subl` to create\n    `subl://open?url=file:///filename`.\n  - or `vscode` to create\n    `vscode://file/filename`.\n\n### `useLines` `[boolean=true]`\nLine numbers in the stack trace may be unreliable depending on the\ntype of sourcemaps. You can choose to not display them with this flag.\n\n### `useColumns` `[boolean=true]`\nColumn numbers in the stack trace may be unreliable depending on the\ntype of sourcemaps. You can choose to not display them with this flag.\n\n### `style` `[?object]`\nAllows you to override the styles used when rendering the various parts of the\ncomponent. It will be shallow-merged with the [default styles](./src/style.js).\n\nIf you’re using [react-transform-catch-errors] you can add these\noptions to your `.babelrc` through the [`imports` property][imports].\n\n  [imports]: https://github.com/gaearon/react-transform-catch-errors#installation\n\n## Sourcemaps With Webpack\n\nIf you’re using [Webpack](https://webpack.github.io) you can get\naccurate filenames in the stacktrace by setting the\n`output.devtoolModuleFilenameTemplate` settings to `/[absolute-resource-path]`.\n\nIt's recommended to set the `devtool` setting to `'eval'`.\n",
+  "maintainers": [
+    {
+      "name": "davidpfahler",
+      "email": "david@excellenteasy.com"
+    },
+    {
+      "name": "mxlje",
+      "email": "max@maxlielje.co"
+    }
+  ],
+  "time": {
+    "modified": "2022-06-26T09:39:46.805Z",
+    "created": "2015-07-28T16:04:13.298Z",
+    "1.0.0": "2015-07-28T16:04:13.298Z",
+    "1.0.1": "2015-09-03T05:52:21.422Z",
+    "1.0.2": "2015-09-07T10:36:35.944Z",
+    "1.0.3": "2015-09-09T08:48:03.040Z",
+    "1.0.4": "2015-09-14T15:05:45.232Z",
+    "1.0.5": "2015-09-16T08:23:12.848Z",
+    "1.0.6": "2015-09-20T09:02:22.586Z",
+    "1.1.0": "2015-09-21T16:53:33.203Z",
+    "1.1.1": "2015-09-25T05:51:22.451Z",
+    "1.2.0": "2015-11-17T20:26:06.623Z",
+    "1.2.1": "2016-02-02T02:27:18.938Z",
+    "1.2.2": "2016-02-02T02:36:08.855Z",
+    "1.2.3": "2016-04-07T09:44:47.505Z",
+    "1.2.4": "2016-05-03T05:50:34.258Z",
+    "1.2.5": "2016-05-18T16:27:05.556Z",
+    "1.2.6": "2016-05-25T05:32:41.012Z",
+    "1.2.7": "2016-06-17T14:19:59.632Z",
+    "1.2.8": "2016-06-17T22:21:56.181Z",
+    "1.2.9": "2016-06-20T17:35:50.479Z",
+    "1.2.10": "2016-06-30T19:27:37.351Z",
+    "1.3.0": "2016-08-08T11:15:55.271Z",
+    "1.3.1": "2016-09-20T06:07:36.937Z",
+    "1.3.2": "2016-10-15T19:02:46.551Z",
+    "1.3.3": "2016-11-08T19:36:27.712Z",
+    "1.3.4": "2017-02-20T08:28:44.061Z",
+    "1.3.5": "2017-04-08T15:01:23.842Z",
+    "1.3.6": "2017-04-09T08:09:25.806Z",
+    "1.3.7": "2017-05-31T10:29:38.815Z",
+    "1.4.0": "2017-06-02T13:07:00.436Z",
+    "1.4.1": "2017-06-10T14:59:54.695Z",
+    "1.4.2": "2017-06-14T07:51:58.013Z",
+    "1.4.3": "2017-07-07T06:53:17.119Z",
+    "1.5.0": "2017-08-01T20:32:35.061Z",
+    "1.6.0": "2018-04-26T14:57:53.532Z"
+  },
+  "homepage": "https://github.com/commissure/redbox-react",
+  "keywords": [
+    "redbox",
+    "rsod",
+    "react",
+    "react-native"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/commissure/redbox-react.git"
+  },
+  "author": {
+    "name": "David Pfahler"
+  },
+  "bugs": {
+    "url": "https://github.com/commissure/redbox-react/issues"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "users": {
+    "yatsu": true,
+    "mikestaub": true,
+    "markthethomas": true,
+    "santi8ago8": true,
+    "alexcoady": true,
+    "princetoad": true,
+    "jmsherry": true,
+    "rahulraghavankklm": true,
+    "kodekracker": true,
+    "ericcoleman": true,
+    "zhaoming": true,
+    "panlw": true
+  }
+}
