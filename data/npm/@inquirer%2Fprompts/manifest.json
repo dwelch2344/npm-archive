@@ -1,0 +1,4415 @@
+{
+  "_id": "@inquirer/prompts",
+  "_rev": "31-ce017aa5bd1b4dfa821d3137f066f66e",
+  "name": "@inquirer/prompts",
+  "dist-tags": {
+    "latest": "4.1.0"
+  },
+  "versions": {
+    "1.0.0": {
+      "name": "@inquirer/prompts",
+      "version": "1.0.0",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.mts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.esm.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && yarn run fix-ext",
+        "fix-ext": "ts-node ../../tools/rename-ext.ts"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.mts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.0.0",
+        "@inquirer/confirm": "^1.0.0",
+        "@inquirer/editor": "^1.0.0",
+        "@inquirer/expand": "^1.0.0",
+        "@inquirer/input": "^1.0.0",
+        "@inquirer/password": "^1.0.0",
+        "@inquirer/rawlist": "^1.0.0",
+        "@inquirer/select": "^1.0.0"
+      },
+      "gitHead": "1f6db6e4e1e3317eafee6d980e6b7dd79dc696fb",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js#readme",
+      "_id": "@inquirer/prompts@1.0.0",
+      "_nodeVersion": "16.17.1",
+      "_npmVersion": "8.19.2",
+      "dist": {
+        "integrity": "sha512-afk5SKRTIMzMpAZdDuFbD72GSMq1OSZ7d8vP3tJPMFe9LIp5xyPggz3niT4B+0gAKR0jJu6wEUgJs9XXvIWXZA==",
+        "shasum": "d0a840d5c88d4f84c5e72146460f7cc7b69d85ab",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-1.0.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 18088,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBrMr/kLGt16YvIkv/naj+9gVyjXubBGq7bY3GeKvf0EAiAry2q//iGs4pY87E3qBp4cdY+zSOfYLUHS1BcU0BF3ZQ=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkRsPGACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmq96BAAgZSt6dJaoGR/2bpIZf8cIaXo8rPdQUeHG17RqL5hJP0RYc5U\r\nxMUpMLv83zogEJu/uwX+efXwQvBGy5i44NliqaUdOkqpvcwDq87Lj0pBTA74\r\nrD5Of0GZJUafFwYmZc+jy/hYZU1+eneMM6eT8usMYRKxt0t5K9rEI9oMWXXB\r\nv7jl3qg+4yV+oIK+PV7kcMHuHOkBL2enneK6zaJkWXxJ95QVFYUo6edDjwb+\r\n4DYr7YgL55r3a4V18Itsl+SojKg2IWuKXMKauq9lf5J1AVQKpYD34luJ0Uyh\r\nJTyxLFCSqWLzuWplXrS6acj82L8fOPkKriK7IQ6w/WsFTw6YMIuZIdlTI8d3\r\nCmXKrq0SN+jy4+VBuFJfTnmk/9l53fxJAwkmTl5r493+sq2adkZ8w6qvUWj8\r\nVow6fu6xgowS2CLiypDkwyw2XY1j9sOIbrlTVVa0XAypKLAd1tM8qTTXb0jU\r\nzOKKpJCJWW+yv+HYGgAChBCnAVVmSFqzLfnURtaGB0pR+gkHFK1r3fqYkfqg\r\nbKT0gX6TnkGYwNVroZSRRl1RL5oVq8/FdiFxCNPLAQZ/PfRufjkH7dz0LV1A\r\nXvO0rWDlrFEWOHG/GjuumHz/V75EjlBqyeLGDpF1UOJOqb0cf6jvJ1RJdi05\r\noyEcGnV+QxYGayA+4GJOsJFUpjbWCv3ebTQ=\r\n=R8D+\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_1.0.0_1682359238740_0.8647129155035083"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.1": {
+      "name": "@inquirer/prompts",
+      "version": "1.0.1",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.mts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.esm.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && yarn run fix-ext",
+        "fix-ext": "ts-node ../../tools/rename-ext.mts"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.mts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.0.1",
+        "@inquirer/confirm": "^1.0.1",
+        "@inquirer/editor": "^1.0.1",
+        "@inquirer/expand": "^1.0.1",
+        "@inquirer/input": "^1.0.1",
+        "@inquirer/password": "^1.0.1",
+        "@inquirer/rawlist": "^1.0.1",
+        "@inquirer/select": "^1.0.1"
+      },
+      "gitHead": "5b8563d850962ce48daba46e7e95e7285d581a56",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js#readme",
+      "_id": "@inquirer/prompts@1.0.1",
+      "_nodeVersion": "16.17.1",
+      "_npmVersion": "lerna/6.6.1/node@v16.17.1+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-e0FCXRbLF+xMf1MebUd9q/f/0YverErzTK8to971v1SOHoUhlq7xQOu2S99V43+2rTNSjfIuTMCPcwhQNuAWJg==",
+        "shasum": "0a4121b61a13d1f0c0bd91006c2553a9ed11a558",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-1.0.1.tgz",
+        "fileCount": 7,
+        "unpackedSize": 13196,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQD/CQowhi9e+r2ZAZWNBCG0jIYcbYgAuVyZ1U2aZkTT4AIgQfJUlSmD0OSg+e0xDD0IXqJ4VMZhsSBjfxw62FzmlPs="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkU8LuACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpQ6w/+OTJsJcjlMvPe/EtathE1BWkO+tRj4jtvECl6WdkvPa2Gu3T/\r\n4FoAXkgY5jwAervhLj4smuDq/q3bh6xakZ1kaAZ/BWyNq+nYuS03Pj71ger3\r\nYQ9TewDfCtKXR6DbKNMs2cLYd85st39DBkik6skXpzt9Sl1pI6m5AoyKv6A5\r\n2rlYkr/QWnfPtVOa1UDlyvWKRpOJDGSVzeiWKZK1bYrQyi1UDXcI5ifnYG+i\r\nMkeTO7k3r2qY71jiKVNzhNXquUThX1n2zDHLol2jmg7klhT3WjXe/23PxCzY\r\nE6mBKllG3S1uNDUGzd+tF+5B8k+eZ/Rr6cpsheRViBDCpOyp1+DZQ3Y2G53M\r\nSVA6rVHiW9IQwzftljOjB6zrRq3RyTe4TCQiH3Kktb4Qbph9GFdu2z0VgQI/\r\nGV1OI9us4jS8LtoW3EonB/e96iRalAHT6cGkH7n42qTiAU4Xdm8Fuo4pSeve\r\ntoKcjXVYmhK6FEuHZC/04QDP5aA8vTzBrB+0cerg8H13GjvxGX6FAw45L4yU\r\naXyqCSLeJseHnZoomADKPFWigbyhX0/Pu94BcBHpClO2L9c4mQ9/Wzl54DUi\r\naD85W4Kx1Ap9FFw8NiOedTWqneC/zrzQewwIi/tz/RWc6277Qfp4pNAI8moM\r\nQ6DjPtqKlZCCAWcVODvCVkBfYDtsHCcCQl8=\r\n=bCrL\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_1.0.1_1683210990332_0.7442526849932309"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.2": {
+      "name": "@inquirer/prompts",
+      "version": "1.0.2",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.mts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.esm.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && yarn run fix-ext",
+        "fix-ext": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ../../tools/rename-ext.mts"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.mts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.0.2",
+        "@inquirer/confirm": "^1.0.2",
+        "@inquirer/editor": "^1.0.2",
+        "@inquirer/expand": "^1.0.2",
+        "@inquirer/input": "^1.0.2",
+        "@inquirer/password": "^1.0.2",
+        "@inquirer/rawlist": "^1.0.2",
+        "@inquirer/select": "^1.0.2"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "865c589ffbc4a66f328dc4e64a08646200c755f3",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@1.0.2",
+      "_nodeVersion": "16.17.1",
+      "_npmVersion": "lerna/6.6.1/node@v16.17.1+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-d15R9IVpKJb0e3rIXDHW74Zp6kv343CtiY9EGNFrAykljdTilVWMWvkk9izu3Td4Ofu6YXLWFBIqXh2cPXUBYw==",
+        "shasum": "61ac02885562e11cb311b8363009b8147801eb66",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-1.0.2.tgz",
+        "fileCount": 7,
+        "unpackedSize": 13344,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCtwrALo+I727Nrp2Qx9YPh0UV69GCCSdvPI6jks/Ty7QIhALzIRdBbXjuaw7B0HlkW3F0MsdJrEX7DSjo2xTFYVBfZ"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_1.0.2_1683402774728_0.509446759894689"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.3": {
+      "name": "@inquirer/prompts",
+      "version": "1.0.3",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.mts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.esm.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && yarn run fix-ext",
+        "fix-ext": "node --no-warnings=ExperimentalWarning --loader=ts-node/esm ../../tools/rename-ext.mts"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.mts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.1.0",
+        "@inquirer/confirm": "^1.0.3",
+        "@inquirer/editor": "^1.0.3",
+        "@inquirer/expand": "^1.0.3",
+        "@inquirer/input": "^1.0.3",
+        "@inquirer/password": "^1.0.3",
+        "@inquirer/rawlist": "^1.0.3",
+        "@inquirer/select": "^1.0.3"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "12fecef5292da253564c845ef5be67b37441e381",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@1.0.3",
+      "_nodeVersion": "16.17.1",
+      "_npmVersion": "lerna/6.6.1/node@v16.17.1+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-RW+VWxPW/Ub9QELDeoueus+X8mNg3YopNJIGEvHZ1sWYgWWSj2tFumyerdW/CSeWYXO/O5K2oyQDfrcVhL/7zQ==",
+        "shasum": "95cff3223d268424246242b03ea85c6237dbf143",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-1.0.3.tgz",
+        "fileCount": 7,
+        "unpackedSize": 13344,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAZZCtGGOUgRlNLZJxcc6LXCnjIPrO6Kuei+QutDcFt9AiEAp7PWlBmNR+dpgYDTcebhQWY0KMtPA6rDkTN+MbIq+3I="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_1.0.3_1683404286441_0.36002974099121365"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.1.0": {
+      "name": "@inquirer/prompts",
+      "version": "1.1.0",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.mts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.esm.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && yarn run fix-ext",
+        "fix-ext": "node --no-warnings=ExperimentalWarning --loader=ts-node/esm ../../tools/rename-ext.mts"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.mts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.2.0",
+        "@inquirer/confirm": "^1.0.4",
+        "@inquirer/core": "^1.1.0",
+        "@inquirer/editor": "^1.0.4",
+        "@inquirer/expand": "^1.0.4",
+        "@inquirer/input": "^1.0.4",
+        "@inquirer/password": "^1.0.4",
+        "@inquirer/rawlist": "^1.0.4",
+        "@inquirer/select": "^1.1.0"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "09f738e0ab2b52c0b33a3973f37d5256bca9a6ab",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@1.1.0",
+      "_nodeVersion": "16.17.1",
+      "_npmVersion": "lerna/6.6.1/node@v16.17.1+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-ykmWoAzNUCr+cIlG+Ab4TeHIfmAJ51hH3sLLOTziduLZoyaOhc4a9XaHxnGCWLZYzDAZV3CJxZ+RkD8Li2D6Dw==",
+        "shasum": "b4fda977a86d601885b9466ab09c35586018cd7e",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-1.1.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 13717,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFWQQUuo+zYKoTqCeDoeGwSx2F2g/Z9Wyxs6zBqHYKt1AiBqvi/N4XdfQthvOY5JMQP4cvqWNyIZ24nApcABTdJcFA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_1.1.0_1684000978343_0.8128982801944347"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.1.2": {
+      "name": "@inquirer/prompts",
+      "version": "1.1.2",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.mts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.esm.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && yarn run fix-ext",
+        "fix-ext": "node --no-warnings=ExperimentalWarning --loader=ts-node/esm ../../tools/rename-ext.mts"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.mts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.2.2",
+        "@inquirer/confirm": "^1.0.6",
+        "@inquirer/core": "^1.1.2",
+        "@inquirer/editor": "^1.0.6",
+        "@inquirer/expand": "^1.0.6",
+        "@inquirer/input": "^1.0.6",
+        "@inquirer/password": "^1.0.6",
+        "@inquirer/rawlist": "^1.0.6",
+        "@inquirer/select": "^1.1.2"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "fbeb06c92f1e64a88bb77028c7a038768c4291b2",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@1.1.2",
+      "_nodeVersion": "16.17.1",
+      "_npmVersion": "lerna/6.6.1/node@v16.17.1+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-PGW3g4wlOJx0OpXTjwOs/n4j/p+XOUn9GTMMLYdC26i/W+Jrw0P9HaYI8iEXr1OmImNZcRD6QQUIq8aW/5mgFw==",
+        "shasum": "3fb72a92a5028bb670b86b0d506bf5ad5b5541d6",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-1.1.2.tgz",
+        "fileCount": 7,
+        "unpackedSize": 13717,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCTuGiaWOUpTC8iEgaO3CP56hYWidyC/p6XUhak3WqyvQIhAM45bPFsrEUbmhDANrhtv39er20rxg/LHfyXHAUVkW7l"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_1.1.2_1684001354271_0.6804065552783818"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.1.3": {
+      "name": "@inquirer/prompts",
+      "version": "1.1.3",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.mts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.esm.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && yarn run fix-ext",
+        "fix-ext": "node --no-warnings=ExperimentalWarning --loader=ts-node/esm ../../tools/rename-ext.mts"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.mts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.2.3",
+        "@inquirer/confirm": "^1.0.7",
+        "@inquirer/core": "^1.1.3",
+        "@inquirer/editor": "^1.0.7",
+        "@inquirer/expand": "^1.0.7",
+        "@inquirer/input": "^1.0.7",
+        "@inquirer/password": "^1.0.7",
+        "@inquirer/rawlist": "^1.0.7",
+        "@inquirer/select": "^1.1.3"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "fdfa190cb12f2e28299878f433b0a9a15befc535",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@1.1.3",
+      "_nodeVersion": "16.17.1",
+      "_npmVersion": "lerna/6.6.2/node@v16.17.1+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-bw0Zlh7aMQidfdx8NshRkc4f8bArEHOYdtaI5D1hKr7zvUhwM16Ae7w2BsfxZlc4Otbb9xJaZTfn+VBevnpm5w==",
+        "shasum": "7b42c082328615fe4bc17f02e5ac78e74a1d8c42",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-1.1.3.tgz",
+        "fileCount": 8,
+        "unpackedSize": 15062,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDvzsS4zTiUMup0IHMkOzhpFt51j7aC+vCw9NQyjAxNFgIhAONB4u2xWRGRD3+1PbSsi7q12xZZxeNRhbYlluvbPPXy"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_1.1.3_1684017424421_0.4124860779735331"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.1.4": {
+      "name": "@inquirer/prompts",
+      "version": "1.1.4",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.mts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.esm.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && yarn run fix-ext",
+        "fix-ext": "node --no-warnings=ExperimentalWarning --loader=ts-node/esm ../../tools/rename-ext.mts"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.mts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.2.4",
+        "@inquirer/confirm": "^1.0.7",
+        "@inquirer/core": "^1.1.3",
+        "@inquirer/editor": "^1.0.7",
+        "@inquirer/expand": "^1.0.7",
+        "@inquirer/input": "^1.0.7",
+        "@inquirer/password": "^1.0.7",
+        "@inquirer/rawlist": "^1.0.7",
+        "@inquirer/select": "^1.1.3"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "85a7a51a472ba605a916704a4ced793ecbd4d3c6",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@1.1.4",
+      "_nodeVersion": "16.17.1",
+      "_npmVersion": "lerna/6.6.2/node@v16.17.1+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-T2+MuB25Fkf8JkIbKCjc6MAiv5hv+Z1L16Pcv3Aq+xkzCbnayWuSkZ499ffMdPeI/zvkWjtWov0NAEcrBYaA5w==",
+        "shasum": "290f846a88a6b82a4860c7394adfdc89b447888f",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-1.1.4.tgz",
+        "fileCount": 8,
+        "unpackedSize": 15062,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCQgaci6ClKj3/edpFuaSmn5J8n7CcjnEZ1rFF5WQxhAwIgISZpdvu2yZ66cryrlNT2S7LPjKPkY46/3VeJ1JYHapw="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_1.1.4_1684357812767_0.006010824488540623"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.2.0": {
+      "name": "@inquirer/prompts",
+      "version": "1.2.0",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.mts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.esm.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && yarn run fix-ext",
+        "fix-ext": "node --no-warnings=ExperimentalWarning --loader=ts-node/esm ../../tools/rename-ext.mts"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.mts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.2.5",
+        "@inquirer/confirm": "^1.0.8",
+        "@inquirer/core": "^1.2.0",
+        "@inquirer/editor": "^1.0.8",
+        "@inquirer/expand": "^1.0.8",
+        "@inquirer/input": "^1.0.8",
+        "@inquirer/password": "^1.0.8",
+        "@inquirer/rawlist": "^1.1.0",
+        "@inquirer/select": "^1.1.4"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "f3a176d916fe26038c9fb57f1ab485aa79c053ce",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@1.2.0",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "lerna/6.6.2/node@v18.16.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-+rxPyzUbs1fzyKe7J+AyBkMB4LZ32t2m49SExRCvlCue5PfTUZArR8BRHzphiHVOBL8ohIyLugjgHQJ/U6Vp+g==",
+        "shasum": "703e2b93220caa99f5c6dabffd1ce34e73713281",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-1.2.0.tgz",
+        "fileCount": 8,
+        "unpackedSize": 15062,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCxMDKlaL9sENwxX5O69jd4danHcZnQehn2ICGyU+ki6wIhAMsLzdpkB/tMbmf+iPv7O630exNZH4udX9lrkLwg3itB"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_1.2.0_1684511234489_0.44201530707566605"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.2.1": {
+      "name": "@inquirer/prompts",
+      "version": "1.2.1",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.mts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.esm.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && yarn run fix-ext",
+        "fix-ext": "node --no-warnings=ExperimentalWarning --loader=ts-node/esm ../../tools/rename-ext.mts"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.mts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.2.6",
+        "@inquirer/confirm": "^1.0.9",
+        "@inquirer/core": "^1.2.1",
+        "@inquirer/editor": "^1.0.9",
+        "@inquirer/expand": "^1.0.9",
+        "@inquirer/input": "^1.1.0",
+        "@inquirer/password": "^1.0.9",
+        "@inquirer/rawlist": "^1.1.1",
+        "@inquirer/select": "^1.1.5"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "441c3e3e10ed7dc3dbadbf367dfb0eba4ae09854",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@1.2.1",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "lerna/6.6.2/node@v18.16.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-KCtGbjypdUYbOZyzNLej9oT1hDsEz47rnBaBjCMtX0I+P5EQZv9s7IR/3JLJuQrdCaV2FJo+HoOSIPh73uBBCA==",
+        "shasum": "969913dc512138b391ce9c801c69afd396032e9f",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-1.2.1.tgz",
+        "fileCount": 8,
+        "unpackedSize": 15062,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAwWh8FVsfT4o0GPOPmCIPGrI8BUOu/B+O5VRIbCtdLqAiACQOAyEPtjBKAURyVJ80eysEgvemN0I8CQlqx8XpBUdQ=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_1.2.1_1684596274378_0.581360613639037"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.2.2": {
+      "name": "@inquirer/prompts",
+      "version": "1.2.2",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.cts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.esm.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && yarn run fix-ext",
+        "fix-ext": "node --no-warnings=ExperimentalWarning --loader=ts-node/esm ../../tools/rename-ext.mts"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.cts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.2.7",
+        "@inquirer/confirm": "^1.0.10",
+        "@inquirer/core": "^1.2.2",
+        "@inquirer/editor": "^1.0.10",
+        "@inquirer/expand": "^1.0.10",
+        "@inquirer/input": "^1.1.1",
+        "@inquirer/password": "^1.0.10",
+        "@inquirer/rawlist": "^1.1.2",
+        "@inquirer/select": "^1.1.6"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "4ade5f25d271c6f814efc7a21bdeb1a4d1ee6cf8",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@1.2.2",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "lerna/6.6.2/node@v18.16.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-gLUaFpWTkrIRe32qzAc5EArfTJuw/Bb23WysHKWTKvXmgX1+yedCGPMkz63i5v5JTVhHzCSmEzd8xdLR3A3Ncw==",
+        "shasum": "1ebd18a37c558ee4ee2a9364627ee8822432a578",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-1.2.2.tgz",
+        "fileCount": 8,
+        "unpackedSize": 15066,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEg0iXK73YSublvgT9/Jck/KkbggjOcslwc7SG2RYR+fAiEA/w+qPA9aGebvNVswz1dY1GNxGrEjClxl44E5hQKr0qo="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_1.2.2_1684599064708_0.06795892852241892"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.2.3": {
+      "name": "@inquirer/prompts",
+      "version": "1.2.3",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.cts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && yarn run fix-ext",
+        "fix-ext": "node --no-warnings=ExperimentalWarning --loader=ts-node/esm ../../tools/fix-ext.mts"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.cts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.2.8",
+        "@inquirer/confirm": "^1.0.11",
+        "@inquirer/core": "^1.3.0",
+        "@inquirer/editor": "^1.0.11",
+        "@inquirer/expand": "^1.0.11",
+        "@inquirer/input": "^1.1.2",
+        "@inquirer/password": "^1.0.11",
+        "@inquirer/rawlist": "^1.1.3",
+        "@inquirer/select": "^1.1.7"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "235c18f13650735b201a8853b28eda001f953d0f",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@1.2.3",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "lerna/6.6.2/node@v18.16.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-vcPUWXA/boMJc5IDVx/9+ihf1FupsBK1RThnEXnLTpF6hR1iJCoaBoSpREZRdDp/XcPHe/b+QovehBYJoWsUhg==",
+        "shasum": "b90e20e5b278db291cb952845585546311d42a7c",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-1.2.3.tgz",
+        "fileCount": 8,
+        "unpackedSize": 15059,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDhs1p4nHaB5gIsCrngq9y7JKQ3HSuikZCG6vBDcQ1DXAIgJFwAuReFxhMsfACG/eyQ0wD6dQ0sRPcRyRYsZ+EViFI="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_1.2.3_1684717638594_0.20713603206599362"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0": {
+      "name": "@inquirer/prompts",
+      "version": "2.0.0",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.cts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && yarn run fix-ext",
+        "fix-ext": "node --no-warnings=ExperimentalWarning --loader=ts-node/esm ../../tools/fix-ext.mts"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.cts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.3.0",
+        "@inquirer/confirm": "^2.0.0",
+        "@inquirer/core": "^2.0.0",
+        "@inquirer/editor": "^1.1.0",
+        "@inquirer/expand": "^1.1.0",
+        "@inquirer/input": "^1.2.0",
+        "@inquirer/password": "^1.1.0",
+        "@inquirer/rawlist": "^1.2.0",
+        "@inquirer/select": "^1.2.0"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "86531864067faf1d6e76f1581c9aa72cb1b03753",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@2.0.0",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "lerna/6.6.2/node@v18.16.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-JOIwTyS68bKDk5Ae6K4QfzVsLG5dmiauhKPUAa3d5j1mA8NMndOiatLagLb2pXVYi7YhfJRG4KebAJVzA/37/g==",
+        "shasum": "eb9efa77f1b538745fdbd7bbc566e037d1c3fc24",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-2.0.0.tgz",
+        "fileCount": 8,
+        "unpackedSize": 16836,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIE38dwYMXxqhLwI4wmiTWWC9bjBV7av58sjuv5NGyjUZAiEA/xAxq1xkXk21wXJVu9CnXbsJkyzJcH7buoXjMIeKeh8="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_2.0.0_1685825770781_0.7835177221514094"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.0": {
+      "name": "@inquirer/prompts",
+      "version": "2.1.0",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.cts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && yarn run fix-ext",
+        "fix-ext": "node --no-warnings=ExperimentalWarning --loader=ts-node/esm ../../tools/fix-ext.mts"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.cts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.3.1",
+        "@inquirer/confirm": "^2.0.1",
+        "@inquirer/core": "^2.1.0",
+        "@inquirer/editor": "^1.2.0",
+        "@inquirer/expand": "^1.1.1",
+        "@inquirer/input": "^1.2.1",
+        "@inquirer/password": "^1.1.1",
+        "@inquirer/rawlist": "^1.2.1",
+        "@inquirer/select": "^1.2.1"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "d48ecde923e5875de631f7b50f67cfaf00384947",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@2.1.0",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "lerna/6.6.2/node@v18.16.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-YpfNrTjItyB9CYJUdIBp+9hRUu0e5JR//qC55gRrKjpGZP7CwrMvFJiS1LMZNG5vzd61CDxpOvNmkHcmMe6QmA==",
+        "shasum": "0e274d8a3f824eb83417e11f47318f600b70c215",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-2.1.0.tgz",
+        "fileCount": 8,
+        "unpackedSize": 17504,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDyEV13YJ6U+1IlvmqjJZT0PJ2R62Ofc+3JcpKdcsLd1gIgDZ1gtvSsppF/USo/maj3gFGfgduniWuw4RU5hyu8C5g="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_2.1.0_1685907211495_0.8411621840864376"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.1": {
+      "name": "@inquirer/prompts",
+      "version": "2.1.1",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.cts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && yarn run fix-ext",
+        "fix-ext": "node --no-warnings=ExperimentalWarning --loader=ts-node/esm ../../tools/fix-ext.mts"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.cts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.3.1",
+        "@inquirer/confirm": "^2.0.2",
+        "@inquirer/core": "^2.1.0",
+        "@inquirer/editor": "^1.2.0",
+        "@inquirer/expand": "^1.1.1",
+        "@inquirer/input": "^1.2.1",
+        "@inquirer/password": "^1.1.1",
+        "@inquirer/rawlist": "^1.2.1",
+        "@inquirer/select": "^1.2.1"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "a23c4cedbcb8f990a443d6b4c38d75a3aa8c9a99",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@2.1.1",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "lerna/6.6.2/node@v18.16.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-DTtdrf3JoXQpfD5vAhW9isUE7lgcOBN5ikkxTqhkXZY41CnrFt7I2DTOmUUUbkh5shrcwq7zzAmVesoW2KM5EA==",
+        "shasum": "27a2701247edda8f3d334780fd14d1371e0f5d0c",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-2.1.1.tgz",
+        "fileCount": 8,
+        "unpackedSize": 17504,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIA1ExJC87T1yfGMVM4eVG35aoj8dCkPBRe75hOJxOU85AiEA9Ndrm6I58UuYMeF65wTnVIzu0ykXeV3/o17en4yGjfA="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_2.1.1_1686180226453_0.8764499982248171"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.2.0": {
+      "name": "@inquirer/prompts",
+      "version": "2.2.0",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.cts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && yarn run fix-ext",
+        "fix-ext": "node --no-warnings=ExperimentalWarning --loader=ts-node/esm ../../tools/fix-ext.mts"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.cts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.3.2",
+        "@inquirer/confirm": "^2.0.3",
+        "@inquirer/core": "^2.2.0",
+        "@inquirer/editor": "^1.2.1",
+        "@inquirer/expand": "^1.1.2",
+        "@inquirer/input": "^1.2.2",
+        "@inquirer/password": "^1.1.2",
+        "@inquirer/rawlist": "^1.2.2",
+        "@inquirer/select": "^1.2.2"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "ba98109480c442d261f243e4117243a9e2f12fd0",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@2.2.0",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "lerna/7.0.2/node@v18.16.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-lMknC3XVRoyt63N/i82z/Xp+geKZYvFaDZ2toRYM4JHEqCjcGr5bo3uuLBydR+sr0i5P5ULgw3W5FksHo7JjcA==",
+        "shasum": "2f6237c3f19aa63bbb198f621d45602b7d1b4a4b",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-2.2.0.tgz",
+        "fileCount": 8,
+        "unpackedSize": 17504,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAE4I14NGrjDU5cuXsp4wkerIDcxMNJefurSBn+IyHAAAiEAumNiyUKkGUoQ2PcramVgcFbR5VEr+ey0ztwSdyw5kMo="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_2.2.0_1687545811091_0.5403045359873269"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.3.0": {
+      "name": "@inquirer/prompts",
+      "version": "2.3.0",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.cts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && yarn run fix-ext",
+        "fix-ext": "node --no-warnings=ExperimentalWarning --loader=ts-node/esm ../../tools/fix-ext.mts"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.cts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.3.3",
+        "@inquirer/confirm": "^2.0.4",
+        "@inquirer/core": "^2.3.0",
+        "@inquirer/editor": "^1.2.2",
+        "@inquirer/expand": "^1.1.3",
+        "@inquirer/input": "^1.2.3",
+        "@inquirer/password": "^1.1.3",
+        "@inquirer/rawlist": "^1.2.3",
+        "@inquirer/select": "^1.2.3"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "4c139f50414bd538eae1d48e61fd2586581d3e70",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@2.3.0",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "lerna/7.1.1/node@v18.16.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-x79tSDIZAibOl9WaBoOuyaQqNnisOO8Pk0qWyulP/nPaD/WkoRvkzk7hR4WTRmWAyE8CNbjdYgGltvd0qmvCGQ==",
+        "shasum": "b3f13d58c9c4d88b84af62ab582363fa410db8d6",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-2.3.0.tgz",
+        "fileCount": 8,
+        "unpackedSize": 17504,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEyxuO5+zrJMb5eJisKsweeodhXqgfSJztI0xseZ4j+SAiEA0jPanCwvbFgtbvd/ojd0cQ8oCgJ0ge/bRI8I3xuUm50="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_2.3.0_1688320215483_0.4615483955356199"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.3.1": {
+      "name": "@inquirer/prompts",
+      "version": "2.3.1",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && yarn run fix-ext",
+        "fix-ext": "node --no-warnings=ExperimentalWarning --loader=ts-node/esm ../../tools/fix-ext.mts"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.ts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.3.4",
+        "@inquirer/confirm": "^2.0.5",
+        "@inquirer/core": "^2.3.1",
+        "@inquirer/editor": "^1.2.3",
+        "@inquirer/expand": "^1.1.4",
+        "@inquirer/input": "^1.2.4",
+        "@inquirer/password": "^1.1.4",
+        "@inquirer/rawlist": "^1.2.4",
+        "@inquirer/select": "^1.2.4"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "b1b29c0b6da9420d739cd46704c205515de2db04",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@2.3.1",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "lerna/7.1.3/node@v18.16.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-YQeBFzIE+6fcec5N/U2mSz+IcKEG4wtGDwF7MBLIDgITWzB3o723JpKJ1rxWqdCvTXkYE+gDXK/seSN6omo3DQ==",
+        "shasum": "fe430f96e510cf352efeb77af2dbd6d3049e677c",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-2.3.1.tgz",
+        "fileCount": 8,
+        "unpackedSize": 17503,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDCH9pINBx9RBVp/l8Fys2/voiH3uuJSOMR9vSsnSQ0qwIhAIz+38WM4vOjyvNAHXHZOlSy4OyjiY48PN3PXhYEnN0a"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_2.3.1_1689263690536_0.481626858363313"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.0.0": {
+      "name": "@inquirer/prompts",
+      "version": "3.0.0",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && yarn run fix-ext",
+        "fix-ext": "node --no-warnings=ExperimentalWarning --loader=ts-node/esm ../../tools/fix-ext.mts"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.ts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.3.5",
+        "@inquirer/confirm": "^2.0.6",
+        "@inquirer/core": "^3.0.0",
+        "@inquirer/editor": "^1.2.4",
+        "@inquirer/expand": "^1.1.5",
+        "@inquirer/input": "^1.2.5",
+        "@inquirer/password": "^1.1.5",
+        "@inquirer/rawlist": "^1.2.5",
+        "@inquirer/select": "^1.2.5"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "18144628b03b62c346cb7d9d55a2c526b1ed5d8a",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@3.0.0",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "lerna/7.1.3/node@v18.16.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-kcuaBXg6Fx/a/3cjjKIda1XjipSY2ROwGmm7cbF+Q0pYA+ooMdoVk41HqALxrH61BNyu98uozCUqqInoVQGkrg==",
+        "shasum": "52f271697efaa41cf4b1d8f9469ab1279192b1bc",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-3.0.0.tgz",
+        "fileCount": 8,
+        "unpackedSize": 17503,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIArxxdrBvEJPPwaaAGemv+vVotHtkwB6jqOeG5OoDPO+AiB34Xez2dYMs7FjaIc8OcnVi2n4GjaDyFCaqllp/hl+Bw=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_3.0.0_1689364150840_0.7459329891998503"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.0.1": {
+      "name": "@inquirer/prompts",
+      "version": "3.0.1",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && yarn run fix-ext",
+        "fix-ext": "node --no-warnings=ExperimentalWarning --loader=ts-node/esm ../../tools/fix-ext.mts"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.ts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.3.6",
+        "@inquirer/confirm": "^2.0.7",
+        "@inquirer/core": "^3.1.0",
+        "@inquirer/editor": "^1.2.5",
+        "@inquirer/expand": "^1.1.6",
+        "@inquirer/input": "^1.2.6",
+        "@inquirer/password": "^1.1.6",
+        "@inquirer/rawlist": "^1.2.6",
+        "@inquirer/select": "^1.2.6"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "ab9dd2f301e02d2cc0fec699ce100b174f2b798e",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@3.0.1",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "lerna/7.1.4/node@v18.16.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-TQgQHGk4ptJi4nfJCuzzuiqEMNjJU7JdI1QR9y5Mzkhlu1G8viyJD1scXCa8aJM2uCQnZXphJ0/HPsezATOfbA==",
+        "shasum": "8381bad76b54614a3692de5390762359788acbaf",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-3.0.1.tgz",
+        "fileCount": 8,
+        "unpackedSize": 17503,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDJdNS4ORSIlRuM+ZzFl16WSMVnJKCynAnfCNSTfWFnaAiAybkCUEZLanJMBnXKQHLOb0ToIc3Z0zEQ1P8Cu13zfew=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_3.0.1_1690582089580_0.4072819653761306"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.0.2": {
+      "name": "@inquirer/prompts",
+      "version": "3.0.2",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && yarn run fix-ext",
+        "fix-ext": "node --no-warnings=ExperimentalWarning --loader=ts-node/esm ../../tools/fix-ext.mts"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.ts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.3.7",
+        "@inquirer/confirm": "^2.0.8",
+        "@inquirer/core": "^3.1.1",
+        "@inquirer/editor": "^1.2.6",
+        "@inquirer/expand": "^1.1.7",
+        "@inquirer/input": "^1.2.7",
+        "@inquirer/password": "^1.1.7",
+        "@inquirer/rawlist": "^1.2.7",
+        "@inquirer/select": "^1.2.7"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "dd31d57ed3b1d0771e24cc34bc72e5bedb63a1d7",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@3.0.2",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "lerna/7.1.4/node@v18.16.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-j88fPraBiiHv2neKBcIeZlB/R8RtL2n+MukCnaiAgUdqMxm3DHFDidvWFD3wq/rS7wkDbh22BDRxVVdP4pdNAQ==",
+        "shasum": "22ee5bcb3ead4e43e531266a5477eba8b4d491d4",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-3.0.2.tgz",
+        "fileCount": 8,
+        "unpackedSize": 17503,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDmhKR0UUyHzGKGrZE+sTt+2CRdTtCv6HPqbOjb93QUiAIhAI9d3zlWns9BiJh0yIEbZYgWYdujmeqxAeLtG9xIqHMF"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_3.0.2_1691262026050_0.6807960777113855"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.0.3": {
+      "name": "@inquirer/prompts",
+      "version": "3.0.3",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && node ../../tools/fix-ext.mjs"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.ts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.3.8",
+        "@inquirer/confirm": "^2.0.9",
+        "@inquirer/core": "^3.1.2",
+        "@inquirer/editor": "^1.2.7",
+        "@inquirer/expand": "^1.1.8",
+        "@inquirer/input": "^1.2.8",
+        "@inquirer/password": "^1.1.8",
+        "@inquirer/rawlist": "^1.2.8",
+        "@inquirer/select": "^1.2.8"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "2b29f261c4c7d85a00c1a2305d97ee10e3c15b68",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@3.0.3",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "lerna/7.1.4/node@v18.16.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-HP7CCBAIFjGf/xV/ErsIyB2cCVohHctyvlNvf99QQCVP9hba8HfeRn42m1QbW0D+tbVgLGC5DTtHcXhrPcHCDA==",
+        "shasum": "e3b323fe122b0fc9b02322de463f3b43714b71f4",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-3.0.3.tgz",
+        "fileCount": 8,
+        "unpackedSize": 17413,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCSNrsvBDIHq/X6g4sif70ZagDDw9EtGFUd1P6sGAO0CAIgXDwzljvdUrH6+zFxqPIj2qz3qsgt86MWVfcpNWgWEQQ="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_3.0.3_1692307046525_0.16773205333669794"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.0.4": {
+      "name": "@inquirer/prompts",
+      "version": "3.0.4",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run clean && yarn run tsc:esm && yarn run tsc:cjs",
+        "clean": "rm -rf dist",
+        "tsc:esm": "tsc -p ./tsconfig.json",
+        "tsc:cjs": "tsc -p ./tsconfig.cjs.json && node ../../tools/fix-ext.mjs"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.ts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.3.9",
+        "@inquirer/confirm": "^2.0.10",
+        "@inquirer/core": "^4.0.0",
+        "@inquirer/editor": "^1.2.8",
+        "@inquirer/expand": "^1.1.9",
+        "@inquirer/input": "^1.2.9",
+        "@inquirer/password": "^1.1.9",
+        "@inquirer/rawlist": "^1.2.9",
+        "@inquirer/select": "^1.2.9"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "ea5baff21fb29ed3c0931ea4030cc1dd1e92fc8d",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@3.0.4",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "lerna/7.1.5/node@v18.16.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-xSBQjaj0zKGb+o6MiTd/Igl609JOwFf/DyU0vyiFiFR7u65n8JgCFVWLSeOWEFUP8L+AOGxZolhvuJ8KgCxIrg==",
+        "shasum": "8e6f071fe2d9a8b5fe5a2c573add90758c443618",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-3.0.4.tgz",
+        "fileCount": 8,
+        "unpackedSize": 17414,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIG1XuhaqBBG094dE3E4dcyjs3OQAdd2uaIpEFgoj+YoGAiEAnVPyT/IWtPYaVNDKDyFQe6QCMA1qXOuWMPf88IkogKw="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_3.0.4_1693158393405_0.873842495012007"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.1.0": {
+      "name": "@inquirer/prompts",
+      "version": "3.1.0",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run tsc:esm && yarn run tsc:cjs",
+        "tsc:esm": "rm -rf dist/esm && tsc -p ./tsconfig.json",
+        "tsc:cjs": "rm -rf dist/cjs && tsc -p ./tsconfig.cjs.json && node ../../tools/fix-ext.mjs"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.ts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.3.10",
+        "@inquirer/confirm": "^2.0.11",
+        "@inquirer/core": "^4.1.0",
+        "@inquirer/editor": "^1.2.9",
+        "@inquirer/expand": "^1.1.10",
+        "@inquirer/input": "^1.2.10",
+        "@inquirer/password": "^1.1.10",
+        "@inquirer/rawlist": "^1.2.10",
+        "@inquirer/select": "^1.2.10"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "f5c544a8ded1c7dfb6ac8364759955e8f2ecfb0c",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@3.1.0",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "lerna/7.2.0/node@v18.16.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-aSdd6A5WpRxo11YDIHfmja8iaF/DfLtDfnXiCCHFN63PhMS4XuUKt5Jb4Vo+JsRo9/SOQ6J33vMDCItKrHEnMw==",
+        "shasum": "ff24c147c0cf5fbc41cc87c61f4e7356a27242cd",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-3.1.0.tgz",
+        "fileCount": 8,
+        "unpackedSize": 16862,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCUQaG/inRMfshMKj2RNXQFyyz0JjIvO5cVsTa6pz2rMwIhAMjnvA1JyYrDXobDQjT2v/G9lU21WLhIJqa2DY2uOydW"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_3.1.0_1694294852270_0.2335472291471632"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.1.1": {
+      "name": "@inquirer/prompts",
+      "version": "3.1.1",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run tsc:esm && yarn run tsc:cjs",
+        "tsc:esm": "rm -rf dist/esm && tsc -p ./tsconfig.json",
+        "tsc:cjs": "rm -rf dist/cjs && tsc -p ./tsconfig.cjs.json && node ../../tools/fix-ext.mjs"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.ts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.3.11",
+        "@inquirer/confirm": "^2.0.12",
+        "@inquirer/core": "^5.0.0",
+        "@inquirer/editor": "^1.2.10",
+        "@inquirer/expand": "^1.1.11",
+        "@inquirer/input": "^1.2.11",
+        "@inquirer/password": "^1.1.11",
+        "@inquirer/rawlist": "^1.2.11",
+        "@inquirer/select": "^1.2.11"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "c2d1c5fdfd1029f78351fb04e06f1cfb29d55bb6",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@3.1.1",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "lerna/7.2.0/node@v18.16.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-7m/7Q4eupJYmn0GxM1H1dcekE4F4YlIB6bSKZs2SVeShARYUVPiAKFZ9c15UzYnBtdjCv4zXI17jbNtCNqmxGQ==",
+        "shasum": "44cf520bd0bfa00a0292b3c54096fd396575e8f9",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-3.1.1.tgz",
+        "fileCount": 8,
+        "unpackedSize": 17413,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDMmUwePHs1e5axW7Pa/uYfKC+/xStsVZRV9pka8qlbugIhAJTmWhv4+hvaEgVkFKLxeuTKbyyozCxCDLkdhygXPS/k"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_3.1.1_1694363699319_0.6126477343824983"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.1.2": {
+      "name": "@inquirer/prompts",
+      "version": "3.1.2",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run tsc:esm && yarn run tsc:cjs",
+        "tsc:esm": "rm -rf dist/esm && tsc -p ./tsconfig.json",
+        "tsc:cjs": "rm -rf dist/cjs && tsc -p ./tsconfig.cjs.json && node ../../tools/fix-ext.mjs"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.ts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.3.12",
+        "@inquirer/confirm": "^2.0.13",
+        "@inquirer/core": "^5.0.1",
+        "@inquirer/editor": "^1.2.11",
+        "@inquirer/expand": "^1.1.12",
+        "@inquirer/input": "^1.2.12",
+        "@inquirer/password": "^1.1.12",
+        "@inquirer/rawlist": "^1.2.12",
+        "@inquirer/select": "^1.2.12"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "85784061d702778bc9dd48ca08f09ee9976b06ee",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@3.1.2",
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "lerna/7.3.0/node@v18.18.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-bAN7sjKdaen/1iT5Cr0pZvOt/OuS3feO0cZ9PLYblSxZ2vKfU5HkYR3kK4TTIy3IXrxW16/XNFN59TsGWIhjDw==",
+        "shasum": "a7a4bc39dac18160221dd4201394e4b85d7f6578",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-3.1.2.tgz",
+        "fileCount": 8,
+        "unpackedSize": 17413,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBEnp0GDQcvudDwQF+J/oHwtx6cVaFm6kODG1unf/N3+AiEAz2fdCYYW/ZMHiY6oqxlhP0jVsQ5lez7BbAOLwsbwa4w="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_3.1.2_1695680978637_0.37954470093904336"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.2.0": {
+      "name": "@inquirer/prompts",
+      "version": "3.2.0",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run tsc:esm && yarn run tsc:cjs",
+        "tsc:esm": "rm -rf dist/esm && tsc -p ./tsconfig.json",
+        "tsc:cjs": "rm -rf dist/cjs && tsc -p ./tsconfig.cjs.json && node ../../tools/fix-ext.mjs"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.ts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.4.0",
+        "@inquirer/confirm": "^2.0.14",
+        "@inquirer/core": "^5.1.0",
+        "@inquirer/editor": "^1.2.12",
+        "@inquirer/expand": "^1.1.13",
+        "@inquirer/input": "^1.2.13",
+        "@inquirer/password": "^1.1.13",
+        "@inquirer/rawlist": "^1.2.13",
+        "@inquirer/select": "^1.3.0"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "c88aaca660e58aa0fb079fe656c1004855e029da",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@3.2.0",
+      "_nodeVersion": "20.8.0",
+      "_npmVersion": "lerna/7.3.0/node@v20.8.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-sfT7eDoveChXr8iIfwUYkoVBjUcKqXluhjM0EVhRhN59ZuJCc5DAdnuKwaFXomwESDoN0f+2zHy+MpxUg+EZuQ==",
+        "shasum": "8f4feaa81560d22e77b55c676e9296a108daf5b1",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-3.2.0.tgz",
+        "fileCount": 8,
+        "unpackedSize": 17411,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGNthUUdPoDVPtaVGH6IblZIySviXrPgORAkw4X0cdGrAiA3B7cautuBBni8Ev7MIZHy7vapqNA0TKGv/fxbrvkQZg=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_3.2.0_1696365359840_0.9823311339663727"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.3.0": {
+      "name": "@inquirer/prompts",
+      "version": "3.3.0",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run tsc:esm && yarn run tsc:cjs",
+        "tsc:esm": "rm -rf dist/esm && tsc -p ./tsconfig.json",
+        "tsc:cjs": "rm -rf dist/cjs && tsc -p ./tsconfig.cjs.json && node ../../tools/fix-ext.mjs"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.ts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.5.0",
+        "@inquirer/confirm": "^2.0.15",
+        "@inquirer/core": "^5.1.1",
+        "@inquirer/editor": "^1.2.13",
+        "@inquirer/expand": "^1.1.14",
+        "@inquirer/input": "^1.2.14",
+        "@inquirer/password": "^1.1.14",
+        "@inquirer/rawlist": "^1.2.14",
+        "@inquirer/select": "^1.3.1"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "a318aec57d33b53131c0b03cc8dd6ab4efae3e50",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@3.3.0",
+      "_nodeVersion": "20.8.0",
+      "_npmVersion": "lerna/7.4.2/node@v20.8.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-BBCqdSnhNs+WziSIo4f/RNDu6HAj4R/Q5nMgJb5MNPFX8sJGCvj9BoALdmR0HTWXyDS7TO8euKj6W6vtqCQG7A==",
+        "shasum": "1324881d207e37b1162f174fb9726b9ecb4c475c",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-3.3.0.tgz",
+        "fileCount": 8,
+        "unpackedSize": 17411,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDdE+aqNrXGm7bMRxtMGWA+tedJXDsTVncnR6y0GSdp6gIgXCHqIC/+WFnlfDDlwwFFmoRnPRiUMHMD2T1bSkbvFw0="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_3.3.0_1699395770611_0.05227929409543264"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.3.1": {
+      "name": "@inquirer/prompts",
+      "version": "3.3.1",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run tsc:esm && yarn run tsc:cjs",
+        "tsc:esm": "rm -rf dist/esm && tsc -p ./tsconfig.json",
+        "tsc:cjs": "rm -rf dist/cjs && tsc -p ./tsconfig.cjs.json && node ../../tools/fix-ext.mjs"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.ts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.5.1",
+        "@inquirer/confirm": "^2.0.16",
+        "@inquirer/core": "^5.1.2",
+        "@inquirer/editor": "^1.2.14",
+        "@inquirer/expand": "^1.1.15",
+        "@inquirer/input": "^1.2.15",
+        "@inquirer/password": "^1.1.15",
+        "@inquirer/rawlist": "^1.2.15",
+        "@inquirer/select": "^1.3.2"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "6c0d1d23e6881a10bc3d718d079a0a09ba382dd5",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@3.3.1",
+      "_nodeVersion": "21.4.0",
+      "_npmVersion": "lerna/8.0.2/node@v21.4.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-EpiSJ/uqsycppFdQN51RanAMNz39cfH+1H3HGs2Cm7AjZY92yHHpAsD1mtwOU5N/Gz76YVlvy9XBxQdYH6+fWQ==",
+        "shasum": "72c82edb317ecdc486e40d829ca852f1da5d74f3",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-3.3.1.tgz",
+        "fileCount": 8,
+        "unpackedSize": 17411,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFDqdPVZ+WUvm1F8qwMONbvFifHCvNwgCmQ2hf74mRJtAiB1QGNL+Us5vJ5uj4strfwgTgZcE5qMq8XrGXvCvG1e5w=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_3.3.1_1706384807937_0.8924960465308098"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.3.2": {
+      "name": "@inquirer/prompts",
+      "version": "3.3.2",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run tsc:esm && yarn run tsc:cjs",
+        "tsc:esm": "rm -rf dist/esm && tsc -p ./tsconfig.json",
+        "tsc:cjs": "rm -rf dist/cjs && tsc -p ./tsconfig.cjs.json && node ../../tools/fix-ext.mjs"
+      },
+      "engines": {
+        "node": ">=14.18.0"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.ts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^1.5.2",
+        "@inquirer/confirm": "^2.0.17",
+        "@inquirer/core": "^6.0.0",
+        "@inquirer/editor": "^1.2.15",
+        "@inquirer/expand": "^1.1.16",
+        "@inquirer/input": "^1.2.16",
+        "@inquirer/password": "^1.1.16",
+        "@inquirer/rawlist": "^1.2.16",
+        "@inquirer/select": "^1.3.3"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "4dee2b11d89a7c8a698c9eeda546ba8092b84f64",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@3.3.2",
+      "_nodeVersion": "21.4.0",
+      "_npmVersion": "lerna/8.0.2/node@v21.4.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-k52mOMRvTUejrqyF1h8Z07chC+sbaoaUYzzr1KrJXyj7yaX7Nrh0a9vktv8TuocRwIJOQMaj5oZEmkspEcJFYQ==",
+        "shasum": "0c3a44bbf7e560439590f2fcb769cd8392b0f555",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-3.3.2.tgz",
+        "fileCount": 8,
+        "unpackedSize": 17411,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDdFFd0Z9rXTPjx4BqPZDY3r37tZLnPOgLFaWk5SxBAhQIhAJK30v1b2w2QkbmJlpMOVWEd5lxtXKdzJM/IvqW3ybFL"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_3.3.2_1706392965564_0.09156956811806971"
+      },
+      "_hasShrinkwrap": false
+    },
+    "4.0.0": {
+      "name": "@inquirer/prompts",
+      "version": "4.0.0",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run tsc:esm && yarn run tsc:cjs",
+        "tsc:esm": "rm -rf dist/esm && tsc -p ./tsconfig.json",
+        "tsc:cjs": "rm -rf dist/cjs && tsc -p ./tsconfig.cjs.json && node ../../tools/fix-ext.mjs"
+      },
+      "engines": {
+        "node": ">=18"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.ts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^2.0.0",
+        "@inquirer/confirm": "^3.0.0",
+        "@inquirer/core": "^7.0.0",
+        "@inquirer/editor": "^2.0.0",
+        "@inquirer/expand": "^2.0.0",
+        "@inquirer/input": "^2.0.0",
+        "@inquirer/password": "^2.0.0",
+        "@inquirer/rawlist": "^2.0.0",
+        "@inquirer/select": "^2.0.0"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "44016a40bc9e93455dfdb9fa6c25c27c1c109bd3",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@4.0.0",
+      "_nodeVersion": "21.4.0",
+      "_npmVersion": "lerna/8.0.2/node@v21.4.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-IS4FMj4k+3gxlvKCL1ibSEc3mMnpZ4eFeKlv0ZOo0AMWFxLSvCUT3xOw72N+UTeARK7cbwXxpt7KHcZ5q/RV0Q==",
+        "shasum": "0d964c1e82b4feb2289084172fe6980f4b8ea798",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-4.0.0.tgz",
+        "fileCount": 8,
+        "unpackedSize": 17601,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDtHNVHLZ90QiD47DbCdNzdAGBxbyIK18ujyPA0YTqtlAIgM9fJ2yyixati85pPQ41QJ2V5LXMlsm50jPp3MCNW1FM="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_4.0.0_1707072094754_0.10621123767003215"
+      },
+      "_hasShrinkwrap": false
+    },
+    "4.1.0": {
+      "name": "@inquirer/prompts",
+      "version": "4.1.0",
+      "description": "Inquirer prompts, combined in a single package",
+      "main": "./dist/cjs/index.js",
+      "typings": "./dist/cjs/types/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+      },
+      "keywords": [
+        "answer",
+        "answers",
+        "ask",
+        "base",
+        "cli",
+        "command",
+        "command-line",
+        "confirm",
+        "enquirer",
+        "generate",
+        "generator",
+        "hyper",
+        "input",
+        "inquire",
+        "inquirer",
+        "interface",
+        "iterm",
+        "javascript",
+        "menu",
+        "node",
+        "nodejs",
+        "prompt",
+        "promptly",
+        "prompts",
+        "question",
+        "readline",
+        "scaffold",
+        "scaffolder",
+        "scaffolding",
+        "stdin",
+        "stdout",
+        "terminal",
+        "tty",
+        "ui",
+        "yeoman",
+        "yo",
+        "zsh",
+        "types",
+        "typescript"
+      ],
+      "author": {
+        "name": "Simon Boudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "tsc": "yarn run tsc:esm && yarn run tsc:cjs",
+        "tsc:esm": "rm -rf dist/esm && tsc -p ./tsconfig.json",
+        "tsc:cjs": "rm -rf dist/cjs && tsc -p ./tsconfig.cjs.json && node ../../tools/fix-ext.mjs"
+      },
+      "engines": {
+        "node": ">=18"
+      },
+      "exports": {
+        ".": {
+          "import": {
+            "types": "./dist/esm/types/index.d.mts",
+            "default": "./dist/esm/index.mjs"
+          },
+          "require": {
+            "types": "./dist/cjs/types/index.d.ts",
+            "default": "./dist/cjs/index.js"
+          }
+        }
+      },
+      "dependencies": {
+        "@inquirer/checkbox": "^2.1.0",
+        "@inquirer/confirm": "^3.0.0",
+        "@inquirer/core": "^7.0.0",
+        "@inquirer/editor": "^2.0.0",
+        "@inquirer/expand": "^2.0.0",
+        "@inquirer/input": "^2.0.0",
+        "@inquirer/password": "^2.0.0",
+        "@inquirer/rawlist": "^2.0.0",
+        "@inquirer/select": "^2.0.0"
+      },
+      "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+      "gitHead": "0dfa6bd174d0891c07dcb6a97d04db29b9fc6f34",
+      "bugs": {
+        "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+      },
+      "_id": "@inquirer/prompts@4.1.0",
+      "_nodeVersion": "21.4.0",
+      "_npmVersion": "lerna/8.1.2/node@v21.4.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-HUVJ5yLjDUEq61LQiujs26qqFrKIaZOnpzDRmnYT67bsXUD8gxPmLg+DJq2ENniiDSQyBK33qVQIbeeAdR3ZlQ==",
+        "shasum": "6f832037657017383b9a98e415a9a2fd95b14139",
+        "tarball": "https://registry.npmjs.org/@inquirer/prompts/-/prompts-4.1.0.tgz",
+        "fileCount": 8,
+        "unpackedSize": 17601,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICHR56f+egBrYBbU/cGvc+kDTZq7nMCVjSic78A1fYzqAiBdxo0oaQX512HnXZRuSET0UiwS87WmchDh5lA6sX+2Ag=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "sboudrias",
+        "email": "admin@simonboudrias.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "sboudrias",
+          "email": "admin@simonboudrias.com"
+        },
+        {
+          "name": "danielchatfield",
+          "email": "chatfielddaniel@gmail.com"
+        },
+        {
+          "name": "mischah",
+          "email": "mail@michael-kuehnel.de"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/prompts_4.1.0_1708360207750_0.5139287809483548"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2023-04-24T18:00:38.681Z",
+    "1.0.0": "2023-04-24T18:00:38.889Z",
+    "modified": "2024-02-19T16:30:08.514Z",
+    "1.0.1": "2023-05-04T14:36:30.465Z",
+    "1.0.2": "2023-05-06T19:52:54.884Z",
+    "1.0.3": "2023-05-06T20:18:06.611Z",
+    "1.1.0": "2023-05-13T18:02:58.549Z",
+    "1.1.2": "2023-05-13T18:09:14.458Z",
+    "1.1.3": "2023-05-13T22:37:04.602Z",
+    "1.1.4": "2023-05-17T21:10:12.928Z",
+    "1.2.0": "2023-05-19T15:47:14.670Z",
+    "1.2.1": "2023-05-20T15:24:34.515Z",
+    "1.2.2": "2023-05-20T16:11:04.859Z",
+    "1.2.3": "2023-05-22T01:07:18.769Z",
+    "2.0.0": "2023-06-03T20:56:11.081Z",
+    "2.1.0": "2023-06-04T19:33:31.704Z",
+    "2.1.1": "2023-06-07T23:23:46.631Z",
+    "2.2.0": "2023-06-23T18:43:31.272Z",
+    "2.3.0": "2023-07-02T17:50:15.686Z",
+    "2.3.1": "2023-07-13T15:54:50.788Z",
+    "3.0.0": "2023-07-14T19:49:11.056Z",
+    "3.0.1": "2023-07-28T22:08:09.712Z",
+    "3.0.2": "2023-08-05T19:00:26.248Z",
+    "3.0.3": "2023-08-17T21:17:26.710Z",
+    "3.0.4": "2023-08-27T17:46:33.594Z",
+    "3.1.0": "2023-09-09T21:27:32.493Z",
+    "3.1.1": "2023-09-10T16:34:59.508Z",
+    "3.1.2": "2023-09-25T22:29:38.792Z",
+    "3.2.0": "2023-10-03T20:36:00.058Z",
+    "3.3.0": "2023-11-07T22:22:50.835Z",
+    "3.3.1": "2024-01-27T19:46:48.160Z",
+    "3.3.2": "2024-01-27T22:02:45.713Z",
+    "4.0.0": "2024-02-04T18:41:34.994Z",
+    "4.1.0": "2024-02-19T16:30:08.033Z"
+  },
+  "maintainers": [
+    {
+      "name": "sboudrias",
+      "email": "admin@simonboudrias.com"
+    },
+    {
+      "name": "danielchatfield",
+      "email": "chatfielddaniel@gmail.com"
+    },
+    {
+      "name": "mischah",
+      "email": "mail@michael-kuehnel.de"
+    }
+  ],
+  "description": "Inquirer prompts, combined in a single package",
+  "homepage": "https://github.com/SBoudrias/Inquirer.js/blob/master/packages/prompts/README.md",
+  "keywords": [
+    "answer",
+    "answers",
+    "ask",
+    "base",
+    "cli",
+    "command",
+    "command-line",
+    "confirm",
+    "enquirer",
+    "generate",
+    "generator",
+    "hyper",
+    "input",
+    "inquire",
+    "inquirer",
+    "interface",
+    "iterm",
+    "javascript",
+    "menu",
+    "node",
+    "nodejs",
+    "prompt",
+    "promptly",
+    "prompts",
+    "question",
+    "readline",
+    "scaffold",
+    "scaffolder",
+    "scaffolding",
+    "stdin",
+    "stdout",
+    "terminal",
+    "tty",
+    "ui",
+    "yeoman",
+    "yo",
+    "zsh",
+    "types",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SBoudrias/Inquirer.js.git"
+  },
+  "author": {
+    "name": "Simon Boudrias",
+    "email": "admin@simonboudrias.com"
+  },
+  "bugs": {
+    "url": "https://github.com/SBoudrias/Inquirer.js/issues"
+  },
+  "license": "MIT",
+  "readme": "<img width=\"75px\" height=\"75px\" align=\"right\" alt=\"Inquirer Logo\" src=\"https://raw.githubusercontent.com/SBoudrias/Inquirer.js/master/assets/inquirer_readme.svg?sanitize=true\" title=\"Inquirer.js\"/>\n\n# Inquirer\n\n[![npm](https://badge.fury.io/js/@inquirer%2Fprompts.svg)](https://www.npmjs.com/package/@inquirer/prompts)\n[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FSBoudrias%2FInquirer.js.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FSBoudrias%2FInquirer.js?ref=badge_shield)\n\nA collection of common interactive command line user interfaces.\n\n![List prompt](https://cdn.rawgit.com/SBoudrias/Inquirer.js/28ae8337ba51d93e359ef4f7ee24e79b69898962/assets/screenshots/list.svg)\n\nGive it a try in your own terminal!\n\n```sh\nnpx @inquirer/demo@latest\n```\n\n# Installation\n\n```sh\nnpm install @inquirer/prompts\n\nyarn add @inquirer/prompts\n```\n\nInquirer recently underwent a rewrite from the ground up to reduce the package size and improve performance. The previous version of the package is still maintained (though not actively developed), and offered hundreds of community contributed prompts that might not have been migrated to the latest API. If this is what you're looking for, the [previous package is over here](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/inquirer).\n\n# Usage\n\n```js\nimport { input } from '@inquirer/prompts';\n\nconst answer = await input({ message: 'Enter your name' });\n```\n\n# Prompts\n\n## [Input](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/input)\n\n![Input prompt](https://cdn.rawgit.com/SBoudrias/Inquirer.js/28ae8337ba51d93e359ef4f7ee24e79b69898962/assets/screenshots/input.svg)\n\n```js\nimport { input } from '@inquirer/prompts';\n```\n\n[See documentation](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/input) for usage example and options documentation.\n\n## [Select](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/select)\n\n![Select prompt](https://cdn.rawgit.com/SBoudrias/Inquirer.js/28ae8337ba51d93e359ef4f7ee24e79b69898962/assets/screenshots/list.svg)\n\n```js\nimport { select } from '@inquirer/prompts';\n```\n\n[See documentation](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/select) for usage example and options documentation.\n\n## [Checkbox](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/checkbox)\n\n![Checkbox prompt](https://cdn.rawgit.com/SBoudrias/Inquirer.js/28ae8337ba51d93e359ef4f7ee24e79b69898962/assets/screenshots/checkbox.svg)\n\n```js\nimport { checkbox } from '@inquirer/prompts';\n```\n\n[See documentation](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/checkbox) for usage example and options documentation.\n\n## [Confirm](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/confirm)\n\n![Confirm prompt](https://cdn.rawgit.com/SBoudrias/Inquirer.js/28ae8337ba51d93e359ef4f7ee24e79b69898962/assets/screenshots/confirm.svg)\n\n```js\nimport { confirm } from '@inquirer/prompts';\n```\n\n[See documentation](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/confirm) for usage example and options documentation.\n\n## [Password](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/password)\n\n![Password prompt](https://cdn.rawgit.com/SBoudrias/Inquirer.js/28ae8337ba51d93e359ef4f7ee24e79b69898962/assets/screenshots/password.svg)\n\n```js\nimport { password } from '@inquirer/prompts';\n```\n\n[See documentation](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/password) for usage example and options documentation.\n\n## [Expand](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/expand)\n\n![Expand prompt closed](https://cdn.rawgit.com/SBoudrias/Inquirer.js/28ae8337ba51d93e359ef4f7ee24e79b69898962/assets/screenshots/expand-y.svg)\n![Expand prompt expanded](https://cdn.rawgit.com/SBoudrias/Inquirer.js/28ae8337ba51d93e359ef4f7ee24e79b69898962/assets/screenshots/expand-d.svg)\n\n```js\nimport { expand } from '@inquirer/prompts';\n```\n\n[See documentation](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/expand) for usage example and options documentation.\n\n## [Editor](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/editor)\n\nLaunches an instance of the users preferred editor on a temporary file. Once the user exits their editor, the content of the temporary file is read as the answer. The editor used is determined by reading the $VISUAL or $EDITOR environment variables. If neither of those are present, the OS default is used (notepad on Windows, vim on Mac or Linux.)\n\n```js\nimport { editor } from '@inquirer/prompts';\n```\n\n[See documentation](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/editor) for usage example and options documentation.\n\n## [Raw List](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/rawlist)\n\n![Raw list prompt](https://cdn.rawgit.com/SBoudrias/Inquirer.js/28ae8337ba51d93e359ef4f7ee24e79b69898962/assets/screenshots/rawlist.svg)\n\n```js\nimport { rawlist } from '@inquirer/prompts';\n```\n\n[See documentation](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/rawlist) for usage example and options documentation.\n\n# Create your own prompts\n\nThe [API documentation is over here](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/core), and our [testing utilities here](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/testing).\n\n# Advanced usage\n\nAll inquirer prompts are a function taking 2 arguments. The first argument is the prompt configuration (unique to each prompt). The second is providing contextual or runtime configuration.\n\nThe context options are:\n\n| Property          | Type                    | Required | Description                                                  |\n| ----------------- | ----------------------- | -------- | ------------------------------------------------------------ |\n| input             | `NodeJS.ReadableStream` | no       | The stdin stream (defaults to `process.stdin`)               |\n| output            | `NodeJS.WritableStream` | no       | The stdout stream (defaults to `process.stdout`)             |\n| clearPromptOnDone | `boolean`               | no       | If true, we'll clear the screen after the prompt is answered |\n\nExample:\n\n```js\nimport { confirm } from '@inquirer/prompts';\n\nconst allowEmail = await confirm(\n  { message: 'Do you allow us to send you email?' },\n  {\n    output: new Stream.Writable({\n      write(chunk, _encoding, next) {\n        // Do something\n        next();\n      },\n    }),\n    clearPromptOnDone: true,\n  },\n);\n```\n\n## Canceling prompt\n\nAll prompt functions are returning a cancelable promise. This special promise type has a `cancel` method that'll cancel and cleanup the prompt.\n\nOn calling `cancel`, the answer promise will become rejected.\n\n```js\nimport { confirm } from '@inquirer/prompts';\n\nconst answer = confirm(...); // note: for this you cannot use `await`\n\nanswer.cancel();\n```\n\n# Recipes\n\n## Get answers in an object\n\nWhen asking many questions, you might not want to keep one variable per answer everywhere. In which case, you can put the answer inside an object.\n\n```js\nimport { input, confirm } from '@inquirer/prompts';\n\nconst answers = {\n  firstName: await input({ message: \"What's your first name?\" }),\n  allowEmail: await confirm({ message: 'Do you allow us to send you email?' }),\n};\n\nconsole.log(answers.firstName);\n```\n\n## Ask a question conditionally\n\nMaybe some questions depend on some other question's answer.\n\n```js\nimport { input, confirm } from '@inquirer/prompts';\n\nconst allowEmail = await confirm({ message: 'Do you allow us to send you email?' });\n\nlet email;\nif (allowEmail) {\n  email = await input({ message: 'What is your email address' });\n}\n```\n\n## Get default value after timeout\n\n```js\nimport { setTimeout } from 'node:timers/promises';\nimport { input } from '@inquirer/prompts';\n\nconst answer = input(...);\n\nconst defaultValue = setTimeout(5000).then(() => {\n  answer.cancel();\n  return 'default answer';\n});\n\nconst answer = await Promise.race([defaultValue, answer])\n```\n\n## Using as pre-commit/git hooks, or scripts\n\nBy default scripts ran from tools like `husky`/`lint-staged` might not run inside an interactive shell. In non-interactive shell, Inquirer cannot run, and users cannot send keypress events to the process.\n\nFor it to work, you must make sure you start a `tty` (or \"interactive\" input stream.)\n\nIf those scripts are set within your `package.json`, you can define the stream like so:\n\n```json\n  \"precommit\": \"my-script < /dev/tty\"\n```\n\nOr if in a shell script file, you'll do it like so: (on Windows that's likely your only option)\n\n```sh\n#!/bin/sh\nexec < /dev/tty\n\nnode my-script.js\n```\n\n## Wait for config\n\nMaybe some question configuration require to await a value.\n\n```js\nimport { confirm } from '@inquirer/prompts';\n\nconst answer = await confirm({ message: await getMessage() });\n```\n\n# Community prompts\n\nIf you created a cool prompt, [send us a PR adding it](https://github.com/SBoudrias/Inquirer.js/edit/master/README.md) to the list below!\n\n[**Interactive List Prompt**](https://github.com/pgibler/inquirer-interactive-list-prompt)<br/>\nSelect a choice either with arrow keys + Enter or by pressing a key associated with a choice.\n\n```\n? Choose an option:\n>   Run command (D)\n    Quit (Q)\n```\n\n# License\n\nCopyright (c) 2023 Simon Boudrias (twitter: [@vaxilart](https://twitter.com/Vaxilart))<br/>\nLicensed under the MIT license.\n",
+  "readmeFilename": "README.md"
+}

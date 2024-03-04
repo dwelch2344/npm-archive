@@ -1,0 +1,1827 @@
+{
+  "_id": "ts-mocha",
+  "_rev": "24-45bfbe42a253bf294d467d8fd8f54a1a",
+  "name": "ts-mocha",
+  "description": "Mocha thin wrapper that allows running TypeScript tests with TypeScript runtime (ts-node) to get rid of compilation complexity",
+  "dist-tags": {
+    "latest": "10.0.0",
+    "next": "9.0.0-alpha1"
+  },
+  "versions": {
+    "0.1.1": {
+      "name": "ts-mocha",
+      "version": "0.1.1",
+      "description": "Mocha wrapped in TypeScript for easy use in TypeScript Projects",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/piotrwitek/ts-mocha.git"
+      },
+      "author": {
+        "name": "Piotr Witek",
+        "email": "piotrek.witek@gmail.com",
+        "url": "http://piotrwitek.github.io"
+      },
+      "license": "MIT",
+      "main": "dist/index.js",
+      "typings": "dist/index.d.ts",
+      "bin": {
+        "ts-mocha": "dist/cli.js"
+      },
+      "engines": {
+        "node": ">=6.0.0"
+      },
+      "files": [
+        "dist/",
+        "package.json",
+        "README.md",
+        "LICENSE",
+        "yarn.lock"
+      ],
+      "scripts": {
+        "precommit": "npm run lint && npm run tsc",
+        "prepush": "npm run test",
+        "prepublishOnly": "yarn run clean && yarn && yarn run build",
+        "clean": "rm -rf node_modules/",
+        "dev": "ts-node -P src/ src/index.ts",
+        "build": "rm -rf dist/ && tsc -p src/",
+        "start": "node dist/index.js",
+        "lint": "tslint 'src/**/*.ts'",
+        "tsc": "tsc -p src/ --noEmit",
+        "test": "echo \"Yet no tests was needed.\""
+      },
+      "dependencies": {
+        "mocha": "^3.2.0"
+      },
+      "devDependencies": {
+        "@types/mocha": "^2.2.33",
+        "husky": "^0.11.9",
+        "ts-node": "^1.7.2",
+        "tslint": "^4.0.2",
+        "typescript": "^2.1.4"
+      },
+      "keywords": [
+        "ts",
+        "mocha",
+        "typescript",
+        "ts-node",
+        "test"
+      ],
+      "gitHead": "aca05fc14d71fba82f88d7cf336ec4679296d93d",
+      "bugs": {
+        "url": "https://github.com/piotrwitek/ts-mocha/issues"
+      },
+      "homepage": "https://github.com/piotrwitek/ts-mocha#readme",
+      "_id": "ts-mocha@0.1.1",
+      "_shasum": "b9a2c8b00139c82230fc9401dba7e660e3f81dc2",
+      "_from": ".",
+      "_npmVersion": "3.10.8",
+      "_nodeVersion": "6.9.1",
+      "_npmUser": {
+        "name": "piotrwitek",
+        "email": "piotrek.witek@gmail.com"
+      },
+      "dist": {
+        "shasum": "b9a2c8b00139c82230fc9401dba7e660e3f81dc2",
+        "tarball": "https://registry.npmjs.org/ts-mocha/-/ts-mocha-0.1.1.tgz",
+        "integrity": "sha512-eTPMoVc3d9kFr5MM2Tx9NsfO5bVqxGBvT8EwShO3xO67imFEK4VQvzZkqUA4cs/PHTiCdp69u1I5IsUE6rB3gQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCHLuB2hNVfTSuKN8xZNuBDSU5fL94AZwJ1IGXh1UDQJgIhANhL4O567tPtgT1J0tccIW4AVxHa7osuXobyqSvq8tyF"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "piotrwitek",
+          "email": "piotrek.witek@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/ts-mocha-0.1.1.tgz_1481366244167_0.7114164782688022"
+      },
+      "directories": {}
+    },
+    "0.1.2-0": {
+      "name": "ts-mocha",
+      "version": "0.1.2-0",
+      "description": "Mocha wrapper that allows running TypeScript tests using TypeScript runtime (ts-node) to get rid of compilation complexity",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/piotrwitek/ts-mocha.git"
+      },
+      "author": {
+        "name": "Piotr Witek",
+        "email": "piotrek.witek@gmail.com",
+        "url": "http://piotrwitek.github.io"
+      },
+      "license": "MIT",
+      "main": "dist/index.js",
+      "typings": "dist/index.d.ts",
+      "bin": {
+        "ts-mocha": "./bin/ts-mocha"
+      },
+      "engines": {
+        "node": ">= 0.10.x"
+      },
+      "scripts": {
+        "prepublishOnly": "yarn run clean && yarn && yarn start",
+        "clean": "rm -rf node_modules/",
+        "start": "./bin/ts-mocha -p test test/**/*.spec.ts",
+        "test": "echo \"Yet no tests was needed.\""
+      },
+      "dependencies": {
+        "ts-node": "^1.7.2"
+      },
+      "devDependencies": {
+        "@types/expect": "^1.13.31",
+        "@types/mocha": "^2.2.33",
+        "@types/node": "^0.0.2",
+        "expect": "^1.20.2",
+        "husky": "^0.11.9",
+        "mocha": "^3.2.0",
+        "tslint": "^4.0.2",
+        "typescript": "^2.1.4"
+      },
+      "peerDependencies": {
+        "mocha": "^3.2.0"
+      },
+      "files": [
+        "bin/",
+        "src/",
+        "package.json",
+        "README.md",
+        "LICENSE",
+        "yarn.lock"
+      ],
+      "keywords": [
+        "ts",
+        "mocha",
+        "typescript",
+        "ts-node",
+        "test"
+      ],
+      "gitHead": "4dbcdee71d727cd885f0dcae83e5cfec56d6956e",
+      "bugs": {
+        "url": "https://github.com/piotrwitek/ts-mocha/issues"
+      },
+      "homepage": "https://github.com/piotrwitek/ts-mocha#readme",
+      "_id": "ts-mocha@0.1.2-0",
+      "_shasum": "cff80df5094d05de72b35f707d1cdeb448ae8d0c",
+      "_from": ".",
+      "_npmVersion": "3.10.8",
+      "_nodeVersion": "6.9.1",
+      "_npmUser": {
+        "name": "piotrwitek",
+        "email": "piotrek.witek@gmail.com"
+      },
+      "dist": {
+        "shasum": "cff80df5094d05de72b35f707d1cdeb448ae8d0c",
+        "tarball": "https://registry.npmjs.org/ts-mocha/-/ts-mocha-0.1.2-0.tgz",
+        "integrity": "sha512-/AQgsCLdXG865bcwIkmOmK/fO73aL34Yi6tV+4j/cNjDmqc3vMP2cwJbd6ZhYB7bvgV0BVbEYEKrCbMMiULlEQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCQi3lxGmC0qiGjSivyxA5MH5cpL0paMJUjEcBHFOOO4QIhAKgUrH29a1zU+W3BBiIsLXbYJgsZgJALXqy/ThB28r8L"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "piotrwitek",
+          "email": "piotrek.witek@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/ts-mocha-0.1.2-0.tgz_1481409586080_0.48737475322559476"
+      },
+      "directories": {}
+    },
+    "1.0.1": {
+      "name": "ts-mocha",
+      "version": "1.0.1",
+      "description": "Mocha thin wrapper that allows running TypeScript tests with TypeScript runtime (ts-node) to get rid of compilation complexity",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/piotrwitek/ts-mocha.git"
+      },
+      "author": {
+        "name": "Piotr Witek",
+        "email": "piotrek.witek@gmail.com",
+        "url": "http://piotrwitek.github.io"
+      },
+      "license": "MIT",
+      "main": "dist/index.js",
+      "typings": "dist/index.d.ts",
+      "bin": {
+        "ts-mocha": "./bin/ts-mocha"
+      },
+      "engines": {
+        "node": ">= 0.10.x"
+      },
+      "scripts": {
+        "prepublishOnly": "yarn run clean && yarn install --production && yarn add -D mocha && yarn start",
+        "clean": "rm -rf node_modules/",
+        "start": "./bin/ts-mocha -p test test/**/*.spec.ts",
+        "test": "echo \"Yet no tests was needed.\""
+      },
+      "dependencies": {
+        "ts-node": "^1.7.2"
+      },
+      "devDependencies": {
+        "@types/expect": "^1.13.31",
+        "@types/mocha": "^2.2.33",
+        "@types/node": "^0.0.2",
+        "expect": "^1.20.2",
+        "husky": "^0.11.9",
+        "mocha": "^3.2.0",
+        "tslint": "^4.0.2",
+        "typescript": "^2.1.4"
+      },
+      "peerDependencies": {
+        "mocha": "^3.2.0"
+      },
+      "files": [
+        "bin/",
+        "src/",
+        "package.json",
+        "README.md",
+        "LICENSE",
+        "yarn.lock"
+      ],
+      "keywords": [
+        "ts",
+        "mocha",
+        "typescript",
+        "ts-node",
+        "test"
+      ],
+      "gitHead": "ed2b4fbe16bd243013276b9185e059acf3bfd99d",
+      "bugs": {
+        "url": "https://github.com/piotrwitek/ts-mocha/issues"
+      },
+      "homepage": "https://github.com/piotrwitek/ts-mocha#readme",
+      "_id": "ts-mocha@1.0.1",
+      "_shasum": "4c13f37ead5be17f19c79936a49881a98d39d569",
+      "_from": ".",
+      "_npmVersion": "3.10.8",
+      "_nodeVersion": "6.9.1",
+      "_npmUser": {
+        "name": "piotrwitek",
+        "email": "piotrek.witek@gmail.com"
+      },
+      "dist": {
+        "shasum": "4c13f37ead5be17f19c79936a49881a98d39d569",
+        "tarball": "https://registry.npmjs.org/ts-mocha/-/ts-mocha-1.0.1.tgz",
+        "integrity": "sha512-pSSEesFxVYbALZ2L4nhoT4KFrFfHhzhmia69hWiMqrOKnkoQRccH8bRLbd1FdZ44XAHLJDN5u1ZWWqSZkjLarQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCi6DxikPkcHF52mK7jrd7qPD3S0Yyl/tIStd0zmvxq3AIgKLWSyu5jg4yKixKnyHeowZ0uqo8ZRRUaQD14VpW0VwM="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "piotrwitek",
+          "email": "piotrek.witek@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/ts-mocha-1.0.1.tgz_1481416740168_0.17600882914848626"
+      },
+      "directories": {}
+    },
+    "1.0.2": {
+      "name": "ts-mocha",
+      "version": "1.0.2",
+      "description": "Mocha thin wrapper that allows running TypeScript tests with TypeScript runtime (ts-node) to get rid of compilation complexity",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/piotrwitek/ts-mocha.git"
+      },
+      "author": {
+        "name": "Piotr Witek",
+        "email": "piotrek.witek@gmail.com",
+        "url": "http://piotrwitek.github.io"
+      },
+      "license": "MIT",
+      "main": "dist/index.js",
+      "typings": "dist/index.d.ts",
+      "bin": {
+        "ts-mocha": "./bin/ts-mocha"
+      },
+      "engines": {
+        "node": ">= 0.10.x"
+      },
+      "scripts": {
+        "prepublishOnly": "yarn run clean && yarn install --production && yarn add -D mocha && yarn start",
+        "clean": "rm -rf node_modules/",
+        "start": "./bin/ts-mocha -p test test/**/*.spec.ts",
+        "test": "echo \"Yet no tests was needed.\""
+      },
+      "dependencies": {
+        "ts-node": "^1.7.2"
+      },
+      "devDependencies": {
+        "@types/expect": "^1.13.31",
+        "@types/mocha": "^2.2.33",
+        "@types/node": "^0.0.2",
+        "expect": "^1.20.2",
+        "husky": "^0.11.9",
+        "mocha": "^3.2.0",
+        "tslint": "^4.0.2",
+        "typescript": "^2.1.4"
+      },
+      "peerDependencies": {
+        "mocha": "^3.2.0"
+      },
+      "files": [
+        "bin/",
+        "src/",
+        "package.json",
+        "README.md",
+        "LICENSE",
+        "yarn.lock"
+      ],
+      "keywords": [
+        "ts",
+        "mocha",
+        "typescript",
+        "ts-node",
+        "test"
+      ],
+      "gitHead": "23db7e5287b02cdd792e993c79ac6abb527154f4",
+      "bugs": {
+        "url": "https://github.com/piotrwitek/ts-mocha/issues"
+      },
+      "homepage": "https://github.com/piotrwitek/ts-mocha#readme",
+      "_id": "ts-mocha@1.0.2",
+      "_shasum": "dc5a63a351e3685e4e132d98c3f2ad566321ba5f",
+      "_from": ".",
+      "_npmVersion": "3.10.8",
+      "_nodeVersion": "6.9.1",
+      "_npmUser": {
+        "name": "piotrwitek",
+        "email": "piotrek.witek@gmail.com"
+      },
+      "dist": {
+        "shasum": "dc5a63a351e3685e4e132d98c3f2ad566321ba5f",
+        "tarball": "https://registry.npmjs.org/ts-mocha/-/ts-mocha-1.0.2.tgz",
+        "integrity": "sha512-/4OII6kMVAjDhwXSadEetiAdhSK03WzYGIFVK5FADmNn6OZc+nkATT96SL0JitmHa3El2Idu5Db2ZP44n2wLxA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCgli+VCZSx7yrIcC1OtTIP5fvBu9JijHOuNgLEzHEB1QIgd385hVsR/2ezn2LBkG3reMpdWEn6uflDIMRVwZxHLX8="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "piotrwitek",
+          "email": "piotrek.witek@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/ts-mocha-1.0.2.tgz_1481416940626_0.03456736262887716"
+      },
+      "directories": {}
+    },
+    "1.0.3": {
+      "name": "ts-mocha",
+      "version": "1.0.3",
+      "description": "Mocha thin wrapper that allows running TypeScript tests with TypeScript runtime (ts-node) to get rid of compilation complexity",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/piotrwitek/ts-mocha.git"
+      },
+      "author": {
+        "name": "Piotr Witek",
+        "email": "piotrek.witek@gmail.com",
+        "url": "http://piotrwitek.github.io"
+      },
+      "license": "MIT",
+      "main": "src/index.js",
+      "bin": {
+        "ts-mocha": "./bin/ts-mocha"
+      },
+      "engines": {
+        "node": ">= 0.10.x"
+      },
+      "scripts": {
+        "prepublishOnly": "yarn run clean && yarn install --production && yarn add -D mocha && yarn start",
+        "clean": "rm -rf node_modules/",
+        "start": "./bin/ts-mocha -p test test/**/*.spec.ts",
+        "test": "echo \"Yet no tests was needed.\""
+      },
+      "dependencies": {
+        "ts-node": "^1.7.2"
+      },
+      "devDependencies": {
+        "@types/expect": "^1.13.31",
+        "@types/mocha": "^2.2.33",
+        "@types/node": "^0.0.2",
+        "expect": "^1.20.2",
+        "husky": "^0.11.9",
+        "mocha": "^3.2.0",
+        "tslint": "^4.0.2",
+        "typescript": "^2.1.4"
+      },
+      "peerDependencies": {
+        "mocha": "^3.2.0"
+      },
+      "files": [
+        "bin/",
+        "src/",
+        "package.json",
+        "README.md",
+        "LICENSE",
+        "yarn.lock"
+      ],
+      "keywords": [
+        "ts",
+        "mocha",
+        "typescript",
+        "ts-node",
+        "test"
+      ],
+      "gitHead": "026452013297b939e36c5551503bc7be50b1b0ee",
+      "bugs": {
+        "url": "https://github.com/piotrwitek/ts-mocha/issues"
+      },
+      "homepage": "https://github.com/piotrwitek/ts-mocha#readme",
+      "_id": "ts-mocha@1.0.3",
+      "_shasum": "292959ecc56d56b155800d530ab2dcb3160a37ea",
+      "_from": ".",
+      "_npmVersion": "3.10.8",
+      "_nodeVersion": "6.9.1",
+      "_npmUser": {
+        "name": "piotrwitek",
+        "email": "piotrek.witek@gmail.com"
+      },
+      "dist": {
+        "shasum": "292959ecc56d56b155800d530ab2dcb3160a37ea",
+        "tarball": "https://registry.npmjs.org/ts-mocha/-/ts-mocha-1.0.3.tgz",
+        "integrity": "sha512-Tij0SBkqnh5VQRs0uB4lY+SpS+5uCg0Vc3TwdeulcZsYKkhzma3P+601YxDHGkQ1ot8gC/qFzX5sPVUTafDwcA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIH7O/mihAWucot9H8rUhupUYzFaiWQqHBOcQnbWDoEA4AiEAywWLfuUkSrclaN3MxeWdmuSEr5IkQSaYGSf5SKT0fkM="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "piotrwitek",
+          "email": "piotrek.witek@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/ts-mocha-1.0.3.tgz_1481747410064_0.9747088856529444"
+      },
+      "directories": {}
+    },
+    "1.1.0": {
+      "name": "ts-mocha",
+      "version": "1.1.0",
+      "description": "Mocha thin wrapper that allows running TypeScript tests with TypeScript runtime (ts-node) to get rid of compilation complexity",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/piotrwitek/ts-mocha.git"
+      },
+      "author": {
+        "name": "Piotr Witek",
+        "email": "piotrek.witek@gmail.com",
+        "url": "http://piotrwitek.github.io"
+      },
+      "license": "MIT",
+      "main": "src/index.js",
+      "bin": {
+        "ts-mocha": "./bin/ts-mocha"
+      },
+      "engines": {
+        "node": ">= 0.10.x"
+      },
+      "scripts": {
+        "clean": "rm -rf node_modules/",
+        "reinstall": "yarn run clean && yarn install",
+        "test:cli": "./bin/ts-mocha -p test test/**/*.spec.ts",
+        "test:programmatic": "node test/programmatic-use-test.js",
+        "test": "npm run test:cli & npm run test:programmatic",
+        "prepublishOnly": "yarn run clean && yarn install --production && yarn add -D mocha && yarn test"
+      },
+      "dependencies": {
+        "ts-node": "^3.3.0"
+      },
+      "devDependencies": {
+        "@types/expect": "1.20.2",
+        "@types/mocha": "2.2.44",
+        "@types/node": "8.0.53",
+        "expect": "21.2.1",
+        "husky": "0.14.3",
+        "mocha": "4.0.1",
+        "tslint": "5.8.0",
+        "typescript": "2.6.1"
+      },
+      "peerDependencies": {
+        "mocha": "^3.X.X || ^4.X.X"
+      },
+      "files": [
+        "bin/",
+        "src/",
+        "package.json",
+        "README.md",
+        "LICENSE",
+        "yarn.lock"
+      ],
+      "keywords": [
+        "ts",
+        "mocha",
+        "typescript",
+        "ts-node",
+        "test"
+      ],
+      "gitHead": "93c281cc702e2de341967ab383091b04d2b8f473",
+      "bugs": {
+        "url": "https://github.com/piotrwitek/ts-mocha/issues"
+      },
+      "homepage": "https://github.com/piotrwitek/ts-mocha#readme",
+      "_id": "ts-mocha@1.1.0",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "6.11.5",
+      "_npmUser": {
+        "name": "piotrwitek",
+        "email": "piotrek.witek@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-1wAf4YuiFp8E29n495mNoQ4AGIS+AJihGJfm1BA+DTM0Bzp5uemQSrl5yphWcN6+2l9I+9K23up5dbDS1sWJjA==",
+        "shasum": "4018c3c9841695262a9345346bba1e93b6493c60",
+        "tarball": "https://registry.npmjs.org/ts-mocha/-/ts-mocha-1.1.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIF1oF4jeoyJBrZVpfnVv2I5R3+A5H+GTPenpAEkIaoA3AiEAkViA5B8ubgzvqNjXiHFxE2Ii/Rl4fVcoSlQ3T5wRyjg="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "piotrwitek",
+          "email": "piotrek.witek@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-mocha-1.1.0.tgz_1514046055041_0.34958328562788665"
+      },
+      "directories": {}
+    },
+    "1.2.0": {
+      "name": "ts-mocha",
+      "version": "1.2.0",
+      "description": "Mocha thin wrapper that allows running TypeScript tests with TypeScript runtime (ts-node) to get rid of compilation complexity",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/piotrwitek/ts-mocha.git"
+      },
+      "author": {
+        "name": "Piotr Witek",
+        "email": "piotrek.witek@gmail.com",
+        "url": "http://piotrwitek.github.io"
+      },
+      "license": "MIT",
+      "main": "src/index.js",
+      "bin": {
+        "ts-mocha": "./bin/ts-mocha"
+      },
+      "engines": {
+        "node": ">= 0.10.x"
+      },
+      "scripts": {
+        "clean": "rm -rf node_modules/",
+        "reinstall": "yarn run clean && yarn install",
+        "test:cli": "./bin/ts-mocha -p test test/**/*.spec.ts",
+        "test:programmatic": "node test/programmatic-use-test.js",
+        "test": "npm run test:cli & npm run test:programmatic",
+        "prepublishOnly": "yarn run clean && yarn install --production && yarn add -D mocha && yarn test"
+      },
+      "dependencies": {
+        "ts-node": "3.3.0"
+      },
+      "devDependencies": {
+        "@types/expect": "1.20.3",
+        "@types/mocha": "5.0.0",
+        "@types/node": "9.6.2",
+        "expect": "22.4.3",
+        "husky": "0.14.3",
+        "mocha": "5.0.5",
+        "tslint": "5.9.1",
+        "typescript": "2.8.1"
+      },
+      "peerDependencies": {
+        "mocha": "^3.X.X || ^4.X.X || ^5.X.X"
+      },
+      "files": [
+        "bin/",
+        "src/",
+        "package.json",
+        "README.md",
+        "LICENSE",
+        "yarn.lock"
+      ],
+      "keywords": [
+        "ts",
+        "mocha",
+        "typescript",
+        "ts-node",
+        "test"
+      ],
+      "gitHead": "53f22089eb52a585fb9137a195662d95ee1b16bf",
+      "bugs": {
+        "url": "https://github.com/piotrwitek/ts-mocha/issues"
+      },
+      "homepage": "https://github.com/piotrwitek/ts-mocha#readme",
+      "_id": "ts-mocha@1.2.0",
+      "_npmVersion": "5.8.0",
+      "_nodeVersion": "9.9.0",
+      "_npmUser": {
+        "name": "piotrwitek",
+        "email": "piotrek.witek@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-U3t5uyXD+mkJKWoNvWCYYbdpS3PNghKCZciS/dm3YwAHoVanyvRwGWrUO0Of/jvyDvIVrLNTiIvtKh7c+FmRLw==",
+        "shasum": "19fb9585375c9d31ea73bfbbe2b882a382fde91e",
+        "tarball": "https://registry.npmjs.org/ts-mocha/-/ts-mocha-1.2.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 31541,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBgK9aPPdmq0WTMIr9pcqaykW4GoJ2jcSlnj1PRsNfbgAiBadsTShsf55aSs23nFgNN9c7vAYg1NixQAgH6BqCku7w=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "piotrwitek",
+          "email": "piotrek.witek@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-mocha_1.2.0_1523257495972_0.12976450359539848"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.3.0": {
+      "name": "ts-mocha",
+      "version": "1.3.0",
+      "description": "Mocha thin wrapper that allows running TypeScript tests with TypeScript runtime (ts-node) to get rid of compilation complexity",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/piotrwitek/ts-mocha.git"
+      },
+      "author": {
+        "name": "Piotr Witek",
+        "email": "piotrek.witek@gmail.com",
+        "url": "http://piotrwitek.github.io"
+      },
+      "license": "MIT",
+      "main": "src/index.js",
+      "bin": {
+        "ts-mocha": "./bin/ts-mocha"
+      },
+      "engines": {
+        "node": ">= 0.10.x"
+      },
+      "scripts": {
+        "clean": "rm -rf node_modules/",
+        "reinstall": "yarn run clean && yarn install",
+        "pretest:baseline": "yarn install --peer",
+        "test:baseline": "./bin/ts-mocha -p ./test/baseline/ test/baseline/**/*.spec.ts && node test/baseline/programmatic-use-test.js",
+        "pretest:paths": "yarn install --optional",
+        "test:paths": "./bin/ts-mocha --paths -p test/paths/ test/paths/**/*.spec.ts && node test/paths/programmatic-use-test.js",
+        "test": "npm run test:baseline & npm run test:paths",
+        "prepublishOnly": "yarn run clean && yarn install --production && yarn add -D mocha && yarn test"
+      },
+      "dependencies": {
+        "ts-node": "3.3.0",
+        "tsconfig-paths": "^3.5.0"
+      },
+      "devDependencies": {
+        "@types/expect": "1.20.3",
+        "@types/mocha": "5.0.0",
+        "@types/node": "9.6.2",
+        "expect": "22.4.3",
+        "husky": "0.14.3",
+        "mocha": "^5.2.0",
+        "tslint": "5.9.1",
+        "typescript": "2.8.1"
+      },
+      "peerDependencies": {
+        "mocha": "^3.X.X || ^4.X.X || ^5.X.X"
+      },
+      "optionalDependencies": {
+        "tsconfig-paths": "^3.5.0"
+      },
+      "files": [
+        "bin/",
+        "src/",
+        "package.json",
+        "README.md",
+        "LICENSE",
+        "yarn.lock"
+      ],
+      "keywords": [
+        "ts",
+        "mocha",
+        "typescript",
+        "ts-node",
+        "test"
+      ],
+      "greenkeeper": {
+        "ignore": [
+          "@types/expect",
+          "@types/node",
+          "expect",
+          "husky",
+          "tslint"
+        ]
+      },
+      "gitHead": "7d6f8621fb38a8430b3177a5ad852c9098264e98",
+      "bugs": {
+        "url": "https://github.com/piotrwitek/ts-mocha/issues"
+      },
+      "homepage": "https://github.com/piotrwitek/ts-mocha#readme",
+      "_id": "ts-mocha@1.3.0",
+      "_npmVersion": "6.2.0",
+      "_nodeVersion": "10.7.0",
+      "_npmUser": {
+        "name": "piotrwitek",
+        "email": "piotrek.witek@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-hmgivryGUk854cPI49YE3MNd52053PaxivdXmjSWYhADAEJ0zQsaXt0Z45CicdKJnsmViuVMrnzPcQDdHCOY2A==",
+        "shasum": "0a260fe5d0a03d503adda10de34d5ae19459a227",
+        "tarball": "https://registry.npmjs.org/ts-mocha/-/ts-mocha-1.3.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 33876,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbYgRzCRA9TVsSAnZWagAAXQkP/jao12Xq/40/M15umJEA\nonuX1nIsGNyxKjev5/g8IPbxEuSjxJXFA0RtNw3bBODSRJ3q3ECTsh4KZHjl\nWdOztQLfmkMF35AKr3K1//09ZuMZpa/6J372PnWRW4kyDEznHv5+RuMWLP62\n6jEUbl3PsbkvSD6ftSNY8zJadnOSDaY27R11d0GfQODgMy0yOjQGHNqy7Qfu\nDGs73BKqFP9f0QjtxuByokUsQ6IG55NRWS+m6gCPYcfwXuN7eDY8wz+7TOCS\nmvdIwjaSctaaty8m+2sn5gYTPXr41s11bSs8WltUX7WmstHizqgPezRgb9Q1\nuiqSTcd5z9ukAF+tYwPldkSxS3PlU+zC9xqiA2H4we9w2FT/J+gDAxzAzbFQ\nl9IPs01gq4Rrvr1Lv3fTlYi4bResKEszV9UjcRxf8NiAfJLjScBb6jTBtNvC\npSpISYI1RA8zsYxJS75KayDjW062hTtbpyUVMZMmFIEkRcJKRwSmj0e62soP\nTynbiV5u9xQIfYwJIjT7yiuCDwfBA5xrHJhF6JeI+OqqzkX+4AHFMObQiRO9\n/jJfKbT/6A8M1nKTrWP8KTn49Co4kADqH7l8ftJXqNd6V7hNMYeTXMaFe4vK\nB26/7tYS/DCdkpZMWCxDgm4Xt8vB2mM5pUC6NivzTgebOKgwY2Rqi0mKv6rW\n5t2x\r\n=TWRH\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIERJpEmji5Wi6R71XDsQSGXtV1ds+S5rGBaMRExh1Dm/AiBTuTECCLHZrTZF57pfYA69ExWYMSxjGSog9r5JhKQ9LA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "piotrwitek",
+          "email": "piotrek.witek@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-mocha_1.3.0_1533150323351_0.6907859464555974"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0": {
+      "name": "ts-mocha",
+      "version": "2.0.0",
+      "description": "Mocha thin wrapper that allows running TypeScript tests with TypeScript runtime (ts-node) to get rid of compilation complexity",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/piotrwitek/ts-mocha.git"
+      },
+      "author": {
+        "name": "Piotr Witek",
+        "email": "piotrek.witek@gmail.com",
+        "url": "http://piotrwitek.github.io"
+      },
+      "license": "MIT",
+      "main": "src/index.js",
+      "bin": {
+        "ts-mocha": "./bin/ts-mocha"
+      },
+      "engines": {
+        "node": ">= 6.X.X"
+      },
+      "scripts": {
+        "clean": "rm -rf node_modules/",
+        "reinstall": "npm run clean && npm install",
+        "pretest:baseline": "npm install --peer",
+        "test:baseline": "./bin/ts-mocha -p test/baseline/tsconfig.json test/baseline/**/*.spec.ts && node test/baseline/programmatic-use-test.js",
+        "pretest:paths": "npm install --optional",
+        "test:paths": "./bin/ts-mocha --paths -p test/paths/tsconfig.json test/paths/**/*.spec.ts && node test/paths/programmatic-use-test.js",
+        "test": "npm run test:baseline & npm run test:paths",
+        "prepublishOnly": "npm run clean && npm install --production && npm install -D mocha && npm test"
+      },
+      "dependencies": {
+        "ts-node": "7.0.0",
+        "tsconfig-paths": "^3.5.0"
+      },
+      "devDependencies": {
+        "@types/expect": "1.20.3",
+        "@types/mocha": "^5.2.5",
+        "@types/node": "^10.5.6",
+        "expect": "^23.4.0",
+        "husky": "0.14.3",
+        "mocha": "^5.2.0",
+        "tslint": "^5.11.0",
+        "typescript": "^3.0.1"
+      },
+      "peerDependencies": {
+        "mocha": "^3.X.X || ^4.X.X || ^5.X.X"
+      },
+      "optionalDependencies": {
+        "tsconfig-paths": "^3.5.0"
+      },
+      "files": [
+        "bin/",
+        "src/",
+        "package.json",
+        "package-lock.json",
+        "README.md",
+        "CHANGELOG.md",
+        "LICENSE"
+      ],
+      "keywords": [
+        "ts",
+        "mocha",
+        "typescript",
+        "ts-node",
+        "test"
+      ],
+      "greenkeeper": {
+        "ignore": [
+          "@types/expect",
+          "@types/mocha",
+          "@types/node",
+          "expect",
+          "husky",
+          "tslint"
+        ]
+      },
+      "gitHead": "d44ba0de0f656d1766eb1e85d63f25f952e41e2c",
+      "bugs": {
+        "url": "https://github.com/piotrwitek/ts-mocha/issues"
+      },
+      "homepage": "https://github.com/piotrwitek/ts-mocha#readme",
+      "_id": "ts-mocha@2.0.0",
+      "_npmVersion": "6.2.0",
+      "_nodeVersion": "10.7.0",
+      "_npmUser": {
+        "name": "piotrwitek",
+        "email": "piotrek.witek@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-Rj6+vvwKtOTs5GsNO1jLl4DIXUGnyAg5HFt2Yb4SHIRN45clTJkHWpNdTxCSL0u+1oeavSYJah6d1PZ++Ju5pw==",
+        "shasum": "0dbd3cd04671df9933b9303b4aa46347573c5635",
+        "tarball": "https://registry.npmjs.org/ts-mocha/-/ts-mocha-2.0.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 44184,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbZYxOCRA9TVsSAnZWagAAnDEP/1IFshDO91wWjiJ0/cHL\nqqGHq/i9vlaqyk0Om53Xi0t9hRNwY56NCLoRzzDlVrMJxeN6MoYY3yYUKx9Z\nYv1AS+fp8rJYbIGAK8QD9WfUcgAurBEhlkJRjJLGg3bljdeORuMcQN9PEmIP\nYyZW2X2XZe/NJqCv+dcDKnY7/PJf/CcRDz9jiYKnjWtmB2K1C/wAirbWp7Uk\na0GCa4t0DmykTy5UOhTR3BmslUVRClZyA/ncns8G4aYFVWbQcioJZhJyZR0h\nMqkVHeM0ujJ8thZSDNm11C7VZ4rI4Cjr1Y42Nk60KyL3O3gD2lCubUDBvaxg\niyPYk+T9itR5CmmH00SpnpG1jJ0i8IhrdJRWBL8hWtWCt0lHplwzBAuCkgqJ\nO9yh/o3RZqllZq4nCWWGTi4DJyOQF1bJjSjT2OQnmEf74EqJHzVqaITFWusX\neD4W2/s5cvv55V3BMiy1wtbHqP1OtoKbb3zBkKmj2GtBCUES9PgqNO7OPL5f\nn4MbAitJ57VtjsOBW6BvVHClt0kjCk3ZkQe8RvSjK3uGlD4/KjzOrgdAr18W\na0ELI+7JGdrBxDuQiqzcqSmKHWMcZJv4xFxq1iPzx33jwd4XcBiCST5V3oaf\nbJWPx4j6QGY6u7VSk/M+9hYQusKM193mZ19WsgOxqG/YIQQmeaOhHAZXLpV1\n9rpS\r\n=Sl/W\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFtVPoidnPABZPBaPY87BmnrctSOe8ehRdZDMsHbCqIBAiAml43GA97wPzieSd/28KTdJ+yBZv3k10DS6LkKwSyzhA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "piotrwitek",
+          "email": "piotrek.witek@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-mocha_2.0.0_1533381710438_0.22165309119286292"
+      },
+      "_hasShrinkwrap": false
+    },
+    "6.0.0": {
+      "name": "ts-mocha",
+      "version": "6.0.0",
+      "description": "Mocha thin wrapper that allows running TypeScript tests with TypeScript runtime (ts-node) to get rid of compilation complexity",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/piotrwitek/ts-mocha.git"
+      },
+      "author": {
+        "name": "Piotr Witek",
+        "email": "piotrek.witek@gmail.com",
+        "url": "http://piotrwitek.github.io"
+      },
+      "license": "MIT",
+      "main": "src/index.js",
+      "bin": {
+        "ts-mocha": "./bin/ts-mocha"
+      },
+      "engines": {
+        "node": ">= 6.X.X"
+      },
+      "scripts": {
+        "clean": "rm -rf node_modules/",
+        "reinstall": "npm run clean && npm install",
+        "pretest:baseline": "npm install --peer",
+        "test:baseline": "./bin/ts-mocha -p test/baseline/tsconfig.json test/baseline/**/*.spec.ts && node test/baseline/programmatic-use-test.js",
+        "pretest:paths": "npm install --optional",
+        "test:paths": "./bin/ts-mocha --paths -p test/paths/tsconfig.json test/paths/**/*.spec.ts && node test/paths/programmatic-use-test.js",
+        "test": "npm run test:baseline & npm run test:paths",
+        "prepublishOnly": "npm run clean && npm install --production && npm install -D mocha && npm test"
+      },
+      "dependencies": {
+        "ts-node": "7.0.1",
+        "tsconfig-paths": "^3.5.0"
+      },
+      "devDependencies": {
+        "@types/expect": "1.20.4",
+        "@types/mocha": "5.2.6",
+        "@types/node": "^10.5.6",
+        "expect": "^23.4.0",
+        "husky": "0.14.3",
+        "mocha": "6.0.0",
+        "tslint": "5.12.1",
+        "typescript": "3.3.3"
+      },
+      "peerDependencies": {
+        "mocha": "^3.X.X || ^4.X.X || ^5.X.X || ^6.X.X"
+      },
+      "optionalDependencies": {
+        "tsconfig-paths": "^3.5.0"
+      },
+      "keywords": [
+        "ts",
+        "mocha",
+        "typescript",
+        "ts-node",
+        "test"
+      ],
+      "greenkeeper": {
+        "ignore": [
+          "@types/expect",
+          "@types/mocha",
+          "@types/node",
+          "expect",
+          "husky",
+          "tslint"
+        ]
+      },
+      "gitHead": "e8614c6b5f795ee4e09517aab843df00ace0c679",
+      "bugs": {
+        "url": "https://github.com/piotrwitek/ts-mocha/issues"
+      },
+      "homepage": "https://github.com/piotrwitek/ts-mocha#readme",
+      "_id": "ts-mocha@6.0.0",
+      "_nodeVersion": "10.7.0",
+      "_npmVersion": "6.8.0",
+      "dist": {
+        "integrity": "sha512-ZCtJK8WXxHNbFNjvUKQIXZby/+ybQQkaBcM/3QhBQUfwjpdGFE9F6iWsHhF5ifQNFV/lWiOODi2VMD5AyPcQyg==",
+        "shasum": "40b8c5462ffce6f5dcee5ff729655b2958f26e50",
+        "tarball": "https://registry.npmjs.org/ts-mocha/-/ts-mocha-6.0.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 113422,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcbRngCRA9TVsSAnZWagAAWlEP/AtRGYOWwHemdTNm8WwP\n3F38W5wAxwWlBgQHrLZYzRRxsWBNvxfN+Z6Swzt3FjWQWeS0CaPckjwUP2R8\nVa+NrBCO99sNiKng00IgugW5CVInuCJoz0oYtfK5uTvoPprU6F+CGrPY51+1\nlktyLzEceYoHdHqPttZAYvt4Rc6RfC5m2wPvAaN/Zw2fCCA7tYOtqnp2XJzW\nODyp5sReJL+WjkUXq4/NYfKhd5dzpK2vSfubOliM7xgvDki+JkVW3ybf2S/v\nSwcFKvPiPyc4C6Eova9bCxsoCTiMnAJIcZLH44HXL/sRZthmc08aygc1mfFB\nRWdk9k+WWJUWl5pBHKBxZKg7zR96RcsOsC2qEe+f2PBSgKppJnzDY1K7PzrL\nL/Dv4ysDzXWUT6YuMJKtZ8KVLHQg3Q2AeUlTCSgmzt5qsdF5pSxEk7MWuABS\nhzwqQ+hIDxEs07zNpA3leVVDBTRNXB0aTxJdImbCx7AF13tFT0V0zV7NucXx\nmAYunB/sPo3G1p7MJ348aJ31tzBXpiTNZZyPiHAXDcJqyzgi+J8GVrBne2kc\n0zRaOqSrrpGlZsw9fY81wum0HKRkysCjvBaXB2rEgqne3/rA6L/FsFOR8nqK\nzj9bJ/nFFCiozCuJR7fpX1+Sao+2BjwiWUJ5jvfWWBeemCi03B9VxI/vSAbP\nugcj\r\n=Vu8/\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDidp8dRka9wM+w5teCflUs4WRWpQHQjoD+yMGIwia9MwIhAIbH7wTHPNAKSNfl1cWYIxQjNehsi5f0K6GTAiiiRc1J"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "piotrwitek",
+          "email": "piotrek.witek@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "piotrwitek",
+        "email": "piotrek.witek@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-mocha_6.0.0_1550653919573_0.2934330441288746"
+      },
+      "_hasShrinkwrap": false
+    },
+    "7.0.0": {
+      "name": "ts-mocha",
+      "version": "7.0.0",
+      "description": "Mocha thin wrapper that allows running TypeScript tests with TypeScript runtime (ts-node) to get rid of compilation complexity",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/piotrwitek/ts-mocha.git"
+      },
+      "author": {
+        "name": "Piotr Witek",
+        "email": "piotrek.witek@gmail.com",
+        "url": "http://piotrwitek.github.io"
+      },
+      "license": "MIT",
+      "main": "src/index.js",
+      "bin": {
+        "ts-mocha": "./bin/ts-mocha"
+      },
+      "engines": {
+        "node": ">= 6.X.X"
+      },
+      "scripts": {
+        "clean": "rm -rf node_modules/",
+        "reinstall": "npm run clean && npm install",
+        "pretest:baseline": "npm install --peer",
+        "test:baseline": "./bin/ts-mocha -p test/baseline/tsconfig.json test/baseline/**/*.spec.ts && node test/baseline/programmatic-use-test.js",
+        "pretest:paths": "npm install --optional",
+        "test:paths": "./bin/ts-mocha --paths -p test/paths/tsconfig.json test/paths/**/*.spec.ts && node test/paths/programmatic-use-test.js",
+        "test": "npm run test:baseline & npm run test:paths",
+        "prepublishOnly": "npm run clean && npm install --production && npm install -D mocha && npm test"
+      },
+      "dependencies": {
+        "ts-node": "7.0.1",
+        "tsconfig-paths": "^3.5.0"
+      },
+      "devDependencies": {
+        "@types/expect": "1.20.4",
+        "@types/mocha": "5.2.6",
+        "@types/node": "^10.5.6",
+        "expect": "^23.4.0",
+        "husky": "0.14.3",
+        "mocha": "6.0.2",
+        "tslint": "5.12.1",
+        "typescript": "3.3.3"
+      },
+      "peerDependencies": {
+        "mocha": "^3.X.X || ^4.X.X || ^5.X.X || ^6.X.X || ^7.X.X"
+      },
+      "optionalDependencies": {
+        "tsconfig-paths": "^3.5.0"
+      },
+      "keywords": [
+        "ts",
+        "mocha",
+        "typescript",
+        "ts-node",
+        "test"
+      ],
+      "greenkeeper": {
+        "ignore": [
+          "@types/expect",
+          "@types/mocha",
+          "@types/node",
+          "expect",
+          "husky",
+          "tslint"
+        ]
+      },
+      "gitHead": "c9dd16d4c14c988a0fd80cd3d8e1a97fbb74d7d5",
+      "bugs": {
+        "url": "https://github.com/piotrwitek/ts-mocha/issues"
+      },
+      "homepage": "https://github.com/piotrwitek/ts-mocha#readme",
+      "_id": "ts-mocha@7.0.0",
+      "_nodeVersion": "10.7.0",
+      "_npmVersion": "6.12.0",
+      "dist": {
+        "integrity": "sha512-7WfkQw1W6JZXG5m4E1w2e945uWzBoZqmnOHvpMu0v+zvyKLdUQeTtRMfcQsVEKsUnYL6nTyH4okRt2PZucmFXQ==",
+        "shasum": "f1549b48b46f53d7ae1dccbb26313c7879acb190",
+        "tarball": "https://registry.npmjs.org/ts-mocha/-/ts-mocha-7.0.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 114698,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeb7eFCRA9TVsSAnZWagAAS0MP+wTaI0ioFBXFMsgtvvvX\nTilr0sNUxfQhrXGu2Wy9AdFtk3JUs8Ghc0DogUCCNqlPtWP5XT4kVHAiVr3T\nkBDL3w8ikdi+rEG+wFzVH2C0DfEAuzICBJJGk+F4UaqJIxlrMrJFfZtLYwFP\nQwJmtTk8XMINn/19p9TBHTaThu5mjqraDpK2J1ldNp8dWoDWdZyq5vz/bYZs\niAW3Pp7FaO268ixdnoRLI8VyRLjo38s3lTUNMWe5+uwpKOakUCkeum82cRti\n9oJ39wpGBTABQtcni91ZDbw0/rXJCHCP9YT4pM0VmCRGPBhiHuoZlwZwdiMI\nWutWARQMy3qmGM+dQgj0NEAYK4OhL0zqdXbztCuFrmd4h2+BaJRN08viXSXE\npZWj3O68y80RYwu45zB3bovNA0qOpWuKebogldpr+yDdaLaOhcMiqi6ReV4n\nh2OFRlUpypStCQdAsr9fYWPVMJIJbhZnMlnOJDeIm/lXR81gmpkUB4mfP3MX\nRvgj254E+IxJ3wQ3VSsl1HUi+l2yil/zMnmvagpRjzjdw24TSF/Hns/hDBpN\nnMZn7DphE/ipEWVuPxGzo7dH4UPWoCiobR7AGg41+OC95S05h2P8sGeIl7Ks\n6it52RSmZVznWj2edTXZkj1TTNpQsYaN5KoS8HZt/7MjfuOuh00cwa+WRkcf\nKZiD\r\n=4XmI\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEJEg+NXYmmqqdcty4+O0hIYOwVLU5rMFMbiDOq4yv9AAiB9xuYKM7lvfbi5NDbDgSfMZ5Q5cq7Ej5m6L0DlfMwmtA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "piotrwitek",
+          "email": "piotrek.witek@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "piotrwitek",
+        "email": "piotrek.witek@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-mocha_7.0.0_1584379781545_0.7376870056259643"
+      },
+      "_hasShrinkwrap": false
+    },
+    "8.0.0": {
+      "name": "ts-mocha",
+      "version": "8.0.0",
+      "description": "Mocha thin wrapper that allows running TypeScript tests with TypeScript runtime (ts-node) to get rid of compilation complexity",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/piotrwitek/ts-mocha.git"
+      },
+      "author": {
+        "name": "Piotr Witek",
+        "email": "piotrek.witek@gmail.com",
+        "url": "http://piotrwitek.github.io"
+      },
+      "license": "MIT",
+      "main": "src/index.js",
+      "bin": {
+        "ts-mocha": "bin/ts-mocha"
+      },
+      "engines": {
+        "node": ">= 6.X.X"
+      },
+      "scripts": {
+        "clean": "rm -rf node_modules/",
+        "reinstall": "npm run clean && npm install",
+        "pretest:baseline": "npm install --peer",
+        "test:baseline": "./bin/ts-mocha -p test/baseline/tsconfig.json test/baseline/**/*.spec.ts && node test/baseline/programmatic-use-test.js",
+        "pretest:paths": "npm install --optional",
+        "test:paths": "./bin/ts-mocha --paths -p test/paths/tsconfig.json test/paths/**/*.spec.ts && node test/paths/programmatic-use-test.js",
+        "test": "npm run test:baseline & npm run test:paths",
+        "prepublishOnly": "npm run clean && npm install --production && npm install -D mocha && npm test"
+      },
+      "dependencies": {
+        "ts-node": "7.0.1",
+        "tsconfig-paths": "^3.5.0"
+      },
+      "devDependencies": {
+        "@types/expect": "24.3.0",
+        "@types/mocha": "8.0.3",
+        "@types/node": "14.14.2",
+        "expect": "26.6.1",
+        "husky": "4.3.0",
+        "mocha": "8.2.0",
+        "tslint": "6.1.3",
+        "typescript": "3.3.3"
+      },
+      "peerDependencies": {
+        "mocha": "^3.X.X || ^4.X.X || ^5.X.X || ^6.X.X || ^7.X.X || ^8.X.X"
+      },
+      "optionalDependencies": {
+        "tsconfig-paths": "^3.5.0"
+      },
+      "keywords": [
+        "ts",
+        "mocha",
+        "typescript",
+        "ts-node",
+        "test"
+      ],
+      "greenkeeper": {
+        "ignore": [
+          "@types/expect",
+          "@types/mocha",
+          "@types/node",
+          "expect",
+          "husky",
+          "tslint"
+        ]
+      },
+      "gitHead": "3d992da72047a3604dcc689a82691af869743fec",
+      "bugs": {
+        "url": "https://github.com/piotrwitek/ts-mocha/issues"
+      },
+      "homepage": "https://github.com/piotrwitek/ts-mocha#readme",
+      "_id": "ts-mocha@8.0.0",
+      "_nodeVersion": "12.16.3",
+      "_npmVersion": "6.14.4",
+      "dist": {
+        "integrity": "sha512-Kou1yxTlubLnD5C3unlCVO7nh0HERTezjoVhVw/M5S1SqoUec0WgllQvPk3vzPMc6by8m6xD1uR1yRf8lnVUbA==",
+        "shasum": "962d0fa12eeb6468aa1a6b594bb3bbc818da3ef0",
+        "tarball": "https://registry.npmjs.org/ts-mocha/-/ts-mocha-8.0.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 73353,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJflWXUCRA9TVsSAnZWagAAX/4QAJgRUaB8zjqqlzSlg99c\nCjYPD4KvwSYq5aH9dTJeunu3x//fqCt6WUrmz503CmgSpMJmN1b3R/0VSH6E\n4pdUbI0nXf8he11ZMP5l4UXQrdGvnJY0A+K9z5AAZZfZEA5UqmnA/9pU1vgE\nMMgtqlWZqPg2tXFiS9kbRNSe+iXFVsJ8fmzz2Ms9UzQONgdcKIkTxT/TVMbh\nHjGNIAdoiM99uneQk/AnXHPeB/W+EpzsEJpL/I3sOeQsfpwxwsBJWmKDhBqw\ngDPLpqrnDSc8v0P6TC4e9zhu7SJw5YA0YURC/XuO6jr9x8op81hBkXyLXo6S\nXUEGCAQBqwdys4BTKYYL+srucuBIl+GTywSbul3vvdiChRuj5GYgGZLxftgx\nxMI5CgtPJUmqEeq5iYkhe/xwPSk35DYe2x4Rn4z30wY2PX95vnV1ZsP03ZUA\n3g0C8AY2PINkT6oceGz4fNmTcxopTksFrWBpN8IghVqplg8ASrpJEj1UUm8e\ng76uP4e/A8+RvuigRFNMoIJunbVfE4HtDRA/G0x7THbNMiBM4bjET0FY8lZg\nuyyTBRe5KmbshEvtMJk/km46/zA8VVnF8GIKYxVfeEa6PHIy29ZfeKhmiG3g\n0B2EYMRCRtxjTnNTPEQMU5TUZxN2lmk/s0HBYIO9/7pKxe1YKliN4Fb2HK5z\nhEyM\r\n=Bjln\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCQHxmRe61gKxdPo9r7ZIuuCjfZx/V40NtytVKg/wN+OQIgJrodI2IYHGd8OjniOw0zMAajmYI3n8p5Eiz7DvhJqtQ="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "piotrwitek",
+          "email": "piotrek.witek@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "piotrwitek",
+        "email": "piotrek.witek@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-mocha_8.0.0_1603626452267_0.46805725441780743"
+      },
+      "_hasShrinkwrap": false
+    },
+    "9.0.0-alpha1": {
+      "name": "ts-mocha",
+      "version": "9.0.0-alpha1",
+      "description": "Mocha thin wrapper that allows running TypeScript tests with TypeScript runtime (ts-node) to get rid of compilation complexity",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/piotrwitek/ts-mocha.git"
+      },
+      "author": {
+        "name": "Piotr Witek",
+        "email": "piotrek.witek@gmail.com",
+        "url": "http://piotrwitek.github.io"
+      },
+      "license": "MIT",
+      "main": "src/index.js",
+      "bin": {
+        "ts-mocha": "bin/ts-mocha"
+      },
+      "engines": {
+        "node": ">=10.0.0"
+      },
+      "scripts": {
+        "clean": "rm -rf node_modules/",
+        "reinstall": "npm run clean && npm install",
+        "pretest:baseline": "npm install --peer",
+        "test:baseline": "./bin/ts-mocha -p test/baseline/tsconfig.json test/baseline/**/*.spec.ts && node test/baseline/programmatic-use-test.js",
+        "pretest:paths": "npm install --optional",
+        "test:paths": "./bin/ts-mocha --paths -p test/paths/tsconfig.json test/paths/**/*.spec.ts && node test/paths/programmatic-use-test.js",
+        "test": "npm run test:baseline & npm run test:paths",
+        "prepublishOnly": "npm run clean && npm install --production && npm install -D mocha && npm test"
+      },
+      "dependencies": {
+        "ts-node": "9.0.0",
+        "tsconfig-paths": "^3.5.0"
+      },
+      "devDependencies": {
+        "@types/expect": "24.3.0",
+        "@types/mocha": "8.0.3",
+        "@types/node": "14.14.2",
+        "expect": "26.6.1",
+        "husky": "4.3.0",
+        "mocha": "8.2.0",
+        "tslint": "6.1.3",
+        "typescript": "4.0.3"
+      },
+      "peerDependencies": {
+        "mocha": "^3.X.X || ^4.X.X || ^5.X.X || ^6.X.X || ^7.X.X || ^8.X.X"
+      },
+      "optionalDependencies": {
+        "tsconfig-paths": "^3.5.0"
+      },
+      "keywords": [
+        "ts",
+        "mocha",
+        "typescript",
+        "ts-node",
+        "test"
+      ],
+      "greenkeeper": {
+        "ignore": [
+          "@types/expect",
+          "@types/mocha",
+          "@types/node",
+          "expect",
+          "husky",
+          "tslint"
+        ]
+      },
+      "readme": "[![Latest Stable Version](https://img.shields.io/npm/v/ts-mocha.svg)](https://www.npmjs.com/package/ts-mocha)\n[![NPM Downloads](https://img.shields.io/npm/dt/ts-mocha.svg)](https://www.npmjs.com/package/ts-mocha)\n[![NPM Downloads](https://img.shields.io/npm/dm/ts-mocha.svg)](https://www.npmjs.com/package/ts-mocha)\n\n[![Codeship Status for piotrwitek/ts-mocha](https://app.codeship.com/projects/cb8cc460-1719-0137-28fd-3a09a0997096/status?branch=master)](https://app.codeship.com/projects/328034)\n[![Greenkeeper badge](https://badges.greenkeeper.io/piotrwitek/ts-mocha.svg)](https://greenkeeper.io/)\n[![Dependency Status](https://img.shields.io/david/piotrwitek/ts-mocha.svg)](https://david-dm.org/piotrwitek/ts-mocha)\n[![peerDependency Status](https://img.shields.io/david/peer/piotrwitek/ts-mocha.svg)](https://david-dm.org/piotrwitek/ts-mocha#info=devDependencies)\n\n# TS-Mocha\n> Mocha thin wrapper that allows running TypeScript tests with TypeScript runtime (ts-node) to get rid of compilation complexity.\n> All Mocha features are available without any limitation.\n\n## Why?\nTo setup Mocha with TypeScript you have to figure out how to integrate them to work together, it's not an easy task and require some advanced knowledge.\nThis package handles for you this complexity and let you use ts-mocha just as regular mocha that will handle TypeScript `.ts` and `.tsx` files. Also added some useful options, you can find them below.\n\n## How?\nTS-Mocha has one only dependency - ts-node, which is used as a TypeScript runtime to execute tests that can import and run imported TypeScript source files as well. It is as a thin wrapper that run local mocha package and set up ts-node environment to handle `.ts` and `.tsx` files. To speed up TypeScript tests execution type-checking is disabled, using only transpile module.\n\n> __NOTE__: This package does not include Mocha - I have set Mocha as peer dependency on purpose, so I don't lock consumer to a specific Mocha version but most importantly, I don't have to update this package when Mocha is updated, and all the new features will be available automatically from your local Mocha package. Also integration with your existing Mocha setup is non-invasive.\n\n> __PRO TIP__: To make your developer experience better I recommend to run type-checking in a separate process by starting TSC compiler (preferably in watch mode) in you terminal with --noEmit and --project flags.\n\n## Installation\n\n```bash\n# remember to install mocha if you don't have it already (npm i -D mocha)\n\nnpm i -D ts-mocha\n\n# install recent Mocha and Expect @types packages for best DX\nnpm i -D @types/mocha @types/expect\n```\n\n## Usage\n\n### - CLI Usage:\n\nCLI options consist of all the options of regular Mocha plus extra options below:\n\n`-p, --project <value>` - relative or absolute path to a `tsconfig.json` file (equivalent of `tsc -p <value>`) [default: \"./tsconfig.json\"]\n\nExample:\n```bash\nts-mocha -p src/tsconfig.json src/**/*.spec.ts\n```\n\n`--paths` - feature toggle flag to enable [`tsconfig-paths`](https://www.npmjs.com/package/tsconfig-paths) integration [default: false]\n> `tsconfig-paths` is an optional dependency, make sure to install it locally in your project\n\nWhen using [path mapping](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) via the `paths` compiler option in `tsconfig.json` this library utilizes the [`tsconfig-paths`](https://www.npmjs.com/package/tsconfig-paths) package, allowing for automatic resolution of aliased modules locations during test execution.\n\nCheck our test suite for a reference implementation: [Link](./test/paths/tsconfig.json)\n\n**Example:**\n```bash\nts-mocha --paths -p src/ src/**/*.spec.ts\n```\n\n### Watch Mode:\nIf you want your tests to be automatically rerun when your code changes, add both the `-w` flag and the `--watch-extensions` flag telling it to watch for typescript files.\n\n**Example:**\n```bash\nts-mocha --paths -p src/ src/**/*.spec.ts -w --watch-extensions ts\n```\n\n### - Programmatic usage:\n\nIn code you can use ts-mocha by adding a single require at the beginning of your script:\n\n```javascript\n// set env variable to the `tsconfig.json` path before loading mocha (default: './tsconfig.json')\nprocess.env.TS_NODE_PROJECT = './src/tsconfig.json'\n\n// Optional: set env variable to enable `tsconfig-paths` integration\nprocess.env.TS_CONFIG_PATHS = true;\n\n// register mocha wrapper\nrequire('ts-mocha');\n```\n\nFor example:\n\n```javascript\nprocess.env.TS_NODE_PROJECT = './src/tsconfig.json';\nrequire('ts-mocha');\nconst Mocha = require('mocha');\n\nconst mocha = new Mocha();\nmocha.addFile(`./src/file.spec.ts`);\nmocha.run((failures) => {\n  process.on('exit', () => {\n    process.exit(failures); // exit with non-zero status if there were failures\n  });\n});\n```\n",
+      "readmeFilename": "README.md",
+      "gitHead": "a13b574f9ef4d872794878154972e4ea04a4e734",
+      "bugs": {
+        "url": "https://github.com/piotrwitek/ts-mocha/issues"
+      },
+      "homepage": "https://github.com/piotrwitek/ts-mocha#readme",
+      "_id": "ts-mocha@9.0.0-alpha1",
+      "_nodeVersion": "12.16.3",
+      "_npmVersion": "6.14.4",
+      "dist": {
+        "integrity": "sha512-c5NNwKNKrzfzJSDqKLTvilVl7cDageZpo5RrXimOjViDPXfy83aAjDHjfs5yzDSJ3O+Vg2gi+MDTVU71LcIFjw==",
+        "shasum": "f0388aa6898e0c6403485a937904a69c0dc7116d",
+        "tarball": "https://registry.npmjs.org/ts-mocha/-/ts-mocha-9.0.0-alpha1.tgz",
+        "fileCount": 7,
+        "unpackedSize": 73130,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJflWgsCRA9TVsSAnZWagAA2CgQAJNb4QMJpm9d/wK9zO9F\nSn2+QnRNrl2xsQ5wL83yF7P9CdJGW+L+hmGSVrUIxIRQbMQZ4E7DvhpqkZnE\nZjkWfFUsfiIZPFwdHRI+sn0h17e/kqKlSnfmo0gzvm7Z5sy/ctcv4INQa6KR\nZ53XFu+konN1GEVmx95adP1y+qugx5Xc5R8t6ztuEYuwet3TOti2zbuFmY7m\ndxqP8ose98eVykdtE4UPrJjrPqzzuKgQkMZhpbcw3nuBXgm0gpQ1TdMgnGto\n2uCvm6CN/UcCJA7ZztMlOGMQabD4v9A9Nn6bxywDL/ISsvPy/rcPexaYpbUq\nmnwMhrqnR4DZfNmGHE/mPagHI61Qy+q2f37hec2Ctz2VFrf6gtu62eEIzgFJ\nd1NGtGNuapxW5p9SRib/9/AXJEMwDa+2b0h9mtnxTiAnsrdGoIZ2+vRE5D99\nSaXgBgH4cjIQmFDAJwUl6hVszR4qQyfgeJJ3YtTGLLfEa3TInZX3AlWdpZAz\n1PDUIhHaejInhJ5anrA6Z0Yt8zM17iQasE448Exrj/JRNSmTzr6YZouRWzs/\n17l1qn8FrMrWrnlnjrfBAMR8bLtF7VLjsR3Q+1KBSOCLqFwjM3JXZ+0Lf98k\njWxbRgqylqtkYMz3M/vzIpzl1ElsWaNKvlQQbHnO/kG5BfFTQpS/Hd+VAYEr\nZZDx\r\n=ZVF0\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHtpPUNrD7UV7dr2ktxPLpd/RxGOqgu8FOjCRbaHNWE6AiAN2bL5FoXFRSTUg2Somgy0JBY5yG0XqTIr8FaeQIWkgw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "piotrwitek",
+          "email": "piotrek.witek@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "piotrwitek",
+        "email": "piotrek.witek@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-mocha_9.0.0-alpha1_1603627051635_0.21284498476989633"
+      },
+      "_hasShrinkwrap": false
+    },
+    "9.0.0": {
+      "name": "ts-mocha",
+      "version": "9.0.0",
+      "description": "Mocha thin wrapper that allows running TypeScript tests with TypeScript runtime (ts-node) to get rid of compilation complexity",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/piotrwitek/ts-mocha.git"
+      },
+      "author": {
+        "name": "Piotr Witek",
+        "email": "piotrek.witek@gmail.com",
+        "url": "http://piotrwitek.github.io"
+      },
+      "license": "MIT",
+      "main": "src/index.js",
+      "bin": {
+        "ts-mocha": "bin/ts-mocha"
+      },
+      "engines": {
+        "node": ">= 6.X.X"
+      },
+      "scripts": {
+        "clean": "rm -rf node_modules/",
+        "reinstall": "npm run clean && npm install",
+        "pretest:baseline": "npm install --peer",
+        "test:baseline": "./bin/ts-mocha -p test/baseline/tsconfig.json test/baseline/**/*.spec.ts test/typecheck/**/*.spec.ts && node test/baseline/programmatic-use-test.js",
+        "pretest:paths": "npm install --optional",
+        "test:paths": "./bin/ts-mocha --paths -p test/paths/tsconfig.json test/paths/**/*.spec.ts && node test/paths/programmatic-use-test.js",
+        "test:typecheck": "if ./bin/ts-mocha --type-check -p test/typecheck/tsconfig.json test/typecheck/**/*.spec.ts; then exit 1; fi && node test/typecheck/programmatic-use-test.js",
+        "test": "npm run test:baseline & npm run test:paths & npm run test:typecheck",
+        "prepublishOnly": "npm run clean && npm install --production && npm install -D mocha && npm test"
+      },
+      "dependencies": {
+        "ts-node": "7.0.1",
+        "tsconfig-paths": "^3.5.0"
+      },
+      "devDependencies": {
+        "@types/expect": "24.3.0",
+        "@types/mocha": "8.0.3",
+        "@types/node": "14.14.2",
+        "expect": "26.6.1",
+        "husky": "4.3.0",
+        "mocha": "8.2.0",
+        "tslint": "6.1.3",
+        "typescript": "3.3.3"
+      },
+      "peerDependencies": {
+        "mocha": "^3.X.X || ^4.X.X || ^5.X.X || ^6.X.X || ^7.X.X || ^8.X.X || ^9.X.X"
+      },
+      "optionalDependencies": {
+        "tsconfig-paths": "^3.5.0"
+      },
+      "keywords": [
+        "ts",
+        "mocha",
+        "typescript",
+        "ts-node",
+        "test"
+      ],
+      "greenkeeper": {
+        "ignore": [
+          "@types/expect",
+          "@types/mocha",
+          "@types/node",
+          "expect",
+          "husky",
+          "tslint"
+        ]
+      },
+      "gitHead": "8f44dfd7c41ba003c019597156da94081a886886",
+      "bugs": {
+        "url": "https://github.com/piotrwitek/ts-mocha/issues"
+      },
+      "homepage": "https://github.com/piotrwitek/ts-mocha#readme",
+      "_id": "ts-mocha@9.0.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "7.24.2",
+      "dist": {
+        "integrity": "sha512-ObnfuqKWgK7S8BuhCvX4wowvSm23fRrM0tdJHSBHUXwIRVPfzXLgJ2A+84Fx0Er159tzAOFK+Q0cUugCQt+0Ww==",
+        "shasum": "8af3db3c3adf52ad2a0d9c9c54886dac75673127",
+        "tarball": "https://registry.npmjs.org/ts-mocha/-/ts-mocha-9.0.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 10331,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh3u13CRA9TVsSAnZWagAARwAQAKQoqmxWHWMtlo5QlKO9\nSJmOY5N5XFydCyw/cjnn20Xc2CS9KkY+YTmo2SNRphy19m5bPYgsNaljzF8I\nLWp72FTKJTxVBAKnpE0aeqjivREquWYzGbTQpzvZVXmXGu0lUOkygBP+XUXO\nj+5yNk5y3yzaf3gCCheN5JS00uP5n3JhLFpKeDNFMf8/rRcMp5cQysAWaixY\nMo74g2t+/hXmMxoJX9F1aMlhiS0XGrZsWjeDE67C87tAO34zbItKKnVRDcvO\nbo3TNhRy5/sOqQCTERkOlvR9H5Yg+Apnl8lgnCoSdrlxNzvWBzo56UhRR/tF\nqXEbpvltWOXjJdeBcP+hKyMS5VvMIyQ2GAKS1yzIFQm9ouVYG/lUTRGPhy5v\nh4FsrtyZFvErRg9dNgqKD49UZ6HO11d9wpIBpqvV3yl06YI1l68dMoOnIao8\nE954Jg5cAde4z78FmdPSJOqrO/uwZr2bxTtNbFhRRYCAa+zCjz/tx4wpzc6O\nCFVhjUivIoCEGyZlpd3se3mhHDQVdPGbED+WOQ0SMZgq6dNVef5g4f+GyKC/\nxF3LCimlvZN3uNMKiagg4VElIiyEulrTg1H94rWo79o11gpBg8LTPFJoDg+F\nyiO0EeQtgOMCn3t8YVIULj0+Ifo8dXao2kwspBRj/PHgVUgrl/I6CaobNTIJ\nipZS\r\n=iOxN\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFD+UiWP25+psnzZ1v2s1Uy+QZqTRYBrallb2E4dviilAiEA2QNHJui4Dy5HtB604kWOs9Yhu16LpPauFEdgRbMcyzE="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "piotrwitek",
+        "email": "piotrek.witek@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "piotrwitek",
+          "email": "piotrek.witek@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-mocha_9.0.0_1641999735459_0.006466079468138375"
+      },
+      "_hasShrinkwrap": false
+    },
+    "9.0.1": {
+      "name": "ts-mocha",
+      "version": "9.0.1",
+      "description": "Mocha thin wrapper that allows running TypeScript tests with TypeScript runtime (ts-node) to get rid of compilation complexity",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/piotrwitek/ts-mocha.git"
+      },
+      "author": {
+        "name": "Piotr Witek",
+        "email": "piotrek.witek@gmail.com",
+        "url": "http://piotrwitek.github.io"
+      },
+      "license": "MIT",
+      "main": "src/index.js",
+      "bin": {
+        "ts-mocha": "bin/ts-mocha"
+      },
+      "engines": {
+        "node": ">= 6.X.X"
+      },
+      "scripts": {
+        "clean": "rm -rf node_modules/",
+        "reinstall": "npm run clean && npm install",
+        "pretest:baseline": "npm install --peer",
+        "test:baseline": "./bin/ts-mocha -p test/baseline/tsconfig.json test/baseline/**/*.spec.ts test/typecheck/**/*.spec.ts && node test/baseline/programmatic-use-test.js",
+        "pretest:paths": "npm install --optional",
+        "test:paths": "./bin/ts-mocha --paths -p test/paths/tsconfig.json test/paths/**/*.spec.ts && node test/paths/programmatic-use-test.js",
+        "test:typecheck": "if ./bin/ts-mocha --type-check -p test/typecheck/tsconfig.json test/typecheck/**/*.spec.ts; then exit 1; fi && node test/typecheck/programmatic-use-test.js",
+        "test": "npm run test:baseline & npm run test:paths & npm run test:typecheck",
+        "prepublishOnly": "npm run clean && npm install --production && npm install -D mocha && npm test"
+      },
+      "dependencies": {
+        "ts-node": "7.0.1",
+        "tsconfig-paths": "^3.5.0"
+      },
+      "devDependencies": {
+        "@types/expect": "24.3.0",
+        "@types/mocha": "8.0.3",
+        "@types/node": "14.14.2",
+        "expect": "26.6.1",
+        "husky": "4.3.0",
+        "mocha": "8.2.0",
+        "tslint": "6.1.3",
+        "typescript": "3.3.3"
+      },
+      "peerDependencies": {
+        "mocha": "^3.X.X || ^4.X.X || ^5.X.X || ^6.X.X || ^7.X.X || ^8.X.X || ^9.X.X"
+      },
+      "optionalDependencies": {
+        "tsconfig-paths": "^3.5.0"
+      },
+      "keywords": [
+        "ts",
+        "mocha",
+        "typescript",
+        "ts-node",
+        "test"
+      ],
+      "greenkeeper": {
+        "ignore": [
+          "@types/expect",
+          "@types/mocha",
+          "@types/node",
+          "expect",
+          "husky",
+          "tslint"
+        ]
+      },
+      "gitHead": "6014a69685d37d30bd851cd60cea031563369009",
+      "bugs": {
+        "url": "https://github.com/piotrwitek/ts-mocha/issues"
+      },
+      "homepage": "https://github.com/piotrwitek/ts-mocha#readme",
+      "_id": "ts-mocha@9.0.1",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "7.24.2",
+      "dist": {
+        "integrity": "sha512-9K/sNtEJzFPysuDHFwRel4VLtwRuhgLJ4uAGOTr2Sk3hAIzzhxNavi3J3ztPhquRk2a8DTmzhS+OADtRQus8Lg==",
+        "shasum": "4cc14fa385b33ae93fbe8a7ee43fe89930a701e9",
+        "tarball": "https://registry.npmjs.org/ts-mocha/-/ts-mocha-9.0.1.tgz",
+        "fileCount": 6,
+        "unpackedSize": 10525,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh3vRCCRA9TVsSAnZWagAA/l0P/jOqttz2e5HibXL+tRlE\n9cf6pXrYqHsPjPMVhXgg/mmWcsrA6aFJGUkcoXBKj60mlUZyRylxQ5T8jrE0\nWpAI0+zx9r128Nesd1aj4Ap89uJdEpfPnIgd9LULk7kgIs20BSIE32CS0kNZ\nHUcdIr6ZDiwnLwHfgY+UHlKgDWGVtf0jk57myrxsE71lTR6aK+lsZGTNYgvY\nCwC01pQ+iKyf49mcL7g+mML7n52/15K2WmAaphAFLh+sZkshC+Qqcpjiqypx\nQKSt1UTYvHMD87Q7934f+tPBUBrdvuLaPRnj0KfPUaivMi5e2wlZWBgbvEsH\nhSMLM9bw6ekiEYU5TZmcuaL6TZW7dcX2oQkbVroKI1XllWtoqoSiB4KTP4v8\n/Tpkn9EaS216gj3na9LksDkC1chwCWmSPk4h2WTCx/2izjHURjf2olHTCaFS\nnwQcDbzHilLMPEFwmK/4CBqtM7TfPNkJ2PBK+Lct/U4kYlz3bFboC2b7j7ZO\n3u7+8AZAGYNYsXvOjve4v3406DAtBKg4ghllSi08yPN0gS4EisF73DilKTQb\ncPC1AkVigDyxB+ZoE0V+am2NeRsPD6iv/sulD2FauqZ6g4eFg45gcBuSa6El\n1pHEa4Eh444YTwLjAUnc7EABCv+VwUEtA3Md0DnHycModb7oN7qWiMlHVxOu\nRfpD\r\n=r6R8\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDIevBTFUQYMBIt4hw/GOKocDEV6kGZJ2yHYNXIpRZVzQIhAMqq85Bm+Dssg4v8VeHrSQGl5TnJAQ3tnSkVsKA6IoLt"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "piotrwitek",
+        "email": "piotrek.witek@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "piotrwitek",
+          "email": "piotrek.witek@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-mocha_9.0.1_1642001474512_0.05155697789261904"
+      },
+      "_hasShrinkwrap": false,
+      "deprecated": "has bug, do not use"
+    },
+    "9.0.2": {
+      "name": "ts-mocha",
+      "version": "9.0.2",
+      "description": "Mocha thin wrapper that allows running TypeScript tests with TypeScript runtime (ts-node) to get rid of compilation complexity",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/piotrwitek/ts-mocha.git"
+      },
+      "author": {
+        "name": "Piotr Witek",
+        "email": "piotrek.witek@gmail.com",
+        "url": "http://piotrwitek.github.io"
+      },
+      "license": "MIT",
+      "main": "src/index.js",
+      "bin": {
+        "ts-mocha": "bin/ts-mocha"
+      },
+      "engines": {
+        "node": ">= 6.X.X"
+      },
+      "scripts": {
+        "clean": "rm -rf node_modules/",
+        "reinstall": "npm run clean && npm install",
+        "pretest:baseline": "npm install --peer",
+        "test:baseline": "./bin/ts-mocha -p test/baseline/tsconfig.json test/baseline/**/*.spec.ts test/typecheck/**/*.spec.ts && node test/baseline/programmatic-use-test.js",
+        "pretest:paths": "npm install --optional",
+        "test:paths": "./bin/ts-mocha --paths -p test/paths/tsconfig.json test/paths/**/*.spec.ts && node test/paths/programmatic-use-test.js",
+        "test:typecheck": "if ./bin/ts-mocha --type-check -p test/typecheck/tsconfig.json test/typecheck/**/*.spec.ts; then exit 1; fi && node test/typecheck/programmatic-use-test.js",
+        "test": "npm run test:baseline & npm run test:paths & npm run test:typecheck",
+        "prepublishOnly": "npm run clean && npm install --production && npm install -D mocha && npm test"
+      },
+      "dependencies": {
+        "ts-node": "7.0.1",
+        "tsconfig-paths": "^3.5.0"
+      },
+      "devDependencies": {
+        "@types/expect": "24.3.0",
+        "@types/mocha": "8.0.3",
+        "@types/node": "14.14.2",
+        "expect": "26.6.1",
+        "husky": "4.3.0",
+        "mocha": "8.2.0",
+        "tslint": "6.1.3",
+        "typescript": "3.3.3"
+      },
+      "peerDependencies": {
+        "mocha": "^3.X.X || ^4.X.X || ^5.X.X || ^6.X.X || ^7.X.X || ^8.X.X || ^9.X.X"
+      },
+      "optionalDependencies": {
+        "tsconfig-paths": "^3.5.0"
+      },
+      "keywords": [
+        "ts",
+        "mocha",
+        "typescript",
+        "ts-node",
+        "test"
+      ],
+      "greenkeeper": {
+        "ignore": [
+          "@types/expect",
+          "@types/mocha",
+          "@types/node",
+          "expect",
+          "husky",
+          "tslint"
+        ]
+      },
+      "gitHead": "86d2b1bd527fe01050b45c1212e1a4bec08f47b5",
+      "bugs": {
+        "url": "https://github.com/piotrwitek/ts-mocha/issues"
+      },
+      "homepage": "https://github.com/piotrwitek/ts-mocha#readme",
+      "_id": "ts-mocha@9.0.2",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "7.24.2",
+      "dist": {
+        "integrity": "sha512-WyQjvnzwrrubl0JT7EC1yWmNpcsU3fOuBFfdps30zbmFBgKniSaSOyZMZx+Wq7kytUs5CY+pEbSYEbGfIKnXTw==",
+        "shasum": "c1ef0248874d04a0f26dd9bd8d88e617a8d82ab1",
+        "tarball": "https://registry.npmjs.org/ts-mocha/-/ts-mocha-9.0.2.tgz",
+        "fileCount": 6,
+        "unpackedSize": 10523,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh3vaACRA9TVsSAnZWagAAfKYP/10XV+6JHk8PVa1Ir5p8\nwVyqZSdVvD+aPTmU8TJiCKrlsLwL5Z8vC01eqd107jQDXK5zKSjFvhL/2Zwd\nujT+dGZO0ewbSHltRiy4InZs0quWovyVDIBvGNqmeCqMs7s5Oaa82S/O5zWD\nBdVoPUoB4R2tg0w3/3b4jMC1O9qwdBueZ34szbCviWw1Y00MC6GfL/z0/+Hx\n08O0x7V5LDpMBFGK5e4cNXvI4NQxsLMHrYbp1aiPUL9PAd5rSmVGBWWfpley\nSTrdWYam7fN4iWxpdyrFfAMORY/LezG3nP9F8J0S4QiIwILuBEdSuGt2WCgd\nNMV5DfZbCdYptcFURPlw6gLlO0uTCkJM4I+xTT11gvdmZ7U5OsDXS9MjuSo6\nPJ/yljFZaSGKSyiGqbSakkUSIXy/hABCk68IcBW4eOX/T8gC3wQVIBYovkmx\n1nQlD0JbgHXzzX/NEIKiTuU7IiQqYUxcfkQol/+3T4gbI/idoP8KDoRlGWDl\nsP6d/50o1MZp/iih6H9146BU0U+g3nS2mJraO0Hmx2X9OsDXSHpHZOKuwM/W\nIR1CJ5hfBzSFjO5ItPJbx6HkXSITHRhLQPLcVufrdAB4OmT7X5PxetjkOVfD\neFbgrrqy/F/mZcE6FY0wV/FcgjOhGL/ZxH4tJ2JeQ8D0I1A/+c+HtWZx4EdJ\n4AVP\r\n=wBMW\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCKNafLvX1dPw1rDt1MxVMigQkVX2j8gCXFMXnypBZGgQIgRIQdNUIWEQ9pyUj0AZqJ7RY03vtPQDZcDXm3w0Ala1A="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "piotrwitek",
+        "email": "piotrek.witek@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "piotrwitek",
+          "email": "piotrek.witek@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-mocha_9.0.2_1642002048261_0.16821088650420024"
+      },
+      "_hasShrinkwrap": false
+    },
+    "10.0.0": {
+      "name": "ts-mocha",
+      "version": "10.0.0",
+      "description": "Mocha thin wrapper that allows running TypeScript tests with TypeScript runtime (ts-node) to get rid of compilation complexity",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/piotrwitek/ts-mocha.git"
+      },
+      "author": {
+        "name": "Piotr Witek",
+        "email": "piotrek.witek@gmail.com",
+        "url": "http://piotrwitek.github.io"
+      },
+      "license": "MIT",
+      "main": "src/index.js",
+      "bin": {
+        "ts-mocha": "bin/ts-mocha"
+      },
+      "engines": {
+        "node": ">= 6.X.X"
+      },
+      "scripts": {
+        "clean": "rm -rf node_modules/",
+        "reinstall": "npm run clean && npm install",
+        "pretest:baseline": "npm install --peer",
+        "test:baseline": "./bin/ts-mocha -p test/baseline/tsconfig.json test/baseline/**/*.spec.ts test/typecheck/**/*.spec.ts && node test/baseline/programmatic-use-test.js",
+        "pretest:paths": "npm install --optional",
+        "test:paths": "./bin/ts-mocha --paths -p test/paths/tsconfig.json test/paths/**/*.spec.ts && node test/paths/programmatic-use-test.js",
+        "test:typecheck": "if ./bin/ts-mocha --type-check -p test/typecheck/tsconfig.json test/typecheck/**/*.spec.ts; then exit 1; fi && node test/typecheck/programmatic-use-test.js",
+        "test": "npm run test:baseline & npm run test:paths & npm run test:typecheck",
+        "prepublishOnly": "npm run clean && npm install --production && npm install -D mocha && npm test"
+      },
+      "dependencies": {
+        "ts-node": "7.0.1",
+        "tsconfig-paths": "^3.5.0"
+      },
+      "devDependencies": {
+        "@types/expect": "24.3.0",
+        "@types/mocha": "8.0.3",
+        "@types/node": "14.14.2",
+        "expect": "26.6.1",
+        "husky": "4.3.0",
+        "mocha": "8.2.0",
+        "tslint": "6.1.3",
+        "typescript": "3.3.3"
+      },
+      "peerDependencies": {
+        "mocha": "^3.X.X || ^4.X.X || ^5.X.X || ^6.X.X || ^7.X.X || ^8.X.X || ^9.X.X || ^10.X.X"
+      },
+      "optionalDependencies": {
+        "tsconfig-paths": "^3.5.0"
+      },
+      "keywords": [
+        "ts",
+        "mocha",
+        "typescript",
+        "ts-node",
+        "test"
+      ],
+      "greenkeeper": {
+        "ignore": [
+          "@types/expect",
+          "@types/mocha",
+          "@types/node",
+          "expect",
+          "husky",
+          "tslint"
+        ]
+      },
+      "gitHead": "2f1022009db51d206bc8f1263b8a60a57c99051e",
+      "bugs": {
+        "url": "https://github.com/piotrwitek/ts-mocha/issues"
+      },
+      "homepage": "https://github.com/piotrwitek/ts-mocha#readme",
+      "_id": "ts-mocha@10.0.0",
+      "_nodeVersion": "16.14.2",
+      "_npmVersion": "8.5.0",
+      "dist": {
+        "integrity": "sha512-VRfgDO+iiuJFlNB18tzOfypJ21xn2xbuZyDvJvqpTbWgkAgD17ONGr8t+Tl8rcBtOBdjXp5e/Rk+d39f7XBHRw==",
+        "shasum": "41a8d099ac90dbbc64b06976c5025ffaebc53cb9",
+        "tarball": "https://registry.npmjs.org/ts-mocha/-/ts-mocha-10.0.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 10399,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIC2o34USo9iMTETkVXYcVH2ErJi2APWpFztXlc8N4RDKAiBIQMYLimEUs6SY+LZtoaUHYxxe/AZrDwfxU/27LS5G5A=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJic6xhACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmplyBAAoFUnPj4dUUqpAEBUrZu2zo7MaYfWD1J6wi88/0LKyJ66aCwG\r\nuIAcNhpmQKUQVl46i9DXQGQRBSpSHBNW/ZHvfMDFnHtri8TQsHnAyQWu4aop\r\nGTE26CBKequCxC+tt10NNysOT1JVj8vPtnm4xMoREAQgOsFjyGnwnPYfFe+9\r\nls/d6n+19xv4W0ZpcrZI0wSt2zuE/2qSkPGNA4onnJ/zboIicCEmRpEBAX+f\r\nedabUS5f9HfdevRpe4kzsLMKPgnhHqveQgLV02FYAsbOandw4/lajkqpIl1f\r\nE34RRVrhRWTPzmiK21L6OmXNfC4jZ+BnGnywoN1AJuJB2+zttNfuvawNGES5\r\n1kkBG1UaU696GQ6MseokIp1va/Fcd0TaynBiU+4eTVWhlM1KMppsAJL3gY6w\r\nWU1m8hBBwFj0KUNh7MfbW5/jbBWN4zIjoUmb+1P8erpBYUKxibBujUaiDqVM\r\nN2p8MyfKdizEmUA1UfpOGfSdk5houS42ogIYaDyyr5aAyNW5kcwkwiuvDQt+\r\n6zQ9W0eOMFysaa0DyW6r2WziaXi5/8Tp8TTXNKKngZLJqj0HB28t7+sVPNTD\r\nUDaEVnCJnLEGfn7wUCvfc5EL/g3zhnEgw0/I1qQY3aqEeQXB5rbbtLDNmtWl\r\nddD9l1j6G5M3B0HNoLpQtBM9l+5l/wkkPS8=\r\n=sw7t\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "piotrwitek",
+        "email": "piotrek.witek@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "piotrwitek",
+          "email": "piotrek.witek@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-mocha_10.0.0_1651747937212_0.030333448465451607"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "readme": "# TS-Mocha\n\n[![Latest Stable Version](https://img.shields.io/npm/v/ts-mocha.svg)](https://www.npmjs.com/package/ts-mocha)\n[![NPM Downloads](https://img.shields.io/npm/dt/ts-mocha.svg)](https://www.npmjs.com/package/ts-mocha)\n[![NPM Downloads](https://img.shields.io/npm/dm/ts-mocha.svg)](https://www.npmjs.com/package/ts-mocha)\n[![Codeship Status for piotrwitek/ts-mocha](https://app.codeship.com/projects/cb8cc460-1719-0137-28fd-3a09a0997096/status?branch=master)](https://app.codeship.com/projects/328034)\n[![Greenkeeper badge](https://badges.greenkeeper.io/piotrwitek/ts-mocha.svg)](https://greenkeeper.io/)\n\n> `ts-mocha` is a wrapper on top of `mocha` to allow running tests written in TypeScript without setting up a complicated setup in your project, it just works.\n\n> All `mocha` features are available without any limitation because `ts-mocha` is passing all the params to original `mocha` behind the scenes.\n\n## Why?\n\nTo setup Mocha with TypeScript you need to figure out how to set it up together, it's not an easy task and require some time and effort to setup correctly. Moreover this setup will stop working whenever `mocha` or `ts-node` introduce breaking changes, so you'll have to fix it and waste your time again.\n\nThis package handles all that concerns for you and let you use `ts-mocha` in the same way as a regular mocha while supporting TypeScript.\n\nAlso we added some useful options to make your life easier specifically for TypeScript projects, you can find them below.\n\n## How?\n\nTS-Mocha has one only dependency - ts-node, which is used as a TypeScript runtime to execute tests that can import and run imported TypeScript source files as well. It is a thin wrapper that run node process with mocha and set up ts-node environment to handle `.ts` and `.tsx` files. To speed up TypeScript tests execution type-checking is disabled, using only transpile mode.\n\n> **NOTE**: This package does not include Mocha - Mocha is set as peer dependency, so I don't lock the consumer to a specific Mocha version and I don't have to update this package when Mocha is updated.\n\n> **PRO TIP**: To make your developer experience better I recommend to run type-checking in a separate process by starting TSC compiler (preferably in watch mode) in you terminal with --noEmit and --project flags.\n\n## Installation\n\n```bash\n# remember to install mocha if you don't have it already (npm i -D mocha)\n\nnpm i -D ts-mocha\n\n# install recent Mocha and Expect @types packages for best DX\nnpm i -D @types/mocha @types/expect\n```\n\n## Usage\n\n### - CLI Usage\n\nCLI options consist of all the options of regular Mocha plus extra options below:\n\n`-p, --project <value>` - relative or absolute path to a `tsconfig.json` file (equivalent of `tsc -p <value>`) [default: \"./tsconfig.json\"]\n\n**Example:**\n\n```bash\nts-mocha -p src/tsconfig.json src/**/*.spec.ts\n```\n\n`--paths` - feature toggle flag to enable [`tsconfig-paths`](https://www.npmjs.com/package/tsconfig-paths) integration [default: false]\n\n> `tsconfig-paths` is an optional dependency, make sure to install it locally in your project\n\nWhen using [path mapping](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) via the `paths` compiler option in `tsconfig.json` this library utilizes the [`tsconfig-paths`](https://www.npmjs.com/package/tsconfig-paths) package, allowing for automatic resolution of aliased modules locations during test execution.\n\nCheck our test suite for a reference implementation: [Link](./test/paths/tsconfig.json)\n\n**Example:**\n\n```bash\nts-mocha --paths -p src/ src/**/*.spec.ts\n```\n\n`--type-check` - feature toggle flag to enable type checking in ts-node [default: false]\n\nBy default ts-mocha uses the `--transpile-only` option of ts-node to make tests run faster. Use the `--type-check` option to enable type checking in ts-node.\n\n**Example:**\n\n```bash\nts-mocha --type-check -p src/ src/**/*.spec.ts\n```\n\n### Watch Mode\n\nIf you want your tests to be automatically rerun when your code changes, add both the `-w` flag and the `--watch-files` flag telling it to watch for typescript files.\n\n**Example:**\n\n```bash\nts-mocha test/**/*.spec.ts -w --watch-files '**/*.ts'\n```\n\n### - Programmatic usage\n\nIn code you can use ts-mocha by adding a single require at the beginning of your script:\n\n```javascript\n// set env variable to the `tsconfig.json` path before loading mocha (default: './tsconfig.json')\nprocess.env.TS_NODE_PROJECT = './src/tsconfig.json'\n\n// Optional: set env variable to enable `tsconfig-paths` integration\nprocess.env.TS_CONFIG_PATHS = true;\n\n// register mocha wrapper\nrequire('ts-mocha');\n```\n\nFor example:\n\n```javascript\nprocess.env.TS_NODE_PROJECT = './src/tsconfig.json';\nrequire('ts-mocha');\nconst Mocha = require('mocha');\n\nconst mocha = new Mocha();\nmocha.addFile(`./src/file.spec.ts`);\nmocha.run((failures) => {\n  process.on('exit', () => {\n    process.exit(failures); // exit with non-zero status if there were failures\n  });\n});\n```\n",
+  "maintainers": [
+    {
+      "name": "piotrwitek",
+      "email": "piotrek.witek@gmail.com"
+    }
+  ],
+  "time": {
+    "modified": "2022-06-27T22:12:43.433Z",
+    "created": "2016-12-10T10:37:26.285Z",
+    "0.1.1": "2016-12-10T10:37:26.285Z",
+    "0.1.2-0": "2016-12-10T22:39:48.036Z",
+    "1.0.0": "2016-12-10T23:13:03.125Z",
+    "1.0.1": "2016-12-11T00:39:02.442Z",
+    "1.0.2": "2016-12-11T00:42:21.250Z",
+    "1.0.3": "2016-12-14T20:30:12.195Z",
+    "1.1.0": "2017-12-23T16:20:56.404Z",
+    "1.2.0": "2018-04-09T07:04:56.058Z",
+    "1.3.0": "2018-08-01T19:05:23.457Z",
+    "2.0.0": "2018-08-04T11:21:50.516Z",
+    "6.0.0": "2019-02-20T09:11:59.741Z",
+    "7.0.0": "2020-03-16T17:29:41.640Z",
+    "8.0.0": "2020-10-25T11:47:32.416Z",
+    "9.0.0-alpha1": "2020-10-25T11:57:31.782Z",
+    "9.0.0": "2022-01-12T15:02:15.620Z",
+    "9.0.1": "2022-01-12T15:31:14.671Z",
+    "9.0.2": "2022-01-12T15:40:48.387Z",
+    "10.0.0": "2022-05-05T10:52:17.331Z"
+  },
+  "homepage": "https://github.com/piotrwitek/ts-mocha#readme",
+  "keywords": [
+    "ts",
+    "mocha",
+    "typescript",
+    "ts-node",
+    "test"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piotrwitek/ts-mocha.git"
+  },
+  "author": {
+    "name": "Piotr Witek",
+    "email": "piotrek.witek@gmail.com",
+    "url": "http://piotrwitek.github.io"
+  },
+  "bugs": {
+    "url": "https://github.com/piotrwitek/ts-mocha/issues"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
