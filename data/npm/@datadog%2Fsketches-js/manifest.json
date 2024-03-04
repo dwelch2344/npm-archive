@@ -1,0 +1,783 @@
+{
+  "_id": "@datadog/sketches-js",
+  "_rev": "9-03bdb1448b98b33d9df7d6ba4e44ac0a",
+  "name": "@datadog/sketches-js",
+  "dist-tags": {
+    "latest": "2.1.0"
+  },
+  "versions": {
+    "0.5.0": {
+      "name": "@datadog/sketches-js",
+      "version": "0.5.0",
+      "description": "TypeScript implementation of DDSketch, a distributed quantile sketch algorithm ",
+      "license": "Apache-2.0",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/DataDog/sketches-js"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "keywords": [
+        "histogram",
+        "ddsketch",
+        "sketches",
+        "quantiles",
+        "percentiles",
+        "monitoring"
+      ],
+      "publishConfig": {
+        "access": "public"
+      },
+      "scripts": {
+        "build": "yarn clean; tsc -p tsconfig.build.json",
+        "clean": "rm -rf dist/*",
+        "test": "jest",
+        "lint": "eslint \"src/**/*.{js,ts}\"",
+        "typecheck": "tsc --noEmit",
+        "generate:proto": "pbjs -t static-module -w commonjs -o src/ddsketch/proto/compiled.js src/ddsketch/proto/DDSketch.proto && pbts -o src/ddsketch/proto/compiled.d.ts src/ddsketch/proto/compiled.js"
+      },
+      "dependencies": {
+        "math-float64-frexp": "^1.0.0",
+        "math-float64-ldexp": "^1.0.1",
+        "protobufjs": "^6.10.2"
+      },
+      "devDependencies": {
+        "@types/jest": "^26.0.14",
+        "@typescript-eslint/eslint-plugin": "^4.2.0",
+        "@typescript-eslint/parser": "^4.2.0",
+        "eslint": "^7.9.0",
+        "eslint-config-prettier": "^6.12.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "jest": "^26.4.2",
+        "prettier": "^2.1.2",
+        "ts-jest": "^26.4.0",
+        "typescript": "^4.0.3"
+      },
+      "resolutions": {
+        "dot-prop": "^4.2.1"
+      },
+      "licenseText": "Copyright 2020 Datadog, Inc.\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+      "noticeText": "Datadog sketches-js\nCopyright 2020 Datadog, Inc.\n\nThis product includes software developed at Datadog (https://www.datadoghq.com/).\n",
+      "_id": "@datadog/sketches-js@0.5.0",
+      "dist": {
+        "shasum": "8e60867421d6f1cf8df9db803e933ea05dd04507",
+        "integrity": "sha512-fsYoc3+T5XivKeQ4QwBVurY2TLcZujWzOHAnpI+Z4x7zKouXBfHx0WfXFMcQM7Lr9bdt54IYtakEC2FOUKtJLg==",
+        "tarball": "https://registry.npmjs.org/@datadog/sketches-js/-/sketches-js-0.5.0.tgz",
+        "fileCount": 5,
+        "unpackedSize": 5102,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfzovoCRA9TVsSAnZWagAAKwAP/i6zAClMR1lkC76i2X7y\nJV+u5e5EEdAOQu5cFI3htQBwM2bz7HtP4PGgTUzfVsMxUu37aUoD349GGufw\ngFYZn7dp79SXk1981J1Uk9dFE+It7llF3KGHuTkDImKKysNH0JlSsL6zdhLp\n6i0fOoeVnPmQ3fMN3eTORpdeROwPMb7paFUUmq70j0EvN2wBgW/T3lDk5qda\nu4QArmU106UjVMy0YCUyxTF3HRtfkD7myRDGbbkN8j8B48xNsqRdSWslNWpH\nuSsVrZpTZg0VkWOCcjcJFVrkguIa4gdg1H8X9MNIitvLbIKrwaPbv6XMFbz/\nabKU3z7cEiGNUD5yzY3Ey9N9VSiUE92yydWkulP+ENan32qHDNElTPQ7karY\nHeBfG2rk3UfkOeTjRUaXHwZFd1bp5c6KP+K+RtbCfCOEwoYq64sRTfuv6NaT\nkLgtyT24sc3XYmHzPeTb032gFsZAVIxlRUNho1vNEzskiYtGsoMzajJg7fXr\nZ/KTCRQD0xLjKGiBV5y54+FGU2Lfk3gVdZyDA7fdV57uBljrNKFWFLdUDdYD\nxrqEbNHmLfiqio2vNR+ZN6xECwjFi8E010Fq/dk+ZkKwl/qmZAZb8SxZ1KG9\nGYolAQSzfwwMsQsRBjRCeaO40C633DCU4RSw2qHJMKR3MZrSNmC8Ddv2VhL1\nAXYd\r\n=fss5\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHE4QvL3VWGjd9I9z34SwSx3lzN93VEGLKZcKFi5vx+wAiEApwYFGK3fQWXO+eX+s7PMWmFgTt/mJ+EKus9OBkgkKPg="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sketches-js_0.5.0_1607371751620_0.29447985031568935"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.0": {
+      "name": "@datadog/sketches-js",
+      "version": "1.0.0",
+      "description": "TypeScript implementation of DDSketch, a distributed quantile sketch algorithm ",
+      "license": "Apache-2.0",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/DataDog/sketches-js"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "keywords": [
+        "histogram",
+        "ddsketch",
+        "sketches",
+        "quantiles",
+        "percentiles",
+        "monitoring"
+      ],
+      "publishConfig": {
+        "access": "public"
+      },
+      "scripts": {
+        "build": "yarn clean; tsc -p tsconfig.build.json",
+        "clean": "rm -rf dist/*",
+        "test": "jest",
+        "lint": "eslint \"src/**/*.{js,ts}\"",
+        "typecheck": "tsc --noEmit",
+        "generate:proto": "pbjs -t static-module -w commonjs -o src/ddsketch/proto/compiled.js src/ddsketch/proto/DDSketch.proto && pbts -o src/ddsketch/proto/compiled.d.ts src/ddsketch/proto/compiled.js"
+      },
+      "dependencies": {
+        "math-float64-frexp": "^1.0.0",
+        "math-float64-ldexp": "^1.0.1",
+        "protobufjs": "^6.10.2"
+      },
+      "devDependencies": {
+        "@types/jest": "^26.0.14",
+        "@typescript-eslint/eslint-plugin": "^4.2.0",
+        "@typescript-eslint/parser": "^4.2.0",
+        "eslint": "^7.9.0",
+        "eslint-config-prettier": "^6.12.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "jest": "^26.4.2",
+        "prettier": "^2.1.2",
+        "ts-jest": "^26.4.0",
+        "typescript": "^4.0.3"
+      },
+      "resolutions": {
+        "dot-prop": "^4.2.1"
+      },
+      "licenseText": "Copyright 2020 Datadog, Inc.\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+      "noticeText": "Datadog sketches-js\nCopyright 2020 Datadog, Inc.\n\nThis product includes software developed at Datadog (https://www.datadoghq.com/).\n",
+      "_id": "@datadog/sketches-js@1.0.0",
+      "dist": {
+        "shasum": "aba180dba95fd76e5cd5a7aedaddf0a61fe28acf",
+        "integrity": "sha512-Y9jsVyejJp2hBcxcZg2371QYo4Vjyjp31SN9N7zJ6C6l5jX7+bc7c2/FUwdvR/ueWio6eYgwRhxo2jQu7meCaw==",
+        "tarball": "https://registry.npmjs.org/@datadog/sketches-js/-/sketches-js-1.0.0.tgz",
+        "fileCount": 5,
+        "unpackedSize": 6660,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfzqC8CRA9TVsSAnZWagAAT2gP/3lgJ39Sj6wpvjfJwa8q\n5Wz0TLtQkyjsS2LpW9osm75WGuAacdTfQBkdEsbVQnRj6s6UiW116U2F2kKw\nekuuh2mxBIe1BCsOr8IUnjD7i1j/kTKRMdH97hUuedwO2oCyyBcn/kAYrDiW\nO6erxg1QV28bE7lQRGiiGM6EZrko/WxI2VtQikPtC/k9PL8FAKwBvFr7O7OJ\nZwIC2Ke2Ob62oADShC5bJd8RobP7CAyEoIkRbs9bIY0QysyX2iERxYj1jakn\nNISLl+XfPqxcnLIMfMT07yJUM/2bl0ZtPWCqwTUxEFs/1KmaIZf6/EctVHg2\nwHg990sYj8OO2GqWBgiT+JewiXAm+rv+pdKGHRWGmtIK6lP+mqiaLIfqOFG8\nkVmLlCTtKV7S6Wd6jf5ORvqMqZ2TBNwqhL2yisvptZ3dJ/K5KSIAhh/xK6kh\nmfHSJ10r0n+EvgRMasQFF1ERHvM8ldNo2IyMYAykED/9X/uiFQ6JFz5C2sNj\n+eVdzW5uc0TgHrsHb/NmfHsx1Xk2h+PeHPchMnKcWBQA1gt44bF6hToeOWSz\nGB+2iWG7J0PxEuafD3CAggIe+doUBZReW85w33qIiP/9TNSotMwmUBq1hjHM\n/+JbNIMHdW8jd7+5S2G8m05rV1FlhTXf4QF98jnFZi75ASNmsXZ9deZ75/RE\n+vMO\r\n=x+8C\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCQ9szHhx87jKCX2NjxBcRxnxGQF9sHIOQ9XtpB/Ut0egIhAOma0zuMS1nXx7bQ4uxyTg3LR3eXsltN7040viOijcUC"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sketches-js_1.0.0_1607377084269_0.1669734462288548"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.1": {
+      "name": "@datadog/sketches-js",
+      "version": "1.0.1",
+      "description": "TypeScript implementation of DDSketch, a distributed quantile sketch algorithm ",
+      "license": "Apache-2.0",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/DataDog/sketches-js"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "keywords": [
+        "histogram",
+        "ddsketch",
+        "sketches",
+        "quantiles",
+        "percentiles",
+        "monitoring"
+      ],
+      "publishConfig": {
+        "access": "public"
+      },
+      "scripts": {
+        "build": "yarn clean; tsc -p tsconfig.build.json",
+        "clean": "rm -rf dist/*",
+        "test": "jest",
+        "lint": "eslint \"src/**/*.{js,ts}\"",
+        "prepack": "yarn build",
+        "typecheck": "tsc --noEmit",
+        "generate:proto": "pbjs -t static-module -w commonjs -o src/ddsketch/proto/compiled.js src/ddsketch/proto/DDSketch.proto && pbts -o src/ddsketch/proto/compiled.d.ts src/ddsketch/proto/compiled.js"
+      },
+      "dependencies": {
+        "math-float64-frexp": "^1.0.0",
+        "math-float64-ldexp": "^1.0.1",
+        "protobufjs": "^6.10.2"
+      },
+      "devDependencies": {
+        "@types/jest": "^26.0.14",
+        "@typescript-eslint/eslint-plugin": "^4.2.0",
+        "@typescript-eslint/parser": "^4.2.0",
+        "eslint": "^7.9.0",
+        "eslint-config-prettier": "^6.12.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "jest": "^26.4.2",
+        "prettier": "^2.1.2",
+        "ts-jest": "^26.4.0",
+        "typescript": "^4.0.3"
+      },
+      "resolutions": {
+        "dot-prop": "^4.2.1"
+      },
+      "licenseText": "Copyright 2020 Datadog, Inc.\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+      "noticeText": "Datadog sketches-js\nCopyright 2020 Datadog, Inc.\n\nThis product includes software developed at Datadog (https://www.datadoghq.com/).\n",
+      "_id": "@datadog/sketches-js@1.0.1",
+      "dist": {
+        "shasum": "8e73e8fefb4dd935e8f2c7d603b86f9a15d69932",
+        "integrity": "sha512-oR99OEI6vSg7mi+pwto4MAgFbo1lZqYU2f+eoDjrBJeXEnXneB9LP72n8pKFc6TJqGVnm3SAfHKiHq+R5TsDmA==",
+        "tarball": "https://registry.npmjs.org/@datadog/sketches-js/-/sketches-js-1.0.1.tgz",
+        "fileCount": 39,
+        "unpackedSize": 69535,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfz5ubCRA9TVsSAnZWagAAlLgP/2Xl65NhbCkSM3sqsyji\nqzSvwPL/PTDISI7IYi3223Xa7X1TtkVjykJpVT5deIhlHdZXKAM2fb7fGwCI\nQ9fGXQU1f63M7UjHguRhV++x8iv+cJE2R8CY6+AwFhZvd3CyPjhFigiz2hpC\n+Hh6qqORO7f4e6bN+uuH4n+IN1Sa6y2uoSOKT6CVh9wbrQHFP1K3TZMyZdsN\nPL7qdauQEHhUfYYVc7UcYQrEjP/EHVtgvpQMWI63vttzjnJcR9x3qDhk2QZh\nbNk1hdS4xWai6oX0Y+yLqFZvsE8RiG0/6Hq8awClXSTelrxYIag5l1Ewg2cy\n5jmkBzGUEiNyAyCktg5mJQ9dbQNG9WJDWZVFkWmp9EceLFa+BaRtG/TFrK5B\nWtAz+KSaLD3iMIPWjrbsNw/aSj8B3YMi2lWE8iAC2VE9vIWLmzTXH8EY/pYg\nZwDvEyZ59oIU1xJat+rmtFhuS6E7rNCRTfHdCfolo8ba1QCJ8DrhANuvpRC5\nbaZgtHQaE4s/9hrs3flIGdrZJA2F2QSyafR5eO8kqsyllpJn9w9CNOF54Gde\nPvk6Mqr0yxbuyEvtUutx4liNf8V+7qg5uCkT5JgwwM7kxs0dCSVr6OZZHDHh\nSeX+79l4/Qp4qupcLCkrxFReekl7r49HfQFSpl7yFSCQva0mU6BWQp57Nilj\nBMCm\r\n=/Fvt\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGTtTlvQjWp/7/cJnvlwZ/IUnFqN610rU20xBpbet4ZiAiA7tP0F9075vi14jyCVuMsnf6LerOcA3LB8RCEBK07+3A=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sketches-js_1.0.1_1607441306485_0.7963103579035069"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.2": {
+      "name": "@datadog/sketches-js",
+      "version": "1.0.2",
+      "description": "TypeScript implementation of DDSketch, a distributed quantile sketch algorithm ",
+      "license": "Apache-2.0",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/DataDog/sketches-js"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "keywords": [
+        "histogram",
+        "ddsketch",
+        "sketches",
+        "quantiles",
+        "percentiles",
+        "monitoring"
+      ],
+      "publishConfig": {
+        "access": "public"
+      },
+      "scripts": {
+        "build": "yarn clean; tsc -p tsconfig.build.json",
+        "clean": "rm -rf dist/*",
+        "test": "jest",
+        "lint": "eslint \"src/**/*.{js,ts}\"",
+        "prepack": "yarn build",
+        "typecheck": "tsc --noEmit",
+        "generate:proto": "pbjs -t static-module -w commonjs -o src/ddsketch/proto/compiled.js src/ddsketch/proto/DDSketch.proto && pbts -o src/ddsketch/proto/compiled.d.ts src/ddsketch/proto/compiled.js"
+      },
+      "dependencies": {
+        "math-float64-frexp": "^1.0.0",
+        "math-float64-ldexp": "^1.0.1",
+        "protobufjs": "^6.10.2"
+      },
+      "devDependencies": {
+        "@types/jest": "^26.0.14",
+        "@typescript-eslint/eslint-plugin": "^4.2.0",
+        "@typescript-eslint/parser": "^4.2.0",
+        "eslint": "^7.9.0",
+        "eslint-config-prettier": "^6.12.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "jest": "^26.4.2",
+        "prettier": "^2.1.2",
+        "ts-jest": "^26.4.0",
+        "typescript": "^4.0.3"
+      },
+      "resolutions": {
+        "dot-prop": "^4.2.1"
+      },
+      "licenseText": "Copyright 2020 Datadog, Inc.\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+      "noticeText": "Datadog sketches-js\nCopyright 2020 Datadog, Inc.\n\nThis product includes software developed at Datadog (https://www.datadoghq.com/).\n",
+      "_id": "@datadog/sketches-js@1.0.2",
+      "dist": {
+        "shasum": "bdd2afcc4a387fc7657d47a775c6207e5802a44d",
+        "integrity": "sha512-kX23kHXT66t/DjBItHZ+NgszceyuYuPjpiuWZIDzZ+APy6GL7aPjfNKMb9yA2GwZlKTcK/j5cO8GE/2T8KvDiQ==",
+        "tarball": "https://registry.npmjs.org/@datadog/sketches-js/-/sketches-js-1.0.2.tgz",
+        "fileCount": 42,
+        "unpackedSize": 102716,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfz6BBCRA9TVsSAnZWagAAdkEP/RLhwa05D73J152+zVAv\nWhu5f3V7WJwFqgEuC5ZKLeTJLmIvBxxJspB5vTQfZ2zpwwfPuYyWeNzv7EEI\ns5L/YzTq9ojk7wdljSwIjRl2xRJ74PIyo01pwBBV8BV/0vGKJTOWnLk+mpd8\nmfpM1NR8cHmvA7fdmSkVZdseHRghFPCABpX727JICir4D03345QsC8WHl4Ch\nvaYy2iUyPHjovWDmrXn5zX3u008QTVUbgPlCd571QGq4AsBErMp9p2/DO310\n84Vka40jsnuRpD+Vt5M6oeuRIrY+t2Caioz9RP2cKUi3VT9exuXM/EYe9sbT\nqQU0yG18Pnlq2GMzZ0U/QysY6vofOIocbUeCrQ90/QopxjSe444gDawgB4Nq\nDZpAIzgqlmfpcpUkMczceabfKcoS2v+9/1InjtLYPaT8pM0bKzzCdJqeVLvp\nSBV5TANUYyKie1IdA7oRWb8rLw+hBG/B+cUQepvb3I8+/abeUYoDON9JHUjm\ngA/4NHb2lNobSLSPVtqTO/hBzQnF89MEClyrf483GIDq/JBr9Z/KaivoJSOL\ni3rmAzKeBHolTATl08VuIRyhSYDVa3ZJPfv3Pw8zDqssQcOmP1xQdCH15Mwo\n8J29yeJeEuvf0bj+fx91HfsFH693NzsBSYWWFfDD3MT9SgbirOCztCjocIsF\n0XV8\r\n=uGtP\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFHpJ1uM6//3CDLPWWbt157JF04333B3OCWN1b0N018yAiEA8QD9Z8KiFmQoLX3WBhDJszn6lFdmK8PO/EjhDjeiblM="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sketches-js_1.0.2_1607442496830_0.8390629938641156"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.3": {
+      "name": "@datadog/sketches-js",
+      "version": "1.0.3",
+      "description": "TypeScript implementation of DDSketch, a distributed quantile sketch algorithm ",
+      "license": "Apache-2.0",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/DataDog/sketches-js"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "keywords": [
+        "histogram",
+        "ddsketch",
+        "sketches",
+        "quantiles",
+        "percentiles",
+        "monitoring"
+      ],
+      "publishConfig": {
+        "access": "public"
+      },
+      "scripts": {
+        "build": "yarn clean; tsc -p tsconfig.build.json",
+        "clean": "rm -rf dist/*",
+        "test": "jest",
+        "lint": "eslint \"src/**/*.{js,ts}\"",
+        "prepack": "yarn build",
+        "typecheck": "tsc --noEmit",
+        "generate:proto": "pbjs -t static-module -w commonjs -o src/ddsketch/proto/compiled.js src/ddsketch/proto/DDSketch.proto && pbts -o src/ddsketch/proto/compiled.d.ts src/ddsketch/proto/compiled.js"
+      },
+      "dependencies": {
+        "@stdlib/math-base-special-frexp": "^0.0.4",
+        "@stdlib/math-base-special-ldexp": "^0.0.4",
+        "protobufjs": "^6.10.2"
+      },
+      "devDependencies": {
+        "@types/jest": "^26.0.14",
+        "@typescript-eslint/eslint-plugin": "^4.2.0",
+        "@typescript-eslint/parser": "^4.2.0",
+        "eslint": "^7.9.0",
+        "eslint-config-prettier": "^6.12.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "jest": "^26.4.2",
+        "prettier": "^2.1.2",
+        "ts-jest": "^26.4.0",
+        "typescript": "^4.0.3"
+      },
+      "licenseText": "Copyright 2020 Datadog, Inc.\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+      "noticeText": "Datadog sketches-js\nCopyright 2020 Datadog, Inc.\n\nThis product includes software developed at Datadog (https://www.datadoghq.com/).\n",
+      "_id": "@datadog/sketches-js@1.0.3",
+      "dist": {
+        "shasum": "67e07049249813a657c89337f3b4127476addad0",
+        "integrity": "sha512-qQdo7hKWvnVEQtZwBH2jkR1vi5F2Qe+KIomwAWGqP0J44QacImV8h5tFNesiXeiHprLu85O5eTD0QpCVZOvGlA==",
+        "tarball": "https://registry.npmjs.org/@datadog/sketches-js/-/sketches-js-1.0.3.tgz",
+        "fileCount": 42,
+        "unpackedSize": 103751,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhCrvsCRA9TVsSAnZWagAAUC0P/0jh26LEK9bPBiSg7ftx\nWk1dc3b/gAC6umEC/Cda4ogzfK2TWVQVL7P0Z6vCi2X76Y3CuYApCwoD2jTn\nDLLRC/W5Sq3qpw8SPNLSPE+ZTZKmCoM2AqFXK9yxjKEUM4BQepn+LqvVcmF8\nmkrOdm/mvGIVtXyGlvVgZ7Tc58T8fy6lLd9rwxMFYkSO/w8bMvW2YdrTdcG9\ncK9XGlAje+qYnVvvsNxKCBZvMz4+ESmlmsokyDq4uNcBqvxjxTqjuhGJqfb5\nQ0YFBq147dktMiQkAbSGDzzVOmBqu1ncgXcNxyTU9ZD3LHBsM7XUpfTgVAXm\nUhsLNDcEbRCQRMIDNMyw2h6YIkM9nK3K42Qh+MYdyYuVIpBBWhsA5HvDGXFn\nxhtHZtYtahHzXfZKTdJ4XjZfUYainqxDRuwB00Upe2V9freW3j3RJGO1KErC\n4o1QJv3cveArvoElrGGdiLRAHQCm8cpjKgYbTyozuwISCBSp8DHCTtz1IvuQ\n2e96KRx3Fj7yYNxZJ42fRoH/CUphkTeQuwyT4Xd5ukqqZnXr12RqTRbcIq0f\nW38oH1FP3UCOFJIUf2hHaVg0vKXjdNlC8uc63r+/BPjhczkqozPrG/LG+AA7\nGVqIrAq4bo5+YV7pjXcqx+fa+ZN18GoN43JP5o6990DMTWsC27FSqbf2ROp3\n+hGp\r\n=CkPc\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEbg6le27LHlWxi2cT9krvGI3q8Ujryx3rLFoCigqL5HAiBNAqIt+xI5hKbr0jydJTdNDLEbbhj/kpZk0jW2l9I7qg=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sketches-js_1.0.3_1628093419844_0.5919904669524596"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.4": {
+      "name": "@datadog/sketches-js",
+      "version": "1.0.4",
+      "description": "TypeScript implementation of DDSketch, a distributed quantile sketch algorithm ",
+      "license": "Apache-2.0",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/DataDog/sketches-js"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "keywords": [
+        "histogram",
+        "ddsketch",
+        "sketches",
+        "quantiles",
+        "percentiles",
+        "monitoring"
+      ],
+      "publishConfig": {
+        "access": "public"
+      },
+      "scripts": {
+        "build": "yarn clean; tsc -p tsconfig.build.json",
+        "clean": "rm -rf dist/*",
+        "test": "jest",
+        "lint": "eslint \"src/**/*.{js,ts}\"",
+        "prepack": "yarn build",
+        "typecheck": "tsc --noEmit",
+        "generate:proto": "pbjs -t static-module -w commonjs -o src/ddsketch/proto/compiled.js src/ddsketch/proto/DDSketch.proto && pbts -o src/ddsketch/proto/compiled.d.ts src/ddsketch/proto/compiled.js"
+      },
+      "dependencies": {
+        "protobufjs": "^6.10.2"
+      },
+      "devDependencies": {
+        "@types/jest": "^26.0.14",
+        "@typescript-eslint/eslint-plugin": "^4.2.0",
+        "@typescript-eslint/parser": "^4.2.0",
+        "eslint": "^7.9.0",
+        "eslint-config-prettier": "^6.12.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "jest": "^26.4.2",
+        "prettier": "^2.1.2",
+        "ts-jest": "^26.4.0",
+        "typescript": "^4.0.3"
+      },
+      "licenseText": "Copyright 2020 Datadog, Inc.\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+      "noticeText": "Datadog sketches-js\nCopyright 2020 Datadog, Inc.\n\nThis product includes software developed at Datadog (https://www.datadoghq.com/).\n",
+      "_id": "@datadog/sketches-js@1.0.4",
+      "dist": {
+        "shasum": "6213c26e3459fed80b075d80ffff551979fb0e6a",
+        "integrity": "sha512-9S5fdz448dLfGw4jSH1A4GZpkLWBufdsJu4PeevEjDvkauEmE175xBiBLfYHQEdKe7lEVNB4IRtUZqY16QRVUw==",
+        "tarball": "https://registry.npmjs.org/@datadog/sketches-js/-/sketches-js-1.0.4.tgz",
+        "fileCount": 44,
+        "unpackedSize": 104785,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhC/9zCRA9TVsSAnZWagAAz6sP+gPoNR9imFQiCZVHn+Ie\nf2BHvNzJycBZWlVkfXM8UkaoDtGfsFmemDXVH9izuMBWbXa/RnWrvPl21JL3\njpxM12fAjH8GBnnV4HaJu6g/ms5cwY8R/qPikH8+eAvlzjEWCy4hXvEffWl8\n8LSwZ59KWaTpX53j4vNod5xIsu90YPt591Ei6yT9C6DU6HF7+nW+R42EHR0G\n0z6wt7NxWDDjcygzB8cTlq0OaaEl+nzwuJ4OgHBtaLwYWVji0EN56m3bOE5O\nE4ND7/aRZfrZFIZJQI2p318m9dRoUh5MkMs+OOY039FLPXcMF2m437yC2Lj0\nsTETigBCH90kaDsGugNZ3k70q048/FCk/IbGRXsRf2DndtzBYWbecgK5naFL\nDVidhQ8uAwHiIAUv/5rWjBYPh14ghL1JT/46lyF8u/D1Lye5XJkhv/ERCv78\n6q+bvPmkZ7yrOcd/1bQWyYDMjz1xKXQE8sZhiM+WEgktV77qEiCqBsXY1Uqa\nI5w7EnWJ9S/twjq8juiIWPhY8PazF2YNIN1sXIe3iVIdXn9y7KoonsCwRmq5\nU9Gz4TgtDuqcdymS54BYY8swib3lqF0FLZNdsfTyObo0zVN0virrqE/OoznX\n6BzedbnpDFvpPW2IKKyCGwnysovMBGbmsqa6Hd83bqlHeWpRvBGkMwpo56Ik\n3rnr\r\n=IKV6\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICq6RJ5bv+V0jSN1YUbakumm5gwskFJD5vPdWODFyykHAiBFqv+xjO7KGi1SYop3OcnhKMm24+nKrmYNu6Wv6h2ZmA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sketches-js_1.0.4_1628176242936_0.4536456194641567"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.5": {
+      "name": "@datadog/sketches-js",
+      "version": "1.0.5",
+      "description": "TypeScript implementation of DDSketch, a distributed quantile sketch algorithm ",
+      "license": "Apache-2.0",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/DataDog/sketches-js"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "keywords": [
+        "histogram",
+        "ddsketch",
+        "sketches",
+        "quantiles",
+        "percentiles",
+        "monitoring"
+      ],
+      "publishConfig": {
+        "access": "public"
+      },
+      "scripts": {
+        "build": "yarn clean; tsc -p tsconfig.build.json",
+        "clean": "rm -rf dist/*",
+        "test": "jest",
+        "lint": "eslint \"src/**/*.{js,ts}\"",
+        "prepack": "yarn build",
+        "typecheck": "tsc --noEmit",
+        "generate:proto": "pbjs -t static-module -w commonjs -o src/ddsketch/proto/compiled.js src/ddsketch/proto/DDSketch.proto && pbts -o src/ddsketch/proto/compiled.d.ts src/ddsketch/proto/compiled.js"
+      },
+      "dependencies": {
+        "protobufjs": "^6.11.3"
+      },
+      "devDependencies": {
+        "@types/jest": "^26.0.14",
+        "@typescript-eslint/eslint-plugin": "^4.2.0",
+        "@typescript-eslint/parser": "^4.2.0",
+        "eslint": "^7.9.0",
+        "eslint-config-prettier": "^6.12.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "jest": "^26.4.2",
+        "prettier": "^2.1.2",
+        "ts-jest": "^26.4.0",
+        "typescript": "^4.0.3"
+      },
+      "licenseText": "Copyright 2020 Datadog, Inc.\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+      "noticeText": "Datadog sketches-js\nCopyright 2020 Datadog, Inc.\n\nThis product includes software developed at Datadog (https://www.datadoghq.com/).\n",
+      "_id": "@datadog/sketches-js@1.0.5",
+      "dist": {
+        "shasum": "e3202c14e98c5e3aa530944aa03534ccbb9cafaf",
+        "integrity": "sha512-1ZKyHxxgDI+zY0r+7msMUhFdLR7gkRgKGcNLdYjtXVyo5H64q16J/Khfp5+YAXOedKizKzT0Jf0kLwQ/IBU/pA==",
+        "tarball": "https://registry.npmjs.org/@datadog/sketches-js/-/sketches-js-1.0.5.tgz",
+        "fileCount": 44,
+        "unpackedSize": 104785,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAmn2FYpDLVG4CPzSbIlhJfjjhnNddlTWKnRgUchKj+uAiAlSDI1PKWX4N74TC1wgNsCjRj2Y4YnRZQrLG4GovVLmg=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJis1WGACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoC6Q/9FQeOwFXgbNAhl/dqL1fNMIKuh0/lw7y/Yd+Az3u/w1NUOmtx\r\n6gkXPH6im+9D7zlbFRsOj/rjO28Dy/fEY7xeSVJw3JXEbQXljOdI5wnQVozn\r\nt07JrzbMdPB/CFoT4pjWxJ1NL2k1B6L1jpEnTblQ7YgArblzYJDE/ub+CtGj\r\nb+A0gsl66giwYRIBjmOn7N2yqzNiRIcFa5wkjPLSWDMLhPI5tqmbua5sWeZ8\r\n/V3wTgspYB1X/U9fSHs7KX2Fu8nvA4bof+OnJQT/4a41IFmuatrkm8VlAGsO\r\nSMhd83jWxYdkgaomUXIW1R64AZ/mtQdZ0ZPLqPL71oHGuF/fUaKX8Cn7GOMp\r\nkWACMEt/puTLpVxU2MKZOPZ64ebdZdLECseUXHl+eNMA39EAwZ9e4nzwIlMj\r\nst726BcPsJ5/xsvpLySG5O6cgJPLVW0UvW+YDn8UN+nxS7JROVJlg/xjjXGS\r\nwXMLZ1JMFYXG83eCsuLhYYeLoaKWGqUd5lCoFrf+i6MT/5U54/hWYMhR5GYE\r\no8H/bgTenosdIYknftW2m9akoWvGJ8qoLZQgLY6HoTBFp+tAjJvI0YBQraEg\r\nAcuXWwUKJXWP7PfGpYZu9flzq9E/JvDZ9likZTDrEoTuGIXjiGgrGuIjP4+E\r\nigEn+tKrbLEkKtYrAnlKv//u+oAwh5ekao0=\r\n=he7p\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sketches-js_1.0.5_1655920006545_0.7720562874225065"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0": {
+      "name": "@datadog/sketches-js",
+      "version": "2.0.0",
+      "description": "TypeScript implementation of DDSketch, a distributed quantile sketch algorithm ",
+      "license": "Apache-2.0",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/DataDog/sketches-js"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "keywords": [
+        "histogram",
+        "ddsketch",
+        "sketches",
+        "quantiles",
+        "percentiles",
+        "monitoring"
+      ],
+      "publishConfig": {
+        "access": "public"
+      },
+      "scripts": {
+        "build": "yarn clean; tsc -p tsconfig.build.json",
+        "clean": "rm -rf dist/*",
+        "test": "jest",
+        "lint": "eslint \"src/**/*.{js,ts}\"",
+        "prepack": "yarn build",
+        "typecheck": "tsc --noEmit",
+        "generate:proto": "pbjs -t static-module -w commonjs -o src/ddsketch/proto/compiled.js src/ddsketch/proto/DDSketch.proto && pbts -o src/ddsketch/proto/compiled.d.ts src/ddsketch/proto/compiled.js"
+      },
+      "dependencies": {},
+      "devDependencies": {
+        "@types/jest": "^26.0.14",
+        "@typescript-eslint/eslint-plugin": "^4.2.0",
+        "@typescript-eslint/parser": "^4.2.0",
+        "eslint": "^7.9.0",
+        "eslint-config-prettier": "^6.12.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "jest": "^26.4.2",
+        "prettier": "^2.1.2",
+        "protobufjs": "^6.11.3",
+        "ts-jest": "^26.4.0",
+        "typescript": "^4.0.3"
+      },
+      "licenseText": "Copyright 2020 Datadog, Inc.\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+      "noticeText": "Datadog sketches-js\nCopyright 2020 Datadog, Inc.\n\nThis product includes software developed at Datadog (https://www.datadoghq.com/).\n",
+      "_id": "@datadog/sketches-js@2.0.0",
+      "dist": {
+        "shasum": "621a83b1e0b7d5a4c2e496d6d0194aac0ddd5cd1",
+        "integrity": "sha512-cR9r5sGYU64HLUe7vRvWuZO8qFrCPWanB/a2nrPPW5E7JVwt5j9QCEjhtPZo6LoImfVr3SajcbmyGwZfFLsHjw==",
+        "tarball": "https://registry.npmjs.org/@datadog/sketches-js/-/sketches-js-2.0.0.tgz",
+        "fileCount": 44,
+        "unpackedSize": 105439,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCfvrkSelkqOWq1fs+kdgshxDmVi3qetatngsBVI5fEZwIgJV1Cqdhk/viLpjrT4cFjSPv0/SyJuenb4TdOOn+3rXU="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJi8VuXACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqXrhAAoXHK+A/9cNRZ7oEDcM9+wOIX3zrwpDd9q2mdb1BNN6hxIfub\r\n/k1DZ4F/sH51juoLZO+gb31TqyQqH0kRRVm/OzdP3oy4auxHxm5JjpprDaGc\r\nRDVXG+qaoUiczDrOhUFRb+R31RPz9tDa3ftdvGMBZtjgs7vb5iSIb7s6OR74\r\nLY0gBqy0iVOikWr9dEH8XJjcJHhRtkV1abySPHzFfBSIy7Hbku6PPxapHIDi\r\nzzYT4aPatzjjn/3+pIO5bqw1HWpXiY1m3zj0NJuH5XdpwvgcN6PxBhe6VMUu\r\nV5up6CXUOuRRzTNhIzmn6VhT9LgkHhysSjxNvspO7D3IIDa/eR1OCNv4xhpS\r\nqN1Btp2jwB3RrA3jHxyKOd/NPsWlQ0CWqc1Q+qc+jyXV5mZnIXQDOJaIYvdz\r\nBCCrXNCvaErh4uyf9YTOq/IO19+EjchDZ5AsQ3mikNP9Sc4CeUk+wtw77PdB\r\nynITi7sY7qmki11LRfJ61K2tz6We0KxN00ceFw05dGoP7qVkPg4Z9MjVVSWG\r\n9RiohnDTXAXkQvrY5OOAQFkXf+23UBFgD7GwR7OWskz5BVxWcyhkOxO7xjGk\r\nYUtIl3X9daqgSgbqgXCDwjz6ZMW2s9ZcAXSRWd8KJESBuB66m3I7X16Tzkmt\r\nsYKIJwfBtguFrsOLOFYY5eGDjCY8l+g9+RI=\r\n=3NCP\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sketches-js_2.0.0_1659984791482_0.8945459742825794"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.0": {
+      "name": "@datadog/sketches-js",
+      "version": "2.1.0",
+      "description": "TypeScript implementation of DDSketch, a distributed quantile sketch algorithm ",
+      "license": "Apache-2.0",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/DataDog/sketches-js"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "keywords": [
+        "histogram",
+        "ddsketch",
+        "sketches",
+        "quantiles",
+        "percentiles",
+        "monitoring"
+      ],
+      "publishConfig": {
+        "access": "public"
+      },
+      "scripts": {
+        "build": "yarn clean; tsc -p tsconfig.build.json",
+        "clean": "rm -rf dist/*",
+        "test": "jest",
+        "lint": "eslint \"src/**/*.{js,ts}\"",
+        "prepack": "yarn build",
+        "typecheck": "tsc --noEmit",
+        "generate:proto": "pbjs -t static-module -w commonjs -o src/ddsketch/proto/compiled.js src/ddsketch/proto/DDSketch.proto && pbts -o src/ddsketch/proto/compiled.d.ts src/ddsketch/proto/compiled.js"
+      },
+      "dependencies": {},
+      "devDependencies": {
+        "@types/jest": "^26.0.14",
+        "@typescript-eslint/eslint-plugin": "^4.2.0",
+        "@typescript-eslint/parser": "^4.2.0",
+        "eslint": "^7.9.0",
+        "eslint-config-prettier": "^6.12.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "jest": "^26.4.2",
+        "prettier": "^2.1.2",
+        "protobufjs": "^6.11.3",
+        "ts-jest": "^26.4.0",
+        "typescript": "^4.0.3"
+      },
+      "licenseText": "Copyright 2020 Datadog, Inc.\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+      "noticeText": "Datadog sketches-js\nCopyright 2020 Datadog, Inc.\n\nThis product includes software developed at Datadog (https://www.datadoghq.com/).\n",
+      "_id": "@datadog/sketches-js@2.1.0",
+      "dist": {
+        "shasum": "8c7e8028a5fc22ad102fa542b0a446c956830455",
+        "integrity": "sha512-smLocSfrt3s53H/XSVP3/1kP42oqvrkjUPtyaFd1F79ux24oE31BKt+q0c6lsa6hOYrFzsIwyc5GXAI5JmfOew==",
+        "tarball": "https://registry.npmjs.org/@datadog/sketches-js/-/sketches-js-2.1.0.tgz",
+        "fileCount": 44,
+        "unpackedSize": 109899,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDL+vqxMFov2NohFDtlqEKV5XdQQo3RJFPGPA5Lz01CLgIhAOJoZgppeu89lNNQRwAh1eWNvLTTFV+yIM8Gf4tluEyf"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjBcHvACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmo8OA//d0MxBB2sS214pf7+cAM5wpTfhP4sj3tMS1vc4yjKkd06PSUt\r\nvF9yBHKSoERrZDnOMEv58PhckLUTKhQeNQ5X4bF/24uMWkYicSyGgCDCMCuu\r\nJoocj3Oahj/baVPSRYWW0bBOzrwA81QhDwIfUp8hWbt2dkNbzbv1BahALdbZ\r\nyHnNQ5ZBZvAsIrKangBvlqJhQIq3Px5rmvYT9ubLCc0eB2cRpx2HFYxV8ImC\r\n/lr8Nv/9kni3XRCbE2NHEayaHAKHmwZViNfS284Ib4Nu2t8OTuscKPa/qGkV\r\nh+FWmx255aS+7QHCQtZ4mu/G66liSG+D/YymkmChSEwZoWLY4NMiP/ugU/B5\r\nuJdmGq2o1x4hDv/RvXuILAsXNRSH08IWSt6tuR2QBqrw/iIO/9UXm6oR3Flq\r\nYzGd+aajGXyV3l2otjB0A7FmdKMDBdLHb5N9ejf9fZGRz+lgSiDgWG6IVhFO\r\nywqcSKiXZ2Z7MuZ+H+Nq2EOIyFbI/jWLr59/EQFIb2mjTuYP+QBuoVtiiY3V\r\nKMnXY2OfZUG/xQU1OmG+y+q9w7Jlr4yyicEyNCSIV84z10QbJkUGSo5ysmK5\r\nAgK+vb0TvaGwMSORnGqScPJsLDZQjLuREmxgNIKeOBjk3xI3REyNIHp39nZM\r\nlvUGFUrIzKL7J2PR0cZbZmMlIJIic5F6+Bg=\r\n=qo4o\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sketches-js_2.1.0_1661321711538_0.07284532924501486"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2020-12-07T20:09:11.586Z",
+    "0.5.0": "2020-12-07T20:09:11.764Z",
+    "modified": "2022-08-24T06:15:11.850Z",
+    "1.0.0": "2020-12-07T21:38:04.362Z",
+    "1.0.1": "2020-12-08T15:28:26.652Z",
+    "1.0.2": "2020-12-08T15:48:17.017Z",
+    "1.0.3": "2021-08-04T16:10:20.019Z",
+    "1.0.4": "2021-08-05T15:10:43.058Z",
+    "1.0.5": "2022-06-22T17:46:46.771Z",
+    "2.0.0": "2022-08-08T18:53:11.660Z",
+    "2.1.0": "2022-08-24T06:15:11.749Z"
+  },
+  "maintainers": [
+    {
+      "name": "datadog",
+      "email": "robot-npm-frontend@datadoghq.com"
+    }
+  ],
+  "description": "TypeScript implementation of DDSketch, a distributed quantile sketch algorithm ",
+  "keywords": [
+    "histogram",
+    "ddsketch",
+    "sketches",
+    "quantiles",
+    "percentiles",
+    "monitoring"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DataDog/sketches-js"
+  },
+  "license": "Apache-2.0",
+  "readme": "# sketches-js\n\n![Continuous Integration](https://github.com/DataDog/sketches-js/workflows/Continuous%20Integration/badge.svg) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)\n\nThis repo contains the TypeScript implementation of the distributed quantile sketch algorithm [DDSketch](http://www.vldb.org/pvldb/vol12/p2195-masson.pdf). DDSketch is mergeable, meaning that multiple sketches from distributed systems can be combined in a central node.\n\n## Installation\n\nThe package is under [@datadog/sketches-js](https://www.npmjs.com/package/@datadog/sketches-js) and can be installed through NPM or Yarn:\n\n```sh\n# NPM\nnpm install @datadog/sketches-js\n\n# Yarn\nyarn add @datadog/sketches-js\n```\n\nWhen using Protobuf serialization, the [protobufjs](https://www.npmjs.com/package/protobufjs) module must also be installed manually:\n\n```sh\n# NPM\nnpm install protobufjs\n\n# Yarn\nyarn add protobufjs\n```\n\n## Usage\n\n### Initialize a sketch\n\nTo initialize a sketch with the default parameters:\n\n```js\nimport { DDSketch } from '@datadog/sketches-js'; // or const { DDSketch } = require('@datadog/sketches-js');\nconst sketch = new DDSketch();\n```\n\n#### Modify the `relativeAccuracy`\n\nIf you want more granular control over how accurate the sketch's results will be, you can pass a `relativeAccuracy` parameter when initializing a sketch.\n\nWhereas other histograms use _rank error_ guarantees (i.e. retrieving the p99 of the histogram will give you a value between p98.9 and p99.1), DDSketch uses a _relative error_ guarantee (if the actual value at p99 is 100, the value will be between 99 and 101 for a `relativeAccuracy` of 0.01).\n\nThis property makes DDSketch especially useful for long-tailed distributions of data, like measurements of latency.\n\n```js\nimport { DDSketch } from '@datadog/sketches-js';\n\nconst sketch = new DDSketch({\n  relativeAccuracy: 0.01, // `relativeAccuracy` must be between 0 and 1\n});\n```\n\n### Add values to a sketch\n\nTo add a number to a sketch, call `sketch.accept(value)`. Both positive and negative numbers are supported.\n\n```js\nconst measurementOne = 1607374726;\nconst measurementTwo = 0;\nconst measurementThree = -3.1415;\n\nsketch.accept(measurementOne);\nsketch.accept(measurementTwo);\nsketch.accept(measurementThree);\n```\n\n### Retrieve measurements from the sketch\n\nTo retrieve measurements from a sketch, use `sketch.getValueAtQuantile(quantile)`. Any number between 0 and 1 (inclusive) can be used as a quantile.\n\nAdditionally, common summary statistics are available such as `sketch.min`, `sketch.max`, `sketch.sum`, and `sketch.count`:\n\n```js\nconst measurementOne = 1607374726;\nconst measurementTwo = 0;\nconst measurementThree = -3.1415;\n\nsketch.accept(measurementOne);\nsketch.accept(measurementTwo);\nsketch.accept(measurementThree);\n\nsketch.getValueAtQuantile(0)     // -3.1415\nsketch.getValueAtQuantile(0.5)   // 0\nsketch.getValueAtQuantile(0.99)  // 1607374726\nsketch.getValueAtQuantile(1)     // 1607374726\n\nsketch.min                       // -3.1415\nsketch.max                       // 1607374726\nsketch.count                     // 3\nsketch.sum                       // 1607374722.86\n```\n\n### Merge multiple sketches\n\nIndependent sketches can be merged together, provided that they were initialized with the same `relativeAccuracy`. This allows collecting and transmitting measurements in a distributed manner, and merging their results together while preserving the `relativeAccuracy` guarantee.\n\n```js\nimport { DDSketch } from '@datadog/sketches-js';\n\nconst sketch1 = new DDSketch();\nconst sketch2 = new DDSketch();\n\n[1,2,3,4,5].forEach(value => sketch1.accept(value));\n[6,7,8,9,10].forEach(value => sketch2.accept(value));\n\n// `sketch2` is merged into `sketch1`, without modifying `sketch2`\nsketch1.merge(sketch2);\n\nsketch1.getValueAtQuantile(1) // 10\n```\n\n## References\n* [DDSketch: A Fast and Fully-Mergeable Quantile Sketch with Relative-Error Guarantees](http://www.vldb.org/pvldb/vol12/p2195-masson.pdf). Charles Masson, Jee E. Rim and Homin K. Lee. 2019.\n* Java implementation: [https://github.com/DataDog/sketches-java](https://github.com/DataDog/sketches-java)\n* Go implementation: [https://github.com/DataDog/sketches-go](https://github.com/DataDog/sketches-go)\n* Python implementation: [https://github.com/DataDog/sketches-py](https://github.com/DataDog/sketches-py)\n",
+  "readmeFilename": "README.md"
+}

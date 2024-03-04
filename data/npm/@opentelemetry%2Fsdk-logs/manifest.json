@@ -1,0 +1,2305 @@
+{
+  "_id": "@opentelemetry/sdk-logs",
+  "_rev": "17-053872f8da36320255f20419a8f4e189",
+  "name": "@opentelemetry/sdk-logs",
+  "dist-tags": {
+    "latest": "0.49.1"
+  },
+  "versions": {
+    "0.37.0": {
+      "name": "@opentelemetry/sdk-logs",
+      "version": "0.37.0",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "OpenTelemetry logs SDK",
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/sdk-logs",
+      "license": "Apache-2.0",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "engines": {
+        "node": ">=14"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "test:browser": "nyc karma start --single-run",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "tdd:browser": "karma start",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "node ../../../scripts/version-update.js",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "logs",
+        "stats",
+        "profiling"
+      ],
+      "sideEffects": false,
+      "peerDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.5.0",
+        "@opentelemetry/api-logs": ">=0.37.0"
+      },
+      "devDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.5.0",
+        "@opentelemetry/api-logs": ">=0.37.0",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "karma": "6.3.16",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage-istanbul-reporter": "3.0.3",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.32",
+        "karma-webpack": "4.0.2",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "rimraf": "3.0.2",
+        "sinon": "14.0.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "^1.11.0",
+        "@opentelemetry/resources": "^1.11.0"
+      },
+      "gitHead": "a04090010ee18e17487b449984807cc2b7b6e3e6",
+      "_id": "@opentelemetry/sdk-logs@0.37.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/6.0.3/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-bGcN+RGK0cEC0nCldoIJN31TYW/43RC4Pw+mqgY2WhM4vDV90/CFeEovkyMJ5FpFck+E9RFV/cN6mBuQbYgblA==",
+        "shasum": "737a00d39af68a150647ecca87aa46cc146a5f72",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/sdk-logs/-/sdk-logs-0.37.0.tgz",
+        "fileCount": 192,
+        "unpackedSize": 399024,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCmkJy281bJEqBTuKZ/QR20zKbRC38m8i7c+T4MipydzgIgGBhEWzH2af2tRWpKeHZ0hVsMgV2ZAlAtfW/Vc8/EG2E="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkOEYuACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqlehAAnrBq3Ibsn2z9gg7iEbaqz/seC4wOPpChrZCaPTy0UN2O2v33\r\nphaQIA7zTQm26+8JQAgbJsMTzm1kE2nj8ScpJHWHn59lku3I1SEx9Hf1aRIh\r\nTt4KBCJ9R5gub7mnyCcPyfp6KrZIt4lXGxCTJPaUt31WMH2GNQaL8ecCObIJ\r\nMUEhk+e6yVq1aaDsDSrhNF/fRWGrNMAUFokz3mZLCGyKpc4XQiQkp4/fWSoC\r\nt4WecgsV/lJ9r9fhUNBnhQmTjJiRgO8cR9RyWxK8pZiArUiYPubTZpeDk6sn\r\nQo8hk/tCJtgTQfK3YGZllVDqsW/7/tiy7EVdgym1DB+cBOrB2tI1O4fFrtTh\r\nhtgojyo9tov3xW6p+2WGg5MOPCwHfN6CJYgX6aC2SK2eyZL3M5r7eg3+J2o7\r\nfI8REelhNfFx75ZjLzOIdKWtHNNclGdAN7Mfc/jH4DSQ+s0DjBNLwx4KfeQm\r\n6bR1vre3M7uygeW0DMZyfjbJFvj2MOayGLFAthBLxsDgvu+g+T7IDO9RBTa9\r\nwO7xOpYxBcyW+nQHIyZ7leqOzIJGZFGo9xZB3sqwjNo+FzZ38qUBBHJXLhhU\r\naizQwxvsfnPu/pcTMTmT7QFhNWvnuO+whlSlJZPeU7XADy7UzyhX5P0U3VUM\r\nr95h8OIfelxODHJNflSpq/G+Emm6L/okE1g=\r\n=0Pt+\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sdk-logs_0.37.0_1681409581677_0.9725856336284948"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.39.0": {
+      "name": "@opentelemetry/sdk-logs",
+      "version": "0.39.0",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "OpenTelemetry logs SDK",
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/sdk-logs",
+      "license": "Apache-2.0",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "engines": {
+        "node": ">=14"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "test:browser": "nyc karma start --single-run",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "tdd:browser": "karma start",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "node ../../../scripts/version-update.js",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "logs",
+        "stats",
+        "profiling"
+      ],
+      "sideEffects": false,
+      "peerDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.5.0",
+        "@opentelemetry/api-logs": ">=0.38.0"
+      },
+      "devDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.5.0",
+        "@opentelemetry/api-logs": "0.39.0",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "karma": "6.3.16",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage-istanbul-reporter": "3.0.3",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.32",
+        "karma-webpack": "4.0.2",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "sinon": "14.0.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.13.0",
+        "@opentelemetry/resources": "1.13.0"
+      },
+      "gitHead": "8fc76896595aac912bf9e15d4f19c167317844c8",
+      "_id": "@opentelemetry/sdk-logs@0.39.0",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/6.0.3/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-SIybnCMxWi8ugwKt0QGsDDcjs/25ZdWd0xrIFILkoWkEQiveV098RXCnsf3jc0cejM/MrSFdvKdsNYh5HPilTg==",
+        "shasum": "777c856560c2b4dfc498dbf6fc21bcc176ba0122",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/sdk-logs/-/sdk-logs-0.39.0.tgz",
+        "fileCount": 192,
+        "unpackedSize": 398997,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHHn2E3uRM3rAsW9IAR4Tths0nj/Of1sj8NR6Yc6If6xAiEAmnp9wbdy3FOcDWEkbj02205tVgM1kwKCxO6WHqryLRs="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sdk-logs_0.39.0_1683811806684_0.018747022518680767"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.39.1": {
+      "name": "@opentelemetry/sdk-logs",
+      "version": "0.39.1",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "OpenTelemetry logs SDK",
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/sdk-logs",
+      "license": "Apache-2.0",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "engines": {
+        "node": ">=14"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "test:browser": "nyc karma start --single-run",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "tdd:browser": "karma start",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "node ../../../scripts/version-update.js",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "logs",
+        "stats",
+        "profiling"
+      ],
+      "sideEffects": false,
+      "peerDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.5.0",
+        "@opentelemetry/api-logs": ">=0.38.0"
+      },
+      "devDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.5.0",
+        "@opentelemetry/api-logs": "0.39.1",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "karma": "6.3.16",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage-istanbul-reporter": "3.0.3",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.32",
+        "karma-webpack": "4.0.2",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "sinon": "14.0.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.13.0",
+        "@opentelemetry/resources": "1.13.0"
+      },
+      "gitHead": "bba09c0e5a6d92fc71ed08028966ae9d56da53db",
+      "_id": "@opentelemetry/sdk-logs@0.39.1",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/6.0.3/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-/gmgKfZ1ZVFporKuwsewqIyvaUIGpv76JZ7lBpHQQPb37IMpaXO6pdqFI4ebHAWfNIm3akMyhmdtzivcgF3lgw==",
+        "shasum": "888af05458af5d097d6263ade118e8db78f76f38",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/sdk-logs/-/sdk-logs-0.39.1.tgz",
+        "fileCount": 192,
+        "unpackedSize": 398997,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGThj7cSEoEV7DHWJdjdejFW8JWYXooGjmyzgGGHCZz8AiAFltMcQv+b+lOncQA/Y7rm/enr1bhgSsP5Qy0dFXwo0A=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sdk-logs_0.39.1_1683897175984_0.6702874612960001"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.40.0": {
+      "name": "@opentelemetry/sdk-logs",
+      "version": "0.40.0",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "OpenTelemetry logs SDK",
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/sdk-logs",
+      "license": "Apache-2.0",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "engines": {
+        "node": ">=14"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "test:browser": "nyc karma start --single-run",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "tdd:browser": "karma start",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "node ../../../scripts/version-update.js",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "logs",
+        "stats",
+        "profiling"
+      ],
+      "sideEffects": false,
+      "peerDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.5.0",
+        "@opentelemetry/api-logs": ">=0.39.1"
+      },
+      "devDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.5.0",
+        "@opentelemetry/api-logs": "0.40.0",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "karma": "6.3.16",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage-istanbul-reporter": "3.0.3",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.32",
+        "karma-webpack": "4.0.2",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "sinon": "14.0.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.14.0",
+        "@opentelemetry/resources": "1.14.0"
+      },
+      "gitHead": "edebbcc757535bc88f01340409dbbecc0bb6ccf8",
+      "_id": "@opentelemetry/sdk-logs@0.40.0",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/6.0.3/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-/JG7DOLo/Y3VR9azPXlXNRGQff3gp7nQbWl5cFD2SmlYqUrzMq1OjbksZLVztDu1+ynbFunseUG11SxhoxvSRg==",
+        "shasum": "cc5d6da4e1ecb22a7e2425be7969b8e491999d7f",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/sdk-logs/-/sdk-logs-0.40.0.tgz",
+        "fileCount": 192,
+        "unpackedSize": 401661,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFoxyd7oN6lII75+8tZuR3Nx4/0Y/UToGe0yJ/NQwIkUAiBJed5E0J2homNPb4t5nvNCMSdDYX95rSRQ0RU+0zmi8g=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sdk-logs_0.40.0_1686031254999_0.4408773810379767"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.41.0": {
+      "name": "@opentelemetry/sdk-logs",
+      "version": "0.41.0",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "OpenTelemetry logs SDK",
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/sdk-logs",
+      "license": "Apache-2.0",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "engines": {
+        "node": ">=14"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "test:browser": "nyc karma start --single-run",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "tdd:browser": "karma start",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "node ../../../scripts/version-update.js",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "logs",
+        "stats",
+        "profiling"
+      ],
+      "sideEffects": false,
+      "peerDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.5.0",
+        "@opentelemetry/api-logs": ">=0.39.1"
+      },
+      "devDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.5.0",
+        "@opentelemetry/api-logs": "0.41.0",
+        "@types/mocha": "10.0.1",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.15",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage-istanbul-reporter": "3.0.3",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "7.1.1",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.15.0",
+        "@opentelemetry/resources": "1.15.0",
+        "tslib": "^2.3.1"
+      },
+      "gitHead": "06e919d6c909e8cc8e28b6624d9843f401d9b059",
+      "_id": "@opentelemetry/sdk-logs@0.41.0",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/7.1.1/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-+Qs8uHcd/tYKS1n6lfSPiQXMOuyPN0c3xKeyWjD5mExRvmA1H6SIYfZmB6KeQNXWODK4z4JtWo5g5Efe0gJ1Vg==",
+        "shasum": "576a29bc3ca91d92754447250e85fffc3b661013",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/sdk-logs/-/sdk-logs-0.41.0.tgz",
+        "fileCount": 192,
+        "unpackedSize": 392758,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFnI5UgDcRlvU6MSD9yrwDhE8mL8XbCjt0TtxYT7XWCPAiAj6LVYTFYgjtsViUzd7Y95Az67YH0i7pHmRPz+WVMZzA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sdk-logs_0.41.0_1688642828703_0.7487884498322217"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.41.1": {
+      "name": "@opentelemetry/sdk-logs",
+      "version": "0.41.1",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "OpenTelemetry logs SDK",
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/sdk-logs",
+      "license": "Apache-2.0",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "engines": {
+        "node": ">=14"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "test:browser": "karma start --single-run",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "tdd:browser": "karma start",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "node ../../../scripts/version-update.js",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "logs",
+        "stats",
+        "profiling"
+      ],
+      "sideEffects": false,
+      "peerDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.5.0",
+        "@opentelemetry/api-logs": ">=0.39.1"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.9",
+        "@opentelemetry/api": ">=1.4.0 <1.5.0",
+        "@opentelemetry/api-logs": "0.41.1",
+        "@types/mocha": "10.0.1",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.15",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "7.1.3",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "4.46.0",
+        "webpack-cli": "4.10.0",
+        "webpack-merge": "5.9.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.15.1",
+        "@opentelemetry/resources": "1.15.1"
+      },
+      "gitHead": "9f71800fdc2a5ee5055684037a12498af71955f2",
+      "_id": "@opentelemetry/sdk-logs@0.41.1",
+      "_nodeVersion": "18.4.0",
+      "_npmVersion": "lerna/7.1.3/node@v18.4.0+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-gXuAEw9mughtwc3pCAg8vcFQ7CP1mDi1tdbbRSp9VM+I/V8J6EzyjKAvthBDVUTIGs9//a7vJ15cm7r8CVItpA==",
+        "shasum": "80ebc11b31f3cc41581eb8e9f64cb7aee84d63b9",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/sdk-logs/-/sdk-logs-0.41.1.tgz",
+        "fileCount": 192,
+        "unpackedSize": 401871,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDqe4dVeSbgGaN1bGeY2EYkNAE9W8qfrWGnhYSqqkRXQwIhANa5L+t2pf+BZSh9RE0ejS6Keamb58WEGF4K3Wq2ZkRR"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sdk-logs_0.41.1_1690209168478_0.7698599700121838"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.41.2": {
+      "name": "@opentelemetry/sdk-logs",
+      "version": "0.41.2",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "OpenTelemetry logs SDK",
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/sdk-logs",
+      "license": "Apache-2.0",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "engines": {
+        "node": ">=14"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "test:browser": "karma start --single-run",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "tdd:browser": "karma start",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "node ../../../scripts/version-update.js",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "logs",
+        "stats",
+        "profiling"
+      ],
+      "sideEffects": false,
+      "peerDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.5.0",
+        "@opentelemetry/api-logs": ">=0.39.1"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.10",
+        "@opentelemetry/api": ">=1.4.0 <1.5.0",
+        "@opentelemetry/api-logs": "0.41.2",
+        "@types/mocha": "10.0.1",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.16",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "7.1.4",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "4.46.0",
+        "webpack-cli": "4.10.0",
+        "webpack-merge": "5.9.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.15.2",
+        "@opentelemetry/resources": "1.15.2"
+      },
+      "gitHead": "48fb15862e801b742059a3e39dbcc8ef4c10b2e2",
+      "_id": "@opentelemetry/sdk-logs@0.41.2",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/7.1.4/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-smqKIw0tTW15waj7BAPHFomii5c3aHnSE4LQYTszGoK5P9nZs8tEAIpu15UBxi3aG31ZfsLmm4EUQkjckdlFrw==",
+        "shasum": "c3eeb6793bdfa52351d66e2e66637e433abed672",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/sdk-logs/-/sdk-logs-0.41.2.tgz",
+        "fileCount": 192,
+        "unpackedSize": 401872,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICPY77Lhyrx67QcLK+HBrHb6lROfekqaDflxuY4MG5l5AiEA+LuG5Aw8QWkMEQsYwjxC0NXd2YIgvmEFX1rzvP8kZYM="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sdk-logs_0.41.2_1691500878819_0.7969886356257712"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.42.0": {
+      "name": "@opentelemetry/sdk-logs",
+      "version": "0.42.0",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "OpenTelemetry logs SDK",
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/sdk-logs",
+      "license": "Apache-2.0",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "engines": {
+        "node": ">=14"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "test:browser": "karma start --single-run",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "tdd:browser": "karma start",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "node ../../../scripts/version-update.js",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "logs",
+        "stats",
+        "profiling"
+      ],
+      "sideEffects": false,
+      "peerDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.6.0",
+        "@opentelemetry/api-logs": ">=0.39.1"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.17",
+        "@opentelemetry/api": ">=1.4.0 <1.6.0",
+        "@opentelemetry/api-logs": "0.42.0",
+        "@types/mocha": "10.0.1",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.16",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "7.1.5",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "4.46.0",
+        "webpack-cli": "4.10.0",
+        "webpack-merge": "5.9.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.16.0",
+        "@opentelemetry/resources": "1.16.0"
+      },
+      "gitHead": "5fcd8cf136e2235903dde3df9ba03ced594f0e95",
+      "_id": "@opentelemetry/sdk-logs@0.42.0",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/7.1.5/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-EP6sOiIl8c8pH97+eNeDiNcQQwPYG+sqw/fA0R1vWgAaJ7QKmL4+w5TIgCH86aSlQWCYE/q26fVUalYbf+mgJA==",
+        "shasum": "58aa58bb3a959264e5039a1b99783042a3e43c99",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/sdk-logs/-/sdk-logs-0.42.0.tgz",
+        "fileCount": 192,
+        "unpackedSize": 401917,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCID9L89jtMqymESnFOuA+YSgmlaBd4DnH/plq+a9+1k8PAiEAv4JlneXT3sJI0H89mvjua7Swcms+DDPyLF4XbGGRPSU="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sdk-logs_0.42.0_1694434471072_0.9550790045608029"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.43.0": {
+      "name": "@opentelemetry/sdk-logs",
+      "version": "0.43.0",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "OpenTelemetry logs SDK",
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/sdk-logs",
+      "license": "Apache-2.0",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "engines": {
+        "node": ">=14"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "test:browser": "karma start --single-run",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "tdd:browser": "karma start",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "node ../../../scripts/version-update.js",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "logs",
+        "stats",
+        "profiling"
+      ],
+      "sideEffects": false,
+      "peerDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.7.0",
+        "@opentelemetry/api-logs": ">=0.39.1"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.17",
+        "@opentelemetry/api": ">=1.4.0 <1.7.0",
+        "@opentelemetry/api-logs": "0.43.0",
+        "@types/mocha": "10.0.1",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.16",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "7.1.5",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "4.46.0",
+        "webpack-cli": "4.10.0",
+        "webpack-merge": "5.9.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.17.0",
+        "@opentelemetry/resources": "1.17.0"
+      },
+      "gitHead": "faf939c77591f709afbc23fadbe629c9d3607ef6",
+      "_id": "@opentelemetry/sdk-logs@0.43.0",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/7.1.5/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-JyJ2BBRKm37Mc4cSEhFmsMl5ASQn1dkGhEWzAAMSlhPtLRTv5PfvJwhR+Mboaic/eDLAlciwsgijq8IFlf6IgQ==",
+        "shasum": "ad40803f0e8893d1839af3a32756d5f46f0f7bbe",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/sdk-logs/-/sdk-logs-0.43.0.tgz",
+        "fileCount": 192,
+        "unpackedSize": 401917,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBZ3W+TgS4Ef6NWLiLVbFfgwOjJl05cmnxtuHMjmVm3TAiBprlebxlBY6sGHLuCHGQ6w9n23bVvdQZLGLSpmPAdqdg=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sdk-logs_0.43.0_1694524354516_0.24045062092627267"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.44.0": {
+      "name": "@opentelemetry/sdk-logs",
+      "version": "0.44.0",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "OpenTelemetry logs SDK",
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/sdk-logs",
+      "license": "Apache-2.0",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "engines": {
+        "node": ">=14"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "test:browser": "karma start --single-run",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "tdd:browser": "karma start",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "node ../../../scripts/version-update.js",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "logs",
+        "stats",
+        "profiling"
+      ],
+      "sideEffects": false,
+      "peerDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.7.0",
+        "@opentelemetry/api-logs": ">=0.39.1"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.20",
+        "@opentelemetry/api": ">=1.4.0 <1.7.0",
+        "@opentelemetry/api-logs": "0.44.0",
+        "@types/mocha": "10.0.2",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.18",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "7.1.5",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "4.46.0",
+        "webpack-cli": "4.10.0",
+        "webpack-merge": "5.9.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.17.1",
+        "@opentelemetry/resources": "1.17.1"
+      },
+      "gitHead": "f8e187b473274cc2011e7385992f07d319d667dc",
+      "_id": "@opentelemetry/sdk-logs@0.44.0",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/7.1.5/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-UN3ofh9Jj54gIgrSXNRWAoaH6iPvrrjed5YAtqO9cW65U+5QPzk1Rv95vjAcY9VTrmMWvuqgEK1CYObG6Hu4OQ==",
+        "shasum": "a46e0a013432f266fb7ef16d703c968898ae89c5",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/sdk-logs/-/sdk-logs-0.44.0.tgz",
+        "fileCount": 201,
+        "unpackedSize": 398287,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICvF4ytwOJ2EZ6INNnrfhWnxSxYYS2Tv52RixrYAUs2OAiAnwvCC7qH+CaGADyEJ9OiP9LPwf5Mj0mjhgJCtXePmlQ=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sdk-logs_0.44.0_1696947498553_0.10234909425405414"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.45.0": {
+      "name": "@opentelemetry/sdk-logs",
+      "version": "0.45.0",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "OpenTelemetry logs SDK",
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/sdk-logs",
+      "license": "Apache-2.0",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "engines": {
+        "node": ">=14"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "test:browser": "karma start --single-run",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "tdd:browser": "karma start",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "node ../../../scripts/version-update.js",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "logs",
+        "stats",
+        "profiling"
+      ],
+      "sideEffects": false,
+      "peerDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.8.0",
+        "@opentelemetry/api-logs": ">=0.39.1"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.20",
+        "@opentelemetry/api": ">=1.4.0 <1.8.0",
+        "@opentelemetry/api-logs": "0.45.0",
+        "@types/mocha": "10.0.3",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.20",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "6.6.2",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "4.46.0",
+        "webpack-cli": "4.10.0",
+        "webpack-merge": "5.9.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.18.0",
+        "@opentelemetry/resources": "1.18.0"
+      },
+      "gitHead": "73b446688f10fd8dc4cf403a085f0a39070df7b4",
+      "_id": "@opentelemetry/sdk-logs@0.45.0",
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "lerna/6.6.2/node@v18.18.2+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-t9RA1hEa4NxYrL2VWL+f3EU8Gvdkv1aqPNmk27/vVHVfVFt2ym8hu4lqTf2hynWbzxmV1+bSMDq8Ar3LTrt0pA==",
+        "shasum": "9b4505199917eaf88b5c0fcaff9d046abe839162",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/sdk-logs/-/sdk-logs-0.45.0.tgz",
+        "fileCount": 201,
+        "unpackedSize": 398287,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIC+zaj6IEQEAfwkkl47gCEMmZ4+uR3WtHCbG2oo7EZ7mAiB71gywHTiTmcbySPc5wrCrnqRLDIc2nEXLMQ7nMv6+Xw=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sdk-logs_0.45.0_1699353886596_0.04413834325315791"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.45.1": {
+      "name": "@opentelemetry/sdk-logs",
+      "version": "0.45.1",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "OpenTelemetry logs SDK",
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/sdk-logs",
+      "license": "Apache-2.0",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "engines": {
+        "node": ">=14"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "test:browser": "karma start --single-run",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "tdd:browser": "karma start",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "node ../../../scripts/version-update.js",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "logs",
+        "stats",
+        "profiling"
+      ],
+      "sideEffects": false,
+      "peerDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.8.0",
+        "@opentelemetry/api-logs": ">=0.39.1"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.20",
+        "@opentelemetry/api": ">=1.4.0 <1.8.0",
+        "@opentelemetry/api-logs": "0.45.1",
+        "@types/mocha": "10.0.3",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.20",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "6.6.2",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "4.46.0",
+        "webpack-cli": "4.10.0",
+        "webpack-merge": "5.9.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.18.1",
+        "@opentelemetry/resources": "1.18.1"
+      },
+      "gitHead": "f665499096189390e691cf1a772e677fa67812d7",
+      "_id": "@opentelemetry/sdk-logs@0.45.1",
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "lerna/6.6.2/node@v18.18.2+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-z0RRgW4LeKEKnhXS4F/HnqB6+7gsy63YK47F4XAJYHs4s1KKg8XnQ2RkbuL31i/a9nXkylttYtvsT50CGr487g==",
+        "shasum": "d59a99147ab15eb36757932517dfc9a10e1645e9",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/sdk-logs/-/sdk-logs-0.45.1.tgz",
+        "fileCount": 201,
+        "unpackedSize": 398287,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDXk/vR7Q2S0B0dkPcDcv7rhYOHzmSr+2ysLgKAJy0R6QIgVF2V8ci+Tp9KfLYNmWs149TV7S1r0jUkfPXRZWWpC/Q="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sdk-logs_0.45.1_1699466949538_0.5659571971760158"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.46.0": {
+      "name": "@opentelemetry/sdk-logs",
+      "version": "0.46.0",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "OpenTelemetry logs SDK",
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/sdk-logs",
+      "license": "Apache-2.0",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "engines": {
+        "node": ">=14"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "test:browser": "karma start --single-run",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "tdd:browser": "karma start",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "node ../../../scripts/version-update.js",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "logs",
+        "stats",
+        "profiling"
+      ],
+      "sideEffects": false,
+      "peerDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.8.0",
+        "@opentelemetry/api-logs": ">=0.39.1"
+      },
+      "devDependencies": {
+        "@babel/core": "7.23.6",
+        "@opentelemetry/api": ">=1.4.0 <1.8.0",
+        "@opentelemetry/api-logs": "0.46.0",
+        "@types/mocha": "10.0.6",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.20",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "6.6.2",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "5.89.0",
+        "webpack-cli": "5.1.4",
+        "webpack-merge": "5.10.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.19.0",
+        "@opentelemetry/resources": "1.19.0"
+      },
+      "gitHead": "d3c311aec24137084dc820805a2597e120335672",
+      "_id": "@opentelemetry/sdk-logs@0.46.0",
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "lerna/6.6.2/node@v18.18.2+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-Knlyk4+G72uEzNh6GRN1Fhmrj+/rkATI5/lOrevN7zRDLgp4kfyZBGGoWk7w+qQjlYvwhIIdPVxlIcipivdZIg==",
+        "shasum": "53db38ffa43dbafea3190ea3dc1af23dfb74c588",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/sdk-logs/-/sdk-logs-0.46.0.tgz",
+        "fileCount": 201,
+        "unpackedSize": 401346,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQD4N9tLFvmEB0EUHQsqe7ThQF+USLv06LD5JJqne4zZDAIgew7mIajVytzDGUcl+5T7bbxZmD/tzHC9uQPljSpw7u8="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sdk-logs_0.46.0_1702557329859_0.8053805153698801"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.47.0": {
+      "name": "@opentelemetry/sdk-logs",
+      "version": "0.47.0",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "OpenTelemetry logs SDK",
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/sdk-logs",
+      "license": "Apache-2.0",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "engines": {
+        "node": ">=14"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "test:browser": "karma start --single-run",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "tdd:browser": "karma start",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "node ../../../scripts/version-update.js",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "logs",
+        "stats",
+        "profiling"
+      ],
+      "sideEffects": false,
+      "peerDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.8.0",
+        "@opentelemetry/api-logs": ">=0.39.1"
+      },
+      "devDependencies": {
+        "@babel/core": "7.23.6",
+        "@opentelemetry/api": ">=1.4.0 <1.8.0",
+        "@opentelemetry/api-logs": "0.47.0",
+        "@opentelemetry/resources_1.9.0": "npm:@opentelemetry/resources@1.9.0",
+        "@types/mocha": "10.0.6",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.20",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "6.6.2",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "5.89.0",
+        "webpack-cli": "5.1.4",
+        "webpack-merge": "5.10.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.20.0",
+        "@opentelemetry/resources": "1.20.0"
+      },
+      "gitHead": "57008533aba7ccd51ea80f38ff4f29404d47eb9c",
+      "_id": "@opentelemetry/sdk-logs@0.47.0",
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "lerna/6.6.2/node@v18.19.0+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-s0ZEsFB0r4sZswicZ1WrT6/jVBTl83Wb92U6OGnsSxecCQ8Bc8gpk+75ZzxfIT6RJemVRPQY7rO3QmgeFbvNIg==",
+        "shasum": "bade6af16cbbd40d0ec333ccb7a550327d130b32",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/sdk-logs/-/sdk-logs-0.47.0.tgz",
+        "fileCount": 201,
+        "unpackedSize": 417855,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBIhXU6MaqcNaVuERiHIYHsdH/gdt/PDIll1XJSPvDf9AiBeHIoAVqgdSRawEcjxLbNVpaRjjMLamBG/J8VhPZ1B6w=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sdk-logs_0.47.0_1705313747277_0.5263214880192983"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.48.0": {
+      "name": "@opentelemetry/sdk-logs",
+      "version": "0.48.0",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "OpenTelemetry logs SDK",
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/sdk-logs",
+      "license": "Apache-2.0",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "engines": {
+        "node": ">=14"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "test:browser": "karma start --single-run",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "tdd:browser": "karma start",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "node ../../../scripts/version-update.js",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "logs",
+        "stats",
+        "profiling"
+      ],
+      "sideEffects": false,
+      "peerDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.8.0",
+        "@opentelemetry/api-logs": ">=0.39.1"
+      },
+      "devDependencies": {
+        "@babel/core": "7.23.6",
+        "@babel/preset-env": "7.22.20",
+        "@opentelemetry/api": ">=1.4.0 <1.8.0",
+        "@opentelemetry/api-logs": "0.48.0",
+        "@opentelemetry/resources_1.9.0": "npm:@opentelemetry/resources@1.9.0",
+        "@types/mocha": "10.0.6",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.20",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "6.6.2",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "5.89.0",
+        "webpack-cli": "5.1.4",
+        "webpack-merge": "5.10.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.21.0",
+        "@opentelemetry/resources": "1.21.0"
+      },
+      "gitHead": "828f2ed730e4d26d71f92e220f96b60a552a673a",
+      "_id": "@opentelemetry/sdk-logs@0.48.0",
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "lerna/6.6.2/node@v18.19.0+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-lRcA5/qkSJuSh4ItWCddhdn/nNbVvnzM+cm9Fg1xpZUeTeozjJDBcHnmeKoOaWRnrGYBdz6UTY6bynZR9aBeAA==",
+        "shasum": "5248e4cbfc99bbee555ffd1a23b5db53d6553f2c",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/sdk-logs/-/sdk-logs-0.48.0.tgz",
+        "fileCount": 201,
+        "unpackedSize": 417891,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCmftogo4M6QchkX52jYc6NGHILrCcrVn2CrfhsyCSd0gIhAMg0h1KOaSyp36M6R1kyKldoNAMZL+l1+6w0GkEOolqf"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sdk-logs_0.48.0_1706249469569_0.8904712774544858"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.49.0": {
+      "name": "@opentelemetry/sdk-logs",
+      "version": "0.49.0",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "OpenTelemetry logs SDK",
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/sdk-logs",
+      "license": "Apache-2.0",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "engines": {
+        "node": ">=14"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "test:browser": "karma start --single-run",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "tdd:browser": "karma start",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "node ../../../scripts/version-update.js",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "logs",
+        "stats",
+        "profiling"
+      ],
+      "sideEffects": false,
+      "peerDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.9.0",
+        "@opentelemetry/api-logs": ">=0.39.1"
+      },
+      "devDependencies": {
+        "@babel/core": "7.23.6",
+        "@babel/preset-env": "7.22.20",
+        "@opentelemetry/api": ">=1.4.0 <1.9.0",
+        "@opentelemetry/api-logs": "0.49.0",
+        "@opentelemetry/resources_1.9.0": "npm:@opentelemetry/resources@1.9.0",
+        "@types/mocha": "10.0.6",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.20",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "6.6.2",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "5.89.0",
+        "webpack-cli": "5.1.4",
+        "webpack-merge": "5.10.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.22.0",
+        "@opentelemetry/resources": "1.22.0"
+      },
+      "gitHead": "7be35c7845e206b27b682e8ce1cee850b09cec04",
+      "_id": "@opentelemetry/sdk-logs@0.49.0",
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "lerna/6.6.2/node@v18.19.0+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-tfxeq3kXlCTo7FciSwRYmG+ymwsOBa64vm8CF/nwSlPeRvTZPvtmE7UZ5sx1Nwwoitr9bT6V/jQaiubIcuw83Q==",
+        "shasum": "696be399f0104ed232ab67f289ca62d1b1180e8f",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/sdk-logs/-/sdk-logs-0.49.0.tgz",
+        "fileCount": 201,
+        "unpackedSize": 417891,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDOM2swF3bjqC16su3/32xOXPns4P84uRcYyRFkkN7PCwIhAKQBVxB68/5mVaw2oJCiY0DAofoWiDhw/Y5ubwiwHsbo"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sdk-logs_0.49.0_1709198294417_0.005274640956322019"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.49.1": {
+      "name": "@opentelemetry/sdk-logs",
+      "version": "0.49.1",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "OpenTelemetry logs SDK",
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/sdk-logs",
+      "license": "Apache-2.0",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "engines": {
+        "node": ">=14"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "test:browser": "karma start --single-run",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "tdd:browser": "karma start",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "node ../../../scripts/version-update.js",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "logs",
+        "stats",
+        "profiling"
+      ],
+      "sideEffects": false,
+      "peerDependencies": {
+        "@opentelemetry/api": ">=1.4.0 <1.9.0",
+        "@opentelemetry/api-logs": ">=0.39.1"
+      },
+      "devDependencies": {
+        "@babel/core": "7.23.6",
+        "@babel/preset-env": "7.22.20",
+        "@opentelemetry/api": ">=1.4.0 <1.9.0",
+        "@opentelemetry/api-logs": "0.49.1",
+        "@opentelemetry/resources_1.9.0": "npm:@opentelemetry/resources@1.9.0",
+        "@types/mocha": "10.0.6",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.20",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "6.6.2",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "5.89.0",
+        "webpack-cli": "5.1.4",
+        "webpack-merge": "5.10.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.22.0",
+        "@opentelemetry/resources": "1.22.0"
+      },
+      "gitHead": "3920b158d08daa776280bde68a79e44bafa4e8ea",
+      "_id": "@opentelemetry/sdk-logs@0.49.1",
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "lerna/6.6.2/node@v18.19.0+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-gCzYWsJE0h+3cuh3/cK+9UwlVFyHvj3PReIOCDOmdeXOp90ZjKRoDOJBc3mvk1LL6wyl1RWIivR8Rg9OToyesw==",
+        "shasum": "dd30d1b05951a0d6bc017d99aaa0965792b357f9",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/sdk-logs/-/sdk-logs-0.49.1.tgz",
+        "fileCount": 201,
+        "unpackedSize": 417891,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCb6REkGv8JprRRqaD6ue9J0wdYha6qRBrvkRZl/zfEDwIgc05haEm7esJAWH6gCfNV6SCmPLztnL0YydVr1iUVb74="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/sdk-logs_0.49.1_1709214968108_0.007240212001179858"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2023-04-13T18:13:01.615Z",
+    "0.37.0": "2023-04-13T18:13:01.992Z",
+    "modified": "2024-02-29T13:56:08.713Z",
+    "0.39.0": "2023-05-11T13:30:06.907Z",
+    "0.39.1": "2023-05-12T13:12:56.248Z",
+    "0.40.0": "2023-06-06T06:00:55.255Z",
+    "0.41.0": "2023-07-06T11:27:08.913Z",
+    "0.41.1": "2023-07-24T14:32:48.703Z",
+    "0.41.2": "2023-08-08T13:21:18.991Z",
+    "0.42.0": "2023-09-11T12:14:31.384Z",
+    "0.43.0": "2023-09-12T13:12:34.727Z",
+    "0.44.0": "2023-10-10T14:18:18.848Z",
+    "0.45.0": "2023-11-07T10:44:46.839Z",
+    "0.45.1": "2023-11-08T18:09:09.829Z",
+    "0.46.0": "2023-12-14T12:35:30.102Z",
+    "0.47.0": "2024-01-15T10:15:47.546Z",
+    "0.48.0": "2024-01-26T06:11:09.739Z",
+    "0.49.0": "2024-02-29T09:18:14.646Z",
+    "0.49.1": "2024-02-29T13:56:08.281Z"
+  },
+  "maintainers": [
+    {
+      "name": "pichlermarc",
+      "email": "marc.pichler@dynatrace.com"
+    },
+    {
+      "name": "bogdandrutu",
+      "email": "bogdandrutu@gmail.com"
+    },
+    {
+      "name": "dyladan",
+      "email": "dyladan@gmail.com"
+    }
+  ],
+  "description": "OpenTelemetry logs SDK",
+  "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/sdk-logs",
+  "keywords": [
+    "opentelemetry",
+    "nodejs",
+    "logs",
+    "stats",
+    "profiling"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+  },
+  "author": {
+    "name": "OpenTelemetry Authors"
+  },
+  "bugs": {
+    "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+  },
+  "license": "Apache-2.0",
+  "readme": "# OpenTelemetry Logs SDK\n\n[![NPM Published Version][npm-img]][npm-url]\n[![Apache License][license-image]][license-image]\n\n**Note: This is an experimental package under active development. New releases may include breaking changes.**\n\nOpenTelemetry logs module contains the foundation for all logs SDKs of [opentelemetry-js](https://github.com/open-telemetry/opentelemetry-js).\n\nUsed standalone, this module provides methods for manual instrumentation of code, offering full control over recording logs for client-side JavaScript (browser) and Node.js.\n\nIt does **not** provide automated instrumentation of known libraries or host environment logs out-of-the-box.\n\n## Installation\n\n```bash\nnpm install --save @opentelemetry/api-logs\nnpm install --save @opentelemetry/sdk-logs\n```\n\n## Usage\n\nThe basic setup of the SDK can be seen as followings:\n\n```js\nconst logsAPI = require('@opentelemetry/api-logs');\nconst {\n  LoggerProvider,\n  SimpleLogRecordProcessor,\n  ConsoleLogRecordExporter,\n} = require('@opentelemetry/sdk-logs');\n\n// To start a logger, you first need to initialize the Logger provider.\nconst loggerProvider = new LoggerProvider();\n// Add a processor to export log record\nloggerProvider.addLogRecordProcessor(\n  new SimpleLogRecordProcessor(new ConsoleLogRecordExporter())\n);\n\n//  To create a log record, you first need to get a Logger instance\nconst logger = loggerProvider.getLogger('default');\n\n// You can also use global singleton\nlogsAPI.logs.setGlobalLoggerProvider(loggerProvider);\nconst logger = logsAPI.logs.getLogger('default');\n\n// emit a log record\nlogger.emit({\n  severityNumber: SeverityNumber.INFO,\n  severityText: 'INFO',\n  body: 'this is a log record body',\n  attributes: { 'log.type': 'LogRecord' },\n});\n```\n\n## Config\n\nLogs configuration is a merge of both the user supplied configuration and the default\nconfiguration as specified in [config.ts](./src/config.ts)\n\n## Example\n\nSee [examples/logs](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/examples/logs)\n\n## Useful links\n\n- For more information on OpenTelemetry, visit: <https://opentelemetry.io/>\n- For more about OpenTelemetry JavaScript: <https://github.com/open-telemetry/opentelemetry-js>\n- For help or feedback on this project, join us in [GitHub Discussions][discussions-url]\n\n## License\n\nApache 2.0 - See [LICENSE][license-url] for more information.\n\n[discussions-url]: https://github.com/open-telemetry/opentelemetry-js/discussions\n[license-url]: https://github.com/open-telemetry/opentelemetry-js/blob/main/LICENSE\n[license-image]: https://img.shields.io/badge/license-Apache_2.0-green.svg?style=flat\n[npm-url]: https://www.npmjs.com/package/@opentelemetry/sdk-logs\n[npm-img]: https://badge.fury.io/js/%40opentelemetry%2Fsdk%2Dlogs.svg\n",
+  "readmeFilename": "README.md"
+}
