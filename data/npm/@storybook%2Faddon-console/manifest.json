@@ -1,0 +1,3957 @@
+{
+  "_id": "@storybook/addon-console",
+  "_rev": "67-36a398f263d622b2d512faaa4eb85925",
+  "name": "@storybook/addon-console",
+  "description": "Show console output like logs, errors, and warnings in the Storybook",
+  "dist-tags": {
+    "latest": "3.0.0",
+    "canary": "3.0.0--canary.84.e8a1f80.0"
+  },
+  "versions": {
+    "0.1.0-alpha": {
+      "version": "0.1.0-alpha",
+      "name": "@storybook/addon-console",
+      "author": {
+        "name": "Oleg Proskurin",
+        "email": "oss@usul.su",
+        "url": "https://github.com/UsulPro"
+      },
+      "dependencies": {
+        "global": "^4.3.2"
+      },
+      "scripts": {
+        "start": "start-storybook -p 9009",
+        "prepublish": "node .scripts/prepublish.js",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "build:docs": "jsdoc2md -t docs/readme.hbs src/*.js  > README.md; echo",
+        "build:storybook": "build-storybook",
+        "deploy:storybook": "storybook-to-ghpages",
+        "lint": "eslint ./src",
+        "test": "jest --watch",
+        "test:publish": "npm pack",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "debug": "node --debug-brk --inspect npm test"
+      },
+      "devDependencies": {
+        "@storybook/addon-links": "^3.0.0",
+        "@storybook/react": "^3.2.8",
+        "@storybook/storybook-deployer": "^2.0.0",
+        "babel-cli": "^6.24.1",
+        "babel-core": "^6.25.0",
+        "babel-eslint": "^7.2.3",
+        "babel-plugin-transform-md-import-to-string": "^1.0.6",
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "babel-polyfill": "^6.23.0",
+        "babel-preset-env": "^1.6.0",
+        "babel-preset-react": "^6.24.1",
+        "babel-preset-stage-0": "^6.24.1",
+        "enzyme": "^2.9.1",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^15.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^20.0.3",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "jest": "^20.0.4",
+        "jest-enzyme": "^3.6.1",
+        "jsdoc-to-markdown": "^3.0.0",
+        "lint-staged": "^4.0.2",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react": "^15.6.1",
+        "react-dom": "^15.6.1",
+        "react-scripts": "1.0.11",
+        "react-test-renderer": "^15.6.1"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "^3.0.0",
+        "prop-types": "*",
+        "react": "*"
+      },
+      "gitHead": "5762e1c1b7a9318dff7139b4206abe7734d4c32f",
+      "description": "[![npm version](https://badge.fury.io/js/%40storybook%2Faddon-console.svg)](https://badge.fury.io/js/%40storybook%2Faddon-console) [![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/storybook-a",
+      "_id": "@storybook/addon-console@0.1.0-alpha",
+      "_shasum": "b6e3f5adb3a5827e0388061eada4c736f634dec5",
+      "_from": ".",
+      "_npmVersion": "4.2.0",
+      "_nodeVersion": "7.10.0",
+      "_npmUser": {
+        "name": "usulpro",
+        "email": "regx@usul.su"
+      },
+      "dist": {
+        "shasum": "b6e3f5adb3a5827e0388061eada4c736f634dec5",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-0.1.0-alpha.tgz",
+        "integrity": "sha512-D9OIju740/VOryldlWL3FTq4X5LcENBxCDc3zj9bsB7+SOEsJxiD8uh0mmMc3fiCosDeEaEZHD8JBi9VpGTy1g==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDa8EhKcYD9OWkvnOYHViWBW0Shg5jtxVAONK++Ye4rSAIgTwerHi9AaHh/CySKaQrLi3/wM2FBJXLA2TyQtEN8oz4="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "usulpro",
+          "email": "regx@usul.su"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console-0.1.0-alpha.tgz_1505397533876_0.9928506202995777"
+      },
+      "directories": {}
+    },
+    "0.1.0-alpha.1": {
+      "version": "0.1.0-alpha.1",
+      "name": "@storybook/addon-console",
+      "author": {
+        "name": "Oleg Proskurin",
+        "email": "oss@usul.su",
+        "url": "https://github.com/UsulPro"
+      },
+      "dependencies": {
+        "global": "^4.3.2"
+      },
+      "scripts": {
+        "start": "start-storybook -p 9009",
+        "prepublish": "node .scripts/prepublish.js",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "build:docs": "jsdoc2md -t docs/readme.hbs src/*.js  > README.md; echo",
+        "build:storybook": "build-storybook",
+        "deploy:storybook": "storybook-to-ghpages",
+        "lint": "eslint ./src",
+        "test": "jest --watch",
+        "test:publish": "npm pack",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "debug": "node --debug-brk --inspect npm test"
+      },
+      "main": "dist/index",
+      "homepage": "https://github.com/storybooks/storybook-addon-console",
+      "bugs": {
+        "url": "https://github.com/storybooks/storybook-addon-console/issues"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+      },
+      "devDependencies": {
+        "@storybook/addon-links": "^3.0.0",
+        "@storybook/react": "^3.2.8",
+        "@storybook/storybook-deployer": "^2.0.0",
+        "babel-cli": "^6.24.1",
+        "babel-core": "^6.25.0",
+        "babel-eslint": "^7.2.3",
+        "babel-plugin-transform-md-import-to-string": "^1.0.6",
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "babel-polyfill": "^6.23.0",
+        "babel-preset-env": "^1.6.0",
+        "babel-preset-react": "^6.24.1",
+        "babel-preset-stage-0": "^6.24.1",
+        "enzyme": "^2.9.1",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^15.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^20.0.3",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "jest": "^20.0.4",
+        "jest-enzyme": "^3.6.1",
+        "jsdoc-to-markdown": "^3.0.0",
+        "lint-staged": "^4.0.2",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react": "^15.6.1",
+        "react-dom": "^15.6.1",
+        "react-scripts": "1.0.11",
+        "react-test-renderer": "^15.6.1"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "^3.0.0",
+        "prop-types": "*",
+        "react": "*"
+      },
+      "gitHead": "5762e1c1b7a9318dff7139b4206abe7734d4c32f",
+      "description": "[![npm version](https://badge.fury.io/js/%40storybook%2Faddon-console.svg)](https://badge.fury.io/js/%40storybook%2Faddon-console) [![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/storybook-a",
+      "_id": "@storybook/addon-console@0.1.0-alpha.1",
+      "_shasum": "f3cb0fcaaa12a23c7f9ca62a0ef77cb09ec5ca4d",
+      "_from": ".",
+      "_npmVersion": "4.2.0",
+      "_nodeVersion": "7.10.0",
+      "_npmUser": {
+        "name": "usulpro",
+        "email": "regx@usul.su"
+      },
+      "dist": {
+        "shasum": "f3cb0fcaaa12a23c7f9ca62a0ef77cb09ec5ca4d",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-0.1.0-alpha.1.tgz",
+        "integrity": "sha512-miceLOM0wUbIPqJVNXhMuSaXlUVs7W3fSmQD6q0+dcN2HSoYU1ZmXwOdI5X/VjY8/5ovop66Cza6msGj7rc/3Q==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHCKX4YBSW40j64n0czGQ9Zfim+5HtpAVXGoOq4mCF9NAiAt2dGEU7U7fUbDVFVAGkGrfWlA6yKkmapAPPHyoHhgaw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "bodin.alex@gmail.com",
+          "name": "alexandrebodin"
+        },
+        {
+          "email": "michael@lab80.co",
+          "name": "shilman"
+        },
+        {
+          "email": "aaron@aaronmcadam.com",
+          "name": "aaronmcadam"
+        },
+        {
+          "email": "mnmtanish@gmail.com",
+          "name": "mnmtanish"
+        },
+        {
+          "email": "regx@usul.su",
+          "name": "usulpro"
+        },
+        {
+          "email": "arunoda.susiripala@gmail.com",
+          "name": "arunoda"
+        },
+        {
+          "email": "mlthutrix@gmail.com",
+          "name": "mthuret"
+        },
+        {
+          "email": "ndelangen@me.com",
+          "name": "ndelangen"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console-0.1.0-alpha.1.tgz_1505398520050_0.5882984977215528"
+      },
+      "directories": {}
+    },
+    "1.0.0": {
+      "version": "1.0.0",
+      "name": "@storybook/addon-console",
+      "author": {
+        "name": "Oleg Proskurin",
+        "email": "oss@usul.su",
+        "url": "https://github.com/UsulPro"
+      },
+      "dependencies": {
+        "global": "^4.3.2"
+      },
+      "scripts": {
+        "start": "start-storybook -p 9009",
+        "prepublish": "node .scripts/prepublish.js",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "build:docs": "jsdoc2md -t docs/readme.hbs src/*.js  > README.md; echo",
+        "build:storybook": "build-storybook",
+        "deploy:storybook": "storybook-to-ghpages",
+        "lint": "eslint ./src",
+        "test": "jest --watch",
+        "test:publish": "npm pack",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "debug": "node --debug-brk --inspect npm test"
+      },
+      "main": "dist/index",
+      "homepage": "https://github.com/storybooks/storybook-addon-console",
+      "bugs": {
+        "url": "https://github.com/storybooks/storybook-addon-console/issues"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+      },
+      "devDependencies": {
+        "@storybook/addon-links": "^3.0.0",
+        "@storybook/react": "^3.2.8",
+        "@storybook/storybook-deployer": "^2.0.0",
+        "babel-cli": "^6.24.1",
+        "babel-core": "^6.25.0",
+        "babel-eslint": "^7.2.3",
+        "babel-plugin-transform-md-import-to-string": "^1.0.6",
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "babel-polyfill": "^6.23.0",
+        "babel-preset-env": "^1.6.0",
+        "babel-preset-react": "^6.24.1",
+        "babel-preset-stage-0": "^6.24.1",
+        "enzyme": "^2.9.1",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^15.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^20.0.3",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "jest": "^20.0.4",
+        "jest-enzyme": "^3.6.1",
+        "jsdoc-to-markdown": "^3.0.0",
+        "lint-staged": "^4.0.2",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react": "^15.6.1",
+        "react-dom": "^15.6.1",
+        "react-scripts": "1.0.11",
+        "react-test-renderer": "^15.6.1"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "^3.0.0",
+        "prop-types": "*",
+        "react": "*"
+      },
+      "gitHead": "5762e1c1b7a9318dff7139b4206abe7734d4c32f",
+      "description": "[![npm version](https://badge.fury.io/js/%40storybook%2Faddon-console.svg)](https://badge.fury.io/js/%40storybook%2Faddon-console) [![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://storybooks.github.io/storybook",
+      "_id": "@storybook/addon-console@1.0.0",
+      "_shasum": "9313a65f04392b524698e01ceeaa4801f5d07b20",
+      "_from": ".",
+      "_npmVersion": "4.2.0",
+      "_nodeVersion": "7.10.0",
+      "_npmUser": {
+        "name": "usulpro",
+        "email": "regx@usul.su"
+      },
+      "dist": {
+        "shasum": "9313a65f04392b524698e01ceeaa4801f5d07b20",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-1.0.0.tgz",
+        "integrity": "sha512-LTaNe2CgLAXbi17KuEnEWQJ1slgXarrHyTtgad3cTLZEOpDnNm8FAr8J0zThKkKR89e6EqELM9dk4RmvYmtFdg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDvlGeswZtU59BYf5ItmnMxkV0HOoQN5KkEMIsS+aKoQgIgPvJGdxIk3iNcj0Ni9bcREjw+U0fpG7cV9hHJNDLHmeI="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "bodin.alex@gmail.com",
+          "name": "alexandrebodin"
+        },
+        {
+          "email": "michael@lab80.co",
+          "name": "shilman"
+        },
+        {
+          "email": "aaron@aaronmcadam.com",
+          "name": "aaronmcadam"
+        },
+        {
+          "email": "mnmtanish@gmail.com",
+          "name": "mnmtanish"
+        },
+        {
+          "email": "regx@usul.su",
+          "name": "usulpro"
+        },
+        {
+          "email": "arunoda.susiripala@gmail.com",
+          "name": "arunoda"
+        },
+        {
+          "email": "mlthutrix@gmail.com",
+          "name": "mthuret"
+        },
+        {
+          "email": "ndelangen@me.com",
+          "name": "ndelangen"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console-1.0.0.tgz_1505399125530_0.25683994055725634"
+      },
+      "directories": {}
+    },
+    "1.0.1": {
+      "version": "1.0.1",
+      "name": "@storybook/addon-console",
+      "author": {
+        "name": "Oleg Proskurin",
+        "url": "https://github.com/UsulPro"
+      },
+      "dependencies": {
+        "@storybook/addon-storysource": "^4.0.0-alpha.8",
+        "global": "^4.3.2"
+      },
+      "scripts": {
+        "start": "start-storybook -p 9009",
+        "prepublish": "node .scripts/prepublish.js",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "build:docs": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.js  > README.md; echo",
+        "build:storybook": "build-storybook",
+        "deploy:storybook": "storybook-to-ghpages",
+        "lint": "eslint ./src",
+        "test": "jest --watch",
+        "test:publish": "npm pack",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "debug": "node --debug-brk --inspect npm test"
+      },
+      "main": "dist/index",
+      "homepage": "https://github.com/storybooks/storybook-addon-console",
+      "bugs": {
+        "url": "https://github.com/storybooks/storybook-addon-console/issues"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+      },
+      "devDependencies": {
+        "@storybook/addon-actions": "^4.0.0-alpha.8",
+        "@storybook/addon-links": "^4.0.0-alpha.8",
+        "@storybook/react": "^4.0.0-alpha.8",
+        "@storybook/storybook-deployer": "^2.0.0",
+        "babel-cli": "^6.24.1",
+        "babel-core": "^6.25.0",
+        "babel-eslint": "^8.2.3",
+        "babel-plugin-transform-md-import-to-string": "^1.0.6",
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "babel-polyfill": "^6.23.0",
+        "babel-preset-env": "^1.6.0",
+        "babel-preset-react": "^6.24.1",
+        "babel-preset-stage-0": "^6.24.1",
+        "enzyme": "^3.3.0",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^21.17.0",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "jest-enzyme": "^6.0.1",
+        "jsdoc-to-markdown": "^4.0.1",
+        "lint-staged": "^7.1.3",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react": "^16.4.0",
+        "react-dom": "^16.4.0",
+        "react-scripts": "1.1.4",
+        "react-test-renderer": "^16.4.0"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "*",
+        "prop-types": "*",
+        "react": "*"
+      },
+      "gitHead": "fb69e1c470ab1d0a6ded7d08a4b85a7d00476a22",
+      "description": "[![npm version](https://badge.fury.io/js/%40storybook%2Faddon-console.svg)](https://badge.fury.io/js/%40storybook%2Faddon-console) [![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://storybooks.github.io/storybook",
+      "_id": "@storybook/addon-console@1.0.1",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.5.0",
+      "_npmUser": {
+        "name": "usulpro",
+        "email": "regx@usul.su"
+      },
+      "dist": {
+        "integrity": "sha512-0E/YQnFFrjfa6xOWhTFoS+sgv1FVPb39o384IVlOFEQwwnK7Ob0ODGShH6PlprhcOY1vn+Wdkx1a2mDPmePisA==",
+        "shasum": "5a897d7d46c2c6e0be061f9142815502d26f96e0",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-1.0.1.tgz",
+        "fileCount": 6,
+        "unpackedSize": 418465,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbG7lNCRA9TVsSAnZWagAAnxsP/2PtAJqziUcAgtjThmj8\n9hVZUsjPVXnWKlaWEJTXP3zav0LXtx56STM7Bk6RdUq5uEfCGyKdSUUV2fWc\n0MfP12ETX9eknQz+Lrl8LTQtfCfXqpRv9zPp2g83145OtLgO9QsQ8LGLVsEn\n9lbOK87EQ/Pp6mlekyOd4eZWbMuN8mOl9iKVWHC6ihR+e2RrJEZ2+FQT4ghA\nGwuO8M6245cg44CEoWU1PvC4rH3prS3k7oP/WlVrEaA7fi3aTGpXKTRD6q0G\nDwj2dPGW7U4GpUcNeVydupPoEinNyl4sVDbcQNITQvK9/FEnNcTT07ncYqs/\nrgUf/g5wJ+9l9T2guFbYg19gI65t+lVO3a6LNaevtmhcnr0q/7oim4mgwn++\nbpy1uu0Epf5vx4Yi8zAPSlJqF2zlMFOnChcFTlzjV0THZQGRUG4iN3CWSrhO\nlZnsWHofZGdlpgbL+me/54LXYnP1dOcIXbigpzfjPt5b3w/+B0N/gX8zy4Cu\nUquHEYlhpt4/8Jx3268VQLlmapbMfArNTBSvWkXnX6j5QHFXPlqU/z5ijPeU\nzT5y7HqzUurUxauYux99Z/d4vK6g6WbXyeRjsfDAg/6q35YJU4mH6nIZtxqn\nrggUJ5gun27bPrhkxfqeKEqMCndGL4BkoMpJzGXbd+3vklvV1Iw4u/yjVXzr\negCR\r\n=4uI0\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCY806lE+O+QWRFhPBH6i5wCtYyXZVm0PvctFU67HL7bgIgJNg6s1am5/SWHBVZIvX/S8JG3XI/BigKbP0KX4+KDB4="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "bodin.alex@gmail.com",
+          "name": "alexandrebodin"
+        },
+        {
+          "email": "arunoda.susiripala@gmail.com",
+          "name": "arunoda"
+        },
+        {
+          "email": "dduan@yahoo.com",
+          "name": "danielduan"
+        },
+        {
+          "email": "talpa@yandex.ru",
+          "name": "hypnosphi"
+        },
+        {
+          "email": "davydkin.igor@gmail.com",
+          "name": "igor-dv"
+        },
+        {
+          "email": "mnmtanish@gmail.com",
+          "name": "mnmtanish"
+        },
+        {
+          "email": "ndelangen@me.com",
+          "name": "ndelangen"
+        },
+        {
+          "email": "michael@lab80.co",
+          "name": "shilman"
+        },
+        {
+          "email": "teije-vs@hotmail.com",
+          "name": "tvs"
+        },
+        {
+          "email": "regx@usul.su",
+          "name": "usulpro"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console_1.0.1_1528543564118_0.7032586513871628"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.2": {
+      "version": "1.0.2",
+      "name": "@storybook/addon-console",
+      "author": {
+        "name": "Oleg Proskurin",
+        "url": "https://github.com/UsulPro"
+      },
+      "dependencies": {
+        "@storybook/addon-storysource": "^4.0.0-alpha.8",
+        "global": "^4.3.2"
+      },
+      "scripts": {
+        "start": "start-storybook -p 9009",
+        "prepublish": "node .scripts/prepublish.js",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "build:docs": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.js  > README.md; echo",
+        "build:storybook": "build-storybook",
+        "deploy:storybook": "storybook-to-ghpages",
+        "lint": "eslint ./src",
+        "test": "jest --watch",
+        "test:publish": "npm pack",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "debug": "node --debug-brk --inspect npm test"
+      },
+      "main": "dist/index",
+      "homepage": "https://github.com/storybooks/storybook-addon-console",
+      "bugs": {
+        "url": "https://github.com/storybooks/storybook-addon-console/issues"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+      },
+      "devDependencies": {
+        "@storybook/addon-actions": "^4.0.0-alpha.8",
+        "@storybook/addon-links": "^4.0.0-alpha.8",
+        "@storybook/react": "^4.0.0-alpha.8",
+        "@storybook/storybook-deployer": "^2.0.0",
+        "babel-cli": "^6.24.1",
+        "babel-core": "^6.25.0",
+        "babel-eslint": "^8.2.3",
+        "babel-plugin-transform-md-import-to-string": "^1.0.6",
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "babel-polyfill": "^6.23.0",
+        "babel-preset-env": "^1.6.0",
+        "babel-preset-react": "^6.24.1",
+        "babel-preset-stage-0": "^6.24.1",
+        "enzyme": "^3.3.0",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^21.17.0",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "jest-enzyme": "^6.0.1",
+        "jsdoc-to-markdown": "^4.0.1",
+        "lint-staged": "^7.1.3",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react": "^16.4.0",
+        "react-dom": "^16.4.0",
+        "react-scripts": "1.1.4",
+        "react-test-renderer": "^16.4.0"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "*",
+        "prop-types": "*",
+        "react": "*"
+      },
+      "gitHead": "fb69e1c470ab1d0a6ded7d08a4b85a7d00476a22",
+      "description": "[![npm version](https://badge.fury.io/js/%40storybook%2Faddon-console.svg)](https://badge.fury.io/js/%40storybook%2Faddon-console) [![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://storybooks.github.io/storybook",
+      "_id": "@storybook/addon-console@1.0.2",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.5.0",
+      "_npmUser": {
+        "name": "usulpro",
+        "email": "regx@usul.su"
+      },
+      "dist": {
+        "integrity": "sha512-/OaV1jvV4wlYjWydafPYFIg+y4AZwsRrdFEJKsyCZR1y/2/TV2LW0UQBiDf4jLIkTIjK1FJAXbXhV4mkhwloTg==",
+        "shasum": "bfa46b87c5fb7c719b9165fc755a91ce27099b5c",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-1.0.2.tgz",
+        "fileCount": 6,
+        "unpackedSize": 418465,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbG7ozCRA9TVsSAnZWagAAPgUQAIJm9CfA9vl+E815kkhz\ncE8JH7/7yd1LVYEgvaxZhO9xgeP15F/V7z6DiaqqMzdqcTjGKz/DB6kaabMc\nKtlHRKg629Kf+Mh3t4xdZmHeSEPjwDrh1qsb9p3cQ2yRENaNmdPw0xkfc0RE\ntMctweA4Vcj8eQQemZ8QnnpZS+bwENXZAAid5FEYuUCfgyoOqNyBBJXgdsTo\nlXUTMaK8whdvJyuF4T5j0+wE1thBa8neX/RtyNZ3eGmgt0LHFR/bZTC8XdkN\nZwfy43FvP9VyUSpKnnF7NfwQ6uBl+KuhZKL26hEzlZV7dRcGEZvI1ca72zeI\nJwxie9B1eVkiMH2KYIlxWavTfJPG8+7gkFr+zXCUVx5yHEhwEAgdI0KKSOLI\n5et7LQzzc8PlIdNPYJHiELsyvyW0oKVJR3muILyJ3XtFCgfVDERPV3A0lpqh\nhiW2vGywX2VBh5+vDD7IG1RPLA8KVtID46nb6eI+jTVvxei3GK4FwByiiOLc\nW4Z7HgoCSsGO8vIULNMRByWzsSTZZWwNoPDO39nYU0ENGM5fJz48zn7tkrtO\nkwzmnXCzlE8Q3kHykT8xkBWNCR8Pc5FfOf3yXlQM73kWXhuguDZ/9QY9Azwc\nawiNFgQKygkOIxKrpSJZwH2mKpLi8lNm6T8DeHYgJdQEDjNzV78QNvwuZIoc\nhrCZ\r\n=cbPk\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCbQ/VAPiS8Kfc+SZ1f19cw+ZxqUI+0f97wHZ1tpQ09oQIhAPBG70anzAUvtk+DKCIzcPHOuIy876a3Z3Iz1pWeUP36"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "bodin.alex@gmail.com",
+          "name": "alexandrebodin"
+        },
+        {
+          "email": "arunoda.susiripala@gmail.com",
+          "name": "arunoda"
+        },
+        {
+          "email": "dduan@yahoo.com",
+          "name": "danielduan"
+        },
+        {
+          "email": "talpa@yandex.ru",
+          "name": "hypnosphi"
+        },
+        {
+          "email": "davydkin.igor@gmail.com",
+          "name": "igor-dv"
+        },
+        {
+          "email": "mnmtanish@gmail.com",
+          "name": "mnmtanish"
+        },
+        {
+          "email": "ndelangen@me.com",
+          "name": "ndelangen"
+        },
+        {
+          "email": "michael@lab80.co",
+          "name": "shilman"
+        },
+        {
+          "email": "teije-vs@hotmail.com",
+          "name": "tvs"
+        },
+        {
+          "email": "regx@usul.su",
+          "name": "usulpro"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console_1.0.2_1528543794603_0.42546947714354766"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.3": {
+      "version": "1.0.3",
+      "name": "@storybook/addon-console",
+      "author": {
+        "name": "Oleg Proskurin",
+        "url": "https://github.com/UsulPro"
+      },
+      "dependencies": {
+        "@storybook/addon-storysource": "^4.0.0-alpha.8",
+        "global": "^4.3.2"
+      },
+      "scripts": {
+        "start": "start-storybook -p 9009",
+        "prepublish": "node .scripts/prepublish.js",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "build:docs": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.js  > README.md; echo",
+        "build:storybook": "build-storybook",
+        "deploy:storybook": "storybook-to-ghpages",
+        "lint": "eslint ./src",
+        "test": "jest --watch",
+        "test:publish": "npm pack",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "debug": "node --debug-brk --inspect npm test"
+      },
+      "main": "dist/index",
+      "homepage": "https://github.com/storybooks/storybook-addon-console",
+      "bugs": {
+        "url": "https://github.com/storybooks/storybook-addon-console/issues"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+      },
+      "devDependencies": {
+        "@storybook/addon-actions": "^4.0.0-alpha.8",
+        "@storybook/addon-links": "^4.0.0-alpha.8",
+        "@storybook/react": "^4.0.0-alpha.8",
+        "@storybook/storybook-deployer": "^2.0.0",
+        "babel-cli": "^6.24.1",
+        "babel-core": "^6.25.0",
+        "babel-eslint": "^8.2.3",
+        "babel-plugin-transform-md-import-to-string": "^1.0.6",
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "babel-polyfill": "^6.23.0",
+        "babel-preset-env": "^1.6.0",
+        "babel-preset-react": "^6.24.1",
+        "babel-preset-stage-0": "^6.24.1",
+        "enzyme": "^3.3.0",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^21.17.0",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "jest-enzyme": "^6.0.1",
+        "jsdoc-to-markdown": "^4.0.1",
+        "lint-staged": "^7.1.3",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react": "^16.4.0",
+        "react-dom": "^16.4.0",
+        "react-scripts": "1.1.4",
+        "react-test-renderer": "^16.4.0"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "*",
+        "prop-types": "*",
+        "react": "*"
+      },
+      "gitHead": "fb69e1c470ab1d0a6ded7d08a4b85a7d00476a22",
+      "description": "[![npm version](https://badge.fury.io/js/%40storybook%2Faddon-console.svg)](https://badge.fury.io/js/%40storybook%2Faddon-console) [![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://storybooks.github.io/storybook",
+      "_id": "@storybook/addon-console@1.0.3",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.5.0",
+      "_npmUser": {
+        "name": "usulpro",
+        "email": "regx@usul.su"
+      },
+      "dist": {
+        "integrity": "sha512-Ro7k/5gfh5xQ9GU1gHy6/u1PtC07vtqh1VRxFQRB6gMov5y9D2QwsigXqGxXu3hGgCoheiEc2D1xyQIPE8JPPg==",
+        "shasum": "5b27e1882a7483f2dbc4998d335ee2d9e33ce4f9",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-1.0.3.tgz",
+        "fileCount": 6,
+        "unpackedSize": 418541,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbG7qVCRA9TVsSAnZWagAAtZIP/RkqO+rA3kK6xviss1NF\nSURsdP1SBytM5W1OIbeK0TE5BmX42stGJTbizz6fZvrOCnS+Q6SibCDa4owC\noVUE45rshO4YH12Vdyq1cCOdZXppAIHwnZnM6PUgxlswIHra08veo0kr8iVq\npCfgFBKOhnOfqh6l05XgJmkKQZeB1u2zo+pYEZOASt9HjJ0TD6k+BJexnmVI\nlkgDdI2m1OTyhNxTwrCcdn1vMPKSvWDb7JpDcd9zYvbDasaV9awusCti5TBh\nWOmttcARHBUMqb0nm9ogkAjlSBVo7F5uzMV3hPMJ7L1XnegPt4reL5N5xMf9\niA2LkeW8bfi3G3RnstORDyDWkpEMatptq4IbEFvQ0Q9JOHPAfTrl3tANC12S\ngnvMTG/YUH9VKIC/YDI/KYTIjHePKjch75HSGk3IEkTNdYCCuv7lqpY08Fxs\nWYk+l3ZpMNiop4Kw3/VsiMyyi+PG07CYEiLR0LX1owZccclgnYSz5VXua4lV\nvhtQ5wFq25lVMYJ974ReQlaS7IUVclRssXG05WAjUn+uxYyl/+VdXg5y+8eQ\nBXtRlJVxvyMUV+0GMsJEqvkQbV090LUNc/JJ5dwHCz0CislkGmFAh1yJL372\nw1Hk93MvqVSgMdgxV5rnva8P/my8MGq/5GgFrCuhx4od2Gz1HN/L28Y+4Bw2\nkTG7\r\n=1UV7\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDXup4UA14bwkJxwMdPzP/bB5yQvR6TNVZ4kDmMkf+LUwIgVZ/pVYcm3AaK66bdk7/NAy5hH/hhmqdjxikkJh0gKpc="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "bodin.alex@gmail.com",
+          "name": "alexandrebodin"
+        },
+        {
+          "email": "arunoda.susiripala@gmail.com",
+          "name": "arunoda"
+        },
+        {
+          "email": "dduan@yahoo.com",
+          "name": "danielduan"
+        },
+        {
+          "email": "talpa@yandex.ru",
+          "name": "hypnosphi"
+        },
+        {
+          "email": "davydkin.igor@gmail.com",
+          "name": "igor-dv"
+        },
+        {
+          "email": "mnmtanish@gmail.com",
+          "name": "mnmtanish"
+        },
+        {
+          "email": "ndelangen@me.com",
+          "name": "ndelangen"
+        },
+        {
+          "email": "michael@lab80.co",
+          "name": "shilman"
+        },
+        {
+          "email": "teije-vs@hotmail.com",
+          "name": "tvs"
+        },
+        {
+          "email": "regx@usul.su",
+          "name": "usulpro"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console_1.0.3_1528543892104_0.2566325678940513"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.4": {
+      "version": "1.0.4",
+      "name": "@storybook/addon-console",
+      "author": {
+        "name": "Oleg Proskurin",
+        "url": "https://github.com/UsulPro"
+      },
+      "dependencies": {
+        "global": "^4.3.2"
+      },
+      "scripts": {
+        "start": "start-storybook -p 9009",
+        "prepublish": "node .scripts/prepublish.js",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "build:docs": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.js  > README.md; echo",
+        "build:storybook": "build-storybook",
+        "deploy:storybook": "storybook-to-ghpages",
+        "lint": "eslint ./src",
+        "test": "jest --watch",
+        "test:publish": "npm pack",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "debug": "node --debug-brk --inspect npm test"
+      },
+      "main": "dist/index",
+      "homepage": "https://github.com/storybooks/storybook-addon-console",
+      "bugs": {
+        "url": "https://github.com/storybooks/storybook-addon-console/issues"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+      },
+      "devDependencies": {
+        "@storybook/addon-actions": "^4.0.0-alpha.8",
+        "@storybook/addon-links": "^4.0.0-alpha.8",
+        "@storybook/react": "^4.0.0-alpha.8",
+        "@storybook/addon-storysource": "^4.0.0-alpha.8",
+        "@storybook/storybook-deployer": "^2.0.0",
+        "babel-cli": "^6.24.1",
+        "babel-core": "^6.25.0",
+        "babel-eslint": "^8.2.3",
+        "babel-plugin-transform-md-import-to-string": "^1.0.6",
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "babel-polyfill": "^6.23.0",
+        "babel-preset-env": "^1.6.0",
+        "babel-preset-react": "^6.24.1",
+        "babel-preset-stage-0": "^6.24.1",
+        "enzyme": "^3.3.0",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^21.17.0",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "jest-enzyme": "^6.0.1",
+        "jsdoc-to-markdown": "^4.0.1",
+        "lint-staged": "^7.1.3",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react": "^16.4.0",
+        "react-dom": "^16.4.0",
+        "react-scripts": "1.1.4",
+        "react-test-renderer": "^16.4.0"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "*",
+        "prop-types": "*",
+        "react": "*"
+      },
+      "gitHead": "fb69e1c470ab1d0a6ded7d08a4b85a7d00476a22",
+      "description": "[![npm version](https://badge.fury.io/js/%40storybook%2Faddon-console.svg)](https://badge.fury.io/js/%40storybook%2Faddon-console) [![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://storybooks.github.io/storybook",
+      "_id": "@storybook/addon-console@1.0.4",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.5.0",
+      "_npmUser": {
+        "name": "usulpro",
+        "email": "regx@usul.su"
+      },
+      "dist": {
+        "integrity": "sha512-iYb1GhHGJvNUt7Gly6oS3bWKwEUumcKITQ1FtC5mTznuPUxXTtEh6tsJg2J1cdHBi50IFFz/zSVQadjYGo0h7Q==",
+        "shasum": "726ed87152d0bfe39288885784d7846da914324e",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-1.0.4.tgz",
+        "fileCount": 6,
+        "unpackedSize": 418541,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbG7snCRA9TVsSAnZWagAAgw0P/1wtNy+BWhOmnyMjCr3c\nuQWmbEIpuon8/1FEsQ1mQrVTSvQm3xfUSdb3RGVGFTZDLHBMCi5u2Tms2YfR\nQVALs+xfyRCF4bTvtcJrx+x0qKKLhzMHQsde4cryaMH643CsQPcKr8lxgzK/\nSeaf8mkzVbO85WDuEHcjy7dNUJb/PKaX30B/xqkrmBYe0SYbX3bYkXEDH2xK\nsOnAtqLihoJKkzCHhdZloxS1/4+T2/otZsQBIcW5uGwcYZragQpniAdjC9zB\nT5s4qFLxJX9xxQk2oCK5X+igfyOgqazd1zMw+5PbbKeIjLTqks9FHr2m5dtA\n9dtyA+0Wf4omNz0eHUOuryyWNGE0wW2Wi9bVJ+tRPlBu7HsLhsq5FGnquii/\nAACmjZyEk04MkfIYZFK4+nt/Bnlc9UBNpFysFs7c0s5E0sN3OflAWtXgu3Ne\nNp+6ZA0t3Pp9v6izRuTVUJ7382wTE7ue/VNjirpRn1RjyHhQxbTyegBwkIxf\nIGktUdOg0p0FiwtdCqTdVh5Ndlo4o8YGMSQoAo4zLfmsmyb4NJuqW6/SUgUu\nVlc44HORN94DzW82uBbi2c1IOABdhvtP0h+rr4zp5gBy28vWwV1k6F2JO8vG\nTTJRTUe2Faiaf1Bd25V8g8jCEW5Bgg5g7znlKQAvJNooMCEVtGHUK0Cy7N4v\nyAlh\r\n=asz/\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQD163Kia2YdBP0T1S+A+3gku2JL0LrQ/oZ7ug9E+zIe1AIhAL5tfSVpHFex66/0M8WICB39sdp0iAOawhhKfLquUzif"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "bodin.alex@gmail.com",
+          "name": "alexandrebodin"
+        },
+        {
+          "email": "arunoda.susiripala@gmail.com",
+          "name": "arunoda"
+        },
+        {
+          "email": "dduan@yahoo.com",
+          "name": "danielduan"
+        },
+        {
+          "email": "talpa@yandex.ru",
+          "name": "hypnosphi"
+        },
+        {
+          "email": "davydkin.igor@gmail.com",
+          "name": "igor-dv"
+        },
+        {
+          "email": "mnmtanish@gmail.com",
+          "name": "mnmtanish"
+        },
+        {
+          "email": "ndelangen@me.com",
+          "name": "ndelangen"
+        },
+        {
+          "email": "michael@lab80.co",
+          "name": "shilman"
+        },
+        {
+          "email": "teije-vs@hotmail.com",
+          "name": "tvs"
+        },
+        {
+          "email": "regx@usul.su",
+          "name": "usulpro"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console_1.0.4_1528544038873_0.6560448259129479"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.5": {
+      "version": "1.0.5",
+      "name": "@storybook/addon-console",
+      "author": {
+        "name": "Oleg Proskurin",
+        "url": "https://github.com/UsulPro"
+      },
+      "dependencies": {
+        "global": "^4.3.2"
+      },
+      "scripts": {
+        "start": "start-storybook -p 9009",
+        "prepublish": "node .scripts/prepublish.js",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "build:docs": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.js  > README.md; echo",
+        "build:storybook": "build-storybook",
+        "deploy:storybook": "storybook-to-ghpages",
+        "lint": "eslint ./src",
+        "test": "jest --watch",
+        "test:publish": "npm pack",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "debug": "node --debug-brk --inspect npm test"
+      },
+      "main": "dist/index",
+      "homepage": "https://github.com/storybooks/storybook-addon-console",
+      "bugs": {
+        "url": "https://github.com/storybooks/storybook-addon-console/issues"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.1.2",
+        "@babel/plugin-transform-runtime": "^7.1.0",
+        "@babel/runtime": "^7.1.2",
+        "@emotion/core": "^0.13.1",
+        "@emotion/provider": "^0.11.2",
+        "@emotion/styled": "^0.10.6",
+        "@storybook/addon-a11y": "4.0.0-rc.3",
+        "@storybook/addon-actions": "4.0.0-rc.3",
+        "@storybook/addon-backgrounds": "4.0.0-rc.3",
+        "@storybook/addon-centered": "4.0.0-rc.3",
+        "@storybook/addon-events": "4.0.0-rc.3",
+        "@storybook/addon-graphql": "4.0.0-rc.3",
+        "@storybook/addon-info": "4.0.0-rc.3",
+        "@storybook/addon-jest": "4.0.0-rc.3",
+        "@storybook/addon-knobs": "4.0.0-rc.3",
+        "@storybook/addon-links": "4.0.0-rc.3",
+        "@storybook/addon-notes": "4.0.0-rc.3",
+        "@storybook/addon-options": "4.0.0-rc.3",
+        "@storybook/addon-storyshots": "4.0.0-rc.3",
+        "@storybook/addon-storyshots-puppeteer": "4.0.0-rc.3",
+        "@storybook/addon-storysource": "4.0.0-rc.3",
+        "@storybook/addon-viewport": "4.0.0-rc.3",
+        "@storybook/addons": "4.0.0-rc.3",
+        "@storybook/components": "4.0.0-rc.3",
+        "@storybook/core-events": "4.0.0-rc.3",
+        "@storybook/node-logger": "4.0.0-rc.3",
+        "@storybook/react": "4.0.0-rc.3",
+        "@storybook/storybook-deployer": "^2.3.0",
+        "enzyme": "^3.3.0",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^21.17.0",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "jest-enzyme": "^6.0.1",
+        "jsdoc-to-markdown": "^4.0.1",
+        "lint-staged": "^7.1.3",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react": "^16.4.0",
+        "react-chromatic": "^0.8.4",
+        "react-dom": "^16.4.0",
+        "react-scripts": "2.0.5",
+        "react-test-renderer": "^16.4.0"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "*",
+        "prop-types": "*",
+        "react": "*"
+      },
+      "gitHead": "789f30adddf9daeba9b25772df95e97484976fe6",
+      "description": "[![npm version](https://badge.fury.io/js/%40storybook%2Faddon-console.svg)](https://badge.fury.io/js/%40storybook%2Faddon-console) [![addon-console](https://img.shields.io/npm/dt/@storybook/addon-console.svg)](https://github.com/storybooks/storybook-addon",
+      "_id": "@storybook/addon-console@1.0.5",
+      "_npmVersion": "6.1.0",
+      "_nodeVersion": "10.3.0",
+      "_npmUser": {
+        "name": "usulpro",
+        "email": "regx@usul.su"
+      },
+      "dist": {
+        "integrity": "sha512-7nGeY0mI8JSHF06P6XvN+P3NnNTYn2fqrtRJj/JB3o/ReEkRn0k/oDWldYtBb9u8QnLIat7YqlZxqPeO+EmS/w==",
+        "shasum": "95b19c20d790b6672fa84bbce43b0dd80f2320b2",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-1.0.5.tgz",
+        "fileCount": 8,
+        "unpackedSize": 970211,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb0NqrCRA9TVsSAnZWagAAHLAP/RV7uDrSpuPpeZ68+csq\n/+IdoXYhvRFJ/YqDeUgyTX1nCAbclKs2njWlE2d3jCb0I+kLbfUf4OS4yNMl\nbTNzQppquY7cNyvjnzxlztDqT3S1mbZZZWDP0e31k3VzjMalOuTGe6wIPv1o\nNIHofgDMAyEx+xB5Hisy+tKO5hSLoh9DUctCGe4BW1UbCQH4zTPqeEQWQX7H\naqBQV4OubA5E9+wBt0QJwzsLGRjmMGd0sV5WyiXgyzr4MIermPNCMKoiCd2z\nzjBgcQOIizuhA4uXmC/PxmTFXwCtiCq56rwkFiJ6bB9rUqC/pNY8DfpjfzxG\nn4Dpms/8V7mvYLBf7/YIzIsWmHFQScLXc46gcbfoqdPoXXPx0JJ6UlNA6rws\nuBUKeomb2RjE5RQvfTDmpmt+uG++rEseAZOZjjTKb7t+sN4NvEJLPyZbpXaB\nbCh4kL8rpmGmGnYoI1uX6o7RDY06dDtvOwzo+/NOFi3XGeSYmPd5lFOCxBD4\nq/VGLOHF79mOKzGokxJC2xamyfEhJi4ucfHFlifjmJnp2QX8FGfCm9+YFTdX\nYQzBpLuK3jHqpSdN6BXI61GnTSY8OQP4HWC5kyrii65TaWUmUMEt9s7UmAmw\njADcoxP2cdfy2/ttnIhgf8rQqye/nfoWY54n7k/xGtW1zJyKHQnht0/TTwu4\nBhmp\r\n=ru8n\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQD8032c2FxryXAU2ngS+u3tU2rShR3PbE2/4jWIl8x2LgIhAPDc5UKxWBYUsykrTfgm6pelD4nxEta9WuuTLg1JPesw"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "bodin.alex@gmail.com",
+          "name": "alexandrebodin"
+        },
+        {
+          "email": "christianalfoni@gmail.com",
+          "name": "christianalfoni"
+        },
+        {
+          "email": "dduan@yahoo.com",
+          "name": "danielduan"
+        },
+        {
+          "email": "talpa@yandex.ru",
+          "name": "hypnosphi"
+        },
+        {
+          "email": "davydkin.igor@gmail.com",
+          "name": "igor-dv"
+        },
+        {
+          "email": "ndelangen@me.com",
+          "name": "ndelangen"
+        },
+        {
+          "email": "pavan.sss1991@gmail.com",
+          "name": "pksunkara"
+        },
+        {
+          "email": "michael@lab80.co",
+          "name": "shilman"
+        },
+        {
+          "email": "tom@thesnail.org",
+          "name": "tmeasday"
+        },
+        {
+          "email": "regx@usul.su",
+          "name": "usulpro"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console_1.0.5_1540414122040_0.7574928226035138"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.6": {
+      "version": "1.0.6",
+      "name": "@storybook/addon-console",
+      "author": {
+        "name": "Oleg Proskurin",
+        "url": "https://github.com/UsulPro"
+      },
+      "dependencies": {
+        "global": "^4.3.2"
+      },
+      "scripts": {
+        "start": "start-storybook -p 9009",
+        "prepublish": "node .scripts/prepublish.js",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "build:docs": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.js  > README.md; echo",
+        "build:storybook": "build-storybook",
+        "deploy:storybook": "storybook-to-ghpages",
+        "lint": "eslint ./src",
+        "test": "jest --watch",
+        "test:publish": "npm pack",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "debug": "node --debug-brk --inspect npm test"
+      },
+      "main": "dist/index",
+      "homepage": "https://github.com/storybooks/storybook-addon-console",
+      "bugs": {
+        "url": "https://github.com/storybooks/storybook-addon-console/issues"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.1.2",
+        "@babel/plugin-transform-runtime": "^7.1.0",
+        "@babel/runtime": "^7.1.2",
+        "@emotion/core": "^0.13.1",
+        "@emotion/provider": "^0.11.2",
+        "@emotion/styled": "^0.10.6",
+        "@storybook/addon-a11y": "4.0.0-rc.3",
+        "@storybook/addon-actions": "4.0.0-rc.3",
+        "@storybook/addon-backgrounds": "4.0.0-rc.3",
+        "@storybook/addon-centered": "4.0.0-rc.3",
+        "@storybook/addon-events": "4.0.0-rc.3",
+        "@storybook/addon-graphql": "4.0.0-rc.3",
+        "@storybook/addon-info": "4.0.0-rc.3",
+        "@storybook/addon-jest": "4.0.0-rc.3",
+        "@storybook/addon-knobs": "4.0.0-rc.3",
+        "@storybook/addon-links": "4.0.0-rc.3",
+        "@storybook/addon-notes": "4.0.0-rc.3",
+        "@storybook/addon-options": "4.0.0-rc.3",
+        "@storybook/addon-storyshots": "4.0.0-rc.3",
+        "@storybook/addon-storyshots-puppeteer": "4.0.0-rc.3",
+        "@storybook/addon-storysource": "4.0.0-rc.3",
+        "@storybook/addon-viewport": "4.0.0-rc.3",
+        "@storybook/addons": "4.0.0-rc.3",
+        "@storybook/components": "4.0.0-rc.3",
+        "@storybook/core-events": "4.0.0-rc.3",
+        "@storybook/node-logger": "4.0.0-rc.3",
+        "@storybook/react": "4.0.0-rc.3",
+        "@storybook/storybook-deployer": "^2.3.0",
+        "enzyme": "^3.3.0",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^21.17.0",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "jest-enzyme": "^6.0.1",
+        "jsdoc-to-markdown": "^4.0.1",
+        "lint-staged": "^7.1.3",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react": "^16.4.0",
+        "react-chromatic": "^0.8.4",
+        "react-dom": "^16.4.0",
+        "react-scripts": "2.0.5",
+        "react-test-renderer": "^16.4.0"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "*",
+        "prop-types": "*",
+        "react": "*"
+      },
+      "gitHead": "789f30adddf9daeba9b25772df95e97484976fe6",
+      "description": "[![npm version](https://badge.fury.io/js/%40storybook%2Faddon-console.svg)](https://badge.fury.io/js/%40storybook%2Faddon-console) [![addon-console](https://img.shields.io/npm/dt/@storybook/addon-console.svg)](https://github.com/storybooks/storybook-addon",
+      "_id": "@storybook/addon-console@1.0.6",
+      "_npmVersion": "6.1.0",
+      "_nodeVersion": "10.3.0",
+      "_npmUser": {
+        "name": "usulpro",
+        "email": "regx@usul.su"
+      },
+      "dist": {
+        "integrity": "sha512-7RlIcbgTVtWIbP72DipzxqxbyNHIbSx0v/ejn3QUu8c7eMnfPgMm+I9hVvEwXm5dTlQ4oN9j5eAAWa+lbMYGJg==",
+        "shasum": "a81cb68486e21ac236ae4a240d870270efa92b40",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-1.0.6.tgz",
+        "fileCount": 7,
+        "unpackedSize": 958794,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb0NsvCRA9TVsSAnZWagAAs+4P/0WmVGuEZ6eEGIq1LfAf\nzfGL784jgckF5Zwlp6VLnBqBQxH1r4hdJfIEbDotinILgEjCQwSL5lHg4W1b\n2VSq3Hh6+aKHZYuhlXHBgUD46hXd1BGklY9PMBHet4NSeC2diAuj4Inxfp/O\ne/Rarf+zdk2gq2e5XBN7+D9YauWGsSrP5B9AkuhxLL8mCuxtFfwvI6RhGrOz\nKgtsVh7Orn1s7b23OLcid1Zj9sSfpV97lLSqJ4ktaWnUFanvKOyjVNgHl+bJ\ny49JlRrzy3ZmsflYMN0cvWiaizlw2WOSe734T2hqaDbXzVQ/Pv4AYj71grIq\nH/x/AZ0A2PS1s+YCR9j9TC9ys6lZj6KuSojxSSrW4yNkbk79z4OzvIrWPbrJ\nQ+Af8xqYUZxqIwDydvkemnwz+IzkRnQEAeKNagvsPzymHl2Cs8w22shl1MCM\n0s2YZpVb9baAVZIf5W0BkxPUdQki9YQM2+Ils44g1IzncicF/md9WmVMUpMY\nUdQbb2Vp99mddM4dd+VlrW41vJK70b9OiDKQvi+g6wNdf0t42VCZen4R0M9/\nZAy3svww2C1aN0uwzzqLSpFjz1LRs/TpnEGUV162YVyk/dNUCq8YeHWsxgOj\nGWFcNZkE2z2t7U/QvoMkMih3N84ESgmoUQnaQ99KFnBEVzJaONPYyCX/yj61\nHvQ5\r\n=eeMi\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDgnzcsuGf1a484120MTaj9w+OVrorrU2C3CLXUi8nCzAIhAJYsI2wSp55mzuLlr9XV6tDe82byRT0GXcSk9i9vRXEq"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "bodin.alex@gmail.com",
+          "name": "alexandrebodin"
+        },
+        {
+          "email": "christianalfoni@gmail.com",
+          "name": "christianalfoni"
+        },
+        {
+          "email": "dduan@yahoo.com",
+          "name": "danielduan"
+        },
+        {
+          "email": "talpa@yandex.ru",
+          "name": "hypnosphi"
+        },
+        {
+          "email": "davydkin.igor@gmail.com",
+          "name": "igor-dv"
+        },
+        {
+          "email": "ndelangen@me.com",
+          "name": "ndelangen"
+        },
+        {
+          "email": "pavan.sss1991@gmail.com",
+          "name": "pksunkara"
+        },
+        {
+          "email": "michael@lab80.co",
+          "name": "shilman"
+        },
+        {
+          "email": "tom@thesnail.org",
+          "name": "tmeasday"
+        },
+        {
+          "email": "regx@usul.su",
+          "name": "usulpro"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console_1.0.6_1540414254922_0.4347996058358585"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.7": {
+      "version": "1.0.7",
+      "name": "@storybook/addon-console",
+      "author": {
+        "name": "Oleg Proskurin",
+        "url": "https://github.com/UsulPro"
+      },
+      "dependencies": {
+        "global": "^4.3.2"
+      },
+      "scripts": {
+        "start": "start-storybook -p 9009",
+        "prepublish": "node .scripts/prepublish.js",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "build:docs": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.js  > README.md; echo",
+        "build:storybook": "build-storybook",
+        "deploy:storybook": "storybook-to-ghpages",
+        "lint": "eslint ./src",
+        "test": "jest --watch",
+        "test:publish": "npm pack",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "debug": "node --debug-brk --inspect npm test"
+      },
+      "main": "dist/index",
+      "homepage": "https://github.com/storybooks/storybook-addon-console",
+      "bugs": {
+        "url": "https://github.com/storybooks/storybook-addon-console/issues"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.1.2",
+        "@babel/plugin-transform-runtime": "^7.1.0",
+        "@babel/runtime": "^7.1.2",
+        "@emotion/core": "^0.13.1",
+        "@emotion/provider": "^0.11.2",
+        "@emotion/styled": "^0.10.6",
+        "@storybook/addon-a11y": "4.0.0-rc.3",
+        "@storybook/addon-actions": "4.0.0-rc.3",
+        "@storybook/addon-backgrounds": "4.0.0-rc.3",
+        "@storybook/addon-centered": "4.0.0-rc.3",
+        "@storybook/addon-events": "4.0.0-rc.3",
+        "@storybook/addon-graphql": "4.0.0-rc.3",
+        "@storybook/addon-info": "4.0.0-rc.3",
+        "@storybook/addon-jest": "4.0.0-rc.3",
+        "@storybook/addon-knobs": "4.0.0-rc.3",
+        "@storybook/addon-links": "4.0.0-rc.3",
+        "@storybook/addon-notes": "4.0.0-rc.3",
+        "@storybook/addon-options": "4.0.0-rc.3",
+        "@storybook/addon-storyshots": "4.0.0-rc.3",
+        "@storybook/addon-storyshots-puppeteer": "4.0.0-rc.3",
+        "@storybook/addon-storysource": "4.0.0-rc.3",
+        "@storybook/addon-viewport": "4.0.0-rc.3",
+        "@storybook/addons": "4.0.0-rc.3",
+        "@storybook/components": "4.0.0-rc.3",
+        "@storybook/core-events": "4.0.0-rc.3",
+        "@storybook/node-logger": "4.0.0-rc.3",
+        "@storybook/react": "4.0.0-rc.3",
+        "@storybook/storybook-deployer": "^2.3.0",
+        "enzyme": "^3.3.0",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^21.17.0",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "jest-enzyme": "^6.0.1",
+        "jsdoc-to-markdown": "^4.0.1",
+        "lint-staged": "^7.1.3",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react": "^16.4.0",
+        "react-chromatic": "^0.8.4",
+        "react-dom": "^16.4.0",
+        "react-scripts": "2.0.5",
+        "react-test-renderer": "^16.4.0"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "*",
+        "prop-types": "*",
+        "react": "*"
+      },
+      "gitHead": "789f30adddf9daeba9b25772df95e97484976fe6",
+      "description": "[![npm version](https://badge.fury.io/js/%40storybook%2Faddon-console.svg)](https://badge.fury.io/js/%40storybook%2Faddon-console) [![addon-console](https://img.shields.io/npm/dt/@storybook/addon-console.svg)](https://github.com/storybooks/storybook-addon",
+      "_id": "@storybook/addon-console@1.0.7",
+      "_npmVersion": "6.1.0",
+      "_nodeVersion": "10.3.0",
+      "_npmUser": {
+        "name": "usulpro",
+        "email": "regx@usul.su"
+      },
+      "dist": {
+        "integrity": "sha512-2GPVLrkSXRv/M+DR06zGzL9ikjhQ2406ZEzV2fJBS26IQdxCLvWS1pwyZpVAkFUrh1OB9qBThZNVGVw2cr/meQ==",
+        "shasum": "6f3e2dee35d77181cc8f8dc59394876a876cd147",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-1.0.7.tgz",
+        "fileCount": 5,
+        "unpackedSize": 25751,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb0NuZCRA9TVsSAnZWagAAQAwP/2uuL9bSR9ANjkDXAO8W\nyda9fCTx2mXlDuAjhelHaQvA/eMRz4O5RNflEtNvyGxSquHA2kd9RQwUdH8G\npDCamKLkQmzmyIFbGzXAf9PGqiicvlGloJYuHiEi9Qj8NS/y7McDcnsKo1Cr\nfGtyUsIwX4Eqx48ew6+scS7E5u3Fwm7KO0ja5CR4zsPlpatNtQ2D8Cx0HUt6\ngtRe7Q1PwCWsdhXgwsnysZCVHYdNzWuO+VtXZ2V/E6mxzBebiBv/0/mAS8YS\nYPr9jXWuevPD0+9OAWiXE5TyY5S5IXfv6mgSS/qqbf8reTM3FquN0J6rhJJs\nCWylVHnHwjcRNxsafAmMADf1PKn4yOEgNWnDnbjK55wAT/hww8S8PwQ6ZURA\nB+tKd2SBE4bJQYrPktBqM4+FyP6HuUhr3haHVZ/6EugRODBKimM8eVVLyAjE\ntBM/FwTL9grO/J8H8cSP6HhHMDEzCe0kFSqAwCatk3CFAY2i9Rk4Ll2zScvT\nOjg7G+U9oE5GJkjDldaSEzKibETzH8ZJqFwW3OsPI4978rlmuSYkSFF5xbbU\nodG04YMYkz4fwZWUZnmx51izrVpZH/N32Amxi8gkZkMuPpnQLfWUVR13dwCB\nRmVCChmjPcUOk5ed4Hz0POCdttVG47zYtCFBXr5hd+27fxLPEPz5vllynZup\nEzzS\r\n=iaep\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFw5SMMaaib4mTFJKXXP2rOPAW8nW5dzqc8xRPlS87fCAiEArlCSNme/jVlAT0QosqvmRABxocMHXh7PWY6QT11VjOE="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "bodin.alex@gmail.com",
+          "name": "alexandrebodin"
+        },
+        {
+          "email": "christianalfoni@gmail.com",
+          "name": "christianalfoni"
+        },
+        {
+          "email": "dduan@yahoo.com",
+          "name": "danielduan"
+        },
+        {
+          "email": "talpa@yandex.ru",
+          "name": "hypnosphi"
+        },
+        {
+          "email": "davydkin.igor@gmail.com",
+          "name": "igor-dv"
+        },
+        {
+          "email": "ndelangen@me.com",
+          "name": "ndelangen"
+        },
+        {
+          "email": "pavan.sss1991@gmail.com",
+          "name": "pksunkara"
+        },
+        {
+          "email": "michael@lab80.co",
+          "name": "shilman"
+        },
+        {
+          "email": "tom@thesnail.org",
+          "name": "tmeasday"
+        },
+        {
+          "email": "regx@usul.su",
+          "name": "usulpro"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console_1.0.7_1540414361171_0.8242872375434618"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.8": {
+      "version": "1.0.8",
+      "name": "@storybook/addon-console",
+      "author": {
+        "name": "Oleg Proskurin",
+        "url": "https://github.com/UsulPro"
+      },
+      "dependencies": {
+        "global": "^4.3.2"
+      },
+      "scripts": {
+        "start": "start-storybook -p 9009",
+        "prepublish": "node .scripts/prepublish.js",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "build:docs": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.js  > README.md; echo",
+        "build:storybook": "build-storybook",
+        "deploy:storybook": "storybook-to-ghpages",
+        "lint": "eslint ./src",
+        "test": "jest --watch",
+        "test:publish": "npm pack",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "debug": "node --debug-brk --inspect npm test"
+      },
+      "main": "dist/index",
+      "homepage": "https://github.com/storybooks/storybook-addon-console",
+      "bugs": {
+        "url": "https://github.com/storybooks/storybook-addon-console/issues"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.1.2",
+        "@babel/plugin-transform-runtime": "^7.1.0",
+        "@babel/runtime": "^7.1.2",
+        "@emotion/core": "^0.13.1",
+        "@emotion/provider": "^0.11.2",
+        "@emotion/styled": "^0.10.6",
+        "@storybook/addon-a11y": "4.0.0-rc.3",
+        "@storybook/addon-actions": "4.0.0-rc.3",
+        "@storybook/addon-backgrounds": "4.0.0-rc.3",
+        "@storybook/addon-centered": "4.0.0-rc.3",
+        "@storybook/addon-events": "4.0.0-rc.3",
+        "@storybook/addon-graphql": "4.0.0-rc.3",
+        "@storybook/addon-info": "4.0.0-rc.3",
+        "@storybook/addon-jest": "4.0.0-rc.3",
+        "@storybook/addon-knobs": "4.0.0-rc.3",
+        "@storybook/addon-links": "4.0.0-rc.3",
+        "@storybook/addon-notes": "4.0.0-rc.3",
+        "@storybook/addon-options": "4.0.0-rc.3",
+        "@storybook/addon-storyshots": "4.0.0-rc.3",
+        "@storybook/addon-storyshots-puppeteer": "4.0.0-rc.3",
+        "@storybook/addon-storysource": "4.0.0-rc.3",
+        "@storybook/addon-viewport": "4.0.0-rc.3",
+        "@storybook/addons": "4.0.0-rc.3",
+        "@storybook/components": "4.0.0-rc.3",
+        "@storybook/core-events": "4.0.0-rc.3",
+        "@storybook/node-logger": "4.0.0-rc.3",
+        "@storybook/react": "4.0.0-rc.3",
+        "@storybook/storybook-deployer": "^2.3.0",
+        "enzyme": "^3.3.0",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^21.17.0",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "jest-enzyme": "^6.0.1",
+        "jsdoc-to-markdown": "^4.0.1",
+        "lint-staged": "^7.1.3",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react": "^16.4.0",
+        "react-chromatic": "^0.8.4",
+        "react-dom": "^16.4.0",
+        "react-scripts": "2.0.5",
+        "react-test-renderer": "^16.4.0"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "*",
+        "prop-types": "*",
+        "react": "*"
+      },
+      "gitHead": "789f30adddf9daeba9b25772df95e97484976fe6",
+      "description": "[![npm version](https://badge.fury.io/js/%40storybook%2Faddon-console.svg)](https://badge.fury.io/js/%40storybook%2Faddon-console) [![addon-console](https://img.shields.io/npm/dt/@storybook/addon-console.svg)](https://github.com/storybooks/storybook-addon",
+      "_id": "@storybook/addon-console@1.0.8",
+      "_npmVersion": "6.1.0",
+      "_nodeVersion": "10.3.0",
+      "_npmUser": {
+        "name": "usulpro",
+        "email": "regx@usul.su"
+      },
+      "dist": {
+        "integrity": "sha512-157tF8T76LVV3QdYmCK4694tInbOkAbWtFT5NTHmzOgWdFayCEj/31OrGpDCGq3xPdLDfXnDmdJmDNFr3lV60Q==",
+        "shasum": "564e4fc358d64135643584dbb197c6981c8a082c",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-1.0.8.tgz",
+        "fileCount": 6,
+        "unpackedSize": 35448,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb0N3lCRA9TVsSAnZWagAAdgoQAJ6Hywe/Hfy2rjxSejPO\nXw5UGBJkGUu+Ez9fzu/Nm5uJhJoT96oDD3RLFYkBEKfQSrXO3s9weJGNdLI/\nSFsP/M3HV0id55rpEqH1bFKNrs94Y9zqSHAFp1YI6TumQcmCv2nmyIhgOxGn\nvgQQ+IwaPNltPqVmV5f4WhfHhE7qf0KUkUBp52hdTjJ9wZDr8kgjEFJYS8Cd\nvNrIivx7YOu+eYSOa8ACU7voCJFBIa1UeC7kPAIkduVtwv4XHX8RYWbeDy0h\nx8cdxq2Y+sdE4Wc9Fs4qTguTTic0uyqO5TJyVDdHvNmQcbevpa9eZ3KDphmD\n3HoZ6K6Ok/TFBlNc3TQA1Lg/r1ZfoD+oRA1nHOdA3FE1Ap2fFCbY9mhhTDqF\n2Tux6x+RlmiEgs7Be80HQyRo5aSo/gtOqCWXi/IBLva9VnR//OrE2v4GGLNk\nQm9fqNvYKbnFMKJMYodLyUE5Cop+EEMrJiK9OcPHdILH9g+hBu4q9Xw15XVs\nhTxo1aghsNv4TfMWH0Qkrhg9nSrD7HDCxl/TAFYGMGzrCwuy6C+CraVFcrL9\nCIyDFQpTIVLozEaQokoBqEMFFRY54Tqr27HMBrD02rSnsWJgjHOLlpWqSjBY\n6j0i/3YIxi9mLu1s9rWxaJGrf74EUeweZIX5SsfP9PMczYRREVJfMp9SVdri\nHffS\r\n=iB5W\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEigcspM+/c6fh/i0k943gdajZvu6nKsuVp8kLNHOIOEAiEA1IzW80L4jINss8/BA1veKYhocR1ezzpBB47HL3USBUk="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "bodin.alex@gmail.com",
+          "name": "alexandrebodin"
+        },
+        {
+          "email": "christianalfoni@gmail.com",
+          "name": "christianalfoni"
+        },
+        {
+          "email": "dduan@yahoo.com",
+          "name": "danielduan"
+        },
+        {
+          "email": "talpa@yandex.ru",
+          "name": "hypnosphi"
+        },
+        {
+          "email": "davydkin.igor@gmail.com",
+          "name": "igor-dv"
+        },
+        {
+          "email": "ndelangen@me.com",
+          "name": "ndelangen"
+        },
+        {
+          "email": "pavan.sss1991@gmail.com",
+          "name": "pksunkara"
+        },
+        {
+          "email": "michael@lab80.co",
+          "name": "shilman"
+        },
+        {
+          "email": "tom@thesnail.org",
+          "name": "tmeasday"
+        },
+        {
+          "email": "regx@usul.su",
+          "name": "usulpro"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console_1.0.8_1540414948683_0.025206121437462814"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.9": {
+      "version": "1.0.9",
+      "name": "@storybook/addon-console",
+      "author": {
+        "name": "Oleg Proskurin",
+        "url": "https://github.com/UsulPro"
+      },
+      "dependencies": {
+        "global": "^4.3.2"
+      },
+      "scripts": {
+        "start": "start-storybook -p 9009",
+        "prepublish": "node .scripts/prepublish.js",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "build:docs": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.js  > README.md; echo",
+        "build:storybook": "build-storybook",
+        "deploy:storybook": "storybook-to-ghpages",
+        "lint": "eslint ./src",
+        "test": "jest --watch",
+        "test:publish": "npm pack",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "debug": "node --debug-brk --inspect npm test"
+      },
+      "main": "dist/index",
+      "homepage": "https://github.com/storybooks/storybook-addon-console",
+      "bugs": {
+        "url": "https://github.com/storybooks/storybook-addon-console/issues"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.1.2",
+        "@babel/plugin-transform-runtime": "^7.1.0",
+        "@babel/runtime": "^7.1.2",
+        "@emotion/core": "^0.13.1",
+        "@emotion/provider": "^0.11.2",
+        "@emotion/styled": "^0.10.6",
+        "@storybook/addon-a11y": "4.0.0-rc.3",
+        "@storybook/addon-actions": "4.0.0-rc.3",
+        "@storybook/addon-backgrounds": "4.0.0-rc.3",
+        "@storybook/addon-centered": "4.0.0-rc.3",
+        "@storybook/addon-events": "4.0.0-rc.3",
+        "@storybook/addon-graphql": "4.0.0-rc.3",
+        "@storybook/addon-info": "4.0.0-rc.3",
+        "@storybook/addon-jest": "4.0.0-rc.3",
+        "@storybook/addon-knobs": "4.0.0-rc.3",
+        "@storybook/addon-links": "4.0.0-rc.3",
+        "@storybook/addon-notes": "4.0.0-rc.3",
+        "@storybook/addon-options": "4.0.0-rc.3",
+        "@storybook/addon-storyshots": "4.0.0-rc.3",
+        "@storybook/addon-storyshots-puppeteer": "4.0.0-rc.3",
+        "@storybook/addon-storysource": "4.0.0-rc.3",
+        "@storybook/addon-viewport": "4.0.0-rc.3",
+        "@storybook/addons": "4.0.0-rc.3",
+        "@storybook/components": "4.0.0-rc.3",
+        "@storybook/core-events": "4.0.0-rc.3",
+        "@storybook/node-logger": "4.0.0-rc.3",
+        "@storybook/react": "4.0.0-rc.3",
+        "@storybook/storybook-deployer": "^2.3.0",
+        "enzyme": "^3.3.0",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^21.17.0",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "jest-enzyme": "^6.0.1",
+        "jsdoc-to-markdown": "^4.0.1",
+        "lint-staged": "^7.1.3",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react": "^16.4.0",
+        "react-chromatic": "^0.8.4",
+        "react-dom": "^16.4.0",
+        "react-scripts": "2.0.5",
+        "react-test-renderer": "^16.4.0"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "*",
+        "prop-types": "*",
+        "react": "*"
+      },
+      "gitHead": "7607962c8bd88160bd1d2e8a3512a993c2438060",
+      "description": "[![npm version](https://badge.fury.io/js/%40storybook%2Faddon-console.svg)](https://badge.fury.io/js/%40storybook%2Faddon-console) [![addon-console](https://img.shields.io/npm/dt/@storybook/addon-console.svg)](https://github.com/storybooks/storybook-addon",
+      "_id": "@storybook/addon-console@1.0.9",
+      "_npmVersion": "6.1.0",
+      "_nodeVersion": "10.3.0",
+      "_npmUser": {
+        "name": "usulpro",
+        "email": "regx@usul.su"
+      },
+      "dist": {
+        "integrity": "sha512-taAcKt5iaAQH8psTNKjJ2vtIjJRppAJE9mT/p5uYpD678HR4PC3W1OBXYuDsZszPVvLHEPzKk9FSSBdN1TqHpw==",
+        "shasum": "cae636cfe4449e165bb5037b901a3eb0505234cc",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-1.0.9.tgz",
+        "fileCount": 6,
+        "unpackedSize": 35448,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb1thXCRA9TVsSAnZWagAA6usP/3we6BGBf3S2V7xHNM1f\n1tJJXi1/y7JETYZxkuqmSnGSr25YfF3ijBmZxd4PPG2asItaoiER7FxkJvQ3\n9d80hRWXOjGy2cKs4y28jFycXvA9eaXhs9f/9iv2Jx5g+Zv2UX3NqP37N7Pc\nAtPuea4/nEC2utrnt31pZaYn5KL5BuGvikzROb2Uo2LrmUHRYEwC6N0lFn5L\nEcraZ49rNqB16ux9/h7UqIob/NNBkVA6VmrrSKWgYKG5J+3SCtdqXLHnY/lN\nsHOmKj9q+CBNzlh2RNmrXR80gMV58wZDIGkesI5QogvcZNFw0qM4vxz4LYOQ\n5WG8QCL5PM/JqhDECp3hbol+M0rOxqDZ9j8+LiMD75BOmimgcPUTJncmOkm3\n7cJjowcHHyJj6i0C9vxdiLkY3AGSZbOEmP0IJxP7FY1L5cVZ0tTNMgBu1l1k\nXStSOQr5e99Wg7/AkRf4mBcmDDePQkC5IUecSE4ocDtCdw7Uj1AbIv4lWOVQ\n1CTN1x3yJvowJp5CNKSa8+nKQdNicMYK0jc/VOgdGef6Th4PODAhTTUFOg2o\nab4LEkOsDlqa/t99VY+cymaXpzObSTpD5HPNVxZld8Jr1f5b0FtsqoXB5zBr\ngphVuUF5NddmMK+zbh1HLmPu7DOi59rhSqJYmGoq58wK8BpxajpaaYTi5y/f\nBVRE\r\n=rpet\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBvQORKXlR0maTC/UXCRwh4DhdgIlTYe6tevIdmqadMTAiBOVjAsfpMNSxWUFmDJg+s4bqFI1kQ1wFOnZE47kZxQ3A=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "bodin.alex@gmail.com",
+          "name": "alexandrebodin"
+        },
+        {
+          "email": "christianalfoni@gmail.com",
+          "name": "christianalfoni"
+        },
+        {
+          "email": "dduan@yahoo.com",
+          "name": "danielduan"
+        },
+        {
+          "email": "talpa@yandex.ru",
+          "name": "hypnosphi"
+        },
+        {
+          "email": "davydkin.igor@gmail.com",
+          "name": "igor-dv"
+        },
+        {
+          "email": "ndelangen@me.com",
+          "name": "ndelangen"
+        },
+        {
+          "email": "pavan.sss1991@gmail.com",
+          "name": "pksunkara"
+        },
+        {
+          "email": "michael@lab80.co",
+          "name": "shilman"
+        },
+        {
+          "email": "tom@thesnail.org",
+          "name": "tmeasday"
+        },
+        {
+          "email": "regx@usul.su",
+          "name": "usulpro"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console_1.0.9_1540806742448_0.08720498503315643"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.10": {
+      "version": "1.0.10",
+      "name": "@storybook/addon-console",
+      "author": {
+        "name": "Oleg Proskurin",
+        "url": "https://github.com/UsulPro"
+      },
+      "dependencies": {
+        "global": "^4.3.2"
+      },
+      "scripts": {
+        "start": "start-storybook -p 9009",
+        "prepublish": "node .scripts/prepublish.js",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "build:docs": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.js  > README.md; echo",
+        "build:storybook": "build-storybook",
+        "deploy:storybook": "storybook-to-ghpages",
+        "lint": "eslint ./src",
+        "test": "jest --watch",
+        "test:publish": "npm pack",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "debug": "node --debug-brk --inspect npm test"
+      },
+      "main": "dist/index",
+      "homepage": "https://github.com/storybooks/storybook-addon-console",
+      "bugs": {
+        "url": "https://github.com/storybooks/storybook-addon-console/issues"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.1.2",
+        "@emotion/core": "^0.13.1",
+        "@emotion/provider": "^0.11.2",
+        "@emotion/styled": "^0.10.6",
+        "@storybook/addon-a11y": "4.0.0-rc.3",
+        "@storybook/addon-actions": "4.0.0-rc.3",
+        "@storybook/addon-backgrounds": "4.0.0-rc.3",
+        "@storybook/addon-centered": "4.0.0-rc.3",
+        "@storybook/addon-events": "4.0.0-rc.3",
+        "@storybook/addon-graphql": "4.0.0-rc.3",
+        "@storybook/addon-info": "4.0.0-rc.3",
+        "@storybook/addon-jest": "4.0.0-rc.3",
+        "@storybook/addon-knobs": "4.0.0-rc.3",
+        "@storybook/addon-links": "4.0.0-rc.3",
+        "@storybook/addon-notes": "4.0.0-rc.3",
+        "@storybook/addon-options": "4.0.0-rc.3",
+        "@storybook/addon-storyshots": "4.0.0-rc.3",
+        "@storybook/addon-storyshots-puppeteer": "4.0.0-rc.3",
+        "@storybook/addon-storysource": "4.0.0-rc.3",
+        "@storybook/addon-viewport": "4.0.0-rc.3",
+        "@storybook/addons": "4.0.0-rc.3",
+        "@storybook/components": "4.0.0-rc.3",
+        "@storybook/core-events": "4.0.0-rc.3",
+        "@storybook/node-logger": "4.0.0-rc.3",
+        "@storybook/react": "4.0.0-rc.3",
+        "@storybook/storybook-deployer": "^2.3.0",
+        "enzyme": "^3.3.0",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^21.17.0",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "jest-enzyme": "^6.0.1",
+        "jsdoc-to-markdown": "^4.0.1",
+        "lint-staged": "^7.1.3",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react": "^16.4.0",
+        "react-chromatic": "^0.8.4",
+        "react-dom": "^16.4.0",
+        "react-scripts": "2.0.5",
+        "react-test-renderer": "^16.4.0"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "*",
+        "prop-types": "*",
+        "react": "*"
+      },
+      "gitHead": "7607962c8bd88160bd1d2e8a3512a993c2438060",
+      "description": "[![npm version](https://badge.fury.io/js/%40storybook%2Faddon-console.svg)](https://badge.fury.io/js/%40storybook%2Faddon-console) [![addon-console](https://img.shields.io/npm/dt/@storybook/addon-console.svg)](https://github.com/storybooks/storybook-addon",
+      "_id": "@storybook/addon-console@1.0.10",
+      "_npmVersion": "6.1.0",
+      "_nodeVersion": "10.3.0",
+      "_npmUser": {
+        "name": "usulpro",
+        "email": "regx@usul.su"
+      },
+      "dist": {
+        "integrity": "sha512-x4RmZmQ53ibC/Lfl+jGfZviZ1PdmdhaimDgin7xkKwurCyTsx80ry9alDLPrT6T0BMCHnlgQCUs0zXNRNsQR4A==",
+        "shasum": "344bf418613b576796f7eaedd6c9d0e518af9fee",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-1.0.10.tgz",
+        "fileCount": 6,
+        "unpackedSize": 37855,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb1typCRA9TVsSAnZWagAAGQsP/2VdES8zhrPw6eleQyYk\nSwM9PgymEKGLQ4y15a9KsFSjJV2mf+jAvybH1DLCwnsjGEoVpMHypPzuuclY\nHvBgHbDUpU47webskU6ZXcwaUOOfIhJVsQxIKFJ73cunUS2y5s+G6+OUPRJv\n5tPl4DIIySPq3uO24PCtbnw846XIbbchV9wVbhuMpKyRkrT2hxs5jszWRyk5\noSbSlFJvhTbDuDzOaPtMJX65tNE3OWuIFVloVpouES62NGKeBTxMpajlWxY1\nChDBez6UhXOL2yiVgwjkIDo0FH2RjJEwaks/IZHwNs43C80yZW54LxlL77hV\nkrnSZkR9JNiVi9zyE5Yf2dEh8l68miSPvB3zWpo6xwdUUaty3LUSCpPkv3VY\nVVX1aX8eScc6BBuC9U+zyPNdlfLUzHoLkgylVsMPAyYosm8Nqr2xMRsdkeXz\nTsNhxVK7+n+BaE1lXnZJegz+h/HNSiNi+YVuTcac84uDh1eJR8xca3nonUQF\n67E2hTDAukRlXZQtG4JCzQmzbmQcefRmDQgQji8Ii41Nt4IfKKEZLfFEC2YP\n8hxoqdGIXV4owyvXJk08SRYfGQT4vwskS1rpk8VrgY/dWOBhBAqnVoAnu24n\nqEKiBCfiWE6u8sGe9RTEo0y8DwRWi5D4kyCpo42ANjpPrb9raKQGGXdqvVYf\nY1v1\r\n=f2Kp\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDW3Aq7ah4Xw7Z5KjuuJ1gNs+Q/Q1jBgvxv0tS0DxuDhAIhAP9ghrmlzOCJnwtbXGP9usVdAytZCWzqhluO3DBxuDKM"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "bodin.alex@gmail.com",
+          "name": "alexandrebodin"
+        },
+        {
+          "email": "christianalfoni@gmail.com",
+          "name": "christianalfoni"
+        },
+        {
+          "email": "dduan@yahoo.com",
+          "name": "danielduan"
+        },
+        {
+          "email": "talpa@yandex.ru",
+          "name": "hypnosphi"
+        },
+        {
+          "email": "davydkin.igor@gmail.com",
+          "name": "igor-dv"
+        },
+        {
+          "email": "ndelangen@me.com",
+          "name": "ndelangen"
+        },
+        {
+          "email": "pavan.sss1991@gmail.com",
+          "name": "pksunkara"
+        },
+        {
+          "email": "michael@lab80.co",
+          "name": "shilman"
+        },
+        {
+          "email": "tom@thesnail.org",
+          "name": "tmeasday"
+        },
+        {
+          "email": "regx@usul.su",
+          "name": "usulpro"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console_1.0.10_1540807848667_0.24370654705754258"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.1.0": {
+      "version": "1.1.0",
+      "name": "@storybook/addon-console",
+      "author": {
+        "name": "Oleg Proskurin",
+        "url": "https://github.com/UsulPro"
+      },
+      "dependencies": {
+        "global": "^4.3.2"
+      },
+      "scripts": {
+        "start": "start-storybook -p 9009",
+        "prepublish": "node .scripts/prepublish.js",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "build:docs": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.js  > README.md; echo",
+        "build:storybook": "build-storybook",
+        "deploy:storybook": "storybook-to-ghpages",
+        "lint": "eslint ./src",
+        "test": "jest --watch",
+        "test:publish": "npm pack",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "debug": "node --debug-brk --inspect npm test"
+      },
+      "main": "dist/index",
+      "homepage": "https://github.com/storybooks/storybook-addon-console",
+      "bugs": {
+        "url": "https://github.com/storybooks/storybook-addon-console/issues"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.1.2",
+        "@emotion/core": "^0.13.1",
+        "@emotion/provider": "^0.11.2",
+        "@emotion/styled": "^0.10.6",
+        "@storybook/addon-a11y": "4.0.0-rc.3",
+        "@storybook/addon-actions": "4.0.0-rc.3",
+        "@storybook/addon-backgrounds": "4.0.0-rc.3",
+        "@storybook/addon-centered": "4.0.0-rc.3",
+        "@storybook/addon-events": "4.0.0-rc.3",
+        "@storybook/addon-graphql": "4.0.0-rc.3",
+        "@storybook/addon-info": "4.0.0-rc.3",
+        "@storybook/addon-jest": "4.0.0-rc.3",
+        "@storybook/addon-knobs": "4.0.0-rc.3",
+        "@storybook/addon-links": "4.0.0-rc.3",
+        "@storybook/addon-notes": "4.0.0-rc.3",
+        "@storybook/addon-options": "4.0.0-rc.3",
+        "@storybook/addon-storyshots": "4.0.0-rc.3",
+        "@storybook/addon-storyshots-puppeteer": "4.0.0-rc.3",
+        "@storybook/addon-storysource": "4.0.0-rc.3",
+        "@storybook/addon-viewport": "4.0.0-rc.3",
+        "@storybook/addons": "4.0.0-rc.3",
+        "@storybook/components": "4.0.0-rc.3",
+        "@storybook/core-events": "4.0.0-rc.3",
+        "@storybook/node-logger": "4.0.0-rc.3",
+        "@storybook/react": "4.0.0-rc.3",
+        "@storybook/storybook-deployer": "^2.3.0",
+        "enzyme": "^3.3.0",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^21.17.0",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "jest-enzyme": "^6.0.1",
+        "jsdoc-to-markdown": "^4.0.1",
+        "lint-staged": "^7.1.3",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react": "^16.4.0",
+        "react-chromatic": "^0.8.4",
+        "react-dom": "^16.4.0",
+        "react-scripts": "2.0.5",
+        "react-test-renderer": "^16.4.0"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "*",
+        "prop-types": "*",
+        "react": "*"
+      },
+      "gitHead": "7607962c8bd88160bd1d2e8a3512a993c2438060",
+      "description": "[![npm version](https://badge.fury.io/js/%40storybook%2Faddon-console.svg)](https://badge.fury.io/js/%40storybook%2Faddon-console) [![addon-console](https://img.shields.io/npm/dt/@storybook/addon-console.svg)](https://github.com/storybooks/storybook-addon",
+      "_id": "@storybook/addon-console@1.1.0",
+      "_npmVersion": "6.1.0",
+      "_nodeVersion": "10.3.0",
+      "_npmUser": {
+        "name": "usulpro",
+        "email": "regx@usul.su"
+      },
+      "dist": {
+        "integrity": "sha512-G36/KB0uN5OB30W/QQU/NIbQ2EA4ZjJGORvYNx83bojRN2cKF0NFae5hEwlAAhKZK31qe3g3bsymWvc7+WBCpA==",
+        "shasum": "ef063fa122a7aa03ac54067a1d6a72d717b41c73",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-1.1.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 37847,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb1vtOCRA9TVsSAnZWagAA4pkQAJL4utxsBbEAiieLWhFJ\nZ0tjMsCwKUAyzLLkeWMnY/hGK+1y0BAkAPcs9ftzFWIVgRvJKEPjcohTvNu1\nGGJtE5YNDGtU/rg9rSyefmwTtkVhD6tz3lXbM/1QfzIQiZ07OTf9q47F5/dU\nXtWF1cjXYhktI5/IWufhWQ00zLfbR2LANclUVIbyZ/CFXtLXzWHgBUbRPWHj\ns/yVZqC0f7AVpDddVhO+mbh8dYDgGyBiAdNsUaThr5y+Xsw2TaOf+4DeXE+G\nqkmvinjulWuzCfIu6PTzYrDelycISZ8INfjNoCGftmiz85daOsJwaKjS9idu\ny65Z2Y81cmn/kFuN9weN5NVflAdaar9xZIy3h/nDUyYrj9ktAa6eVWPOMei8\nmTsNYhnhA7MACMEtRcgPa7K3k3Md5KENkHplj8EapPeB/U+GiDNL4LJ9Y1uc\n0TzfzQIb4q39R+NG9MIOKvJx31xBhsWAext7PH8fKvqIpA4rpFEiZ4RAVNXq\npODvs9wQk3E+V9+mENs7Q6k37+rJGt5gzuZQPHKI2RsrAdpbodrl7IjP7mKy\npeIJGv/TWYmTYnTQgDgBNahNBbcLn9/K4TyftQoXbwMV1VIElvtXZSPj+2PE\nOj5qFUYZvRRtW3aWMtlPexFKfywH+661902s51+lTpYcMvF7PwGeqXfNPxV7\nf6NP\r\n=3I4i\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAQrFy8fcexMDMD4w3aIuERN9gT7wA5ECGZhsh4ScNt+AiEA130EXest/f+M9T7rMgWnhto/9O/qQkjWj4Pjg4SSC6I="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "bodin.alex@gmail.com",
+          "name": "alexandrebodin"
+        },
+        {
+          "email": "christianalfoni@gmail.com",
+          "name": "christianalfoni"
+        },
+        {
+          "email": "dduan@yahoo.com",
+          "name": "danielduan"
+        },
+        {
+          "email": "talpa@yandex.ru",
+          "name": "hypnosphi"
+        },
+        {
+          "email": "davydkin.igor@gmail.com",
+          "name": "igor-dv"
+        },
+        {
+          "email": "ndelangen@me.com",
+          "name": "ndelangen"
+        },
+        {
+          "email": "pavan.sss1991@gmail.com",
+          "name": "pksunkara"
+        },
+        {
+          "email": "michael@lab80.co",
+          "name": "shilman"
+        },
+        {
+          "email": "tom@thesnail.org",
+          "name": "tmeasday"
+        },
+        {
+          "email": "regx@usul.su",
+          "name": "usulpro"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console_1.1.0_1540815694051_0.6664879847557068"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.1.1": {
+      "version": "1.1.1",
+      "name": "@storybook/addon-console",
+      "author": {
+        "name": "Oleg Proskurin",
+        "url": "https://github.com/UsulPro"
+      },
+      "dependencies": {
+        "global": "^4.3.2"
+      },
+      "scripts": {
+        "start": "start-storybook -p 9009",
+        "prepublish": "node .scripts/prepublish.js",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "build:docs": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.js  > README.md; echo",
+        "build:storybook": "build-storybook",
+        "deploy:storybook": "storybook-to-ghpages",
+        "lint": "eslint ./src",
+        "test": "jest",
+        "tdd": "jest --watch",
+        "test:publish": "npm pack",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "debug": "node --debug-brk --inspect npm test"
+      },
+      "main": "dist/index",
+      "homepage": "https://github.com/storybooks/storybook-addon-console",
+      "bugs": {
+        "url": "https://github.com/storybooks/storybook-addon-console/issues"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.1.2",
+        "@emotion/core": "^0.13.1",
+        "@emotion/provider": "^0.11.2",
+        "@emotion/styled": "^0.10.6",
+        "@storybook/addon-a11y": "4.0.0",
+        "@storybook/addon-actions": "4.0.0",
+        "@storybook/addon-backgrounds": "4.0.0",
+        "@storybook/addon-centered": "4.0.0",
+        "@storybook/addon-events": "4.0.0",
+        "@storybook/addon-graphql": "4.0.0",
+        "@storybook/addon-info": "4.0.0",
+        "@storybook/addon-jest": "4.0.0",
+        "@storybook/addon-knobs": "4.0.0",
+        "@storybook/addon-links": "4.0.0",
+        "@storybook/addon-notes": "4.0.0",
+        "@storybook/addon-options": "4.0.0",
+        "@storybook/addon-storyshots": "4.0.0",
+        "@storybook/addon-storyshots-puppeteer": "4.0.0",
+        "@storybook/addon-storysource": "4.0.0",
+        "@storybook/addon-viewport": "4.0.0",
+        "@storybook/addons": "4.0.0",
+        "@storybook/components": "4.0.0",
+        "@storybook/core-events": "4.0.0",
+        "@storybook/node-logger": "4.0.0",
+        "@storybook/react": "4.0.0",
+        "@storybook/storybook-deployer": "^2.3.0",
+        "enzyme": "^3.3.0",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^21.17.0",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "jest-enzyme": "^6.0.1",
+        "jsdoc-to-markdown": "^4.0.1",
+        "lint-staged": "^7.1.3",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react": "^16.4.0",
+        "react-chromatic": "^0.8.4",
+        "react-dom": "^16.4.0",
+        "react-scripts": "2.0.5",
+        "react-test-renderer": "^16.4.0"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "*",
+        "prop-types": "*",
+        "react": "*"
+      },
+      "gitHead": "daa0714eb640323060292350d18bda311e65c1be",
+      "description": "[![npm version](https://badge.fury.io/js/%40storybook%2Faddon-console.svg)](https://badge.fury.io/js/%40storybook%2Faddon-console) [![addon-console](https://img.shields.io/npm/dt/@storybook/addon-console.svg)](https://github.com/storybooks/storybook-addon",
+      "_id": "@storybook/addon-console@1.1.1",
+      "_npmVersion": "6.4.1",
+      "_nodeVersion": "8.15.0",
+      "_npmUser": {
+        "name": "usulpro",
+        "email": "regx@usul.su"
+      },
+      "dist": {
+        "integrity": "sha512-uYfrjdJ98HhT8K244Z8VqeJ27JRaz7KanB6X9NkOHxzXuQM78F9fkS8HIcP8FV74z1yeAq0z5nj21cdgdxkYxg==",
+        "shasum": "16c80fa40b817bd4c3e36e47be315dd5795d3423",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-1.1.1.tgz",
+        "fileCount": 6,
+        "unpackedSize": 38079,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdHm0rCRA9TVsSAnZWagAAn8gP+QEGsi3oO5vxgxUeQYV8\npsx2SS43hqG5NlS13+1uKs1XhvSxubhDQ/EZPo6MxKjpewU9xOUK+sx5/ItM\n0A87kUIWaIzR/N4EQkCnskdHBiRdsO3Bf6/K/t11rFqR3TPvKqbQbYYNdxoz\n5ut+ryf5fFLBACk56Z0JzDbW/2z+zyBmpjUmklN8djxhgZH0oYn3BGT8Xiqd\nfp6HeZYWk2Wrh7dzEFwZyVWYsDm90x+xC9Ma67azp7CSc/AvilA6K7BjdtkP\nB6Y60MSzR1dTvbbIQeqGhegqcfX/6dG7vRDYBJXuG3iOhuANWkcblOwbQO7C\n2mx1MGw/TQkhRVv169SqphGw5aCvpLkPblDl61kgf0cT+5/8z0++uzWDihmz\nIgaFjPDMDp+wl5cwA25dgznPl+qzDO2T8gPW33hRAnJwfFmoVaRsbEv8mdmf\nszuh20dI+TzSIRlp593l2erzXpbSJUQE3MaiYcTp3o7Hhj92Bj+YaFFShIRq\nZRRwzthxB3U6E/CyYMbfi5X0nw0EsEt4ndsAHdahdxTPm2tYLAvmtktO8So5\nPPkkOJH8UnBFAG6MWY/JL2YR8Vz9Y+Fm+jzr+HuDvXPg/b/rO2EZKQi4lLFP\nuRdaJUuVz8bTNW/ljFEHlPQpoXfCr0kqo51k54Tq2oUmLP8Yd29+DwllU1D3\n4kp2\r\n=hB+m\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCZa2ZKTwGgpav4T9DusZVviCSM1+tKwlgDjctviUzLOgIgNDr+kvikjQrQQAN43PsRUjnUMmik5LcPwqY92+aHrAk="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "bodin.alex@gmail.com",
+          "name": "alexandrebodin"
+        },
+        {
+          "email": "dduan@yahoo.com",
+          "name": "danielduan"
+        },
+        {
+          "email": "dom@hichroma.com",
+          "name": "domyen"
+        },
+        {
+          "email": "gytis.vinclovas@gmail.com",
+          "name": "gongreg"
+        },
+        {
+          "email": "talpa@yandex.ru",
+          "name": "hypnosphi"
+        },
+        {
+          "email": "davydkin.igor@gmail.com",
+          "name": "igor-dv"
+        },
+        {
+          "email": "susskyle@gmail.com",
+          "name": "kylesuss"
+        },
+        {
+          "email": "ndelangen@me.com",
+          "name": "ndelangen"
+        },
+        {
+          "email": "pavan.sss1991@gmail.com",
+          "name": "pksunkara"
+        },
+        {
+          "email": "michael@lab80.co",
+          "name": "shilman"
+        },
+        {
+          "email": "tom@thesnail.org",
+          "name": "tmeasday"
+        },
+        {
+          "email": "regx@usul.su",
+          "name": "usulpro"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console_1.1.1_1562275114745_0.5904403477753859"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.2.0": {
+      "version": "1.2.0",
+      "name": "@storybook/addon-console",
+      "author": {
+        "name": "Oleg Proskurin",
+        "url": "https://github.com/UsulPro"
+      },
+      "dependencies": {
+        "global": "^4.3.2"
+      },
+      "scripts": {
+        "start": "start-storybook -p 9009 --ci",
+        "prepare": "npx --ignore-existing @usulpro/package-prepare",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "build:readme.md": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.js  > README.md; echo",
+        "build:readme": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.js  > README; echo",
+        "build:docs": "yarn build:readme.md && yarn build:readme",
+        "build:storybook": "build-storybook",
+        "deploy:storybook": "storybook-to-ghpages",
+        "lint": "eslint ./src",
+        "test": "jest",
+        "tdd": "jest --watch",
+        "test:publish": "npm pack",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "debug": "node --debug-brk --inspect npm test"
+      },
+      "main": "dist/index",
+      "homepage": "https://github.com/storybooks/storybook-addon-console",
+      "bugs": {
+        "url": "https://github.com/storybooks/storybook-addon-console/issues"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.5.5",
+        "@babel/core": "^7.5.5",
+        "@storybook/addon-actions": "^5.1.9",
+        "@storybook/addon-backgrounds": "^5.1.9",
+        "@storybook/addon-links": "^5.1.9",
+        "@storybook/addon-storysource": "^5.1.9",
+        "@storybook/addons": "^5.1.9",
+        "@storybook/react": "^5.1.9",
+        "@storybook/storybook-deployer": "^2.3.0",
+        "@storybook/theming": "^5.1.9",
+        "@usulpro/package-prepare": "^1.1.4",
+        "babel-loader": "^8.0.6",
+        "enzyme": "^3.3.0",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^21.17.0",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "jest-enzyme": "^6.0.1",
+        "jsdoc-to-markdown": "^4.0.1",
+        "lint-staged": "^7.1.3",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react": "^16.4.0",
+        "react-chromatic": "^0.8.4",
+        "react-dom": "^16.4.0",
+        "react-scripts": "2.0.5",
+        "react-test-renderer": "^16.4.0",
+        "url-loader": "^2.1.0"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "*"
+      },
+      "gitHead": "f37610e665985cbacd7ab693c90450f93bdd287a",
+      "description": "<div align=\"center\">   <h1>   <nobr>     <a href=\"https://storybookjs.github.io/storybook-addon-console\">       <img src=\"docs/logo.png\" alt=\"logo\" height=\"140\">     </a>     <img src=\"docs/title.png\" alt=\"Storybook Addon Console\">     </nobr>   </h1>",
+      "_id": "@storybook/addon-console@1.2.0",
+      "_npmVersion": "6.4.1",
+      "_nodeVersion": "10.15.1",
+      "_npmUser": {
+        "name": "usulpro",
+        "email": "regx@usul.su"
+      },
+      "dist": {
+        "integrity": "sha512-1lkzRCwsX3ZV+n3d6CzRtB9rfv9fKeJD71OYWWPeZhdoDOdYfhqgpc5e7DdnmfP5vIeH/5uMLRlksOfEaD5Czw==",
+        "shasum": "55ff24e4e63edb55efb6c0a87a2ef862628b5cfb",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-1.2.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 39233,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdNIqKCRA9TVsSAnZWagAA9zQP/iZXUX3mJ+cwyZJCJSbt\niQeuS/GjsH76zzfck/MaHmp9o5mF/p8oeMyZm9SQnUgvALCTkwo6Wh2RF4QN\nbg/Ed+vcpCYIOJ37Mnkp91R8xNpLHOnQW9rLcSZAYHHmsVQN6L7mwPCeYOSm\nEKf2cAoY6ru35oc7lKPeBF5yIGtlLoDEs96Drpfg/QgbkV3ymuSv/yByihpa\nNnnOYafFobufMvBw3OmL1Etaj8ByFcBsbA7Ceur/YN9q3mQJnIjhyPfE7bas\n4icwphxliWMIjnUx0ICFLNqlScTIZvEH/WR+HNf4PRHXLeTXCRFUnLnoce6l\nfHP9cLuWQfXR7ELqmZ5mv2PsMbrduhaGtekK7K0xeFUWUhde0Xeeb9VFoy2e\n9dOYR92AukZhQHHLIOM80XrIGaVAqjYWaqa2uJk2EkSDwTPWyZPpRyaOlFvM\nnzK9AONKWzCIDSc5XWaNjeJ00PUeaO+55Ed9d8JZr9A579A1Pqli2W7uxhYj\nR/eT4JVf1h2EsfbqJtyCkoRX0rK2YHyjklgQ4XjHxH2cmi6aRZdGdRyak4C5\nNShpNg2EjCNz3JQWwLtVy7bjrwXDyqqu2jC7e560mEiSWls5KwgPF+QhAW87\nzTmVbvzWKohJajjSEx7eVSrncO8th86eHTbP8ZoFHfoWQy7P11bROTrDCR3A\nWdAw\r\n=k4ZK\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHMDsQQpV2xDqloCQsO39SYrvHGxPTY7ijuNCOb/C4sBAiAYAi2JljsgBZbjzi8yN3UtIriKEu+Mi8ilCPKDd98GBg=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "bodin.alex@gmail.com",
+          "name": "alexandrebodin"
+        },
+        {
+          "email": "dduan@yahoo.com",
+          "name": "danielduan"
+        },
+        {
+          "email": "dom@hichroma.com",
+          "name": "domyen"
+        },
+        {
+          "email": "gytis.vinclovas@gmail.com",
+          "name": "gongreg"
+        },
+        {
+          "email": "talpa@yandex.ru",
+          "name": "hypnosphi"
+        },
+        {
+          "email": "davydkin.igor@gmail.com",
+          "name": "igor-dv"
+        },
+        {
+          "email": "susskyle@gmail.com",
+          "name": "kylesuss"
+        },
+        {
+          "email": "ndelangen@me.com",
+          "name": "ndelangen"
+        },
+        {
+          "email": "pavan.sss1991@gmail.com",
+          "name": "pksunkara"
+        },
+        {
+          "email": "michael@lab80.co",
+          "name": "shilman"
+        },
+        {
+          "email": "tom@thesnail.org",
+          "name": "tmeasday"
+        },
+        {
+          "email": "regx@usul.su",
+          "name": "usulpro"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console_1.2.0_1563724425225_0.567092888583896"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.2.1": {
+      "version": "1.2.1",
+      "name": "@storybook/addon-console",
+      "author": {
+        "name": "Oleg Proskurin",
+        "url": "https://github.com/UsulPro"
+      },
+      "dependencies": {
+        "global": "^4.3.2"
+      },
+      "scripts": {
+        "start": "start-storybook -p 9009 --ci",
+        "prepare": "npx --ignore-existing @usulpro/package-prepare",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "build:readme.md": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.js  > README.md; echo",
+        "build:readme": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.js  > README; echo",
+        "build:docs": "yarn build:readme.md && yarn build:readme",
+        "build:storybook": "build-storybook",
+        "deploy:storybook": "storybook-to-ghpages",
+        "lint": "eslint ./src",
+        "test": "jest",
+        "tdd": "jest --watch",
+        "test:publish": "npm pack",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "debug": "node --debug-brk --inspect npm test"
+      },
+      "main": "dist/index",
+      "homepage": "https://github.com/storybooks/storybook-addon-console",
+      "bugs": {
+        "url": "https://github.com/storybooks/storybook-addon-console/issues"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+      },
+      "keywords": [
+        "storybook",
+        "storybookjs",
+        "storybook-addon",
+        "addon",
+        "console",
+        "action",
+        "logs",
+        "output",
+        "decorator",
+        "warning",
+        "warnings",
+        "error",
+        "errors",
+        "redirect",
+        "devtools"
+      ],
+      "devDependencies": {
+        "@babel/cli": "^7.5.5",
+        "@babel/core": "^7.5.5",
+        "@storybook/addon-actions": "^5.1.9",
+        "@storybook/addon-backgrounds": "^5.1.9",
+        "@storybook/addon-links": "^5.1.9",
+        "@storybook/addon-storysource": "^5.1.9",
+        "@storybook/addons": "^5.1.9",
+        "@storybook/react": "^5.1.9",
+        "@storybook/storybook-deployer": "^2.3.0",
+        "@storybook/theming": "^5.1.9",
+        "@usulpro/package-prepare": "^1.1.4",
+        "babel-loader": "^8.0.6",
+        "enzyme": "^3.3.0",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^21.17.0",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "jest-enzyme": "^6.0.1",
+        "jsdoc-to-markdown": "^4.0.1",
+        "lint-staged": "^7.1.3",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react": "^16.4.0",
+        "react-chromatic": "^0.8.4",
+        "react-dom": "^16.4.0",
+        "react-scripts": "2.0.5",
+        "react-test-renderer": "^16.4.0",
+        "url-loader": "^2.1.0"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "*"
+      },
+      "gitHead": "f37610e665985cbacd7ab693c90450f93bdd287a",
+      "description": "<div align=\"center\">   <h1>   <nobr>     <a href=\"https://storybookjs.github.io/storybook-addon-console\">       <img src=\"docs/logo.png\" alt=\"logo\" height=\"140\">     </a>     <img src=\"docs/title.png\" alt=\"Storybook Addon Console\">     </nobr>   </h1>",
+      "_id": "@storybook/addon-console@1.2.1",
+      "_npmVersion": "6.4.1",
+      "_nodeVersion": "10.15.1",
+      "_npmUser": {
+        "name": "usulpro",
+        "email": "regx@usul.su"
+      },
+      "dist": {
+        "integrity": "sha512-2iDbDTipWonvRpIqLLntfhCGvawFFvoG1xyErpyL7K/HRdQ1zzIvR1Qm83S7TK8Vg+RzZWm4wcDbxx7WOsFCNg==",
+        "shasum": "f338401661b4636118b13839848061e996d4e104",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-1.2.1.tgz",
+        "fileCount": 6,
+        "unpackedSize": 39615,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdNI2yCRA9TVsSAnZWagAASJ0P/3MBDt5gbpkULKsL0Wwp\nJTpXS86Eu4W46p41mBwS4R2QSpOBGSL0dmWVPJC/AbFNpoWtKyx8k3SgHqEO\nOCE+bIgr/IZkdUy/L4aD9ghBT8f/SQxmPdE06tKnponNEq15RuoSpk3pSnVH\nPglSK7KqYHVoJqs+n7BLSRuKLgeDSmwMZQUnNT6ZIa/d4BKkx/amFlVwTaj4\nOZ2pC/xR3oFMAJOEP8wWIGQt+SGLtZHdaqea3JUO4AIFjopvaknis52eBmmW\nUutIco1wJn2FtOCAJxFWUXbnmDwv1FXY5jbHzw4EBdN0J5ELMGiR2TiA06e9\nfKto/bFeZWdT9Lo5fP3QLt5YbbkqhRsbKq+nGs0alaRO330qOl1Bs5rkeCpL\nQnNKrPNTyeeQXuqV5icsuA016soxFj2MyiDA7AU5PA2KP7qZ7nJ2eka0aAQn\nMSrByWJ2kXaSlv6PWrBCQcXDgpv00QLrcHHyQoUcz5kYzD1XKrNtJAoSJmSB\nhMYKZ/ch4pQw257K5fxxr4VdG6X5txv6V3P7aoq9vyfXr27SIZreKU43wqW7\nfFsnD3sdApAWzKCJ1Jghb/LxMAPJVe6OdxCedAFTX6sBrTr7dLV5ylpDn2eK\nsS+9D18UHYJe+JuEuzy6OLMBebRs23teWzIRWuCVcvNFwvNARVCauP76QqcS\nFWAW\r\n=doY1\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCMoh5dQVZU2GwZP1YEuljRA9eJ4Jlcwtb5hMFG37LgIAIgIt5FkRbLaITvM2apKERT5N1RVHQqBeGal0EQAJuAE70="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "bodin.alex@gmail.com",
+          "name": "alexandrebodin"
+        },
+        {
+          "email": "dduan@yahoo.com",
+          "name": "danielduan"
+        },
+        {
+          "email": "dom@hichroma.com",
+          "name": "domyen"
+        },
+        {
+          "email": "gytis.vinclovas@gmail.com",
+          "name": "gongreg"
+        },
+        {
+          "email": "talpa@yandex.ru",
+          "name": "hypnosphi"
+        },
+        {
+          "email": "davydkin.igor@gmail.com",
+          "name": "igor-dv"
+        },
+        {
+          "email": "susskyle@gmail.com",
+          "name": "kylesuss"
+        },
+        {
+          "email": "ndelangen@me.com",
+          "name": "ndelangen"
+        },
+        {
+          "email": "pavan.sss1991@gmail.com",
+          "name": "pksunkara"
+        },
+        {
+          "email": "michael@lab80.co",
+          "name": "shilman"
+        },
+        {
+          "email": "tom@thesnail.org",
+          "name": "tmeasday"
+        },
+        {
+          "email": "regx@usul.su",
+          "name": "usulpro"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console_1.2.1_1563725233946_0.9099099280330933"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.2.2": {
+      "version": "1.2.2",
+      "name": "@storybook/addon-console",
+      "author": {
+        "name": "Oleg Proskurin",
+        "url": "https://github.com/UsulPro"
+      },
+      "description": "Storybook addon for redirecting console output into action logger panel",
+      "dependencies": {
+        "global": "^4.3.2"
+      },
+      "scripts": {
+        "start": "start-storybook -p 9009 --ci",
+        "prepare": "npx --ignore-existing @usulpro/package-prepare",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "build:readme.md": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.js  > README.md; echo",
+        "build:readme": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.js  > README; echo",
+        "build:docs": "yarn build:readme.md && yarn build:readme",
+        "build:storybook": "build-storybook",
+        "deploy:storybook": "storybook-to-ghpages",
+        "lint": "eslint ./src",
+        "test": "jest",
+        "tdd": "jest --watch",
+        "test:publish": "npm pack",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "debug": "node --debug-brk --inspect npm test"
+      },
+      "main": "dist/index",
+      "homepage": "https://github.com/storybooks/storybook-addon-console",
+      "bugs": {
+        "url": "https://github.com/storybooks/storybook-addon-console/issues"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+      },
+      "keywords": [
+        "storybook",
+        "storybookjs",
+        "storybook-addon",
+        "addon",
+        "console",
+        "action",
+        "logs",
+        "output",
+        "decorator",
+        "warning",
+        "warnings",
+        "error",
+        "errors",
+        "redirect",
+        "devtools"
+      ],
+      "devDependencies": {
+        "@babel/cli": "^7.5.5",
+        "@babel/core": "^7.5.5",
+        "@storybook/addon-actions": "^5.1.9",
+        "@storybook/addon-backgrounds": "^5.1.9",
+        "@storybook/addon-links": "^5.1.9",
+        "@storybook/addon-storysource": "^5.1.9",
+        "@storybook/addons": "^5.1.9",
+        "@storybook/react": "^5.1.9",
+        "@storybook/storybook-deployer": "^2.3.0",
+        "@storybook/theming": "^5.1.9",
+        "@usulpro/package-prepare": "^1.1.4",
+        "babel-loader": "^8.0.6",
+        "enzyme": "^3.3.0",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^21.17.0",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "jest-enzyme": "^6.0.1",
+        "jsdoc-to-markdown": "^4.0.1",
+        "lint-staged": "^7.1.3",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react": "^16.4.0",
+        "react-chromatic": "^0.8.4",
+        "react-dom": "^16.4.0",
+        "react-scripts": "2.0.5",
+        "react-test-renderer": "^16.4.0",
+        "url-loader": "^2.1.0"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "*"
+      },
+      "gitHead": "da48b7b62c5c6600fabb9865482076216ef4e96f",
+      "_id": "@storybook/addon-console@1.2.2",
+      "_npmVersion": "6.4.1",
+      "_nodeVersion": "10.15.1",
+      "_npmUser": {
+        "name": "usulpro",
+        "email": "regx@usul.su"
+      },
+      "dist": {
+        "integrity": "sha512-aTuYoz1Fit9PAhy0VDTjQ5rovRz5a+DgPRIaA5cktkiA9Y0ikK/cu525DDZLTh7oNMOt0fmRYyYPtknTMyeXrQ==",
+        "shasum": "018cd712e1ed6eee1a7eae57c3d96f1fbbedc191",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-1.2.2.tgz",
+        "fileCount": 6,
+        "unpackedSize": 39957,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfad+yCRA9TVsSAnZWagAAps4QAKHO1xwGUSr0cVT8gHOl\n+whanK4qx3W6Qg/HY+HshM44JcVwOr8u58RCZQNlt813am3VTbqBFOUHIRtc\ncEswm9oJzwfdXNrwlDQIDdJx7MfHKyUfNeq5GMXFTFVRd3pjy4sgUppUC6S/\na6XQBu7G66Ud4pneDYx53/HSp3Uuyl8sfGIVg5Gl4zuWezlvVns/M2TiAQmK\ngBvA1gwtw088zNaKbrwOT5Y9a7DX3s6w05FVblLhokON0I+2/aEYImVwhNvk\ncUhoV6tTTbxUyaVO1U/3V2fo27fZoOqmpv44YwN2HiGklH2dJEdzGbH/OijX\nr/AMxR1dOMNlIvXDS1SksVxDwxmNLpKm2X1fpHF5ijRlDzWQaaCn8JLVuHEp\n9GUqqguLbnM4NPYEAChXRrpw3HKCxSvML91JLP0M9C/ZMBG2s8tYWnalO9IV\nugB5q0Uz583ikqrjngiz5TrgyLhFSHqWFO5oeG2uJMUMqkl/6XPGIjtUmvQQ\nfjMyTiIHotXz3VPgpLSF856SqroQHA3RhXCJAdZ8xJO81QuiKMGzpJCfu5Rd\nMxT5uVLJPYMDHUyZMowfTihJbj3Usza614OcZaIOX0jVzyPOZmjQOZx2b0Rk\nJgwdENAfWZbmWdS4p2FMDYWV/f/w/u1Sqnog6IPIo2tv1RFNyaKxfPI4v87P\nOdOq\r\n=9eTH\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCEvKq9RbOO+N+Qr+29ZxKMIypwrC0mPf/sD0EBVYSHqQIgTLP7/ckxg9/Bltz9Zp9hCtGNy9C9G2m4k5yIEVvfpvA="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "dannyhw",
+          "email": "danny.h.williams@hotmail.com"
+        },
+        {
+          "name": "mrmckeb",
+          "email": "mrmckeb.npm@outlook.com"
+        },
+        {
+          "name": "codebyalex",
+          "email": "wilsonc.alexander@gmail.com"
+        },
+        {
+          "name": "dandean",
+          "email": "me@dandean.com"
+        },
+        {
+          "name": "pago",
+          "email": "patrick.gotthardt@trivago.com"
+        },
+        {
+          "name": "ghengeveld",
+          "email": "info@ghengeveld.nl"
+        },
+        {
+          "name": "kylesuss",
+          "email": "susskyle@gmail.com"
+        },
+        {
+          "name": "usulpro",
+          "email": "regx@usul.su"
+        },
+        {
+          "name": "domyen",
+          "email": "dom@hichroma.com"
+        },
+        {
+          "name": "gongreg",
+          "email": "gytis.vinclovas@gmail.com"
+        },
+        {
+          "name": "tmeasday",
+          "email": "tom@thesnail.org"
+        },
+        {
+          "name": "pksunkara",
+          "email": "pavan.sss1991@gmail.com"
+        },
+        {
+          "name": "ndelangen",
+          "email": "ndelangen@me.com"
+        },
+        {
+          "name": "shilman",
+          "email": "michael@lab80.co"
+        },
+        {
+          "name": "alexandrebodin",
+          "email": "bodin.alex@gmail.com"
+        },
+        {
+          "name": "hypnosphi",
+          "email": "talpa@yandex.ru"
+        },
+        {
+          "name": "danielduan",
+          "email": "dduan@yahoo.com"
+        },
+        {
+          "name": "igor-dv",
+          "email": "davydkin.igor@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console_1.2.2_1600774065997_0.8553308070392838"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.2.3": {
+      "version": "1.2.3",
+      "name": "@storybook/addon-console",
+      "author": {
+        "name": "Oleg Proskurin",
+        "url": "https://github.com/UsulPro"
+      },
+      "description": "Storybook addon for redirecting console output into action logger panel",
+      "dependencies": {
+        "global": "^4.3.2"
+      },
+      "scripts": {
+        "start": "start-storybook -p 9009 --ci",
+        "prepare": "package-prepare && npx typescript 'src/index.js' --declaration --allowJs --emitDeclarationOnly --outDir dist",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "build:readme.md": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.js  > README.md; echo",
+        "build:readme": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.js  > README; echo",
+        "build:docs": "yarn build:readme.md && yarn build:readme",
+        "build:storybook": "build-storybook",
+        "deploy:storybook": "storybook-to-ghpages",
+        "lint": "eslint ./src",
+        "test": "jest",
+        "tdd": "jest --watch",
+        "test:publish": "npm pack",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "debug": "node --debug-brk --inspect npm test"
+      },
+      "packagePrepare": {
+        "--copy-files": null
+      },
+      "main": "dist/index",
+      "types": "dist/index.d.ts",
+      "homepage": "https://github.com/storybooks/storybook-addon-console",
+      "bugs": {
+        "url": "https://github.com/storybooks/storybook-addon-console/issues"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+      },
+      "storybook": {
+        "displayName": "Console",
+        "icon": "https://github.com/storybookjs/storybook-addon-console/raw/master/docs/icon.png"
+      },
+      "keywords": [
+        "storybook-addons",
+        "debug",
+        "code",
+        "storybook",
+        "storybookjs",
+        "storybook-addon",
+        "addon",
+        "console",
+        "action",
+        "logs",
+        "output",
+        "decorator",
+        "warning",
+        "warnings",
+        "error",
+        "errors",
+        "redirect",
+        "devtools"
+      ],
+      "devDependencies": {
+        "@babel/cli": "^7.5.5",
+        "@babel/core": "^7.5.5",
+        "@storybook/addon-actions": "^5.1.9",
+        "@storybook/addon-backgrounds": "^5.1.9",
+        "@storybook/addon-links": "^5.1.9",
+        "@storybook/addon-storysource": "^5.1.9",
+        "@storybook/addons": "^5.1.9",
+        "@storybook/react": "^5.1.9",
+        "@storybook/storybook-deployer": "^2.3.0",
+        "@storybook/theming": "^5.1.9",
+        "@usulpro/package-prepare": "^1.1.4",
+        "babel-loader": "^8.0.6",
+        "enzyme": "^3.3.0",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^21.17.0",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "jest-enzyme": "^6.0.1",
+        "jsdoc-to-markdown": "^4.0.1",
+        "lint-staged": "^7.1.3",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react": "^16.4.0",
+        "react-dom": "^16.4.0",
+        "react-scripts": "2.0.5",
+        "react-test-renderer": "^16.4.0",
+        "url-loader": "^2.1.0"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "*"
+      },
+      "gitHead": "cebbfcc45d8a088aa050c1762bd9282d2991dba0",
+      "_id": "@storybook/addon-console@1.2.3",
+      "_nodeVersion": "14.12.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-w5uCUwECA28fdZWoa+A4e/RS9XzBStdd3TwwmpSM5m4fjURJI7Qr+uVq30UeRdgZRH1K7CdWzYUE6RxWXMdVyw==",
+        "shasum": "f6c88a8f54fe00c8de9b77720eaef2bc1daa3af1",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-1.2.3.tgz",
+        "fileCount": 8,
+        "unpackedSize": 45438,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh2cadCRA9TVsSAnZWagAAlTMQAJ68sOfsV4tZ/YO/j2lV\nBXrkv2/tsCc4A4dPpXPscVcJNUcHZc62bQO5swlHu9PjylRQOcg2ke0gnMJu\n5JTDMLj4G3JPP8jKXq0qeGxXTq9oTie9tHJTiP+p/v7qMHyL6Q+NrJHWtSJm\nwU6Zt7lzAVYZecJWU5JcByUBVXoXvTd9jeiq7phjEP8AiDFuciIG1QYsj38J\nvrJUahzE0RJ798eRcrk8c6eoFIkZW/G0WTyaJ9Tx0d9LK/oaCUbUw2TnMS54\n7tEHtCgdAbDAeGwylkNnZaVteWWvm7mZ3dok0ycJ6Y/gaQBxvB5kCsUtRwgH\nomZMzAZepWJdBkwQHsTcsJHqv7wz2TIMT6HVwGwSmN6wGGboU1STYMgVxiBp\nxDTFnXZ8OG+NLtiBGH+GybYG828e38z8BHtxYR1z6vLGLENCr8C00eoHMeKt\nM+9cbxP91Bf388KYM67AfNH7Bf+GXbCU3IbZ/hKFIdOXh0RovuUbhxEUX8zu\n26IHn9U9hrLMeLbwr7ZolSGJ+RIDA8it7LWZz3ZTc4qf/LZZ6565+4rD+3Aq\nYzzPfqCW3EKMrRbinrOhxa0YXFkUBvPhCDOLb8OR2w7LhDXUWf0MyhH9eCxV\nso6qcBrt1s5sTma6Ji8tP526EpaqFyIFoJoMk9roHAELnUsXLk0nbx7rbHNY\nCQ4y\r\n=0DfR\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQD3OHrFAL2qspDlN/Ic5tymF7/G7EYWI3ycct91GuR7zAIhANuPybDIDDPy/sNC7wyrnhxO3xajZ/aGsNzX9jf0Tgh2"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "usulpro",
+        "email": "regx@usul.su"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "phated",
+          "email": "blaine.bublitz@gmail.com"
+        },
+        {
+          "name": "ndelangen",
+          "email": "ndelangen@me.com"
+        },
+        {
+          "name": "shilman",
+          "email": "michael@lab80.co"
+        },
+        {
+          "name": "alexandrebodin",
+          "email": "bodin.alex@gmail.com"
+        },
+        {
+          "name": "hypnosphi",
+          "email": "talpa@yandex.ru"
+        },
+        {
+          "name": "danielduan",
+          "email": "dduan@yahoo.com"
+        },
+        {
+          "name": "igor-dv",
+          "email": "davydkin.igor@gmail.com"
+        },
+        {
+          "name": "pksunkara",
+          "email": "pavan.sss1991@gmail.com"
+        },
+        {
+          "name": "tmeasday",
+          "email": "tom@thesnail.org"
+        },
+        {
+          "name": "gongreg",
+          "email": "gytis.vinclovas@gmail.com"
+        },
+        {
+          "name": "domyen",
+          "email": "dom@hichroma.com"
+        },
+        {
+          "name": "usulpro",
+          "email": "regx@usul.su"
+        },
+        {
+          "name": "kylesuss",
+          "email": "susskyle@gmail.com"
+        },
+        {
+          "name": "ghengeveld",
+          "email": "info@ghengeveld.nl"
+        },
+        {
+          "name": "pago",
+          "email": "patrick.gotthardt@trivago.com"
+        },
+        {
+          "name": "dandean",
+          "email": "me@dandean.com"
+        },
+        {
+          "name": "codebyalex",
+          "email": "wilsonc.alexander@gmail.com"
+        },
+        {
+          "name": "mrmckeb",
+          "email": "mrmckeb.npm@outlook.com"
+        },
+        {
+          "name": "dannyhw",
+          "email": "danny.h.williams@hotmail.com"
+        },
+        {
+          "name": "winkervsbecks",
+          "email": "varunvachhar@gmail.com"
+        },
+        {
+          "name": "rvasikarla",
+          "email": "vasikarla.raj@gmail.com"
+        },
+        {
+          "name": "amalik2",
+          "email": "ahnmalik2@gmail.com"
+        },
+        {
+          "name": "lshadler",
+          "email": "lshadler13@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console_1.2.3_1612733580414_0.23462112825059878"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0": {
+      "version": "2.0.0",
+      "name": "@storybook/addon-console",
+      "author": {
+        "name": "Oleg Proskurin",
+        "url": "https://github.com/UsulPro"
+      },
+      "description": "Show console output like logs, errors, and warnings in the Storybook",
+      "dependencies": {
+        "@storybook/global": "^5.0.0"
+      },
+      "scripts": {
+        "start": "start-storybook -p 9009 --ci",
+        "prepare": "package-prepare && yarn build",
+        "build": "tsc \"src/index.jsx\" --declaration --allowJs --emitDeclarationOnly --outDir dist",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "build:readme.md": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.jsx  > README.md; echo",
+        "build:readme": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.jsx  > README; echo",
+        "build:docs": "yarn build:readme.md && yarn build:readme",
+        "build:storybook": "build-storybook",
+        "deploy:storybook": "storybook-to-ghpages",
+        "lint": "eslint ./src",
+        "test": "jest",
+        "tdd": "jest --watch",
+        "test:publish": "npm pack",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "debug": "node --debug-brk --inspect npm test",
+        "storybook": "storybook dev -p 6006",
+        "build-storybook": "storybook build"
+      },
+      "packagePrepare": {
+        "--copy-files": null
+      },
+      "main": "dist/index",
+      "types": "dist/index.d.ts",
+      "homepage": "https://github.com/storybooks/storybook-addon-console",
+      "bugs": {
+        "url": "https://github.com/storybooks/storybook-addon-console/issues"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+      },
+      "storybook": {
+        "displayName": "Console",
+        "icon": "https://user-images.githubusercontent.com/263385/101991668-479cc600-3c7c-11eb-9aac-09cd7b5b9f97.png"
+      },
+      "keywords": [
+        "storybook-addons",
+        "debug",
+        "code",
+        "storybook",
+        "storybookjs",
+        "storybook-addon",
+        "addon",
+        "console",
+        "action",
+        "logs",
+        "output",
+        "decorator",
+        "warning",
+        "warnings",
+        "error",
+        "errors",
+        "redirect",
+        "devtools"
+      ],
+      "devDependencies": {
+        "@babel/cli": "^7.21.5",
+        "@babel/core": "^7.21.8",
+        "@babel/preset-react": "^7.18.6",
+        "@babel/preset-env": "^7.21.5",
+        "@storybook/addon-actions": "^7.0.12",
+        "@storybook/addon-backgrounds": "^7.0.12",
+        "@storybook/addon-essentials": "^7.0.12",
+        "@storybook/addon-interactions": "^7.0.12",
+        "@storybook/addon-links": "^7.0.12",
+        "@storybook/addon-storysource": "^7.0.12",
+        "@storybook/addons": "^7.0.12",
+        "@storybook/blocks": "^7.0.12",
+        "@storybook/react": "^7.0.12",
+        "@storybook/react-vite": "^7.0.12",
+        "@storybook/testing-library": "^0.0.14-next.2",
+        "@storybook/theming": "^7.0.12",
+        "@usulpro/package-prepare": "^1.1.4",
+        "babel-loader": "^9.1.2",
+        "enzyme": "^3.3.0",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^21.17.0",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "eslint-plugin-storybook": "^0.6.12",
+        "jest-enzyme": "^6.0.1",
+        "jsdoc-to-markdown": "^4.0.1",
+        "lint-staged": "^7.1.3",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react": "^16.4.0",
+        "react-dom": "^16.4.0",
+        "react-test-renderer": "^16.4.0",
+        "storybook": "^7.0.12",
+        "vite": "^4.3.7",
+        "typescript": "^5.0.3",
+        "url-loader": "^2.1.0"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "*"
+      },
+      "gitHead": "3e44cf13a26504a55187a34a779b0edf0ca750c2",
+      "_id": "@storybook/addon-console@2.0.0",
+      "_nodeVersion": "16.17.1",
+      "_npmVersion": "8.15.0",
+      "dist": {
+        "integrity": "sha512-VA/lzmIC3qKYb+UYeqpFFc/JqstWe8gthz2dBmvanCobyw3pPnHmdWd55febJcmWWNMd5UxkwhMVWlb17yPTXw==",
+        "shasum": "aaed50ab3b183a468ab272f9aefcb3ca6278728d",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-2.0.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 48912,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQC0K6/ZmOlCNtN5wKq8cmbFKlb3puEPqXJI6zcz0Q5S/QIhAJYz3/CcxrbTrwrWptWSOYjjEqSiNRSOO61bNdkx/lVc"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "ndelangen",
+        "email": "ndelangen@me.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "thafryer",
+          "email": "jarelfryer@gmail.com"
+        },
+        {
+          "name": "shaunlloyd",
+          "email": "shaunlloydmedia@gmail.com"
+        },
+        {
+          "name": "kylegach",
+          "email": "kyle.gach@gmail.com"
+        },
+        {
+          "name": "tooppaaa",
+          "email": "clementdungler@gmail.com"
+        },
+        {
+          "name": "ndelangen",
+          "email": "ndelangen@me.com"
+        },
+        {
+          "name": "shilman",
+          "email": "michael@lab80.co"
+        },
+        {
+          "name": "alexandrebodin",
+          "email": "bodin.alex@gmail.com"
+        },
+        {
+          "name": "hypnosphi",
+          "email": "talpa@yandex.ru"
+        },
+        {
+          "name": "danielduan",
+          "email": "dduan@yahoo.com"
+        },
+        {
+          "name": "igor-dv",
+          "email": "davydkin.igor@gmail.com"
+        },
+        {
+          "name": "pksunkara",
+          "email": "pavan.sss1991@gmail.com"
+        },
+        {
+          "name": "tmeasday",
+          "email": "tom@thesnail.org"
+        },
+        {
+          "name": "gongreg",
+          "email": "gytis.vinclovas@gmail.com"
+        },
+        {
+          "name": "domyen",
+          "email": "dom@hichroma.com"
+        },
+        {
+          "name": "usulpro",
+          "email": "regx@usul.su"
+        },
+        {
+          "name": "kylesuss",
+          "email": "susskyle@gmail.com"
+        },
+        {
+          "name": "ghengeveld",
+          "email": "info@ghengeveld.nl"
+        },
+        {
+          "name": "pago",
+          "email": "patrick.gotthardt@trivago.com"
+        },
+        {
+          "name": "dandean",
+          "email": "me@dandean.com"
+        },
+        {
+          "name": "codebyalex",
+          "email": "wilsonc.alexander@gmail.com"
+        },
+        {
+          "name": "mrmckeb",
+          "email": "mrmckeb.npm@outlook.com"
+        },
+        {
+          "name": "dannyhw",
+          "email": "danny.h.williams@hotmail.com"
+        },
+        {
+          "name": "winkervsbecks",
+          "email": "varunvachhar@gmail.com"
+        },
+        {
+          "name": "rvasikarla",
+          "email": "vasikarla.raj@gmail.com"
+        },
+        {
+          "name": "amalik2",
+          "email": "ahnmalik2@gmail.com"
+        },
+        {
+          "name": "lshadler",
+          "email": "lshadler13@gmail.com"
+        },
+        {
+          "name": "phated",
+          "email": "blaine.bublitz@gmail.com"
+        },
+        {
+          "name": "yannbf",
+          "email": "yannbf@gmail.com"
+        },
+        {
+          "name": "dylanpiercey",
+          "email": "pierceydylan@gmail.com"
+        },
+        {
+          "name": "monkeyworks",
+          "email": "igor.szyporyn@gmail.com"
+        },
+        {
+          "name": "darleendenno",
+          "email": "darleendenno@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console_2.0.0_1684327925453_0.12890844558715386"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.0.0--canary.84.e8a1f80.0": {
+      "name": "@storybook/addon-console",
+      "version": "3.0.0--canary.84.e8a1f80.0",
+      "description": "Show console output like logs, errors, and warnings in the Storybook",
+      "keywords": [
+        "storybook-addons",
+        "debug",
+        "code",
+        "storybook",
+        "storybookjs",
+        "storybook-addon",
+        "addon",
+        "console",
+        "action",
+        "logs",
+        "output",
+        "decorator",
+        "warning",
+        "warnings",
+        "error",
+        "errors",
+        "redirect",
+        "devtools"
+      ],
+      "homepage": "https://github.com/storybooks/storybook-addon-console",
+      "bugs": {
+        "url": "https://github.com/storybooks/storybook-addon-console/issues"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "Oleg Proskurin",
+        "url": "https://github.com/UsulPro"
+      },
+      "main": "dist/index.js",
+      "module": "dist/index.mjs",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "build": "tsup",
+        "build-storybook": "storybook build",
+        "build:docs": "yarn build:readme.md && yarn build:readme",
+        "build:readme": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.jsx  > README; echo",
+        "build:readme.md": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.jsx  > README.md; echo",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "debug": "node --debug-brk --inspect npm test",
+        "deploy:storybook": "storybook-to-ghpages",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "lint": "eslint ./src",
+        "release": "auto shipit",
+        "prepare": "yarn build",
+        "storybook": "storybook dev",
+        "tdd": "jest --watch",
+        "test": "jest",
+        "test:publish": "npm pack"
+      },
+      "dependencies": {
+        "@storybook/global": "^5.0.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.21.5",
+        "@babel/core": "^7.21.8",
+        "@babel/preset-env": "^7.21.5",
+        "@babel/preset-react": "^7.18.6",
+        "@storybook/addon-actions": "^7.0.12",
+        "@storybook/addon-backgrounds": "^7.0.12",
+        "@storybook/addon-essentials": "^7.0.12",
+        "@storybook/addon-interactions": "^7.0.12",
+        "@storybook/addon-links": "^7.0.12",
+        "@storybook/addon-storysource": "^7.0.12",
+        "@storybook/addons": "^7.0.12",
+        "@storybook/blocks": "^7.0.12",
+        "@storybook/react": "^7.0.12",
+        "@storybook/react-vite": "^7.0.12",
+        "@storybook/testing-library": "^0.0.14-next.2",
+        "@storybook/theming": "^7.0.12",
+        "babel-eslint": "^10.1.0",
+        "babel-loader": "^9.1.2",
+        "enzyme": "^3.3.0",
+        "auto": "^11.0.4",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^21.17.0",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "eslint-plugin-storybook": "^0.6.12",
+        "jest-environment-jsdom": "^29.5.0",
+        "jest-enzyme": "^6.0.1",
+        "jsdoc-to-markdown": "^4.0.1",
+        "lint-staged": "^7.1.3",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react-dom": "^16.4.0",
+        "react-test-renderer": "^16.4.0",
+        "storybook": "^7.0.12",
+        "tsup": "^8.0.1",
+        "typescript": "^5.0.3",
+        "url-loader": "^2.1.0",
+        "vite": "^4.3.7"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "*",
+        "react": "*"
+      },
+      "storybook": {
+        "displayName": "Console",
+        "icon": "https://user-images.githubusercontent.com/263385/101991668-479cc600-3c7c-11eb-9aac-09cd7b5b9f97.png"
+      },
+      "auto": {
+        "plugins": [
+          "npm",
+          "released"
+        ]
+      },
+      "_id": "@storybook/addon-console@3.0.0--canary.84.e8a1f80.0",
+      "readme": "\n<div align=\"center\">\n  <h1>\n  <nobr>\n    <a href=\"https://storybookjs.github.io/storybook-addon-console\">\n      <img src=\"https://github.com/storybookjs/storybook-addon-console/raw/master/docs/logo.png\" alt=\"logo\" height=\"140\">\n    </a>\n    <img src=\"https://github.com/storybookjs/storybook-addon-console/raw/master/docs/title.png\" alt=\"Storybook Addon Console\">\n    </nobr>\n  </h1>\n\n</div>\n\n<br />\n\n# Storybook Addon Console\n\n[![npm\nversion](https://badge.fury.io/js/%40storybook%2Faddon-console.svg)](https://badge.fury.io/js/%40storybook%2Faddon-console)\n[![addon-console](https://img.shields.io/npm/dt/@storybook/addon-console.svg)](https://github.com/storybooks/storybook-addon-console)\n[![Storybook](https://raw.githubusercontent.com/storybookjs/storybook-addon-console/master/docs/storybook.svg?sanitize=true)](https://storybookjs.github.io/storybook-addon-console)\n\n\n## Why\n\nThere're some cases when you can't / don't want / forgot to keep browser console opened. This addon helps you to get all\nconsole output in your storybook. In other cases, you might find it difficult to extract the desired information in the\ninformation noise issued by the console or to determine which component in what state gives the message. With this\naddon, you can control **what** you see and **where** you see.\n\nWe assume the following possible applications:\n\n- Mobile devices. You might want to make console output reachable for users when they need to work with your storybook\nfrom mobile browsers\n\n- Small screens. You can save your screen space keeping browser console closed\n\n- To filter your console output. You can independently configure both action logger and real console output in a wide\nrange.\n\n- To associate console messages with a specific components/stories. You can see which story emits which message\n\n- To output some data into Action Logger from your deep components without importing `addon-actions` for that.\n\n[![storybook-addon-console](https://raw.githubusercontent.com/storybooks/storybook-addon-console/master/docs/storybook-addon-console.png)](https://raw.githubusercontent.com/storybooks/storybook-addon-console/master/docs/storybook-addon-console.png)\n\ntry [live demo](https://storybookjs.github.io/storybook-addon-console)\n\n### Install\n\n```shell\nyarn add -D @storybook/addon-console @storybook/addon-actions\n```\n\n### Quick Start\n\nJust import it in your storybook config.js:\n\n```js\n// config.js\n\nimport '@storybook/addon-console';\n```\n\nThat's all. You'll start to receive all console messages, warnings, errors in your action logger panel. Everything\nexcept HMR logs.\n\nIf you want to enable HMR messages, do the following:\n\n```js\n// config.js\n\nimport { setConsoleOptions } from '@storybook/addon-console';\n\nconst panelExclude = setConsoleOptions({}).panelExclude;\nsetConsoleOptions({\n  panelExclude: [...panelExclude, /deprecated/],\n});\n```\n\nYou'll receive console outputs as a `console`, `warn` and `error` actions in the panel. You might want to know from what\nstories they come. In this case, add `withConsole` decorator:\n\n```js\n// preview.js\n\nimport type { Preview } from '@storybook/react';\nimport { withConsole } from '@storybook/addon-console';\n\nconst preview: Preview = {\n  decorators: [(storyFn, context) => withConsole()(storyFn)(context)],\n  // ...\n};\n```\n\nAfter that your messages in Action Logger will be prefixed with the story path, like `molecules/atoms/electron:\n[\"ComponentDidMount\"]` or `molecules/atoms/electron error: [\"Warning: Failed prop type...\"]`. You can setup addon\nbehavior by passing options to `withConsole` or `setConsoleOptions` methods, both have the same API.\n\n### Panel\n\nAddon console don't have own UI panel to output logs, it use `addon-console` instead. Make sure that `main.js` contains this line:\n\n```js\n// main.js\n\nexport default {\n  addons: [\n    \"@storybook/addon-actions/register\",\n  ],\n};\n```\n\n\n## API\n<a name=\"module_@storybook/addon-console\"></a>\n\n## @storybook/addon-console\nIt handles `console.log`, `console.warn`, and `console.error` methods and not catched errors. By default, it just reflects all console messages in the Action Logger Panel (should be installed as a peerDependency) except [HMR] logs.\n\n\n* [@storybook/addon-console](#module_@storybook/addon-console)\n    * _static_\n        * [.setConsoleOptions(optionsOrFn)](#module_@storybook/addon-console.setConsoleOptions) ⇒ <code>addonOptions</code>\n        * [.withConsole([optionsOrFn])](#module_@storybook/addon-console.withConsole) ⇒ <code>function</code>\n    * _inner_\n        * [~addonOptions](#module_@storybook/addon-console..addonOptions) : <code>Object</code>\n        * [~optionsCallback](#module_@storybook/addon-console..optionsCallback) ⇒ <code>addonOptions</code>\n\n<a name=\"module_@storybook/addon-console.setConsoleOptions\"></a>\n\n### @storybook/addon-console.setConsoleOptions(optionsOrFn) ⇒ <code>addonOptions</code>\nSet addon options and returns a new one\n\n**Kind**: static method of [<code>@storybook/addon-console</code>](#module_@storybook/addon-console)  \n**See**\n\n- addonOptions\n- optionsCallback\n\n\n| Param | Type |\n| --- | --- |\n| optionsOrFn | <code>addonOptions</code> \\| <code>optionsCallback</code> | \n\n**Example**  \n```js\nimport { setConsoleOptions } from '@storybook/addon-console';\n\nconst panelExclude = setConsoleOptions({}).panelExclude;\nsetConsoleOptions({\n  panelExclude: [...panelExclude, /deprecated/],\n});\n```\n<a name=\"module_@storybook/addon-console.withConsole\"></a>\n\n### @storybook/addon-console.withConsole([optionsOrFn]) ⇒ <code>function</code>\nWraps your stories with specified addon options.\nIf you don't pass {`log`, `warn`, `error`} in options argument it'll create them from context for each story individually. Hence you'll see from what exact story you got a log or error. You can log from component's lifecycle methods or within your story.\n\n**Kind**: static method of [<code>@storybook/addon-console</code>](#module_@storybook/addon-console)  \n**Returns**: <code>function</code> - wrappedStoryFn  \n**See**\n\n- [addonOptions](#storybookaddon-consolesetconsoleoptionsoptionsorfn--addonoptions)\n- [optionsCallback](#storybookaddon-consoleoptionscallback--addonoptions)\n\n\n| Param | Type |\n| --- | --- |\n| [optionsOrFn] | <code>addonOptions</code> \\| <code>optionsCallback</code> | \n\n**Example**  \n```js\nimport type { Meta, StoryObj } from '@storybook/react';\nimport { withConsole } from '@storybook/addon-console';\n\nconst meta: Meta<typeof Button> = {\n  title: 'Example/Button',\n  component: Button,\n};\n\nexport default meta;\ntype Story = StoryObj<typeof Button>;\n\nexport const Primary: Story = {\n  args: {\n    primary: true,\n    label: 'Button',\n    onClick: () => console.log(['Data:', 1, 3, 4]),\n  },\n};\n // Action Logger Panel:\n // withConsole/with Log: [\"Data:\", 1, 3, 4]\n```\n<a name=\"module_@storybook/addon-console..addonOptions\"></a>\n\n### @storybook/addon-console~addonOptions : <code>Object</code>\nThis options could be passed to [withConsole](#storybookaddon-consolewithconsoleoptionsorfn--function) or [setConsoleOptions](#module_@storybook/addon-console.setConsoleOptions)\n\n**Kind**: inner typedef of [<code>@storybook/addon-console</code>](#module_@storybook/addon-console)  \n**Properties**\n\n| Name | Type | Default | Description |\n| --- | --- | --- | --- |\n| [panelExclude] | <code>[ &#x27;Array&#x27; ].&lt;RegExp&gt;</code> | <code>[/[HMR]/]</code> | Optional. Anything matched to at least one of regular expressions will be excluded from output to Action Logger Panel |\n| [panelInclude] | <code>[ &#x27;Array&#x27; ].&lt;RegExp&gt;</code> | <code>[]</code> | Optional. If set, only matched outputs will be shown in Action Logger. Higher priority than `panelExclude`. |\n| [consoleExclude] | <code>[ &#x27;Array&#x27; ].&lt;RegExp&gt;</code> | <code>[]</code> | Optional. Anything matched to at least one of regular expressions will be excluded from DevTool console output |\n| [consoleInclude] | <code>[ &#x27;Array&#x27; ].&lt;RegExp&gt;</code> | <code>[]</code> | Optional. If set, only matched outputs will be shown in console. Higher priority than `consoleExclude`. |\n| [log] | <code>string</code> | <code>&quot;console&quot;</code> | Optional. The marker to display `console.log` outputs in Action Logger |\n| [warn] | <code>string</code> | <code>&quot;warn&quot;</code> | Optional. The marker to display warnings in Action Logger |\n| [error] | <code>string</code> | <code>&quot;error&quot;</code> | Optional. The marker to display errors in Action Logger |\n\n<a name=\"module_@storybook/addon-console..optionsCallback\"></a>\n\n### @storybook/addon-console~optionsCallback ⇒ <code>addonOptions</code>\nThis callback could be passed to [setConsoleOptions](setConsoleOptions) or [withConsole](withConsole)\n\n**Kind**: inner typedef of [<code>@storybook/addon-console</code>](#module_@storybook/addon-console)  \n**Returns**: <code>addonOptions</code> - - new [addonOptions](addonOptions)  \n\n| Param | Type | Description |\n| --- | --- | --- |\n| currentOptions | <code>addonOptions</code> | the current [addonOptions](addonOptions) |\n\n**Example**  \n```js\nimport { withConsole } from `@storybook/addon-console`;\n\nconst optionsCallback = (options) => ({panelExclude: [...options.panelExclude, /Warning/]});\nexport default {\n  title: 'Button',\n  decorators: [withConsole(optionsCallback)],\n};\n```\n\n\n## Contributing\n\n`yarn storybook` runs example Storybook. Then you can edit source code located in the `src` folder and example storybook in\nthe `stories` folder.\n\n### Run tests\n\nRun `yarn test`.\n\n### Run tests in watch mode\n\nRun `yarn tdd`.\n\n### Test coverage\n\nAfter running tests you can explore coverage details in `.coverage/lcov-report/index.html`\n\n### Debugging\n\nIf you're using VSCode you can debug tests and source by launching `Jest Tests` task from Debug Menu. It allows to set\nbreakpoints in `*.test.js` and `*.js` files.\n\n### Readme editing\n\nPlease, don't edit this `README.md` directly. Run `yarn dev:docs` and change `docs/readme.hbs` and JSDoc comments\nwithing `src` instead.\n\n## Credits\n\n<div align=\"left\" style=\"height: 16px;\">Created with ❤︎ to <b>React</b> and <b>Storybook</b> by <a\n    href=\"https://twitter.com/UsulPro\">@usulpro</a> [<a href=\"https://github.com/react-theming\">React Theming</a>]\n</div>",
+      "readmeFilename": "README.md",
+      "gitHead": "e8a1f8026eee9616987f0fc11b9c76b8c43f2d8d",
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-HnopmuidZiLPRlWyEG6K6gSzSqdZbgwFM5Zl0HrFpVzdKC9+EAQG+OTAtX/iqFPd02UNXyZeSOAsY+8q0lMlGA==",
+        "shasum": "ec974dd3023b99baf1a6a690c6d07b4d0a2ff5a9",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-3.0.0--canary.84.e8a1f80.0.tgz",
+        "fileCount": 11,
+        "unpackedSize": 43286,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCEM4GPi1Wv4V9Kc6SAZ4QbM1P6wlqLCk1ydET0Ku1jFwIhAMz/5nRZ//zJS0mVrzo6lnRDxq8g+jHblhWvlDl8A6jx"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "ndelangen",
+        "email": "ndelangen@me.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "thafryer",
+          "email": "jarelfryer@gmail.com"
+        },
+        {
+          "name": "shaunlloyd",
+          "email": "shaunlloydmedia@gmail.com"
+        },
+        {
+          "name": "kylegach",
+          "email": "kyle.gach@gmail.com"
+        },
+        {
+          "name": "ndelangen",
+          "email": "ndelangen@me.com"
+        },
+        {
+          "name": "shilman",
+          "email": "michael@lab80.co"
+        },
+        {
+          "name": "alexandrebodin",
+          "email": "bodin.alex@gmail.com"
+        },
+        {
+          "name": "hypnosphi",
+          "email": "talpa@yandex.ru"
+        },
+        {
+          "name": "danielduan",
+          "email": "dduan@yahoo.com"
+        },
+        {
+          "name": "igor-dv",
+          "email": "davydkin.igor@gmail.com"
+        },
+        {
+          "name": "pksunkara",
+          "email": "pavan.sss1991@gmail.com"
+        },
+        {
+          "name": "tmeasday",
+          "email": "tom@thesnail.org"
+        },
+        {
+          "name": "gongreg",
+          "email": "gytis.vinclovas@gmail.com"
+        },
+        {
+          "name": "domyen",
+          "email": "dom@hichroma.com"
+        },
+        {
+          "name": "usulpro",
+          "email": "regx@usul.su"
+        },
+        {
+          "name": "kylesuss",
+          "email": "susskyle@gmail.com"
+        },
+        {
+          "name": "ghengeveld",
+          "email": "info@ghengeveld.nl"
+        },
+        {
+          "name": "pago",
+          "email": "patrick.gotthardt@trivago.com"
+        },
+        {
+          "name": "dandean",
+          "email": "me@dandean.com"
+        },
+        {
+          "name": "mrmckeb",
+          "email": "mrmckeb.npm@outlook.com"
+        },
+        {
+          "name": "dannyhw",
+          "email": "danny.h.williams@hotmail.com"
+        },
+        {
+          "name": "winkervsbecks",
+          "email": "varunvachhar@gmail.com"
+        },
+        {
+          "name": "amalik2",
+          "email": "ahnmalik2@gmail.com"
+        },
+        {
+          "name": "phated",
+          "email": "blaine.bublitz@gmail.com"
+        },
+        {
+          "name": "yannbf",
+          "email": "yannbf@gmail.com"
+        },
+        {
+          "name": "dylanpiercey",
+          "email": "pierceydylan@gmail.com"
+        },
+        {
+          "name": "darleendenno",
+          "email": "darleendenno@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console_3.0.0--canary.84.e8a1f80.0_1706018839463_0.3754018186800323"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.0.0": {
+      "name": "@storybook/addon-console",
+      "version": "3.0.0",
+      "description": "Show console output like logs, errors, and warnings in the Storybook",
+      "keywords": [
+        "storybook-addons",
+        "debug",
+        "code",
+        "storybook",
+        "storybookjs",
+        "storybook-addon",
+        "addon",
+        "console",
+        "action",
+        "logs",
+        "output",
+        "decorator",
+        "warning",
+        "warnings",
+        "error",
+        "errors",
+        "redirect",
+        "devtools"
+      ],
+      "homepage": "https://github.com/storybooks/storybook-addon-console",
+      "bugs": {
+        "url": "https://github.com/storybooks/storybook-addon-console/issues"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "Oleg Proskurin",
+        "url": "https://github.com/UsulPro"
+      },
+      "main": "dist/index.js",
+      "module": "dist/index.mjs",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "build": "tsup",
+        "build-storybook": "storybook build",
+        "build:docs": "yarn build:readme.md && yarn build:readme",
+        "build:readme": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.jsx  > README; echo",
+        "build:readme.md": "jsdoc2md -t docs/readme.hbs -c docs/jsdoc.config.json src/*.jsx  > README.md; echo",
+        "build:tests": "rm -rdf .jest-dist && babel ./src -d ./.jest-dist -s",
+        "debug": "node --debug-brk --inspect npm test",
+        "deploy:storybook": "storybook-to-ghpages",
+        "dev:docs": "nodemon --config docs/nodemon.json -x 'npm run build:docs'",
+        "lint": "eslint ./src",
+        "release": "auto shipit",
+        "prepare": "yarn build",
+        "storybook": "storybook dev",
+        "tdd": "jest --watch",
+        "test": "jest",
+        "test:publish": "npm pack"
+      },
+      "dependencies": {
+        "@storybook/global": "^5.0.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.21.5",
+        "@babel/core": "^7.21.8",
+        "@babel/preset-env": "^7.21.5",
+        "@babel/preset-react": "^7.18.6",
+        "@storybook/addon-actions": "^7.0.12",
+        "@storybook/addon-backgrounds": "^7.0.12",
+        "@storybook/addon-essentials": "^7.0.12",
+        "@storybook/addon-interactions": "^7.0.12",
+        "@storybook/addon-links": "^7.0.12",
+        "@storybook/addon-storysource": "^7.0.12",
+        "@storybook/addons": "^7.0.12",
+        "@storybook/blocks": "^7.0.12",
+        "@storybook/react": "^7.0.12",
+        "@storybook/react-vite": "^7.0.12",
+        "@storybook/testing-library": "^0.0.14-next.2",
+        "@storybook/theming": "^7.0.12",
+        "babel-eslint": "^10.1.0",
+        "babel-loader": "^9.1.2",
+        "enzyme": "^3.3.0",
+        "auto": "^11.0.4",
+        "eslint": "^4.3.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-prettier": "^2.3.0",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jest": "^21.17.0",
+        "eslint-plugin-json": "^1.2.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-prettier": "^2.1.2",
+        "eslint-plugin-react": "^7.1.0",
+        "eslint-plugin-storybook": "^0.6.12",
+        "jest-environment-jsdom": "^29.5.0",
+        "jest-enzyme": "^6.0.1",
+        "jsdoc-to-markdown": "^4.0.1",
+        "lint-staged": "^7.1.3",
+        "nodemon": "^1.12.0",
+        "prettier": "^1.5.3",
+        "prop-types": "^15.5.10",
+        "react-dom": "^16.4.0",
+        "react-test-renderer": "^16.4.0",
+        "storybook": "^7.0.12",
+        "tsup": "^8.0.1",
+        "typescript": "^5.0.3",
+        "url-loader": "^2.1.0",
+        "vite": "^4.3.7"
+      },
+      "peerDependencies": {
+        "@storybook/addon-actions": "*",
+        "react": "*"
+      },
+      "storybook": {
+        "displayName": "Console",
+        "icon": "https://user-images.githubusercontent.com/263385/101991668-479cc600-3c7c-11eb-9aac-09cd7b5b9f97.png"
+      },
+      "auto": {
+        "plugins": [
+          "npm",
+          "released"
+        ]
+      },
+      "_id": "@storybook/addon-console@3.0.0",
+      "gitHead": "ddc225b0fd6f54b44455b59cc0b74c23a782f7c6",
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-2pD2c9KNWuPIWlprqmWoZYrNQnG2qoDg7fAAXXNK6YDc5x/ZpK0cfOyfz/Gpdeje4QUmttZKAVjH0nOZDuxfvw==",
+        "shasum": "2d806da1eabd9adc7cbec71eb052fb6379fd5800",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-console/-/addon-console-3.0.0.tgz",
+        "fileCount": 12,
+        "unpackedSize": 44223,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCHXQ4Dt2yhXgSlMcCoK1HOuzx5y8TIFZPX2hL6Nt4P6gIgLkhxJGTGqz7y5PYxxXqS8/uT7Gjkouo1tU6/ygvZwEc="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "ndelangen",
+        "email": "ndelangen@me.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "thafryer",
+          "email": "jarelfryer@gmail.com"
+        },
+        {
+          "name": "shaunlloyd",
+          "email": "shaunlloydmedia@gmail.com"
+        },
+        {
+          "name": "kylegach",
+          "email": "kyle.gach@gmail.com"
+        },
+        {
+          "name": "ndelangen",
+          "email": "ndelangen@me.com"
+        },
+        {
+          "name": "shilman",
+          "email": "michael@lab80.co"
+        },
+        {
+          "name": "alexandrebodin",
+          "email": "bodin.alex@gmail.com"
+        },
+        {
+          "name": "hypnosphi",
+          "email": "talpa@yandex.ru"
+        },
+        {
+          "name": "danielduan",
+          "email": "dduan@yahoo.com"
+        },
+        {
+          "name": "igor-dv",
+          "email": "davydkin.igor@gmail.com"
+        },
+        {
+          "name": "pksunkara",
+          "email": "pavan.sss1991@gmail.com"
+        },
+        {
+          "name": "tmeasday",
+          "email": "tom@thesnail.org"
+        },
+        {
+          "name": "gongreg",
+          "email": "gytis.vinclovas@gmail.com"
+        },
+        {
+          "name": "domyen",
+          "email": "dom@hichroma.com"
+        },
+        {
+          "name": "usulpro",
+          "email": "regx@usul.su"
+        },
+        {
+          "name": "kylesuss",
+          "email": "susskyle@gmail.com"
+        },
+        {
+          "name": "ghengeveld",
+          "email": "info@ghengeveld.nl"
+        },
+        {
+          "name": "pago",
+          "email": "patrick.gotthardt@trivago.com"
+        },
+        {
+          "name": "dandean",
+          "email": "me@dandean.com"
+        },
+        {
+          "name": "mrmckeb",
+          "email": "mrmckeb.npm@outlook.com"
+        },
+        {
+          "name": "dannyhw",
+          "email": "danny.h.williams@hotmail.com"
+        },
+        {
+          "name": "winkervsbecks",
+          "email": "varunvachhar@gmail.com"
+        },
+        {
+          "name": "amalik2",
+          "email": "ahnmalik2@gmail.com"
+        },
+        {
+          "name": "phated",
+          "email": "blaine.bublitz@gmail.com"
+        },
+        {
+          "name": "yannbf",
+          "email": "yannbf@gmail.com"
+        },
+        {
+          "name": "dylanpiercey",
+          "email": "pierceydylan@gmail.com"
+        },
+        {
+          "name": "darleendenno",
+          "email": "darleendenno@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-console_3.0.0_1706022803410_0.5909538700583874"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "readme": "\n<div align=\"center\">\n  <h1>\n  <nobr>\n    <a href=\"https://storybookjs.github.io/storybook-addon-console\">\n      <img src=\"https://github.com/storybookjs/storybook-addon-console/raw/master/docs/logo.png\" alt=\"logo\" height=\"140\">\n    </a>\n    <img src=\"https://github.com/storybookjs/storybook-addon-console/raw/master/docs/title.png\" alt=\"Storybook Addon Console\">\n    </nobr>\n  </h1>\n\n</div>\n\n<br />\n\n# Storybook Addon Console\n\n[![npm\nversion](https://badge.fury.io/js/%40storybook%2Faddon-console.svg)](https://badge.fury.io/js/%40storybook%2Faddon-console)\n[![addon-console](https://img.shields.io/npm/dt/@storybook/addon-console.svg)](https://github.com/storybooks/storybook-addon-console)\n[![Storybook](https://raw.githubusercontent.com/storybookjs/storybook-addon-console/master/docs/storybook.svg?sanitize=true)](https://storybookjs.github.io/storybook-addon-console)\n\n\n## Why\n\nThere're some cases when you can't / don't want / forgot to keep browser console opened. This addon helps you to get all\nconsole output in your storybook. In other cases, you might find it difficult to extract the desired information in the\ninformation noise issued by the console or to determine which component in what state gives the message. With this\naddon, you can control **what** you see and **where** you see.\n\nWe assume the following possible applications:\n\n- Mobile devices. You might want to make console output reachable for users when they need to work with your storybook\nfrom mobile browsers\n\n- Small screens. You can save your screen space keeping browser console closed\n\n- To filter your console output. You can independently configure both action logger and real console output in a wide\nrange.\n\n- To associate console messages with a specific components/stories. You can see which story emits which message\n\n- To output some data into Action Logger from your deep components without importing `addon-actions` for that.\n\n[![storybook-addon-console](https://raw.githubusercontent.com/storybooks/storybook-addon-console/master/docs/storybook-addon-console.png)](https://raw.githubusercontent.com/storybooks/storybook-addon-console/master/docs/storybook-addon-console.png)\n\ntry [live demo](https://storybookjs.github.io/storybook-addon-console)\n\n### Install\n\n```shell\nyarn add -D @storybook/addon-console @storybook/addon-actions\n```\n\n### Quick Start\n\nJust import it in your storybook config.js:\n\n```js\n// config.js\n\nimport '@storybook/addon-console';\n```\n\nThat's all. You'll start to receive all console messages, warnings, errors in your action logger panel. Everything\nexcept HMR logs.\n\nIf you want to enable HMR messages, do the following:\n\n```js\n// config.js\n\nimport { setConsoleOptions } from '@storybook/addon-console';\n\nconst panelExclude = setConsoleOptions({}).panelExclude;\nsetConsoleOptions({\n  panelExclude: [...panelExclude, /deprecated/],\n});\n```\n\nYou'll receive console outputs as a `console`, `warn` and `error` actions in the panel. You might want to know from what\nstories they come. In this case, add `withConsole` decorator:\n\n```js\n// preview.js\n\nimport type { Preview } from '@storybook/react';\nimport { withConsole } from '@storybook/addon-console';\n\nconst preview: Preview = {\n  decorators: [(storyFn, context) => withConsole()(storyFn)(context)],\n  // ...\n};\n```\n\nAfter that your messages in Action Logger will be prefixed with the story path, like `molecules/atoms/electron:\n[\"ComponentDidMount\"]` or `molecules/atoms/electron error: [\"Warning: Failed prop type...\"]`. You can setup addon\nbehavior by passing options to `withConsole` or `setConsoleOptions` methods, both have the same API.\n\n### Panel\n\nAddon console don't have own UI panel to output logs, it use `addon-console` instead. Make sure that `main.js` contains this line:\n\n```js\n// main.js\n\nexport default {\n  addons: [\n    \"@storybook/addon-actions/register\",\n  ],\n};\n```\n\n\n## API\n<a name=\"module_@storybook/addon-console\"></a>\n\n## @storybook/addon-console\nIt handles `console.log`, `console.warn`, and `console.error` methods and not catched errors. By default, it just reflects all console messages in the Action Logger Panel (should be installed as a peerDependency) except [HMR] logs.\n\n\n* [@storybook/addon-console](#module_@storybook/addon-console)\n    * _static_\n        * [.setConsoleOptions(optionsOrFn)](#module_@storybook/addon-console.setConsoleOptions) ⇒ <code>addonOptions</code>\n        * [.withConsole([optionsOrFn])](#module_@storybook/addon-console.withConsole) ⇒ <code>function</code>\n    * _inner_\n        * [~addonOptions](#module_@storybook/addon-console..addonOptions) : <code>Object</code>\n        * [~optionsCallback](#module_@storybook/addon-console..optionsCallback) ⇒ <code>addonOptions</code>\n\n<a name=\"module_@storybook/addon-console.setConsoleOptions\"></a>\n\n### @storybook/addon-console.setConsoleOptions(optionsOrFn) ⇒ <code>addonOptions</code>\nSet addon options and returns a new one\n\n**Kind**: static method of [<code>@storybook/addon-console</code>](#module_@storybook/addon-console)  \n**See**\n\n- addonOptions\n- optionsCallback\n\n\n| Param | Type |\n| --- | --- |\n| optionsOrFn | <code>addonOptions</code> \\| <code>optionsCallback</code> | \n\n**Example**  \n```js\nimport { setConsoleOptions } from '@storybook/addon-console';\n\nconst panelExclude = setConsoleOptions({}).panelExclude;\nsetConsoleOptions({\n  panelExclude: [...panelExclude, /deprecated/],\n});\n```\n<a name=\"module_@storybook/addon-console.withConsole\"></a>\n\n### @storybook/addon-console.withConsole([optionsOrFn]) ⇒ <code>function</code>\nWraps your stories with specified addon options.\nIf you don't pass {`log`, `warn`, `error`} in options argument it'll create them from context for each story individually. Hence you'll see from what exact story you got a log or error. You can log from component's lifecycle methods or within your story.\n\n**Kind**: static method of [<code>@storybook/addon-console</code>](#module_@storybook/addon-console)  \n**Returns**: <code>function</code> - wrappedStoryFn  \n**See**\n\n- [addonOptions](#storybookaddon-consolesetconsoleoptionsoptionsorfn--addonoptions)\n- [optionsCallback](#storybookaddon-consoleoptionscallback--addonoptions)\n\n\n| Param | Type |\n| --- | --- |\n| [optionsOrFn] | <code>addonOptions</code> \\| <code>optionsCallback</code> | \n\n**Example**  \n```js\nimport type { Meta, StoryObj } from '@storybook/react';\nimport { withConsole } from '@storybook/addon-console';\n\nconst meta: Meta<typeof Button> = {\n  title: 'Example/Button',\n  component: Button,\n};\n\nexport default meta;\ntype Story = StoryObj<typeof Button>;\n\nexport const Primary: Story = {\n  args: {\n    primary: true,\n    label: 'Button',\n    onClick: () => console.log(['Data:', 1, 3, 4]),\n  },\n};\n // Action Logger Panel:\n // withConsole/with Log: [\"Data:\", 1, 3, 4]\n```\n<a name=\"module_@storybook/addon-console..addonOptions\"></a>\n\n### @storybook/addon-console~addonOptions : <code>Object</code>\nThis options could be passed to [withConsole](#storybookaddon-consolewithconsoleoptionsorfn--function) or [setConsoleOptions](#module_@storybook/addon-console.setConsoleOptions)\n\n**Kind**: inner typedef of [<code>@storybook/addon-console</code>](#module_@storybook/addon-console)  \n**Properties**\n\n| Name | Type | Default | Description |\n| --- | --- | --- | --- |\n| [panelExclude] | <code>[ &#x27;Array&#x27; ].&lt;RegExp&gt;</code> | <code>[/[HMR]/]</code> | Optional. Anything matched to at least one of regular expressions will be excluded from output to Action Logger Panel |\n| [panelInclude] | <code>[ &#x27;Array&#x27; ].&lt;RegExp&gt;</code> | <code>[]</code> | Optional. If set, only matched outputs will be shown in Action Logger. Higher priority than `panelExclude`. |\n| [consoleExclude] | <code>[ &#x27;Array&#x27; ].&lt;RegExp&gt;</code> | <code>[]</code> | Optional. Anything matched to at least one of regular expressions will be excluded from DevTool console output |\n| [consoleInclude] | <code>[ &#x27;Array&#x27; ].&lt;RegExp&gt;</code> | <code>[]</code> | Optional. If set, only matched outputs will be shown in console. Higher priority than `consoleExclude`. |\n| [log] | <code>string</code> | <code>&quot;console&quot;</code> | Optional. The marker to display `console.log` outputs in Action Logger |\n| [warn] | <code>string</code> | <code>&quot;warn&quot;</code> | Optional. The marker to display warnings in Action Logger |\n| [error] | <code>string</code> | <code>&quot;error&quot;</code> | Optional. The marker to display errors in Action Logger |\n\n<a name=\"module_@storybook/addon-console..optionsCallback\"></a>\n\n### @storybook/addon-console~optionsCallback ⇒ <code>addonOptions</code>\nThis callback could be passed to [setConsoleOptions](setConsoleOptions) or [withConsole](withConsole)\n\n**Kind**: inner typedef of [<code>@storybook/addon-console</code>](#module_@storybook/addon-console)  \n**Returns**: <code>addonOptions</code> - - new [addonOptions](addonOptions)  \n\n| Param | Type | Description |\n| --- | --- | --- |\n| currentOptions | <code>addonOptions</code> | the current [addonOptions](addonOptions) |\n\n**Example**  \n```js\nimport { withConsole } from `@storybook/addon-console`;\n\nconst optionsCallback = (options) => ({panelExclude: [...options.panelExclude, /Warning/]});\nexport default {\n  title: 'Button',\n  decorators: [withConsole(optionsCallback)],\n};\n```\n\n\n## Contributing\n\n`yarn storybook` runs example Storybook. Then you can edit source code located in the `src` folder and example storybook in\nthe `stories` folder.\n\n### Run tests\n\nRun `yarn test`.\n\n### Run tests in watch mode\n\nRun `yarn tdd`.\n\n### Test coverage\n\nAfter running tests you can explore coverage details in `.coverage/lcov-report/index.html`\n\n### Debugging\n\nIf you're using VSCode you can debug tests and source by launching `Jest Tests` task from Debug Menu. It allows to set\nbreakpoints in `*.test.js` and `*.js` files.\n\n### Readme editing\n\nPlease, don't edit this `README.md` directly. Run `yarn dev:docs` and change `docs/readme.hbs` and JSDoc comments\nwithing `src` instead.\n\n## Credits\n\n<div align=\"left\" style=\"height: 16px;\">Created with ❤︎ to <b>React</b> and <b>Storybook</b> by <a\n    href=\"https://twitter.com/UsulPro\">@usulpro</a> [<a href=\"https://github.com/react-theming\">React Theming</a>]\n</div>",
+  "maintainers": [
+    {
+      "name": "thafryer",
+      "email": "jarelfryer@gmail.com"
+    },
+    {
+      "name": "shaunlloyd",
+      "email": "shaunlloydmedia@gmail.com"
+    },
+    {
+      "name": "kylegach",
+      "email": "kyle.gach@gmail.com"
+    },
+    {
+      "name": "ndelangen",
+      "email": "ndelangen@me.com"
+    },
+    {
+      "name": "shilman",
+      "email": "michael@lab80.co"
+    },
+    {
+      "name": "alexandrebodin",
+      "email": "bodin.alex@gmail.com"
+    },
+    {
+      "name": "hypnosphi",
+      "email": "talpa@yandex.ru"
+    },
+    {
+      "name": "danielduan",
+      "email": "dduan@yahoo.com"
+    },
+    {
+      "name": "igor-dv",
+      "email": "davydkin.igor@gmail.com"
+    },
+    {
+      "name": "pksunkara",
+      "email": "pavan.sss1991@gmail.com"
+    },
+    {
+      "name": "tmeasday",
+      "email": "tom@thesnail.org"
+    },
+    {
+      "name": "gongreg",
+      "email": "gytis.vinclovas@gmail.com"
+    },
+    {
+      "name": "domyen",
+      "email": "dom@hichroma.com"
+    },
+    {
+      "name": "usulpro",
+      "email": "regx@usul.su"
+    },
+    {
+      "name": "kylesuss",
+      "email": "susskyle@gmail.com"
+    },
+    {
+      "name": "ghengeveld",
+      "email": "info@ghengeveld.nl"
+    },
+    {
+      "name": "pago",
+      "email": "patrick.gotthardt@trivago.com"
+    },
+    {
+      "name": "dandean",
+      "email": "me@dandean.com"
+    },
+    {
+      "name": "mrmckeb",
+      "email": "mrmckeb.npm@outlook.com"
+    },
+    {
+      "name": "dannyhw",
+      "email": "danny.h.williams@hotmail.com"
+    },
+    {
+      "name": "winkervsbecks",
+      "email": "varunvachhar@gmail.com"
+    },
+    {
+      "name": "amalik2",
+      "email": "ahnmalik2@gmail.com"
+    },
+    {
+      "name": "phated",
+      "email": "blaine.bublitz@gmail.com"
+    },
+    {
+      "name": "yannbf",
+      "email": "yannbf@gmail.com"
+    },
+    {
+      "name": "dylanpiercey",
+      "email": "pierceydylan@gmail.com"
+    },
+    {
+      "name": "darleendenno",
+      "email": "darleendenno@gmail.com"
+    }
+  ],
+  "time": {
+    "modified": "2024-01-23T15:13:24.165Z",
+    "created": "2017-09-14T13:58:55.517Z",
+    "0.1.0-alpha": "2017-09-14T13:58:55.517Z",
+    "0.1.0-alpha.1": "2017-09-14T14:15:21.323Z",
+    "1.0.0": "2017-09-14T14:25:26.783Z",
+    "1.0.1": "2018-06-09T11:26:04.297Z",
+    "1.0.2": "2018-06-09T11:29:54.659Z",
+    "1.0.3": "2018-06-09T11:31:32.183Z",
+    "1.0.4": "2018-06-09T11:33:59.038Z",
+    "1.0.5": "2018-10-24T20:48:42.257Z",
+    "1.0.6": "2018-10-24T20:50:55.044Z",
+    "1.0.7": "2018-10-24T20:52:41.345Z",
+    "1.0.8": "2018-10-24T21:02:28.819Z",
+    "1.0.9": "2018-10-29T09:52:22.586Z",
+    "1.0.10": "2018-10-29T10:10:48.837Z",
+    "1.1.0": "2018-10-29T12:21:34.223Z",
+    "1.1.1": "2019-07-04T21:18:34.896Z",
+    "1.2.0": "2019-07-21T15:53:45.361Z",
+    "1.2.1": "2019-07-21T16:07:14.081Z",
+    "1.2.2": "2020-09-22T11:27:46.147Z",
+    "1.2.3": "2021-02-07T21:33:00.674Z",
+    "2.0.0": "2023-05-17T12:52:05.628Z",
+    "3.0.0--canary.84.e8a1f80.0": "2024-01-23T14:07:19.620Z",
+    "3.0.0": "2024-01-23T15:13:23.586Z"
+  },
+  "author": {
+    "name": "Oleg Proskurin",
+    "url": "https://github.com/UsulPro"
+  },
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/storybooks/storybook-addon-console",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/storybooks/storybook-addon-console.git"
+  },
+  "bugs": {
+    "url": "https://github.com/storybooks/storybook-addon-console/issues"
+  },
+  "license": "MIT",
+  "users": {
+    "usulpro": true
+  },
+  "keywords": [
+    "storybook-addons",
+    "debug",
+    "code",
+    "storybook",
+    "storybookjs",
+    "storybook-addon",
+    "addon",
+    "console",
+    "action",
+    "logs",
+    "output",
+    "decorator",
+    "warning",
+    "warnings",
+    "error",
+    "errors",
+    "redirect",
+    "devtools"
+  ]
+}

@@ -1,0 +1,848 @@
+{
+  "_id": "node-loader",
+  "_rev": "31-f85f48b1919b391803e18cdf81390052",
+  "name": "node-loader",
+  "description": "A Node loader module for enhanced-require",
+  "dist-tags": {
+    "latest": "2.0.0"
+  },
+  "versions": {
+    "0.5.0": {
+      "name": "node-loader",
+      "version": "0.5.0",
+      "author": {
+        "name": "Tobias Koppers @sokra"
+      },
+      "description": "node loader module for enhanced-require",
+      "licenses": [
+        {
+          "type": "MIT",
+          "url": "http://www.opensource.org/licenses/mit-license.php"
+        }
+      ],
+      "_id": "node-loader@0.5.0",
+      "dist": {
+        "shasum": "dc51627a948ae6c569c65e4b44f4c4a7dec0f170",
+        "tarball": "https://registry.npmjs.org/node-loader/-/node-loader-0.5.0.tgz",
+        "integrity": "sha512-wt41c8NStgCVK4RlT+2Hagz9mmZVNyiyoC8H8dSQn039f8xVFvsaJziU+Fo/ld8EwlCjrgBjd40byZsRuU2XVQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBXWyLbfPSwd7ydtMbvlis7WWOOqE9aCdcL4xqqsiJ28AiEA1BZx8oZbmQ1rWvIVTpmKqf5xGRpI03FktjLUOPDxejo="
+          }
+        ]
+      },
+      "_npmVersion": "1.1.59",
+      "_npmUser": {
+        "name": "sokra",
+        "email": "tobias.koppers@googlemail.com"
+      },
+      "maintainers": [
+        {
+          "name": "sokra",
+          "email": "tobias.koppers@googlemail.com"
+        }
+      ],
+      "directories": {}
+    },
+    "0.6.0": {
+      "name": "node-loader",
+      "version": "0.6.0",
+      "author": {
+        "name": "Tobias Koppers @sokra"
+      },
+      "description": "node loader module for enhanced-require",
+      "licenses": [
+        {
+          "type": "MIT",
+          "url": "http://www.opensource.org/licenses/mit-license.php"
+        }
+      ],
+      "gitHead": "c701e37c1a4105df6984bb5233a021aff3a07916",
+      "_id": "node-loader@0.6.0",
+      "scripts": {},
+      "_shasum": "c797ef51095ed5859902b157f6384f6361e05ae8",
+      "_from": ".",
+      "_npmVersion": "3.3.3",
+      "_nodeVersion": "6.3.1",
+      "_npmUser": {
+        "name": "sokra",
+        "email": "tobias.koppers@googlemail.com"
+      },
+      "dist": {
+        "shasum": "c797ef51095ed5859902b157f6384f6361e05ae8",
+        "tarball": "https://registry.npmjs.org/node-loader/-/node-loader-0.6.0.tgz",
+        "integrity": "sha512-WlUacqHqHWb383Mec656pJmAtg7EXBcijg1sovgy0tI4xevAzv8RqcRARTMlzm0HLXzy1Pdo/DMU19/fxoMnmA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAWxdr7qjgcBggPBpJMnR7bRExximI5iD9SQijuLXFYIAiAtBZpKWAOMKd4SGn/ZAu0weDPhIfLcFuacRz9cE7IHMg=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "sokra",
+          "email": "tobias.koppers@googlemail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/node-loader-0.6.0.tgz_1473885695422_0.8098734004888684"
+      },
+      "directories": {}
+    },
+    "1.0.0": {
+      "name": "node-loader",
+      "version": "1.0.0",
+      "description": "A Node loader module for enhanced-require",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/webpack-contrib/node-loader.git"
+      },
+      "author": {
+        "name": "Tobias Koppers @sokra"
+      },
+      "homepage": "https://github.com/webpack-contrib/node-loader",
+      "bugs": {
+        "url": "https://github.com/webpack-contrib/node-loader/issues"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/webpack"
+      },
+      "main": "dist/cjs.js",
+      "engines": {
+        "node": ">= 10.13.0"
+      },
+      "scripts": {
+        "start": "npm run build -- -w",
+        "clean": "del-cli dist",
+        "prebuild": "npm run clean",
+        "build": "cross-env NODE_ENV=production babel src -d dist --copy-files",
+        "commitlint": "commitlint --from=master",
+        "security": "npm audit",
+        "lint:prettier": "prettier --list-different .",
+        "lint:js": "eslint --cache .",
+        "lint": "npm-run-all -l -p \"lint:**\"",
+        "pretest:only": "cd test/fixtures/example && npm i",
+        "test:only": "cross-env NODE_ENV=test jest",
+        "test:watch": "npm run test:only -- --watch",
+        "test:coverage": "npm run test:only -- --collectCoverageFrom=\"src/**/*.js\" --coverage",
+        "pretest": "npm run lint",
+        "test": "npm run test:coverage",
+        "prepare": "npm run build",
+        "release": "standard-version",
+        "defaults": "webpack-defaults"
+      },
+      "peerDependencies": {
+        "webpack": "^4.0.0 || ^5.0.0"
+      },
+      "dependencies": {
+        "loader-utils": "^2.0.0",
+        "schema-utils": "^2.7.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.10.3",
+        "@babel/core": "^7.10.3",
+        "@babel/preset-env": "^7.10.3",
+        "@commitlint/cli": "^9.0.1",
+        "@commitlint/config-conventional": "^9.0.1",
+        "@webpack-contrib/defaults": "^6.3.0",
+        "@webpack-contrib/eslint-config-webpack": "^3.0.0",
+        "babel-jest": "^26.1.0",
+        "cross-env": "^7.0.2",
+        "del": "^5.1.0",
+        "del-cli": "^3.0.1",
+        "eslint": "^7.3.1",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-import": "^2.21.2",
+        "eslint-plugin-prettier": "^3.1.4",
+        "husky": "^4.2.5",
+        "jest": "^26.1.0",
+        "jest-junit": "^11.0.1",
+        "lint-staged": "^10.2.11",
+        "memfs": "^3.2.0",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.0.5",
+        "standard-version": "^8.0.0",
+        "webpack": "^4.43.0"
+      },
+      "keywords": [
+        "webpack"
+      ],
+      "gitHead": "8906f3b6eb0346bf2de5bcdf9c7f0b82c334f253",
+      "_id": "node-loader@1.0.0",
+      "_nodeVersion": "10.15.2",
+      "_npmVersion": "6.14.5",
+      "dist": {
+        "integrity": "sha512-4EdARSBpLsdapqp2Wbu0S9YwFF0dimoaMYdn01u28lUvT6qx/3+KR2MIprSMBWzqX7+i7OjdMS72QAhc+qrJ8w==",
+        "shasum": "efe5adbcc68d34b97af201106b94531095ee8ca8",
+        "tarball": "https://registry.npmjs.org/node-loader/-/node-loader-1.0.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 11029,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJe9hItCRA9TVsSAnZWagAAtpEP/RO+8NTP6qNpJvCoWeTS\nfxQx0suSM4E7J9viCeXVI6/plyH4JjkWd1UU6DXVHjoHNBEtLT4eCNgB2LAv\nJ71rMTBg9MWgceita8/ey9c3l89Uy3WHYbk/ijQhUvzTrC6Y7j4LdzTj/L0u\neCPbQN5moSzKVQXzRgPdI6Keusb+cKIHzS0Qv+V5oMua8R+HNUpd5Kha9mXC\nDhl6wUMDUaazK/bdfUV3ZLGOLe8G0b+j9UmqNtrmmkPpQdrLJk1hCTSeTiSP\nPtHwPr2n6aXUFBEeEyAWGbMCEOsF39wXRWBok5cHddQDVLde8GS7gfaMYpV2\n2Eopxyefd6r3s1Gf6oNjL0KIp9LSB4aOnfn3g+NcdoNj8slespyH9zVa4vj8\nOmPOtCjdMfe6V3C1fKvSI+WXVrfOgSmlypJNW9ybcnTjL9ZyptTQNJGdre4V\nyyZkxKAHHmL4BrPJ0nN3kA8EltBNq1vPHVQm8dhEBPOIDVy91Uv5SbISXTyV\nUR9pr3OX0tnyKVecucIYh+bWKHxeuvlKXYQS6Pzgc4tEFVqhnqclGkirljfj\ny/QXG1zOIp31TjM8m8X8z+sb+Bo9NKlwCag9N1tB4/pCw+BLXo9R76yYFDhV\nf9Og4pVZuP21ouV5dWEGerUakdoctmR18A2+b5DY2HncIBjZSrVGBKRD3Log\nporP\r\n=aDKh\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDZPSRkE88Fwf2K7tIsONk7NJlFwYoi6S/NOG+tHXnsgwIhANC15On4WLmveY/BTRB00hodroPvpyeH+B0Wee9TqGwd"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "bebraw@gmail.com",
+          "name": "bebraw"
+        },
+        {
+          "email": "wiens.joshua@gmail.com",
+          "name": "d3viant0ne"
+        },
+        {
+          "email": "eric@smarterspam.com",
+          "name": "ericclemmons"
+        },
+        {
+          "email": "sheo13666q@gmail.com",
+          "name": "evilebottnawi"
+        },
+        {
+          "email": "mail@johannesewald.de",
+          "name": "jhnns"
+        },
+        {
+          "email": "michael.ciniawsky@gmail.com",
+          "name": "michael-ciniawsky"
+        },
+        {
+          "email": "tobias.koppers@googlemail.com",
+          "name": "sokra"
+        },
+        {
+          "email": "sean.larkin@cuw.edu",
+          "name": "thelarkinn"
+        }
+      ],
+      "_npmUser": {
+        "name": "evilebottnawi",
+        "email": "sheo13666q@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/node-loader_1.0.0_1593184812534_0.5579310115847766"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.1": {
+      "name": "node-loader",
+      "version": "1.0.1",
+      "description": "A Node loader module for enhanced-require",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/webpack-contrib/node-loader.git"
+      },
+      "author": {
+        "name": "Tobias Koppers @sokra"
+      },
+      "homepage": "https://github.com/webpack-contrib/node-loader",
+      "bugs": {
+        "url": "https://github.com/webpack-contrib/node-loader/issues"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/webpack"
+      },
+      "main": "dist/cjs.js",
+      "engines": {
+        "node": ">= 10.13.0"
+      },
+      "scripts": {
+        "start": "npm run build -- -w",
+        "clean": "del-cli dist",
+        "prebuild": "npm run clean",
+        "build": "cross-env NODE_ENV=production babel src -d dist --copy-files",
+        "commitlint": "commitlint --from=master",
+        "security": "npm audit",
+        "lint:prettier": "prettier --list-different .",
+        "lint:js": "eslint --cache .",
+        "lint": "npm-run-all -l -p \"lint:**\"",
+        "pretest:only": "cd test/fixtures/example && npm i",
+        "test:only": "cross-env NODE_ENV=test jest",
+        "test:watch": "npm run test:only -- --watch",
+        "test:coverage": "npm run test:only -- --collectCoverageFrom=\"src/**/*.js\" --coverage",
+        "pretest": "npm run lint",
+        "test": "npm run test:coverage",
+        "prepare": "npm run build",
+        "release": "standard-version",
+        "defaults": "webpack-defaults"
+      },
+      "peerDependencies": {
+        "webpack": "^4.0.0 || ^5.0.0"
+      },
+      "dependencies": {
+        "loader-utils": "^2.0.0",
+        "schema-utils": "^2.7.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.10.5",
+        "@babel/core": "^7.10.5",
+        "@babel/preset-env": "^7.10.4",
+        "@commitlint/cli": "^9.1.2",
+        "@commitlint/config-conventional": "^9.1.1",
+        "@webpack-contrib/defaults": "^6.3.0",
+        "@webpack-contrib/eslint-config-webpack": "^3.0.0",
+        "babel-jest": "^26.1.0",
+        "cross-env": "^7.0.2",
+        "del": "^5.1.0",
+        "del-cli": "^3.0.1",
+        "eslint": "^7.5.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-import": "^2.22.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "husky": "^4.2.5",
+        "jest": "^26.1.0",
+        "lint-staged": "^10.2.11",
+        "memfs": "^3.2.0",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.0.5",
+        "standard-version": "^8.0.2",
+        "webpack": "^4.44.0"
+      },
+      "keywords": [
+        "webpack"
+      ],
+      "gitHead": "74bd65d0f3d2437a6a943cb59ce813eddfb4ee14",
+      "_id": "node-loader@1.0.1",
+      "_nodeVersion": "10.15.2",
+      "_npmVersion": "6.14.7",
+      "dist": {
+        "integrity": "sha512-0So+BicZSQaY4sLqeutdkXWiTsmr+QrlGtm5dn4OPJBcnZRmjupFbWnZbDLec95KQTZHAwt8+vk+nEIXzPHxGw==",
+        "shasum": "1bfd47245a83b6a20c1d8df7f28c9c83e999d1ac",
+        "tarball": "https://registry.npmjs.org/node-loader/-/node-loader-1.0.1.tgz",
+        "fileCount": 7,
+        "unpackedSize": 11314,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfICFrCRA9TVsSAnZWagAAIP8P/jMlUAP4o1yvOqto4QWi\n2vEfPAPVzuCWGahZwKZb6MLV3wuFWTHgy/63KsBX8w+DoTfSjOYHEZmYuM0y\nOpGddAnKOgvf7DXMgytX948wZAQ6irTEJdRw5H9h0L4vOKD5VfD4HBfy0c6z\nW+c/iGHSccquaIAOi09CT+WTFjHlgoMQoswQuSu1JYFF7zCqjMc/FQhWmIl3\nFUgrIQIS6knaJTRm6KmXIP17CZIdc3LKQANlPTdfPWrzF4w3hAZKBlLvNxku\neyLzCakpfnwiQZZcSq7lv+gdSBuw5jLM7b1y2Qt7plTze+NIvt890J2WesgP\nzN4V5xhKxpsOjFB6Ju/CnzVdqHCEd5EudNX7kv1kCVVWoMrrH5PRKcS/Bbip\n7EwpeKk6SVWVNjT38T8/m+4YtQOitZmGWrap7vnTGb166BMrbXZfLNNeIXnc\nV1vOaeYvnZMJkVV31PMuqm/+CKSdAgK9Tp2T7eVGl5CjPeBaj5zPd2tJ3MqQ\nnJRFWNSUvtpefYO3i6q9XLfv8tBJwWFvcNzu29qhtzWdo91vjHjd0lnWMQP0\nflI/bZG3Zuf9LicTZv3FvFiNLgfxXUQ9RThUXd9uq8tWLq2d13IeSpkOKXBf\n688cfFoYtqmXijRG//nRo9/L54pV5wGvSrKfxZjf5IQGcZrgiGt26uSB/pyZ\nt96Z\r\n=gKJM\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCVo4j6fxDBEDFJdAOY4o2Xg9MsqFwavLRiQiudTUy6ewIgD8kEog070wfx4oXON6Te2XGL/xK4Aq5yeKRgiTYTuvA="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "bebraw@gmail.com",
+          "name": "bebraw"
+        },
+        {
+          "email": "wiens.joshua@gmail.com",
+          "name": "d3viant0ne"
+        },
+        {
+          "email": "eric@smarterspam.com",
+          "name": "ericclemmons"
+        },
+        {
+          "email": "sheo13666q@gmail.com",
+          "name": "evilebottnawi"
+        },
+        {
+          "email": "mail@johannesewald.de",
+          "name": "jhnns"
+        },
+        {
+          "email": "michael.ciniawsky@gmail.com",
+          "name": "michael-ciniawsky"
+        },
+        {
+          "email": "tobias.koppers@googlemail.com",
+          "name": "sokra"
+        },
+        {
+          "email": "sean.larkin@cuw.edu",
+          "name": "thelarkinn"
+        }
+      ],
+      "_npmUser": {
+        "name": "evilebottnawi",
+        "email": "sheo13666q@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/node-loader_1.0.1_1595941227459_0.9638721726929884"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.2": {
+      "name": "node-loader",
+      "version": "1.0.2",
+      "description": "A Node loader module for enhanced-require",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/webpack-contrib/node-loader.git"
+      },
+      "author": {
+        "name": "Tobias Koppers @sokra"
+      },
+      "homepage": "https://github.com/webpack-contrib/node-loader",
+      "bugs": {
+        "url": "https://github.com/webpack-contrib/node-loader/issues"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/webpack"
+      },
+      "main": "dist/cjs.js",
+      "engines": {
+        "node": ">= 10.13.0"
+      },
+      "scripts": {
+        "start": "npm run build -- -w",
+        "clean": "del-cli dist",
+        "prebuild": "npm run clean",
+        "build": "cross-env NODE_ENV=production babel src -d dist --copy-files",
+        "commitlint": "commitlint --from=master",
+        "security": "npm audit",
+        "lint:prettier": "prettier --list-different .",
+        "lint:js": "eslint --cache .",
+        "lint": "npm-run-all -l -p \"lint:**\"",
+        "pretest:only": "cd test/fixtures/example && npm i",
+        "test:only": "cross-env NODE_ENV=test jest",
+        "test:watch": "npm run test:only -- --watch",
+        "test:coverage": "npm run test:only -- --collectCoverageFrom=\"src/**/*.js\" --coverage",
+        "pretest": "npm run lint",
+        "test": "npm run test:coverage",
+        "prepare": "npm run build",
+        "release": "standard-version",
+        "defaults": "webpack-defaults"
+      },
+      "peerDependencies": {
+        "webpack": "^4.0.0 || ^5.0.0"
+      },
+      "dependencies": {
+        "loader-utils": "^2.0.0",
+        "schema-utils": "^3.0.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.11.6",
+        "@babel/core": "^7.11.6",
+        "@babel/preset-env": "^7.11.5",
+        "@commitlint/cli": "^11.0.0",
+        "@commitlint/config-conventional": "^11.0.0",
+        "@webpack-contrib/defaults": "^6.3.0",
+        "@webpack-contrib/eslint-config-webpack": "^3.0.0",
+        "babel-jest": "^26.5.2",
+        "cross-env": "^7.0.2",
+        "del": "^6.0.0",
+        "del-cli": "^3.0.1",
+        "eslint": "^7.10.0",
+        "eslint-config-prettier": "^6.12.0",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-prettier": "^3.1.4",
+        "husky": "^4.3.0",
+        "jest": "^26.5.2",
+        "lint-staged": "^10.4.0",
+        "memfs": "^3.2.0",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.1.2",
+        "standard-version": "^9.0.0",
+        "webpack": "^4.44.2"
+      },
+      "keywords": [
+        "webpack"
+      ],
+      "gitHead": "9954e669e1bdc86afc125cefcbd5b82f2ddc061c",
+      "_id": "node-loader@1.0.2",
+      "_nodeVersion": "10.15.2",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-myxAxpyMR7knjA4Uzwf3gjxaMtxSWj2vpm9o6AYWWxQ1S3XMBNeG2vzYcp/5eW03cBGfgSxyP+wntP8qhBJNhQ==",
+        "shasum": "f8a8f117844652642df1f2abb13ca46242643800",
+        "tarball": "https://registry.npmjs.org/node-loader/-/node-loader-1.0.2.tgz",
+        "fileCount": 7,
+        "unpackedSize": 11427,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfgInICRA9TVsSAnZWagAA7poP/350ecjzLZuP08lYk1CS\n9nFrIW15fo7c6MRCFGxpSZrFBYWMyC2k1eIz3nz34+RTAbQkGM2qdyFZLQbV\nxifbpmgxC0lbT36rx+mo3KdjAdL2+pA5oluQwcEvs6azL8ofne5P+jmBhFqS\ni71LfTdFWn0dZ33o1GGwMjOtE9KyH8cl6HIT7yXM9BMUZMiKv6L07SxoFPLO\nAK24ytwAWk3LZPUoILpvyJfs5z9G49Z+2xGKr9iyOIKK0dS+iRhFYhHjKyxB\nfufn1rG8ix/pm1nkjJn66LzoMCvLEX1DXQbmplxViKsFvP7Ms7VugT0vRCB0\nMdP/R/Yu7ufs8SPB/oQZfpTtBwV0MYEzzofbkj0bj0BQVH72UYnHuG1jkg5P\nepvGWPR37d9HaJsrb2zHRxoQ4QsQzZLUbzZ1hD2ImpXSFHornqZFw/sTnvqN\nFHaLHI9DBeBk1KVlsMsh2clv9ArntlLfc4bmUfCa+etppscKUUXHMgIIIEY7\nE+sCbs7MHp6wrh5VYGnL63Fb49b5wqvG12TjC+AC6QS3mw9/0JyKMHOQyatu\nUONMfzwp/HjOK2985i0qb7YH6ZrNgB0SSY6kVmOaZO1gA1fGi6UApHMVcaGc\nOt3g40FQCtEyMsNNK7Qr8rcuBzquDITOy5wd+uVD6fhI/Fv/2ByU68XVqT9Z\n4vmz\r\n=SBZu\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCIvoOte3ko2ECcF6YVn4vl4ZdXeOLvxOyeSedm4ZZokQIhAP+BQ2qoEQ7tHZhvr3ucvVYy/IgkOae3toyLW+HKJSMX"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "d3viant0ne",
+          "email": "wiens.joshua@gmail.com"
+        },
+        {
+          "name": "evilebottnawi",
+          "email": "sheo13666q@gmail.com"
+        },
+        {
+          "name": "sokra",
+          "email": "tobias.koppers@googlemail.com"
+        },
+        {
+          "name": "jhnns",
+          "email": "mail@johannesewald.de"
+        },
+        {
+          "name": "michael-ciniawsky",
+          "email": "michael.ciniawsky@gmail.com"
+        },
+        {
+          "name": "bebraw",
+          "email": "bebraw@gmail.com"
+        },
+        {
+          "name": "ericclemmons",
+          "email": "eric@smarterspam.com"
+        },
+        {
+          "name": "thelarkinn",
+          "email": "sean.larkin@cuw.edu"
+        }
+      ],
+      "_npmUser": {
+        "name": "evilebottnawi",
+        "email": "sheo13666q@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/node-loader_1.0.2_1602259399401_0.732069275864089"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.3": {
+      "name": "node-loader",
+      "version": "1.0.3",
+      "description": "A Node loader module for enhanced-require",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/webpack-contrib/node-loader.git"
+      },
+      "author": {
+        "name": "Tobias Koppers @sokra"
+      },
+      "homepage": "https://github.com/webpack-contrib/node-loader",
+      "bugs": {
+        "url": "https://github.com/webpack-contrib/node-loader/issues"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/webpack"
+      },
+      "main": "dist/cjs.js",
+      "engines": {
+        "node": ">= 10.13.0"
+      },
+      "scripts": {
+        "start": "npm run build -- -w",
+        "clean": "del-cli dist",
+        "prebuild": "npm run clean",
+        "build": "cross-env NODE_ENV=production babel src -d dist --copy-files",
+        "commitlint": "commitlint --from=master",
+        "security": "npm audit",
+        "lint:prettier": "prettier --list-different .",
+        "lint:js": "eslint --cache .",
+        "lint": "npm-run-all -l -p \"lint:**\"",
+        "pretest:only": "cd test/fixtures/example && npm i",
+        "test:only": "cross-env NODE_ENV=test jest",
+        "test:watch": "npm run test:only -- --watch",
+        "test:coverage": "npm run test:only -- --collectCoverageFrom=\"src/**/*.js\" --coverage",
+        "pretest": "npm run lint",
+        "test": "npm run test:coverage",
+        "prepare": "npm run build",
+        "release": "standard-version",
+        "defaults": "webpack-defaults"
+      },
+      "peerDependencies": {
+        "webpack": "^4.0.0 || ^5.0.0"
+      },
+      "dependencies": {
+        "loader-utils": "^2.0.0",
+        "schema-utils": "^3.0.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.11.6",
+        "@babel/core": "^7.11.6",
+        "@babel/preset-env": "^7.11.5",
+        "@commitlint/cli": "^11.0.0",
+        "@commitlint/config-conventional": "^11.0.0",
+        "@webpack-contrib/defaults": "^6.3.0",
+        "@webpack-contrib/eslint-config-webpack": "^3.0.0",
+        "babel-jest": "^26.5.2",
+        "cross-env": "^7.0.2",
+        "del": "^6.0.0",
+        "del-cli": "^3.0.1",
+        "eslint": "^7.10.0",
+        "eslint-config-prettier": "^6.12.0",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-prettier": "^3.1.4",
+        "husky": "^4.3.0",
+        "jest": "^26.5.2",
+        "lint-staged": "^10.4.0",
+        "memfs": "^3.2.0",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.1.2",
+        "standard-version": "^9.0.0",
+        "webpack": "^4.44.2"
+      },
+      "keywords": [
+        "webpack"
+      ],
+      "gitHead": "5b849f717af5967c2c0b689649a5aff8a669d1e5",
+      "_id": "node-loader@1.0.3",
+      "_nodeVersion": "12.22.0",
+      "_npmVersion": "7.7.6",
+      "dist": {
+        "integrity": "sha512-8c9ef5q24F0AjrPxUjdX7qdTlsU1zZCPeqYvSBCH1TJko3QW4qu1uA1C9KbOPdaRQwREDdbSYZgltBAlbV7l5g==",
+        "shasum": "ed8f4a8a75928575a5a2dab0e73c9f6386b2353e",
+        "tarball": "https://registry.npmjs.org/node-loader/-/node-loader-1.0.3.tgz",
+        "fileCount": 7,
+        "unpackedSize": 11868,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgawmTCRA9TVsSAnZWagAA18IP/j2VyRhm+umdwbz2uoIt\n7tQ4pe8GsEiwZPHpyHsgf3/HlUqegoEmocxrcEPou5t2UkyygxOq8YQhkR60\nX6aErFDpIty0h+lOjHk0QsR5BUlQdHQgjLjDLzIceILvkh09cFUiqGgcXgsf\n7aiM6KPrmITjIMXlsY9rIG2doATEzheXIT8I7ezxrQsF+uGUAF1YZmtFmw+5\njfQobfWhjd/dsDT+VAhIea/OLeKLb3A+2GEzPKjknjqkXQTG4Rdm8db7oIBz\na77KrsG4XPWBtxaBRw8ZbSzqfYaJvdnI8PEJeX2oQFL0Ms/eewKMf6CS99L4\nUpIbetXt++5LYVs+f9S+bZPaOtPxJCO3d1B5QavyIXoPBFr3XZ3Aqd5DfVz6\n6lI1fTdYCy9LUI6OZVlrOu4DgSNqHCQdbZq3kGlkIs5+7pce9vEDCxHpTzZS\nBbNPTKbNKMfWE6ZKqittEX+cJLykzl+yoKEDCIzRuXiSqOyAPLfztidL2vXx\nYrHHsd0s/Sds3WLHfflzwSs0BIhvPyF6cS5O56FvNqHEqCSHnWsdKt1DrQAj\n94J50z2Ugp38iHXBxwDWlTcUaKlWi5vE2vuKVVldstCYMbKsTg9zZotvWHyo\nmJoGgd30zkEtwhpyVXTbn88hKTKSt/MA0ALFcrZ4QGDObSIBpOFdhVlkP8L6\nYrTb\r\n=4FD8\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDE1MRKhrkVF4Pa5s3tCH/o75WxOsN3EsWzPHW8PQ7DuQIgCcI0YnoTnPqeA+eCWq1idRBxbwrMTf/mOUiCQUlcA2k="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "evilebottnawi",
+        "email": "sheo13666q@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "evilebottnawi",
+          "email": "sheo13666q@gmail.com"
+        },
+        {
+          "name": "sokra",
+          "email": "tobias.koppers@googlemail.com"
+        },
+        {
+          "name": "jhnns",
+          "email": "mail@johannesewald.de"
+        },
+        {
+          "name": "michael-ciniawsky",
+          "email": "michael.ciniawsky@gmail.com"
+        },
+        {
+          "name": "d3viant0ne",
+          "email": "wiens.joshua@gmail.com"
+        },
+        {
+          "name": "bebraw",
+          "email": "bebraw@gmail.com"
+        },
+        {
+          "name": "ericclemmons",
+          "email": "eric@smarterspam.com"
+        },
+        {
+          "name": "thelarkinn",
+          "email": "sean.larkin@cuw.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/node-loader_1.0.3_1617627539326_0.9117098547858609"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0": {
+      "name": "node-loader",
+      "version": "2.0.0",
+      "description": "A Node loader module for enhanced-require",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/webpack-contrib/node-loader.git"
+      },
+      "author": {
+        "name": "Tobias Koppers @sokra"
+      },
+      "homepage": "https://github.com/webpack-contrib/node-loader",
+      "bugs": {
+        "url": "https://github.com/webpack-contrib/node-loader/issues"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/webpack"
+      },
+      "main": "dist/cjs.js",
+      "engines": {
+        "node": ">= 10.13.0"
+      },
+      "scripts": {
+        "start": "npm run build -- -w",
+        "clean": "del-cli dist",
+        "prebuild": "npm run clean",
+        "build": "cross-env NODE_ENV=production babel src -d dist --copy-files",
+        "commitlint": "commitlint --from=master",
+        "security": "npm audit",
+        "lint:prettier": "prettier --list-different .",
+        "lint:js": "eslint --cache .",
+        "lint": "npm-run-all -l -p \"lint:**\"",
+        "pretest:only": "cd test/fixtures/example && npm i",
+        "test:only": "cross-env NODE_ENV=test jest",
+        "test:watch": "npm run test:only -- --watch",
+        "test:coverage": "npm run test:only -- --collectCoverageFrom=\"src/**/*.js\" --coverage",
+        "pretest": "npm run lint",
+        "test": "npm run test:coverage",
+        "prepare": "npm run build",
+        "release": "standard-version"
+      },
+      "peerDependencies": {
+        "webpack": "^5.0.0"
+      },
+      "dependencies": {
+        "loader-utils": "^2.0.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.13.14",
+        "@babel/core": "^7.13.14",
+        "@babel/preset-env": "^7.13.12",
+        "@commitlint/cli": "^12.1.1",
+        "@commitlint/config-conventional": "^12.1.1",
+        "@webpack-contrib/eslint-config-webpack": "^3.0.0",
+        "babel-jest": "^26.6.3",
+        "cross-env": "^7.0.3",
+        "del": "^6.0.0",
+        "del-cli": "^3.0.1",
+        "eslint": "^7.23.0",
+        "eslint-config-prettier": "^8.1.0",
+        "eslint-plugin-import": "^2.22.1",
+        "husky": "^4.3.0",
+        "jest": "^26.6.3",
+        "lint-staged": "^10.5.4",
+        "memfs": "^3.2.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.2.1",
+        "standard-version": "^9.1.1",
+        "webpack": "^5.30.0"
+      },
+      "keywords": [
+        "webpack"
+      ],
+      "gitHead": "defd281bbe5b50d49c0ecfc65d9227e9abb2b919",
+      "_id": "node-loader@2.0.0",
+      "_nodeVersion": "12.22.0",
+      "_npmVersion": "7.7.6",
+      "dist": {
+        "integrity": "sha512-I5VN34NO4/5UYJaUBtkrODPWxbobrE4hgDqPrjB25yPkonFhCmZ146vTH+Zg417E9Iwoh1l/MbRs1apc5J295Q==",
+        "shasum": "9109a6d828703fd3e0aa03c1baec12a798071562",
+        "tarball": "https://registry.npmjs.org/node-loader/-/node-loader-2.0.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 11945,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh207iCRA9TVsSAnZWagAACdsP/RtRjyYpztC4Iye3LowT\nlC8veudsIhXEZW5Qnp8qPGlCROzFUXBhFuqwfe9ZFElkG0tnlg8QgZ7XD3xu\nCECzlGh5cuxPl4dR8poRtuerh+k8l0tYID6yrg4FnDKjQbxX3lAEXFpW/Txq\nTKxKOYmbDqfsNDkT3XUqn9CHCjh3sJtu1PtjJS303We22e4unMkJ+/+yfEvD\n4VPgr+4zCHBRE9DDQl80Cbv+QYA6IZpgT52f1Ib9runcy5r1kpe6OTslj/iI\nP6pO0gMbymQhWi9fAmuGwsI3HF7Nhbw/ufx6MAe+/sTtPbsnvcA+X92pMfUP\ns8Y46cBhYWlurmbVAT2fnGAB5cGG4+6oRuhYZzrb8Hl1ZgIbDcwTtYu8c6QS\nyYU/9D0aQBWjOz9at9NRlV9CUbLOVYxfjgKeFI83kajmI501sKiRDehGndh2\nbPkoqsYmGxn0p/cv91R/7lW4LnKd5SXNX01E/79IVXNMOtl7qdlFGnQfA2cf\nOa/IF2hB2MfAn0sQfKsy0PpOhoqj6X0L/JRPnTmKEmnIQ9bf4lQKoz+ONhbW\ngUQyRPxgnyxwNc3rwzLAGntoeQsqhMDiuiROkQbkGJOeitEwTyONz/PfI2lw\nvglcvFRRupOBGoHtnuDfR8qnvp2YcaPgNknlvl9zGWejcYClVKuve5CfKjum\nxcM/\r\n=khe4\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHBhv7K54RgIW1Pm692IGqarBS1tEiI93GuyK1nGmyOcAiBWNHysWCY3hh0EC8t3wldc2xTGd+fe3GswVBtORyUN5g=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "evilebottnawi",
+        "email": "sheo13666q@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "evilebottnawi",
+          "email": "sheo13666q@gmail.com"
+        },
+        {
+          "name": "sokra",
+          "email": "tobias.koppers@googlemail.com"
+        },
+        {
+          "name": "jhnns",
+          "email": "mail@johannesewald.de"
+        },
+        {
+          "name": "michael-ciniawsky",
+          "email": "michael.ciniawsky@gmail.com"
+        },
+        {
+          "name": "d3viant0ne",
+          "email": "wiens.joshua@gmail.com"
+        },
+        {
+          "name": "bebraw",
+          "email": "bebraw@gmail.com"
+        },
+        {
+          "name": "ericclemmons",
+          "email": "eric@smarterspam.com"
+        },
+        {
+          "name": "thelarkinn",
+          "email": "sean.larkin@cuw.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/node-loader_2.0.0_1617632050074_0.6124759491627978"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "readme": "<div align=\"center\">\n  <a href=\"https://github.com/webpack/webpack\">\n    <img width=\"200\" height=\"200\" src=\"https://webpack.js.org/assets/icon-square-big.svg\">\n  </a>\n</div>\n\n[![npm][npm]][npm-url]\n[![node][node]][node-url]\n[![deps][deps]][deps-url]\n[![tests][tests]][tests-url]\n[![coverage][cover]][cover-url]\n[![chat][chat]][chat-url]\n[![size][size]][size-url]\n\n# node-loader\n\nA [Node.js add-ons](https://nodejs.org/dist/latest/docs/api/addons.html) loader.\n\nAllows to connect native node modules with `.node` extension.\n\n> ⚠ `node-loader` only works on the `node`/`electron-main`/`electron-main` targets.\n\n## Getting Started\n\nTo begin, you'll need to install `node-loader`:\n\n```console\n$ npm install node-loader --save-dev\n```\n\nSetup the `target` option to `node`/`electron-main`/`electron-main` value and do not mock the `__dirname` global variable.\n\n**webpack.config.js**\n\n```js\nmodule.exports = {\n  target: \"node\",\n  node: {\n    __dirname: false,\n  },\n  module: {\n    rules: [\n      {\n        test: /\\.node$/,\n        loader: \"node-loader\",\n      },\n    ],\n  },\n};\n```\n\n### Inline\n\n**index.js**\n\n```js\nimport node from \"node-loader!./file.node\";\n```\n\nAnd run `webpack` via your preferred method.\n\n### Configuration\n\n**index.js**\n\n```js\nimport node from \"file.node\";\n```\n\nThen add the loader to your `webpack` config. For example:\n\n**webpack.config.js**\n\n```js\nmodule.exports = {\n  target: \"node\",\n  node: {\n    __dirname: false,\n  },\n  module: {\n    rules: [\n      {\n        test: /\\.node$/,\n        loader: \"node-loader\",\n      },\n    ],\n  },\n};\n```\n\nAnd run `webpack` via your preferred method.\n\n## Options\n\n|         Name          |         Type         |         Default         | Description                                                  |\n| :-------------------: | :------------------: | :---------------------: | :----------------------------------------------------------- |\n| **[`flags`](#flags)** |      `{Number}`      |       `undefined`       | Enables/Disables `url`/`image-set` functions handling        |\n|  **[`name`](#name)**  | `{String\\|Function}` | `'[contenthash].[ext]'` | Specifies a custom filename template for the target file(s). |\n\n### `flags`\n\nType: `Number`\nDefault: `undefined`\n\nThe `flags` argument is an integer that allows to specify dlopen behavior.\nSee the [`process.dlopen`][https://nodejs.org/api/process.html#process_process_dlopen_module_filename_flags] documentation for details.\n\n**index.js**\n\n```js\nimport node from \"file.node\";\n```\n\n**webpack.config.js**\n\n```js\nconst os = require(\"os\");\n\nmodule.exports = {\n  target: \"node\",\n  node: {\n    __dirname: false,\n  },\n  module: {\n    rules: [\n      {\n        test: /\\.node$/,\n        loader: \"node-loader\",\n        options: {\n          flags: os.constants.dlopen.RTLD_NOW,\n        },\n      },\n    ],\n  },\n};\n```\n\n### `name`\n\nType: `String|Function`\nDefault: `'[contenthash].[ext]'`\n\nSpecifies a custom filename template for the target file(s).\n\n#### `String`\n\n**webpack.config.js**\n\n```js\nmodule.exports = {\n  target: \"node\",\n  node: {\n    __dirname: false,\n  },\n  module: {\n    rules: [\n      {\n        test: /\\.node$/,\n        loader: \"node-loader\",\n        options: {\n          name: \"[path][name].[ext]\",\n        },\n      },\n    ],\n  },\n};\n```\n\n#### `Function`\n\n**webpack.config.js**\n\n```js\nmodule.exports = {\n  target: \"node\",\n  node: {\n    __dirname: false,\n  },\n  module: {\n    rules: [\n      {\n        test: /\\.node$/,\n        loader: \"node-loader\",\n        options: {\n          name(resourcePath, resourceQuery) {\n            // `resourcePath` - `/absolute/path/to/file.js`\n            // `resourceQuery` - `?foo=bar`\n\n            if (process.env.NODE_ENV === \"development\") {\n              return \"[path][name].[ext]\";\n            }\n\n            return \"[contenthash].[ext]\";\n          },\n        },\n      },\n    ],\n  },\n};\n```\n\n## Contributing\n\nPlease take a moment to read our contributing guidelines if you haven't yet done so.\n\n[CONTRIBUTING](./.github/CONTRIBUTING.md)\n\n## License\n\n[MIT](./LICENSE)\n\n[npm]: https://img.shields.io/npm/v/node-loader.svg\n[npm-url]: https://npmjs.com/package/node-loader\n[node]: https://img.shields.io/node/v/node-loader.svg\n[node-url]: https://nodejs.org\n[deps]: https://david-dm.org/webpack-contrib/node-loader.svg\n[deps-url]: https://david-dm.org/webpack-contrib/node-loader\n[tests]: https://github.com/webpack-contrib/node-loader/workflows/node-loader/badge.svg\n[tests-url]: https://github.com/webpack-contrib/node-loader/actions\n[cover]: https://codecov.io/gh/webpack-contrib/node-loader/branch/master/graph/badge.svg\n[cover-url]: https://codecov.io/gh/webpack-contrib/node-loader\n[chat]: https://badges.gitter.im/webpack/webpack.svg\n[chat-url]: https://gitter.im/webpack/webpack\n[size]: https://packagephobia.now.sh/badge?p=node-loader\n[size-url]: https://packagephobia.now.sh/result?p=node-loader\n",
+  "maintainers": [
+    {
+      "email": "sheo13666q@gmail.com",
+      "name": "evilebottnawi"
+    },
+    {
+      "email": "tobias.koppers@googlemail.com",
+      "name": "sokra"
+    },
+    {
+      "email": "mail@johannesewald.de",
+      "name": "jhnns"
+    }
+  ],
+  "time": {
+    "modified": "2023-04-11T03:19:23.013Z",
+    "created": "2013-02-15T13:21:07.260Z",
+    "0.5.0": "2013-02-15T13:21:11.375Z",
+    "0.6.0": "2016-09-14T20:41:37.255Z",
+    "1.0.0": "2020-06-26T15:20:12.652Z",
+    "1.0.1": "2020-07-28T13:00:27.551Z",
+    "1.0.2": "2020-10-09T16:03:19.569Z",
+    "1.0.3": "2021-04-05T12:58:59.460Z",
+    "2.0.0": "2021-04-05T14:14:10.215Z"
+  },
+  "author": {
+    "name": "Tobias Koppers @sokra"
+  },
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/webpack-contrib/node-loader",
+  "keywords": [
+    "webpack"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webpack-contrib/node-loader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/webpack-contrib/node-loader/issues"
+  },
+  "license": "MIT",
+  "users": {
+    "flumpus-dev": true
+  }
+}
