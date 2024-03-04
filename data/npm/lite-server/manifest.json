@@ -1,0 +1,1882 @@
+{
+  "_id": "lite-server",
+  "_rev": "135-f0240dcbcd496ea4f0b4ec758546ea34",
+  "name": "lite-server",
+  "time": {
+    "modified": "2022-06-19T12:49:40.141Z",
+    "created": "2013-09-24T08:45:37.621Z",
+    "1.0.2": "2013-09-24T08:46:41.471Z",
+    "1.0.4": "2013-09-24T08:59:16.375Z",
+    "1.0.6": "2013-09-24T10:08:34.948Z",
+    "1.0.0": "2015-10-18T13:38:27.234Z",
+    "1.0.1": "2015-10-18T14:20:26.387Z",
+    "1.0.3": "2015-10-18T23:56:34.314Z",
+    "1.1.0": "2015-11-17T02:11:18.853Z",
+    "1.2.0": "2015-11-17T23:23:20.517Z",
+    "1.3.0": "2015-11-18T02:35:59.516Z",
+    "1.3.1": "2015-11-18T02:52:34.132Z",
+    "1.3.2": "2015-12-28T22:48:02.787Z",
+    "1.3.3": "2016-01-20T02:18:04.941Z",
+    "1.3.4": "2016-01-20T02:18:54.983Z",
+    "2.0.0": "2016-01-31T13:44:17.824Z",
+    "2.0.1": "2016-01-31T14:38:21.639Z",
+    "2.1.0": "2016-02-18T01:28:55.497Z",
+    "2.2.0": "2016-04-04T15:49:22.967Z",
+    "2.2.2": "2016-06-25T22:49:53.429Z",
+    "2.3.0": "2017-03-08T20:07:41.113Z",
+    "2.4.0": "2018-06-27T18:20:43.562Z",
+    "2.5.0": "2019-05-22T20:08:30.716Z",
+    "2.5.1": "2019-05-22T20:10:16.567Z",
+    "2.5.2": "2019-05-22T20:28:28.388Z",
+    "2.5.3": "2019-05-22T22:41:38.330Z",
+    "2.5.4": "2019-08-10T14:13:24.697Z",
+    "2.6.0": "2020-11-10T17:57:09.873Z",
+    "2.6.1": "2020-11-11T14:58:24.240Z"
+  },
+  "maintainers": [
+    {
+      "name": "johnpapa",
+      "email": "john@johnpapa.net"
+    }
+  ],
+  "dist-tags": {
+    "latest": "2.6.1"
+  },
+  "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+  "readme": "# lite-server\n\nLightweight _development only_ node server that serves a web app, opens it in the browser, refreshes when html or javascript change, injects CSS changes using sockets, and has a fallback page when a route is not found.\n\n[![Dependency Status](https://david-dm.org/johnpapa/lite-server.svg)](https://david-dm.org/johnpapa/lite-server)\n[![npm version](https://badge.fury.io/js/lite-server.svg)](http://badge.fury.io/js/lite-server)\n[![Build Status](https://travis-ci.org/johnpapa/lite-server.svg?branch=main)](https://travis-ci.org/johnpapa/lite-server) [![Greenkeeper badge](https://badges.greenkeeper.io/johnpapa/lite-server.svg)](https://greenkeeper.io/)\n[![Build Status](https://dev.azure.com/johnpapa/lite-server/_apis/build/status/johnpapa.lite-server?branchName=main)](https://dev.azure.com/johnpapa/lite-server/_build/latest?definitionId=4&branchName=main&WT.mc_id=liteserver-github-jopapa)\n\n## Why\n\nBrowserSync does most of what we want in a super fast lightweight development server. It serves the static content, detects changes, refreshes the browser, and offers many customizations.\n\nWhen creating a SPA there are routes that are only known to the browser. For example, `/customer/21` may be a client side route for an Angular app. If this route is entered manually or linked to directly as the entry point of the Angular app (aka a deep link) the static server will receive the request, because Angular is not loaded yet. The server will not find a match for the route and thus return a 404. The desired behavior in this case is to return the `index.html` (or whatever starting page of the app we have defined). BrowserSync does not automatically allow for a fallback page. But it does allow for custom middleware. This is where `lite-server` steps in.\n\n`lite-server` is a simple customized wrapper around BrowserSync to make it easy to serve SPAs.\n\n## Installation and Usage\n\nThe recommended installation method is a local NPM install for your project:\n\n```bash\nnpm install lite-server --save-dev\nyarn add lite-server --dev # or yarn\n```\n\n...and add a \"script\" entry within your project's `package.json` file:\n\n```json\n# Inside package.json...\n  \"scripts\": {\n    \"dev\": \"lite-server\"\n  },\n```\n\nWith the above script entry, you can then start `lite-server` via:\n\n```bash\nnpm run dev\n```\n\nOther options for running locally installed NPM binaries is discussed in this Stack Overflow question: [How to use package installed locally in node_modules](http://stackoverflow.com/q/9679932)\n\n### Using on the fly\n\nlite-server can be used with `npx`\n\n```bash\nnpx lite-server\n```\n\n### Global Installation\n\nlite-server can be also installed globally, if preferred:\n\n```bash\nnpm install --global lite-server\n\n# To run:\nlite-server\n```\n\n## Custom Configuration\n\nThe default behavior serves from the current folder, opens a browser, and applies a HTML5 route fallback to `./index.html`.\n\nlite-server uses [BrowserSync](https://www.browsersync.io/), and allows for configuration overrides via a local `bs-config.json` or `bs-config.js` file in your project.\n\nYou can provide custom path to your config file via `-c` or `--config=` run time options:\n\n```bash\nlite-server -c configs/my-bs-config.js\n```\n\nFor example, to change the server port, watched file paths, and base directory for your project, create a `bs-config.json` in your project's folder:\n\n```json\n{\n  \"port\": 8000,\n  \"files\": [\"./src/**/*.{html,htm,css,js}\"],\n  \"server\": { \"baseDir\": \"./src\" }\n}\n```\n\nYou can also provide custom path to your base directory `--baseDir=` run time options:\n\n```bash\nlite-server --baseDir=\"dist\"\n```\n\nA more complicated example with modifications to the server middleware can be done with a `bs-config.js` file, which requires the `module.exports = { ... };` syntax:\n\n```js\nmodule.exports = {\n  server: {\n    middleware: {\n      // overrides the second middleware default with new settings\n      1: require('connect-history-api-fallback')({\n        index: '/index.html',\n        verbose: true,\n      }),\n    },\n  },\n};\n```\n\nThe `bs-config.js` file may also export a function that receives the lite-server Browsersync instance as its only argument. While not required, the return value of this function will be used to extend the default lite-server configuration.\n\n```js\nmodule.exports = function (bs) {\n  return {\n    server: {\n      middleware: {\n        // overrides the second middleware default with new settings\n        1: require('connect-history-api-fallback')({\n          index: '/index.html',\n          verbose: true,\n        }),\n      },\n    },\n  };\n};\n```\n\n**NOTE:** Keep in mind that when using middleware overrides the specific middleware module must be installed in your project. For the above example, you'll need to do:\n\n```bash\nnpm install connect-history-api-fallback --save-dev\n```\n\n...otherwise you'll get an error similar to:\n\n```bash\nError: Cannot find module 'connect-history-api-fallback'\n```\n\nAnother example: To remove one of the [default middlewares](./lib/config-defaults.js), such as `connect-logger`, you can set it's array index to `null`:\n\n```js\nmodule.exports = {\n  server: {\n    middleware: {\n      0: null, // removes default `connect-logger` middleware\n    },\n  },\n};\n```\n\nA list of the entire set of BrowserSync options can be found in its docs: <http://www.browsersync.io/docs/options/>\n\n## Testing\n\nWhen using `lite-server` to run end to end tests, we may not want to log verbosely. We may also want to prevent the browser from opening. These options in the `bs-config.js` will silence all logging from `lite-server`:\n\n```js\n  open: false\n  logLevel: \"silent\",\n  server: {\n    middleware: {\n      0: null\n    }\n  }\n```\n\n## Known Issues\n\nCSS with Angular 2 is embedded thus even though BrowserSync detects the file change to CSS, it does not inject the file via sockets. As a workaround, `injectChanges` defaults to `false`.\n\n## Contributing\n\n1. Fork and clone it\n1. Install dependencies: `npm install`\n1. Create a feature branch: `git checkout -b new-feature`\n1. Commit changes: `git commit -am 'Added a feature'`\n1. Run static code analysis and unit tests: `npm test`\n1. Push to the remote branch: `git push origin new-feature`\n1. Create a new [Pull Request](https://github.com/johnpapa/lite-server/pull/new/main)\n\n## License\n\nCode released under the [MIT license](./LICENSE).\n",
+  "versions": {
+    "1.0.0": {
+      "name": "lite-server",
+      "version": "1.0.0",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "./lib/lite-server",
+      "scripts": {},
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [],
+      "author": {
+        "name": "John Papa",
+        "email": "john@johnpapa.net",
+        "url": "http://johnpapa.net/"
+      },
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.9.11",
+        "connect-history-api-fallback": "^1.1.0",
+        "connect-logger": "0.0.1",
+        "yargs": "^3.27.0"
+      },
+      "gitHead": "b66b067768618f31684b75c8b29bdacd06c363bd",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@1.0.0",
+      "_shasum": "b4069cb3a9af0c14898c98064ae78e811c463010",
+      "_from": ".",
+      "_npmVersion": "2.14.3",
+      "_nodeVersion": "4.0.0",
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "dist": {
+        "shasum": "b4069cb3a9af0c14898c98064ae78e811c463010",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-1.0.0.tgz",
+        "integrity": "sha512-68AuGYOKe/CAunx1kce5Lu+9J2isu5K4FSx60H30z7Fl2yT3n1wSsQLQgHJ+N4VSGwS9qaU5BWSOPcXFEZeNWQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCUKfv3JzW7EvX+3vZSRRVh43w5MCh6fZoYXMYWxBSe0gIhAMOmXRo9r0lY9k4SIYLgZDSSNUsLxhmxZodhV2pvCm5C"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "directories": {}
+    },
+    "1.0.1": {
+      "name": "lite-server",
+      "version": "1.0.1",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "./lib/lite-server",
+      "scripts": {},
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [],
+      "author": {
+        "name": "John Papa",
+        "email": "john@johnpapa.net",
+        "url": "http://johnpapa.net/"
+      },
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.9.11",
+        "connect-history-api-fallback": "^1.1.0",
+        "connect-logger": "0.0.1",
+        "yargs": "^3.27.0"
+      },
+      "gitHead": "b66b067768618f31684b75c8b29bdacd06c363bd",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@1.0.1",
+      "_shasum": "db798df215e7a215405372ea0a3a266c11fbe671",
+      "_from": ".",
+      "_npmVersion": "2.14.3",
+      "_nodeVersion": "4.0.0",
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "dist": {
+        "shasum": "db798df215e7a215405372ea0a3a266c11fbe671",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-1.0.1.tgz",
+        "integrity": "sha512-nUsRsqI7luf/Jj0aqvezLcRdXj4ANQL7aSqIWvXMBNpQhVxiIgMUucixxXV2KpoTGLNKq2I/k27WQQFthXddaw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDHsYh+qn1K5Ad3SW+Yf1U6f+V4Oksx5fbuBkRLlSDsPAIgBf1oNEEG7OvxFMHxoOXWXxx74Lo1ygGnnfgX9IgIg+Y="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "directories": {}
+    },
+    "1.0.3": {
+      "name": "lite-server",
+      "version": "1.0.3",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "./lib/lite-server",
+      "scripts": {},
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [],
+      "author": {
+        "name": "John Papa",
+        "email": "john@johnpapa.net",
+        "url": "http://johnpapa.net/"
+      },
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.9.11",
+        "connect-history-api-fallback": "^1.1.0",
+        "connect-logger": "0.0.1",
+        "yargs": "^3.27.0"
+      },
+      "gitHead": "db06d2724eb06944fffc26b3ab4ace1e5751e49a",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@1.0.3",
+      "_shasum": "9801773f95c3b8867bc9dca9d9f18eec8dd4dba2",
+      "_from": ".",
+      "_npmVersion": "2.14.3",
+      "_nodeVersion": "4.0.0",
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "dist": {
+        "shasum": "9801773f95c3b8867bc9dca9d9f18eec8dd4dba2",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-1.0.3.tgz",
+        "integrity": "sha512-qROl//8mLDUaQYQR2FO4VFZsMQ2oLesFpRzn4vp0jXqYfjdOdhqqI098B0WoDdHZbfnxdlgNqqEtZXXRskQ2qA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEyET6s4+SJHM4YxhjUuwP/g3Ckxuq3Ha2jQa9Z7pRUbAiEAuCkF3Vz/ZHSbc441YAMxhxT4giinOxKiS3XJJW5k0sw="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "directories": {}
+    },
+    "1.1.0": {
+      "name": "lite-server",
+      "version": "1.1.0",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "./lib/lite-server",
+      "scripts": {},
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [],
+      "author": {
+        "name": "John Papa",
+        "email": "john@johnpapa.net",
+        "url": "http://johnpapa.net/"
+      },
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.9.11",
+        "connect-history-api-fallback": "^1.1.0",
+        "connect-logger": "0.0.1",
+        "yargs": "^3.27.0"
+      },
+      "gitHead": "fde78b85bdb4ac17ad0b63370653dcaec55649e9",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@1.1.0",
+      "_shasum": "931a30db7f12e2787a831f4a3046ba5a8d42847f",
+      "_from": ".",
+      "_npmVersion": "2.14.3",
+      "_nodeVersion": "4.0.0",
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "dist": {
+        "shasum": "931a30db7f12e2787a831f4a3046ba5a8d42847f",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-1.1.0.tgz",
+        "integrity": "sha512-1aqhcUwenhxQu2xfNFae2KmyNXOlrkFmTX9rz4ocueg7GOrgDTuYBpdl4lOcoOzH/8w3pVhyS64IbgbUXrgc7Q==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEfXZBV4lnX+GjJypka4y+lh4US77PRV7x/8ArhSTorGAiEAn/VJnUsAPVHMjWL4ZKGMJDs1KO6PCy4SWjvzZZsJjyQ="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "directories": {}
+    },
+    "1.2.0": {
+      "name": "lite-server",
+      "version": "1.2.0",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "./lib/lite-server",
+      "scripts": {},
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [],
+      "author": {
+        "name": "John Papa",
+        "email": "john@johnpapa.net",
+        "url": "http://johnpapa.net/"
+      },
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.9.11",
+        "connect-history-api-fallback": "^1.1.0",
+        "connect-logger": "0.0.1",
+        "yargs": "^3.27.0"
+      },
+      "devDependencies": {},
+      "gitHead": "259cf9ce992d0aea482f22721beb9709b896450f",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@1.2.0",
+      "_shasum": "f607328dcabd49f320bee0748380f1960e072f0f",
+      "_from": ".",
+      "_npmVersion": "2.14.3",
+      "_nodeVersion": "4.0.0",
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "dist": {
+        "shasum": "f607328dcabd49f320bee0748380f1960e072f0f",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-1.2.0.tgz",
+        "integrity": "sha512-uypWjrD67lbOpJvm5Lj6wiy8Azf23WyltOadXLrDSty1ErgVEOpjpRAgtebow2uG6HjWcNTeBc7KOepqNtM67g==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEG3kDX+GYxdAPBJKzGr9vSW6gY4QzAdyM3P7qTsBuuKAiBEwbWh/xPHkB9ulXTsx4UIoSWBo6D0XPo2kRbZ6GAjhg=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "directories": {}
+    },
+    "1.3.0": {
+      "name": "lite-server",
+      "version": "1.3.0",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "./lib/lite-server",
+      "scripts": {},
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [],
+      "author": {
+        "name": "John Papa",
+        "email": "john@johnpapa.net",
+        "url": "http://johnpapa.net/"
+      },
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.9.11",
+        "connect-history-api-fallback": "^1.1.0",
+        "connect-logger": "0.0.1",
+        "yargs": "^3.27.0"
+      },
+      "devDependencies": {},
+      "gitHead": "8c4b7cf1ced0757952e4dd3dcaa5a384ee7718c3",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@1.3.0",
+      "_shasum": "c27d39e05a130666d84fb2dbe18aada6a94c6f7c",
+      "_from": ".",
+      "_npmVersion": "2.14.3",
+      "_nodeVersion": "4.0.0",
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "dist": {
+        "shasum": "c27d39e05a130666d84fb2dbe18aada6a94c6f7c",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-1.3.0.tgz",
+        "integrity": "sha512-FVtLhHPSYSDrzBIUvh/U6ercnjhlvgPARfL2JLkozrIaGEg/yyxhddvutIYef1/Q79xHQcwFkxtpM9WpOVVokw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGF9FTWt90c9ITw3tIn4yM+nn/UGooEYHF/47wPgJ5YfAiAfZ+z8QBggEEN5SgY91UqNIi5StMzVnnedloPkozwqDw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "directories": {}
+    },
+    "1.3.1": {
+      "name": "lite-server",
+      "version": "1.3.1",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "./lib/lite-server",
+      "scripts": {},
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [],
+      "author": {
+        "name": "John Papa",
+        "email": "john@johnpapa.net",
+        "url": "http://johnpapa.net/"
+      },
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.9.11",
+        "connect-history-api-fallback": "^1.1.0",
+        "connect-logger": "0.0.1",
+        "yargs": "^3.27.0"
+      },
+      "devDependencies": {},
+      "gitHead": "d5805be0b1f84710c2afc73ec4cce17301f74c3e",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@1.3.1",
+      "_shasum": "5a9f8710c2f823a14871c2fc99071c139b34254d",
+      "_from": ".",
+      "_npmVersion": "2.14.3",
+      "_nodeVersion": "4.0.0",
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "dist": {
+        "shasum": "5a9f8710c2f823a14871c2fc99071c139b34254d",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-1.3.1.tgz",
+        "integrity": "sha512-DxU9dQIRelaYKD7Yw7XK9sKh1vXHARyGCHDVAO7r6fYtv9CMIPZuFPJOOtMm2LXkQrzMOtuZZ0ELNqnnz50mBg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCvD7G2FuIp+YjNDRCLChF7NJleszdXwnzp3GOxyvAcuAIgdo6PBJ3ZCVZCrRHihf0tEn1nHr6ITfptP1hAN4RxpO4="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "directories": {}
+    },
+    "1.3.2": {
+      "name": "lite-server",
+      "version": "1.3.2",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "./lib/lite-server",
+      "scripts": {},
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [],
+      "author": {
+        "name": "John Papa",
+        "email": "john@johnpapa.net",
+        "url": "http://johnpapa.net/"
+      },
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.9.11",
+        "connect-history-api-fallback": "^1.1.0",
+        "connect-logger": "0.0.1",
+        "yargs": "^3.27.0"
+      },
+      "devDependencies": {},
+      "gitHead": "dbda05a742c23d2b114357d848c7f5ced0f8a292",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@1.3.2",
+      "_shasum": "3a02b8a0c480c52378e1ce75cf32174c235012fd",
+      "_from": ".",
+      "_npmVersion": "2.14.3",
+      "_nodeVersion": "4.2.2",
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "dist": {
+        "shasum": "3a02b8a0c480c52378e1ce75cf32174c235012fd",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-1.3.2.tgz",
+        "integrity": "sha512-6v+9CgdENmPZCGm1b/ZyfXf2Nt2H8CUal4ci5o33UNOXc9ATtJOtcK5CniqXxd8MmU1gPr7DhTMRawhxrWzuLA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFhjZQ3XmsOWDt6RuxGa4lJiOQKqx5kkbP01dXTVW0tRAiEAuLdObuGQ79jqJogRb0tOPSoV6wkFepiw6gXrGt4kqus="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "directories": {}
+    },
+    "1.3.3": {
+      "name": "lite-server",
+      "version": "1.3.3",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "./lib/lite-server",
+      "scripts": {},
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [],
+      "author": {
+        "name": "John Papa",
+        "email": "john@johnpapa.net",
+        "url": "http://johnpapa.net/"
+      },
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.1.1",
+        "connect-history-api-fallback": "^1.1.0",
+        "connect-logger": "0.0.1",
+        "yargs": "^3.32.0"
+      },
+      "devDependencies": {},
+      "gitHead": "7153359d623ea438afd55eaa188fdf38c5b69a52",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@1.3.3",
+      "_shasum": "bbbcd09e50e1dd81ed27169c671418f30d24ad02",
+      "_from": ".",
+      "_npmVersion": "2.14.3",
+      "_nodeVersion": "4.2.2",
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "dist": {
+        "shasum": "bbbcd09e50e1dd81ed27169c671418f30d24ad02",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-1.3.3.tgz",
+        "integrity": "sha512-Xkq/dcP7NTldMmfiZXQ1diYuV+cgwYJxNvdWWGooCi6wYF3a7Vb9uz3ZGjIYcotUC2uK4TK2jEkS6U9SE6gy9w==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCN8dXQSC6jZ6wIYnpG6f9W78TSOCdwWNcrs1dQUxHrgQIgIeZf83v0PgZFzpFPwIohn5wzhAp/Nn+vidSgzghEV08="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "directories": {}
+    },
+    "1.3.4": {
+      "name": "lite-server",
+      "version": "1.3.4",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "./lib/lite-server",
+      "scripts": {},
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [],
+      "author": {
+        "name": "John Papa",
+        "email": "john@johnpapa.net",
+        "url": "http://johnpapa.net/"
+      },
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.11.1",
+        "connect-history-api-fallback": "^1.1.0",
+        "connect-logger": "0.0.1",
+        "yargs": "^3.32.0"
+      },
+      "devDependencies": {},
+      "gitHead": "4ee15719dea6980ccf8c977ce8feebfcb8f6131a",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@1.3.4",
+      "_shasum": "d01f31bea1896f52bdae4770de756ff0bf715b9d",
+      "_from": ".",
+      "_npmVersion": "2.14.3",
+      "_nodeVersion": "4.2.2",
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "dist": {
+        "shasum": "d01f31bea1896f52bdae4770de756ff0bf715b9d",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-1.3.4.tgz",
+        "integrity": "sha512-0VIINgw5OPFbrtuOyH8E8kQtjX7A/+jOFgjIo+zIZMNrUGKduxSLI9jCBOwukwkLkVGELq0TVBwKqpOXB/z+8A==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIE9TDXTP3RDq0xEo6pSK5mbw0Vw6GKjO73J6GRRmuKKuAiAYaT0fjkvQMLRsne3TAeSEZcZQHaRRa651HqUzyMhNVQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "directories": {}
+    },
+    "2.0.0": {
+      "name": "lite-server",
+      "version": "2.0.0",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "./lib/lite-server",
+      "scripts": {},
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [],
+      "contributors": [
+        {
+          "name": "John Papa",
+          "email": "john@johnpapa.net"
+        },
+        {
+          "name": "Christopher Martin",
+          "email": "cgmartin@gmail.com"
+        }
+      ],
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.11.1",
+        "connect-history-api-fallback": "^1.1.0",
+        "connect-logger": "0.0.1",
+        "lodash": "^4.1.0"
+      },
+      "devDependencies": {},
+      "gitHead": "0a74994279d64a250b3da16198ea59702159d73d",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@2.0.0",
+      "_shasum": "b5619cb88126a2ca223f70d3b6faf015bf95ec89",
+      "_from": ".",
+      "_npmVersion": "2.14.3",
+      "_nodeVersion": "4.2.2",
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "dist": {
+        "shasum": "b5619cb88126a2ca223f70d3b6faf015bf95ec89",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-2.0.0.tgz",
+        "integrity": "sha512-p4wOVZabfm1fBXcEDk7rH52mes9x7Kqe/obTNkcvLm6yc7A/oXoYb8jznZpB665zvMz/kA/YjpkGDbEUadduyQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCnfpLx5+Pkx8+CrPnmv26FEpUS04OVVEKWsnZO5R35CwIhALoAq5Dhsoo4JIwwcCu4kkCTwaZAUYNpQAj5aTB3emAV"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "directories": {}
+    },
+    "2.0.1": {
+      "name": "lite-server",
+      "version": "2.0.1",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "./lib/lite-server",
+      "scripts": {},
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [],
+      "contributors": [
+        {
+          "name": "John Papa",
+          "email": "john@johnpapa.net"
+        },
+        {
+          "name": "Christopher Martin",
+          "email": "cgmartin@gmail.com"
+        }
+      ],
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.11.1",
+        "connect-history-api-fallback": "^1.1.0",
+        "connect-logger": "0.0.1",
+        "lodash": "^4.1.0"
+      },
+      "devDependencies": {},
+      "gitHead": "3bd3dce4201f34f518ad51cde102f958b09ca823",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@2.0.1",
+      "_shasum": "f9784788725395fb35dc1492e4504406bdb5e05d",
+      "_from": ".",
+      "_npmVersion": "2.14.3",
+      "_nodeVersion": "4.2.2",
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "dist": {
+        "shasum": "f9784788725395fb35dc1492e4504406bdb5e05d",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-2.0.1.tgz",
+        "integrity": "sha512-tbgQq4vX5TDTRWNBeIpaYR0BQJ6OlgGdsoMRQwP6nCAQrK4HprLEeTOitZ90SAq1tSHKoVq11EDNR6eToLlIQQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGG9PN91HbfHtOcR2ZkxA1ptdp3nYiMgv3lITrQZ4kIBAiEA7SoORln1SB9gZwCl+Akoy7F93A8+senT3gIK654ySr8="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "directories": {}
+    },
+    "2.1.0": {
+      "name": "lite-server",
+      "version": "2.1.0",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "./lib/lite-server",
+      "scripts": {},
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [],
+      "contributors": [
+        {
+          "name": "John Papa",
+          "email": "john@johnpapa.net"
+        },
+        {
+          "name": "Christopher Martin",
+          "email": "cgmartin@gmail.com"
+        }
+      ],
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.11.1",
+        "connect-history-api-fallback": "^1.1.0",
+        "connect-logger": "0.0.1",
+        "lodash": "^4.1.0",
+        "minimist": "1.2.0"
+      },
+      "devDependencies": {},
+      "gitHead": "d32f467e77e716e7981842f0778a656beb636f19",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@2.1.0",
+      "_shasum": "df68c623729172905160a1792b3690c0721174f8",
+      "_from": ".",
+      "_npmVersion": "2.14.3",
+      "_nodeVersion": "4.2.2",
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "dist": {
+        "shasum": "df68c623729172905160a1792b3690c0721174f8",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-2.1.0.tgz",
+        "integrity": "sha512-y+zoiXyNRQXVcgbxJDneAyiTBRg5F/P1ogIv3jAPYGnkfKEDqc67wnmQcmu38i8zhNzsBU5bwQryZFMplixJPw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCL9jkNubDzyUWLRwYHCJ9SWj1KrRQ1kJ+PFgx3EYFzoQIgXnlSwSEMXCCyJKodQ1HtulQO9ej2PWPEg+GqzcM6w5k="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-5-east.internal.npmjs.com",
+        "tmp": "tmp/lite-server-2.1.0.tgz_1455758933067_0.9087651476729661"
+      },
+      "directories": {}
+    },
+    "2.2.0": {
+      "name": "lite-server",
+      "version": "2.2.0",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "index.js",
+      "scripts": {
+        "test": "eslint *.js lib/*.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [],
+      "contributors": [
+        {
+          "name": "John Papa",
+          "email": "john@johnpapa.net"
+        },
+        {
+          "name": "Christopher Martin",
+          "email": "cgmartin@gmail.com"
+        }
+      ],
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.11.2",
+        "connect-history-api-fallback": "^1.2.0",
+        "connect-logger": "0.0.1",
+        "lodash": "^4.6.1",
+        "minimist": "1.2.0"
+      },
+      "devDependencies": {
+        "eslint": "^2.4.0"
+      },
+      "gitHead": "98fcd085b6d9f5b78565a4231686231088d24aba",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@2.2.0",
+      "_shasum": "a4194ed1a9fa3210c6ab15882e1413a31a572689",
+      "_from": ".",
+      "_npmVersion": "2.14.3",
+      "_nodeVersion": "4.2.2",
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "dist": {
+        "shasum": "a4194ed1a9fa3210c6ab15882e1413a31a572689",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-2.2.0.tgz",
+        "integrity": "sha512-3+tulexyMiIJJfwC3Va7HMIG8owPe8XWBZCTv3N1Y9766xxVGJq9QCaAR8/VBaCb/WCatQvByIrqlh4oVrvplA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQD8MzXQb65XKnrAN5KXoI47Bn2LBwgxTG2eFOwOul/YjQIgNMtcECulssy8sTCGnEkJE8hDMeuU6P8TGf/IMn8aw5g="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/lite-server-2.2.0.tgz_1459784960551_0.1361763330642134"
+      },
+      "directories": {}
+    },
+    "2.2.2": {
+      "name": "lite-server",
+      "version": "2.2.2",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "index.js",
+      "scripts": {
+        "test": "eslint *.js lib/*.js && istanbul cover _mocha -- -R spec"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [
+        "angular",
+        "spa",
+        "static",
+        "server",
+        "development"
+      ],
+      "contributors": [
+        {
+          "name": "John Papa",
+          "email": "john@johnpapa.net"
+        },
+        {
+          "name": "Christopher Martin",
+          "email": "cgmartin@gmail.com"
+        }
+      ],
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.12.3",
+        "connect-history-api-fallback": "^1.2.0",
+        "connect-logger": "0.0.1",
+        "lodash": "^4.11.1",
+        "minimist": "1.2.0"
+      },
+      "devDependencies": {
+        "eslint": "^2.8.0",
+        "istanbul": "^0.4.3",
+        "mocha": "^2.4.5",
+        "mockery": "^1.6.2",
+        "sinon": "^1.17.3"
+      },
+      "gitHead": "27c0d5bfe417f6b469ced687fb288cfb7f178df5",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@2.2.2",
+      "_shasum": "4644afe6c9146d850cfa0ad9a86a94f87156499e",
+      "_from": ".",
+      "_npmVersion": "2.14.3",
+      "_nodeVersion": "6.2.2",
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "dist": {
+        "shasum": "4644afe6c9146d850cfa0ad9a86a94f87156499e",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-2.2.2.tgz",
+        "integrity": "sha512-7enj18KffG8tVb1en8FU48rw+hPchnGFdEHs1iLL3rNxJx56l6ZZO7K88FnNc7kI2WVztZN+Qdfsf/SnqaPCYw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCb5elUkXtAe/YpHvvV8oQQcHosFSRtjkEhxp/orckrkQIhAJgADUTjFBoVC/ke3Sapwt80gMKPie0crMIpKfMJuywv"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/lite-server-2.2.2.tgz_1466894991041_0.2787389624863863"
+      },
+      "directories": {}
+    },
+    "2.3.0": {
+      "name": "lite-server",
+      "version": "2.3.0",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "index.js",
+      "scripts": {
+        "test": "eslint *.js lib/*.js && istanbul cover _mocha -- -R spec"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [
+        "angular",
+        "spa",
+        "static",
+        "server",
+        "development"
+      ],
+      "contributors": [
+        {
+          "name": "John Papa",
+          "email": "john@johnpapa.net"
+        },
+        {
+          "name": "Christopher Martin",
+          "email": "cgmartin@gmail.com"
+        }
+      ],
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.18.5",
+        "connect-history-api-fallback": "^1.2.0",
+        "connect-logger": "0.0.1",
+        "lodash": "^4.11.1",
+        "minimist": "1.2.0"
+      },
+      "devDependencies": {
+        "eslint": "^2.8.0",
+        "istanbul": "^0.4.3",
+        "mocha": "^3.2.0",
+        "mockery": "^1.6.2",
+        "sinon": "^1.17.3"
+      },
+      "gitHead": "9d0a040858e6a1f8f28a899750e1b8f9754d0814",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@2.3.0",
+      "_shasum": "5b4cc8f5d5fd4836105480ab2ac48a3a0de2b0c8",
+      "_from": ".",
+      "_npmVersion": "3.10.8",
+      "_nodeVersion": "6.9.1",
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "dist": {
+        "shasum": "5b4cc8f5d5fd4836105480ab2ac48a3a0de2b0c8",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-2.3.0.tgz",
+        "integrity": "sha512-EAx+mEn0Vus38VoXxAvQOtQfedTM8onF0fnLZak90XZ3q+1hsqTQX0vnRtfHMZ+9D1OYYUy3VKeUMEMk23N61Q==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIC64gtnn/pVT2RStKn0z7OvTcEsmUw92c8Ry/sZuPeW7AiEA8KtExUn8LI5OiNNqcE7M5u/RYa3qLiaFxmP0gCSxub0="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/lite-server-2.3.0.tgz_1489003660406_0.07161730993539095"
+      },
+      "directories": {}
+    },
+    "2.4.0": {
+      "name": "lite-server",
+      "version": "2.4.0",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "index.js",
+      "scripts": {
+        "test": "eslint *.js lib/*.js && istanbul cover _mocha -- -R spec"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [
+        "angular",
+        "spa",
+        "static",
+        "server",
+        "development"
+      ],
+      "contributors": [
+        {
+          "name": "John Papa",
+          "email": "john@johnpapa.net"
+        },
+        {
+          "name": "Christopher Martin",
+          "email": "cgmartin@gmail.com"
+        }
+      ],
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.24.4",
+        "connect-history-api-fallback": "^1.2.0",
+        "connect-logger": "0.0.1",
+        "lodash": "^4.11.1",
+        "minimist": "1.2.0"
+      },
+      "devDependencies": {
+        "eslint": "^2.8.0",
+        "istanbul": "^0.4.3",
+        "mocha": "^3.2.0",
+        "mockery": "^1.6.2",
+        "sinon": "^1.17.3"
+      },
+      "gitHead": "2292dcc330bdcfaff3abbf2788a758152f991c46",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@2.4.0",
+      "_npmVersion": "5.8.0",
+      "_nodeVersion": "8.11.1",
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "dist": {
+        "integrity": "sha512-Vo06tHpXrqm37i6T7tVdq5PSbrFmvQRw64+dlFXdh1tltv6KCvpE+xzXz2+x6KWJ8ja+GgwSy4P13GUWyhaDHQ==",
+        "shasum": "e3e122885836b168895d7b6b4eca06047d204c0d",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-2.4.0.tgz",
+        "fileCount": 13,
+        "unpackedSize": 111651,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbM9V7CRA9TVsSAnZWagAAkW0P/RiqSvdt7UDxgGcirypF\nb1YXEftH3L1VaihvDGxgfy6+wKc8QhBvPP1rE7GbQL5Yl9zvcQtmDkbOj0fS\nNJVPPAE2k61fVEvyj4IZj3oKkpK8uiZjCEfY8+zfHgHct6depu0gGkJRUJh5\ncpskYgQUQAkKOrOqFXICFhFIBP64U87IEAhCvjFJ5IRiZ3nuhM3xrJGvfJIH\nRso9sjlbu1Qf2OKSRNKliy1fOVmWwGd3EhLyASV6l+aOZAp17C3Eh8S+QNIC\nnPvktIrwXm8OK4w9jN8JtPFrC/ITDrTHoHzwZnoPZUwggiox/Ct+RamcvDz8\nnREFutcEgRyKNAufHjqdMEwYUY9wCR9h+YSXQiPQj5wkwqG196aoDScE/Azy\nsPmPbkb9pMsKvWlw8f5+1ec2gK+CJY2bYPyP2Gr5Gnz9ZJ4jlbaOPnvDCa/0\nq21nZN7Hy1dGAyLJhxp2NU9C9h/eRcEXm0NK8oSWrHNvAutJ+UtyfwB8TMtM\nK9/k8ZBjx2ijkD9jAqjxqIeV8l1eOPxc5SfhZUhVWUHlUu0CWiAb/y8m64af\nrcwCFlYmL4WlTEcoi9ZuNm7hoLjY2NLI0ErEiLOxDZHGVdGGBO0GgXYi6KVY\nXDXyPNH/dRW0+YSt0KH414ukmCrEeJANxBiB24BxJWiAJDf2JW2P2vnnWCmo\nFdgK\r\n=/r5Y\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQD4JW7p9tzXJL775sM0hSCtXHWPFOhrnmwrhIJTjbdILwIgCsVvjUe/LySbIYwlGiSuTiKskQqH6z6u+EOGc5XJhkc="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/lite-server_2.4.0_1530123643496_0.8360849640334487"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.5.0": {
+      "name": "lite-server",
+      "version": "2.5.0",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "index.js",
+      "scripts": {
+        "test": "eslint *.js lib/*.js && istanbul cover _mocha -- -R spec"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [
+        "angular",
+        "spa",
+        "static",
+        "server",
+        "development"
+      ],
+      "contributors": [
+        {
+          "name": "John Papa",
+          "email": "john@johnpapa.net"
+        },
+        {
+          "name": "Christopher Martin",
+          "email": "cgmartin@gmail.com"
+        }
+      ],
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.26.5",
+        "connect-history-api-fallback": "^1.2.0",
+        "connect-logger": "0.0.1",
+        "lodash": "^4.17.11",
+        "minimist": "1.2.0"
+      },
+      "devDependencies": {
+        "eslint": "^2.8.0",
+        "istanbul": "^0.4.3",
+        "mocha": "^6.1.4",
+        "mockery": "^1.6.2",
+        "sinon": "^1.17.3"
+      },
+      "gitHead": "853880d03b3f0d4da73a6351556a1c4d30e2bc93",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@2.5.0",
+      "_nodeVersion": "10.15.3",
+      "_npmVersion": "6.9.0",
+      "dist": {
+        "integrity": "sha512-K/6GfiUJceue7vN3ZhQcSpz7fcjh8IIXIfWNI+Wkv4yeZFisHEZb7ZoutIWEPrgrOmsMpJGFS0L/Omcy1VYvCg==",
+        "shasum": "9a757e8be6340d539b6415cd1ec3db86ec5faf61",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-2.5.0.tgz",
+        "fileCount": 13,
+        "unpackedSize": 21854,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc5aw/CRA9TVsSAnZWagAAC2cP/A7ejsiO/x7fUfTUVaUn\nI/wFoLZR/r0RfgMI6zUzjVhYiJGztBSbYyBhxlg09gbqdOwCw8KlBrhRvz/v\nn7IEsOXg+tlb10kKJzIRQJrTdSO21WzKeTiK3nqK2S8Z73Lj81vJn2LPOKFO\nyErtQl6bNU4C7Di/cA2qzvYlgoCi3iB+dHXuWImdlMEtdSOKEgJ4WOlGam8i\nmJWs1JcD5uAYr0uW4uCg6YkXmVA21gyQ+On9J4gjKag5AATri0OQH7G7SGKP\nF53fupkdFYoMYDYRdgscykJFC6Jtf6Ic/zh+82gHPz6ZXc+qzVkxy/kL0nzt\nQq8loGkEiBXOWggyyUPUtFd2aBSS3GyvSpatlfCGJ5elLMAgjnb7lY1nGq/d\noeFN7B2CSgmvH1NNd6tJLCrbD9CdUQ9PB7GATVqT2HwSMO1K0D98ZGcGrd7L\n7nBgBOkWkvqVDNUYjwKx+Mbu9LQz2Z4lxyjb6kok52AehCL09i6wjzxXEc5N\n57b6hzmE+4mCmJioqr9lVLbuyPhrguNMHz5i65LNW0HcAAwzjDr1RJe3yquu\npGT2C6pOsCAOc0If+rLzkQbI4x2ouHxZYqJzQiINqGcqV+8v25yKDkl/YVS7\neXXJqvIgSU0y3UoSs+kueClv3lD13pMokrgDR42MsbvQuSBUyNwofI4wn4m8\ntcDg\r\n=PrpT\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCFS4pKMfk1sSePKpCHP4hTZiqFMqUGvV0jhnf2yM77CAIgQ6YNgHFQ15nglJKzLCJR/noPAKUyPYqxJI6MLzER8jM="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/lite-server_2.5.0_1558555709595_0.6849673418405817"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.5.1": {
+      "name": "lite-server",
+      "version": "2.5.1",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "index.js",
+      "scripts": {
+        "test": "eslint *.js lib/*.js && istanbul cover _mocha -- -R spec"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [
+        "angular",
+        "spa",
+        "static",
+        "server",
+        "development"
+      ],
+      "contributors": [
+        {
+          "name": "John Papa",
+          "email": "john@johnpapa.net"
+        },
+        {
+          "name": "Christopher Martin",
+          "email": "cgmartin@gmail.com"
+        }
+      ],
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.26.5",
+        "connect-history-api-fallback": "^1.2.0",
+        "connect-logger": "0.0.1",
+        "lodash": "^4.17.11",
+        "minimist": "1.2.0"
+      },
+      "devDependencies": {
+        "eslint": "^2.8.0",
+        "istanbul": "^0.4.3",
+        "mocha": "^6.1.4",
+        "mockery": "^1.6.2",
+        "sinon": "^1.17.3"
+      },
+      "gitHead": "dd5fcf1e86a54dbc55d4bb9a81f6192e8ab5e131",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@2.5.1",
+      "_nodeVersion": "10.15.3",
+      "_npmVersion": "6.9.0",
+      "dist": {
+        "integrity": "sha512-mWNP7XPwJqqSejWfeH5QMHJFBLwsQPVQzsnYBRYlVW/mWVbE7kFVWwhkRYp7KL7Lq1b6f0cwtWNgCQjzqeZvxA==",
+        "shasum": "c860667bf5d34a8f6607fd357ed1f3b1134d1ad0",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-2.5.1.tgz",
+        "fileCount": 13,
+        "unpackedSize": 21941,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc5aypCRA9TVsSAnZWagAAkecP/RX/gSmpLfrBl1Bw3/Jz\nvExLfL6eISodSY5Jf+qrsweBytNJsp6QetNTPWysRIguav2P3L1dQy0vXlTv\nE164BZnLp2Rt7ex60wxWD+hCXmr0cuMCfwUfROGygK5F8A+IWjl53gFEEPmM\nEy0MsfbgQsv2gGXjUBdenE+5fB5/3IktXDzi5fjj0fChGsC1xkHSfdnjfRtP\n+WnHsLVdt1I62o6AP56VySBsddQZdgvONsTAdzfnx2LZ07PjyXXUQuZPCwO2\nEF5qLdY0SS2nbmoThHuWg/CG2+/6jDp1m3YFWKn+6sH+jPOJTVu8zwND1sFL\nm3hubDuzd9lbz42eHqiA/aHfnmC5Fcp2R3+0kIM6RpHpL/KSGyN2eOsUR6Nc\nbaOJTGZQNFuuSQvlNJdjD3+L+Nn36RpZ9sfl4DpwXWZgt29bcRl4UWIH8/HL\ng5syHMxeiFHj1juWDvIXhXVLa6UhBI+jL9Jj8eszKMMw2e6yGbZDVg9PiM2C\nzmXkD3EyDmrTe9YQGhpO1h+4QDqSVWYpm0kJ603VX/oxZ7aSKjpOnifa1l36\nHger+vqu4p+vzVvdLtZV1HTwb+nH8GKwlNHr8hDrlOeJHCH+BRNvmj5a+zhr\npH6e4UVvnHyND/UHnISOhfqMvBUI2+BC3B3FpCJY+OiR94vXx4dVsUPiOc5M\nok76\r\n=MW2m\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDqSUTR4rF0jfHlDFSQfbNW2qOzMk9Lg4J+rpvBIB1D9AIgVY+PYLq+SfqbPY5+elesG4jiiMRuTbpMJ+347kQQmjg="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/lite-server_2.5.1_1558555816396_0.7593684876722648"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.5.2": {
+      "name": "lite-server",
+      "version": "2.5.2",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "index.js",
+      "scripts": {
+        "test": "eslint *.js lib/*.js && istanbul cover _mocha -- -R spec"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [
+        "angular",
+        "spa",
+        "static",
+        "server",
+        "development"
+      ],
+      "contributors": [
+        {
+          "name": "John Papa",
+          "email": "john@johnpapa.net"
+        },
+        {
+          "name": "Christopher Martin",
+          "email": "cgmartin@gmail.com"
+        }
+      ],
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.26.5",
+        "connect-history-api-fallback": "^1.2.0",
+        "connect-logger": "0.0.1",
+        "lodash": "^4.17.11",
+        "minimist": "1.2.0"
+      },
+      "devDependencies": {
+        "eslint": "^2.8.0",
+        "istanbul": "^0.4.3",
+        "mocha": "^6.1.4",
+        "mockery": "^1.6.2",
+        "sinon": "^1.17.3"
+      },
+      "gitHead": "c66fe6e8b62a2c0bcd8079bb6a071b9d07edd09f",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@2.5.2",
+      "_nodeVersion": "10.15.3",
+      "_npmVersion": "6.9.0",
+      "dist": {
+        "integrity": "sha512-kvHlZfXeuCm0IeYWy8KVv4fym4jcDUwBUcAPtcnrh4QYrqrrJF+L6eSxEkXKksr0bNIgKgno6jr8r+my9/XZRg==",
+        "shasum": "bd680b28688eee19810c5a11c26cf16d8c4491fe",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-2.5.2.tgz",
+        "fileCount": 13,
+        "unpackedSize": 21941,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc5bDsCRA9TVsSAnZWagAAX+MQAJVtH5xYJwDXwqbpbGMQ\nHWri/LNNIjNACQ4/K13KMWVfyc78y6WKyTxVDv85FcLyXv59ZA2CLHD5Lpai\n0krMoSO2FtuuTk3JHZ/LN5zJEji9Uhxinse8mjsgVRMHXO/dxNVKZsfb3PX6\nLBItogZdSDAQa8ctfqlBqqnm0BeWp/Y5amJaydlHq3ifR32+gOsamRo6DdOM\nnP1OsPBpp+3tf14aBT2kJdLIeCkPO/NypUVjVZCG/0K/wFnk9aNglqnFGGrR\nIYKbDklu/zNVPxYa1V53BYqDBVcVWXpRPiL8VTuWoERZfPPohD6xgTyrlp7g\n5LgpT0j26uN5eqjaD6HeHVGHp4AKMW5g68koVQl6GZMeTkSxhIGJi0TfJ+ct\nBMjKGogJk8UeqT9OomOYI2Xk9jVmJRsolnY6x9bLoIoaLNNsS8CnGDtzdEDR\nDFTZHYF0v1vBS7k5z9cUUqv2dWHyV5urQpJ9QrMJ7xO+O+nLk96qx1UYU25z\nDAvRFGo356nK4WjR+Gg+IHHATZIauWhMiujOnVz7RfOVUIzxCF0PjJ1v8lRk\n7RJQiamxRe/6t3ZTJSnprLLUV2hPyGYk5rnnr/YQWv6jn9JZELHI7WV4DFPK\nzLec3G+Zusl/g84JdTDPilVpIvarHh+RuWPIKkcrnSiUh1T1zhTOh4hsnrlK\n498y\r\n=15vB\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQD6kKEUyiRLBV/uEX3rL1SdbNkR/VcEQx4TLm/RQQ5JMgIgXfTi1w4+YSsUoIRevGwWGON0ImEGgDGGr5VlFOgJFaE="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/lite-server_2.5.2_1558556908247_0.358544838129891"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.5.3": {
+      "name": "lite-server",
+      "version": "2.5.3",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "index.js",
+      "scripts": {
+        "test": "eslint *.js lib/*.js && istanbul cover _mocha -- -R spec"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [
+        "angular",
+        "spa",
+        "static",
+        "server",
+        "development"
+      ],
+      "contributors": [
+        {
+          "name": "John Papa",
+          "email": "john@johnpapa.net"
+        },
+        {
+          "name": "Christopher Martin",
+          "email": "cgmartin@gmail.com"
+        }
+      ],
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.26.5",
+        "connect-history-api-fallback": "^1.2.0",
+        "connect-logger": "0.0.1",
+        "lodash": "^4.17.11",
+        "minimist": "1.2.0"
+      },
+      "devDependencies": {
+        "eslint": "^5.16.0",
+        "istanbul": "^0.4.3",
+        "mocha": "^6.1.4",
+        "mockery": "^2.1.0",
+        "sinon": "^7.3.2"
+      },
+      "gitHead": "0620b0d93df98960d76777ec489891a581ff6199",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@2.5.3",
+      "_nodeVersion": "10.15.3",
+      "_npmVersion": "6.9.0",
+      "dist": {
+        "integrity": "sha512-D+CfLgGn/WVlGKKrZaGnBDIpXqm5lFXLt2tw0aCQNxMIbXD7VlYiud2bxe3oQDAIwfVPEBHIF6RdZVml2cBcLA==",
+        "shasum": "7aae701678819ccf051ef7c6f467813c90c70592",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-2.5.3.tgz",
+        "fileCount": 14,
+        "unpackedSize": 23537,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc5dAjCRA9TVsSAnZWagAAtYwP/jk396gcSGisXqUOxcnR\n94S/tqKXHiv8ZQWw1txnv7F7oR49xEWgRqlKsP90TKlEYCThUBu0vgPqp3Tv\nwkLdToo417UZzr0SP1Ak81nKY0ZFuVeXR7X/ojEIRjnlf8XNzeH2Ms9rU5zN\n0EIoTROPb7+29m8kR5cgzf/lsRIS+KwG7cRyaogzgbXQ2KWFnzx7DUeEoPTe\nJTd2tN4TrupVKh1uBsRgJjWuWQaQpzzIn4PLk/f6nMHCp1cSBLBbhnL1Wfpa\nIzq8HzHnV1bgmlpYQPhhGwFgHWJSfOXDhDlksgk8IcMdmyRL9vrlcn9s5olq\ngmLUtRbU97zuybDKuqA/SiLZ51TmwDowQManQAU9RV8w1Q1FnW09VuEYrxOl\nH6mZXNcjbOkRG1amNaPCtM+s97XIzyJfmUuD5MGrLeC+CvhxpT9GTyT5a0XU\nv3/AWPzZ4CuG4+041wEYrWKH0aC9dphz8J2RcDxACAc84xKVebQKYcLivdxf\nHqZhsHKfZ7jZDd0WRktO6f4anHOPz0rjrE1tHoZhUZoQyWbyxIs+C6wtYmiU\n+Yk7TLsbjLEmw+pjt/qH+xIt4/o/IHoxOoXyMcjjuCW9e05CpSDmM0tme9oY\n64GGnndHuI6i3au5VsOSrrUI8longwk+pB+iTbUS+KTD2HrCeNcc7WYwrnlb\n39Tf\r\n=eUpS\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBqghXhlZYlBHskAGovtEQrfMSPSO3opfpIYiaQNKkWrAiAcuuV9Fg8ynJnPAaPpaKMMKE3eQUYFgnn5//XLRf+vrw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/lite-server_2.5.3_1558564898153_0.3926306618265527"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.5.4": {
+      "name": "lite-server",
+      "version": "2.5.4",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "index.js",
+      "scripts": {
+        "test": "eslint *.js lib/*.js && istanbul cover _mocha -- -R spec"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [
+        "angular",
+        "spa",
+        "static",
+        "server",
+        "development"
+      ],
+      "contributors": [
+        {
+          "name": "John Papa",
+          "email": "john@johnpapa.net"
+        },
+        {
+          "name": "Christopher Martin",
+          "email": "cgmartin@gmail.com"
+        }
+      ],
+      "license": "MIT",
+      "bin": {
+        "lite-server": "./bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.26.7",
+        "connect-history-api-fallback": "^1.2.0",
+        "connect-logger": "0.0.1",
+        "lodash": "^4.17.15",
+        "minimist": "1.2.0"
+      },
+      "devDependencies": {
+        "eslint": "^6.0.0",
+        "istanbul": "^0.4.3",
+        "mocha": "^6.1.4",
+        "mockery": "^2.1.0",
+        "sinon": "^7.3.2"
+      },
+      "gitHead": "6bc6b0c63c7a82c01b7b113579c31400c415fa75",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@2.5.4",
+      "_nodeVersion": "10.15.3",
+      "_npmVersion": "6.10.3",
+      "dist": {
+        "integrity": "sha512-57SverS67UqRFiRm0ktdzEG5yZeyzkywRJ9Q8PHVSGuLm9K97Mr6jF43XTu5v9lVe8g0WHJ4eKlIeGSd1Bq/sw==",
+        "shasum": "f1c1b25bb70ce0f83eb1ab0b08ef32c08accf4e2",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-2.5.4.tgz",
+        "fileCount": 14,
+        "unpackedSize": 24128,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdTtEFCRA9TVsSAnZWagAAtH4P/jKiO/A7HjhVsLCrAI0b\n05F/PrX3/oVuQEbsMvso9LbIo5IjOTwoaN2KaifTFWzQFONvmF1GK15KRR8b\nOXRtJo79Ht6W0LoPZAmkLs/QbTYkrOdKLOp33xhwptRuNKkGdtkTmLHWRsf5\nnHktN25Blg90Aj9uWBOIogpwM2Knr0Zn9zF4EX0VN2oX/V43lX3pUVQgZvl7\nPOGmoaJHyBZKzi6IGBrLazZfPzXqxmY5+5oCh6szobIpyrayhopo1bi8BF/t\nHouShAeR91Z0XrxyC/B9JrpIfvlFZfjMrYaN2QlJnTWjeWeQDVpDlJMgc0Jq\npI0nSh7WBZVgFfOKvrCltDqgMECEUSrm/TDW93wkQPBmgsCnlXkrsncqpG+J\nEJRSOX2ZPjjeiXMEeLhT8BdPgdHuvhyV4RHW2WPeOLfCLo7xJO/NnLZbLl9W\nFHOsaT74Dgqmi/Y/hPudbPhGi5sfrX1gwOHm2cQJC6AIHy00OsjQ7yb+khTc\ns/KCigGvYgZIhqy3bHHvz7u32Nvz+axz9+gog+j076udfvLePw+Rt3DXkGKa\nhJAXv9SSzyK7wIt7tsDYULTmIhEtpKogAEfaSlp3E/C/mgqlhb6aYgoy8a6c\nu1KFk3xSTkH2+lA5qMXsPvsHukhpRtG/Co9QOGP7cvFGx+70q7TqdsMHT5Oi\nRI7B\r\n=vTwu\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC3xNjkSaGx45AzpTFQ06JUvXF5vd+f0r/npkmATQ9+gQIgToL/QjHTEUpuEl1qn8xkOKG+1KCrUrl20OO4Cq0xoi0="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/lite-server_2.5.4_1565446404546_0.11243226561416653"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.6.0": {
+      "name": "lite-server",
+      "version": "2.6.0",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "index.js",
+      "scripts": {
+        "test": "eslint *.js lib/*.js && istanbul cover _mocha -- -R spec"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [
+        "angular",
+        "spa",
+        "static",
+        "server",
+        "development"
+      ],
+      "contributors": [
+        {
+          "name": "John Papa",
+          "email": "john@johnpapa.net"
+        },
+        {
+          "name": "Christopher Martin",
+          "email": "cgmartin@gmail.com"
+        }
+      ],
+      "license": "MIT",
+      "bin": {
+        "lite-server": "bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.26.13",
+        "connect-history-api-fallback": "^1.6.0",
+        "connect-logger": "^0.0.1",
+        "lodash": "^4.17.20",
+        "minimist": "^1.2.5"
+      },
+      "devDependencies": {
+        "eslint": "^7.13.0",
+        "istanbul": "^0.4.5",
+        "mocha": "^8.2.1",
+        "mockery": "^2.1.0",
+        "sinon": "^9.2.1"
+      },
+      "gitHead": "bea8fd64fa768615ddd006ccdc6f4f783b24c69b",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@2.6.0",
+      "_nodeVersion": "14.15.0",
+      "_npmVersion": "6.14.5",
+      "dist": {
+        "integrity": "sha512-Y27ySwN7ApV34wEYrnhXivcZey1lzTQ/DvS28LK/UgI/BMc0Qw0vVZMWRhFtSqr2bNuo08jhDY7MczzwkkMYqA==",
+        "shasum": "6c6e010231911fe0fb7731767cd0e0be37c6a9cf",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-2.6.0.tgz",
+        "fileCount": 14,
+        "unpackedSize": 24209,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfqtR2CRA9TVsSAnZWagAArTMP/3WQ5p5DGKAWcLVkbp0k\nOKi0YUdjiUXSdGQVUWCJG0GEk5mUXQdd1VZtMH+3hcbeh73WjsJUPSxp+TWN\nNr9yoe39BEI2YTIGBoabVY5x5YquxsKYfjAB1vFkucCJhhsGTkC0WluV4Fa0\n12sijPA5hJbieUSu/GvNBOlbTAMkYN+NhxdCOOce6KrYkFendoFAPHhSlX6p\nR/Piq4bJC1j64ISk418W/7Ymr0BPJ10oI//t3Nm5MNjB8x+VXFJUzhoIHGUg\nX1YS2/oXqZNmbuGSDOP5pMvyFAmvsb6qDACFjMIMdoNebXFaD6wVIURoDQSK\np7ox+cuVeq23TpDcIq2/OrpiWAI7YY2k+v8mvC4GV8YZRqGjG5PszHBn6G8C\nSDz1oVotwkiHhLuyoK4q5WGEgD8mHIepD6I7s16vIqWbcmTaoHIE/+1YElRl\n+mDDVWUr0J/0TT+T7rbRPCBADUI10VHPuHfZtE3mqcIgtbDV4Jpc7rXlluta\n4VLpoNA4uDab7iRWn5Z/r8emRQSH9/LXP/MTqIQAlNF9LzWJRac3bKUvqciQ\noQc+DVlMePJE244z2mXYaTsqQ18+lNGmBbdR6RFUlP0kdw4JB4fs2sZMwDaq\n+nWlNDxA1VG6EOsoh7l4/oY9W0ooENBafRXMRZmmf9lSKpKZYHxcvl1iEO31\nYVYH\r\n=zjC6\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCxJV8G8jyJ1jrHjnROT48Wcrlq9130HFmPPfOJw7r9VQIgHLoE8nA/+s8o8gDMVygXpyBMRpDGVSDf2jvATYbd0m0="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/lite-server_2.6.0_1605031029694_0.771284886353885"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.6.1": {
+      "name": "lite-server",
+      "version": "2.6.1",
+      "description": "Lightweight development node server for serving a web app, providing a fallback for browser history API, loading in the browser, and injecting scripts on the fly.",
+      "main": "index.js",
+      "scripts": {
+        "test": "eslint *.js lib/*.js && istanbul cover _mocha -- -R spec"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/johnpapa/lite-server.git"
+      },
+      "keywords": [
+        "angular",
+        "spa",
+        "static",
+        "server",
+        "development"
+      ],
+      "contributors": [
+        {
+          "name": "John Papa",
+          "email": "john@johnpapa.net"
+        },
+        {
+          "name": "Christopher Martin",
+          "email": "cgmartin@gmail.com"
+        }
+      ],
+      "license": "MIT",
+      "bin": {
+        "lite-server": "bin/lite-server"
+      },
+      "homepage": "https://github.com/johnpapa/lite-server#readme",
+      "dependencies": {
+        "browser-sync": "^2.26.13",
+        "connect-history-api-fallback": "^1.6.0",
+        "connect-logger": "^0.0.1",
+        "lodash": "^4.17.20",
+        "minimist": "^1.2.5"
+      },
+      "devDependencies": {
+        "eslint": "^7.13.0",
+        "istanbul": "^0.4.5",
+        "mocha": "^8.2.1",
+        "mockery": "^2.1.0",
+        "sinon": "^9.2.1"
+      },
+      "gitHead": "5b73f88c6b7e4dc5e3dc481b4bbf7ee553bb0acb",
+      "bugs": {
+        "url": "https://github.com/johnpapa/lite-server/issues"
+      },
+      "_id": "lite-server@2.6.1",
+      "_nodeVersion": "14.15.0",
+      "_npmVersion": "6.14.5",
+      "dist": {
+        "integrity": "sha512-d3oyB/C8AU4EwYQHlLxcu6vTQDnCaLb81v1KKNYABmFS5oeJ11A+YxlqtpbTclID1AFddJfcB5klf0q98vYIMw==",
+        "shasum": "27281022c77c99673d0a820b998bc7e125cdbaa0",
+        "tarball": "https://registry.npmjs.org/lite-server/-/lite-server-2.6.1.tgz",
+        "fileCount": 14,
+        "unpackedSize": 24605,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfq/wRCRA9TVsSAnZWagAAubUP/1c68R8LLrfH1FPlvMLf\n21PK2RxIMPr1Ndz49j3aFMtFRUUb41HgpbhAau8ZTtwQ8BDYYYYnTTK+mTQ/\nFAp5mu3CFa+IHKFjHSl+LcKJoOKNYCFCLw9GcVhfYA3YWiYyFwUqC2TxGyMY\nPa9j12SiFVLRdQGMteaTFCzCeY2NY+X5B+ooBhpHCImxrRRwYBXxI3bzhtLf\n90hrhlMRe3mU8dTAFiceEsCvT2Yq7PyKP/6FZ/5rwbvfmrfMsWzzjIlL6RZX\nijWN4HeCsZTcvHlzFx2lapaeBb49zkIj4ksYWkkg8OfNNOnufb2dX/s5+IKt\nynkh8jhkEGHxdHYNHQLG3b16KJOXDpAEFEMNZ3SkmkFYOtxiKTeCjxAQruP+\nr6/wrk+N9cwgNFnNOhZwglHNWaTDjDiVYS4unbXcha8GZlF2NTEzWm5PqSWT\n9Md5y1oOtX9Ny7Afs9H3YJYo6vtZZSi7jxtJDf/N/XLYCLDCvKi2WUoMDsma\nxs1Pd3ICr7aeNz5fn3tHyXVvFlHu5FTOCspWzga9403FPpw+rn565IBG7jVk\nAFLjsVqiUmKUOm+HIirGD2NKXHkSaGDGamUZb4jW3Op2RWJKP2x0KomOuXIm\nr3JumCiXIYLHlxkIDHJN9gMSwUMYR4Ao9WCGoGEcAkjK+9CNcO1uO43U/Pqa\ng3D+\r\n=IhrK\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICgn9UiueIVKyqryvBEib3wPJWqjhTmu9o/7KwuPvnFeAiBl+bX9eEjr2kbQEXO/Tjd6vqwemUjLnWEog9lhokow0g=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "johnpapa",
+        "email": "john@johnpapa.net"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "johnpapa",
+          "email": "john@johnpapa.net"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/lite-server_2.6.1_1605106704109_0.9601279995145655"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "homepage": "https://github.com/johnpapa/lite-server#readme",
+  "keywords": [
+    "angular",
+    "spa",
+    "static",
+    "server",
+    "development"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnpapa/lite-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/johnpapa/lite-server/issues"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "users": {
+    "jerkovicl": true,
+    "ovrmrw": true,
+    "fadihania": true,
+    "eugene.tsukanov": true,
+    "tim.trumpf": true,
+    "miguel_fontes": true,
+    "jonwilkinson": true,
+    "diogogomes": true,
+    "4simple": true,
+    "kkasaei": true,
+    "rajivmehtajs": true,
+    "castasamu": true,
+    "pid": true,
+    "reidonly": true,
+    "ichigotenshou": true,
+    "vermicida": true,
+    "den-dp": true,
+    "j.su": true,
+    "ibio": true,
+    "tomtomaso": true,
+    "abhisekp": true,
+    "adriancmiranda": true,
+    "frankg": true,
+    "avil13": true,
+    "dare21century": true,
+    "carlos.chida": true,
+    "morlassino": true,
+    "fleischer": true,
+    "marioacc": true,
+    "wenhsiaoyi": true,
+    "mars009": true,
+    "chaseshu": true,
+    "evandrosevergnini": true,
+    "max_devjs": true,
+    "yirihuan": true,
+    "jruif": true,
+    "largepuma": true,
+    "tdreitz": true,
+    "partap": true,
+    "jeremygaither": true,
+    "codefoster": true,
+    "dotnetcarpenter": true,
+    "kevinmartinez": true,
+    "dburdese": true,
+    "jcloutz": true,
+    "zguillez": true,
+    "piecioshka": true,
+    "ognjen.jevremovic": true,
+    "faraoman": true,
+    "manxisuo": true,
+    "anhurtado": true,
+    "cripstian": true,
+    "liammann": true,
+    "nylson": true,
+    "xyyjk": true,
+    "ahme-t": true,
+    "lucasbuetto": true,
+    "justforuse": true,
+    "pasturn": true,
+    "trewaters": true,
+    "fahadmurtaza": true,
+    "dnarvaez": true,
+    "ookangzheng": true,
+    "arahnoid": true,
+    "larrychen": true,
+    "nwservices": true,
+    "alfeo92": true,
+    "chiroc": true,
+    "cfleschhut": true,
+    "aadya_vashishth": true,
+    "erolaliyev": true,
+    "arnaudld": true,
+    "rabahtahraoui": true,
+    "liwenyao": true,
+    "sam-the-exorcist": true,
+    "patrickwelker": true,
+    "mykola_stetsyshyn": true,
+    "kevin-leguiza": true
+  },
+  "contributors": [
+    {
+      "name": "John Papa",
+      "email": "john@johnpapa.net"
+    },
+    {
+      "name": "Christopher Martin",
+      "email": "cgmartin@gmail.com"
+    }
+  ]
+}

@@ -1,0 +1,1443 @@
+{
+  "_id": "clean-package",
+  "_rev": "9-4889bad32ee3427768f0bd7118850bb1",
+  "name": "clean-package",
+  "dist-tags": {
+    "latest": "2.2.0"
+  },
+  "versions": {
+    "1.0.0": {
+      "name": "clean-package",
+      "description": "Removing configuration keys in 'package.json' before creating an NPM package.",
+      "version": "1.0.0",
+      "author": {
+        "name": "roydukkey"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://roydukkey@github.com/roydukkey/clean-package.git"
+      },
+      "homepage": "https://github.com/roydukkey/clean-package#readme",
+      "bugs": {
+        "url": "https://github.com/roydukkey/clean-package/issues"
+      },
+      "keywords": [
+        "npm",
+        "pack",
+        "package",
+        "package.json",
+        "publish",
+        "clean"
+      ],
+      "bin": {
+        "clean-package": "bin/clean-package.js"
+      },
+      "dependencies": {
+        "dot-object": "^2.1.3"
+      },
+      "devDependencies": {
+        "@types/node": "^14.6.1",
+        "eslint": "^7.7.0"
+      },
+      "scripts": {
+        "prepack": "$npm_package_bin_clean_package",
+        "new:pack": "npm pack && $npm_package_bin_clean_package restore",
+        "new:publish": "npm publish && $npm_package_bin_clean_package restore"
+      },
+      "clean-package": {
+        "indent": "\t",
+        "remove": [
+          "clean-package",
+          "eslintConfig",
+          "scripts"
+        ]
+      },
+      "eslintConfig": {
+        "env": {
+          "node": true,
+          "es6": true
+        },
+        "parserOptions": {
+          "ecmaVersion": 2018
+        },
+        "rules": {
+          "arrow-parens": [
+            "error",
+            "always"
+          ],
+          "arrow-spacing": [
+            "error",
+            {
+              "before": true,
+              "after": true
+            }
+          ],
+          "brace-style": [
+            "error",
+            "stroustrup",
+            {
+              "allowSingleLine": false
+            }
+          ],
+          "comma-spacing": [
+            "error",
+            {
+              "before": false,
+              "after": true
+            }
+          ],
+          "curly": [
+            "error"
+          ],
+          "comma-dangle": [
+            "error",
+            "never"
+          ],
+          "key-spacing": [
+            "error"
+          ],
+          "object-curly-spacing": [
+            "error",
+            "always"
+          ],
+          "quotes": [
+            "error",
+            "single"
+          ],
+          "semi": [
+            "error"
+          ],
+          "sort-imports": [
+            "error",
+            {
+              "ignoreCase": false,
+              "ignoreDeclarationSort": false,
+              "ignoreMemberSort": false,
+              "memberSyntaxSortOrder": [
+                "single",
+                "multiple",
+                "all",
+                "none"
+              ]
+            }
+          ],
+          "space-before-blocks": [
+            "error",
+            "always"
+          ],
+          "space-before-function-paren": [
+            "error",
+            "always"
+          ]
+        }
+      },
+      "gitHead": "35b1f4c06fffb0212a0ed8de2cf262aeaffe3c8a",
+      "_id": "clean-package@1.0.0",
+      "_nodeVersion": "14.7.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-YRJzIT/s/bZfJqMu+sg5TpoGoFrrBtZVC55n5mKetHUjkgmRWKHFSQtFVj17lu/UWIdaWMdZAB/79s4pNafQXQ==",
+        "shasum": "538d59006182777a9bdf3027c4de54002ca86274",
+        "tarball": "https://registry.npmjs.org/clean-package/-/clean-package-1.0.0.tgz",
+        "fileCount": 11,
+        "unpackedSize": 11496,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfSBoRCRA9TVsSAnZWagAANjsP/RbYQYylySjfiO0/IFmv\nnRPz+CPPJtBC6XNrUn2PacGQfW5ZaHUWaoUVNX8YvrAvrXag0Rg+zPnQ8JLk\nr3jEbKK9NVe3ZNBng4E0XmPtpnwz5zhO6emwlipazKpnN4FyHGVQL4PI/UNS\nQLnlhbDi2/y8QqoYu0wnmBHJVfWxmx2VKC0/k4YcBTQE1GktiM95thrm1cHk\nJ8c9ELaBtvyg5IKd0OoQLQ63oOB/wv7KP8b8VNloUoy1NtBcI+YMfQXYedEk\nu5NrL3aAifqfXGsIslmDD+mO5z3vLTjBbynaPTiG6GxnCXXBMSmvXnBF6FSp\nz0bQcSIVs936d1UIrMGMmvsGnX01oSoJzW37+x8uW5yj5yNkzH25JisMWGvQ\nCdcW0F8WG+Xi124D9Gj0FGXDEQqZhuuBRciRmeyz4XA4hQhv2uPG15LhJref\nrHrzV1T3x5VSALsz0aCWQ0ganiC9vkZNxerXZvhKsRPlDY0Z/7MyN4BRJKsA\nbdr9lYTrPkbs9t0acOjQi3rS6Vkc8RaabSghfOJgl8Wvg87QAx02hinBKm9Q\nNdzw0MRKC574x7OOMN7K1qAv1HD6+xD/z7A4EMyQqoHRm91sk+7UFBQ8moEz\nQAuZY+jnIVX1J8GHCWDHadzbzvcdvaFZIrHjXigwnLritYOF+pqqJCXRHHV+\n+LPJ\r\n=B47G\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGIZZjlw6WiT72rWaD+oBa8Kk90vhHamZFFf2NaV6azJAiEApGAXhzTHO4o1IOjYL6fuHDsKuD0rbbkN3pqylpjIdD4="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "roydukkey",
+          "email": "contact@changelog.me"
+        }
+      ],
+      "_npmUser": {
+        "name": "roydukkey",
+        "email": "contact@changelog.me"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/clean-package_1.0.0_1598560784692_0.9607669622469577"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.1": {
+      "name": "clean-package",
+      "description": "Removing configuration keys in 'package.json' before creating an NPM package.",
+      "version": "1.0.1",
+      "author": {
+        "name": "roydukkey"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://roydukkey@github.com/roydukkey/clean-package.git"
+      },
+      "homepage": "https://github.com/roydukkey/clean-package#readme",
+      "bugs": {
+        "url": "https://github.com/roydukkey/clean-package/issues"
+      },
+      "keywords": [
+        "npm",
+        "pack",
+        "package",
+        "package.json",
+        "publish",
+        "clean"
+      ],
+      "bin": {
+        "clean-package": "bin/clean-package.js"
+      },
+      "dependencies": {
+        "dot-object": "^2.1.3"
+      },
+      "devDependencies": {
+        "@types/node": "^14.6.1",
+        "eslint": "^7.7.0"
+      },
+      "scripts": {
+        "prepack": "$npm_package_bin_clean_package",
+        "new:pack": "npm pack && $npm_package_bin_clean_package restore",
+        "new:publish": "npm publish && $npm_package_bin_clean_package restore"
+      },
+      "clean-package": {
+        "indent": "\t",
+        "remove": [
+          "clean-package",
+          "eslintConfig",
+          "scripts"
+        ]
+      },
+      "eslintConfig": {
+        "env": {
+          "node": true,
+          "es6": true
+        },
+        "parserOptions": {
+          "ecmaVersion": 2018
+        },
+        "rules": {
+          "arrow-parens": [
+            "error",
+            "always"
+          ],
+          "arrow-spacing": [
+            "error",
+            {
+              "before": true,
+              "after": true
+            }
+          ],
+          "brace-style": [
+            "error",
+            "stroustrup",
+            {
+              "allowSingleLine": false
+            }
+          ],
+          "comma-spacing": [
+            "error",
+            {
+              "before": false,
+              "after": true
+            }
+          ],
+          "curly": [
+            "error"
+          ],
+          "comma-dangle": [
+            "error",
+            "never"
+          ],
+          "key-spacing": [
+            "error"
+          ],
+          "object-curly-spacing": [
+            "error",
+            "always"
+          ],
+          "quotes": [
+            "error",
+            "single"
+          ],
+          "semi": [
+            "error"
+          ],
+          "sort-imports": [
+            "error",
+            {
+              "ignoreCase": false,
+              "ignoreDeclarationSort": false,
+              "ignoreMemberSort": false,
+              "memberSyntaxSortOrder": [
+                "single",
+                "multiple",
+                "all",
+                "none"
+              ]
+            }
+          ],
+          "space-before-blocks": [
+            "error",
+            "always"
+          ],
+          "space-before-function-paren": [
+            "error",
+            "always"
+          ]
+        }
+      },
+      "gitHead": "796f862291679f8e4559e5cc661661d507305f2b",
+      "_id": "clean-package@1.0.1",
+      "_nodeVersion": "14.7.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-WNOxoT/VWurM4nWcZQ3+b6hex6wsptN2zYhiRx0+E7SQ96VuVjtcjZPwmNREGpqidr0ZVHOUySXxvwGdeJomow==",
+        "shasum": "8e8d5ca7b2c73149799c29bf5ebaf36187bb140f",
+        "tarball": "https://registry.npmjs.org/clean-package/-/clean-package-1.0.1.tgz",
+        "fileCount": 11,
+        "unpackedSize": 11762,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfSRskCRA9TVsSAnZWagAAGiMP/iYRllJRGZZVDRPuCsJy\nZXT8lI/j0C0aEz4nGDS9ZIFUnXQSP/QMbmPRr2nwpLfClFkNH64sUjV78erv\nREipspMY53Oq7t3RDUxQzxTX5DtRqJoamz0+YVHDW1u2hspK5PDKIzgFmfmm\njzmif2lTmQ01ngVI5EyOvfEphi1KKASr4+grla/n0zqsObBcDIsUjt0zeyRN\nSScfqNmWDe2B9lihwGuU+5R2DbrVSbE6pAuLJL17W+Sc5mAMe37Ez4HxuUo0\ngf7lXmo3SUxRVXslDXiRCi1ASrpqxe3y8TBzigZlFPJLjT592KrSxzPkLD9N\n5MKz3m0HPfEBOQju4gzeK3jKX+GsHUn+4zUmydgWh4hpEAge1iM5Uc7zu3/o\n5/2skUyX0iRNTGSU7FM66IVNQCTNTA5dbeiybFtdRxKTgje4+x37KNGePK4J\nAHpQqy9aDWVtzkP6ak7iJTuqPeJN8m5DyR5bSxj5R3W5B5I+58G3FGQxEXwi\nOTtGyfl/IF1ibECDOizcUlgiwlNHZ2PGSPCTthuDT/QRwUrDQx63LBBEfed9\n/ZQWckAcinDKo5pdUoE1fhv9iv+96apVvaSyoMSHaj16e1okYbxKxfhfuHfN\n+Qb0IPuEYpDtVPLsHaVAjhRbEHtB076e5K5693e15kp/VEcdAnXWCfSjx/gG\nvWvF\r\n=i1JU\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCyPnrdzguCwKlHbziR3vQoO4vZI1po/KX0vIyFouCB0QIgXK2zqeh68utNl8flQ4RLdodC6A4ScIPrL6wfe7rcLu0="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "roydukkey",
+          "email": "contact@changelog.me"
+        }
+      ],
+      "_npmUser": {
+        "name": "roydukkey",
+        "email": "contact@changelog.me"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/clean-package_1.0.1_1598626595792_0.9432396298044097"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0": {
+      "name": "clean-package",
+      "description": "Removes and replaces configuration keys in 'package.json' before creating an NPM package.",
+      "version": "2.0.0",
+      "author": {
+        "name": "roydukkey",
+        "email": "contact@changelog.me",
+        "url": "http://changelog.me"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://roydukkey@github.com/roydukkey/clean-package.git"
+      },
+      "homepage": "https://github.com/roydukkey/clean-package#readme",
+      "bugs": {
+        "url": "https://github.com/roydukkey/clean-package/issues"
+      },
+      "keywords": [
+        "npm",
+        "pack",
+        "package",
+        "package.json",
+        "publish",
+        "clean"
+      ],
+      "bin": {
+        "clean-package": "bin/main.js"
+      },
+      "main": "./dist/main.js",
+      "types": "./dist/main.d.ts",
+      "config": {
+        "namespace": "clean-package",
+        "main": "./src/index.ts",
+        "cli": [
+          "./src/bin.ts",
+          "./dist/cli.js"
+        ]
+      },
+      "dependencies": {
+        "dot-object": "^2.1.3"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.15.0",
+        "@babel/preset-env": "^7.15.0",
+        "@babel/preset-typescript": "^7.15.0",
+        "@rollup/plugin-json": "^4.1.0",
+        "@rollup/plugin-node-resolve": "^13.0.4",
+        "@rollup/plugin-replace": "^3.0.0",
+        "@roydukkey/eslint-config": "^1.0.10",
+        "@types/dot-object": "^2.1.2",
+        "@types/jest": "^27.0.1",
+        "@types/node": "^16.7.9",
+        "@typescript-eslint/eslint-plugin": "^4.30.0",
+        "@typescript-eslint/parser": "^4.30.0",
+        "babel-jest": "^27.1.0",
+        "cspell": "^5.9.0",
+        "eslint": "^7.32.0",
+        "eslint-plugin-tsdoc": "^0.2.14",
+        "jest": "^27.1.0",
+        "rollup": "^2.56.3",
+        "rollup-plugin-license": "^2.5.0",
+        "rollup-plugin-ts": "^1.4.1",
+        "terser": "^5.7.2",
+        "typescript": "^4.4.2",
+        "yarpm": "^1.1.1"
+      },
+      "scripts": {
+        "clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true })\"",
+        "lint": "yarpm run lint:spelling && yarpm run lint:es",
+        "lint:es": "eslint --ext js,ts ./",
+        "lint:spelling": "cspell --config './.vscode/cSpell.json' --no-progress '**/{.*/**/,.*/**/.,,.}*'",
+        "build": "yarpm run clean && rollup --config",
+        "minify": "terser $npm_package_main --compress toplevel --mangle toplevel -o $npm_package_main & terser $npm_package_config_cli_1 --compress toplevel --mangle toplevel -o $npm_package_config_cli_1",
+        "test": "jest -i",
+        "test:bin": "node $npm_package_config_cli_1",
+        "test:build": "yarpm run test -- --setupTestFrameworkScriptFile=./test/setup/prepack.ts",
+        "prepack": "yarpm run lint && yarpm run build && yarpm run minify && yarpm run test:build -- --coverage=false --verbose=false && node $npm_package_config_cli_1",
+        "new:pack": "yarpm pack && node $npm_package_config_cli_1 restore",
+        "new:publish": "yarpm publish && node $npm_package_config_cli_1 restore"
+      },
+      "clean-package": {
+        "indent": "\t",
+        "extends": "../common",
+        "remove": [
+          "config.main",
+          "config.cli",
+          "scripts"
+        ]
+      },
+      "jest": {
+        "testEnvironment": "node",
+        "verbose": true,
+        "collectCoverage": true,
+        "coverageDirectory": ".jest/coverage",
+        "cacheDirectory": ".jest/cache",
+        "testSequencer": "./test/setup/sequencer.js",
+        "bail": true,
+        "coveragePathIgnorePatterns": [
+          "./test/data",
+          "./test/setup"
+        ],
+        "setupFiles": [
+          "./test/setup/default.ts"
+        ]
+      },
+      "babel": {
+        "presets": [
+          [
+            "@babel/preset-env",
+            {
+              "targets": {
+                "node": "current"
+              }
+            }
+          ],
+          [
+            "@babel/preset-typescript"
+          ]
+        ],
+        "comments": false
+      },
+      "eslintConfig": {
+        "env": {
+          "node": true
+        },
+        "ignorePatterns": [
+          "dist/*"
+        ],
+        "extends": [
+          "@roydukkey/eslint-config"
+        ],
+        "rules": {
+          "@typescript-eslint/no-require-imports": "off",
+          "@typescript-eslint/no-type-alias": "off",
+          "@typescript-eslint/no-var-requires": "off"
+        }
+      },
+      "licenseText": "MIT License\n\nCopyright (c) 2020 roydukkey\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "_id": "clean-package@2.0.0",
+      "dist": {
+        "shasum": "7ed4526b54d3092c8391065009381076b5369bd6",
+        "integrity": "sha512-EGOqhr7WiGX6GWfrh4qGelqK42i4SeturljZtlY60GD28kLbYwIXWNTlQ/JOswo1gk9HHtjeU0Qhjwz80gkonw==",
+        "tarball": "https://registry.npmjs.org/clean-package/-/clean-package-2.0.0.tgz",
+        "fileCount": 12,
+        "unpackedSize": 18285,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC0sM9jcgpbOw5c051Zn0CY+/Mp+RPtiK3RVy7tS3GevAIgYzgYiK3duMLl+p1xhptXNs65WX4IFwvM5KZj/RsAo+E="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "roydukkey",
+        "email": "contact@changelog.me"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "roydukkey",
+          "email": "contact@changelog.me"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/clean-package_2.0.0_1632107635714_0.9719392433565257"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.1": {
+      "name": "clean-package",
+      "description": "Removes and replaces configuration keys in 'package.json' before creating an NPM package.",
+      "version": "2.0.1",
+      "author": {
+        "name": "roydukkey",
+        "email": "contact@changelog.me",
+        "url": "http://changelog.me"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://roydukkey@github.com/roydukkey/clean-package.git"
+      },
+      "homepage": "https://github.com/roydukkey/clean-package#readme",
+      "bugs": {
+        "url": "https://github.com/roydukkey/clean-package/issues"
+      },
+      "keywords": [
+        "npm",
+        "pack",
+        "package",
+        "package.json",
+        "publish",
+        "clean"
+      ],
+      "bin": {
+        "clean-package": "bin/main.js"
+      },
+      "main": "./dist/main.js",
+      "types": "./dist/main.d.ts",
+      "config": {
+        "namespace": "clean-package",
+        "main": "./src/index.ts",
+        "cli": [
+          "./src/bin.ts",
+          "./dist/cli.js"
+        ]
+      },
+      "dependencies": {
+        "dot-object": "^2.1.3"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.15.0",
+        "@babel/preset-env": "^7.15.0",
+        "@babel/preset-typescript": "^7.15.0",
+        "@rollup/plugin-json": "^4.1.0",
+        "@rollup/plugin-node-resolve": "^13.0.4",
+        "@rollup/plugin-replace": "^3.0.0",
+        "@roydukkey/eslint-config": "^1.0.10",
+        "@types/dot-object": "^2.1.2",
+        "@types/jest": "^27.0.1",
+        "@types/node": "^16.7.9",
+        "@typescript-eslint/eslint-plugin": "^4.30.0",
+        "@typescript-eslint/parser": "^4.30.0",
+        "babel-jest": "^27.1.0",
+        "cspell": "^5.9.0",
+        "eslint": "^7.32.0",
+        "eslint-plugin-tsdoc": "^0.2.14",
+        "jest": "^27.1.0",
+        "rollup": "^2.56.3",
+        "rollup-plugin-license": "^2.5.0",
+        "rollup-plugin-ts": "^1.4.1",
+        "terser": "^5.7.2",
+        "typescript": "^4.4.2",
+        "yarpm": "^1.1.1"
+      },
+      "scripts": {
+        "clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true })\"",
+        "lint": "yarpm run lint:spelling && yarpm run lint:es",
+        "lint:es": "eslint --ext js,ts ./",
+        "lint:spelling": "cspell --config './.vscode/cSpell.json' --no-progress '**/{.*/**/,.*/**/.,,.}*'",
+        "build": "yarpm run clean && rollup --config",
+        "minify": "terser $npm_package_main --compress toplevel --mangle toplevel -o $npm_package_main & terser $npm_package_config_cli_1 --compress toplevel --mangle toplevel -o $npm_package_config_cli_1",
+        "test": "jest -i",
+        "test:bin": "node $npm_package_config_cli_1",
+        "test:build": "yarpm run test -- --setupTestFrameworkScriptFile=./test/setup/prepack.ts",
+        "prepack": "yarpm run lint && yarpm run build && yarpm run minify && yarpm run test:build -- --coverage=false --verbose=false && node $npm_package_config_cli_1",
+        "new:pack": "yarpm pack && node $npm_package_config_cli_1 restore",
+        "new:publish": "yarpm publish && node $npm_package_config_cli_1 restore"
+      },
+      "clean-package": {
+        "indent": "\t",
+        "extends": "../common",
+        "remove": [
+          "config.main",
+          "config.cli",
+          "scripts"
+        ]
+      },
+      "jest": {
+        "testEnvironment": "node",
+        "verbose": true,
+        "collectCoverage": true,
+        "coverageDirectory": ".jest/coverage",
+        "cacheDirectory": ".jest/cache",
+        "testSequencer": "./test/setup/sequencer.js",
+        "bail": true,
+        "coveragePathIgnorePatterns": [
+          "./test/data",
+          "./test/setup"
+        ],
+        "setupFiles": [
+          "./test/setup/default.ts"
+        ]
+      },
+      "babel": {
+        "presets": [
+          [
+            "@babel/preset-env",
+            {
+              "targets": {
+                "node": "current"
+              }
+            }
+          ],
+          [
+            "@babel/preset-typescript"
+          ]
+        ],
+        "comments": false
+      },
+      "eslintConfig": {
+        "env": {
+          "node": true
+        },
+        "ignorePatterns": [
+          "dist/*"
+        ],
+        "extends": [
+          "@roydukkey/eslint-config"
+        ],
+        "rules": {
+          "@typescript-eslint/no-require-imports": "off",
+          "@typescript-eslint/no-type-alias": "off",
+          "@typescript-eslint/no-var-requires": "off"
+        }
+      },
+      "licenseText": "MIT License\n\nCopyright (c) 2020 roydukkey\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "_id": "clean-package@2.0.1",
+      "dist": {
+        "shasum": "80a5cfec2cc2ca87d58dc1511c51d4b3be3a5e91",
+        "integrity": "sha512-UwUDne7NyYxiL3inF7EAZAEROo+aXJXfAyqqZkvym3lEIHDNapqrLuYpJAv1nY7gJml9JFAT7cKNJd9tTzC0IQ==",
+        "tarball": "https://registry.npmjs.org/clean-package/-/clean-package-2.0.1.tgz",
+        "fileCount": 12,
+        "unpackedSize": 18552,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIG+183xM0bW+jPhu0+htqLL9NZpy1YaFQa/xhHomMvQiAiEA1fBQkhSqXXhrUgz4Wol5hv1SwsB3dIOznxnREuvFmFA="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "roydukkey",
+        "email": "contact@changelog.me"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "roydukkey",
+          "email": "contact@changelog.me"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/clean-package_2.0.1_1632192846582_0.30115576613564543"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.0": {
+      "name": "clean-package",
+      "description": "Removes and replaces configuration keys in 'package.json' before creating an NPM package.",
+      "version": "2.1.0",
+      "author": {
+        "name": "roydukkey",
+        "email": "contact@changelog.me",
+        "url": "http://changelog.me"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://roydukkey@github.com/roydukkey/clean-package.git"
+      },
+      "homepage": "https://github.com/roydukkey/clean-package#readme",
+      "bugs": {
+        "url": "https://github.com/roydukkey/clean-package/issues"
+      },
+      "keywords": [
+        "npm",
+        "pack",
+        "package",
+        "package.json",
+        "publish",
+        "clean"
+      ],
+      "bin": {
+        "clean-package": "bin/main.js"
+      },
+      "main": "./dist/main.js",
+      "types": "./dist/main.d.ts",
+      "config": {
+        "namespace": "clean-package",
+        "main": "./src/index.ts",
+        "cli": [
+          "./src/bin.ts",
+          "./dist/cli.js"
+        ]
+      },
+      "dependencies": {
+        "dot-object": "^2.1.3"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.15.0",
+        "@babel/preset-env": "^7.15.0",
+        "@babel/preset-typescript": "^7.15.0",
+        "@rollup/plugin-json": "^4.1.0",
+        "@rollup/plugin-node-resolve": "^13.0.4",
+        "@rollup/plugin-replace": "^3.0.0",
+        "@roydukkey/eslint-config": "^1.0.10",
+        "@types/dot-object": "^2.1.2",
+        "@types/jest": "^27.0.1",
+        "@types/node": "^16.7.9",
+        "@typescript-eslint/eslint-plugin": "^4.30.0",
+        "@typescript-eslint/parser": "^4.30.0",
+        "babel-jest": "^27.1.0",
+        "cspell": "^5.9.0",
+        "eslint": "^7.32.0",
+        "eslint-plugin-tsdoc": "^0.2.14",
+        "jest": "^27.1.0",
+        "rollup": "^2.56.3",
+        "rollup-plugin-license": "^2.5.0",
+        "rollup-plugin-ts": "^1.4.1",
+        "terser": "^5.7.2",
+        "typescript": "^4.4.2",
+        "yarpm": "^1.1.1"
+      },
+      "scripts": {
+        "clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true })\"",
+        "lint": "yarpm run lint:spelling && yarpm run lint:es",
+        "lint:es": "eslint --ext js,ts ./",
+        "lint:spelling": "cspell --config './.vscode/cSpell.json' --no-progress '**/{.*/**/,.*/**/.,,.}*'",
+        "build": "yarpm run clean && rollup --config",
+        "minify": "terser $npm_package_main --compress toplevel --mangle toplevel -o $npm_package_main & terser $npm_package_config_cli_1 --compress toplevel --mangle toplevel -o $npm_package_config_cli_1",
+        "test": "jest -i",
+        "test:bin": "node $npm_package_config_cli_1",
+        "test:build": "yarpm run test -- --setupTestFrameworkScriptFile=./test/setup/prepack.ts",
+        "prepack": "yarpm run lint && yarpm run build && yarpm run minify && yarpm run test:build -- --coverage=false --verbose=false && node $npm_package_config_cli_1",
+        "new:pack": "yarpm pack && node $npm_package_config_cli_1 restore",
+        "new:publish": "yarpm publish && node $npm_package_config_cli_1 restore"
+      },
+      "clean-package": {
+        "indent": "\t",
+        "extends": "../common",
+        "remove": [
+          "config.main",
+          "config.cli",
+          "scripts"
+        ]
+      },
+      "jest": {
+        "testEnvironment": "node",
+        "verbose": true,
+        "collectCoverage": true,
+        "coverageDirectory": ".jest/coverage",
+        "cacheDirectory": ".jest/cache",
+        "testSequencer": "./test/setup/sequencer.js",
+        "bail": true,
+        "coveragePathIgnorePatterns": [
+          "./test/data",
+          "./test/setup"
+        ],
+        "setupFiles": [
+          "./test/setup/default.ts"
+        ]
+      },
+      "babel": {
+        "presets": [
+          [
+            "@babel/preset-env",
+            {
+              "targets": {
+                "node": "current"
+              }
+            }
+          ],
+          [
+            "@babel/preset-typescript"
+          ]
+        ],
+        "comments": false
+      },
+      "eslintConfig": {
+        "env": {
+          "node": true
+        },
+        "ignorePatterns": [
+          "dist/*"
+        ],
+        "extends": [
+          "@roydukkey/eslint-config"
+        ],
+        "rules": {
+          "@typescript-eslint/no-require-imports": "off",
+          "@typescript-eslint/no-type-alias": "off",
+          "@typescript-eslint/no-var-requires": "off"
+        }
+      },
+      "licenseText": "MIT License\n\nCopyright (c) 2020 roydukkey\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "_id": "clean-package@2.1.0",
+      "dist": {
+        "shasum": "b1711519b16116587a4a563a0877745dce7ad447",
+        "integrity": "sha512-hvw6TG+sSOjCmQD7RU47ZaNeIXcpvuRNqFa+s6UhXQWZ6JgwvEU23cyjTS+AEMigzayt0EcoKGpaClGCbrcTlQ==",
+        "tarball": "https://registry.npmjs.org/clean-package/-/clean-package-2.1.0.tgz",
+        "fileCount": 12,
+        "unpackedSize": 20640,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDFzcwIicW7wQBrMVC5mYMFaDo4Dal5vKNr8MyxP+MxKAiAssc+XxxGGkwqavGBKMUT7luZvQfOg1BKeNHe+5m4RlA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "roydukkey",
+        "email": "contact@changelog.me"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "roydukkey",
+          "email": "contact@changelog.me"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/clean-package_2.1.0_1633124446214_0.7745487304422822"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.1": {
+      "name": "clean-package",
+      "description": "Removes and replaces configuration keys in 'package.json' before creating an NPM package.",
+      "version": "2.1.1",
+      "author": {
+        "name": "roydukkey",
+        "email": "contact@changelog.me",
+        "url": "http://changelog.me"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://roydukkey@github.com/roydukkey/clean-package.git"
+      },
+      "homepage": "https://github.com/roydukkey/clean-package#readme",
+      "bugs": {
+        "url": "https://github.com/roydukkey/clean-package/issues"
+      },
+      "keywords": [
+        "npm",
+        "pack",
+        "package",
+        "package.json",
+        "publish",
+        "clean"
+      ],
+      "bin": {
+        "clean-package": "bin/main.js"
+      },
+      "main": "./dist/main.js",
+      "types": "./dist/main.d.ts",
+      "config": {
+        "namespace": "clean-package",
+        "main": "./src/index.ts",
+        "cli": [
+          "./src/bin.ts",
+          "./dist/cli.js"
+        ]
+      },
+      "dependencies": {
+        "dot-object": "^2.1.3"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.15.0",
+        "@babel/preset-env": "^7.15.0",
+        "@babel/preset-typescript": "^7.15.0",
+        "@rollup/plugin-json": "^4.1.0",
+        "@rollup/plugin-node-resolve": "^13.0.4",
+        "@rollup/plugin-replace": "^3.0.0",
+        "@roydukkey/eslint-config": "^1.0.10",
+        "@types/dot-object": "^2.1.2",
+        "@types/jest": "^27.0.1",
+        "@types/node": "^16.7.9",
+        "@typescript-eslint/eslint-plugin": "^4.30.0",
+        "@typescript-eslint/parser": "^4.30.0",
+        "babel-jest": "^27.1.0",
+        "cspell": "^5.9.0",
+        "eslint": "^7.32.0",
+        "eslint-plugin-tsdoc": "^0.2.14",
+        "jest": "^27.1.0",
+        "rollup": "^2.56.3",
+        "rollup-plugin-license": "^2.5.0",
+        "rollup-plugin-ts": "^1.4.1",
+        "terser": "^5.7.2",
+        "typescript": "^4.4.2",
+        "yarpm": "^1.1.1"
+      },
+      "scripts": {
+        "clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true })\"",
+        "lint": "yarpm run lint:spelling && yarpm run lint:es",
+        "lint:es": "eslint --ext js,ts ./",
+        "lint:spelling": "cspell --config './.vscode/cSpell.json' --no-progress '**/{.*/**/,.*/**/.,,.}*'",
+        "build": "yarpm run clean && rollup --config",
+        "minify": "terser $npm_package_main --compress toplevel --mangle toplevel -o $npm_package_main & terser $npm_package_config_cli_1 --compress toplevel --mangle toplevel -o $npm_package_config_cli_1",
+        "test": "jest -i",
+        "test:bin": "node $npm_package_config_cli_1",
+        "test:build": "yarpm run test -- --setupTestFrameworkScriptFile=./test/setup/prepack.ts",
+        "prepack": "yarpm run lint && yarpm run build && yarpm run minify && yarpm run test:build -- --coverage=false --verbose=false && node $npm_package_config_cli_1",
+        "new:pack": "yarpm pack && node $npm_package_config_cli_1 restore",
+        "new:publish": "yarpm publish && node $npm_package_config_cli_1 restore"
+      },
+      "clean-package": {
+        "indent": "\t",
+        "extends": "../common",
+        "remove": [
+          "config.main",
+          "config.cli",
+          "scripts"
+        ]
+      },
+      "jest": {
+        "testEnvironment": "node",
+        "verbose": true,
+        "collectCoverage": true,
+        "coverageDirectory": ".jest/coverage",
+        "cacheDirectory": ".jest/cache",
+        "testSequencer": "./test/setup/sequencer.js",
+        "bail": true,
+        "coveragePathIgnorePatterns": [
+          "./test/data",
+          "./test/setup"
+        ],
+        "setupFiles": [
+          "./test/setup/default.ts"
+        ]
+      },
+      "babel": {
+        "presets": [
+          [
+            "@babel/preset-env",
+            {
+              "targets": {
+                "node": "current"
+              }
+            }
+          ],
+          [
+            "@babel/preset-typescript"
+          ]
+        ],
+        "comments": false
+      },
+      "eslintConfig": {
+        "env": {
+          "node": true
+        },
+        "ignorePatterns": [
+          "dist/*"
+        ],
+        "extends": [
+          "@roydukkey/eslint-config"
+        ],
+        "rules": {
+          "@typescript-eslint/no-require-imports": "off",
+          "@typescript-eslint/no-type-alias": "off",
+          "@typescript-eslint/no-var-requires": "off"
+        }
+      },
+      "licenseText": "MIT License\n\nCopyright (c) 2020 roydukkey\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "_id": "clean-package@2.1.1",
+      "dist": {
+        "shasum": "2251f9b39382ddec534aa31291f6bb49cf3a3b1f",
+        "integrity": "sha512-+svGAs1RfjguW3Yi0uk1F2gu56jt0nkpFW6Gd9BDK0w7xcIokFwrQOWuRn5NO5pfTDkLCVP1ttIjvJwXaSvRsA==",
+        "tarball": "https://registry.npmjs.org/clean-package/-/clean-package-2.1.1.tgz",
+        "fileCount": 12,
+        "unpackedSize": 21176,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh2mHhCRA9TVsSAnZWagAA4y0QAJPtgQJy9MJV+oA6yozy\nrcaMB5AMdRP7yQSKJehkXdYUN3b2Q+KcSA20b8MrDZc85AcNqCEqrq9Sojwv\nVgRXW+X9uEYaZ9GfBOHLrbUCJoKTdLAweO+LBB9KfSNhyXR36RizW/8IGGI+\nEzMxPles8WapNbsXwhuVgMRB9iI6F9Q+QAVHye3wG/U7GpjG5D8IcKWTpFnr\nBY7+8bkfrch9NjTQQPvi4JKo2rTKtbksBOFy+J+QrSOiBm6sVbJiR3DOdLfr\nFRzUobcGdXbIDUgGh2Xmzw8rGlKRKho2cJlqZwL98sxo3T4cj0huOsOTKyUF\n7HgQ428MbYvttQLlfmFVaI1iDoD0J/oxMzmDQzhDxsqwsIa8ZVgDVIuYi1lv\n+KaMSLayc2evgM3fWpKUnGj2wHt8O4LdAISRnFLu/sdkyVRteS4Y25vB4kip\nYKpsKgMgxTylSttj9LurI2mUFARp5xC0F4LdaF+4RwXf/DZ0TJOmBc+VblwC\nxs3tMCmeTPstRcVvT5GRlhGtPFXGZawuHU/0WjLOnszU3rykY6xLxOwoxzbB\nwvuWKxON2xBJ8IbdBUNxOHr7Kggu3sZaMSFYR2mjFo9ART61pgBlOtSa6NdR\n121HFPmnUy3GFTTDVd2/5WCWOsFbtLePgQkxQkVa44paRSNp9wqAJai6bP4L\ntqBE\r\n=IxKA\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGxE2XnHZRdJ9t5714HASdXSh1T9YJIP5822sjDL2eSiAiEAkixqHAFtXdGsCpiypSRt6QlJtD34MQnbNXDEBkJOdcY="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "roydukkey",
+        "email": "contact@changelog.me"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "roydukkey",
+          "email": "contact@changelog.me"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/clean-package_2.1.1_1636993165346_0.5793411961225334"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.2": {
+      "name": "clean-package",
+      "description": "Removes and replaces configuration keys in 'package.json' before creating an NPM package.",
+      "version": "2.1.2",
+      "author": {
+        "name": "roydukkey",
+        "email": "contact@changelog.me",
+        "url": "http://changelog.me"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://roydukkey@github.com/roydukkey/clean-package.git"
+      },
+      "homepage": "https://github.com/roydukkey/clean-package#readme",
+      "bugs": {
+        "url": "https://github.com/roydukkey/clean-package/issues"
+      },
+      "keywords": [
+        "npm",
+        "pack",
+        "package",
+        "package.json",
+        "publish",
+        "clean"
+      ],
+      "bin": {
+        "clean-package": "bin/main.js"
+      },
+      "main": "./dist/main.js",
+      "types": "./dist/main.d.ts",
+      "config": {
+        "namespace": "clean-package",
+        "main": "./src/index.ts",
+        "cli": [
+          "./src/bin.ts",
+          "./dist/cli.js"
+        ]
+      },
+      "dependencies": {
+        "dot-object": "^2.1.3"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.2",
+        "@babel/plugin-transform-runtime": "^7.18.2",
+        "@babel/preset-env": "^7.18.2",
+        "@babel/preset-typescript": "^7.15.0",
+        "@rollup/plugin-json": "^4.1.0",
+        "@rollup/plugin-node-resolve": "^13.0.4",
+        "@rollup/plugin-replace": "^3.0.0",
+        "@roydukkey/eslint-config": "^1.0.12",
+        "@types/dot-object": "^2.1.2",
+        "@types/jest": "^27.0.1",
+        "@types/node": "^16.7.9",
+        "@typescript-eslint/eslint-plugin": "^5.27.0",
+        "@typescript-eslint/parser": "^5.27.0",
+        "babel-jest": "^27.1.0",
+        "cspell": "^5.9.0",
+        "eslint": "^7.32.0",
+        "eslint-plugin-tsdoc": "^0.2.16",
+        "jest": "^27.1.0",
+        "rollup": "^2.56.3",
+        "rollup-plugin-license": "^2.5.0",
+        "rollup-plugin-ts": "^3.0.1",
+        "terser": "^5.7.2",
+        "typescript": "^4.4.2",
+        "yarpm": "^1.1.1"
+      },
+      "scripts": {
+        "clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true })\"",
+        "lint": "yarpm run lint:spelling && yarpm run lint:es",
+        "lint:es": "eslint --ext js,ts ./",
+        "lint:spelling": "cspell --config './.vscode/cSpell.json' --no-progress '**/{.*/**/,.*/**/.,,.}*'",
+        "build": "yarpm run clean && rollup --config ./rollup.config.ts --configPlugin rollup-plugin-ts",
+        "minify": "terser $npm_package_main --compress toplevel --mangle toplevel -o $npm_package_main & terser $npm_package_config_cli_1 --compress toplevel --mangle toplevel -o $npm_package_config_cli_1",
+        "test": "jest -i",
+        "test:bin": "node $npm_package_config_cli_1",
+        "test:build": "yarpm run test -- --setupTestFrameworkScriptFile=./test/setup/prepack.ts",
+        "prepack": "yarpm run lint && yarpm run build && yarpm run minify && yarpm run test:build -- --coverage=false --verbose=false && node $npm_package_config_cli_1",
+        "new:pack": "yarpm pack && node $npm_package_config_cli_1 restore",
+        "new:publish": "yarpm publish && node $npm_package_config_cli_1 restore"
+      },
+      "clean-package": {
+        "indent": "\t",
+        "extends": "../common",
+        "remove": [
+          "config.main",
+          "config.cli",
+          "scripts"
+        ]
+      },
+      "jest": {
+        "testEnvironment": "node",
+        "verbose": true,
+        "collectCoverage": true,
+        "coverageDirectory": ".jest/coverage",
+        "cacheDirectory": ".jest/cache",
+        "testSequencer": "./test/setup/sequencer.js",
+        "bail": true,
+        "coveragePathIgnorePatterns": [
+          "./test/data",
+          "./test/setup"
+        ],
+        "setupFiles": [
+          "./test/setup/default.ts"
+        ]
+      },
+      "babel": {
+        "presets": [
+          [
+            "@babel/preset-env",
+            {
+              "targets": {
+                "node": "current"
+              }
+            }
+          ],
+          [
+            "@babel/preset-typescript"
+          ]
+        ],
+        "comments": false
+      },
+      "eslintConfig": {
+        "extends": [
+          "@roydukkey/eslint-config"
+        ],
+        "env": {
+          "node": true
+        },
+        "ignorePatterns": [
+          "dist"
+        ],
+        "overrides": [
+          {
+            "files": [
+              "*.js?(x)"
+            ],
+            "rules": {
+              "@typescript-eslint/no-require-imports": "off"
+            }
+          },
+          {
+            "files": [
+              "*.ts?(x)"
+            ],
+            "rules": {
+              "@typescript-eslint/no-type-alias": "off"
+            }
+          },
+          {
+            "files": [
+              "*.{j,t}s?(x)"
+            ],
+            "rules": {
+              "@typescript-eslint/no-require-imports": "off",
+              "@typescript-eslint/no-var-requires": "off"
+            }
+          }
+        ]
+      },
+      "licenseText": "MIT License\n\nCopyright (c) 2020 roydukkey\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "_id": "clean-package@2.1.2",
+      "dist": {
+        "shasum": "65abf8efa27bf91bcc7cc4b5b0da5683ff9a5199",
+        "integrity": "sha512-Hpmu29apdAmfzTW+B7LkxeJVqW8puYHW4P4yfd7JoxjNzmWirQZAZr1XVMqb099OmloMAuASAipo9x4qccysLw==",
+        "tarball": "https://registry.npmjs.org/clean-package/-/clean-package-2.1.2.tgz",
+        "fileCount": 13,
+        "unpackedSize": 23060,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDSAnFgxjyecOscq/ILeKGefzdEAfMUhYjJ/7isIFSOsAIgTwZ/CAjt4yYkZnXuX/dhIGuKFqPZ4JbODuSgRmXOrcs="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjWfQUACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqzDRAAgSfzGi6fPxxeB4h1KDhUztOQ6XFbqBKFLIp4s0jAEmtz3AqY\r\nArASBAVO/pbK98SadmgtmhDUZxXFSSbOSTC6/VSjmS9nAvDZxeiJkYjwJtFQ\r\nbI2KvgmbAuVzkWnR12ZsODbeuv++w+Md2NJJEu6g1tXOGEGAASto6FebFZDC\r\nYZALZmtb6U/ti6mlscwgG2Jf/UBKnefae6kgGVaa9FfNFEdhtancKJMPrv/E\r\nAZYsVnecLcC8pbVTbW65MJLe7vc9XTnPg8L60BGjMOrs+zphygSJoizVIZ/q\r\nZfMRKuxs7Kns4lC/bpLXTW11foKd+uoU78wWaBoNtNuZtbqCNPtAWpj5hKuu\r\nOet25ka5lyLWxqOG0w5v/HKqZ8ELvX1iEdMh7TLiVIfCEDf96kDF0rctq6EH\r\n+5k8LeYa5xwch1Ux/CJEMSDxh6mSx0+RS9qiNMtPSWtL7YDr1r43HepIVUJW\r\nP5IP9saOTWajuSl0dQYkdKURef6AzzEM76qfcBIFo0Gao9MpmYouS6EjEFOO\r\nF097DJK0Rzpe1Sui4Tixcqy4zMjzFJfx27z13YR5W4PYsROvT6UvaZfjx0k6\r\nKtf6k6s0qBI1YCzw1s2xmR7lUpFFBx1Vr1iRmbJbk4gx8wODgG9VX6LlcXrz\r\nCPkLYzkb19oxknm7l5TMyFEjs1V6A42uQoo=\r\n=9Ieb\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "roydukkey",
+        "email": "contact@changelog.me"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "roydukkey",
+          "email": "contact@changelog.me"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/clean-package_2.1.2_1666839571846_0.1501259330552831"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.2.0": {
+      "name": "clean-package",
+      "description": "Removes and replaces configuration keys in 'package.json' before creating an NPM package.",
+      "version": "2.2.0",
+      "author": {
+        "name": "roydukkey",
+        "email": "contact@changelog.me",
+        "url": "http://changelog.me"
+      },
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://roydukkey@github.com/roydukkey/clean-package.git"
+      },
+      "homepage": "https://github.com/roydukkey/clean-package#readme",
+      "bugs": {
+        "url": "https://github.com/roydukkey/clean-package/issues"
+      },
+      "keywords": [
+        "npm",
+        "pack",
+        "package",
+        "package.json",
+        "publish",
+        "clean"
+      ],
+      "bin": {
+        "clean-package": "bin/main.js"
+      },
+      "main": "./dist/main.js",
+      "types": "./dist/main.d.ts",
+      "config": {
+        "namespace": "clean-package",
+        "main": "./src/index.ts",
+        "cli": [
+          "./src/bin.ts",
+          "./dist/cli.js"
+        ]
+      },
+      "dependencies": {
+        "dot-prop": "^6.0.1"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.2",
+        "@babel/plugin-transform-runtime": "^7.18.2",
+        "@babel/preset-env": "^7.18.2",
+        "@babel/preset-typescript": "^7.15.0",
+        "@rollup/plugin-json": "^4.1.0",
+        "@rollup/plugin-node-resolve": "^13.0.4",
+        "@rollup/plugin-replace": "^3.0.0",
+        "@roydukkey/eslint-config": "^1.0.12",
+        "@types/jest": "^27.0.1",
+        "@types/node": "^16.7.9",
+        "@typescript-eslint/eslint-plugin": "^5.27.0",
+        "@typescript-eslint/parser": "^5.27.0",
+        "babel-jest": "^27.1.0",
+        "cspell": "^5.9.0",
+        "eslint": "^7.32.0",
+        "eslint-plugin-tsdoc": "^0.2.16",
+        "jest": "^27.1.0",
+        "rollup": "^2.56.3",
+        "rollup-plugin-license": "^2.5.0",
+        "rollup-plugin-ts": "^3.0.1",
+        "terser": "^5.7.2",
+        "typescript": "^4.4.2",
+        "yarpm": "^1.1.1"
+      },
+      "scripts": {
+        "clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true })\"",
+        "lint": "yarpm run lint:spelling && yarpm run lint:es",
+        "lint:es": "eslint --ext js,ts ./",
+        "lint:spelling": "cspell --config './.vscode/cSpell.json' --no-progress '**/{.*/**/,.*/**/.,,.}*'",
+        "build": "yarpm run clean && rollup --config ./rollup.config.ts --configPlugin rollup-plugin-ts",
+        "minify": "terser $npm_package_main --compress toplevel --mangle toplevel -o $npm_package_main & terser $npm_package_config_cli_1 --compress toplevel --mangle toplevel -o $npm_package_config_cli_1",
+        "test": "jest -i",
+        "test:bin": "node $npm_package_config_cli_1",
+        "test:build": "yarpm run test -- --setupTestFrameworkScriptFile=./test/setup/prepack.ts",
+        "prepack": "yarpm run lint && yarpm run build && yarpm run minify && yarpm run test:build -- --coverage=false --verbose=false && node $npm_package_config_cli_1",
+        "new:pack": "yarpm pack && node $npm_package_config_cli_1 restore",
+        "new:publish": "yarpm publish && node $npm_package_config_cli_1 restore"
+      },
+      "clean-package": {
+        "indent": "\t",
+        "extends": "../common",
+        "remove": [
+          "config.main",
+          "config.cli",
+          "scripts"
+        ]
+      },
+      "jest": {
+        "testEnvironment": "node",
+        "verbose": true,
+        "collectCoverage": true,
+        "coverageDirectory": ".jest/coverage",
+        "cacheDirectory": ".jest/cache",
+        "testSequencer": "./test/setup/sequencer.js",
+        "bail": true,
+        "coveragePathIgnorePatterns": [
+          "./test/data",
+          "./test/setup"
+        ],
+        "setupFiles": [
+          "./test/setup/default.ts"
+        ]
+      },
+      "babel": {
+        "presets": [
+          [
+            "@babel/preset-env",
+            {
+              "targets": {
+                "node": "current"
+              }
+            }
+          ],
+          [
+            "@babel/preset-typescript"
+          ]
+        ],
+        "comments": false
+      },
+      "eslintConfig": {
+        "extends": [
+          "@roydukkey/eslint-config"
+        ],
+        "env": {
+          "node": true
+        },
+        "ignorePatterns": [
+          "dist"
+        ],
+        "overrides": [
+          {
+            "files": [
+              "*.js?(x)"
+            ],
+            "rules": {
+              "@typescript-eslint/no-require-imports": "off"
+            }
+          },
+          {
+            "files": [
+              "*.ts?(x)"
+            ],
+            "rules": {
+              "@typescript-eslint/no-type-alias": "off"
+            }
+          },
+          {
+            "files": [
+              "*.{j,t}s?(x)"
+            ],
+            "rules": {
+              "@typescript-eslint/no-require-imports": "off",
+              "@typescript-eslint/no-var-requires": "off"
+            }
+          }
+        ]
+      },
+      "licenseText": "MIT License\n\nCopyright (c) 2020 roydukkey\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "_id": "clean-package@2.2.0",
+      "dist": {
+        "shasum": "8348b131c60a785457173f0e34129269835a2833",
+        "integrity": "sha512-vLv8kRqvh4smPDpqAYFPLEijTppAd/cfCz4yBcUGoVl/JKu6ZWKhlo+G/cAmwlSa29RudfBeuyiNEzas8bTwEQ==",
+        "tarball": "https://registry.npmjs.org/clean-package/-/clean-package-2.2.0.tgz",
+        "fileCount": 12,
+        "unpackedSize": 22002,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC1+3KZHWTLefIMsZmjywkM4hgeQ+s3fbL10ivQ/b06SgIgCWIPwQjx+l80/KiVkBHQPWfGDiMPVNcHoJ1ukP0XzYI="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjd9DQACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpDnQ//ZvL3eP3Y2H+I+Lpqb0juhwu/ihyn8U8P6u5mo+Q+MrNwDGZD\r\neyOF2kGVWaq01Tfy9TN9Ymjae+zF4yo2aytr01rHjqgpEcm+rCIbESy5nRcq\r\nvy5Yt65lt8Hrxuyi2EluseCDZnS8Cwd9am9CvUawcWl8XXDazU5z2J0P2Tnr\r\nXa3qJXxYEtz2sMcKGn6zIQ/nglYJnJxCwCFRBpCIf0xzomw1PfpNO9Ksf/Yq\r\nxAF4r4jX/PM2DFlxDvN0vLadixEdNLEtoqsSO6dcR5JeLBja8WYAqSpOhTru\r\n0MfqL3MdzM8mBAcfsQRranopF+xXTRqUME0Mn9wIrncrGMb04AFR50ioXAjo\r\nzH+NbKawBsakiS1GZmKXR0tys/d91ltPLrDu+Mbj2gJp3UusjeCYgfCAs+Ma\r\n6KdRigxpaiwgJ8vUYvV87Z06hz48FVIRkxTMZfd9AvBB23gCW+bepD43F15+\r\nqGgOKp8uNMNvmv1jusdwtUeBeZyN53Lo3DF0nqh8MvvOuxAbx9CLg2W42TCL\r\n/KcDU/pu2zS+u6V3UIpLEIsL7CXzzxuyXc5/BGg9e/+ZitvJ02ZGLA4hdE2q\r\nMtc+jLttazC7R7K9Ixm3AuqoM35v03TagR7DWsdfR0NpYt3gIJf0G4+gwEme\r\noN/S6KXlokBhdMOLx1Tg5yl7a1x7FFFisgU=\r\n=0PCw\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "roydukkey",
+        "email": "contact@changelog.me"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "roydukkey",
+          "email": "contact@changelog.me"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/clean-package_2.2.0_1668796624664_0.634938763009584"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2020-08-27T20:39:44.692Z",
+    "1.0.0": "2020-08-27T20:39:44.813Z",
+    "modified": "2022-11-18T18:37:04.888Z",
+    "1.0.1": "2020-08-28T14:56:35.870Z",
+    "2.0.0": "2021-09-20T03:13:55.823Z",
+    "2.0.1": "2021-09-21T02:54:06.727Z",
+    "2.1.0": "2021-10-01T21:40:46.553Z",
+    "2.1.1": "2021-11-15T16:19:25.497Z",
+    "2.1.2": "2022-10-27T02:59:32.009Z",
+    "2.2.0": "2022-11-18T18:37:04.814Z"
+  },
+  "maintainers": [
+    {
+      "name": "roydukkey",
+      "email": "contact@changelog.me"
+    }
+  ],
+  "description": "Removes and replaces configuration keys in 'package.json' before creating an NPM package.",
+  "homepage": "https://github.com/roydukkey/clean-package#readme",
+  "keywords": [
+    "npm",
+    "pack",
+    "package",
+    "package.json",
+    "publish",
+    "clean"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://roydukkey@github.com/roydukkey/clean-package.git"
+  },
+  "author": {
+    "name": "roydukkey",
+    "email": "contact@changelog.me",
+    "url": "http://changelog.me"
+  },
+  "bugs": {
+    "url": "https://github.com/roydukkey/clean-package/issues"
+  },
+  "license": "MIT",
+  "readme": "# Clean Package\n\nThis `clean-package` tool is used for removing development configuration from 'package.json' before publishing the package to NPM.\n\n[![Release Version](https://img.shields.io/npm/v/clean-package.svg)](https://www.npmjs.com/package/clean-package)\n[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)\n\n\n## Install\n\n```bash\nnpm install clean-package --save-dev\n```\n\n\n## Integrated Usage\n\nThe `clean-package` tool works directly on the 'package.json' file, to avoid breaking the NPM lifecycle. This allows you to add a script to the 'package.json' to clean the file during packing.\n\n```json\n{\n  \"name\": \"my-package\",\n  \"version\": \"1.0.0\",\n  \"scripts\": {\n    \"prepack\": \"clean-package\",\n    \"postpack\": \"clean-package restore\"\n  }\n}\n```\n\nWhen the \"prepack\" script executes, a backup of the original `package.json` will be created. Ensure this file doesn't make it into your release package.\n\nOne way to accomplish this is to add the following to your `.npmignore` file:\n\n```ignore\n*.backup\n```\n\nSee [CLI Usage](#command-line-usage 'Command Line Usage') for independent usage instructions.\n\n#### JSON Configuration Files\n\nOptions can be configured in `clean-package.config.json` at the root of your project (where the `package.json` is).\n\n```json\n{\n  \"indent\": 2,\n  \"remove\": [\n    \"eslintConfig\",\n    \"jest\"\n  ]\n}\n```\n\nAlternatively, you can choose to specify your configuration from within `package.json` using the `clean-package` key like so:\n\n```js\n{\n  \"name\": \"my-package\",\n  \"version\": \"1.0.0\",\n  \"clean-package\": {\n    \"indent\": 2,\n    \"remove\": [\n      \"eslintConfig\",\n      \"jest\"\n    ]\n  },\n\n  // Or, a file path to a configuration.\n  \"clean-package\": \"./build/clean-package.config.js\"\n}\n```\n\n#### JavaScript Configuration File\n\nYou can also create the configuration using JavaScript in the `clean-package.config.?(c|m)js` at the root of your project:\n\n```js\nmodule.exports = {\n  indent: '\\t',\n  replace: {\n    'config.port': '8080'\n  }\n};\n```\n\n\n### Options\n\n<dl>\n\n  <dt>backupPath</dt>\n  <dd>\n    <em>Type:</em> <code>String</code><br />\n    <em>Default:</em> <code>'./package.json.backup'</code>\n  </dd>\n  <dd>Specifies the location and filename to which the <code>package.json</code> will be backed up.</dd>\n\n  <dt>indent</dt>\n  <dd>\n    <em>Type:</em> <code>String | Number</code><br />\n    <em>Default:</em> <code>2</code>\n  </dd>\n  <dd>\n    Defines the indentation that's used to format the cleaned <code>package.json</code>. See the <code>space</code> parameter of <code>JSON.stringify</code> for <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#Parameters\">more information</a>.\n  </dd>\n\n  <dt>remove</dt>\n  <dd>\n    <em>Type:</em> <code>String[] | (keys: String[]) => String[]</code>\n  </dd>\n  <dd>\n    <p>Specifies the keys to be removed from the cleaned <code>package.json</code>; otherwise, <code>null</code> when nothing is to be removed.</p>\n    <p>Deeper keys can be accessed using a dot (e.g., <code>'key.keyInsideKey'</code>). Likewise, arrays are accessible using brackets (e.g., <code>'key.arrKey[0]'</code>).</p>\n    <p>To remove keys that contain a dot, the dot must be escaped. For example, <code>'exports.\\\\.'</code> will target <code>\"exports\": { \".\" }</code></p>\n  </dd>\n\n  <dt>replace</dt>\n  <dd>\n    <em>Type:</em> <code>Object | (pairs: Object) => Object</code>\n  </dd>\n  <dd>\n    <p>Specifies the keys to be replaced in the cleaned <code>package.json</code>; otherwise, <code>null</code> when nothing is to be replaced.</p>\n    <p>Deeper keys and arrays are accessible in the same manner and allow dot escaping. Additionally, the replaced keys may receive any valid JSON value, including objects.</p>\n  </dd>\n\n  <dt>extends</dt>\n  <dd>\n    <em>Type:</em> <code>String | String[]</code>\n  </dd>\n  <dd>\n    <p>Specifies the name/s of a shareable configuration.</p>\n    <p>This package <a href=\"https://github.com/roydukkey/clean-package/blob/master/common.js\">shares a configuration</a> with common settings that can be extended from <code>clean-package/common</code>.\n  </dd>\n\n  <dt>onClean</dt>\n  <dd>\n    <em>Type:</em> <code>(hasChanged: boolean, config: CompiledConfig) => void</code>\n  </dd>\n  <dd>Notified after the <code>package.json</code> has been cleaned, supplied with an indication as to whether there were changes and the compiled configuration.</dd>\n\n  <dt>onRestore</dt>\n  <dd>\n    <em>Type:</em> <code>(hasChanged: boolean, config: CompiledConfig) => void</code>\n  </dd>\n  <dd>Notified after the <code>package.json</code> has been restored, supplied with an indication as to whether there were changes and the compiled configuration.</dd>\n\n</dl>\n\n## Command Line Usage\n\n```\nclean-package [[<source-path>] <backup-path>] [<option>...]\n\nwhere <option> is one of:\n\n  -c,  --config <path>                  Specify the path to a configuration file.\n\n  -e,  --extends <name>...              Specify the name to a shareable configuration. (e.g. 'clean-package/common')\n\n  -i,  --indent <value>                 Specify the indentation, overriding configuration from file.\n\n  -rm, --remove <key>...                Specify the keys to remove, overriding configuration from file.\n\n       --remove-add <key>...            Same as --remove without overriding configuration from file.\n\n  -r,  --replace <key>=<value>...       Specify the keys to replace, overriding configuration from file.\n\n       --replace-add <key>=<value>...   Same as --replace without overriding configuration from file.\n\n       --print-config                   Print the combined configuration without executing command.\n\n  -v,  --version                        Print the version number\n```\n\n```\nclean-package restore [[<source-path>] <backup-path>] [<option>...]\n\nalias: r\n\nwhere <option> is one of:\n\n  -c,  --config <path>                  Specify the path to a configuration file.\n\n  -e,  --extends <name>...              Specify the name to a shareable configuration. (e.g. 'clean-package/common')\n\n       --print-config                   Print the combined configuration without executing command.\n```\n\n## Usage in Code\n\nShould you desire, it is also possible to interface this package through code. Simply import the package like any other.\n\n```ts\nimport { load, clean, restore, version } from 'clean-package';\n```\n\n## Troubleshooting\n\n### How do I remove package scripts and use `clean-package restore`?\n\nIf you're integrating `clean-package` into the NPM lifecycle, removing all the `package.json` scripts with `clean-package` will also remove them from the current execution. This is just how NPM works.\n\nFor example, this configuration will remove the `postpack` script before it is ever requested by `npm pack` or `npm publish`, thereby effectively removing the event from the executing lifecycle.\n\n```json\n{\n  \"scripts\": {\n    \"prepack\": \"clean-package\",\n    \"postpack\": \"clean-package restore\"\n  },\n  \"clean-package\": {\n    \"remove\": [\n      \"clean-package\",\n      \"scripts\"\n    ]\n  }\n}\n```\n\nThere are multiple ways to work around this (more than are offered here). One solution might be to manually run the command with `npx clean-package restore`. Another might be to define a custom script that would call `pack` and `clean-package` in sequence:\n\n```json\n{\n  \"scripts\": {\n    \"prepack\": \"clean-package\",\n    \"new:pack\": \"npm pack && clean-package restore\",\n    \"new:publish\": \"npm publish && clean-package restore\"\n  }\n}\n```\n",
+  "readmeFilename": "README.md"
+}

@@ -1,0 +1,1490 @@
+{
+  "_id": "@stdlib/utils-try-require",
+  "_rev": "11-ef6a2356172f38b60b5628dc461685f8",
+  "name": "@stdlib/utils-try-require",
+  "dist-tags": {
+    "latest": "0.2.1"
+  },
+  "versions": {
+    "0.0.1": {
+      "name": "@stdlib/utils-try-require",
+      "version": "0.0.1",
+      "description": "Wrap `require` in a try/catch block.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples"
+      },
+      "homepage": "https://github.com/stdlib-js/stdlib",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/utils-try-require.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert-is-error": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/assert-is-function": "^0.0.x",
+        "@stdlib/bench": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdutils",
+        "stdutil",
+        "utilities",
+        "utility",
+        "utils",
+        "util",
+        "try",
+        "catch",
+        "safe",
+        "trap",
+        "require",
+        "resolve",
+        "wrap",
+        "error"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "930e6233c4b4e5e3f6b93ce906484344b8e69769",
+      "_id": "@stdlib/utils-try-require@0.0.1",
+      "_nodeVersion": "14.17.0",
+      "_npmVersion": "6.14.13",
+      "dist": {
+        "integrity": "sha512-kgBlpd30+WFWBBeGi4Ms0in3oiDmvhj1023wew2vmkIo8FyWA1NYB1lTwogWgwi4UgsnITDR+9rfNJ244ycaiw==",
+        "shasum": "e9d5f3793b177d6299f97eda8185fec0960bb2f3",
+        "tarball": "https://registry.npmjs.org/@stdlib/utils-try-require/-/utils-try-require-0.0.1.tgz",
+        "fileCount": 7,
+        "unpackedSize": 47294,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgxqz3CRA9TVsSAnZWagAA56QP/0sJj/RUgAZZAWYBsg+4\n7/3+L7oTKukPQmA+safLGgh8/tGDagokvkhQ/7j0Xrz6lN+CeRmX60FR5g7B\nIutMvc8k6dMbgb5zbdCYBZdwIbSnQWx55ptIZzUCGWnvadEP0Ora9t43MdCx\ntsdu4zP6Ef4NZeQeh0b4XFsnCw+eBWDIF7IhbjBdsZAJgU3mxZVNURKdvfSQ\nVGSfk65BBCO4cJhIb7473bLLQtj9MnFmsoMtVGhIbf6SsylA/YlZHT9Wji5O\nd68HlZz6XFFH8kzjbIhBw5H3o7ta3eiuho7+KnEr+GNxlamZqTPmqI+G5Bpw\nIlOp36GD8qIzXH9TJcqi78tF2aGDB5lejCJzdm9d1z6qJ+2zTo7Hg2j0WZnV\n+lHRCPL7Ycw8z4qGH8Omw40A8DbBJbOCkgZ3cR3LU2E/xPILmPytg0KpvsyJ\nDhA57CzJT1UNgy8NRHpteeCikTlvOeBjQiTkuK0ASzV0WRzyngHg1ZnNTElt\nwk0LEB7INdAAn6Bb6CzUgujF3FVKY9JgCEQV9SUO+0djSxQvPqnke0tG7YS+\n2vRmaCUtJWhV3n4FUMigEccRsV8JMNSSCre+U0TpR/UGRSJXxYquxTAimfmF\n77soV+KS1gfvTfr+SM83M48Eb0PubPQYXEpgg+S3FC7gMTcrKbiQjK7E0IZX\nSQFV\r\n=+cH6\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQC9dA8xajcf/ODS91t704fhhxcY6pZPdDwZTiQlzNOr3gIhALftPkD+fzqFdZRDqcOGawQfxgd4drSjT9DEfufvGR/C"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/utils-try-require_0.0.1_1623633143705_0.40547182853462793"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.2": {
+      "name": "@stdlib/utils-try-require",
+      "version": "0.0.2",
+      "description": "Wrap `require` in a try/catch block.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://github.com/stdlib-js/stdlib",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/utils-try-require.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert-is-error": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/assert-is-function": "^0.0.x",
+        "@stdlib/bench": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdutils",
+        "stdutil",
+        "utilities",
+        "utility",
+        "utils",
+        "util",
+        "try",
+        "catch",
+        "safe",
+        "trap",
+        "require",
+        "resolve",
+        "wrap",
+        "error"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "3f7db09685561746abf401fa6575b32972ee9485",
+      "_id": "@stdlib/utils-try-require@0.0.2",
+      "_nodeVersion": "15.14.0",
+      "_npmVersion": "7.7.6",
+      "dist": {
+        "integrity": "sha512-NhN47PKC/ZV0/5xS9acysT37ZWbqcx/62RpN2PeuyK8d2cGXnLTUWtjNt/6rJAmUiwiIJLqVTYVAH9FY+DHmjg==",
+        "shasum": "0f66c0cd23f29509cd1fd29d50274e6d3ff18254",
+        "tarball": "https://registry.npmjs.org/@stdlib/utils-try-require/-/utils-try-require-0.0.2.tgz",
+        "fileCount": 7,
+        "unpackedSize": 47329,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgyLoxCRA9TVsSAnZWagAA8x0P/Rwe95oV8xXh/8dA3QiU\n0ZSdRUQhyYkdrBdH8Pr57tbA4FPfPAQ3DIoexir44bTlpFP/yteMuLHxgDis\n3snjEGHrw3fALtOOdFz4aRueV+n58b0rOG3SqM8nVvz8eQBwwXhB41dCNEMy\nht3IEiadW6N0YC/y+zEXP1UvJZsX7lc1KOgiJ/hRWNwDQ2S5NVCWsbFLxYi+\nDbmPBZ15u5vuXSAzJNCTXlZbXr5nz/t5i5CJ4VckVSNtqJyH+a65zfx5ucQ2\nb2qyrrzQu2W8EvWFnDo3NaO8LczatYt91KANm5yV0LkbvHWSW1p09mgXhacr\nyXpfVdNPotGY/PJtVLkhNgzxHpy1f/o//xiWQeh9KOAkAR/ycHk3fnbX1eB5\nTdeUgYn85NK7XQ4u5Ca7Vv6J80diFutK0QD3V8icKO+UeY15zYGHaasX10a6\nvUyvOoH+mMXmYUZCZrT35ecvybaTz4Z61CAm89lekCxnWMqP8BBhRrVaJ4qn\nuvFZhE4DIMFyXnAztgXuyBi+9CshTZO7SpXjFagK0oodNcJrsEzmjkXIp07F\ns7Fyc8r0UQ5O4l4M7cRlGqCeF12kVNPXeRR2t2+y1bGWzSe0/4i/n/iWe9WT\nDQ5LOhw82WMxz4MAvuuKlf09EVwQG9b74p+9h5BrWY4BEpJjrEyBLtuAFaMU\ndsZo\r\n=r4QN\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIED3z9jf2qkbOBCP59YD5v2B2NJg4b1SmntVhHMcGATjAiEAp0WyW3D6xIU72aVyPrRXtZsOb/ccUCbZxISg3Pd5tLo="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/utils-try-require_0.0.2_1623767601678_0.7167466090165029"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.3": {
+      "name": "@stdlib/utils-try-require",
+      "version": "0.0.3",
+      "description": "Wrap `require` in a try/catch block.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://github.com/stdlib-js/stdlib",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/utils-try-require.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert-is-error": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/assert-is-function": "^0.0.x",
+        "@stdlib/bench": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdutils",
+        "stdutil",
+        "utilities",
+        "utility",
+        "utils",
+        "util",
+        "try",
+        "catch",
+        "safe",
+        "trap",
+        "require",
+        "resolve",
+        "wrap",
+        "error"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "ba7b08186a8b1759b9c07408c37d8b313e97f118",
+      "_id": "@stdlib/utils-try-require@0.0.3",
+      "_nodeVersion": "15.14.0",
+      "_npmVersion": "7.7.6",
+      "dist": {
+        "integrity": "sha512-b9cNd1anmy/BKW3+7G1cV8eKMXBN4i27qPMXkW4Bw4l0Av6wYWvMZP89Vvs5gtvZyXt+IirYdxXtIcBVKySENw==",
+        "shasum": "d079231f197a74e10ff118f1bc38fd8c9471c27f",
+        "tarball": "https://registry.npmjs.org/@stdlib/utils-try-require/-/utils-try-require-0.0.3.tgz",
+        "fileCount": 10,
+        "unpackedSize": 36714,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgyXZ/CRA9TVsSAnZWagAAvYsP/1QMYL+mnnmNLp/RWbo7\ni2AYORoKqbRxpDJgHL3mv5SDRiHhr5a5Ru9Y/uFnhTdj2rMH3bxhaSHa2Yjm\n1aNjGgZj2N1eVN4Gw/NSO9qQafvuumf1QSxnkl67151qrsOQKU2TeLrDFm/n\nPnm7GcQP1cw2EKul6QH5pn0o2HzkGMO8kTNE0Wdyg1bwcAEbV8KoNriGzlt6\nuXWR2ZBYpTZENQ2jVGqJseqrau7dz87N/XDIincMqlyQtJK17G/FZnXyQyUN\nbR5TxvKUuTHBcwzvuLjSzYULPGbdjA1q8XlbsOypXAoZ/N2NOvdNdbxXHI41\nGp1EartMsN2lgTnnk6NlNrD8JPQfrW64TP0ldd06ekNvMTPRyKntoO7qW3gB\nG4b58jYiRwIhk/NIMqWyX7Sv4KugqeScBJURrt9IgDcFt0LXqH/WdeT0q3P3\nti/NZPGZhvuGFGbmShhD8OHCLg07l1tdQQobVkwf4xWRwYsdGQ+TtvJxe7yl\n5jrLKS4+z1ai0tYe5Gk4hl380LLsL7Qb1KqYmjpeIEgkFYwHtQjlMF9Df1TM\nHFGTIOwYBCmsmlysQYujCU2MpZd55D8gF+AWHtZFaUMZfx29y1DB3B44M5pY\nytA61AcYlVhzZE050/oYMjV1nNJLRDrxsEHRKvyqufKtMql5SpKaFDLvg/tz\nQmkg\r\n=8m50\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIB+O0SCAtQVGz+6JuLxhQx/IHys87MLodHPiBKp2JCg3AiEAoUtD4qWbBU0bxyiTHEG43L7Y0QQmoFpBVV7COIxzI80="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/utils-try-require_0.0.3_1623815807820_0.10500578993549059"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.4": {
+      "name": "@stdlib/utils-try-require",
+      "version": "0.0.4",
+      "description": "Wrap `require` in a try/catch block.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/utils-try-require.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert-is-error": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/assert-is-function": "^0.0.x",
+        "@stdlib/bench": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdutils",
+        "stdutil",
+        "utilities",
+        "utility",
+        "utils",
+        "util",
+        "try",
+        "catch",
+        "safe",
+        "trap",
+        "require",
+        "resolve",
+        "wrap",
+        "error"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "681d86feccc97a18c1572b157ea208319820a7b6",
+      "_id": "@stdlib/utils-try-require@0.0.4",
+      "_nodeVersion": "15.14.0",
+      "_npmVersion": "7.7.6",
+      "dist": {
+        "integrity": "sha512-1CKts0fmAUHJHG8JmTfpruc7u/j8O3DZD7T5WfEuk94B6bwzQVxN1pr0APYxFvbSqffeoWWQcygXSWPh/Om+QA==",
+        "shasum": "d6a1ecb61581d154e3f64ab1edb26eb0d84438ec",
+        "tarball": "https://registry.npmjs.org/@stdlib/utils-try-require/-/utils-try-require-0.0.4.tgz",
+        "fileCount": 10,
+        "unpackedSize": 36868,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg2PhNCRA9TVsSAnZWagAAfNQP/16tEo4sTiRVIRyG9iiF\neuZUpNULsQlmJkGy4MHb4URbO9ZV+rzgMB24icclFeu+KBHSAqiNDDMeZjYF\nY+ADCEIzGVUtlk7xxIJWCk7naXhTvUGG7XscXAx6DRdTcyRyjEB2q2hfINv9\nOPo/lwwboNucn18mMVE4eoxO8jvX5Majmpt1WzVG/7UyfzoPMFhEYKvzytNB\nGpfZaSTy7gb72ef9fAaPvT+cSpu1d8FYLOYC8rjUEL2b9Mxz9m5ACSy7xPM4\nYwIdsbbuc3UM8vLppUJB/x6b+Ou4liAdE+0fao6RXrNQJBgPqFz68ryio87f\nVWK2p/0hx40oJ86dsZLbRT4E47OE72WKGoV8ft517exGAKHx4u+MEL5eegvY\nZ8mNW/ieg9IQw/jgMzx8oxwS+/qQs4PqUxGVGoMk22kdnKjISza9qUFzwzej\nT8muSuFRg5O6qsIn/nOF9hjPTvrjBNzQ7tKAHTt0n7wg7T32UrtB6iZz+ivA\nkwg0rHux8t9TxHHF7zQL0GzHlIp14Jixev7B/s/a/o1DtDvJPSNCNrxh5nKz\nQAGm7AigcGNV9xYgg3p1PzOFGF9N3leXY/0gu3uy0QwGZrBiJ0tzobSjXg1g\nvwU3JYMXbDllHPeVtdOKbkr9OkoQuj8XXsueBZXyLtYsSTWpCj0AT+fVN9j5\nvdgr\r\n=0r1z\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGMll47PFTFPtNeavMcpDGSe9zgV3HKbCjVLDpAOHHC8AiBfZy1C6pbnuKxLXNGd6WlMtTfHC+H7ReUo+EL1epWGNg=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/utils-try-require_0.0.4_1624832076923_0.3377081749966868"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.5": {
+      "name": "@stdlib/utils-try-require",
+      "version": "0.0.5",
+      "description": "Wrap `require` in a try/catch block.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/utils-try-require.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert-is-error": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/assert-is-function": "^0.0.x",
+        "@stdlib/bench": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdutils",
+        "stdutil",
+        "utilities",
+        "utility",
+        "utils",
+        "util",
+        "try",
+        "catch",
+        "safe",
+        "trap",
+        "require",
+        "resolve",
+        "wrap",
+        "error"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "773f6ed46365dd5c3919ca87317e8c92dab29de2",
+      "_id": "@stdlib/utils-try-require@0.0.5",
+      "_nodeVersion": "15.14.0",
+      "_npmVersion": "7.7.6",
+      "dist": {
+        "integrity": "sha512-sBPS4u3YLhuqJ4IXAOGz3Vp/d6Py/rGU1WshL3ri6oZdeacNnOljlAbisaKS/pc8dJ9S5jcWBjcv+AO3J9DkSA==",
+        "shasum": "24db81f759aa235f2523c5fe4d8e0cfc86ae282f",
+        "tarball": "https://registry.npmjs.org/@stdlib/utils-try-require/-/utils-try-require-0.0.5.tgz",
+        "fileCount": 10,
+        "unpackedSize": 36868,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg5OkRCRA9TVsSAnZWagAAiuAP/Ax5pcF4KjEH2uR7QkSe\nZQkQ/yvg7qNuQb+Kr33oOjwRu+pvbxfYTMsC/RqgdwTexxcEtsV1/ld+CuyK\nYHyTkbBKhD1Azq7QjTv0IrFL4G0icZcfuP7IyQ8wPgwjmWDXw8gDWyaud9B2\n7Zc5IZiDkaS3I/mr8ddINlCkxyGxvzWrw0N2m+u/wiHO3Vvg5QzUIkLWa6wd\nIpuCehrb6zIIuhIWgFmrooAVuccjNdG0X0QF/7K37hvV+FPg+NQu0kR8rzx3\nEKS0oo3Ot55ywYVVDD+YFAY4qbnIrDpehYWpWUdquUhpXwKbJg3qkPpEg/41\nLinOhKX/nD2TIo7sGTmhIfvgFvgAuckMVjjM5pLfxnSFzBCUq/WGNGC7N8a7\nah/+nMFrxljo9xqPwhziz2m1EPPh1tYmwk/x78tOuL2wn+c8mfHYordsaOPq\n1YjlLrY8bhtbTJ/GMeZQ5gRs0qZ9/z51i+lBdqJmfM+jIO/iPIaVr/PqpShO\nLYk23+uOJOEm1aFYDKCX4x2go/LDfq7EE3Fr82o+2kKyFZeJms3SHW6tuY+W\nFUhEQ8qNhpfc+7Be25tLdrb6HSK8NRg+DaPS9itEK93yt4mgEeq+R++1aaAE\ne3N3F8VHoNHB5rRGSnHbBsyFUHnC/sJuS+QnhVuqRzgYFnRn/1uXdjnVQVop\nN5P4\r\n=r0IL\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQD71Z915a06CDh4ifyAKXAeS8PWe8iqTb6/XRvdfXagVgIhAKTVyOCWYIniNLwb+Goi3e2+moRADdcCoIcCl1DW0Gyg"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/utils-try-require_0.0.5_1625614609336_0.13303389984859426"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.6": {
+      "name": "@stdlib/utils-try-require",
+      "version": "0.0.6",
+      "description": "Wrap `require` in a try/catch block.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/utils-try-require.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert-is-error": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/assert-is-function": "^0.0.x",
+        "@stdlib/bench": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdutils",
+        "stdutil",
+        "utilities",
+        "utility",
+        "utils",
+        "util",
+        "try",
+        "catch",
+        "safe",
+        "trap",
+        "require",
+        "resolve",
+        "wrap",
+        "error"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "e688fc412f2e7e6b29a833e28ec3d882571318ef",
+      "_id": "@stdlib/utils-try-require@0.0.6",
+      "_nodeVersion": "16.7.0",
+      "_npmVersion": "7.20.3",
+      "dist": {
+        "integrity": "sha512-T7XzSemIITexYoR6J007xljj8ts1ObA6reasw37bX0QBMWZGJJOcWn7WgqEMCOJCTOaNcni6sac3f0S3ZreU+g==",
+        "shasum": "9cb48b61285d3dd5eb73c200908d6d65704be35a",
+        "tarball": "https://registry.npmjs.org/@stdlib/utils-try-require/-/utils-try-require-0.0.6.tgz",
+        "fileCount": 9,
+        "unpackedSize": 36768,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhItybCRA9TVsSAnZWagAACnAP/0AYR8BSa0lIK/DlnU+t\nERse6HDsScUniEbzsrHWZdA1eJlRT4DEFYnDrWyGVwQ8kw+xXZDxiqFqaZHw\neVUUqk3J4r34IHqffIvZQumSoVa88fKyDnsqnztYTwyYJ2gtBPb+wXzknQvZ\nmDkCj3Zz1YgMuL/lEXTmyjKYFeJGmeEoIGJroc9JNmKuCuUNH5IQBI8bmv7V\nnWw9xI94UI/pUoXJjQdDURalv6zPeCIoGXC4em8kZGrjCo7gcSENun9QN9ge\nZDOSrodeJ5i2tAYX5XgREeaOb1suh5oHYszaE8+miuUEl1cdwOFbcRGinQ5b\nOO0qR+C2RJrnuQa8cNWo1swUhdDLrSNBQoA/Y8q8lSlhv3zePtcq+ZHu96DQ\nsEq3mwacgA9X6KheEK20Un3xSMyfOryZC8O05aIST+MY3Zw+YtKvKPAxrV/+\nPHNNa8Ed6kT2U4ZFIilwEGuTIjd8LOEpenxeyBDCCqb/mGEJ7SLvYX/c/bYz\nCy601blYgl2TW778Gho5BSMvrny1f9TaqZD5RxRIl9VRxg2lsEBBw4mU/z/r\nECMCiA4+0tr8xybZZYrY1/n24ARFcQeVbhGJ6Ul35TDei/T/uhg0VUibWeJ5\nkNGE/a5xZ6yANrCvHxj2UJQX7pRG7JTBNqDWGRXEU5AkGsUIlDVqf8T+Rb/n\nmNdt\r\n=Li8y\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQC7sWPN32SUJBAsVkPKe1D05ilFroITFWNcrwNvgaa+yAIhAIgp+ZWqeUfl8waJg1bgkiXEicZJBPOK2O8Qwe84pS0U"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/utils-try-require_0.0.6_1629674651572_0.0824691495998453"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.7": {
+      "name": "@stdlib/utils-try-require",
+      "version": "0.0.7",
+      "description": "Wrap `require` in a try/catch block.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/utils-try-require.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert-is-error": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/assert-is-function": "^0.0.x",
+        "@stdlib/bench": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdutils",
+        "stdutil",
+        "utilities",
+        "utility",
+        "utils",
+        "util",
+        "try",
+        "catch",
+        "safe",
+        "trap",
+        "require",
+        "resolve",
+        "wrap",
+        "error"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "1b1408f89384ce229fdcd4cdde16e40e4a053a2f",
+      "_id": "@stdlib/utils-try-require@0.0.7",
+      "_nodeVersion": "16.13.2",
+      "_npmVersion": "8.1.2",
+      "dist": {
+        "integrity": "sha512-P4esFptxdK04pKrQq7UvJtD+BfFB2C9hIkdrqr8lkphCTeZymbc9b1saA1HytW51HDskUzaJXJsNEv9djWBV2w==",
+        "shasum": "b5004822e4e7734711df8768c31c88c47da16e73",
+        "tarball": "https://registry.npmjs.org/@stdlib/utils-try-require/-/utils-try-require-0.0.7.tgz",
+        "fileCount": 9,
+        "unpackedSize": 37289,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJiDQ6BCRA9TVsSAnZWagAAFz8P/iv9VRgZuwgINnKpYvIz\nIDHly4AB7wk7MKyIARMilCiF5Mf+kMmlJDGUrVMInm8UK1c1Yh33Oh+FjyV2\nYSxJEVHgYiZdR7vtKykuV+ZxHZ1yw6oLqtohtPEYiEp7zTQS1PJjY1ppH31N\nNDzZojPp05I35Ga/jNZsY3HEWMJ8wQRbh2hE2NmD6h+V83b1noKGnBMqYwsi\nr0BPPZqWSrxqJ5Du8jBbbp9xHGSpJXWwpySKRCG7fneiDzu5qWpas37u6PyX\ngXYEe0NvFxJFqx/MG5pvBkKZ42xgKFIkd6TmeU5pVZdHoD6O2lhGPokL5QLH\nFhydQDJx5rmLRKUliYFzkrx8t3ZdhTjIRT54oFbSoh4a/3AGuS6Vb0rxW24e\n/YkyPHkZ6Ivf0h8vRA+oeUPdOATKQiYaO8N5gzI8rGD7vOAiaKXlnCabCF5K\n5qvTYKiifS7u38Y/eNYKWk1fBswH/6aru/8hhIPAmNnGrKXlbpsUXJH45Ctm\nNCoCVq7nHgP/SYG33tNEj7QnGtsqEDzdqNMpR+5NE1hsCaoO/fGrIau1QALh\n1QeZ3b67kLdzDrWICFG7TBwy70REK0XFSx70EDYQwTvjL/DlxnwYGB+JWlmo\nhrjQVVeJ3ntSCyyISKGmlPKMF1nbJ4kLXwC6iu5PcsEHoX030BAWONqVsaOc\nC/n4\r\n=8y/s\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCMvyVQ19qQV7RZxn3rn1ruLqNGtRkvzCRFj50yMa1/vgIgVOp+oXENJIscPFDp5Y+5mGfojNtcCsvGs0BRiwJZPvg="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/utils-try-require_0.0.7_1645022849395_0.03669586324720986"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.0": {
+      "name": "@stdlib/utils-try-require",
+      "version": "0.1.0",
+      "description": "Wrap `require` in a try/catch block.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/utils-try-require.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert-is-error": "^0.1.0"
+      },
+      "devDependencies": {
+        "@stdlib/assert-is-function": "^0.1.0",
+        "@stdlib/bench": "^0.1.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-min": "git+https://github.com/Planeshifter/tap-min.git"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdutils",
+        "stdutil",
+        "utilities",
+        "utility",
+        "utils",
+        "util",
+        "try",
+        "catch",
+        "safe",
+        "trap",
+        "require",
+        "resolve",
+        "wrap",
+        "error"
+      ],
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/stdlib"
+      },
+      "gitHead": "41f86d99cbb03d63f33b26b5a608ebc8703e045f",
+      "_id": "@stdlib/utils-try-require@0.1.0",
+      "_nodeVersion": "16.20.2",
+      "_npmVersion": "8.19.4",
+      "dist": {
+        "integrity": "sha512-su8FZ3tc1arTLTdPtSDpabUk6Pw87xJh/TauEcMZZQbNHFmBFWMj4NWopYdLTX7VQyQAz1lp+KgN3g744+8dmA==",
+        "shasum": "26f9b03d3e5a3e72d263d408e60ae8c65aa8f53c",
+        "tarball": "https://registry.npmjs.org/@stdlib/utils-try-require/-/utils-try-require-0.1.0.tgz",
+        "fileCount": 11,
+        "unpackedSize": 27515,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDc7/aBJKTMa8fc3mMa7mGzlVHHqVxocy+OtPOiFiQ/xAIgL3DkK1eKQF9P53Ly3ylvsMwpKj6SmlISD1vgmEI/w60="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte+stdlibbot@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte+stdlibbot@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/utils-try-require_0.1.0_1695416672811_0.14609939611423828"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.1": {
+      "name": "@stdlib/utils-try-require",
+      "version": "0.1.1",
+      "description": "Wrap `require` in a try/catch block.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/utils-try-require.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert-is-error": "^0.1.1"
+      },
+      "devDependencies": {
+        "@stdlib/assert-is-function": "^0.1.0",
+        "@stdlib/bench": "^0.1.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-min": "git+https://github.com/Planeshifter/tap-min.git"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdutils",
+        "stdutil",
+        "utilities",
+        "utility",
+        "utils",
+        "util",
+        "try",
+        "catch",
+        "safe",
+        "trap",
+        "require",
+        "resolve",
+        "wrap",
+        "error"
+      ],
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/stdlib"
+      },
+      "gitHead": "836b37cf688bfa381fcb3cb3a2dd327f0a94ad19",
+      "_id": "@stdlib/utils-try-require@0.1.1",
+      "_nodeVersion": "16.20.2",
+      "_npmVersion": "8.19.4",
+      "dist": {
+        "integrity": "sha512-dZZtEt3tMhzRo9BD+ZoHFmTkvBEHJUCFpTf18rj1aVsKfGRK5VS2+9vhERZ1x2/+txnom0/2nsNZmDLM4siVfw==",
+        "shasum": "b49a742e133c58ef3f395772f7e6146cdfd1badb",
+        "tarball": "https://registry.npmjs.org/@stdlib/utils-try-require/-/utils-try-require-0.1.1.tgz",
+        "fileCount": 11,
+        "unpackedSize": 27515,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDH22m/uLhnN/L5DKiI+VE507Q0KtZncytTncQZtVYOhAiAw/rNC2zFxXw/U7gCZvTxRkTWTdDeXGoBb+E4fsw/gSg=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte+stdlibbot@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte+stdlibbot@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/utils-try-require_0.1.1_1696376716103_0.6252692156935045"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.0": {
+      "name": "@stdlib/utils-try-require",
+      "version": "0.2.0",
+      "description": "Wrap `require` in a try/catch block.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/utils-try-require.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert-is-error": "^0.2.0"
+      },
+      "devDependencies": {
+        "@stdlib/assert-is-function": "^0.1.1",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-min": "git+https://github.com/Planeshifter/tap-min.git",
+        "@stdlib/bench-harness": "^0.1.2",
+        "@stdlib/bench": "^0.3.1"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdutils",
+        "stdutil",
+        "utilities",
+        "utility",
+        "utils",
+        "util",
+        "try",
+        "catch",
+        "safe",
+        "trap",
+        "require",
+        "resolve",
+        "wrap",
+        "error"
+      ],
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/stdlib"
+      },
+      "gitHead": "7137673f0798ef13d7c9fd7becf78e557b1d583b",
+      "_id": "@stdlib/utils-try-require@0.2.0",
+      "_nodeVersion": "16.20.2",
+      "_npmVersion": "8.19.4",
+      "dist": {
+        "integrity": "sha512-5MF5wGeY+OtUABBfsjpRK7vFqXD/beP4yB9ENoWe4JMX20QyzYrTa5DRQMxV0M0lOqxQwdtQ5GXbcvoo/OMxWQ==",
+        "shasum": "70f526cf85977cd55a49f552d37444640765fc55",
+        "tarball": "https://registry.npmjs.org/@stdlib/utils-try-require/-/utils-try-require-0.2.0.tgz",
+        "fileCount": 11,
+        "unpackedSize": 27377,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGc1lIHRWkdSx5730s6JQUa9Ka/BJ0PFpfY6ivc7VzFsAiB0wVEaEn+V1eD0q9WMpvkw64/GoxDGllSX1ObddyQlSw=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte+stdlibbot@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte+stdlibbot@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/utils-try-require_0.2.0_1707883481195_0.9245796087439453"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.1": {
+      "name": "@stdlib/utils-try-require",
+      "version": "0.2.1",
+      "description": "Wrap `require` in a try/catch block.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "doc": "./docs",
+        "lib": "./lib",
+        "dist": "./dist"
+      },
+      "types": "./docs/types",
+      "scripts": {},
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/utils-try-require.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert-is-error": "^0.2.1"
+      },
+      "devDependencies": {},
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdutils",
+        "stdutil",
+        "utilities",
+        "utility",
+        "utils",
+        "util",
+        "try",
+        "catch",
+        "safe",
+        "trap",
+        "require",
+        "resolve",
+        "wrap",
+        "error"
+      ],
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/stdlib"
+      },
+      "gitHead": "39b81766b9d8a5e89ba4a26e5ea07f6413b46973",
+      "_id": "@stdlib/utils-try-require@0.2.1",
+      "_nodeVersion": "16.20.2",
+      "_npmVersion": "8.19.4",
+      "dist": {
+        "integrity": "sha512-8HkWGpiTENwWXUFO03rVtUZQInwWuR3DmXJMIRzNoPpPMtJqxPsYtkRc0n5obPZ25T+j5wXdt17y7OjeqKCdAA==",
+        "shasum": "c0e1ad467a29bd7386ab0a865b642dc83da56db6",
+        "tarball": "https://registry.npmjs.org/@stdlib/utils-try-require/-/utils-try-require-0.2.1.tgz",
+        "fileCount": 11,
+        "unpackedSize": 26915,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQD5lHfrSCfC0jiLNDvdeQ39JJLrWsN+KTU/8QHehGjE1AIhANGQKyp6gG2OzeQFt8KvMsBVVEvFSSaLW95lRQDA8S4z"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte+stdlibbot@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte+stdlibbot@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/utils-try-require_0.2.1_1708564733748_0.6159093835832676"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2021-06-14T01:12:23.551Z",
+    "0.0.1": "2021-06-14T01:12:23.846Z",
+    "modified": "2024-02-22T01:18:54.552Z",
+    "0.0.2": "2021-06-15T14:33:21.806Z",
+    "0.0.3": "2021-06-16T03:56:47.968Z",
+    "0.0.4": "2021-06-27T22:14:37.052Z",
+    "0.0.5": "2021-07-06T23:36:49.496Z",
+    "0.0.6": "2021-08-22T23:24:11.794Z",
+    "0.0.7": "2022-02-16T14:47:29.519Z",
+    "0.1.0": "2023-09-22T21:04:33.061Z",
+    "0.1.1": "2023-10-03T23:45:16.306Z",
+    "0.2.0": "2024-02-14T04:04:41.342Z",
+    "0.2.1": "2024-02-22T01:18:53.893Z"
+  },
+  "maintainers": [
+    {
+      "name": "stdlib-bot",
+      "email": "kgryte+stdlibbot@gmail.com"
+    },
+    {
+      "name": "kgryte",
+      "email": "kgryte@gmail.com"
+    },
+    {
+      "name": "planeshifter",
+      "email": "pgb@andrew.cmu.edu"
+    },
+    {
+      "name": "rreusser",
+      "email": "rsreusser@gmail.com"
+    }
+  ],
+  "description": "Wrap `require` in a try/catch block.",
+  "homepage": "https://stdlib.io",
+  "keywords": [
+    "stdlib",
+    "stdutils",
+    "stdutil",
+    "utilities",
+    "utility",
+    "utils",
+    "util",
+    "try",
+    "catch",
+    "safe",
+    "trap",
+    "require",
+    "resolve",
+    "wrap",
+    "error"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stdlib-js/utils-try-require.git"
+  },
+  "contributors": [
+    {
+      "name": "The Stdlib Authors",
+      "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+    }
+  ],
+  "author": {
+    "name": "The Stdlib Authors",
+    "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+  },
+  "bugs": {
+    "url": "https://github.com/stdlib-js/stdlib/issues"
+  },
+  "license": "Apache-2.0",
+  "readme": "<!--\n\n@license Apache-2.0\n\nCopyright (c) 2018 The Stdlib Authors.\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n   http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n\n-->\n\n\n<details>\n  <summary>\n    About stdlib...\n  </summary>\n  <p>We believe in a future in which the web is a preferred environment for numerical computation. To help realize this future, we've built stdlib. stdlib is a standard library, with an emphasis on numerical and scientific computation, written in JavaScript (and C) for execution in browsers and in Node.js.</p>\n  <p>The library is fully decomposable, being architected in such a way that you can swap out and mix and match APIs and functionality to cater to your exact preferences and use cases.</p>\n  <p>When you use stdlib, you can be absolutely certain that you are using the most thorough, rigorous, well-written, studied, documented, tested, measured, and high-quality code out there.</p>\n  <p>To join us in bringing numerical computing to the web, get started by checking us out on <a href=\"https://github.com/stdlib-js/stdlib\">GitHub</a>, and please consider <a href=\"https://opencollective.com/stdlib\">financially supporting stdlib</a>. We greatly appreciate your continued support!</p>\n</details>\n\n# tryRequire\n\n[![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] <!-- [![dependencies][dependencies-image]][dependencies-url] -->\n\n> Wrap `require` in a try/catch block.\n\n<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->\n\n<section class=\"intro\">\n\n</section>\n\n<!-- /.intro -->\n\n<!-- Package usage documentation. -->\n\n<section class=\"installation\">\n\n## Installation\n\n```bash\nnpm install @stdlib/utils-try-require\n```\n\n</section>\n\n<section class=\"usage\">\n\n## Usage\n\n```javascript\nvar tryRequire = require( '@stdlib/utils-try-require' );\n```\n\n#### tryRequire( id )\n\nWraps `require` in a `try/catch` block. If able to resolve a module `id`, the function returns the value bound to `module.exports` in the resolved module. Otherwise, the function returns an `Error`.\n\n```javascript\nvar x = tryRequire( 'beep' );\n\nif ( x instanceof Error ) {\n    console.log( x.message );\n}\n```\n\n</section>\n\n<!-- /.usage -->\n\n<!-- Package usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->\n\n<section class=\"notes\">\n\n## Notes\n\n-   Use caution when attempting to resolve a relative path or a local module. This function attempts to resolve a module from its current path. Thus, the function is **unable** to resolve anything which is not along its search path. For local requires, use an absolute file path.\n\n    ```javascript\n    var resolve = require( 'path' ).resolve;\n\n    var out = tryRequire( resolve( '/foo/bar/baz', '..', 'lib', 'beep.js' ) );\n\n    if ( out instanceof Error ) {\n        console.error( out.message );\n    }\n    ```\n\n</section>\n\n<!-- /.notes -->\n\n<!-- Package usage examples. -->\n\n<section class=\"examples\">\n\n## Examples\n\n<!-- eslint no-undef: \"error\" -->\n\n```javascript\nvar tryRequire = require( '@stdlib/utils-try-require' );\n\nvar out = tryRequire( '_abcdefghijklmnopqrstuvwxyz123456789_' );\nif ( out instanceof Error ) {\n    console.error( out.message );\n} else {\n    throw new Error( 'expected an error' );\n}\n\nout = tryRequire( '@stdlib/utils-try-require' );\nif ( out !== tryRequire ) {\n    throw new Error( 'expected export' );\n}\n```\n\n</section>\n\n<!-- /.examples -->\n\n<!-- Section to include cited references. If references are included, add a horizontal rule *before* the section. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->\n\n<section class=\"references\">\n\n</section>\n\n<!-- /.references -->\n\n<!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->\n\n<section class=\"related\">\n\n</section>\n\n<!-- /.related -->\n\n<!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->\n\n\n<section class=\"main-repo\" >\n\n* * *\n\n## Notice\n\nThis package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.\n\nFor more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].\n\n#### Community\n\n[![Chat][chat-image]][chat-url]\n\n---\n\n## License\n\nSee [LICENSE][stdlib-license].\n\n\n## Copyright\n\nCopyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].\n\n</section>\n\n<!-- /.stdlib -->\n\n<!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->\n\n<section class=\"links\">\n\n[npm-image]: http://img.shields.io/npm/v/@stdlib/utils-try-require.svg\n[npm-url]: https://npmjs.org/package/@stdlib/utils-try-require\n\n[test-image]: https://github.com/stdlib-js/utils-try-require/actions/workflows/test.yml/badge.svg?branch=v0.2.1\n[test-url]: https://github.com/stdlib-js/utils-try-require/actions/workflows/test.yml?query=branch:v0.2.1\n\n[coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/utils-try-require/main.svg\n[coverage-url]: https://codecov.io/github/stdlib-js/utils-try-require?branch=main\n\n<!--\n\n[dependencies-image]: https://img.shields.io/david/stdlib-js/utils-try-require.svg\n[dependencies-url]: https://david-dm.org/stdlib-js/utils-try-require/main\n\n-->\n\n[chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg\n[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im\n\n[stdlib]: https://github.com/stdlib-js/stdlib\n\n[stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors\n\n[umd]: https://github.com/umdjs/umd\n[es-module]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules\n\n[deno-url]: https://github.com/stdlib-js/utils-try-require/tree/deno\n[deno-readme]: https://github.com/stdlib-js/utils-try-require/blob/deno/README.md\n[umd-url]: https://github.com/stdlib-js/utils-try-require/tree/umd\n[umd-readme]: https://github.com/stdlib-js/utils-try-require/blob/umd/README.md\n[esm-url]: https://github.com/stdlib-js/utils-try-require/tree/esm\n[esm-readme]: https://github.com/stdlib-js/utils-try-require/blob/esm/README.md\n[branches-url]: https://github.com/stdlib-js/utils-try-require/blob/main/branches.md\n\n[stdlib-license]: https://raw.githubusercontent.com/stdlib-js/utils-try-require/main/LICENSE\n\n</section>\n\n<!-- /.links -->\n",
+  "readmeFilename": "README.md"
+}

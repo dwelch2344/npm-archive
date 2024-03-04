@@ -1,0 +1,2424 @@
+{
+  "_id": "grunt-jscs",
+  "_rev": "79-ee4291f8c4527bba983f11b4a0452ca9",
+  "name": "grunt-jscs",
+  "time": {
+    "modified": "2022-06-18T15:19:29.092Z",
+    "created": "2013-06-24T21:36:45.969Z",
+    "0.1.0": "2013-06-24T21:36:48.036Z",
+    "0.6.0": "2014-06-28T20:25:26.100Z",
+    "0.6.1": "2014-06-30T18:24:52.112Z",
+    "0.6.2": "2014-07-30T16:39:09.739Z",
+    "0.7.0": "2014-08-29T23:28:43.824Z",
+    "0.7.1": "2014-09-02T19:59:52.594Z",
+    "0.8.0": "2014-10-17T02:35:01.911Z",
+    "0.8.1": "2014-10-24T02:39:59.305Z",
+    "1.0.0": "2014-11-27T15:49:48.513Z",
+    "1.1.0": "2014-12-24T01:04:25.418Z",
+    "1.2.0": "2015-01-15T05:46:39.619Z",
+    "1.3.0": "2015-02-06T19:54:50.650Z",
+    "1.5.0": "2015-02-06T20:31:00.758Z",
+    "1.6.0": "2015-03-26T18:31:37.181Z",
+    "1.6.1": "2015-04-28T16:00:15.863Z",
+    "1.7.0": "2015-04-28T16:00:23.369Z",
+    "1.6.2": "2015-04-28T16:00:26.790Z",
+    "1.8.0": "2015-04-28T16:47:39.277Z",
+    "2.0.0": "2015-07-27T21:18:14.254Z",
+    "2.1.0": "2015-08-16T06:25:33.167Z",
+    "2.2.0": "2015-10-25T08:11:07.844Z",
+    "2.3.0": "2015-10-29T17:04:44.042Z",
+    "2.4.0": "2015-12-02T13:57:49.507Z",
+    "2.5.0": "2015-12-09T00:48:01.587Z",
+    "2.6.0": "2016-01-04T20:09:21.283Z",
+    "2.7.0": "2016-01-29T17:01:48.044Z",
+    "2.8.0": "2016-03-02T20:19:44.314Z",
+    "3.0.0": "2016-06-04T03:28:44.925Z",
+    "3.0.1": "2016-06-21T21:17:29.006Z"
+  },
+  "maintainers": [
+    {
+      "name": "gustavohenke",
+      "email": "gustavo@injoin.io"
+    },
+    {
+      "name": "markelog",
+      "email": "markelog@gmail.com"
+    }
+  ],
+  "dist-tags": {
+    "latest": "3.0.1"
+  },
+  "description": "Grunt task for checking JavaScript Code Style with jscs.",
+  "readme": "# grunt-jscs\n> Task for checking JavaScript Code Style with [jscs](https://github.com/jscs-dev/node-jscs).\n\n[![Build Status](https://travis-ci.org/jscs-dev/grunt-jscs.svg?branch=master)](https://travis-ci.org/jscs-dev/grunt-jscs)\n[![Dependency Status](https://david-dm.org/jscs-dev/grunt-jscs.svg)](https://david-dm.org/jscs-dev/grunt-jscs)\n[![devDependency Status](https://david-dm.org/jscs-dev/grunt-jscs/dev-status.svg)](https://david-dm.org/jscs-dev/grunt-jscs#info=devDependencies)\n[![NPM version](https://badge.fury.io/js/grunt-jscs.svg)](http://badge.fury.io/js/grunt-jscs)\n\n## Getting started\nThis plugin requires Grunt `~0.4.2`\n\nIf you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:\n\n```shell\nnpm install grunt-jscs --save-dev\n```\n\nOnce the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:\n\n```js\ngrunt.loadNpmTasks(\"grunt-jscs\");\n```\n\n## jscs task\n_Run this task with the `grunt jscs` command._\n\nTask targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.\n\n### Options\nAny specified option will be passed through directly to JSCS, plus this plugin has additional options:\n\n#### config\nType: `String`, `Boolean`\nDefault value: `true`\n\nDefines how to externally load a JSCS configuration via the [JSCS config loader](http://jscs.info/overview.html#-config-).\nThe following is the behavior of this option:\n\n- If set to a file path, then this file will be used;\n- If set to `true`, JSCS will use its default config loading behavior;\n- If set to `true` or to a file path with JSCS options specified in the grunt task, then they will be merged.\n\n```js\njscs: {\n    src: \"path/to/files/*.js\",\n    options: {\n        config: \".jscsrc\",\n        esnext: true, // If you use ES6 http://jscs.info/overview.html#esnext\n        verbose: true, // If you need output with rule names http://jscs.info/overview.html#verbose\n        fix: true, // Autofix code style violations when possible.\n        requireCurlyBraces: [ \"if\" ]\n    }\n}\n```\n\n#### force\nType: `Boolean`\nDefault value: `false`\n\nSet `force` to `true` to report JSCS errors but not fail the task.\n\n#### reporter\nType: `String`\nDefault value: `null`\n\nAllows you to modify the output. By default it will use a built-in `grunt` reporter. Set the path to your own custom reporter or to one of the built-in JSCS [reporters](https://github.com/jscs-dev/node-jscs/tree/master/lib/reporters).\n\n#### reporterOutput\nType: `String`\nDefault value: `null`\n\nSpecify a filepath to output the results of a reporter. If `reporterOutput` is specified then all output will be written to the given filepath instead of printed to stdout.\n\n### Usage examples\n```js\njscs: {\n    main: [ \"path/to/files/*.js\" ],\n    secondary: {\n        options: {\n            config: \".jscs-secondary\",\n        },\n        files: {\n            src: [ \"path/to/more/files/**/*.js\", \"my-plugin.js\" ]\n        }\n    },\n    ternary: {\n        options: {\n            requireCurlyBraces: [ \"if\" ]\n        },\n        files: {\n            src: \"happy-hippo.js\"\n        }\n    }\n}\n```\n\n## Release History\nSee the [releases page](https://github.com/jscs-dev/grunt-jscs/releases).\n",
+  "versions": {
+    "0.6.0": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "0.6.0",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/gustavohenke/grunt-jscs-checker",
+      "contributors": [
+        {
+          "name": "Oleg Gaidarenko",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/gustavohenke/grunt-jscs-checker.git"
+      },
+      "bugs": {
+        "url": "https://github.com/gustavohenke/grunt-jscs-checker/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~1.5.2",
+        "lodash.assign": "~2.4.1",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt-bump": "~0.0.13",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "~0.5.0",
+        "time-grunt": "~0.3.0"
+      },
+      "peerDependencies": {
+        "grunt": "~0.4.2"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test"
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "_id": "grunt-jscs@0.6.0",
+      "dist": {
+        "shasum": "df6740ef9f88ad17142d318b222f59a22f201102",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-0.6.0.tgz",
+        "integrity": "sha512-vzA6E53/f++0JwebsJco8Drq3X55Dyc45xBu7fAtpdb0EzDWmvvzAkVz2F7HtKgCBXwLWgHFJyKqRi0M5UfbLw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQD9BQ9kUbUj/KeH/yzbrDECEtui52PhZHWSrcrbOxxI6wIhAPDK3oqxaS4zqzmqi5DXn8PpDaRPOO7/VA9Hh5JumP37"
+          }
+        ]
+      },
+      "_from": ".",
+      "_npmVersion": "1.3.24",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.com.br"
+        }
+      ],
+      "directories": {}
+    },
+    "0.6.1": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "0.6.1",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/gustavohenke/grunt-jscs",
+      "contributors": [
+        {
+          "name": "Oleg Gaidarenko",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/gustavohenke/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/gustavohenke/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~1.5.7",
+        "lodash.assign": "~2.4.1",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt-bump": "~0.0.13",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "~0.5.0",
+        "time-grunt": "~0.3.0"
+      },
+      "peerDependencies": {
+        "grunt": "~0.4.2"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test"
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "_id": "grunt-jscs@0.6.1",
+      "dist": {
+        "shasum": "b64ca644af0b471b01a851107d6ae6a3ef09662b",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-0.6.1.tgz",
+        "integrity": "sha512-iiEYoTpUpa50jMVY4e/g682wurNgg8wPj4XU/hf5a2LpNuFOJ6ubuFfEuo/LO/VEnqJfUqwkLEQeLO8H2VRY7Q==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIB5SUF5z/S01CURGKz2U49cDa8T6FOPCZMdwSZW+4IWBAiEAsFpfqJkQ4HxnAf+WgaXml5C3xcewa3OCAgevsN0xy3Q="
+          }
+        ]
+      },
+      "_from": ".",
+      "_npmVersion": "1.4.3",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.com.br"
+        }
+      ],
+      "directories": {}
+    },
+    "0.6.2": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "0.6.2",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/gustavohenke/grunt-jscs",
+      "contributors": [
+        {
+          "name": "Oleg Gaidarenko",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/gustavohenke/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/gustavohenke/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~1.5.9",
+        "lodash": "~2.4.1",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt-bump": "~0.0.13",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "~0.6.0",
+        "time-grunt": "~0.4.0"
+      },
+      "peerDependencies": {
+        "grunt": "~0.4.2"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test"
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "_id": "grunt-jscs@0.6.2",
+      "dist": {
+        "shasum": "0ca814974c2b4cd8a88972d5e36467b1144f7c1f",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-0.6.2.tgz",
+        "integrity": "sha512-DPCoKUeW3Jz78TP9rvYIX4H8A+WTQ0g9moDpMpznNsBhACSxNRoH1z04FjZCLddH/OLdW6n/oUblPqYhqdHTPg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAu8gCYc/LfvCIMrWi+mKL31IN8GcyxBaqVUpxOLCTqkAiBtSgjFY1EE0rwx1s80PQ5W6jijAT+gR1M5817tb1d0NQ=="
+          }
+        ]
+      },
+      "_from": ".",
+      "_npmVersion": "1.3.24",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.com.br"
+        }
+      ],
+      "directories": {}
+    },
+    "0.7.0": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "0.7.0",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/gustavohenke/grunt-jscs",
+      "contributors": [
+        {
+          "name": "Oleg Gaidarenko",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/gustavohenke/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/gustavohenke/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~1.6.0",
+        "lodash": "~2.4.1",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt-bump": "~0.0.13",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "~0.6.0",
+        "time-grunt": "~0.4.0"
+      },
+      "peerDependencies": {
+        "grunt": "~0.4.2"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test"
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "d0ac3b86fc11cdb88be92670de940870ecc3537d",
+      "_id": "grunt-jscs@0.7.0",
+      "_shasum": "631412160c892c27a34ca5ebda169db38f1f1414",
+      "_from": ".",
+      "_npmVersion": "1.4.23",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.com.br"
+        }
+      ],
+      "dist": {
+        "shasum": "631412160c892c27a34ca5ebda169db38f1f1414",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-0.7.0.tgz",
+        "integrity": "sha512-SCWYFcBkwn/1EjXCfLVu0qeXBnJ1RpaPagUAGwGWcQhADoJHCMZ15LzjpGK0048blg9ObCwj0csbO5ic4+5dHw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBc1czDDyO2pML4ua8LGeN9MLViEapPDW7V2b2SsKNtvAiAC2Oiw9Hn/b+5CLcuf4an8Unyq3QWLZ97YQz9ntI1jag=="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "0.7.1": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "0.7.1",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "contributors": [
+        {
+          "name": "Oleg Gaidarenko",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~1.6.0",
+        "lodash": "~2.4.1",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt-bump": "~0.0.13",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "~0.6.0",
+        "time-grunt": "~1.0.0"
+      },
+      "peerDependencies": {
+        "grunt": "~0.4.2"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test"
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "fa216e34e3abe2182875cbda9b27d31d3f0ef440",
+      "_id": "grunt-jscs@0.7.1",
+      "_shasum": "f95520d98bfe83bcd3f2909f92eb6bf858d593c0",
+      "_from": ".",
+      "_npmVersion": "1.4.23",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.com.br"
+        }
+      ],
+      "dist": {
+        "shasum": "f95520d98bfe83bcd3f2909f92eb6bf858d593c0",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-0.7.1.tgz",
+        "integrity": "sha512-C8IgQn1b+TS1VE6mHJmu2ubem2orLSAS6+TMxf92jywnP6xd2FDLCPTgLu4iXj7fi/NY1JqGkRr57zsY2Pq7bg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDHElo0OpINfFmM8XRIJqe3rkDv0kEQHbLrQs820v4aGwIgavMHOdi4Hfp84KHH6xqAoPFelvSc6hHKFSRvrQ/ZeVo="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "0.8.0": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "0.8.0",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "contributors": [
+        {
+          "name": "Oleg Gaidarenko",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~1.7.2",
+        "lodash": "~2.4.1",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt-bump": "~0.0.13",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "~0.6.0",
+        "time-grunt": "~1.0.0"
+      },
+      "peerDependencies": {
+        "grunt": "~0.4.2"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test"
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "5fc8a4219275a7e7fc957a555f2649923e06b7f2",
+      "_id": "grunt-jscs@0.8.0",
+      "_shasum": "91c4c3991e421b7028b0101a34a8b005f5389517",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.com.br"
+        }
+      ],
+      "dist": {
+        "shasum": "91c4c3991e421b7028b0101a34a8b005f5389517",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-0.8.0.tgz",
+        "integrity": "sha512-QOSnYfa12gQY1rmF+uiTxChennDfc5BkCKahwWrJNOKC6DLYEZ6Sivn5tj/kv0/QKF5zOMorRWPDuEAdQ1dbgQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDPJ/pwkOcLWD1TCUJ0a7zWt4hF26HyimMC0A7tOKBoCgIhALrUhhxwChUuxrXMg56MXC8jmaFxnyNX4qg0iNcFV02A"
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "0.8.1": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "0.8.1",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "contributors": [
+        {
+          "name": "Oleg Gaidarenko",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~1.7.2",
+        "lodash": "~2.4.1",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt-bump": "~0.0.13",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "~1.0.0",
+        "time-grunt": "~1.0.0"
+      },
+      "peerDependencies": {
+        "grunt": "~0.4.2"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test"
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "d33a674ade01bd001efe4cfce0c056c37ca2d9e1",
+      "_id": "grunt-jscs@0.8.1",
+      "_shasum": "156e0dc312bafaede978a367dd1897d7d9c21b2e",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.com.br"
+        }
+      ],
+      "dist": {
+        "shasum": "156e0dc312bafaede978a367dd1897d7d9c21b2e",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-0.8.1.tgz",
+        "integrity": "sha512-y3o5RDPCjp2mc0LgJWYp0x+yhmWMJuYntLMOVgM8YR+tpSAMnaBYfli+dnCAp/MbOc43ut0nAUn4QJpbaBV00w==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCrFDiYIckSywDU8qsLfH8WmYbMxx7/7jf91oI15a4KaQIhAILJqz69EuABYud1BCPuoVoczRub76bTN6hvX7tDVTuS"
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "1.0.0": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "contributors": [
+        {
+          "name": "Oleg Gaidarenko",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~1.8.0",
+        "lodash": "~2.4.1",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt-bump": "~0.0.13",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "~1.0.0",
+        "time-grunt": "~1.0.0"
+      },
+      "peerDependencies": {
+        "grunt": "~0.4.2"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test"
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "ae0d89edfa332039ab4d1196c9883a1828fd5737",
+      "_id": "grunt-jscs@1.0.0",
+      "_shasum": "50292c9fb3e0703ed18e02c3d49c34579c2f35f6",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.com.br"
+        }
+      ],
+      "dist": {
+        "shasum": "50292c9fb3e0703ed18e02c3d49c34579c2f35f6",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-1.0.0.tgz",
+        "integrity": "sha512-DDtayUx/iwSfD9lOmUdeHVVi7yLw6bcV00q7tqO6iddCxTcG3kt8v0Iu4P741uD4t8lWDdlfO+Fg8Oj3QWXPxw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCIOMmzxzX9VHIxYO6w67mZEymWqRZVF4hbNeXuNpDvCAIgXlTJ6hu320i6nUeLxQmnGiJXoPZcrRmtuX1gJv2EQis="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "1.1.0": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "1.1.0",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "contributors": [
+        {
+          "name": "Oleg Gaidarenko",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~1.9.0",
+        "lodash": "~2.4.1",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt-bump": "~0.0.13",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "~1.0.0",
+        "time-grunt": "~1.0.0"
+      },
+      "peerDependencies": {
+        "grunt": "~0.4.2"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test"
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "d9007cb866b2338044b0089eb96bf8f20f994f4a",
+      "_id": "grunt-jscs@1.1.0",
+      "_shasum": "87f7bebc9a329874adf433ee6998427746565c09",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.com.br"
+        }
+      ],
+      "dist": {
+        "shasum": "87f7bebc9a329874adf433ee6998427746565c09",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-1.1.0.tgz",
+        "integrity": "sha512-2uCPEBFTjYKGTVmGEW063MlZPO5oqFN2XgACz96U7HCuHYWVcvDuVcJfcrR4/VAzC2nWc2r1TWHnCA+6GEPK5w==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFtepCyNEs/2ZdxCQYT3rkQzOqu4+tJkEVN+PBVkZcp0AiBl4vutkPJZoogUlBiX9m+QobOYfWn+vKNMIabC74GPkA=="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "1.2.0": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "1.2.0",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "contributors": [
+        {
+          "name": "Oleg Gaidarenko",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~1.10.0",
+        "lodash": "~2.4.1",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt-bump": "~0.0.13",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "~1.0.0",
+        "time-grunt": "~1.0.0"
+      },
+      "peerDependencies": {
+        "grunt": "~0.4.2"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test"
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "38b035cadcdec7c942625cd79293cf3b5cf52d47",
+      "_id": "grunt-jscs@1.2.0",
+      "_shasum": "986870cc760f6803102bef74835390466647a645",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.com.br"
+        }
+      ],
+      "dist": {
+        "shasum": "986870cc760f6803102bef74835390466647a645",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-1.2.0.tgz",
+        "integrity": "sha512-00H0lisz1WbMCOHn9o7Fq8VrFJ7QQMwrP5ovDS8O8wrgBvRffH0XU9KQ4BS68f0KtwjH1UwYOzeu1iWUH8svNQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDW0BZNhMUrYxtVlKQBvVzUJrzzASvk1fO+i+vGYwnwJwIhANgsws/wlWPAxjHUehEn6hiBVLk2g9VstMfHtEryUtxs"
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "1.3.0": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "1.3.0",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "contributors": [
+        {
+          "name": "Oleg Gaidarenko",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~1.10.0",
+        "lodash": "~2.4.1",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt-bump": "~0.0.13",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "~1.0.0",
+        "time-grunt": "~1.0.0"
+      },
+      "peerDependencies": {
+        "grunt": "~0.4.2"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test"
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "d2776a2271ff5011736f8645a1147c7770b3905d",
+      "_id": "grunt-jscs@1.3.0",
+      "_shasum": "5e25a3ce5c2e2337f4ac2fb168e7c326dea85b32",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.com.br"
+        }
+      ],
+      "dist": {
+        "shasum": "5e25a3ce5c2e2337f4ac2fb168e7c326dea85b32",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-1.3.0.tgz",
+        "integrity": "sha512-FOT/iIaWrqs9gnB0XEJdT360jjMr6Ld6yjUaOsZjoYRrY4sKVtwT5f4guL7TnmWEKkuV9ob7yFQqBhrVvwpnQw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFXR0oHXBFnEkFAe6UE36p2qPWjK4rbx/NKN+X/phLnnAiA+zpuqhBM+hO2cdcmgwurAqqel6uUl7fqr8A4RzM/7kw=="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "1.5.0": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "1.5.0",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "contributors": [
+        {
+          "name": "Oleg Gaidarenko",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~1.11.0",
+        "lodash": "~2.4.1",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt-bump": "~0.0.13",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "~1.0.0",
+        "time-grunt": "~1.0.0"
+      },
+      "peerDependencies": {
+        "grunt": "~0.4.2"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test"
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "5f33625404eb4b17dd59bb4e2577ec67c19ef8a2",
+      "_id": "grunt-jscs@1.5.0",
+      "_shasum": "2d5d7deeb8980f8cd63a3c6cba0a93a05d04a598",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.com.br"
+        }
+      ],
+      "dist": {
+        "shasum": "2d5d7deeb8980f8cd63a3c6cba0a93a05d04a598",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-1.5.0.tgz",
+        "integrity": "sha512-6/5yHrfPPlMB9PB4yYIDpvOFndGK/1Tj0JZKr7axW6x2ErZ57JTesXLR9pjexyt1zNc+H+opzo68sPqWhYYSCw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIF9o1TdnTEZueqmLWT3jBhrndE5yjZVX1u1K2aEf/n60AiAGDfvRq4aoi682xoURNPc+301z2SvgOoIPUMkQfEvjUw=="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "1.6.0": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "1.6.0",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "contributors": [
+        {
+          "name": "Oleg Gaidarenko",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~1.12.0",
+        "lodash": "~2.4.1",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt-bump": "~0.0.13",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "~1.0.0",
+        "time-grunt": "~1.0.0"
+      },
+      "peerDependencies": {
+        "grunt": "~0.4.2"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test"
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "bb98fca2c6184e4cc9963cdab7e4f2613701a38f",
+      "_id": "grunt-jscs@1.6.0",
+      "_shasum": "85aeb8a01edec98f16219e2b8c26c1f8f8accf86",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.io"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.com.br"
+        }
+      ],
+      "dist": {
+        "shasum": "85aeb8a01edec98f16219e2b8c26c1f8f8accf86",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-1.6.0.tgz",
+        "integrity": "sha512-PGMm8HG3CMGlu6LOmSE1X8zt6cYHaOXVOvJOlgrJK8/vCCOIFRZSfQo7WhB0I/0eGfFkj7gYPYvn3mRLRz6KGA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDtVOYUGKGPengpYSWv/lVDq0hXmGS5BkpIP/KXxTLGmgIgVXNsB6dqJ8mjOvFR+QRS4j+I03MNDFoujJXpuxa9ZUk="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "1.6.1": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "1.6.1",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "contributors": [
+        {
+          "name": "Oleg Gaidarenko",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~1.13.0",
+        "lodash": "~2.4.1",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt-bump": "~0.0.13",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "~1.0.0",
+        "time-grunt": "~1.0.0"
+      },
+      "peerDependencies": {
+        "grunt": "~0.4.2"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test"
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "cc16be080e2a4957bc774b190f904c6501cf9994",
+      "_id": "grunt-jscs@1.6.1",
+      "_shasum": "f820d3bee20fee6ba715a6f854d1d85bd5f4cdac",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.com.br"
+        }
+      ],
+      "dist": {
+        "shasum": "f820d3bee20fee6ba715a6f854d1d85bd5f4cdac",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-1.6.1.tgz",
+        "integrity": "sha512-Ho0Q6uciP0c/LFNWzoe3ymvlmQBbqRg0DXal0a8c/aUBYzmnBB//X7Uix30XyLF0SRRAXoXENW9UOujzxHxGEg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCPOUAiRnE+K+4HgliFy7AvPgiDXCcSaPoOFO+Q4KShfAIhAPhr55mROrYJWugIXLoPOJnSoSLMTRuak4Uedzj3WUiS"
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "1.7.0": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "1.7.0",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "contributors": [
+        {
+          "name": "Oleg Gaidarenko",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~1.13.0",
+        "lodash": "~2.4.1",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt-bump": "~0.0.13",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "~1.0.0",
+        "time-grunt": "~1.0.0"
+      },
+      "peerDependencies": {
+        "grunt": "~0.4.2"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test"
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "8c07d16d19898691011f1271f6e60f5e3b17da56",
+      "_id": "grunt-jscs@1.7.0",
+      "_shasum": "848b51e85e4e8b44fe6a348e75d756284a5ec662",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.com.br"
+        }
+      ],
+      "dist": {
+        "shasum": "848b51e85e4e8b44fe6a348e75d756284a5ec662",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-1.7.0.tgz",
+        "integrity": "sha512-2XBwuAyH6yOM9cgGkcAT/tLl3QoPLl5lEwzlmWWtUmCxwR24xBSbVWd7yDinjV/umUB31Oww2JOVBf4QoTmvVA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHHYKZkCvIKkwUNGMARw2cksJxbzVR6ygo0HKeuCctTHAiAGzrmQblciP2Lpo0nR+XiaOyRGFqnqpr9kuToeWxGNhw=="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "1.6.2": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "1.6.2",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "contributors": [
+        {
+          "name": "Oleg Gaidarenko",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~1.13.0",
+        "lodash": "~2.4.1",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt-bump": "~0.0.13",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "~1.0.0",
+        "time-grunt": "~1.0.0"
+      },
+      "peerDependencies": {
+        "grunt": "~0.4.2"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test"
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "cb7a6360a90818e37d7064cd3431a447ad3d0a3f",
+      "_id": "grunt-jscs@1.6.2",
+      "_shasum": "b3a76cf69a33c77478378930eff21b17f11c73c7",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.com.br"
+        }
+      ],
+      "dist": {
+        "shasum": "b3a76cf69a33c77478378930eff21b17f11c73c7",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-1.6.2.tgz",
+        "integrity": "sha512-uytmel7FfyNBwajDPMUwievrH1xd/ef8C2YqsmKr29z6akzY/WwskE8An2IwECqoEvz5ZzjWBgYd95eY4ErriQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDiGLnXzreLEFT1jl4cMAnm7rDHMmP2KAe2TrQLx30zNwIgUEu1n1NjsnMxoT2qGrwDmftRAbA/JoZSVlfC1YjA+TQ="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "1.8.0": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "1.8.0",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "contributors": [
+        {
+          "name": "Oleg Gaidarenko",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~1.13.0",
+        "lodash": "~2.4.1",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt-bump": "~0.0.13",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "~1.0.0",
+        "time-grunt": "~1.0.0"
+      },
+      "peerDependencies": {
+        "grunt": "~0.4.2"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test"
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "e6e87385cc136657c3239cac356a34dcbe9bcc97",
+      "_id": "grunt-jscs@1.8.0",
+      "_shasum": "de96df9cdd737ee15c12b31bb46a3bd91d948981",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.com.br"
+        }
+      ],
+      "dist": {
+        "shasum": "de96df9cdd737ee15c12b31bb46a3bd91d948981",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-1.8.0.tgz",
+        "integrity": "sha512-EWy8qfhFV/CkhKSiTxYreKZXbPVABylDSjqJFiSCU39d7AmzRyMdtc0r1AF0ZdB0LbBt8ffjsF1ryQnp38mEww==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIERc16hLtmmj59DnPNUDXz1HY8KTJbTGuYuxq6+wY0/MAiEAiaqCBAJhc+YVvfit62VAHZEjmw447AjUt7mdbxX9qMY="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "2.0.0": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "2.0.0",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~2.0.0",
+        "lodash": "~3.1.0",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.11.2",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "~3.2.0",
+        "time-grunt": "~1.2.1"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test",
+        "bump": "npm version patch -m \"Release v%s\"",
+        "bump-minor": "npm version minor -m \"Release v%s\"",
+        "bump-major": "npm version major -m \"Release v%s\""
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "4a34df69bd7f872d9821b4094ab533cb6b203681",
+      "_id": "grunt-jscs@2.0.0",
+      "_shasum": "d5fe03534e4438d4c9560cfc6eb702cfb7389645",
+      "_from": ".",
+      "_npmVersion": "2.11.1",
+      "_nodeVersion": "2.3.0",
+      "_npmUser": {
+        "name": "markelog",
+        "email": "markelog@gmail.com"
+      },
+      "dist": {
+        "shasum": "d5fe03534e4438d4c9560cfc6eb702cfb7389645",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-2.0.0.tgz",
+        "integrity": "sha512-eaJEuF6ulTMUo/j87VSYHbWUc/SV7V/VQVZwXje1wjRpFHTlqWmzJ+8qUxagDdfLffUGloxkrA07VsUICrkgiQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQC8tWYFupTM8OSeHSE7slMjf38/CT0Y+ecZriAebmWvzgIhAP+Vw8ZmWEvltFRioNeKkbHtbsCorRZDEPx95E/AYUaR"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.io"
+        },
+        {
+          "name": "markelog",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "directories": {}
+    },
+    "2.1.0": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "2.1.0",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~2.1.0",
+        "lodash": "~3.10.0",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.11.2",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "~3.2.0",
+        "time-grunt": "~1.2.1"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test",
+        "bump": "npm version patch -m \"Release v%s\"",
+        "bump-minor": "npm version minor -m \"Release v%s\"",
+        "bump-major": "npm version major -m \"Release v%s\""
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "6011f0584e2bc931802d2f89b6bd3a336dc1c49f",
+      "_id": "grunt-jscs@2.1.0",
+      "_shasum": "8a68896c5f58457e24900c5f214a4c9bdfb50ae6",
+      "_from": ".",
+      "_npmVersion": "2.11.2",
+      "_nodeVersion": "0.12.6",
+      "_npmUser": {
+        "name": "markelog",
+        "email": "markelog@gmail.com"
+      },
+      "dist": {
+        "shasum": "8a68896c5f58457e24900c5f214a4c9bdfb50ae6",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-2.1.0.tgz",
+        "integrity": "sha512-PPcUMLsNJh7AZhfIws1/ur0rRSyueWFLCTecKpaQ9wDJvKoVSNN/ZI29An7PfggPA2TCb6EKb1BxulJD6I6EEQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICJQJ+XZ10YW9a8IJpvoLSFIxdYdGPkTQypvBowrJAE3AiBu3twtVifSzMpMXrx9DDnYkVN7K0DOnPVfGt5/SGBR5g=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.io"
+        },
+        {
+          "name": "markelog",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "directories": {}
+    },
+    "2.2.0": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "2.2.0",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~2.4.0",
+        "lodash": "~3.10.0",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.11.2",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "^3.3.0",
+        "time-grunt": "~1.2.1"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test",
+        "bump": "npm version patch -m \"Release v%s\"",
+        "bump-minor": "npm version minor -m \"Release v%s\"",
+        "bump-major": "npm version major -m \"Release v%s\""
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "c272f8f342bb5b55a9436db1af1effa55dc38de9",
+      "_id": "grunt-jscs@2.2.0",
+      "_shasum": "264f48356fbbfb7cfb360ee8830f1955044533ff",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.io"
+        },
+        {
+          "name": "markelog",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "264f48356fbbfb7cfb360ee8830f1955044533ff",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-2.2.0.tgz",
+        "integrity": "sha512-Yfg+qvv87v7p029ZPLOpKr+X8pUj/+GuhwgmNv39wA4/OpRAZdIwIEzge4DdvV1mbRS/mo5hr8iy/ZtYDv5D1Q==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEguJCafVQfCRh0aZf0vLHgIyxzwj9badEwHnjitdo94AiAJF9dad57iL79dObNgsTTJB1zZF0DO5VRrZt3XI+hzRg=="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "2.3.0": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "2.3.0",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~2.5.0",
+        "lodash": "~3.10.0",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.11.2",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "^3.3.0",
+        "time-grunt": "~1.2.1"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test",
+        "bump": "npm version patch -m \"Release v%s\"",
+        "bump-minor": "npm version minor -m \"Release v%s\"",
+        "bump-major": "npm version major -m \"Release v%s\""
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "d13072f38be8b31655d5a8fe40d69fe8f90f2faf",
+      "_id": "grunt-jscs@2.3.0",
+      "_shasum": "835f4539212d1db3417c58d844cefbf4a91b8410",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.io"
+        },
+        {
+          "name": "markelog",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "835f4539212d1db3417c58d844cefbf4a91b8410",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-2.3.0.tgz",
+        "integrity": "sha512-78i+rqzoL/LMOhQsnphlI6reHhStJHRByfMS1lQcrBTW/NTd20I47fK2DqDp2QDul+GZlKT319HMxKcLwbGKRw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCID5XnY82qLvKQHTbdSL6fh87vMp0rh0KbQmc47WIdl9BAiEA47J5gqAt8tusjGfzAIRQ0EHQw5L/rBq4+X1crKt7aHo="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "2.4.0": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "2.4.0",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~2.6.0",
+        "lodash": "~3.10.0",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt": "0.4.5",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.11.3",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "^3.3.0",
+        "time-grunt": "~1.2.1"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test",
+        "bump": "npm version patch -m \"Release v%s\"",
+        "bump-minor": "npm version minor -m \"Release v%s\"",
+        "bump-major": "npm version major -m \"Release v%s\""
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "1fcd82becfb19a969c3edee3e3c5cf165f1f092f",
+      "_id": "grunt-jscs@2.4.0",
+      "_shasum": "76ee4a0bbf7d80e5afda7bf769c41c270da25c73",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.io"
+        },
+        {
+          "name": "markelog",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "76ee4a0bbf7d80e5afda7bf769c41c270da25c73",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-2.4.0.tgz",
+        "integrity": "sha512-nxP6ULIo2jvpTAh4WkrFTEMDNSKBIze5BIKYy/VNthHD5c72nHGqXHWtzcpB6zgwbHN4veYAxHO29l+5G3TB5Q==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQD6ZZ90JwFiSUCVU98I8JUovZ0V3lo2SVHCj4s5jt/w1gIgN68Ib0rQsYayY2swSu+X1/pEopQSrfiK5wwVkYpa8TM="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "2.5.0": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "2.5.0",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~2.7.0",
+        "lodash": "~3.10.0",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt": "0.4.5",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.11.3",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "^3.3.0",
+        "time-grunt": "~1.2.1"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test",
+        "bump": "npm version patch -m \"Release v%s\"",
+        "bump-minor": "npm version minor -m \"Release v%s\"",
+        "bump-major": "npm version major -m \"Release v%s\""
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "7210c5939750d36072653b9709673f757c41e2d7",
+      "_id": "grunt-jscs@2.5.0",
+      "_shasum": "1d2c8e919502d43501cd29070e9e327df0d9690a",
+      "_from": ".",
+      "_npmVersion": "1.4.29",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.io"
+        },
+        {
+          "name": "markelog",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "1d2c8e919502d43501cd29070e9e327df0d9690a",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-2.5.0.tgz",
+        "integrity": "sha512-11R/GP3ViQn8xBZaeJfkkcjp8+qHMLDExi0VeQqdPljaBX6JubromfScHZQROB44B39wWz0C4Yd+/xFE0nLFCA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCVZulh2A8iCHaSHJrGexDCgr8tW67d91FGniDQbQ+w7AIhAPqdvg3AetFtFHEK7BMMwk9pvzGx1Ts36brxhJnxo7Wj"
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "2.6.0": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "2.6.0",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~2.8.0",
+        "lodash": "~3.10.0",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt": "0.4.5",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.11.3",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "^3.3.0",
+        "time-grunt": "~1.3.0"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test",
+        "bump": "npm version patch -m \"Release v%s\"",
+        "bump-minor": "npm version minor -m \"Release v%s\"",
+        "bump-major": "npm version major -m \"Release v%s\""
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "36e8e615cdac244a0ff20d5e1c5203ee26f2ad8f",
+      "_id": "grunt-jscs@2.6.0",
+      "_shasum": "6ec030bb743c18d6d5e77a88f2b6c84f2d1ccfd7",
+      "_from": ".",
+      "_npmVersion": "1.4.29",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.io"
+        },
+        {
+          "name": "markelog",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "6ec030bb743c18d6d5e77a88f2b6c84f2d1ccfd7",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-2.6.0.tgz",
+        "integrity": "sha512-vtbvCxovzZP3MKDWkqL1mKN3zXcBevsPlfB4rfWSo+PMp0ZsMNqbzScL3SRQKI8Flxhor9IH/FrsGNOLc+K0nQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCdr2wR8yjndWYi0Q2U1LIPKDMGAHWUA7VdWDFqv82XwAIhAKGrsQ/o7qldnjJ2cFU1aFcD+uYTFabSRKBbSV14K6dQ"
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "2.7.0": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "2.7.0",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~2.9.0",
+        "lodash": "~3.10.0",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt": "0.4.5",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~0.11.3",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "^3.3.0",
+        "time-grunt": "~1.3.0"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test",
+        "bump": "npm version patch -m \"Release v%s\"",
+        "bump-minor": "npm version minor -m \"Release v%s\"",
+        "bump-major": "npm version major -m \"Release v%s\""
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "ed026d9400f44f0db898fe1814e45904a560936f",
+      "_id": "grunt-jscs@2.7.0",
+      "_shasum": "1ef1be3520f01fd79674fc0628ddee21f33bd2a6",
+      "_from": ".",
+      "_npmVersion": "1.4.29",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.io"
+        },
+        {
+          "name": "markelog",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "1ef1be3520f01fd79674fc0628ddee21f33bd2a6",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-2.7.0.tgz",
+        "integrity": "sha512-N+LxtAhoBuRvI/CgBocOsulhg71AXZGRjXigi1LR5Rpw3hMWlAgglnvw3zVlWBe58o0ylJh2CB9IIoRKrc4bIQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDduZF6RaG8tu9TgJ0YDM9HUqjNcMdBFTgyjFKGP05SQgIhAIhxSmffi2YoRJfVD5qfCaCNRxjlIZ47JLZLCASGoQrB"
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "2.8.0": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "2.8.0",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~2.11.0",
+        "lodash": "~4.6.1",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt": "0.4.5",
+        "grunt-cli": "~0.1.13",
+        "grunt-contrib-jshint": "~1.0.0",
+        "grunt-contrib-nodeunit": "~0.4.0",
+        "load-grunt-tasks": "^3.4.0",
+        "time-grunt": "~1.3.0"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test",
+        "bump": "npm version patch -m \"Release v%s\"",
+        "bump-minor": "npm version minor -m \"Release v%s\"",
+        "bump-major": "npm version major -m \"Release v%s\""
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "93fae93e197d656643114e6104ea3a3b160e24f2",
+      "_id": "grunt-jscs@2.8.0",
+      "_shasum": "9dcf352c563a322d80765fe922c2cda2a464ceda",
+      "_from": ".",
+      "_npmVersion": "1.4.29",
+      "_npmUser": {
+        "name": "gustavohenke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.io"
+        },
+        {
+          "name": "markelog",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "9dcf352c563a322d80765fe922c2cda2a464ceda",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-2.8.0.tgz",
+        "integrity": "sha512-bZS1n7a9vlHUjhXeSMp7axcDl1ftXCsPqQ3ZMj5fPfd84Kz2F9v1AZnZS0VcNeOvm0mwn1q66anLOgytghZ2Cw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCH9MjF7swDM5Nk6bDMy7hI32Bhr4AdbjBvTleCpR5ZDwIgVXoYTUktNpBHOmbaUZQF1FUOeOAVeX+pzkpHDLJ6c6A="
+          }
+        ]
+      },
+      "_npmOperationalInternal": {
+        "host": "packages-13-west.internal.npmjs.com",
+        "tmp": "tmp/grunt-jscs-2.8.0.tgz_1456949981843_0.6511350492946804"
+      },
+      "directories": {}
+    },
+    "3.0.0": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "3.0.0",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~3.0.4",
+        "lodash": "~4.6.1",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt": "1.0.1",
+        "grunt-contrib-jshint": "~1.0.0",
+        "grunt-contrib-nodeunit": "~1.0.0",
+        "load-grunt-tasks": "^3.4.0",
+        "time-grunt": "~1.3.0"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test",
+        "bump": "npm version patch -m \"Release v%s\"",
+        "bump-minor": "npm version minor -m \"Release v%s\"",
+        "bump-major": "npm version major -m \"Release v%s\""
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "afe900c1942eb8e0549be93fef4a489dfb2734b8",
+      "_id": "grunt-jscs@3.0.0",
+      "_shasum": "a9cd7fb053bb28f8f1ab049ac1af3eff5325965e",
+      "_from": ".",
+      "_npmVersion": "3.8.9",
+      "_nodeVersion": "6.2.0",
+      "_npmUser": {
+        "name": "markelog",
+        "email": "markelog@gmail.com"
+      },
+      "dist": {
+        "shasum": "a9cd7fb053bb28f8f1ab049ac1af3eff5325965e",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-3.0.0.tgz",
+        "integrity": "sha512-NsB0+0dFO7qLnAo7lJlarXxJS9C2goGQj6yhdAHfbFZI8cEhn0FLIfIfvguq8nLy5JG/wgzdEmZmNfMe8sVB/w==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCZXLpaMTlHnHqdG26vRM6ISaUZxPi/ja2bjQnHGdHESQIgMnTxGWXxlrJ1Zv/YnGvvXnE43FKuvA9SSpToChqKuQA="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.io"
+        },
+        {
+          "name": "markelog",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/grunt-jscs-3.0.0.tgz_1465010923277_0.257548549445346"
+      },
+      "directories": {}
+    },
+    "3.0.1": {
+      "name": "grunt-jscs",
+      "description": "Grunt task for checking JavaScript Code Style with jscs.",
+      "version": "3.0.1",
+      "author": {
+        "name": "Gustavo Henke",
+        "email": "gustavo@injoin.com.br"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/jscs-dev/grunt-jscs",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jscs-dev/grunt-jscs.git"
+      },
+      "bugs": {
+        "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+      },
+      "dependencies": {
+        "hooker": "~0.2.3",
+        "jscs": "~3.0.5",
+        "lodash": "~4.6.1",
+        "vow": "~0.4.1"
+      },
+      "devDependencies": {
+        "grunt": "1.0.1",
+        "grunt-contrib-jshint": "~1.0.0",
+        "grunt-contrib-nodeunit": "~1.0.0",
+        "load-grunt-tasks": "^3.4.0",
+        "time-grunt": "~1.3.0"
+      },
+      "keywords": [
+        "gruntplugin",
+        "jscs",
+        "code style",
+        "checker"
+      ],
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "scripts": {
+        "test": "grunt test",
+        "bump": "npm version patch -m \"Release v%s\"",
+        "bump-minor": "npm version minor -m \"Release v%s\"",
+        "bump-major": "npm version major -m \"Release v%s\""
+      },
+      "files": [
+        "tasks",
+        "LICENSE-MIT"
+      ],
+      "gitHead": "efff3087a86296b4a6e8810a0f5e4c215be6210d",
+      "_id": "grunt-jscs@3.0.1",
+      "_shasum": "1fae50e3e955df9e3a9d9425aec22accae008092",
+      "_from": ".",
+      "_npmVersion": "3.8.9",
+      "_nodeVersion": "6.2.0",
+      "_npmUser": {
+        "name": "markelog",
+        "email": "markelog@gmail.com"
+      },
+      "dist": {
+        "shasum": "1fae50e3e955df9e3a9d9425aec22accae008092",
+        "tarball": "https://registry.npmjs.org/grunt-jscs/-/grunt-jscs-3.0.1.tgz",
+        "integrity": "sha512-LKHSLWYAq1JlhJdTHvKnMOc7haOen2sK3LSwnS/MFRK7ay64WpIkdcstsNK/sWsICEOlFCbpaTT+jqxossaM7Q==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCtdxFVd+R8lpG/ifm0puCiC4YS7zwZ+un1zFm5srFE3wIgU1YFCzQHIZRmLU5yXi+hw5sEhQQa4JPA7siffgmvGaw="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "gustavohenke",
+          "email": "gustavo@injoin.io"
+        },
+        {
+          "name": "markelog",
+          "email": "markelog@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/grunt-jscs-3.0.1.tgz_1466543847268_0.3155825422145426"
+      },
+      "directories": {}
+    }
+  },
+  "homepage": "https://github.com/jscs-dev/grunt-jscs",
+  "keywords": [
+    "gruntplugin",
+    "jscs",
+    "code style",
+    "checker"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jscs-dev/grunt-jscs.git"
+  },
+  "author": {
+    "name": "Gustavo Henke",
+    "email": "gustavo@injoin.com.br"
+  },
+  "bugs": {
+    "url": "https://github.com/jscs-dev/grunt-jscs/issues"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "users": {
+    "amaxwell01": true,
+    "sgtpooki": true,
+    "vbm": true,
+    "modest": true,
+    "jalcine": true,
+    "zhuangmz": true,
+    "itonyyo": true,
+    "flozz": true,
+    "karlbateman": true,
+    "arnoldstoba": true,
+    "joshuahamilton": true,
+    "ones.shader": true,
+    "mgol": true
+  }
+}

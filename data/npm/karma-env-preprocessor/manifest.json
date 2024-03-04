@@ -1,0 +1,152 @@
+{
+  "_id": "karma-env-preprocessor",
+  "_rev": "7-4db130f1fc149638fc69fe9d5fcd6520",
+  "name": "karma-env-preprocessor",
+  "description": "A Karma plugin to read environment variables and make them available inside your tests.",
+  "dist-tags": {
+    "latest": "0.1.1"
+  },
+  "versions": {
+    "0.1.0": {
+      "name": "karma-env-preprocessor",
+      "version": "0.1.0",
+      "description": "A Karma plugin to read environment variables and make them available inside your tests.",
+      "main": "index.js",
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/jsok/karma-env-preprocessor.git"
+      },
+      "keywords": [
+        "karma-plugin",
+        "karma-preprocessor",
+        "environment-variables"
+      ],
+      "author": {
+        "name": "Jonathan Sokolowski",
+        "email": "jonathan.sokolowski@gmail.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/jsok/karma-env-preprocessor/issues"
+      },
+      "homepage": "https://github.com/jsok/karma-env-preprocessor",
+      "_id": "karma-env-preprocessor@0.1.0",
+      "_shasum": "01badd26362117dc88497fab4f74c686f7701751",
+      "_from": ".",
+      "_npmVersion": "1.4.9",
+      "_npmUser": {
+        "name": "jsok",
+        "email": "jonathan.sokolowski@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "jsok",
+          "email": "jonathan.sokolowski@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "01badd26362117dc88497fab4f74c686f7701751",
+        "tarball": "https://registry.npmjs.org/karma-env-preprocessor/-/karma-env-preprocessor-0.1.0.tgz",
+        "integrity": "sha512-r8gIKS4ucYEQBpI6wecc0KoWjd49vd4+G1bQvTfmB6D0rmzkB/+jnqnLgsFXxFDKHOM0lj//tSn436Qq6vOXWA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDMNf2Vy1TrkM3Q/9ajBX+7ji8Aq5yLb4pl1BdGHVCxtwIgOeG25rJKs/s2t+ZVvzXscwXWSPZoAPqzx9P6h4lhTWQ="
+          }
+        ]
+      }
+    },
+    "0.1.1": {
+      "name": "karma-env-preprocessor",
+      "version": "0.1.1",
+      "description": "A Karma plugin to read environment variables and make them available inside your tests.",
+      "main": "index.js",
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/jsok/karma-env-preprocessor.git"
+      },
+      "keywords": [
+        "karma-plugin",
+        "karma-preprocessor",
+        "environment-variables"
+      ],
+      "author": {
+        "name": "Jonathan Sokolowski",
+        "email": "jonathan.sokolowski@gmail.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/jsok/karma-env-preprocessor/issues"
+      },
+      "homepage": "https://github.com/jsok/karma-env-preprocessor",
+      "gitHead": "22f4170e6eec6574363a3c54f2e4ceadfc890595",
+      "_id": "karma-env-preprocessor@0.1.1",
+      "_shasum": "bbe8c87d59c00edb76070bd3c31b4b39d5dc7e15",
+      "_from": ".",
+      "_npmVersion": "2.1.18",
+      "_nodeVersion": "0.10.35",
+      "_npmUser": {
+        "name": "jsok",
+        "email": "jonathan.sokolowski@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "jsok",
+          "email": "jonathan.sokolowski@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "bbe8c87d59c00edb76070bd3c31b4b39d5dc7e15",
+        "tarball": "https://registry.npmjs.org/karma-env-preprocessor/-/karma-env-preprocessor-0.1.1.tgz",
+        "integrity": "sha512-3FAuA0B1lS4DXNyOpD1Y+BjteVmnfX0WXUpsZ19aYykTk/GPz0kqnjzdApDiEe4sapreVeVSme2qTALnbHJb/A==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIH8pyZbMw+hhpcalbi64YCmsAwVM8ARYJmUYBvEV6dwbAiEA8SnsUmESwIglfNpWszPcdRaPSNptuBIpxWl3CCoaAuQ="
+          }
+        ]
+      }
+    }
+  },
+  "readme": "# karma-env-preprocessor\n\n> Preprocessor which makes environment variables available to your tests.\n\n## Installation\n\nThe easiest way is to keep `karma-env-preprocessor` as a devDependency in your `package.json`.\n```json\n{\n  \"devDependencies\": {\n    \"karma\": \"~0.10\",\n    \"karma-env-preprocessor\": \"~0.1\"\n  }\n}\n```\n\nYou can simple do it by:\n```bash\nnpm install karma-env-preprocessor --save-dev\n```\n\n## Configuration\nAny files you preprocess using this plugin will be affected, e.g for all JavaScript files:\n```js\n// karma.conf.js\nmodule.exports = function(config) {\n  config.set({\n    preprocessors: {\n      '**/*.js': ['env']\n    },\n\n    envPreprocessor: [\n      'PATH',\n      'HOME'\n    ]\n  });\n};\n```\n\n## How does it work ?\n\nThis preprocessor uses `process.env` to read the value of each environment variable specified in `envPreprocessor` and publishes them in the global `window.__env__`, so you can read these values in your tests.\n\nFor example, the above configuration will be served as:\n```js\nwindow.__env__ = window.__env__ || []\nwindow.__env__['PATH'] = '/usr/sbin:/usr/bin:/sbin:/bin';\nwindow.__env__['HOME'] = '/home/jsok';\n```\n\n----\n\nFor more information on Karma see the [homepage].\n\n\n[homepage]: http://karma-runner.github.com\n",
+  "maintainers": [
+    {
+      "name": "jsok",
+      "email": "jonathan.sokolowski@gmail.com"
+    }
+  ],
+  "time": {
+    "modified": "2022-06-19T07:56:59.915Z",
+    "created": "2014-09-08T23:44:51.952Z",
+    "0.1.0": "2014-09-08T23:44:51.952Z",
+    "0.1.1": "2015-02-02T23:25:40.619Z"
+  },
+  "homepage": "https://github.com/jsok/karma-env-preprocessor",
+  "keywords": [
+    "karma-plugin",
+    "karma-preprocessor",
+    "environment-variables"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jsok/karma-env-preprocessor.git"
+  },
+  "author": {
+    "name": "Jonathan Sokolowski",
+    "email": "jonathan.sokolowski@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/jsok/karma-env-preprocessor/issues"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "users": {
+    "wayn": true
+  }
+}

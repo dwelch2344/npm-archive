@@ -1,0 +1,897 @@
+{
+  "_id": "vite-plugin-lib-inject-css",
+  "_rev": "7-2cd4214e495746109b25f34b7eac1527",
+  "name": "vite-plugin-lib-inject-css",
+  "dist-tags": {
+    "latest": "2.0.0",
+    "beta": "2.0.0-beta.0"
+  },
+  "versions": {
+    "1.0.0": {
+      "name": "vite-plugin-lib-inject-css",
+      "version": "1.0.0",
+      "description": "Inject css at the top of chunk file in lib mode using `import` statement, support multiple entries.",
+      "author": {
+        "name": "秦旭洋",
+        "email": "emosheep@qq.com"
+      },
+      "packageManager": "pnpm@7.30.1",
+      "license": "MIT",
+      "main": "dist/index.js",
+      "module": "dist/index.mjs",
+      "types": "dist/index.d.ts",
+      "exports": {
+        ".": {
+          "require": "./dist/index.js",
+          "import": "./dist/index.mjs",
+          "types": "./dist/index.d.ts"
+        }
+      },
+      "homepage": "https://github.com/emosheeep/fe-tools/tree/HEAD/packages/vite-plugin-lib-inject-css#readme",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/emosheeep/fe-tools.git",
+        "directory": "packages/vite-plugin-lib-inject-css"
+      },
+      "keywords": [
+        "vite",
+        "plugin",
+        "lib",
+        "build",
+        "vite-lib",
+        "vite-plugin",
+        "vite-build",
+        "css",
+        "style",
+        "styles",
+        "inject",
+        "inline"
+      ],
+      "scripts": {
+        "prepublishOnly": "npm run build",
+        "dev": "vite build --watch",
+        "build": "vite build",
+        "lint": "eslint . --ext .ts,.js"
+      },
+      "dependencies": {
+        "magic-string": "^0.30.0",
+        "picocolors": "^1.0.0"
+      },
+      "devDependencies": {
+        "@types/node": "^18.15.7",
+        "eslint": "^8.36.0",
+        "typescript": "^4.9.4",
+        "vite": "^4.2.1",
+        "vite-plugin-checker": "^0.5.6",
+        "vite-plugin-dts": "^2.1.0",
+        "vite-plugin-externalize-deps": "^0.5.0"
+      },
+      "peerDependencies": {
+        "vite": "*"
+      },
+      "gitHead": "d37650d4e33f84e37973c987728ac9cca185a02b",
+      "bugs": {
+        "url": "https://github.com/emosheeep/fe-tools/issues"
+      },
+      "_id": "vite-plugin-lib-inject-css@1.0.0",
+      "_nodeVersion": "18.15.0",
+      "_npmVersion": "9.5.0",
+      "dist": {
+        "integrity": "sha512-gc9kCd0WDf5zdYnsmLElkVZQYHNXu5JXi0b3xSUtD2XO0hqQdpvXGz/SQMivZS990XzS3mkWbu9q7b3xxlAxyg==",
+        "shasum": "9bcaae86a2852a687b6661bfb9be512b1c4a16e7",
+        "tarball": "https://registry.npmjs.org/vite-plugin-lib-inject-css/-/vite-plugin-lib-inject-css-1.0.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 11150,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDaRt4MOHA6kUCdAC95H+ot04DFwv70+FeGJ9r2SDd/+QIgS3LV6iJg8TPRmKJ7AdNkSicRyfaTf2K3fLKCwsiCMk4="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkHqQKACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmok+hAAnD/t8C3xbfciHNIMpF4F7YwC8rw98SiDaE8faru3yue50f0p\r\nchY9CxO6CRKwnhOowaHSx3+yLvlmXOANtqOMn5RZ7YiNmmURtrXwZtmTHblT\r\nBHQNn4RLqcGxBeRplACSHNFoe9SaqVo3MfZjrTc4bsxJSRsNbEwIQDD6EZ6o\r\nblxfz0rg8DgQ0O60fjhkD7OXboVkpLr3x9uhUXZqLvz0qax8E5NfvZSYInrB\r\n3VgSV8ntHyeLOnhcSwe6b4W/XaQM6MBKcv4S5IzmWcTcEqAqvkrYPK5dPMkG\r\nK9w84BvMmzrfYOIrnZy5NiV0v0JJSIWY9FWGQLhfMmlWRqdMu6iX3w55YHGQ\r\nKkprpi7bKIY/Y9tiVqSpN+xAf1pdpKcCLtR2h+cqT0EhDC6JchYPgeOFwpXl\r\njyYWw03Fv0xKeGZCDQ2EtaChu59jrDnuGu33mqcQE8b60nP5sv2P2xXa0nrE\r\nXt24X9J+1b33aog2wG5LX7xwcbpC//AN9vIpy5ngdPOYqkcc6p04s1kw56BN\r\nPkhw6CGuym40ghqiPFG3Zezf87NsfaNuqFH/pSYSo5UG2pNvNlea1hn5Ek3o\r\n//lzwlBU7FyhNvEDLG8bypL20kIWMPm1q1L6YCKJ9QaXrz17x+E602GVliqa\r\no49jbVSweY2biTLYiFGjI5Ujj8uLObgi0KM=\r\n=Odby\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "qxy6675",
+        "email": "emosheep@qq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "qxy6675",
+          "email": "emosheep@qq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/vite-plugin-lib-inject-css_1.0.0_1679729674458_0.42432462978655217"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.1": {
+      "name": "vite-plugin-lib-inject-css",
+      "version": "1.0.1",
+      "description": "Inject css at the top of chunk file in lib mode using `import` statement, support multiple entries.",
+      "author": {
+        "name": "秦旭洋",
+        "email": "emosheep@qq.com"
+      },
+      "packageManager": "pnpm@7.30.1",
+      "license": "MIT",
+      "main": "dist/index.js",
+      "module": "dist/index.mjs",
+      "types": "dist/index.d.ts",
+      "exports": {
+        ".": {
+          "require": "./dist/index.js",
+          "import": "./dist/index.mjs",
+          "types": "./dist/index.d.ts"
+        }
+      },
+      "homepage": "https://github.com/emosheeep/fe-tools/tree/HEAD/packages/vite-plugin-lib-inject-css#readme",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/emosheeep/fe-tools.git",
+        "directory": "packages/vite-plugin-lib-inject-css"
+      },
+      "keywords": [
+        "vite",
+        "plugin",
+        "lib",
+        "build",
+        "vite-lib",
+        "vite-plugin",
+        "vite-build",
+        "css",
+        "style",
+        "styles",
+        "inject",
+        "inline"
+      ],
+      "scripts": {
+        "prepublishOnly": "npm run build",
+        "dev": "vite build --watch",
+        "build": "vite build",
+        "lint": "eslint . --ext .ts,.js"
+      },
+      "dependencies": {
+        "magic-string": "^0.30.0",
+        "picocolors": "^1.0.0"
+      },
+      "devDependencies": {
+        "@types/node": "^18.15.7",
+        "eslint": "^8.36.0",
+        "typescript": "^4.9.4",
+        "vite": "^4.2.1",
+        "vite-plugin-checker": "^0.5.6",
+        "vite-plugin-dts": "^2.1.0",
+        "vite-plugin-externalize-deps": "^0.5.0"
+      },
+      "peerDependencies": {
+        "vite": "*"
+      },
+      "gitHead": "81ba22b57e435ea813abfac717d426350773a16d",
+      "bugs": {
+        "url": "https://github.com/emosheeep/fe-tools/issues"
+      },
+      "_id": "vite-plugin-lib-inject-css@1.0.1",
+      "_nodeVersion": "18.15.0",
+      "_npmVersion": "9.5.0",
+      "dist": {
+        "integrity": "sha512-9UFryvxlNBbuAEfAKQe4dsQEScY/Wt1XpZpT3zvCvI5Lt4N73iP7nFOL4RE7Ab4zfyiNIDyddpU3bNBkjJq1WA==",
+        "shasum": "831e432806f8131595ca3b956bb32b683884ae9e",
+        "tarball": "https://registry.npmjs.org/vite-plugin-lib-inject-css/-/vite-plugin-lib-inject-css-1.0.1.tgz",
+        "fileCount": 7,
+        "unpackedSize": 12375,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCqZLDXJkz7x3yhsYlFcolTsj34f3gjV27npiFuZlNrBQIhAMxmxFSt1kugiOCHgAhnfS2ydPpbw2HYpZDLEo0f0xBC"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkIVhHACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmp/QA//WPbSvOOXdw5RDzLE3QoRrlwanHnyJQp2MqEDRAeFZJpf9At3\r\nWlNORQypf9+y6wqLfuHQ0IImXYcuX0ltm682jix8JYBIoEZd5L6detwwPdx7\r\nte90URoz+J/WLS81qevtOhA+fwB3Y3jzoLP+x7fhSKxPKBZkls3mud1jFxhA\r\nDwG5k+2aNghN9MsgYp/jSFCbNhqPVLPR2YFDkFDzcajDcXdItiPpC04GmMrV\r\nEtWvUAHHxaYe0an+rrNQUkiZfFuk4oiLMDsBwZwPgu/O7kqZbBl/ltGWET6f\r\nvMK/kiE1WaLFq+sBsjDwWtsJt8NTR3TzHC+gBzz4hZGX2/nWPAgo7chOTT/h\r\nrHdUFkpIyJCZKz9IGtupaOBTULv9nBx1b/eHMi+R0CC6q9IJB5nA91ELAyQy\r\np0t3qgubkRIRXmQDZI6JVYb4TYo7oxhypW2k/NsmhzA1nrj4LwwZSBkyzKyv\r\neITeiLr7yGbozb6C+osEejL2uLwFkbE9WXCmyOvEEoi6s9pUo9gv0k4EAB53\r\nzMnVaWirwBdNm2e66eylApgqBfA+bMTN1X17UDTkKVyGPkPsJXJM0ZsrSeJS\r\nQCNs+IGLMdEG61mCfggUz+VM/oqw7rajiWJNoiBVi5PRHraamoOHQxfbfTHt\r\nzi5vR/9KyX6JBdpkkzXf3F4WBM2+FpD1wSI=\r\n=59g6\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "qxy6675",
+        "email": "emosheep@qq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "qxy6675",
+          "email": "emosheep@qq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/vite-plugin-lib-inject-css_1.0.1_1679906887466_0.7161319847436693"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.1.0": {
+      "name": "vite-plugin-lib-inject-css",
+      "version": "1.1.0",
+      "description": "Inject css at the top of chunk file in lib mode using `import` statement, support multiple entries.",
+      "author": {
+        "name": "秦旭洋",
+        "email": "emosheep@qq.com"
+      },
+      "packageManager": "pnpm@7.30.1",
+      "license": "MIT",
+      "main": "dist/index.js",
+      "module": "dist/index.mjs",
+      "types": "dist/index.d.ts",
+      "exports": {
+        ".": {
+          "require": "./dist/index.js",
+          "import": "./dist/index.mjs",
+          "types": "./dist/index.d.ts"
+        }
+      },
+      "homepage": "https://github.com/emosheeep/fe-tools/tree/HEAD/packages/vite-plugin-lib-inject-css#readme",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/emosheeep/fe-tools.git",
+        "directory": "packages/vite-plugin-lib-inject-css"
+      },
+      "keywords": [
+        "vite",
+        "plugin",
+        "lib",
+        "build",
+        "vite-lib",
+        "vite-plugin",
+        "vite-build",
+        "css",
+        "style",
+        "styles",
+        "inject",
+        "inline"
+      ],
+      "scripts": {
+        "prepublishOnly": "npm run build",
+        "dev": "vite build --watch",
+        "build": "vite build",
+        "lint": "eslint . --ext .ts,.js"
+      },
+      "dependencies": {
+        "magic-string": "^0.30.0",
+        "picocolors": "^1.0.0"
+      },
+      "devDependencies": {
+        "@types/node": "^18.15.7",
+        "eslint": "^8.36.0",
+        "typescript": "^4.9.4",
+        "vite": "^4.2.1",
+        "vite-plugin-checker": "^0.5.6",
+        "vite-plugin-dts": "^2.1.0",
+        "vite-plugin-externalize-deps": "^0.5.0"
+      },
+      "peerDependencies": {
+        "vite": "*"
+      },
+      "gitHead": "d91fe1ca6d84aa926f2f25a0294362677e4fce90",
+      "bugs": {
+        "url": "https://github.com/emosheeep/fe-tools/issues"
+      },
+      "_id": "vite-plugin-lib-inject-css@1.1.0",
+      "_nodeVersion": "18.15.0",
+      "_npmVersion": "9.5.0",
+      "dist": {
+        "integrity": "sha512-SnPbXu1Wa28oJdsKY20owVWCmtQ3RXpDU51GiAgTC9vNdqvUiguxwruoKv19ukkJCxxd13WzkYguXkVndRglTw==",
+        "shasum": "e80e89db073b3918eb910f64d03a1df289972f21",
+        "tarball": "https://registry.npmjs.org/vite-plugin-lib-inject-css/-/vite-plugin-lib-inject-css-1.1.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 16408,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDWoh3c7tX8DM2LLaUC/Zcszp9szlH9EyQXZMsHmi639AIhAP+Ye3i+V6pukBshJp+5cI7b7Au/25lCdqv3ti5gY27H"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkKE0oACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqoNA/8CWi5rzUEhKMhekW5NUobvUOY1tLIzatg4YfJevQ+n/IB6oBg\r\na/Knwoky1yRn67wAEXlQFjT6B5Q6Wir6b3hXp3XmWv5Y5wVuMoGAw5j3QaQh\r\n6Xqm1TNzFOw+f3slx3sYwsqPYfUsBgbfXW/stps4Gw1y0PIqR6gyrqD4ZvxG\r\n2ztK+ZReDhg/MH8uYjtYadU99e9WtoVtBkONlxhS49adx70ln5Dl/p6t7mWb\r\nuQU027rh/a8MH6GzzqE9RmuMMN8Ec13VQGCyBxoI8l1TbxPdsr64aJefeBk5\r\n2Vwy1N5EDC8Glmqq+cE7xa7OIkMHdF424wohMh9qBI02HkVOKXolUgT+0myp\r\npcAxn+WRro0BmdkdRodsB5oY4w7QDDInN+ZEazujHp8yt9Y+iIYcs2DZDKwq\r\nqhpsik+hvDJea4Mvna9HJytfRzFIO2p94I1TNzUiMKR1/E/oz/b96IhkEyhW\r\n/MlPljodnJ08K33gsDzPuoyvJ9NNJKhG/D1Wsj1YAyiD3kYXWZxjjUwdKZGw\r\n3dxW8ZpdXBI/FDsx8ghBdbC+T5QBF4OqED372/uoKZxKxql39QeEZWd0VPKr\r\nGTtNZkcx/mUUWmP2jLeFCzFv1nG86fbpV+709X6QLOgWx9UYeH1S0KJa7XAO\r\n7Yt494aV19A81O3+OkLXddT2KItwL1J8o+I=\r\n=M8/+\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "qxy6675",
+        "email": "emosheep@qq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "qxy6675",
+          "email": "emosheep@qq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/vite-plugin-lib-inject-css_1.1.0_1680362791982_0.463597265651019"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.2.0": {
+      "name": "vite-plugin-lib-inject-css",
+      "version": "1.2.0",
+      "description": "Inject css at the top of chunk file in lib mode using `import` statement, support multiple entries.",
+      "author": {
+        "name": "秦旭洋",
+        "email": "emosheep@qq.com"
+      },
+      "packageManager": "pnpm@8.3.1",
+      "license": "MIT",
+      "main": "dist/index.js",
+      "module": "dist/index.mjs",
+      "types": "dist/index.d.ts",
+      "exports": {
+        ".": {
+          "require": "./dist/index.js",
+          "import": "./dist/index.mjs",
+          "types": "./dist/index.d.ts"
+        }
+      },
+      "homepage": "https://github.com/emosheeep/fe-tools/tree/HEAD/packages/vite-plugin-lib-inject-css#readme",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/emosheeep/fe-tools.git",
+        "directory": "packages/vite-plugin-lib-inject-css"
+      },
+      "keywords": [
+        "vite",
+        "plugin",
+        "lib",
+        "build",
+        "vite-lib",
+        "vite-plugin",
+        "vite-build",
+        "css",
+        "style",
+        "styles",
+        "inject",
+        "inline"
+      ],
+      "scripts": {
+        "prepublishOnly": "npm run build",
+        "dev": "vite build --watch",
+        "build": "vite build",
+        "lint": "eslint . --ext .ts,.js"
+      },
+      "dependencies": {
+        "magic-string": "^0.30.0",
+        "picocolors": "^1.0.0"
+      },
+      "devDependencies": {
+        "@types/node": "^18.15.7",
+        "eslint": "^8.36.0",
+        "typescript": "^4.9.4",
+        "vite": "^4.2.1",
+        "vite-plugin-checker": "^0.5.6",
+        "vite-plugin-dts": "^2.1.0",
+        "vite-plugin-externalize-deps": "^0.5.0"
+      },
+      "peerDependencies": {
+        "vite": "*"
+      },
+      "gitHead": "81947291667e84ae0d0995eab821b6372e644a80",
+      "bugs": {
+        "url": "https://github.com/emosheeep/fe-tools/issues"
+      },
+      "_id": "vite-plugin-lib-inject-css@1.2.0",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-mELCOWG0f0auFkDGQHAL7Ks9oQ6RhB0xHlZ6GA0mTLMkkQcHCrZ8mkJFoH+ryZTNqxNLlYTLqbrnPClOO0Fq/Q==",
+        "shasum": "40ffdd51f6e96e47a72b2df66e1cea6a23f495b2",
+        "tarball": "https://registry.npmjs.org/vite-plugin-lib-inject-css/-/vite-plugin-lib-inject-css-1.2.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 18429,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAlJdA4+AQY4aZ6iApQcklDgO3z1U4GMWc4imbDvmN3rAiBVIBQnjSZJ2QvpJs6BN5nr3iTYVGr/nJNAnB6bY5zdVA=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkSiKsACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmr1ug//eBHimtxPy66v7gvoLrV/KDBoNMVk9wog7yBqS4y37vdGp0fq\r\nTblR28eWu7Al+BqVNJ7aq6L2WIAXThEhbJZx05hUcPPVAApIpF5VLy9UclXw\r\n/G+baBQJM+M6B5Shu6orMTwWavDQae6cUEdOiha7328Fymj1zLtQ1+B+YkJb\r\nDLclIjST7BdAfoqH2RdoTegvG4cs7SWAG1dTBu4psEnz/7JQ8uki6R4gdMRE\r\nyV/SAW2jKrA94VDc+0vQUBeGf4fuc14qpid0OXiGVTMvYH27tQRa651jpZzX\r\nAdiYukjsc9wz7mPdd27REAWEwj+tc9CJ4dPdrzvymJ8uT3toWkF07n7B9lmG\r\nbhqgIj6m9cyItnrIQ2fC0NXqf9dkXXDKrkFL1SOzGbgULo+whErQ2y2JKA1u\r\nC8Ey7nrXLY3bJB+U4iGlH4wvypxi+a8vMuSd4krHEZ3RwAJlHHs37NeLvo1i\r\nKx37xbfX8uOHAnCMLpPVuOOc8lVemeVGd9HIj5VKytYbIxQljEi77ppDstay\r\nhPYFruJcqxJcb/H8NOXDEp5jMQEh2TQr1KftZdgSGwBGbG7nGFjHQDBCWYfd\r\n+7fSj9cLgZOm89A8JcBLP3YwLEmIOl34Z2XJWDl4VVyVBEW6b1AJn3xybjr5\r\nTNZpOsFAAoPwdDuAg5fGmJ+1aB5dMSmgg68=\r\n=51uJ\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "qxy6675",
+        "email": "emosheep@qq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "qxy6675",
+          "email": "emosheep@qq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/vite-plugin-lib-inject-css_1.2.0_1682580140271_0.7397218332267725"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.2.1": {
+      "name": "vite-plugin-lib-inject-css",
+      "version": "1.2.1",
+      "description": "Inject css at the top of chunk file in lib mode using `import` statement, support multiple entries.",
+      "author": {
+        "name": "秦旭洋",
+        "email": "emosheep@qq.com"
+      },
+      "packageManager": "pnpm@8.3.1",
+      "license": "MIT",
+      "main": "dist/index.js",
+      "module": "dist/index.mjs",
+      "types": "dist/index.d.ts",
+      "exports": {
+        ".": {
+          "require": "./dist/index.js",
+          "import": "./dist/index.mjs",
+          "types": "./dist/index.d.ts"
+        }
+      },
+      "homepage": "https://github.com/emosheeep/fe-tools/tree/HEAD/packages/vite-plugin-lib-inject-css#readme",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/emosheeep/fe-tools.git",
+        "directory": "packages/vite-plugin-lib-inject-css"
+      },
+      "keywords": [
+        "vite",
+        "plugin",
+        "lib",
+        "build",
+        "vite-lib",
+        "vite-plugin",
+        "vite-build",
+        "css",
+        "style",
+        "styles",
+        "inject",
+        "inline"
+      ],
+      "scripts": {
+        "prepublishOnly": "npm run build",
+        "dev": "vite build --watch",
+        "build": "vite build",
+        "lint": "eslint . --ext .ts,.js"
+      },
+      "dependencies": {
+        "magic-string": "^0.30.2",
+        "picocolors": "^1.0.0"
+      },
+      "devDependencies": {
+        "@types/node": "^20.5.1",
+        "eslint": "^8.47.0",
+        "typescript": "^5.1.6",
+        "vite": "^4.4.9",
+        "vite-plugin-checker": "^0.6.1",
+        "vite-plugin-dts": "^3.5.2",
+        "vite-plugin-externalize-deps": "^0.5.0"
+      },
+      "peerDependencies": {
+        "vite": "*"
+      },
+      "gitHead": "0c996bf180a85b28a1c6f3358aafe4effe99b446",
+      "bugs": {
+        "url": "https://github.com/emosheeep/fe-tools/issues"
+      },
+      "_id": "vite-plugin-lib-inject-css@1.2.1",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-/gbneR7OyXihmHnByC/WlLOGHXufHoFvDt4jMFaI4WTs0niiLcKwS9RKbUPJGNgB26Y5GtFtqDLNnErTvwNW4g==",
+        "shasum": "12813d902d94d3a0cf77d62aff8353079a6208f9",
+        "tarball": "https://registry.npmjs.org/vite-plugin-lib-inject-css/-/vite-plugin-lib-inject-css-1.2.1.tgz",
+        "fileCount": 7,
+        "unpackedSize": 19460,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDT9eBXKhfYT+vtuzlBu4gZRlHdcyDXD/7npzDUc0lx3AiEA9MZ1OiUhg5eiPzeQAoh1Mw/AM1G+Y1quxjwAqP86wcA="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "qxy6675",
+        "email": "emosheep@qq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "qxy6675",
+          "email": "emosheep@qq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/vite-plugin-lib-inject-css_1.2.1_1692442128715_0.045142838614628866"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.3.0": {
+      "name": "vite-plugin-lib-inject-css",
+      "version": "1.3.0",
+      "description": "Inject css at the top of chunk file in lib mode using `import` statement, support multiple entries.",
+      "author": {
+        "name": "秦旭洋",
+        "email": "emosheep@qq.com"
+      },
+      "packageManager": "pnpm@8.3.1",
+      "license": "MIT",
+      "main": "dist/index.js",
+      "module": "dist/index.mjs",
+      "types": "dist/index.d.ts",
+      "exports": {
+        ".": {
+          "require": "./dist/index.js",
+          "import": "./dist/index.mjs",
+          "types": "./dist/index.d.ts"
+        }
+      },
+      "homepage": "https://github.com/emosheeep/fe-tools/tree/HEAD/packages/vite-plugin-lib-inject-css#readme",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/emosheeep/fe-tools.git",
+        "directory": "packages/vite-plugin-lib-inject-css"
+      },
+      "keywords": [
+        "vite",
+        "plugin",
+        "lib",
+        "build",
+        "vite-lib",
+        "vite-plugin",
+        "vite-build",
+        "css",
+        "style",
+        "styles",
+        "inject",
+        "inline"
+      ],
+      "scripts": {
+        "prepublishOnly": "npm run build",
+        "dev": "vite build --watch",
+        "build": "vite build",
+        "lint": "eslint . --ext .ts,.js"
+      },
+      "dependencies": {
+        "magic-string": "^0.30.2",
+        "picocolors": "^1.0.0"
+      },
+      "devDependencies": {
+        "@types/node": "^20.5.1",
+        "eslint": "^8.47.0",
+        "typescript": "^5.1.6",
+        "vite": "^4.4.9",
+        "vite-plugin-checker": "^0.6.1",
+        "vite-plugin-dts": "^3.5.2",
+        "vite-plugin-externalize-deps": "^0.5.0"
+      },
+      "peerDependencies": {
+        "vite": "*"
+      },
+      "gitHead": "8237c646b8b94cc6fc4d74f701d33192b89d0109",
+      "bugs": {
+        "url": "https://github.com/emosheeep/fe-tools/issues"
+      },
+      "_id": "vite-plugin-lib-inject-css@1.3.0",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-Rldq36U9TDlpDom3yoLybfJtzn897+oMKdX0+fxbVYnYjRGnTtaFfnMmfOckH8GQ3cvGAKv9Ai1PWyE0amIbjg==",
+        "shasum": "d62e098d220076127282c5a9670a2e7826a69b63",
+        "tarball": "https://registry.npmjs.org/vite-plugin-lib-inject-css/-/vite-plugin-lib-inject-css-1.3.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 20858,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCCK72t05pGj2dCm4jNYOr0BLPD6eTeIfvLxUqZh9lflQIgKpOdl0bjNmxARAnzSuTQyjf/WaKinBlRuD7tuJSKjvo="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "qxy6675",
+        "email": "emosheep@qq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "qxy6675",
+          "email": "emosheep@qq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/vite-plugin-lib-inject-css_1.3.0_1694239012027_0.18811180970672314"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0-beta.0": {
+      "name": "vite-plugin-lib-inject-css",
+      "version": "2.0.0-beta.0",
+      "type": "module",
+      "description": "Inject css at the top of chunk file in lib mode using `import` statement, support multiple entries.",
+      "author": {
+        "name": "秦旭洋",
+        "email": "emosheep@qq.com"
+      },
+      "packageManager": "pnpm@8.15.1",
+      "license": "MIT",
+      "main": "./dist/index.cjs",
+      "module": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "exports": {
+        ".": {
+          "require": "./dist/index.cjs",
+          "import": "./dist/index.js",
+          "types": "./dist/index.d.ts"
+        }
+      },
+      "dependencies": {
+        "magic-string": "^0.30.7",
+        "picocolors": "^1.0.0"
+      },
+      "devDependencies": {
+        "@changesets/cli": "^2.27.1",
+        "@commitlint/cli": "^18.6.1",
+        "@commitlint/config-conventional": "^18.6.2",
+        "@types/node": "^20.11.19",
+        "@typescript-eslint/eslint-plugin": "^6.21.0",
+        "@typescript-eslint/parser": "^6.21.0",
+        "eslint": "^8.56.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-config-standard": "^17.1.0",
+        "eslint-define-config": "^2.1.0",
+        "eslint-plugin-import": "^2.29.1",
+        "eslint-plugin-n": "^16.6.2",
+        "eslint-plugin-prettier": "^5.1.3",
+        "eslint-plugin-promise": "^6.1.1",
+        "lint-staged": "^15.2.2",
+        "prettier": "^3.2.5",
+        "simple-git-hooks": "^2.9.0",
+        "tsup": "^8.0.2",
+        "typescript": "^5.3.3",
+        "vite": "^5.1.3"
+      },
+      "peerDependencies": {
+        "vite": "*"
+      },
+      "simple-git-hooks": {
+        "commit-msg": "npx commitlint -e",
+        "pre-commit": "npx lint-staged && npx tsc --noEmit"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/emosheeep/vite-plugin-lib-inject-css.git"
+      },
+      "keywords": [
+        "vite",
+        "plugin",
+        "lib",
+        "build",
+        "vite-lib",
+        "vite-plugin",
+        "vite-build",
+        "css",
+        "style",
+        "styles",
+        "inject",
+        "inline"
+      ],
+      "scripts": {
+        "watch": "tsup --watch",
+        "build": "tsup",
+        "lint": "eslint . --ext .ts,.js",
+        "changeset": "changeset",
+        "versions": "changeset version"
+      },
+      "readme": "# vite-plugin-lib-inject-css\n\n[![npm version](https://img.shields.io/npm/v/vite-plugin-lib-inject-css)](https://npmjs.com/package/vite-plugin-lib-inject-css)\n![weekly downloads](https://img.shields.io/npm/dw/vite-plugin-lib-inject-css)\n![license](https://img.shields.io/npm/l/vite-plugin-lib-inject-css)\n![stars](https://img.shields.io/github/stars/emosheeep/vite-plugin-lib-inject-css)\n\nEnglish | [简体中文](https://juejin.cn/post/7214374960192782373)\n\nInject css at the top of each chunk file in library mode using `import` statement, support multi-entries build, especially to help building component libraries.\n\n```js\n// bundled js file, with import css at top (if any)\nimport './style.css';\n// rest of the file\n// ...\n```\n\n> **Can css be styleInjected in library mode**? [vite#1579](https://github.com/vitejs/vite/issues/1579).\n\n# Features\n\nNote that this plugin only works with [library-mode](https://vitejs.dev/guide/build.html#library-mode).\n\n- 💡 Multiple entires support.\n- ⚡️ Sourcemap support.\n- 💻 SSR build support.\n- 🛠 Out-of-box, tiny and pretty.\n\n# Motivation\n\nVite shines in Web project development, but it can also be used for library projects.\n\nBut when it comes to component library development, multiple entries are often involved. Although `Vite 3.2+` later supports multiple entry points, it doesn't provide relevant options for us to associate css with component, which leads to the problem that we can't distinguish between the entry point and css files even though the bundle is successful. \n \nBased on this, we need to write a plugin to try to find the relationship between the two, and inject styles correctly.\n\n# Usage\n\nInstall:\n\n\n```shell\npnpm i vite-plugin-lib-inject-css -D # npm/yarn\n```\n\nConfig:\n\n```js\n// vite.config.ts\nimport { libInjectCss } from 'vite-plugin-lib-inject-css';\n\n// https://vitejs.dev/config/\nexport default defineConfig({\n  plugins: [\n    libInjectCss(),\n  ],\n  build: {\n    lib: {\n      format: ['es'],\n      entry: {\n        index: 'src/index.ts',\n        button: 'src/components/button/index.ts',\n        select: 'src/components/select/index.ts',\n      },\n    }\n    rollupOptions: {\n      output: {\n        // Put chunk files at <output>/chunks\n        chunkFileNames: 'chunks/[name].[hash].js',\n        // Put chunk styles at <output>/assets\n        assetFileNames: 'assets/[name][extname]',\n        entryFileNames: '[name].js',\n      },\n    },\n  }\n})\n```\n\n# How does it work\n\nAs a library(mostly component library), we want to import styles automatically when referencing the component.\n\n```js\n/** component-lib/dist/button.js */\nimport './assets/button.css'; // This is what this plugin do;\n...\nexport default Button;\n\n/** component-lib/dist/index.js */ \nimport Button from './button.js';\nimport xxx from './xxx.js';\nexport { Button, xxx };\n...\n\n/** In our project's main file */\n// Once we import Button, styles'll be imported together.\nimport { Button } from 'component-lib';\n```\n\nThe simplest way is to add a line `import './style.css';` to the top of the generated file, multiple lines are multiple lines. As a library provider, we should **provide flexibility as much as possible**, and **delegate the task of how to handle these css files to the user's build tool**.\n\nBut most of the Vite plugins on the market that claim to automatically inject CSS are designed in a way use `document.createElement ('style')`, which is not graceful, and **it assumes that the current is in the Browser's DOM environment, which makes the library SSR-incompatible**.\n\nHere's the reply([vite#issuecomment](https://github.com/vitejs/vite/issues/1579#issuecomment-763295757)) of the author of Vite, Evan You.\n\nSo the main problem becomes to **how do we know which style files are involved in one chunk file**?\n\nIn fact, vite adds a property named `viteMetadata` on each chunk file in plugin lifecycle, you can check [css.ts](https://github.com/vitejs/vite/blob/main/packages/vite/src/node/plugins/css.ts) for further information.\n\nWe can get which resources(include CSS files) are associated with current chunk file by using this property. Based on this, the plugin injects styles by using [renderChunk](https://rollupjs.org/plugin-development/#renderchunk) hook, which is the simplest and most effective way.\n\n*Prefer to check plugin source code to get more information and welcome to make contribution*, which is simple enough(100+ lines).\n\n# Recipes of creating component library\n\nHow do we create a component library with vite, which can auto import styles and has out-of-box tree-shaking functionality?\n\n## Current Status\n\nMost of component libraries provide two ways. One is totally import:\n\n```js\nimport Vue from 'vue';\nimport XxxUI from 'component-lib';\nVue.use(XxxUI);\n```\n\nThe other is import on demand, in common uses with a third-part plugin like `babel-plugin-import`:\n\n```js\nimport { Button } from 'component-lib';\n// ↓ ↓ ↓ transformed ↓ ↓ ↓\nimport Button from 'component-lib/dist/button/index.js'\nimport 'component-lib/dist/button/style.css'\n```\n\n**But the best way is that when we use named imports, the style imports and tree-shaking can be applied automatically**.\n\n## How should we do\n\nFortunately, ES Module naturally has static analysis capabilities, and mainstream tools basically implement ESM-based Tree-shaking functions, such as `webpack/rollup/vite`.\n\nThen we only need the following three steps:\n1. Adjust the output format to ES Module → Out-of-the-box Tree-shaking functionality.\n2. Use this plugin for style injection → auto import styles\n3. The last and most important, **add all of the entry files you’ve exported in main.js to your `rollup.input` configurations**.\n\nIt should be noted that the import of CSS files has side effects, and we also need to **declare the [sideEffects](https://webpack.js.org/guides/tree-shaking) field in the library's package.json file** to prevent the CSS file from being accidentally removed by the user side builds.\n\nHere's an example:\n\n```json\n{\n  \"name\": \"component-lib\",\n  \"version\": \"1.0.0\",\n  \"main\": \"dist/index.mjs\",\n  \"sideEffects\": [\n    \"**/*.css\"\n  ]\n}\n```\n\n# Questions\n\n## Why does style code injection fail?\n\nHere're some possible reasons:\n\n- When `build.cssCodeSplit` is `false`, all of css code will be collected into a standalone css file named `style.css`, **style injection will be skipped**.\n\n- When `rollupOptions.output.preserveModules` is `true`, the association between a chunk and the css it referenced will lose for some reason, in which case **style injection will be skipped**.\n\nDue to the **internal implementation**, we have to make some trade-offs:\n\n```js\n{\n  build: {\n    cssCodeSplit: true, // Required. This is set internally by default.\n  },\n  rollupOptions: {\n    output: {\n      preserveModules: false, // Required. This is rollup's default behavior, you'll get a warn message if you set `true`.\n    }\n  }\n}\n```\n\n## About `preserveModules`\n\nAnytime when you attempt using this option, there in common may  has more efficient ways to meet you. For example, **you can turn every file into an entry point, like suggested in the Rollup [docs](https://rollupjs.org/configuration-options/#input)**:\n\n> If you want to convert a set of files to another format while maintaining the file structure and export signatures, the recommended way—instead of using `output.preserveModules` that may tree-shake exports as well as emit virtual files created by plugins—is to turn every file into an entry point. You can do so dynamically e.g. via the `glob` package:\n\n## Why do additional empty imports turn up in entry chunks?\n\nWhen using **multiple** chunks, imports of dependencies of entry chunks will be added as empty imports to the entry chunks themselves. This is rollup's default behavior **in order for javascript engine performance optimizations**, you can turn it off via `output.hoistTransitiveImports: false`.\n\nHere's an example:\n\n```js\n// dist/demo.js\nimport { _ as p } from \"../chunks/demo.js\";\nimport \"vue\";\nimport \"axios\";\nimport \"lodash-es\";\nimport \"xxx\"; // ... and so on.\nexport {\n  p as Demo\n};\n```\n\nFurther, see [why-do-additional-imports-turn-up-in-my-entry-chunks-when-code-splitting](https://rollupjs.org/faqs/#why-do-additional-imports-turn-up-in-my-entry-chunks-when-code-splitting).\n\nAs a third-part library, this behavior may cause sideEffects and make tree-shaking fail, so we set `hoistTransitiveImports: false` internally by default, you can still manually overwrite it.\n\n## Output directory structure is ugly when building with multi-entries.\n\nWhen we build our library with multi-entries, the output looks as follows in common:\n\n```\ndist/demo.css            0.05 kB │ gzip: 0.07 kB\ndist/demo-451ab1e5.mjs   0.36 kB │ gzip: 0.26 kB\ndist/demo-component.mjs  0.09 kB │ gzip: 0.10 kB\ndist/index.mjs           0.16 kB │ gzip: 0.14 kB\n```\n\nGenerally speaking, **the users who use your library usually don't care about how does your dist directory structure looks like**. Just don’t tangle this, we just need to ensure that the unused files will get tree-shaken when we use named imports from the library.\n\nIndeed, you can customize filenames by using `output.xxxFileNames` options:\n\n```js\n{\n  rollupOptions: {\n    output: {\n      // Put chunk files at <output>/chunks\n      chunkFileNames: 'chunks/[name].[hash].js',\n      // Put chunk styles at <output>/assets\n      assetFileNames: 'assets/[name][extname]',\n      entryFileNames: '[name].js',\n    },\n  },\n}\n```\n\nAnd then you'll get:\n\n```\ndist/assets/demo.css          0.05 kB │ gzip: 0.07 kB\ndist/chunks/demo.a6107609.js  0.37 kB │ gzip: 0.26 kB\ndist/demo-component.js        0.09 kB │ gzip: 0.10 kB\ndist/index.js                 0.15 kB │ gzip: 0.14 kB\n```\n\n# License\n\n[MIT](./LICENSE) License © 2023 [秦旭洋](https://github.com/emosheeep)",
+      "readmeFilename": "README.md",
+      "bugs": {
+        "url": "https://github.com/emosheeep/vite-plugin-lib-inject-css/issues"
+      },
+      "homepage": "https://github.com/emosheeep/vite-plugin-lib-inject-css#readme",
+      "_id": "vite-plugin-lib-inject-css@2.0.0-beta.0",
+      "_integrity": "sha512-vOGmdTebx42d7H9bbKo9KE+YG0FFKt70ewxQ2mYAvf+g17xEqher8jLaRMJHHpEFaXl2qC+l3q4EqV0otVyg+Q==",
+      "_resolved": "/private/var/folders/5m/2ysn24bj42j91cn0yx0d7ft00000gn/T/73cf5d3c65f665152a7320ecdcacced9/vite-plugin-lib-inject-css-2.0.0-beta.0.tgz",
+      "_from": "file:vite-plugin-lib-inject-css-2.0.0-beta.0.tgz",
+      "_nodeVersion": "18.11.0",
+      "_npmVersion": "9.6.2",
+      "dist": {
+        "integrity": "sha512-vOGmdTebx42d7H9bbKo9KE+YG0FFKt70ewxQ2mYAvf+g17xEqher8jLaRMJHHpEFaXl2qC+l3q4EqV0otVyg+Q==",
+        "shasum": "d3bfd70cadd495e353ee3e4c8c3741507fa7d392",
+        "tarball": "https://registry.npmjs.org/vite-plugin-lib-inject-css/-/vite-plugin-lib-inject-css-2.0.0-beta.0.tgz",
+        "fileCount": 8,
+        "unpackedSize": 23595,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIA9+uVPgKjkxcyxAJacEVysxnsdvlOJYXP4wlnnMi3w0AiEAgnFOZITh7Mb0qvV3XgBWBezSQAoF6bNmaWbphSd/PgU="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "qxy6675",
+        "email": "emosheep@qq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "qxy6675",
+          "email": "emosheep@qq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/vite-plugin-lib-inject-css_2.0.0-beta.0_1708185584598_0.7667588311339497"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0": {
+      "name": "vite-plugin-lib-inject-css",
+      "version": "2.0.0",
+      "type": "module",
+      "description": "Inject css at the top of chunk file in lib mode using `import` statement, support multiple entries.",
+      "author": {
+        "name": "秦旭洋",
+        "email": "emosheep@qq.com"
+      },
+      "packageManager": "pnpm@8.15.1",
+      "license": "MIT",
+      "main": "./dist/index.cjs",
+      "module": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "exports": {
+        ".": {
+          "require": "./dist/index.cjs",
+          "import": "./dist/index.js",
+          "types": "./dist/index.d.ts"
+        }
+      },
+      "dependencies": {
+        "magic-string": "^0.30.7",
+        "picocolors": "^1.0.0"
+      },
+      "devDependencies": {
+        "@changesets/cli": "^2.27.1",
+        "@commitlint/cli": "^18.6.1",
+        "@commitlint/config-conventional": "^18.6.2",
+        "@types/node": "^20.11.19",
+        "@typescript-eslint/eslint-plugin": "^6.21.0",
+        "@typescript-eslint/parser": "^6.21.0",
+        "eslint": "^8.56.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-config-standard": "^17.1.0",
+        "eslint-define-config": "^2.1.0",
+        "eslint-plugin-import": "^2.29.1",
+        "eslint-plugin-n": "^16.6.2",
+        "eslint-plugin-prettier": "^5.1.3",
+        "eslint-plugin-promise": "^6.1.1",
+        "lint-staged": "^15.2.2",
+        "prettier": "^3.2.5",
+        "simple-git-hooks": "^2.9.0",
+        "tsup": "^8.0.2",
+        "typescript": "^5.3.3",
+        "vite": "^5.1.3"
+      },
+      "peerDependencies": {
+        "vite": "*"
+      },
+      "simple-git-hooks": {
+        "commit-msg": "npx commitlint -e",
+        "pre-commit": "npx lint-staged && npx tsc --noEmit"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/emosheeep/vite-plugin-lib-inject-css.git"
+      },
+      "keywords": [
+        "vite",
+        "plugin",
+        "lib",
+        "build",
+        "vite-lib",
+        "vite-plugin",
+        "vite-build",
+        "css",
+        "style",
+        "styles",
+        "inject",
+        "inline"
+      ],
+      "scripts": {
+        "watch": "tsup --watch",
+        "build": "tsup",
+        "lint": "eslint . --ext .ts,.js",
+        "changeset": "changeset",
+        "versions": "changeset version"
+      },
+      "bugs": {
+        "url": "https://github.com/emosheeep/vite-plugin-lib-inject-css/issues"
+      },
+      "homepage": "https://github.com/emosheeep/vite-plugin-lib-inject-css#readme",
+      "_id": "vite-plugin-lib-inject-css@2.0.0",
+      "_integrity": "sha512-5RK9eP2biW340FEbpI8eHZQfeqIz0+Glbkk4U1fZ1QKOvyaYy5K6TmW43KuhmGLizk2Vd4Nv7OwGpxq2wXclyQ==",
+      "_resolved": "/tmp/ec7d4048c1e140533de348a59e8f17ef/vite-plugin-lib-inject-css-2.0.0.tgz",
+      "_from": "file:vite-plugin-lib-inject-css-2.0.0.tgz",
+      "_nodeVersion": "18.19.1",
+      "_npmVersion": "10.2.4",
+      "dist": {
+        "integrity": "sha512-5RK9eP2biW340FEbpI8eHZQfeqIz0+Glbkk4U1fZ1QKOvyaYy5K6TmW43KuhmGLizk2Vd4Nv7OwGpxq2wXclyQ==",
+        "shasum": "ea70a03c6fceabf4ed9f252c06e8313ed3e9730c",
+        "tarball": "https://registry.npmjs.org/vite-plugin-lib-inject-css/-/vite-plugin-lib-inject-css-2.0.0.tgz",
+        "fileCount": 8,
+        "unpackedSize": 23761,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDHg9JT9QhsetEekOc5qEIWgGsH7HHLzCerJbHcN9EnDQIgUJoDXd/S4lrAKhG8Pti7W05CF9DAvNXzy4gmTyXzFzg="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "qxy6675",
+        "email": "emosheep@qq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "qxy6675",
+          "email": "emosheep@qq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/vite-plugin-lib-inject-css_2.0.0_1708609434321_0.22557077995068853"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2023-03-25T07:34:34.457Z",
+    "1.0.0": "2023-03-25T07:34:34.692Z",
+    "modified": "2024-02-22T13:43:55.477Z",
+    "1.0.1": "2023-03-27T08:48:07.623Z",
+    "1.1.0": "2023-04-01T15:26:32.142Z",
+    "1.2.0": "2023-04-27T07:22:20.508Z",
+    "1.2.1": "2023-08-19T10:48:48.885Z",
+    "1.3.0": "2023-09-09T05:56:52.304Z",
+    "2.0.0-beta.0": "2024-02-17T15:59:44.754Z",
+    "2.0.0": "2024-02-22T13:43:54.754Z"
+  },
+  "maintainers": [
+    {
+      "name": "qxy6675",
+      "email": "emosheep@qq.com"
+    }
+  ],
+  "description": "Inject css at the top of chunk file in lib mode using `import` statement, support multiple entries.",
+  "homepage": "https://github.com/emosheeep/vite-plugin-lib-inject-css#readme",
+  "keywords": [
+    "vite",
+    "plugin",
+    "lib",
+    "build",
+    "vite-lib",
+    "vite-plugin",
+    "vite-build",
+    "css",
+    "style",
+    "styles",
+    "inject",
+    "inline"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emosheeep/vite-plugin-lib-inject-css.git"
+  },
+  "author": {
+    "name": "秦旭洋",
+    "email": "emosheep@qq.com"
+  },
+  "bugs": {
+    "url": "https://github.com/emosheeep/vite-plugin-lib-inject-css/issues"
+  },
+  "license": "MIT",
+  "readme": "# vite-plugin-lib-inject-css\n\n[![npm version](https://img.shields.io/npm/v/vite-plugin-lib-inject-css)](https://npmjs.com/package/vite-plugin-lib-inject-css)\n![weekly downloads](https://img.shields.io/npm/dw/vite-plugin-lib-inject-css)\n![license](https://img.shields.io/npm/l/vite-plugin-lib-inject-css)\n![stars](https://img.shields.io/github/stars/emosheeep/vite-plugin-lib-inject-css)\n\nEnglish | [简体中文](https://juejin.cn/post/7214374960192782373)\n\nInject css at the top of each chunk file in library mode using `import` statement, support multi-entries build, especially to help building component libraries.\n\n```js\n// bundled js file, with import css at top (if any)\nimport './style.css';\n// rest of the file\n// ...\n```\n\n> **Can css be styleInjected in library mode**? [vite#1579](https://github.com/vitejs/vite/issues/1579).\n\n# Features\n\nNote that this plugin only works with [library-mode](https://vitejs.dev/guide/build.html#library-mode).\n\n- 💡 Multiple entires support.\n- ⚡️ Sourcemap support.\n- 💻 SSR build support.\n- 🛠 Out-of-box, tiny and pretty.\n\n# Quick Experience\n\nView the [cloud ide](https://stackblitz.com/~/github.com/emosheeep/vite-plugin-lib-inject-css) on stackblitz.com, and setup with the following scripts:\n\n```sh\npnpm install\ncd example\npnpm build\n```\n\n# Usage\n\n```shell\npnpm i vite-plugin-lib-inject-css -D # npm/yarn\n```\n\n```js\n// vite.config.ts\nimport { libInjectCss } from 'vite-plugin-lib-inject-css';\n\n// https://vitejs.dev/config/\nexport default defineConfig({\n  plugins: [\n    libInjectCss(),\n  ],\n  build: {\n    lib: {\n      format: ['es'],\n      entry: {\n        index: 'src/index.ts',\n        button: 'src/components/button/index.ts',\n        select: 'src/components/select/index.ts',\n      },\n    }\n    rollupOptions: {\n      output: {\n        // Put chunk files at <output>/chunks\n        chunkFileNames: 'chunks/[name].[hash].js',\n        // Put chunk styles at <output>/assets\n        assetFileNames: 'assets/[name][extname]',\n        entryFileNames: '[name].js',\n      },\n    },\n  }\n})\n```\n\n# Motivation\n\nVite shines in Web project development, but it can also be used for library projects.\n\nBut when it comes to component library development, multiple entries are often involved. Although `Vite 3.2+` later supports multiple entry points, it doesn't provide relevant options for us to associate css with component, which leads to the problem that we can't distinguish between the entry point and css files even though the bundle is successful. \n \nBased on this, we need to write a plugin to try to find the relationship between the two, and inject styles correctly.\n\n# How does it work\n\nAs a library(mostly component library), we want to import styles automatically when referencing the component.\n\n```js\n/** component-lib/dist/button.js */\nimport './assets/button.css'; // This is what this plugin do;\n...\nexport default Button;\n\n/** component-lib/dist/index.js */ \nimport Button from './button.js';\nimport xxx from './xxx.js';\nexport { Button, xxx };\n...\n\n/** In our project's main file */\n// Once we import Button, styles'll be imported together.\nimport { Button } from 'component-lib';\n```\n\nThe simplest way is to add a line `import './style.css';` to the top of the generated file, multiple lines are multiple lines. As a library provider, we should **provide flexibility as much as possible**, and **delegate the task of how to handle these css files to the user's build tool**.\n\nBut most of the Vite plugins on the market that claim to automatically inject CSS are designed in a way use `document.createElement ('style')`, which is not graceful, and **it assumes that the current is in the Browser's DOM environment, which makes the library SSR-incompatible**.\n\nHere's the reply([vite#issuecomment](https://github.com/vitejs/vite/issues/1579#issuecomment-763295757)) of the author of Vite, Evan You.\n\nSo the main problem becomes to **how do we know which style files are involved in one chunk file**?\n\nIn fact, vite adds a property named `viteMetadata` on each chunk file in plugin lifecycle, you can check [css.ts](https://github.com/vitejs/vite/blob/main/packages/vite/src/node/plugins/css.ts) for further information.\n\nWe can get which resources(include CSS files) are associated with current chunk file by using this property. Based on this, the plugin injects styles by using [renderChunk](https://rollupjs.org/plugin-development/#renderchunk) hook, which is the simplest and most effective way.\n\n*Prefer to check plugin source code to get more information and welcome to make contribution*, which is simple enough(100+ lines).\n\n# Recipes of creating component library\n\nHow do we create a component library with vite, which can auto import styles and has out-of-box tree-shaking functionality?\n\n## Current Status\n\nMost of component libraries provide two ways. One is totally import:\n\n```js\nimport Vue from 'vue';\nimport XxxUI from 'component-lib';\nVue.use(XxxUI);\n```\n\nThe other is import on demand, in common uses with a third-part plugin like `babel-plugin-import`:\n\n```js\nimport { Button } from 'component-lib';\n// ↓ ↓ ↓ transformed ↓ ↓ ↓\nimport Button from 'component-lib/dist/button/index.js'\nimport 'component-lib/dist/button/style.css'\n```\n\n**But the best way is that when we use named imports, the style imports and tree-shaking can be applied automatically**.\n\n## How should we do\n\nFortunately, ES Module naturally has static analysis capabilities, and mainstream tools basically implement ESM-based Tree-shaking functions, such as `webpack/rollup/vite`.\n\nThen we only need the following three steps:\n1. Adjust the output format to ES Module → Out-of-the-box Tree-shaking functionality.\n2. Use this plugin for style injection → auto import styles\n3. The last and most important, **add all of the entry files you’ve exported in main.js to your `rollup.input` configurations**.\n\nIt should be noted that the import of CSS files has side effects, and we also need to **declare the [sideEffects](https://webpack.js.org/guides/tree-shaking) field in the library's package.json file** to prevent the CSS file from being accidentally removed by the user side builds.\n\nHere's an example:\n\n```json\n{\n  \"name\": \"component-lib\",\n  \"version\": \"1.0.0\",\n  \"main\": \"dist/index.mjs\",\n  \"sideEffects\": [\n    \"**/*.css\"\n  ]\n}\n```\n\n# Questions\n\n## Why does style code injection fail?\n\nHere're some possible reasons:\n\n- When `build.cssCodeSplit` is `false`, all of css code will be collected into a standalone css file named `style.css`, **style injection will be skipped**.\n\n- When `rollupOptions.output.preserveModules` is `true`, the association between a chunk and the css it referenced will lose for some reason, in which case **style injection will be skipped**.\n\nDue to the **internal implementation**, we have to make some trade-offs:\n\n```js\n{\n  build: {\n    cssCodeSplit: true, // Required. This is set internally by default.\n  },\n  rollupOptions: {\n    output: {\n      preserveModules: false, // Required. This is rollup's default behavior, you'll get a warn message if you set `true`.\n    }\n  }\n}\n```\n\n## About `preserveModules`\n\nAnytime when you attempt using this option, there in common may  has more efficient ways to meet you. For example, **you can turn every file into an entry point, like suggested in the Rollup [docs](https://rollupjs.org/configuration-options/#input)**:\n\n> If you want to convert a set of files to another format while maintaining the file structure and export signatures, the recommended way—instead of using `output.preserveModules` that may tree-shake exports as well as emit virtual files created by plugins—is to turn every file into an entry point. You can do so dynamically e.g. via the `glob` package:\n\n## Why do additional empty imports turn up in entry chunks?\n\nWhen using **multiple** chunks, imports of dependencies of entry chunks will be added as empty imports to the entry chunks themselves. This is rollup's default behavior **in order for javascript engine performance optimizations**, you can turn it off via `output.hoistTransitiveImports: false`.\n\nHere's an example:\n\n```js\n// dist/demo.js\nimport { _ as p } from \"../chunks/demo.js\";\nimport \"vue\";\nimport \"axios\";\nimport \"lodash-es\";\nimport \"xxx\"; // ... and so on.\nexport {\n  p as Demo\n};\n```\n\nFurther, see [why-do-additional-imports-turn-up-in-my-entry-chunks-when-code-splitting](https://rollupjs.org/faqs/#why-do-additional-imports-turn-up-in-my-entry-chunks-when-code-splitting).\n\nAs a third-part library, this behavior may cause sideEffects and make tree-shaking fail, so we set `hoistTransitiveImports: false` internally by default, you can still manually overwrite it.\n\n## Output directory structure is ugly when building with multi-entries.\n\nWhen we build our library with multi-entries, the output looks as follows in common:\n\n```\ndist/demo.css            0.05 kB │ gzip: 0.07 kB\ndist/demo-451ab1e5.mjs   0.36 kB │ gzip: 0.26 kB\ndist/demo-component.mjs  0.09 kB │ gzip: 0.10 kB\ndist/index.mjs           0.16 kB │ gzip: 0.14 kB\n```\n\nGenerally speaking, **the users who use your library usually don't care about how does your dist directory structure looks like**. Just don’t tangle this, we just need to ensure that the unused files will get tree-shaken when we use named imports from the library.\n\nIndeed, you can customize filenames by using `output.xxxFileNames` options:\n\n```js\n{\n  rollupOptions: {\n    output: {\n      // Put chunk files at <output>/chunks\n      chunkFileNames: 'chunks/[name].[hash].js',\n      // Put chunk styles at <output>/assets\n      assetFileNames: 'assets/[name][extname]',\n      entryFileNames: '[name].js',\n    },\n  },\n}\n```\n\nAnd then you'll get:\n\n```\ndist/assets/demo.css          0.05 kB │ gzip: 0.07 kB\ndist/chunks/demo.a6107609.js  0.37 kB │ gzip: 0.26 kB\ndist/demo-component.js        0.09 kB │ gzip: 0.10 kB\ndist/index.js                 0.15 kB │ gzip: 0.14 kB\n```\n\n# License\n\n[MIT](./LICENSE) License © 2023 [秦旭洋](https://github.com/emosheeep)",
+  "readmeFilename": "README.md"
+}

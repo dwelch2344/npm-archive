@@ -1,0 +1,1720 @@
+{
+  "_id": "@stdlib/random-base-randu",
+  "_rev": "11-ca3cd6d8211a99fe31b8661237115d12",
+  "name": "@stdlib/random-base-randu",
+  "dist-tags": {
+    "latest": "0.2.1"
+  },
+  "versions": {
+    "0.0.1": {
+      "name": "@stdlib/random-base-randu",
+      "version": "0.0.1",
+      "description": "Uniformly distributed pseudorandom numbers between 0 and 1.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://github.com/stdlib-js/stdlib",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/random-base-randu.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/array-to-json": "^0.0.x",
+        "@stdlib/assert-has-own-property": "^0.0.x",
+        "@stdlib/assert-is-boolean": "^0.0.x",
+        "@stdlib/assert-is-plain-object": "^0.0.x",
+        "@stdlib/random-base": "^0.0.x",
+        "@stdlib/random-base-minstd": "^0.0.x",
+        "@stdlib/random-base-minstd-shuffle": "^0.0.x",
+        "@stdlib/random-base-mt19937": "^0.0.x",
+        "@stdlib/types": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-only-accessor": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-only-property": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-write-accessor": "^0.0.x",
+        "@stdlib/utils-library-manifest": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/array-uint32": "^0.0.x",
+        "@stdlib/assert-is-array-like-object": "^0.0.x",
+        "@stdlib/bench": "^0.0.x",
+        "@stdlib/math-base-assert-is-nan": "^0.0.x",
+        "@stdlib/process-env": "^0.0.x",
+        "@stdlib/stats-kstest": "^0.0.x",
+        "@stdlib/time-now": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdmath",
+        "mathematics",
+        "math",
+        "statistics",
+        "stats",
+        "prng",
+        "rng",
+        "pseudorandom",
+        "random",
+        "rand",
+        "randu",
+        "uniform",
+        "generator",
+        "seed",
+        "seedable",
+        "factory"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "d773d4215d90046a34c057cedfa0f626fdbb0718",
+      "_id": "@stdlib/random-base-randu@0.0.1",
+      "_nodeVersion": "15.14.0",
+      "_npmVersion": "7.7.6",
+      "dist": {
+        "integrity": "sha512-GI/l3USCtVWwOnmDGE/6j/gMcTWI71oiX9CnYBIX2aT1ZlFr8cPcz6kEkaablxem6+6MGSI9WT5nwMRwwJZ5dg==",
+        "shasum": "a5b7a1fa4ea7a4861f2fd09c94941097678d4354",
+        "tarball": "https://registry.npmjs.org/@stdlib/random-base-randu/-/random-base-randu-0.0.1.tgz",
+        "fileCount": 13,
+        "unpackedSize": 66962,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgyO4nCRA9TVsSAnZWagAACHQP/2+Iid1kLMJF+OqBSCy1\nLQvbC+e2X/xp4oaJbjIK0cg9vmztQrlwnv31wVXaYQC+Ya/1Ftk3dlMOYuB5\nuYyh8kmiBVNRAt5GIs5zkRe+ua4qNIWCHCGQ1tn6M6LqCEQWngoQvgYtO1oa\nAADvXwUg8a+z76KDO6aSHRUsYBIKlvAL4/ZeznJKx7kRtU4iwaxi8np32NP7\nopGe7tWWc29/9I5VX5Utx7v2kVrizDrx0ZAViLBYIWgQzZySXJ8a4DW1irth\nukKwBJSOEM9PfvXykYU3siQyrOBIPc55dYGGzNQbWcI4QAZzkh+k2gYSm9YK\nVEnCdXkabrSr42ynfR4TW3UL4Rjsi3qrL/+FTRQAaUp+YSa1X5SujyMMEFs8\ndEJq6VertyJl5Y+tokKq0XUBp2RvM/AuyeI2JHrmq2Kt2yqrUusi9sL2/+id\nuOP3lrMQCQWpXEaILvKCxgjSibXoEpruFqsxWXgh7yy9F5oi89iLnLLF/zXL\ntTJ/B0+/i1AfmIjCl4gkqvSAIbaORXHbZ17zPpCaKD0tOXec5bfDqb1FXU0r\nQ4oSlxfOpJb8Mwzfz8208aIIP95H2gAuRbjqJlO2PMSP0vKZSGaFoRBHimlx\nRg9LYoBiSddIH+uiVAJ89/Q3JeGV3HGZ/ugJGHuuqCGcK457fMiuhFe86MFg\nNlgd\r\n=rIof\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGAxZkWtXmp0+N+kT6pUd9jcsDewN5fuHWdYDZMByEJ5AiEAkqpNySjG8mtScrmRDXxbp2/Q1i4PDq4ITgTy4eWngrM="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/random-base-randu_0.0.1_1623780903098_0.8120048982968806"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.2": {
+      "name": "@stdlib/random-base-randu",
+      "version": "0.0.2",
+      "description": "Uniformly distributed pseudorandom numbers between 0 and 1.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://github.com/stdlib-js/stdlib",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/random-base-randu.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/array-to-json": "^0.0.x",
+        "@stdlib/assert-has-own-property": "^0.0.x",
+        "@stdlib/assert-is-boolean": "^0.0.x",
+        "@stdlib/assert-is-plain-object": "^0.0.x",
+        "@stdlib/random-base": "^0.0.x",
+        "@stdlib/random-base-minstd": "^0.0.x",
+        "@stdlib/random-base-minstd-shuffle": "^0.0.x",
+        "@stdlib/random-base-mt19937": "^0.0.x",
+        "@stdlib/types": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-only-accessor": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-only-property": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-write-accessor": "^0.0.x",
+        "@stdlib/utils-library-manifest": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/array-uint32": "^0.0.x",
+        "@stdlib/assert-is-array-like-object": "^0.0.x",
+        "@stdlib/bench": "^0.0.x",
+        "@stdlib/math-base-assert-is-nan": "^0.0.x",
+        "@stdlib/process-env": "^0.0.x",
+        "@stdlib/stats-kstest": "^0.0.x",
+        "@stdlib/time-now": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdmath",
+        "mathematics",
+        "math",
+        "statistics",
+        "stats",
+        "prng",
+        "rng",
+        "pseudorandom",
+        "random",
+        "rand",
+        "randu",
+        "uniform",
+        "generator",
+        "seed",
+        "seedable",
+        "factory"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "e0e6e2f111e2374d81164d1674806bd5f0d9b14d",
+      "_id": "@stdlib/random-base-randu@0.0.2",
+      "_nodeVersion": "15.14.0",
+      "_npmVersion": "7.7.6",
+      "dist": {
+        "integrity": "sha512-AK4ibe+4h5Ys4dZazPj5nkzgws14p2ytQGG5IbLjsRlH68KXUc9nUkRt4rfrkqDgeeF2eZYm+OijOe4jrpdqVA==",
+        "shasum": "5560e60abc135238c7c29b33e481b782d14fe47f",
+        "tarball": "https://registry.npmjs.org/@stdlib/random-base-randu/-/random-base-randu-0.0.2.tgz",
+        "fileCount": 16,
+        "unpackedSize": 65201,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgyZQ2CRA9TVsSAnZWagAA1q0P/RN5iCsMUby5oaJXgxx7\nTpneVcnBqx8SI7tBC9J15naV4JG9qP98CoodbKdLbJ/epO25+1opv8An1XnH\nCqh17mT6xCdcTS1MY2P28ATbmC5l9pExrFc+R5YYSeYyxc5Cey1ZCcKUDJO/\n8PSEvORuDX2+ftITGXyISVUnMTVd+vV2RDbxN4fsLH4QjWljQdrvhfAXHkaH\nDBoskx23bkk0ejg3teFsqD4YuOsalZs9JsgzleIWjwyUfLXnbfGQJhIaOzhq\ndZWaU4AhkhMmACTaqKuQMtr1Mb6hBfTW53gFK+QtBMzWF5KzGSrMKSZY6m7K\nz/FoVSf1GKV/cg7G9sYZXfvCo0wmP2LExwVzXR9Cg7SWJBDkgr0PyUr1ie4t\ncXVStUnUW449jFMC4zOd43xRHKEYfjZlacF5xdE0EpzgZVDuDWvC+gIdoCsn\nvzb6CdVF12FHZMPHlZ3zyY1p4oPDZDjshFD4StK/92DM5FALzOs+dsHTGLhZ\nusca2R3OrFsYofccpSzcmIC5ed9N3AVJKqHRTa1/mKHBz7JknaBzGf5XlAW9\nJPzvQ0HABWAkXreRjKj7+Gj8aaJZewQUGlwOnxpyGC4aX4af4yB5j1xZ+GmM\nLNg0U7dCtjAsi1UMaD3xfb3dai0FUlkU2ZEzQIpkUNcS2lKJOcNVQe6PaSgD\nPv4a\r\n=j5Um\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCQafzHec9LOJHFqIPi8xsllVloSd79hMnQ0ewUhOBw8QIgXpbeHWOIYPi8ADkeh8aEP3tp1htUmcwEGYw4alEtogQ="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/random-base-randu_0.0.2_1623823414408_0.7244176897740116"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.3": {
+      "name": "@stdlib/random-base-randu",
+      "version": "0.0.3",
+      "description": "Uniformly distributed pseudorandom numbers between 0 and 1.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/random-base-randu.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/array-to-json": "^0.0.x",
+        "@stdlib/assert-has-own-property": "^0.0.x",
+        "@stdlib/assert-is-boolean": "^0.0.x",
+        "@stdlib/assert-is-plain-object": "^0.0.x",
+        "@stdlib/random-base": "^0.0.x",
+        "@stdlib/random-base-minstd": "^0.0.x",
+        "@stdlib/random-base-minstd-shuffle": "^0.0.x",
+        "@stdlib/random-base-mt19937": "^0.0.x",
+        "@stdlib/types": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-only-accessor": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-only-property": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-write-accessor": "^0.0.x",
+        "@stdlib/utils-library-manifest": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/array-uint32": "^0.0.x",
+        "@stdlib/assert-is-array-like-object": "^0.0.x",
+        "@stdlib/bench": "^0.0.x",
+        "@stdlib/math-base-assert-is-nan": "^0.0.x",
+        "@stdlib/process-env": "^0.0.x",
+        "@stdlib/stats-kstest": "^0.0.x",
+        "@stdlib/time-now": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdmath",
+        "mathematics",
+        "math",
+        "statistics",
+        "stats",
+        "prng",
+        "rng",
+        "pseudorandom",
+        "random",
+        "rand",
+        "randu",
+        "uniform",
+        "generator",
+        "seed",
+        "seedable",
+        "factory"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "8be8799389511791c0655e57d203049144f1f117",
+      "_id": "@stdlib/random-base-randu@0.0.3",
+      "_nodeVersion": "15.14.0",
+      "_npmVersion": "7.7.6",
+      "dist": {
+        "integrity": "sha512-Aj+7MT/U5PHn+XEspgtZEBSYly/kApxNlTjz5znqBHDpm4ndIyNOdHbeq2m0DcqqFcpOsCqosTCz9N3OFAgrOQ==",
+        "shasum": "845d453b6d93e69d068d7d875d19960bdfac1133",
+        "tarball": "https://registry.npmjs.org/@stdlib/random-base-randu/-/random-base-randu-0.0.3.tgz",
+        "fileCount": 16,
+        "unpackedSize": 65355,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg2RX9CRA9TVsSAnZWagAAHX0P/A1K+uVEXQ+NvFqto/SP\nPdbQIIl0CbGx293NpEqjTpBxoogC14q+mixAwpG5zdYBS4vV+QqUjhyAkUnP\nYo2yPHyHIzucHKp2jp3RktoL60tNl4tb3OSivoGnn78GAxhPYE5rBD6Ik1cr\nrwlFdECxWTjos7KLsCVuaVooiBqtGY2L/9M1K+tjghWq50q9jGnEws6+2lY2\nLLZ8+yB4FGxMGzRs5dbT+mzCE2FtT/1CBBjg++7vWvC9k1Jvqh68grGtD1+c\nBaJcsZcx6Gko5wyKws4Bmezm1cP5AFfsuR9umI/YyqLWqoqqedWMjSj2tqIn\nQctdN0M+rwcp5izhRo9urGficBluGw8h02IVMUO8VnUBo6arX8eEeBorparb\nNo4quf+aj/veKRnF14a+d0nQJYOpOdKNK/BVQGj/reGUl5zPfTUbDMDCYds6\nDcmC6+VmQbSIjhqUnil62+rQxbv10vzj7KXVJohsCQlnDCGnLbP7XUEBjiTN\noeWxD3xN0iQMQJpm1LzgH5mWgjp2enA/KCLxAhQKtOPw410RFY3c6YoQso82\nkycmeGEZUuZHisfV7iUdN8+DyYCQzm0zeO7twc7kWloj2Z2sGWKAYVhxWuNA\n7NGKTnJXRKwD/zkq2YEH4ZyfZ+SD7qP3iGKfKzefHMyAp00DB8agakJvUiBH\ny2ZU\r\n=l/n/\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDGpWTPXQ6NaEz4kxeuu6xmmsgR4H901NPB2E9gDGkKugIhAM5yJ3bbuGfqJ6ttROos8r0JlrOIs6QB8scuSQJ0VN74"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/random-base-randu_0.0.3_1624839677357_0.5741694799228036"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.4": {
+      "name": "@stdlib/random-base-randu",
+      "version": "0.0.4",
+      "description": "Uniformly distributed pseudorandom numbers between 0 and 1.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/random-base-randu.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/array-to-json": "^0.0.x",
+        "@stdlib/assert-has-own-property": "^0.0.x",
+        "@stdlib/assert-is-boolean": "^0.0.x",
+        "@stdlib/assert-is-plain-object": "^0.0.x",
+        "@stdlib/random-base": "^0.0.x",
+        "@stdlib/random-base-minstd": "^0.0.x",
+        "@stdlib/random-base-minstd-shuffle": "^0.0.x",
+        "@stdlib/random-base-mt19937": "^0.0.x",
+        "@stdlib/types": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-only-accessor": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-only-property": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-write-accessor": "^0.0.x",
+        "@stdlib/utils-library-manifest": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/array-uint32": "^0.0.x",
+        "@stdlib/assert-is-array-like-object": "^0.0.x",
+        "@stdlib/bench": "^0.0.x",
+        "@stdlib/math-base-assert-is-nan": "^0.0.x",
+        "@stdlib/process-env": "^0.0.x",
+        "@stdlib/stats-kstest": "^0.0.x",
+        "@stdlib/time-now": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdmath",
+        "mathematics",
+        "math",
+        "statistics",
+        "stats",
+        "prng",
+        "rng",
+        "pseudorandom",
+        "random",
+        "rand",
+        "randu",
+        "uniform",
+        "generator",
+        "seed",
+        "seedable",
+        "factory"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "82b4c5eda838c54c9c6db8ac62056ca8a23c5d08",
+      "_id": "@stdlib/random-base-randu@0.0.4",
+      "_nodeVersion": "15.14.0",
+      "_npmVersion": "7.7.6",
+      "dist": {
+        "integrity": "sha512-/NwWKeJHbbCP2QyAF6XpMrYClKt/7RAyTEaTNPXAJR5RfhFKEqVK6OwbFtjCTFsUiAscXPiJLsiKqSQ37xGdrA==",
+        "shasum": "4f89b5e274ca877e2c37f82d59a3c0f2ce143f41",
+        "tarball": "https://registry.npmjs.org/@stdlib/random-base-randu/-/random-base-randu-0.0.4.tgz",
+        "fileCount": 16,
+        "unpackedSize": 65355,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg5QvGCRA9TVsSAnZWagAAcfoP/2g/b8j3u9hETT7N4Ker\ncXckieu2sH4lTaKt6zjFJEd11Xfz4sOwRKPyHqKGR6GDSFE5nNeDSgs7NU6v\nzFlFC6ayzNch/vkn3wr0ABadmLxWnm4FpU/el7tyHxZ0IoQ7eM8/YCrqPDTD\nvrh/16ct+mh77kVgnSCWJPOhOWInY4e+cxy+BiRCtemtl7HpHVfp+zJhm55I\n5fUs1NDcdUt1/D18QVaCL1ygvbuaC6kkO6QCPBpbBOI1bGOXA6YenC3Vfkqi\nd/g0jCLro0JUW/jS+XAejUSNjc4j/L+JLM2zcmN3iSV5UZd7QvoUMvMR6lEQ\nOt8ds5BGjTm3/8blB6b0uHSN4VqAJnHNLnptoPmggU5ylaL22GOXp5mmLA8k\nEAE/attrQ9MuhYhR0Y23xQSM/QoLrV5DhJyGYoXgYxDL8RSRbGaYxbdra5kV\nPAxkvDu6ein6XW5PCctg03XwzjA4sY1rScWydVuImF8To82LeqXbbK6OzSZS\nRrKd21KTZeHHief/ng8ngDpnxzHhfUK2l3SALqtpI1oI1Ux1IG8Pw6KLLhgB\n2siYKVePIkMPE2sV7dsy+TEZuIp0tml/B9ql1QwOBrK7zIdSElbtHRK+nRqZ\n54Kzq/TxJr4fqQM1SW0A3LExRC49vtc+82XThA6RA9q5BK7OHPTtjc3hhxuz\nzX6O\r\n=LgO0\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCFIghqzs8Bc3yvDKmHYK4K69OMc4v/rced9k7XJ8WzMQIgTZOY4sz7RLbLh7SfkyQ0V16AcNik3XFXuiiwid5NTYA="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/random-base-randu_0.0.4_1625623493943_0.31340829345444754"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.5": {
+      "name": "@stdlib/random-base-randu",
+      "version": "0.0.5",
+      "description": "Uniformly distributed pseudorandom numbers between 0 and 1.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/random-base-randu.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/array-to-json": "^0.0.x",
+        "@stdlib/assert-has-own-property": "^0.0.x",
+        "@stdlib/assert-is-boolean": "^0.0.x",
+        "@stdlib/assert-is-plain-object": "^0.0.x",
+        "@stdlib/random-base": "^0.0.x",
+        "@stdlib/random-base-minstd": "^0.0.x",
+        "@stdlib/random-base-minstd-shuffle": "^0.0.x",
+        "@stdlib/random-base-mt19937": "^0.0.x",
+        "@stdlib/types": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-only-accessor": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-only-property": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-write-accessor": "^0.0.x",
+        "@stdlib/utils-library-manifest": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/array-uint32": "^0.0.x",
+        "@stdlib/assert-is-array-like-object": "^0.0.x",
+        "@stdlib/bench": "^0.0.x",
+        "@stdlib/math-base-assert-is-nan": "^0.0.x",
+        "@stdlib/process-env": "^0.0.x",
+        "@stdlib/stats-kstest": "^0.0.x",
+        "@stdlib/time-now": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdmath",
+        "mathematics",
+        "math",
+        "statistics",
+        "stats",
+        "prng",
+        "rng",
+        "pseudorandom",
+        "random",
+        "rand",
+        "randu",
+        "uniform",
+        "generator",
+        "seed",
+        "seedable",
+        "factory"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "5cdc4ec71eb05f39d258dc6f5254cd1d2f58e19e",
+      "_id": "@stdlib/random-base-randu@0.0.5",
+      "_nodeVersion": "15.14.0",
+      "_npmVersion": "7.7.6",
+      "dist": {
+        "integrity": "sha512-GGwBDk7arPAKc2ENYyROmzl9g/U4GYUdW4ksLwu6ZXFhld38LvtydhqXbTyBB/rumIBWFwmzUNOPdXlf1sgvIA==",
+        "shasum": "2286ec2187b35bea0743e1a1e89ff0119a27c4f0",
+        "tarball": "https://registry.npmjs.org/@stdlib/random-base-randu/-/random-base-randu-0.0.5.tgz",
+        "fileCount": 16,
+        "unpackedSize": 65382,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhEyxBCRA9TVsSAnZWagAAXbsP+QDJHdsihvT36qf7Khvr\n+KqQc0g50T54wWDNtGiw/LYz/bQGtyxyi5inMgYLii3bz1NETHSzoLW7BDON\ndz5MECk6xFczWAqX12c2MZ8wUJMIc/tzNsEdbAlCE/qOVBV1Ly3LIFSt6ip7\n3gjdapUpGlYQWAMxIFTOS3BrLQi7MOMNVVUPA5uuzJqIyxxe6pElPPqH9dTi\nCAYCuMDtTckPOU2P/p2pGuYV5TRRxVT4wVz2x5SokVsfDQurU1I1m0/kT4cu\njKVpejjxPfjJNztCbeN7je8iuLkVk29HUvyoNkygpNhHIZvssuTh00x9l2IF\n8TIjfzxMkYKC/WasQsAxtC0zPtIca/+Akdi7SagoNAl3+dOZYdvz6IUvztNI\nJ9UerN/KGZxR6Vo31ctlb/liYLq3PcfYlAnM0c/MWiOes1SHgzIUDW10hmYi\n5FF1d9fsfA3w6xL5MkEjN00LyBGTWSguSCUIxe5GaQEowBteW443XSR9AZlE\n7ACKKxwl7NR1ToPpDosbw2o65xdQz1OygY4sG68PsxUUrQPtMeJdnXQndIfq\nGGN7Mz+PzJns+CUI6lt5eFGSjOD5jB26uCLbzWX9klqr7pmIZu9oSHXJgMYN\ntEzFDttWSAFBrd8fTT5kLP+cUS+KE40pRo6FNzW+FIwIot0oYmY+vcL3snCz\nfoxq\r\n=QS++\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEMCHwuK8seDBnkH7+j+SnwfLgcKt0WQ5cDEv2x6vYVNbWMCIGZ8QeFSWV3SMPrN5hL6lIQSTuhqmlr8hMIRN9HhFvjc"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/random-base-randu_0.0.5_1628646465690_0.9690457480907655"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.6": {
+      "name": "@stdlib/random-base-randu",
+      "version": "0.0.6",
+      "description": "Uniformly distributed pseudorandom numbers between 0 and 1.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "include": "./include",
+        "lib": "./lib",
+        "src": "./src",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/random-base-randu.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/array-to-json": "^0.0.x",
+        "@stdlib/assert-has-own-property": "^0.0.x",
+        "@stdlib/assert-is-boolean": "^0.0.x",
+        "@stdlib/assert-is-plain-object": "^0.0.x",
+        "@stdlib/random-base": "^0.0.x",
+        "@stdlib/random-base-minstd": "^0.0.x",
+        "@stdlib/random-base-minstd-shuffle": "^0.0.x",
+        "@stdlib/random-base-mt19937": "^0.0.x",
+        "@stdlib/types": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-only-accessor": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-only-property": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-write-accessor": "^0.0.x",
+        "@stdlib/utils-library-manifest": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/array-uint32": "^0.0.x",
+        "@stdlib/assert-is-array-like-object": "^0.0.x",
+        "@stdlib/bench": "^0.0.x",
+        "@stdlib/math-base-assert-is-nan": "^0.0.x",
+        "@stdlib/process-env": "^0.0.x",
+        "@stdlib/stats-kstest": "^0.0.x",
+        "@stdlib/time-now": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdmath",
+        "mathematics",
+        "math",
+        "statistics",
+        "stats",
+        "prng",
+        "rng",
+        "pseudorandom",
+        "random",
+        "rand",
+        "randu",
+        "uniform",
+        "generator",
+        "seed",
+        "seedable",
+        "factory"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "cdbd0fdb686aa0527396c3729491f6ab6f12f76d",
+      "_id": "@stdlib/random-base-randu@0.0.6",
+      "_nodeVersion": "16.7.0",
+      "_npmVersion": "7.20.3",
+      "dist": {
+        "integrity": "sha512-TBRrhZtBt1JbDjKG+HWJ+4bedRA7HxNaGp8fOtMUGxrpBC2mohU5bzqsqZ/eLjSCTWed6ki4kVF8lg+bKwqWbA==",
+        "shasum": "c728d06028f57246f385b50071f3f56bf0b08a67",
+        "tarball": "https://registry.npmjs.org/@stdlib/random-base-randu/-/random-base-randu-0.0.6.tgz",
+        "fileCount": 15,
+        "unpackedSize": 65298,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhIrqVCRA9TVsSAnZWagAAwUUQAKQF3WXQ6RVCQ7ci7Mqn\n7K8eX+fGo9wXAy0F4gPgqX8IxGqGbk685SkTbEFEw4yKHd6VRvlnONV5b4fl\nDk8qXqZ9NgxSNMPM4LHb2R+2fGimbV3+MXZAw972VKIJiaHhRI+4VoUM1/gp\nP2NHPYeZGAbFt4fiT2F6MB/ZgIOzdufI6ta/Bm2TZ+GMJzgqKCT7Z0kovcQO\nGevFbxwrMO4MvpJiAauX0XTsbLRDUDdYLTUWCZl3S82WU2HbhBexldCr2eV5\nJzgk+jdP/+snVflEkYxL6auLlpteshoDrppw0ptI3SSTF8CNUFu7FlslyqTg\nyOEMRNGiGrHbuzYXyH5bDxqJXoDw01adUjtH/7yaKT/uC+3Di39glydfjWO9\naFyTNp10n7ek41bKfWVFJpHVWjhozl5i4U1RX57wVYqkVTCaV58lHOaEqoa+\nIVuW029lCB+55Nsr8nU8X/jCSR1BCkknXMVFlQI2mooqi62ReisHRyR0IXD3\nQFr8HbB5Y4uuO2Y3G6HLDxuPnWeCPeMzVDQPxm+xPgHnhOlOAPxXZCDqqiOA\ngrR/S6Y87Su3K5uR8uMxisjowZiHNmKWRvpMs2I7edYBIbPrGv1cMGtQIV3E\n/H90nZEcs4Xx+PPEqwFbTH10Z90bghrcf+ntUc3sWdJInr8pZZ3aYlDBbnXV\nHTop\r\n=Qnzi\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCHR9q2L67C5qGez+gFyuxQIcyKmqaCQCWzwPjwGocNhQIgAdga/60mlE2iWDmtuHM87L7mNmjYoas0z8yPqRoXtaU="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/random-base-randu_0.0.6_1629665940979_0.4385200874376327"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.7": {
+      "name": "@stdlib/random-base-randu",
+      "version": "0.0.7",
+      "description": "Uniformly distributed pseudorandom numbers between 0 and 1.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "include": "./include",
+        "lib": "./lib",
+        "src": "./src",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/random-base-randu.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/array-to-json": "^0.0.x",
+        "@stdlib/assert-has-own-property": "^0.0.x",
+        "@stdlib/assert-is-boolean": "^0.0.x",
+        "@stdlib/assert-is-plain-object": "^0.0.x",
+        "@stdlib/random-base": "^0.0.x",
+        "@stdlib/random-base-minstd": "^0.0.x",
+        "@stdlib/random-base-minstd-shuffle": "^0.0.x",
+        "@stdlib/random-base-mt19937": "^0.0.x",
+        "@stdlib/types": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-only-accessor": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-only-property": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-write-accessor": "^0.0.x",
+        "@stdlib/utils-library-manifest": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/array-uint32": "^0.0.x",
+        "@stdlib/assert-is-array-like-object": "^0.0.x",
+        "@stdlib/bench": "^0.0.x",
+        "@stdlib/math-base-assert-is-nan": "^0.0.x",
+        "@stdlib/process-env": "^0.0.x",
+        "@stdlib/stats-kstest": "^0.0.x",
+        "@stdlib/time-now": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdmath",
+        "mathematics",
+        "math",
+        "statistics",
+        "stats",
+        "prng",
+        "rng",
+        "pseudorandom",
+        "random",
+        "rand",
+        "randu",
+        "uniform",
+        "generator",
+        "seed",
+        "seedable",
+        "factory"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "5ea1c88aefd4898db480e0a8e8b87f4cae3d29ee",
+      "_id": "@stdlib/random-base-randu@0.0.7",
+      "_nodeVersion": "16.13.2",
+      "_npmVersion": "8.1.2",
+      "dist": {
+        "integrity": "sha512-npwDnEvOIt4Lboo3jwRfS7TwhaAr+2bJI7+HvjDJ65ACe5UIlbtikFOStV0Hflf3EC41T2gTlssLK8gW8C9pfg==",
+        "shasum": "dd27e0ffdf33905ecbfc9e6421f9b0899626ea58",
+        "tarball": "https://registry.npmjs.org/@stdlib/random-base-randu/-/random-base-randu-0.0.7.tgz",
+        "fileCount": 15,
+        "unpackedSize": 66652,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJiDTgcCRA9TVsSAnZWagAAZzcP/3zMO5794vky8iFTCqUU\nWlsR5SvWoPEPBVzBOfeQcqzu4sLk3FIzFUNAPFm4jBVFca6zgVbdA2Cg/a5k\n0CCKVMbHZqTK5xhbolkGoE/WjO1cWZVEekOzMB8BQd8ZKwyELoIlDo6DKfho\nJWv3tqMVswOpY7UFH1k2VJFy3f8Rp1R/E4AlCku4IatefDPXwA0gWPMJi6PO\n35B2xKLuOZPOkBkJrdgtyh37jBbn/Q+lGCe9+EUXaj935z5sBcd2OuFZKaim\np5CHgJDTBOPjOYdCsZgylyNunGzYwkaoQgnbHZLRiqljNZ5+PASh+XRlZqib\nB9O1cIUf+/BSwCXjOUSSHDsx56aspIheJ4Ui9Fdj6Kgo8RH3DPkq5pMCSkNE\nFTYoLDC4A1TJCQqc8qfbZs9icxkf80Mau2MPo3inVUa3QhBHj81+nJ2grtes\nVsP2+squj9jKZbST8D/afUk2OP0PVnZggb5+MGEG8m1fMs3p60u6dVKo7Dw5\nG3zlaf0bAX8oSleAnWaPWnUt3+9o3TsMlcp5pdi1MTEkWwUlFxT/VRzxzs34\ntVTvT84SJ4wad8IADbZpwtrG9oVhmeiOAEflXCGmgLvJO5xy9QtVcHzabeR5\nv5tLyjdLuJ0a04kO9z84fQyoIqByKgdWmlU6cnWfUwvBkHIh7npgp+UcAtVX\nMIA5\r\n=ktCF\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEPdyctjdAcFQkH2qbHWvedDQyp/9KlqjwE6a4wicB7bAiAax7KNkM0hyGiGyHspWzv0DytfXJa1YYV/PlDe98BwaA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/random-base-randu_0.0.7_1645033499963_0.02720610141778379"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.8": {
+      "name": "@stdlib/random-base-randu",
+      "version": "0.0.8",
+      "description": "Uniformly distributed pseudorandom numbers between 0 and 1.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "include": "./include",
+        "lib": "./lib",
+        "src": "./src",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/random-base-randu.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/array-to-json": "^0.0.x",
+        "@stdlib/assert-has-own-property": "^0.0.x",
+        "@stdlib/assert-is-boolean": "^0.0.x",
+        "@stdlib/assert-is-plain-object": "^0.0.x",
+        "@stdlib/random-base": "^0.0.x",
+        "@stdlib/random-base-minstd": "^0.0.x",
+        "@stdlib/random-base-minstd-shuffle": "^0.0.x",
+        "@stdlib/random-base-mt19937": "^0.0.x",
+        "@stdlib/string-format": "^0.0.x",
+        "@stdlib/types": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-only-accessor": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-only-property": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-write-accessor": "^0.0.x",
+        "@stdlib/utils-library-manifest": "^0.0.x"
+      },
+      "devDependencies": {
+        "@stdlib/array-uint32": "^0.0.x",
+        "@stdlib/assert-is-array-like-object": "^0.0.x",
+        "@stdlib/bench": "^0.0.x",
+        "@stdlib/math-base-assert-is-nan": "^0.0.x",
+        "@stdlib/process-env": "^0.0.x",
+        "@stdlib/stats-kstest": "^0.0.x",
+        "@stdlib/time-now": "^0.0.x",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdmath",
+        "mathematics",
+        "math",
+        "statistics",
+        "stats",
+        "prng",
+        "rng",
+        "pseudorandom",
+        "random",
+        "rand",
+        "randu",
+        "uniform",
+        "generator",
+        "seed",
+        "seedable",
+        "factory"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "cab3b76fc0b7d324ca84e14b4c458c342ec4f9e1",
+      "_id": "@stdlib/random-base-randu@0.0.8",
+      "_nodeVersion": "16.18.0",
+      "_npmVersion": "8.19.2",
+      "dist": {
+        "integrity": "sha512-jaTDW/sux6uXdqnhmUEZqJNkXbXxIQDiMTsqVzpkO9K/EwE+aK9nHs3KkwaE38UahsYzHqEyfAvO95Pr4BpABQ==",
+        "shasum": "2fce2124c1c77b1f9c13c72036cebc570009f200",
+        "tarball": "https://registry.npmjs.org/@stdlib/random-base-randu/-/random-base-randu-0.0.8.tgz",
+        "fileCount": 15,
+        "unpackedSize": 53211,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIH3cEhfLL3FfiMf/Jjeaz99hwXZAgLVyfotA4wUh7m6YAiEAyNjtXhE/Y5N+I+ISkhfvxNaM6rDIwYJ0zaPaLg7M4y0="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjZADDACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoymA/9E+tbCg/JUlIoZz+EsnQYuSoeD1luI8AIMqrsUXuTID18K5BP\r\n64bInbjSZY6dZnc9odLQMRntd0CLvUe3wSJ1Hs9Uli1ok1Lj4Kry08r9Ep8M\r\nUEL/H3vRq9PiUlTy/uKcxSA4zxEWvUPw80wxq3j6J4vhEh6E9TJddI0r09QK\r\nmXu2iH9tmwYQvjmBLiEIM1CCKTNsxXzr89ZQ57ebqE2DS1x6hc0AGOkeqBhS\r\nTwA3uOMPriKFF9zhS57LekbcPd3MFVnSPjXJdWuQAMmchKRM30loYN31JqsB\r\np+4hUyFUC+hvVf1ALu22bK45Pd+TcRFSGw8yhnUF8aiysporl9Q+Xdl8Jh0l\r\nXO8gICfiDQEdwaVJH9NvrwCer9qwnT2Iz/9j5DBSef03ZjYPa0HWQv01vPYq\r\nwPlO25h+uk4+BF671Uy4brUOD0OvjWFJyc1XPASt6xWQzIejiOMFCrOYQsiF\r\nAxFBMJ8SZq7eE42+AjxQQMcx9zChtKNMEYPgbY2jTuFpFewmqgIp0TKalQTR\r\nfNamolihMTTNSdfGZsKBlMncriDfIacKePJELMwZ49XZDhugc+3Oy/MjZltr\r\nISFbsF69I7w22H8047aB/IiSMw4G6R3h8+SDvnDU+vKvpx7f/g0ks+DrNdJ2\r\nDnpK+PM9M072FvHQwvXpwyyshTUvxUcuv0U=\r\n=/tqI\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "kgryte",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/random-base-randu_0.0.8_1667498179496_0.18081544640756508"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.0": {
+      "name": "@stdlib/random-base-randu",
+      "version": "0.1.0",
+      "description": "Uniformly distributed pseudorandom numbers between 0 and 1.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "include": "./include",
+        "lib": "./lib",
+        "src": "./src",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/random-base-randu.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/array-to-json": "^0.1.0",
+        "@stdlib/assert-has-own-property": "^0.1.0",
+        "@stdlib/assert-is-boolean": "^0.1.0",
+        "@stdlib/assert-is-plain-object": "^0.1.0",
+        "@stdlib/random-base": "^0.1.0",
+        "@stdlib/random-base-minstd": "^0.1.0",
+        "@stdlib/random-base-minstd-shuffle": "^0.1.0",
+        "@stdlib/random-base-mt19937": "^0.1.0",
+        "@stdlib/string-format": "^0.1.0",
+        "@stdlib/types": "^0.1.0",
+        "@stdlib/utils-define-nonenumerable-read-only-accessor": "^0.1.0",
+        "@stdlib/utils-define-nonenumerable-read-only-property": "^0.1.0",
+        "@stdlib/utils-define-nonenumerable-read-write-accessor": "^0.1.0",
+        "@stdlib/utils-library-manifest": "^0.1.0",
+        "@stdlib/error-tools-fmtprodmsg": "^0.1.0"
+      },
+      "devDependencies": {
+        "@stdlib/array-uint32": "^0.1.0",
+        "@stdlib/assert-is-array-like-object": "^0.1.0",
+        "@stdlib/bench": "^0.1.0",
+        "@stdlib/math-base-assert-is-nan": "^0.1.0",
+        "@stdlib/process-env": "^0.1.0",
+        "@stdlib/stats-kstest": "^0.1.0",
+        "@stdlib/time-now": "^0.1.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-min": "git+https://github.com/Planeshifter/tap-min.git"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdmath",
+        "mathematics",
+        "math",
+        "statistics",
+        "stats",
+        "prng",
+        "rng",
+        "pseudorandom",
+        "random",
+        "rand",
+        "randu",
+        "uniform",
+        "generator",
+        "seed",
+        "seedable",
+        "factory"
+      ],
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/stdlib"
+      },
+      "gitHead": "f5f669fe49db4cb57103fb1c5f4ba2532bf9011b",
+      "_id": "@stdlib/random-base-randu@0.1.0",
+      "_nodeVersion": "16.20.2",
+      "_npmVersion": "8.19.4",
+      "dist": {
+        "integrity": "sha512-HQav3RSTKSb2+bjxoJ1aBgh72adV54Gv72Of9soqQHJ8XN+qde26aEh8YYLTHPCegbDE4jabrz1JKKYMBR5VOQ==",
+        "shasum": "3b9907aef759aae90a5fbb276c69a8371311aec5",
+        "tarball": "https://registry.npmjs.org/@stdlib/random-base-randu/-/random-base-randu-0.1.0.tgz",
+        "fileCount": 17,
+        "unpackedSize": 63350,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC885M+cf9pUFXDyYzdg1JAdOJ3swNgVd7y8NgS9R4Z7AIgOjoQt2Ho47hwT+lMlPmyy4eK4gXPe8ypMroREg34rOk="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte+stdlibbot@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte+stdlibbot@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/random-base-randu_0.1.0_1695583920235_0.04493566229681378"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.0": {
+      "name": "@stdlib/random-base-randu",
+      "version": "0.2.0",
+      "description": "Uniformly distributed pseudorandom numbers between 0 and 1.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "include": "./include",
+        "lib": "./lib",
+        "src": "./src",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples",
+        "benchmark": "make benchmark"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/random-base-randu.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/array-to-json": "^0.2.0",
+        "@stdlib/assert-has-own-property": "^0.2.0",
+        "@stdlib/assert-is-boolean": "^0.2.0",
+        "@stdlib/assert-is-plain-object": "^0.2.0",
+        "@stdlib/random-base": "^0.1.1",
+        "@stdlib/random-base-minstd": "^0.2.0",
+        "@stdlib/random-base-minstd-shuffle": "^0.2.0",
+        "@stdlib/random-base-mt19937": "^0.2.0",
+        "@stdlib/string-format": "^0.2.0",
+        "@stdlib/types": "^0.3.1",
+        "@stdlib/utils-define-nonenumerable-read-only-accessor": "^0.2.0",
+        "@stdlib/utils-define-nonenumerable-read-only-property": "^0.2.0",
+        "@stdlib/utils-define-nonenumerable-read-write-accessor": "^0.2.0",
+        "@stdlib/utils-library-manifest": "^0.2.0",
+        "@stdlib/error-tools-fmtprodmsg": "^0.2.0"
+      },
+      "devDependencies": {
+        "@stdlib/array-uint32": "^0.2.0",
+        "@stdlib/assert-is-array-like-object": "^0.2.0",
+        "@stdlib/math-base-assert-is-nan": "^0.2.0",
+        "@stdlib/process-env": "^0.2.0",
+        "@stdlib/stats-kstest": "^0.2.0",
+        "@stdlib/time-now": "^0.2.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-min": "git+https://github.com/Planeshifter/tap-min.git",
+        "@stdlib/bench-harness": "^0.2.0",
+        "@stdlib/bench": "^0.3.1"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdmath",
+        "mathematics",
+        "math",
+        "statistics",
+        "stats",
+        "prng",
+        "rng",
+        "pseudorandom",
+        "random",
+        "rand",
+        "randu",
+        "uniform",
+        "generator",
+        "seed",
+        "seedable",
+        "factory"
+      ],
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/stdlib"
+      },
+      "gitHead": "7137673f0798ef13d7c9fd7becf78e557b1d583b",
+      "_id": "@stdlib/random-base-randu@0.2.0",
+      "_nodeVersion": "16.20.2",
+      "_npmVersion": "8.19.4",
+      "dist": {
+        "integrity": "sha512-XthRD79LvA7J3BZmYvI0TmwnckwfO4NrXt+sxK8gnbJ1f/Om70Jrtx/v/uuZU7JDTcp3730Jy2DncRV8y9UisQ==",
+        "shasum": "ade1fce90a986b25fa7bb35d244afbafd55b3d7c",
+        "tarball": "https://registry.npmjs.org/@stdlib/random-base-randu/-/random-base-randu-0.2.0.tgz",
+        "fileCount": 17,
+        "unpackedSize": 63212,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCr33UDVwK4cnqYqYrTODfPbRzg2hZlLG4MFRS5+ul7bgIgCDLOQN2smfT4ebCrAz+Ycri0C8uEsR/7d7vha7CgRAs="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte+stdlibbot@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte+stdlibbot@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/random-base-randu_0.2.0_1707957960730_0.8468909829562361"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.1": {
+      "name": "@stdlib/random-base-randu",
+      "version": "0.2.1",
+      "description": "Uniformly distributed pseudorandom numbers between 0 and 1.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "doc": "./docs",
+        "include": "./include",
+        "lib": "./lib",
+        "src": "./src",
+        "dist": "./dist"
+      },
+      "types": "./docs/types",
+      "scripts": {},
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/random-base-randu.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/array-to-json": "^0.2.1",
+        "@stdlib/assert-has-own-property": "^0.2.1",
+        "@stdlib/assert-is-boolean": "^0.2.1",
+        "@stdlib/assert-is-plain-object": "^0.2.1",
+        "@stdlib/random-base-minstd": "^0.2.1",
+        "@stdlib/random-base-minstd-shuffle": "^0.2.1",
+        "@stdlib/random-base-mt19937": "^0.2.1",
+        "@stdlib/random-base-shared": "^0.1.0",
+        "@stdlib/string-format": "^0.2.1",
+        "@stdlib/utils-define-nonenumerable-read-only-accessor": "^0.2.2",
+        "@stdlib/utils-define-nonenumerable-read-only-property": "^0.2.1",
+        "@stdlib/utils-define-nonenumerable-read-write-accessor": "^0.2.1",
+        "@stdlib/error-tools-fmtprodmsg": "^0.2.1"
+      },
+      "devDependencies": {},
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdmath",
+        "mathematics",
+        "math",
+        "statistics",
+        "stats",
+        "prng",
+        "rng",
+        "pseudorandom",
+        "random",
+        "rand",
+        "randu",
+        "uniform",
+        "generator",
+        "seed",
+        "seedable",
+        "factory"
+      ],
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/stdlib"
+      },
+      "gitHead": "96944aeaaa31205528b593a0370625e1a395ffa0",
+      "_id": "@stdlib/random-base-randu@0.2.1",
+      "_nodeVersion": "16.20.2",
+      "_npmVersion": "8.19.4",
+      "dist": {
+        "integrity": "sha512-sjMrdq6Y2fh6oxpDOBZtO5MQAqsYeubZnHE/8RL4YhMPDoVKXiJddyvfULhAEkIonMKbilfTaj6y1pXyMe1/4A==",
+        "shasum": "415850d5349c1dc4a670c23c70fe367488da5821",
+        "tarball": "https://registry.npmjs.org/@stdlib/random-base-randu/-/random-base-randu-0.2.1.tgz",
+        "fileCount": 17,
+        "unpackedSize": 63515,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCXGZfAfZs2g/QB+laq8G2r1jN3dGjnBTJbXi6gwr8fDwIhAMtgBrgfVjyv0x5zjpjok8q8qrel8Mf/QR2fgPVeima3"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte+stdlibbot@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte+stdlibbot@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/random-base-randu_0.2.1_1708891207203_0.3570792358860275"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2021-06-15T18:15:02.948Z",
+    "0.0.1": "2021-06-15T18:15:03.252Z",
+    "modified": "2024-02-25T20:00:08.315Z",
+    "0.0.2": "2021-06-16T06:03:34.528Z",
+    "0.0.3": "2021-06-28T00:21:17.524Z",
+    "0.0.4": "2021-07-07T02:04:54.099Z",
+    "0.0.5": "2021-08-11T01:47:45.835Z",
+    "0.0.6": "2021-08-22T20:59:01.093Z",
+    "0.0.7": "2022-02-16T17:45:00.121Z",
+    "0.0.8": "2022-11-03T17:56:19.674Z",
+    "0.1.0": "2023-09-24T19:32:00.420Z",
+    "0.2.0": "2024-02-15T00:46:00.920Z",
+    "0.2.1": "2024-02-25T20:00:07.406Z"
+  },
+  "maintainers": [
+    {
+      "name": "stdlib-bot",
+      "email": "kgryte+stdlibbot@gmail.com"
+    },
+    {
+      "name": "kgryte",
+      "email": "kgryte@gmail.com"
+    },
+    {
+      "name": "planeshifter",
+      "email": "pgb@andrew.cmu.edu"
+    },
+    {
+      "name": "rreusser",
+      "email": "rsreusser@gmail.com"
+    }
+  ],
+  "description": "Uniformly distributed pseudorandom numbers between 0 and 1.",
+  "homepage": "https://stdlib.io",
+  "keywords": [
+    "stdlib",
+    "stdmath",
+    "mathematics",
+    "math",
+    "statistics",
+    "stats",
+    "prng",
+    "rng",
+    "pseudorandom",
+    "random",
+    "rand",
+    "randu",
+    "uniform",
+    "generator",
+    "seed",
+    "seedable",
+    "factory"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stdlib-js/random-base-randu.git"
+  },
+  "contributors": [
+    {
+      "name": "The Stdlib Authors",
+      "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+    }
+  ],
+  "author": {
+    "name": "The Stdlib Authors",
+    "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+  },
+  "bugs": {
+    "url": "https://github.com/stdlib-js/stdlib/issues"
+  },
+  "license": "Apache-2.0",
+  "readme": "<!--\n\n@license Apache-2.0\n\nCopyright (c) 2018 The Stdlib Authors.\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n   http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n\n-->\n\n\n<details>\n  <summary>\n    About stdlib...\n  </summary>\n  <p>We believe in a future in which the web is a preferred environment for numerical computation. To help realize this future, we've built stdlib. stdlib is a standard library, with an emphasis on numerical and scientific computation, written in JavaScript (and C) for execution in browsers and in Node.js.</p>\n  <p>The library is fully decomposable, being architected in such a way that you can swap out and mix and match APIs and functionality to cater to your exact preferences and use cases.</p>\n  <p>When you use stdlib, you can be absolutely certain that you are using the most thorough, rigorous, well-written, studied, documented, tested, measured, and high-quality code out there.</p>\n  <p>To join us in bringing numerical computing to the web, get started by checking us out on <a href=\"https://github.com/stdlib-js/stdlib\">GitHub</a>, and please consider <a href=\"https://opencollective.com/stdlib\">financially supporting stdlib</a>. We greatly appreciate your continued support!</p>\n</details>\n\n# randu\n\n[![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] <!-- [![dependencies][dependencies-image]][dependencies-url] -->\n\n> Uniformly distributed pseudorandom numbers between 0 and 1.\n\n<section class=\"installation\">\n\n## Installation\n\n```bash\nnpm install @stdlib/random-base-randu\n```\n\n</section>\n\n<section class=\"usage\">\n\n## Usage\n\n```javascript\nvar randu = require( '@stdlib/random-base-randu' );\n```\n\n#### randu()\n\nReturns a uniformly distributed pseudorandom number on the interval `[0,1)`.\n\n```javascript\nvar r = randu();\n// returns <number>\n```\n\n#### randu.factory( \\[options] )\n\nReturns a pseudorandom number generator (PRNG) for generating uniformly distributed random numbers on the interval `[0,1)`.\n\n```javascript\nvar rand = randu.factory();\n```\n\nThe function accepts the following `options`:\n\n-   **name**: name of a supported pseudorandom number generator (PRNG), which will serve as the underlying source of pseudorandom numbers. The following generators are supported:\n\n    -   [`mt19937`][@stdlib/random/base/mt19937]: 32-bit Mersenne Twister.\n    -   [`minstd`][@stdlib/random/base/minstd]: linear congruential pseudorandom number generator (LCG) based on Park and Miller.\n    -   [`minstd-shuffle`][@stdlib/random/base/minstd-shuffle]: linear congruential pseudorandom number generator (LCG) whose output is shuffled.\n\n    Default: [`'mt19937'`][@stdlib/random/base/mt19937].\n\n-   **seed**: pseudorandom number generator seed. Valid seed values vary according to the underlying PRNG.\n\n-   **state**: pseudorandom number generator state. Valid state values vary according to the underlying PRNG. If provided, the function ignores the `seed` option.\n\n-   **copy**: `boolean` indicating whether to copy a provided pseudorandom number generator state. Setting this option to `false` allows sharing state between two or more pseudorandom number generators. Setting this option to `true` ensures that a returned generator has exclusive control over its internal state. Default: `true`.\n\nBy default, the underlying pseudorandom number generator is [`mt19937`][@stdlib/random/base/mt19937]. To use a different PRNG, set the `name` option.\n\n```javascript\nvar rand = randu.factory({\n    'name': 'minstd-shuffle'\n});\n\nvar r = rand();\n// returns <number>\n```\n\nTo seed a pseudorandom number generator, set the `seed` option.\n\n```javascript\nvar rand1 = randu.factory({\n    'seed': 12345\n});\n\nvar r1 = rand1();\n// returns <number>\n\nvar rand2 = randu.factory({\n    'seed': 12345\n});\n\nvar r2 = rand2();\n// returns <number>\n\nvar bool = ( r1 === r2 );\n// returns true\n```\n\nTo return a generator having a specific initial state, set the generator `state` option.\n\n```javascript\nvar rand;\nvar bool;\nvar r;\nvar i;\n\n// Generate pseudorandom numbers, thus progressing the generator state:\nfor ( i = 0; i < 1000; i++ ) {\n    r = randu();\n}\n\n// Create a new PRNG initialized to the current state of `randu`:\nrand = randu.factory({\n    'state': randu.state\n});\n\n// Test that the generated pseudorandom numbers are the same:\nbool = ( rand() === randu() );\n// returns true\n```\n\n#### randu.NAME\n\nThe generator name.\n\n```javascript\nvar str = randu.NAME;\n// returns 'randu'\n```\n\n#### randu.PRNG\n\nThe underlying pseudorandom number generator.\n\n```javascript\nvar prng = randu.PRNG;\n// returns <Function>\n```\n\n#### randu.MIN\n\nMinimum value lower bound.\n\n```javascript\nvar min = randu.MIN;\n// returns 0.0\n```\n\n#### randu.MAX\n\nMaximum value upper bound (not greater than `1` exclusive).\n\n```javascript\nvar max = randu.MAX;\n// returns <number>\n```\n\n#### randu.seed\n\nThe value used to seed `randu()`.\n\n```javascript\nvar rand;\nvar r;\nvar i;\n\n// Generate pseudorandom values...\nfor ( i = 0; i < 100; i++ ) {\n    r = randu();\n}\n\n// Generate the same pseudorandom values...\nrand = randu.factory({\n    'seed': randu.seed\n});\nfor ( i = 0; i < 100; i++ ) {\n    r = rand();\n}\n```\n\n#### randu.seedLength\n\nLength of generator seed.\n\n```javascript\nvar len = randu.seedLength;\n// returns <number>\n```\n\n#### randu.state\n\nWritable property for getting and setting the generator state.\n\n```javascript\nvar r = randu();\n// returns <number>\n\nr = randu();\n// returns <number>\n\n// ...\n\n// Get a copy of the current state:\nvar state = randu.state;\n\nr = randu();\n// returns <number>\n\nr = randu();\n// returns <number>\n\n// Reset the state:\nrandu.state = state;\n\n// Replay the last two pseudorandom numbers:\nr = randu();\n// returns <number>\n\nr = randu();\n// returns <number>\n\n// ...\n```\n\n#### randu.stateLength\n\nLength of generator state.\n\n```javascript\nvar len = randu.stateLength;\n// returns <number>\n```\n\n#### randu.byteLength\n\nSize (in bytes) of generator state.\n\n```javascript\nvar sz = randu.byteLength;\n// returns <number>\n```\n\n#### randu.toJSON()\n\nSerializes the pseudorandom number generator as a JSON object.\n\n```javascript\nvar o = randu.toJSON();\n// returns { 'type': 'PRNG', 'name': '...', 'state': {...}, 'params': [] }\n```\n\n</section>\n\n<!-- /.usage -->\n\n<section class=\"notes\">\n\n## Notes\n\n-   **Warning**: the default underlying source of pseudorandom numbers may **change** in the future. If exact reproducibility is required, either explicitly specify a PRNG via the `name` option or use an underlying PRNG directly.\n-   If PRNG state is \"shared\" (meaning a state array was provided during PRNG creation and **not** copied) and one sets the generator state to a state array having a different length, the PRNG does **not** update the existing shared state and, instead, points to the newly provided state array. In order to synchronize PRNG output according to the new shared state array, the state array for **each** relevant PRNG must be **explicitly** set.\n-   If PRNG state is \"shared\" and one sets the generator state to a state array of the same length, the PRNG state is updated (along with the state of all other PRNGs sharing the PRNG's state array).\n\n</section>\n\n<!-- /.notes -->\n\n<section class=\"examples\">\n\n## Examples\n\n<!-- eslint no-undef: \"error\" -->\n\n```javascript\nvar randu = require( '@stdlib/random-base-randu' );\n\nvar seed;\nvar rand;\nvar i;\n\n// Generate pseudorandom numbers...\nfor ( i = 0; i < 100; i++ ) {\n    console.log( randu() );\n}\n\n// Create a new pseudorandom number generator...\nseed = 1234;\nrand = randu.factory({\n    'seed': seed\n});\nfor ( i = 0; i < 100; i++ ) {\n    console.log( rand() );\n}\n\n// Create another pseudorandom number generator using a previous seed...\nrand = randu.factory({\n    'seed': randu.seed\n});\nfor ( i = 0; i < 100; i++ ) {\n    console.log( rand() );\n}\n```\n\n</section>\n\n<!-- /.examples -->\n\n<!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->\n\n<section class=\"related\">\n\n* * *\n\n## See Also\n\n-   <span class=\"package-name\">[`@stdlib/random-array/randu`][@stdlib/random/array/randu]</span><span class=\"delimiter\">: </span><span class=\"description\">create an array containing uniformly distributed pseudorandom numbers between 0 and 1.</span>\n-   <span class=\"package-name\">[`@stdlib/random-iter/randu`][@stdlib/random/iter/randu]</span><span class=\"delimiter\">: </span><span class=\"description\">create an iterator for generating uniformly distributed pseudorandom numbers between 0 and 1.</span>\n-   <span class=\"package-name\">[`@stdlib/random-streams/randu`][@stdlib/random/streams/randu]</span><span class=\"delimiter\">: </span><span class=\"description\">create a readable stream for generating uniformly distributed pseudorandom numbers between 0 and 1.</span>\n-   <span class=\"package-name\">[`@stdlib/random-base/discrete-uniform`][@stdlib/random/base/discrete-uniform]</span><span class=\"delimiter\">: </span><span class=\"description\">discrete uniform distributed pseudorandom numbers.</span>\n-   <span class=\"package-name\">[`@stdlib/random-base/randn`][@stdlib/random/base/randn]</span><span class=\"delimiter\">: </span><span class=\"description\">standard normal pseudorandom numbers.</span>\n\n</section>\n\n<!-- /.related -->\n\n<!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->\n\n\n<section class=\"main-repo\" >\n\n* * *\n\n## Notice\n\nThis package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.\n\nFor more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].\n\n#### Community\n\n[![Chat][chat-image]][chat-url]\n\n---\n\n## License\n\nSee [LICENSE][stdlib-license].\n\n\n## Copyright\n\nCopyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].\n\n</section>\n\n<!-- /.stdlib -->\n\n<!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->\n\n<section class=\"links\">\n\n[npm-image]: http://img.shields.io/npm/v/@stdlib/random-base-randu.svg\n[npm-url]: https://npmjs.org/package/@stdlib/random-base-randu\n\n[test-image]: https://github.com/stdlib-js/random-base-randu/actions/workflows/test.yml/badge.svg?branch=v0.2.1\n[test-url]: https://github.com/stdlib-js/random-base-randu/actions/workflows/test.yml?query=branch:v0.2.1\n\n[coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/random-base-randu/main.svg\n[coverage-url]: https://codecov.io/github/stdlib-js/random-base-randu?branch=main\n\n<!--\n\n[dependencies-image]: https://img.shields.io/david/stdlib-js/random-base-randu.svg\n[dependencies-url]: https://david-dm.org/stdlib-js/random-base-randu/main\n\n-->\n\n[chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg\n[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im\n\n[stdlib]: https://github.com/stdlib-js/stdlib\n\n[stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors\n\n[umd]: https://github.com/umdjs/umd\n[es-module]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules\n\n[deno-url]: https://github.com/stdlib-js/random-base-randu/tree/deno\n[deno-readme]: https://github.com/stdlib-js/random-base-randu/blob/deno/README.md\n[umd-url]: https://github.com/stdlib-js/random-base-randu/tree/umd\n[umd-readme]: https://github.com/stdlib-js/random-base-randu/blob/umd/README.md\n[esm-url]: https://github.com/stdlib-js/random-base-randu/tree/esm\n[esm-readme]: https://github.com/stdlib-js/random-base-randu/blob/esm/README.md\n[branches-url]: https://github.com/stdlib-js/random-base-randu/blob/main/branches.md\n\n[stdlib-license]: https://raw.githubusercontent.com/stdlib-js/random-base-randu/main/LICENSE\n\n[@stdlib/random/base/mt19937]: https://www.npmjs.com/package/@stdlib/random-base-mt19937\n\n[@stdlib/random/base/minstd]: https://www.npmjs.com/package/@stdlib/random-base-minstd\n\n[@stdlib/random/base/minstd-shuffle]: https://www.npmjs.com/package/@stdlib/random-base-minstd-shuffle\n\n<!-- <related-links> -->\n\n[@stdlib/random/array/randu]: https://www.npmjs.com/package/@stdlib/random-array-randu\n\n[@stdlib/random/iter/randu]: https://www.npmjs.com/package/@stdlib/random-iter-randu\n\n[@stdlib/random/streams/randu]: https://www.npmjs.com/package/@stdlib/random-streams-randu\n\n[@stdlib/random/base/discrete-uniform]: https://www.npmjs.com/package/@stdlib/random-base-discrete-uniform\n\n[@stdlib/random/base/randn]: https://www.npmjs.com/package/@stdlib/random-base-randn\n\n<!-- </related-links> -->\n\n</section>\n\n<!-- /.links -->\n",
+  "readmeFilename": "README.md"
+}

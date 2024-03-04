@@ -1,0 +1,2903 @@
+{
+  "_id": "@capacitor/docgen",
+  "_rev": "39-db512ec17dec58eda1f8218379b12359",
+  "name": "@capacitor/docgen",
+  "dist-tags": {
+    "latest": "0.2.2"
+  },
+  "versions": {
+    "0.0.1": {
+      "name": "@capacitor/docgen",
+      "version": "0.0.1",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor"
+      ],
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "clean": "rimraf -rf dist",
+        "build": "npm run clean && tsc",
+        "release": "npm run build && npm run test && np --no-2fa",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/fixtures/README.md --output-json src/test/fixtures/docs.json"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "colorette": "^1.2.1",
+        "github-slugger": "^1.3.0",
+        "minimist": "^1.2.5",
+        "typescript": "^4.0.3"
+      },
+      "devDependencies": {
+        "@ionic/prettier-config": "^1.0.0",
+        "@stencil/core": "^2.0.3",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.14",
+        "@types/minimist": "^1.2.0",
+        "jest": "^26.4.2",
+        "np": "^6.5.0",
+        "prettier": "^2.1.2",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "gitHead": "7a8cc8776e038ad367b4468a6d7dd93f019fed43",
+      "_id": "@capacitor/docgen@0.0.1",
+      "_nodeVersion": "14.5.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-BVtepwgSGlM0gTd2bfe4rQzd7Lx4AL8/hbt54ZgAPzdvj6t7fc3Zwn9uWfjRaw3Nb19wddzJVSWCU3hrctcxaA==",
+        "shasum": "0f883d0279ca82ab527879ef58f89f1064c5803f",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.0.1.tgz",
+        "fileCount": 18,
+        "unpackedSize": 34649,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfdOT9CRA9TVsSAnZWagAAggwP/1wJZ4frzvg1HfdikXjq\nwvYf3zBlEmqn3uL8Uum3PGyWqYciV1sSNZ10sY+ePmaOgJQwEqKHmA3M2p8F\nR4aDMRiTgVzqpGf8HnWr1eP2PUtgHOIZrBIwqlLNqbNpn4IrWFSw+9IocBTx\n6Xhwqv7EtXtE01CPmcazv2zD1ZMN5DDIYa0mSJbRTgCWynPb5ilYV7Qg1UK1\nG4XWMXF2ykgMMGL765ab7i71TjIREj+YdTWwEkvfVzS6RSURSy1CDakW0Dzp\n/oF6bJdBWd/tTN9HP0TZzzsqMg4z72SCYd4CsC/n3V8hvPU3xjMyiao5E8iD\nJstfY8vZ26QwHuFDXtC5chRAhJYADgZQyEKHLsJ6XlM4xIfvQvrapTl8uPPl\nV5l6adIC9FyjfgvGHxOutreuJqHYArRQlU6aaP4fKyuXby/TvKJ9soZbRAsx\noJUXaxWF3cpHh6Rj+e50ekTATkDxXapr7l/3q6oZlMN0+vPegTgs/DxfYWoA\nuK7Whg/Q+v03+nSg/6PMOB/Cv2D8Wase0wCFBlpLundWO8T1OafEhPm8KgR1\nYaTX5sST6tL2p+tsPIlWxdNGrIV25jFY8n4xF8Z3U22ij/zBIlGDyXg+QpfI\n4BxUXVvquj/6qzbRBdWS0mq3WGEIqvJj8Tqxo4XDe/DSv443+rCxS8r8OOYt\n25RJ\r\n=rBBQ\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDkV+2eSTxvjIimG5VJFMf92aWGDW9CrWvTgAjC/+DbigIgb8Qj0ssHzoNSW8TOOyEQmCbYtdoEp8c7eTsw48Q9gIg="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "dwieeb",
+          "email": "dwieeb@gmail.com"
+        },
+        {
+          "name": "ionicjs",
+          "email": "hi@ionicframework.com"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "adamdbradley",
+          "email": "hi+adam@ionicframework.com"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "adamdbradley",
+        "email": "hi+adam@ionicframework.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.0.1_1601496317028_0.5446615937603865"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.2": {
+      "name": "@capacitor/docgen",
+      "version": "0.0.2",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "clean": "rimraf -rf dist",
+        "build": "npm run clean && tsc",
+        "release": "npm run build && np --no-2fa",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/fixtures/README.md --output-json src/test/fixtures/docs.json"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "colorette": "^1.2.1",
+        "github-slugger": "^1.3.0",
+        "minimist": "^1.2.5",
+        "typescript": "^4.0.3"
+      },
+      "devDependencies": {
+        "@ionic/prettier-config": "^1.0.0",
+        "@stencil/core": "^2.0.3",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.14",
+        "@types/minimist": "^1.2.0",
+        "jest": "^26.4.2",
+        "np": "^6.5.0",
+        "prettier": "^2.1.2",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "77c40e7ecd6e9b9a77fab0e5f4617e0c5ddb2f5d",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.0.2",
+      "_nodeVersion": "14.5.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-3TmF4DJWsMteQ8CLP5fuARy+mVHPghtauhyEbIA3CvWCUkjf2Oq4rCC6smpUEtWIrW5TcOgoZRluBTaQqTLMYQ==",
+        "shasum": "259d5d17ab6da61fe4c751ee8398647751bf296f",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.0.2.tgz",
+        "fileCount": 19,
+        "unpackedSize": 35363,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfdOlaCRA9TVsSAnZWagAAhfMQAIF6T7hFhnzi6d8LKe85\nsNj7Obopm6u/NT6v87hUA/nb6RUbROQQ2gWuaXWkgeAMOQH/01vO5RuEzE1K\nwXU/Kka6AVz1+FoC3prq0V/6eWAx68MEoN2hP/GLEYlAP0PN1NzewRI6Wggn\nhwTUVrf6HSqYGzxKYLo5BGR8UcbScPluuza2i4YOZKo9AfG+RHyi4IfySeH7\nY42wn6hnuEagUC5+HnNmwPbTtDfiv7Nhnfv+R/K4lOwhuo7nmpFoTCSI7tZ0\n6yEl//DCIJzsjPiupKASdqjMQsnOtxk/vlSpYlD36Vq0Vkz3Npr1TPRSIHgt\n8NmktpnTdxtzpqaw6vB411WIr15UjV8NNbbFM6Dw55DFilg83K+WwnLQzuSz\nBOhIzHni3T9KO+4K2vNuxWd4/KbZ4wdd4LUODM/z2JVtAL5bYoVCwflIQkrT\nfl9OtMIHCAT5Mt9zNl88ivYULkfwWYnxLJlfGEB5GNTJk3KxJKuiWt5sGG6+\nLS5Ae/ozfSzV8sscen0KZJh5uLpseiPTtmOHeQUOW640wGI4rS5Q/G5u6zBX\nRtBZuu0oLDG9MZZ0Ci7A6F7RaS2f+oJAOwaChmR67TZ/1fiUUpEsccfTMGhO\nnDt5TNbAj1JTMElSaMXbFDE+5Zkp/H61eQrHnTtRJ1wuv/8nzvLYI8r1fPua\njc1E\r\n=qavf\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQD2MqnttJ+tWdIYWK7DGNjvgblNml7Y2jdMcWrP+ZRBQgIhAODcqDqrN/nrswPSAyO/Pl/onrLg23JU9D+Hc0bW1HOW"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "dwieeb",
+          "email": "dwieeb@gmail.com"
+        },
+        {
+          "name": "ionicjs",
+          "email": "hi@ionicframework.com"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "adamdbradley",
+          "email": "hi+adam@ionicframework.com"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "adamdbradley",
+        "email": "hi+adam@ionicframework.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.0.2_1601497433948_0.6556711019609249"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.3": {
+      "name": "@capacitor/docgen",
+      "version": "0.0.3",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "clean": "rimraf -rf dist",
+        "build": "npm run clean && tsc",
+        "release": "npm run build && np --no-2fa",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/README.md --output-json src/test/docs.json"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "colorette": "^1.2.1",
+        "github-slugger": "^1.3.0",
+        "minimist": "^1.2.5",
+        "typescript": "^4.0.3"
+      },
+      "devDependencies": {
+        "@ionic/prettier-config": "^1.0.0",
+        "@stencil/core": "^2.0.3",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.14",
+        "@types/minimist": "^1.2.0",
+        "jest": "^26.4.2",
+        "np": "^6.5.0",
+        "prettier": "^2.1.2",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "32867918ed4bafbd10e8a01281f16849bec6f5eb",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.0.3",
+      "_nodeVersion": "14.5.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-hQ+cpAtYaVqGN+HG58TOk1pqMUpueWpu7EtDiAv/ZMuhFShhz/vAiqbJHx2j8OO++Jtg7n9Ki+Ud/QnMaLz9gw==",
+        "shasum": "6891bd75af60b78c94a53c438173c02326a2b946",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.0.3.tgz",
+        "fileCount": 19,
+        "unpackedSize": 38083,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfdaylCRA9TVsSAnZWagAANFgP/0YOUsPSPRC6jb8IM/bA\nTSgH1JEW7EdyVpC9Fl5A0ol/T05Ze5SxaaHYvHy7cXVVB3M1aQrgcl3DqmU/\neSHd5xVMrri3/E7e1kz1aFh8uG88RC0Nj9Jhb+7g4ZugELURcC/zhZIbiDSw\nbW4FcWzaOBB6FI2+6iPw1f1pfr/5sS+v49uQSikYTVOuydPF5wFHTzNbqL7a\n+NIDKv/F07tMYuHT1BBSEZp4V5D2Rqld1QxPc4gZ0b4U9n4+pSKbQGzG0LU8\n1xpDxOrTnV2hLh3OQGA8jUlE9CkcAFB4aZ8yjN6aQqppNyfkN71+MwJV5bcf\n5AHFKm3nW3XM5K84qgG6zB/HOFZLC4Og37QWkN1pfxolkw0smMjSjVERCptk\n4lVFt7vfs2Lo36OCWBnLhXin6bCM6IIXHIaB6dY83Ky9REuZd97irsr76nur\nEHeWl+Cw4cjwkFZ1XILdGJe3KZ9qKIaULSAew1Ax1M3aV2h1MZ+S9i9s+QjX\noW47t4dk6wjPEOFqNvlu78CAXJpoJ3R+H0mYqOyIOB3U7cUZMQjLekxvNwUj\nqMfe8Sn/UmmFGFRBMG/NMSJLA+KKIt8l5YX9cEeFhH+u7h5migeCeV6RToiF\nyH/pWpUEwsep++A5pfOotpW7E/keVRyrfuCGAcAZYPEVHh+xqPVM7C30j1zl\nwgvc\r\n=ocRj\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDY/iKpe/sEnNkgNz/LZTJudcu6/7SrGD7vzojVlUOkSQIhAN9rtomk4N/wxm07Qg2HsL9U/X8vW57IrHoz9DHu+WOV"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "dwieeb",
+          "email": "dwieeb@gmail.com"
+        },
+        {
+          "name": "ionicjs",
+          "email": "hi@ionicframework.com"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "adamdbradley",
+          "email": "hi+adam@ionicframework.com"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "adamdbradley",
+        "email": "hi+adam@ionicframework.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.0.3_1601547428492_0.5212573716829256"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.4": {
+      "name": "@capacitor/docgen",
+      "version": "0.0.4",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "clean": "rimraf -rf dist",
+        "build": "npm run clean && tsc",
+        "release": "npm run build && np --no-2fa",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/README.md --output-json src/test/docs.json"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "colorette": "^1.2.1",
+        "github-slugger": "^1.3.0",
+        "minimist": "^1.2.5",
+        "typescript": "^4.0.3"
+      },
+      "devDependencies": {
+        "@ionic/prettier-config": "^1.0.0",
+        "@stencil/core": "^2.0.3",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.14",
+        "@types/minimist": "^1.2.0",
+        "jest": "^26.4.2",
+        "np": "^6.5.0",
+        "prettier": "^2.1.2",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "1e4599fe94a82093c9e5af683cbcb305a69caf53",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.0.4",
+      "_nodeVersion": "14.5.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-MAWfeNSg222YQaVYnOF3SiGiBznrK3TlnFFV0Z0RuwOwmPVQ4JC7zZffSWFeuvk/FeyvPLDtYV+UvKkUnJpPgQ==",
+        "shasum": "16df983af3b2962e57ead5ea3bd2bdeb5f2ebfa8",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.0.4.tgz",
+        "fileCount": 19,
+        "unpackedSize": 38133,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfd4XUCRA9TVsSAnZWagAASa0P/2+EE0yteUlrqDGtD1uX\nzJGK9hDnKqtoNlQ6VFk5ouqvyukQmkEbD29f+NZVsImk5I9UnXM11gZQtxqz\nYbiiGhQwCF+PfnWIZUuwLJouPbo2nSu2izlBCFTwCpP3q2YZS0xGncvn4ix/\ngl75h0MX598UKeEyqJSbhN5eZNv5FdgEbQUidzz8B6VSPK6gMa1ByjEH1mR5\n6RM8kTki3CbvIfAcpsCYrHnWe617scjfXOP8OIoFm9oLYPU3ftH9LvyARV+7\nOuHHwrmCuCA/murhYtwtJW4JTFros8oycBMGEVjDX5nZ3/Xa8JIy6Fhxx7WF\nCOtI3c8BO9W41MfP5A4bN+zv8+SOEGUDUgRPJJHTpNIIr46/ehKljw6ptfjH\n5AnPVqWYh6a6pA8Kn0yB3ZMUWlAgwLWtLkUP/wVyLjSO/yeczxiJOTop1Uaa\nh3Tbi/HxA+vW7TDzkIpoB/EAmwnnswL60XaB+yXV34Ywgdh8H1zF5zPvR6ZA\nX/elLJrd56tt0GzleBFjjoQoaDqmfrioH5/jCYjJBeTBlnBkLaA1hjO2jIo1\n57uqZgnig9V8uYesKx6Dw4ub7QOOdKYQwcKQ5sa1K1MOzKouMCEYeu28wp7F\nhvjaziexhSS6LrQxEKbOnCnOkSRfQdGxpelgVcmPoe1T98Qvu76iQ9ZG+soP\n5GNp\r\n=763M\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDBYsv2xsBQ/jd0okaFsBCMftN7i5ya8fmvF1r2TNIlCQIgS0XVvYW/aQwSyLkMY3QEIcs4fqqYTtuycFqDEy6FDZQ="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "dwieeb",
+          "email": "dwieeb@gmail.com"
+        },
+        {
+          "name": "ionicjs",
+          "email": "hi@ionicframework.com"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "adamdbradley",
+          "email": "hi+adam@ionicframework.com"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "adamdbradley",
+        "email": "hi+adam@ionicframework.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.0.4_1601668563654_0.22600316646885132"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.5": {
+      "name": "@capacitor/docgen",
+      "version": "0.0.5",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "clean": "rimraf -rf dist",
+        "build": "npm run clean && tsc",
+        "watch": "tsc -w",
+        "release": "np --no-2fa",
+        "version": "npm run build",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/README.md --output-json src/test/docs.json"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "colorette": "^1.2.1",
+        "github-slugger": "^1.3.0",
+        "minimist": "^1.2.5",
+        "typescript": "^4.0.3"
+      },
+      "devDependencies": {
+        "@ionic/prettier-config": "^1.0.0",
+        "@stencil/core": "^2.0.3",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.14",
+        "@types/minimist": "^1.2.0",
+        "jest": "^26.4.2",
+        "np": "^6.5.0",
+        "prettier": "^2.1.2",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "fdb95298a628d3f4bb257a546f3b71936ad4c22c",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.0.5",
+      "_nodeVersion": "14.11.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-A6CS436K12GvnrMsxBN0O0yIppfgli8eyiswh7iDadogUbVzN5YGIcOqdQgDDPGnqhPaeOlmDOrUZ0fDkDAu3w==",
+        "shasum": "a22756b1692133439d02a0bf8e6f2f9a43b2f343",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.0.5.tgz",
+        "fileCount": 19,
+        "unpackedSize": 38388,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfhJmxCRA9TVsSAnZWagAA/OAP/2tO35OvtggrZexVNevP\noBOJZZEeG+pj8ZdYgmk9YcoC78jkgOLYb1iNzVGz1CWrOmHkuiB1iIewz1lQ\n8Brfhd77lKTpKIB04xos6x4YuX2yEvwhhbzpV5l8DqUGsOtmjqta/4JBjUIh\nKeID6MAnj0UrwQBt/crXDrv4iB0Huy0bM1x0tWDUYb9KUbLjrPDicYb5DXMd\nU+Afe5+rQnkAIUQn0c1hSOQTss07a1GYfaadSHRlr4fUIK5fIriWo3B/ZZN4\n+3Nr10VrRIZp+UYLBh6fWpfTsIovLOQU5XmS/gFYVuRGujImz2D4euAnjgEf\n9noe5yeqgNEz4FPsC952woWwVwZSGYk7yZItzFzSJX3r3swZLm6b+wE/5w5G\nZXTMZLUdtv1RXlk19ZgpuM44p0OUZT6PmBSKn7nfrpBlXirZcx0LqJ1V20SD\np7RN5n3FUwrtWQNAQou47L3ViLdPs8eycs74aKUGZgg0SCFqOIUAOsiNPQLb\nc4xLZsXhhp7uiPGnfgoVplGEsVeFx1eZ7WzPw8yqOVkKqC+a6FR3hESmNQKD\nIbwTNcdKYjf0evPUPAGGLcTbLilCjlzP5m7t9rdJ9gIRBRGK+pu7Jzw/00e/\nV43L18w0OREi1nePNBXAIzAJK+tOPH9Ad0VKszSGBoI4+c3hWWLIvWRtvSMQ\nlX/i\r\n=NdsC\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC5V17pV7KpWDvSWYgY0JHbQ8BRDUEUpMIvd0U/FZukuAIgUPjvBKWDyzVfvu6DOyaQEW6TvcqK05lbILEYwFA4Yxk="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "dwieeb",
+          "email": "dwieeb@gmail.com"
+        },
+        {
+          "name": "ionicjs",
+          "email": "hi@ionicframework.com"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "adamdbradley",
+          "email": "hi+adam@ionicframework.com"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "dwieeb",
+        "email": "dwieeb@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.0.5_1602525616536_0.5727045922221394"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.6": {
+      "name": "@capacitor/docgen",
+      "version": "0.0.6",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "clean": "rimraf -rf dist",
+        "build": "npm run clean && tsc",
+        "watch": "tsc -w",
+        "release": "np --no-2fa",
+        "version": "npm run build",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/README.md --output-json src/test/docs.json"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "colorette": "^1.2.1",
+        "github-slugger": "^1.3.0",
+        "minimist": "^1.2.5",
+        "typescript": "^4.0.3"
+      },
+      "devDependencies": {
+        "@ionic/prettier-config": "^1.0.0",
+        "@stencil/core": "^2.0.3",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.14",
+        "@types/minimist": "^1.2.0",
+        "jest": "^26.4.2",
+        "np": "^6.5.0",
+        "prettier": "^2.1.2",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "aec46cc3f8db8603762ee708b28af903c7350937",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.0.6",
+      "_nodeVersion": "14.11.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-uozQgvtAPsT0cT1wFWlsk85HmQoKSuGa65EpSlN/8WOBS9uvXEuUewyXtPI8FLjkN6u30ejWti0jufMvqUGKjg==",
+        "shasum": "ab13b55030938ac9b1ebbcf00d3d56d9d99c1a52",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.0.6.tgz",
+        "fileCount": 19,
+        "unpackedSize": 38516,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfhM+FCRA9TVsSAnZWagAA0Y8P/3C1ho1/LTMYpiEmJQLg\n6Q1yaee+04RJpPwIte6SNiAAmvJPNII/wOPG+rUGIpLtxQjAysM3u8PHN7U7\nxT5pnLHWW6BLKSqqh3YvbBp/UrS7yndRQxPZZXPbrliviIYy47m+ps3msqMw\nsapPRtI4hPREkS5J8F85hTzdk6+GnyB2/jamTLEtAiy8Rzhwb0sdb3BTlwIe\niDjObCuE5GJ8qP0hLPX4RCCKL3O122CtfRj4CckCS7mwuP2oltYfDvKP/LrE\nnyIZfFUQ0+zoRqbxXRZBhpZNuw1yPDgM+5uklMyuVTO5tHXrVditA+aNWxCZ\ncSjAcw9nbDocqQvoyHFILdai8ma5bg1NymB996XwJhrTrVc53VDnRKRSn0V4\nzvz9jXNvHPBJouhXDphIIpIOUBdjSHcElAUt3aLQXL2uGuoz4R0v1GIMJmuU\nY3ukpkJaeKUxjt2qRtGt35W4QR0wI/+DCrEH/mOHzuSBc3zavbPHS1POKBqW\nyXSGbajpfwoZ6oP2KihrPwZSwilFgFznqBvb4PuZuNHkr49A6uqnRJhBkYMh\nwXW9yq7BdDJW8lUBEv/UQHoPIsaK7p2pM0btuuPtmLlSkj3tBdd+G0IeKoqQ\nObfsbI5UnyV/vp3YB8TJbkJtGf6iVNBmI0kx40/L6AkgCTlADLins0XHjtj4\noj+l\r\n=RCvk\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDZTU5ictzJ565W32QVyJaa2MWC9BmXsPKOg6M1BwhPTAIhANVgZ9i8c8Mlfj1c2Evi47a1/g82m0c7zCzxOlOKRxBU"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "dwieeb",
+          "email": "dwieeb@gmail.com"
+        },
+        {
+          "name": "ionicjs",
+          "email": "hi@ionicframework.com"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "adamdbradley",
+          "email": "hi+adam@ionicframework.com"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "dwieeb",
+        "email": "dwieeb@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.0.6_1602539397126_0.9127308131512717"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.7": {
+      "name": "@capacitor/docgen",
+      "version": "0.0.7",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "clean": "rimraf -rf dist",
+        "build": "npm run clean && tsc",
+        "watch": "tsc -w",
+        "release": "np --no-2fa",
+        "version": "npm run build",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/README.md --output-json src/test/docs.json"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "colorette": "^1.2.1",
+        "github-slugger": "^1.3.0",
+        "minimist": "^1.2.5",
+        "typescript": "^4.0.3"
+      },
+      "devDependencies": {
+        "@ionic/prettier-config": "^1.0.0",
+        "@stencil/core": "^2.0.3",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.14",
+        "@types/minimist": "^1.2.0",
+        "jest": "^26.4.2",
+        "np": "^6.5.0",
+        "prettier": "^2.1.2",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "3db9316a22a6fd504cd647bc6bbbed0775d3df8b",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.0.7",
+      "_nodeVersion": "14.13.1",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-npQ6KQba8QxSZzD4Vn0AtakAX4GMXmfVrXLPTDmQyPhXawDkc9ZwonTNPfuX0EN8VN0aE2NBYT1SpOn/qO6IqA==",
+        "shasum": "df69665afae2b16b4b10ac7b872c04f902efa4d6",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.0.7.tgz",
+        "fileCount": 19,
+        "unpackedSize": 38520,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfhel0CRA9TVsSAnZWagAAt/QP/3JumbSfZQ0EW9kGLCU1\nCTtGuBk3q2GnD+8LqDIWz2DzMBEOeO7M4hFSmxDe+IlL8T1q1/o2dcKOkY17\ny84rolRVgyNu0qEZa57POXXJsZ7NYUb9Zm0pE2LWePyVjxtcuYumahUfjzdX\n1MB4u+2cblhJiXTbTFnKNBy1bcrCkXEEjCfLDdAJr/i5Fru8hL+jMK3922dP\nR8KkMAaIq8hJc839FP2YX7G+QbGYZOTjTl1rPZawynefPdhI7/V0NGXawXFz\n8W6Cqqqe9Hm+qX43/3pYmMHLwMvxj7m19tKc13szf/rSCopyK8QH4EdKFdh3\nMbWW7XZqwhP3MUIIUVw2el9MCvUPtWFwSI6ybng3RYbdL6z/87UR2wVDaYXX\nKJ1EyQi6EbwBzrhVYxR8oF1trO6Qs3ueOvGREYg7jDtwdRXo7K7tPFSt1dp2\n7576djc7GMc1V1yU1OvGGhHidjSXGlaJS6cN9+0tb4CvgoBcIVXZtF/DTa+7\nXl0MsRYwD2Mykg5BvUqshRop06tI8pspJRaYJDqbXGUKAbNWr1IB6/c1NkNl\nNsqdKwnoeG1ZniDIbXOgHqI+oSOeL5+9Z8Z5x3qKq5+Du9LFVD0gVGASJ56B\nryELbk7+9XX7nS6vFuSKfgb7+/MZZRB/we4T+y5BTtB2dS6QpmbJ4INh7Mrq\nD424\r\n=GHbq\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGRxBcWc6rY9sh1pgI6EszrRLSY8XjbXzZ4za8SCW/cBAiBQ8Rjz91DwbmZAuv5vR/IxdYjVX3rWD4B7YL3PLyqsdQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "dwieeb",
+          "email": "dwieeb@gmail.com"
+        },
+        {
+          "name": "ionicjs",
+          "email": "hi@ionicframework.com"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "adamdbradley",
+          "email": "hi+adam@ionicframework.com"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "dwieeb",
+        "email": "dwieeb@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.0.7_1602611572217_0.3883499297022579"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.8": {
+      "name": "@capacitor/docgen",
+      "version": "0.0.8",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "clean": "rimraf -rf dist",
+        "build": "npm run clean && tsc",
+        "watch": "tsc -w",
+        "release": "np --no-2fa",
+        "version": "npm run build",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/README.md --output-json src/test/docs.json"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "colorette": "^1.2.1",
+        "github-slugger": "^1.3.0",
+        "minimist": "^1.2.5",
+        "typescript": "^4.0.3"
+      },
+      "devDependencies": {
+        "@ionic/prettier-config": "^1.0.0",
+        "@stencil/core": "^2.0.3",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.14",
+        "@types/minimist": "^1.2.0",
+        "jest": "^26.4.2",
+        "np": "^6.5.0",
+        "prettier": "^2.1.2",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "add1a122c3cbb2185840dfbb85f5c829a6593341",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.0.8",
+      "_nodeVersion": "14.5.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-hbxI93eqtJP1DY1qr3TuicRCLEjayH2kNQ5Kn+wPxmIO8xOsn6FTytqsoapireGVR+nWpdu2PScO1pbyNOcflQ==",
+        "shasum": "7b7c208b3ca6c20302f678ecae220435918537ac",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.0.8.tgz",
+        "fileCount": 19,
+        "unpackedSize": 38636,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfhh8YCRA9TVsSAnZWagAAVYkP/2wSpDRCg5CgmI/lfhdb\nZKFht8PWgRjU7wm0ITL0gmOViSvTH6NV0FN3UB5KlPSN4N9HFIJw+Ekf5EgD\nuf7t4kpaqzQ1BZcmTtZv+6DAIJKADDaHMCKs3+fPpezCeBOPB61Co44yzVqm\nHIxQ2RdJwDcLKGCm69N8ktUTRe+fyapTIOgI/1LLDmFRXLwj6yM6qdWuNCCU\nWuvNbSI/iCLuOX2t30pC7z65hWGzxzZlsg687PNBmd21XHFhHcF9EuSEwbqA\nICOnuFjvqGXuEoy4VdnDCh++VrbXYDb/oyrC+dkHUjFjVX9M+USRoK2/EXm1\n7muzsuJthnM1NW2NJsftLdVlw5cNUr07YJLVZeBe/5G1l2G2NapvVYbxG46A\nxwn/84AIrG58TG1nF3cMkXQqptqc8GHvF+2kbUTETRbbc9ZAGxymhqfPbwOR\nRe0z8Y/aCWyfu9Ntq7JvgprXseN5pGUiR4qoM6zF4aYZtuMTgSecTNLC9VeN\n3wDsKLBThaCK/BQT0+ZGaUREZKYAx2n1dRgq4zNlktOfPv4+e94YBaCzfZJr\nzPEeB8DuXuO7GCr4b82f0s3Yw260zFJkkXOI+BIb1dBl2mEr0FvDTGjwvy6f\nbnEZoGZSPqK+h4csBepzglkEatqwF7+2uvFt8GZScniOkhiAvfNiGdtatnEj\nKkAO\r\n=S0Ea\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCglbQ+44Oov8JKhy+wyZ1Zc7H61EfvPewIHQTAfp5qPAIhAPIYmzxuSxgM+JM/Qg3ajGi7eRyx6kzeE8jc04EJISAg"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "dwieeb",
+          "email": "dwieeb@gmail.com"
+        },
+        {
+          "name": "ionicjs",
+          "email": "hi@ionicframework.com"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "adamdbradley",
+          "email": "hi+adam@ionicframework.com"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "adamdbradley",
+        "email": "hi+adam@ionicframework.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.0.8_1602625303875_0.29965953745022467"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.9": {
+      "name": "@capacitor/docgen",
+      "version": "0.0.9",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "clean": "rimraf -rf dist",
+        "build": "npm run clean && tsc",
+        "watch": "tsc -w",
+        "release": "np --no-2fa",
+        "version": "npm run build",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/README.md --output-json src/test/docs.json"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "colorette": "^1.2.1",
+        "github-slugger": "^1.3.0",
+        "minimist": "^1.2.5",
+        "typescript": "^4.0.3"
+      },
+      "devDependencies": {
+        "@ionic/prettier-config": "^1.0.0",
+        "@stencil/core": "^2.1.0-5",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.14",
+        "@types/minimist": "^1.2.0",
+        "jest": "^26.6.0",
+        "np": "^6.5.0",
+        "prettier": "^2.1.2",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "2f7e34053a094f6e45c7fadfec6c20e6978036d5",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.0.9",
+      "_nodeVersion": "14.5.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-sJdtIjcvsKIs37rYrxTIFUoGK/DZyAWi+mLbBw+B79VuE9Vjw1ALIB5v1eR0mRaGDQB1mJMyxNGnXG6RX+HLNw==",
+        "shasum": "a19863a2fce9a26bc0bf36e3083e7aa67b951c7c",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.0.9.tgz",
+        "fileCount": 19,
+        "unpackedSize": 39194,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfjlRHCRA9TVsSAnZWagAAeL8P/0oyojOAYaQpQJf2MKPk\n5iuburjReLWsPLMnKNlld0ThVsk9+RUn7gr2Uc+KhF4YmzsAUv+slvbugxYw\nnE6QB2wIbQtAIYChHWuVqf7m28OOxtRPAw63OQ/X0132RyngHoGGbE73qZzt\nn00dujdGiqb0gR4VY/kR3YmwdRqtUAY5FVms/1bYdO22UqjFLo7+P0YKJJR6\nG44P3tUI8l9JIuRjM/F2MnBgY2Xz7RAQohLlXuPm386edAo9CWIZ1ms4lyD6\n/9JptU8ZNkixPXHcvv1BrEb4UNe86v+CcNKmgvqmWtc4JiFWpt5V9YNv0D9N\ntyuqng6/sA7XzjLMHPKjybgxhzfYMQlH25Wi4jLVoC5365AjvkCzzcu6kZkb\nfFVlD1lKBJ2owiCWmqQv/wyvhos5VVwnI0N5ACagnGsTOCONf86mbYm+SibR\nhZUXqPyKtO+ReVZ6o9Rl6a5AVR1fz+5LRd0CuMGTbAWNBcKoNItxS/x/CQmt\nMHff574OCDjnFavbIo+WdvwEhv1jmpsxwl30Sj1DaCuDGN7ubVfxgP6ACTT3\nTqPZQf6Y192flK7c6U3fa+uRn364rFlhhO/Pjy/GcV9gR+D/sSmo9aDVULqM\nVKgAsHSxtbqBeztIOA78OoAPoXvEug6CvWcU4PkrIHWUfpc88Sv+w9wgy1ne\nJZVg\r\n=HfzM\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDYXkVePFcYMNWwlAUEUCn4q7QNJyIQ67k3Qb8ReFXKgQIhAOdTff8A2cxFZo5PzVQ07m6LEz/vl75ENWk9XZXhZwTW"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "dwieeb",
+          "email": "dwieeb@gmail.com"
+        },
+        {
+          "name": "ionicjs",
+          "email": "hi@ionicframework.com"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "adamdbradley",
+          "email": "hi+adam@ionicframework.com"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "adamdbradley",
+        "email": "hi+adam@ionicframework.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.0.9_1603163206967_0.7641022448301056"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.10": {
+      "name": "@capacitor/docgen",
+      "version": "0.0.10",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "clean": "rimraf -rf dist",
+        "build": "npm run clean && tsc",
+        "watch": "tsc -w",
+        "release": "np --no-2fa",
+        "version": "npm run build",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/README.md --output-json src/test/docs.json"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "colorette": "^1.2.1",
+        "github-slugger": "^1.3.0",
+        "minimist": "^1.2.5",
+        "typescript": "^4.0.3"
+      },
+      "devDependencies": {
+        "@ionic/prettier-config": "^1.0.0",
+        "@stencil/core": "^2.1.0-5",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.14",
+        "@types/minimist": "^1.2.0",
+        "jest": "^26.6.0",
+        "np": "^6.5.0",
+        "prettier": "^2.1.2",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "6b4171a9f9ee6b9694939a8bfd614f589b3aad12",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.0.10",
+      "_nodeVersion": "14.5.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-zHzWBDiidONOKipn1ZCc1Q8FvnmKDRXBl0NU/haiWXek9WhrhmGhN5Vbm9RK9LXkEKfkdJn6G+eht5wqVrJCsA==",
+        "shasum": "5d69db6862f5d7e3be101651b2fd528a482432ec",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.0.10.tgz",
+        "fileCount": 21,
+        "unpackedSize": 41587,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfkvm8CRA9TVsSAnZWagAAUdsP/0PApm46U1e3B8uznL+D\n8954YctERtFfqnnhoKq2GOaqTm5hwTKbMVh6pWDbYiT6IH1vc/a11IvmjVLr\n/58+ablfvhZX5zhupoY2cmg4QaG5Vne/1PpdI7alJNw9VOG5kJYy12VDh4Ok\nk47N4uFOv/BjmkSmCY3+77Ah3+afQlL2E2Y71nWuAEaQUyes45O+YMYTB+tS\nvg91nVNJ+6tyuez4YGsbU9L2/IagIvT0nw4SeT0Cu4K3eaMtu5zW0rZpzYDd\nA838AH1/Pmp1q5rqMcB3ZM6zg8TlBEpkzQY3Z9WBBknuiSV0FTjn4D3W8kQ3\n8kOkkCn8GBNY0ZIyWLxf5W0ayWR23eauS4IlrHn1x2ckxIjJWA0hTPM1PGhe\nFm7GLLDTuIuugD3aTGk0yxutW3KbZPtVN6fdEFnm0R3e0O2SWkHFIwDfVEpp\nDQhfd+E3HOtch4kERHzFxi/M2i6lGct1hJq7X3b0H+SOeoFcUyo8LCKCoakv\nnVKxfXzJFRaj2d95wrqy3+R4GSfw/IJm9qorAxjweUMYYHKqc3cq8ttOIWs8\nzXB4yUSIak2DKsArQB7S0bEFNX6/d6AU6qef9oabzEInITa9qjQJm8SaDnKh\n6884857EXPJqDM17vhfWjnDgY4CH2o2S9DTzspXwHSjFzz6huxXyhbkyzXz7\nxWNJ\r\n=xq4r\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIC1LBeDZc3c0T7DjJOcELPp/1E0kEzmi2Hgbmp78AifHAiEAsau8+J6EmwtRbGTZhSFa+sPii1nA98vJDRc/5mPBeL4="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "dwieeb",
+          "email": "dwieeb@gmail.com"
+        },
+        {
+          "name": "ionicjs",
+          "email": "hi@ionicframework.com"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "adamdbradley",
+          "email": "hi+adam@ionicframework.com"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "adamdbradley",
+        "email": "hi+adam@ionicframework.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.0.10_1603467707888_0.42993158530052744"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.11": {
+      "name": "@capacitor/docgen",
+      "version": "0.0.11",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "clean": "rimraf -rf dist",
+        "build": "npm run clean && tsc",
+        "watch": "tsc -w",
+        "release": "np --no-2fa",
+        "version": "npm run build",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/README.md --output-json src/test/docs.json"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "colorette": "^1.2.1",
+        "github-slugger": "^1.3.0",
+        "minimist": "^1.2.5",
+        "typescript": "^4.0.3"
+      },
+      "devDependencies": {
+        "@ionic/prettier-config": "^1.0.0",
+        "@stencil/core": "^2.1.0-5",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.14",
+        "@types/minimist": "^1.2.0",
+        "jest": "^26.6.0",
+        "np": "^6.5.0",
+        "prettier": "^2.1.2",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "9c55ea0dd557dc19eb8ad77f3d4e08401134598c",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.0.11",
+      "_nodeVersion": "14.5.0",
+      "_npmVersion": "6.14.9",
+      "dist": {
+        "integrity": "sha512-W2OWyDPQnO1dDDp3NvIuPIXM0hNGMIB+saG5OebBxDXNYuJg/Q/EjSE7YBfkkmDuHI2ALasMTPzyc2d2NZFq9g==",
+        "shasum": "b14782a9275ff53e38c56a97e876f7f9c65d6017",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.0.11.tgz",
+        "fileCount": 21,
+        "unpackedSize": 42306,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJf194yCRA9TVsSAnZWagAAkNkQAI7ASFCU0kBmQOI+57Gq\nRnrLZhpkV6mo71U3en5zCJGA5QzwQcLSN85KyHf84HJGy8wM4e8BPuLr8hl/\nDUKkqrla61qvt8Im85xE63bn+ppEgG8M0lR8smUDByMVYvLN2tcRWq6Ft4mm\nCsCXJ5I/6maP9WMTvcMIMDQijF49g2GsXtY9qnr3yxn5Gcx5sGmbJr6kTMCM\nDAeAyiK5ZTVm9mzE+NahQ6uYH5Hz/huCYZTtSCYpwvncteHvsx+2dI23Etfv\nUUWqHDLI8zr5pYTnuugVuBk9+ExkdOFAmeYv8UrtbdstriEe/755IP9H6Fm+\nqqnm9XdWlMYCXc5WqO0eFa1O+uzT3kUiZIcm2hQtZ8H6tr973GSoCSrJ+QX6\nMAdj8zejTLC9nMXuRy+JKLvoti57rwtcARnZOgD3qybrfhK2w3u3eNs+zgJt\nDheL96AA3knCYoyiUu7nvsS/6VezuirMToi0kwy+BEI//LPbl8PtZ9Il6eKU\njV0TJ17uqdsbu2cssJkrqj3CaOIEpmb/jJDOa/SA8APWqAQ2z1ZFYyAkm1ds\nW5nu68VOxX5gX9khbpy5QHTdu9p/dxyK5YpNspdqfsb4/ZSTOUX3Q3vbrUU4\nlb+j87sXXxkTR36+6st6gp9nR72dhVQLh0nP7SoY+LciIIujYZ/CFkuyXILT\nkIQn\r\n=/cX7\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDeiYcsU42C2wHHWRDeEr0UXPEJgMgBWLD2zbBudHeUkQIgKGKNmLZDjlVXFdux/d7lp4C+Yc1UBYTYdJAGzRM28AA="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "adamdbradley",
+        "email": "hi+adam@ionicframework.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "ionicjs",
+          "email": "hi@ionicframework.com"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "adamdbradley",
+          "email": "hi+adam@ionicframework.com"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        },
+        {
+          "name": "dwieeb",
+          "email": "dwieeb@gmail.com"
+        },
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "nhyatt",
+          "email": "nick@ionic.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.0.11_1607982641570_0.7246046342834931"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.12": {
+      "name": "@capacitor/docgen",
+      "version": "0.0.12",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "clean": "rimraf -rf dist",
+        "build": "npm run clean && tsc",
+        "watch": "tsc -w",
+        "release": "np --no-2fa",
+        "version": "npm run build",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/README.md --output-json src/test/docs.json"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "colorette": "^1.2.1",
+        "github-slugger": "^1.3.0",
+        "minimist": "^1.2.5",
+        "typescript": "^4.0.3"
+      },
+      "devDependencies": {
+        "@ionic/prettier-config": "^1.0.0",
+        "@stencil/core": "^2.1.0-5",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.14",
+        "@types/minimist": "^1.2.0",
+        "jest": "^26.6.0",
+        "np": "^6.5.0",
+        "prettier": "^2.1.2",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "786d7db4ec4414c850e5c45b834268f6ef1c6404",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.0.12",
+      "_nodeVersion": "14.5.0",
+      "_npmVersion": "6.14.9",
+      "dist": {
+        "integrity": "sha512-g8zTaf7h3TdNGZ5IX3+61ZhoVC+bMBv62zL0nc4199uV6uv5bByJbN8r0sWVHvFcFVz2PIgZ3vZuzW6pS0mLGA==",
+        "shasum": "e2708e029c5361ac89a9197f272a7720bffc6427",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.0.12.tgz",
+        "fileCount": 21,
+        "unpackedSize": 46108,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJf2QBmCRA9TVsSAnZWagAAZQYQAKFYmwsN9svYGacCiMIW\nYJs1ESeZL6uvkXBGnAeEul9GV5flszdtJVqnduK+02gN9+ZO1EMLsV7SNzb/\ntgDkPVl5LLXODwE2/Hhakrbz6ff2sB5xqD/VwaI/RW1S/YIa/dol4UiIGzKc\ng1uKDVAgvIOl9bA67sMI8p3J/vQYQGCTcF1t/7tFMeOkDekk8sH84aMGeXu8\n0p1oSkSQ8Pm6z9A0pjIdl4leQHfJmlc7wn6/S6ZpcVcfvsE73XDFrg+/gjsf\nmrLvVIkEf55M66XpcfXY9S2X+GY86ovrzPyrXrWIXIXeYFbSaM5zvG97Fs2z\ncF9ggcuHKqYUCYZQkuRc0OlQaGFO2jkvAxz/RzakvQ77hQWZrhuj0XDkBht/\naKL9Kmf5NLPHz0nzmWYY4cvlhvnwX2gDaI0uDldTsSdcvLTHqh6zL/+DBrGG\nxWEID5QO/OxO+kjRSddFuCD5GbdxnfPyEs4tjgCj97z2kbgtrDtu65pZpYYf\nnQiKneLD/8D0/lbolbbSBPXTc7nRt2cNnAbvF8NONDe8SpWg4jN/v7AN1JZN\n69+ODyB/WjRhsET9iyKtDtzeCU9Z9H5rXSQP3DN/Gi32fF5CYqXZeeJAbr1G\nbqDMu9EHTrBBcSFeM7Wm1nH7+2/iXGZvxgpFQiAHV0PXYVqb1qGngU4vKLpH\nf7+t\r\n=5TcT\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDNbIFm1a9U+SWt6Qe/Jfzq4ewjQwsKnXKJ/okAq3G5TwIgZsv73h6OJrxPhz8evJUZwalJ+vQmjR/S7SgNK7dKl0w="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "adamdbradley",
+        "email": "hi+adam@ionicframework.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "ionicjs",
+          "email": "hi@ionicframework.com"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "adamdbradley",
+          "email": "hi+adam@ionicframework.com"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        },
+        {
+          "name": "dwieeb",
+          "email": "dwieeb@gmail.com"
+        },
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "nhyatt",
+          "email": "nick@ionic.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.0.12_1608056933825_0.7648757529987735"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.13": {
+      "name": "@capacitor/docgen",
+      "version": "0.0.13",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "clean": "rimraf -rf dist",
+        "build": "npm run clean && tsc",
+        "watch": "tsc -w",
+        "release": "np --no-2fa",
+        "version": "npm run build",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/README.md --output-json src/test/docs.json"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "colorette": "^1.2.1",
+        "github-slugger": "^1.3.0",
+        "minimist": "^1.2.5",
+        "typescript": "^4.0.3"
+      },
+      "devDependencies": {
+        "@ionic/prettier-config": "^1.0.0",
+        "@stencil/core": "^2.1.0-5",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.14",
+        "@types/minimist": "^1.2.0",
+        "jest": "^26.6.0",
+        "np": "^6.5.0",
+        "prettier": "^2.1.2",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "d5bb6f3b82a3d316fd3a2de5f8cc1d0cfb8cfb75",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.0.13",
+      "_nodeVersion": "14.5.0",
+      "_npmVersion": "6.14.9",
+      "dist": {
+        "integrity": "sha512-QvhWNjQucStNJ+r5A+5c8BwHjP85WjRtItDiBNLDaL7g9tonfToOq4G4wD9OZEyXCgflSdv3NGlgpjADgf5ZQw==",
+        "shasum": "6c39c56ca1b90ff47ce1b2195fb475c989a005e2",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.0.13.tgz",
+        "fileCount": 21,
+        "unpackedSize": 46244,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJf2QfMCRA9TVsSAnZWagAApL4P/1bDqH0PJQztvJLl7Ayo\nN23SrnPw2Kk1OhGIOALx0u5D5Hd6rhy4goGM+PUlwGWuYvMss6rw7QoUqO8D\njFGSCb0OLkjrCF/y+hVeXh48GUx4768uekgs60xMhjIpfJstEH/E/U4YQmw1\nuNAoFpCnAPOUx7CE5Ec+uwMzZ1NEJaOV0hTEr4k5SJuhzRzV/Lmek5pqKGjN\n13WHDuKJUIIEUz4V9I2OJrBDFLM5bAmc5PbGKHROtOwkS1EjEEhNgbhnk29x\n8SgVjXLyCd2CeY5j49ABlCutQcmGypGoyE+jpA1SDqaalvyzqFzEO/zUD2zG\nv8IZI6SPY59/Y0rcFGSkjH9KGbfw2h/+tj5BAGLPH91ARtx7K0WTqRDRu40X\neBNYw+bBxM+qvWDFs8qBiWGGgYisTtcaz19sdHt9j7dQT56hR7rY7g5HKvV3\nCEqzJ6rfXF2b8AXhbgXtwZhzcXXpjU0TWVzB8P5hCy6DVWMkukDOZtTYvNPZ\nWYv2Ydn2CyIDb21SV2b9PU4CUry298izeYw4kI+IrD6g2FFuIuNkC3PTVBgx\n67rurxgpUEFq04HxCHSBz8kl/UxTVGChorCp/qqB6yLJ2U3ltPExxN4AAFg3\nj3hCo1p87HbMzk2/87OhPYElXFeiK33qSLxTlji1wh9kr1p6Nui1jRymckTU\nVvSm\r\n=HQgf\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCDPbAB9Uwb85suGW0Sfb4m0q5MKhnEOLv5oaWz2F3wHwIgLUGiVloL3ziBxoGZX0+6LnN64fub8L7J1VgIkQmsm2s="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "adamdbradley",
+        "email": "hi+adam@ionicframework.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "ionicjs",
+          "email": "hi@ionicframework.com"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "adamdbradley",
+          "email": "hi+adam@ionicframework.com"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        },
+        {
+          "name": "dwieeb",
+          "email": "dwieeb@gmail.com"
+        },
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "nhyatt",
+          "email": "nick@ionic.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.0.13_1608058828356_0.8611459452529908"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.14": {
+      "name": "@capacitor/docgen",
+      "version": "0.0.14",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "clean": "rimraf -rf dist",
+        "build": "npm run clean && tsc",
+        "watch": "tsc -w",
+        "release": "np --no-2fa",
+        "version": "npm run build",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/README.md --output-json src/test/docs.json"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "colorette": "^1.2.1",
+        "github-slugger": "^1.3.0",
+        "minimist": "^1.2.5",
+        "typescript": "^4.0.3"
+      },
+      "devDependencies": {
+        "@ionic/prettier-config": "^1.0.0",
+        "@stencil/core": "^2.1.0-5",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.14",
+        "@types/minimist": "^1.2.0",
+        "jest": "^26.6.0",
+        "np": "^6.5.0",
+        "prettier": "^2.1.2",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "dab88bf93ed878597b30297550116edaf182f3d0",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.0.14",
+      "_nodeVersion": "14.5.0",
+      "_npmVersion": "6.14.9",
+      "dist": {
+        "integrity": "sha512-racyChoU+BcpU8cMqJkMpNiYfRt4Wz77ARt8yZMDQrv/zuUnXfPEn7VH0ZO8idC+pyEoMjYa6PJ+BnAlqAaj5Q==",
+        "shasum": "568b1e894b0f1346e0d8972de93142ad881e53a9",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.0.14.tgz",
+        "fileCount": 21,
+        "unpackedSize": 46644,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJf2SouCRA9TVsSAnZWagAAN+gP/RRUJ3vm1ISHSLSeHglw\noCxBM/Na9buPbYDrh6SFh+041g4EXu9W9EwXRS+QxlGm+aqakzJqxP606KX9\ndYtlV/0IUSrIzwRpidzcWNr6UJzjRZemt4iuN1IkdV0vM3vshOAZUjrRk9Ir\nEM9CKcjXt4MF8MZfcknUKYctxXmcsvPaBYh8eY5o9vFu3xVtftDjsM7qfiKI\nxfmxV1yziUSru+GzH0GWAYj3TBPNgNpima7qosawMLkk/C+xa2FCgcmraIEy\nwYPkK+xdbqeKw3wPcLc9rK9BaK12FotkTIcqz2pt0/x14xHZxHJ7hbx/JUzs\nV1Da79Lg8JOOTdl9PlF68myGpd8H3f/12U0UDPuDLtefpjSM0Jwrz/8wd3OY\nNX7QT8DCCTxSj362ZtU5QYHphdITB0epxjPDrH8+E33HY3vG4ArvIM3Gi3TN\n/3Zn8CbG7ZGSXE7DaWLGDIoXzv4oxh0ed13+2/nyvkZhzsBIZFsGIglO6fuW\nXixLSksauKddlWvD50jw+HsoE2+GZuZ1VBvAQ53PO6r96ILJKZlDLSXp/2Xz\n72FfLVexxPQ0TDNhduBa72igiWAkfbteJQVZEWMJ8Ov7xA4U+/wn0mPNoC/7\nTJHn9BXSPWwQq6W7alE6aT4pnVrlu2obKhcPnQzoLb666P1kvb+aLygFvpGu\nBxEj\r\n=87wB\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGD4/yWhmX0sL/qC45ifGSR6U8hKAiYD7xEgMe22+CaBAiEA9deVh/OXk24bO/GAbt+HAXw5V0+1cMZM+CCsLDMX/K4="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "adamdbradley",
+        "email": "hi+adam@ionicframework.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "ionicjs",
+          "email": "hi@ionicframework.com"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "adamdbradley",
+          "email": "hi+adam@ionicframework.com"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        },
+        {
+          "name": "dwieeb",
+          "email": "dwieeb@gmail.com"
+        },
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "nhyatt",
+          "email": "nick@ionic.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.0.14_1608067630348_0.5032356316352955"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.15": {
+      "name": "@capacitor/docgen",
+      "version": "0.0.15",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "clean": "rimraf -rf dist",
+        "build": "npm run clean && tsc",
+        "watch": "tsc -w",
+        "release": "np --no-2fa",
+        "version": "npm run build",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/README.md --output-json src/test/docs.json"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "@types/node": "^14.14.22",
+        "colorette": "^1.2.1",
+        "github-slugger": "^1.3.0",
+        "minimist": "^1.2.5",
+        "typescript": "^4.1.3"
+      },
+      "devDependencies": {
+        "@ionic/prettier-config": "^1.0.0",
+        "@stencil/core": "^2.4.0",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.20",
+        "@types/minimist": "^1.2.1",
+        "jest": "^26.6.3",
+        "np": "^7.2.0",
+        "prettier": "^2.2.1",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "ef05e05f8f72b41f7d3aea7ebd5a6f03e294eef6",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.0.15",
+      "_nodeVersion": "14.5.0",
+      "_npmVersion": "6.14.11",
+      "dist": {
+        "integrity": "sha512-Rqs9C7a2D3zkObgo8eYTfXSPCDLs5AjOsGSXeP16vR17/kPIyECbtLwRtJkanWqs8Qc4ztHVW6TKuFLQTXiSZQ==",
+        "shasum": "923d6fc6325d561f52723c6d02ae7a702978e006",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.0.15.tgz",
+        "fileCount": 21,
+        "unpackedSize": 46674,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgGCenCRA9TVsSAnZWagAAxAIP/1el/0US1ow9+/uchwZE\n4Xc8d/SPeNAcBnITF5GxXA2Ozs13YgNvLoEpecZR4ySO8RRzh1srQG1zkmv1\nfUnT+AM5ZFYmUn0bQWMEEEtlT5dR+6hwu8PGvZ9bRs/ekazMicvN6V4jy572\nN+sd2C9vwLMdlcKW8hTARz/7rnFIEAFmj0c7bgWqFO3icuJHKAcq7pPQ+5L3\n9I25/AxM2xuw88QMnpoCqd7h8vnxCEzGbHKR1gncgbda+VOQl+2YFqZgNXc0\nP/WSd3WAtQUzgB/YRG5+Q69B/r4X16LWLSRO32YnV+Zv93Z3eySRc5ESVTst\nV4WM2SDvqwLzap3huTfUt22dbPO4G4bg84gS/+b3yCCS0eniInQECJU0UURy\nRV62SZrWs7x6EOD1uSxv0l5pWjeFcqU0m1XhJRFSynRjxmpJ3XzMRiFMwRAp\noLBMCeON1SuWSr6I31NQT2O70hiZCSlnv1/Q86RUVxlz8e50N1jeUVx5fVKW\nYgUrDa6QEnsMOoUpzVEXz6hVXU/7trtR04bX+AacqBLlhMQAUXzKMVvVRIk9\nF5nrYKd7chK5svJsjwYVaFXkm/mg6AyLmqmLo6AabSlZ1piltuhBB9szHML4\neGkeIt7mubndqJBB7HdEIvsOPXMJ1OHnITEfNizkZjkln2jpG+Q40fy1bBez\nHElU\r\n=giro\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGFCuI6MdJtJ0nhhHeAf4EPkXR4ZMx5/DrVxs0TR5vTLAiAtAptgodB88ophcMmJ9oRWWTAR2JrEVPfFeNkl5UHHaQ=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "adamdbradley",
+        "email": "hi+adam@ionicframework.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "ionicjs",
+          "email": "hi@ionicframework.com"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "adamdbradley",
+          "email": "hi+adam@ionicframework.com"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        },
+        {
+          "name": "dwieeb",
+          "email": "dwieeb@gmail.com"
+        },
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "nhyatt",
+          "email": "nick@ionic.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.0.15_1612195750701_0.48616801503169604"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.16": {
+      "name": "@capacitor/docgen",
+      "version": "0.0.16",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "clean": "rimraf -rf dist",
+        "build": "npm run clean && tsc",
+        "watch": "tsc -w",
+        "release": "np --no-2fa",
+        "version": "npm run build",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/README.md --output-json src/test/docs.json"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "@types/node": "^14.14.31",
+        "colorette": "^1.2.2",
+        "github-slugger": "^1.3.0",
+        "minimist": "^1.2.5",
+        "typescript": "^4.2.2"
+      },
+      "devDependencies": {
+        "@capacitor/cli": "^3.0.0-beta.3",
+        "@ionic/prettier-config": "^1.0.0",
+        "@stencil/core": "^2.4.0",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.20",
+        "@types/minimist": "^1.2.1",
+        "jest": "^26.6.3",
+        "np": "^7.4.0",
+        "prettier": "^2.2.1",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "a1ddf7224daea9ccf389b8c916b03d06b181b069",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.0.16",
+      "_nodeVersion": "14.5.0",
+      "_npmVersion": "7.5.2",
+      "dist": {
+        "integrity": "sha512-D2f3oqJtXg9k/005h7lKMZZNlZdzyj1Utd8ptisUvsLXo72H5twnbMx8ApzzbQPUbFhvGs6Cl6Q6FfIKeLLfOg==",
+        "shasum": "b24e71619667f7cf476c18d5c4d55c51d9bdc2a1",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.0.16.tgz",
+        "fileCount": 21,
+        "unpackedSize": 52392,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgP8RsCRA9TVsSAnZWagAA1KAQAINQHZN5zsQQAIg4Jq3u\n36WH/YK82IphCfsRMBV2KPryfiGELoHtzRYIIex81aCk9GlRRuvmj+6L5CpC\nVsG5rzwCtGxMkRK59wfCbsgKNbawLXZZiKp4IG4iu6sWzT7QBR6BV13VvtQc\n+DxXFaSGZyN8d4i1BcwJ/7PrtHgMfOoyAS7yjG2Izel/Q3tchEv3Iahf5ZAA\nwQrV6KOotXGRRwjPMAFWDk2k0Ofm8qUFX0RuazoUqTG2QAP6KY7ZgJWyBFJA\nXHoJudkS1mm2C+dt/N6+KkvmWs2Wf9Y+cnUpAD3XQngznf4N+EGEHhUxOr3B\n0Efp8Xdgo1gIpf/W3aavg3Js85LYedSwFOjmm+XhPGahNsHvT/yS4s8RBKsH\nAomkn18H55M4sc5fxiadQP8gBuSf6mYW8skf6INyQbFF/6MWpcuxmpPq1yWx\nH+E+DRiIIpwBhy8LhP/v+/yJwyrAr+yAd6UagmuUHs0lKyFgovhB+P56kMTV\n1gTt55BiuaNFNJn5bP1bvYQuieCCg2ptoEeD1L15usc7DphRAMqj/1xLP/vE\nLqZwJelKt7TZh8a0qU/Dv0NgbVQtQ3yRBHAIUddFr/Br05uXZ0lSOJ2au2TL\nchyH33tKtFa4lAm03lVUSJwTuydWFBDmDZfsbG+/vuQA7ChGOhAxuWptt7xa\n0LyE\r\n=BN92\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCtV7n4/3LjMpcLfycn/AFlzF7kiwkgvEWR9J0P+6KhfAIgEvdkHxf0gEBpbbumKLRrqijY8/NLep+0XqXiPrgnl4I="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "adamdbradley",
+        "email": "hi+adam@ionicframework.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "elylucas",
+          "email": "ely@meta-tek.net"
+        },
+        {
+          "name": "ionicjs",
+          "email": "hi@ionicframework.com"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "adamdbradley",
+          "email": "hi+adam@ionicframework.com"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        },
+        {
+          "name": "dwieeb",
+          "email": "dwieeb@gmail.com"
+        },
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "nhyatt",
+          "email": "nick@ionic.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.0.16_1614791787948_0.016947973372699154"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.17": {
+      "name": "@capacitor/docgen",
+      "version": "0.0.17",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "clean": "rimraf -rf dist",
+        "build": "npm run clean && tsc",
+        "watch": "tsc -w",
+        "release": "np --no-2fa",
+        "version": "npm run build",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/README.md --output-json src/test/docs.json"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "@types/node": "^14.17.3",
+        "colorette": "^1.2.2",
+        "github-slugger": "^1.3.0",
+        "minimist": "^1.2.5",
+        "typescript": "~4.2.4"
+      },
+      "devDependencies": {
+        "@capacitor/cli": "^3.0.1",
+        "@ionic/prettier-config": "^1.0.1",
+        "@stencil/core": "^2.6.0",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.23",
+        "@types/minimist": "^1.2.1",
+        "jest": "^26.6.3",
+        "np": "^7.5.0",
+        "prettier": "^2.3.1",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "a0ab0f455c5867a6f9359e98519487a388d60ac3",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.0.17",
+      "_nodeVersion": "15.8.0",
+      "_npmVersion": "7.5.6",
+      "dist": {
+        "integrity": "sha512-GvEgnN9da/5MqK2PRpSOVkN1hNzkecGIqXP9wHc2FOvP8xvwHJ8XXdMm4aL01HnqoZM6FY+udRsbdecnMAZajA==",
+        "shasum": "fe8128dc84244a2c3427c673215b78d53806a14f",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.0.17.tgz",
+        "fileCount": 21,
+        "unpackedSize": 52390,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgwlM9CRA9TVsSAnZWagAAOCcP/jEJB+P+/UBwUlmxBniD\n/r7ImbY/7Nx3Jtch8WysXKnHFeyyQamWzoec3C0xRM8olN3ReGWE4gr/GE/T\nptuc6ikAZ7cJqRVYD+7he/m4oO7avjtkHI5iYEO04jLpzS9xHgZVfmIDTQ1N\n3C8SOuP/ENX2/B1UGAkqyR72clvN4FAfw+7Rd27c1d2mAGUSYRD0eihl/mka\n+lYFn37P2liwR5J9aSCgMe15MV4SHmSuiJsgkZ1Xqgaqi9hLtgPCeTnafaUr\nOxeZ2MtkkxqRJgJnDb5Kp6K7ByGRjd07SiBz6X0HpvPdRuGFxBrH8GeibJAW\nH0Y3LxUfz+XxVUtxtTkDcOoqif5co6edbWdTGPA02JirHW2ExIT01/vOvdlw\n1vprIvKqC9MlUOocezVmCgqH3iRrdiNB/+1sbej+RCY+fJ2/bIIOOmS0DADB\n2HonGm5VdAKN3dW3VZf1pIQwCL1Rv91UEAr3smtNC/xYK12Z8EJ2ENmZVSRw\nmApAoO4rEXLmziQRuAEt2gzRNvBg9evmhJ0AlqHcPLhjCWsVMRx/4BiiDu85\n/X4la/UuGvFGFsBCbcGACs9zgr24zsa6+ioKOnmgc3zlpDgPevQ4K0gE+qnU\nso4j9UGPInJ5dFoQZpMN4klAgP30aq1/kxRqdCc0pOnwm1yT1zgNRS6XLxg6\nux3h\r\n=Ae92\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCWWvIfUJiq11eBR4lTwQWg6oGFaoqWHhO9jY8OlUi78wIhANA6iHf7UxM0nb9Iub47dYHpxZSd1z8ucsfJYxuLn7dU"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "jcesarmobile",
+        "email": "jcesarmobile@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "elylucas",
+          "email": "ely@meta-tek.net"
+        },
+        {
+          "name": "ionicjs",
+          "email": "hi@ionicframework.com"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "adamdbradley",
+          "email": "hi+adam@ionicframework.com"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        },
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "nhyatt",
+          "email": "nick@ionic.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.0.17_1623348029293_0.9920298312171711"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.18": {
+      "name": "@capacitor/docgen",
+      "version": "0.0.18",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "clean": "rimraf -rf dist",
+        "build": "npm run clean && tsc",
+        "watch": "tsc -w",
+        "release": "np --no-2fa",
+        "version": "npm run build",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/README.md --output-json src/test/docs.json"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "@types/node": "^14.17.3",
+        "colorette": "^1.2.2",
+        "github-slugger": "^1.3.0",
+        "minimist": "^1.2.5",
+        "typescript": "~4.2.4"
+      },
+      "devDependencies": {
+        "@capacitor/cli": "^3.0.1",
+        "@ionic/prettier-config": "^1.0.1",
+        "@stencil/core": "^2.6.0",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.23",
+        "@types/minimist": "^1.2.1",
+        "jest": "^26.6.3",
+        "np": "^7.5.0",
+        "prettier": "^2.3.1",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "7300f45c0f102836f6ec7fa73f5959ab20553338",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.0.18",
+      "_nodeVersion": "15.8.0",
+      "_npmVersion": "7.5.6",
+      "dist": {
+        "integrity": "sha512-BVqzrbSi9u5IaKRLlG0H/ZW8M23FDJpH2018RTGVHRn2Yk3na9jOcItBc3r+rYiwgRgAHylNw9Lt7+lWmJBD3Q==",
+        "shasum": "95cf7b20c4faf674c9b30365a7d510ebedc482c7",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.0.18.tgz",
+        "fileCount": 21,
+        "unpackedSize": 52845,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDjp3gXuQ9DxsONF9echdPin1i1R85QBGCIZTY9F8t9dAIgHkKIlsx4jIJqjt4IooAn7/f8URqRnV1lx+zsrYwmcYg="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "jcesarmobile",
+        "email": "jcesarmobile@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "ionicjs",
+          "email": "hi@ionicframework.com"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        },
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "nhyatt",
+          "email": "nick@ionic.io"
+        },
+        {
+          "name": "elylucas",
+          "email": "ely@meta-tek.net"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.0.18_1634059089683_0.6091709709490423"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.0": {
+      "name": "@capacitor/docgen",
+      "version": "0.1.0",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "build": "npm run clean && tsc",
+        "clean": "rimraf -rf dist",
+        "fmt": "npm run prettier -- --write",
+        "lint": "npm run prettier -- --check",
+        "prettier": "prettier \"**/*.ts\"",
+        "release": "np --no-2fa",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/README.md --output-json src/test/docs.json",
+        "version": "npm run build",
+        "watch": "tsc -w"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "@types/node": "^14.18.0",
+        "colorette": "^2.0.16",
+        "github-slugger": "^1.4.0",
+        "minimist": "^1.2.5",
+        "typescript": "~4.2.4"
+      },
+      "devDependencies": {
+        "@capacitor/cli": "^3.3.3",
+        "@ionic/prettier-config": "^2.0.0",
+        "@stencil/core": "^2.11.0",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.23",
+        "@types/minimist": "^1.2.2",
+        "jest": "^26.6.3",
+        "np": "^7.5.0",
+        "prettier": "^2.5.1",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "550a22b37d67649a9508cecca27cfb8ceec08c90",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.1.0",
+      "_nodeVersion": "16.13.1",
+      "_npmVersion": "8.1.2",
+      "dist": {
+        "integrity": "sha512-wkWlzDY1A8U1bwjd9dV7DTp3JFOKE9j9nSQf6uxoFFTkbjbL1NOjMP0J3UvrrzKvnU7WCaEiZTbzPRM/J2EKNw==",
+        "shasum": "3876d026593d95620b22cdf283518f70b844191f",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.1.0.tgz",
+        "fileCount": 21,
+        "unpackedSize": 53789,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhs4lXCRA9TVsSAnZWagAAp3gP/iYt7YJXnmiFrMAA5DNw\nD4QD2zkRtvI05zzwG5zWif8k6RWpgvEd2dlOnvOi34HBtf40rtyeg1VmQ5sS\nKOfTHCdK7p5Fwy2IRnBWMGy8eiNGVd1yW0SCh1VthTIdpFEK9s974hGlAfFh\nJpu/PwLGVcYEa4PDMzJE23DwYQnE7YZ0VkTTDKAUbc/OLO72K8G671B2HN5D\nV8VuAvv4B+OlI/bXzTfHv0CoOMsdXy6G7kDMLuxU3hYrTN7G2cdQl++xk5Cg\nVHpuFlFo9MPozPwOUp8G+6T5spMEqrJ1nW5W5dFN2/iH5XkWuKXjCgjFrM8w\n7NsLWsWCIn2s0DRL5H1IG/y+3ovr/DOz5i6mHSe/EkJBJBqCcqAaQvrKuJHt\n7fc5dhr9NqpaslrLIKtB1YmtW7DBN9qHpJiRAEaJ3v7DQWCUXdq2zeaIKHQp\npS/sx4zsgXMDc/+2dql5lrsb1BYOkp8f3qHI+VMlXKct5oox6LKEFmpSKCsZ\n6j303Vbo4f8Eo/WkF5t5fMk1cOL0I5oY/375+kW9xsDmSlug1hsQR2YwJr1A\nHRm2mqerPl1q9dtHpZO/iGbQzI2aiCBeLqNPSLxmoullg+BKUmET2cGToK8G\n9ett6j1wlFw5199CFUMwP5UztTThAb3B39ctx8HDi40G56D7buuD4Dj6aEr9\nMzmS\r\n=jyWb\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDhngwDSVoni/4IieAsOrAJFJeXkB6tdvqdY4FdUZhh6wIhALe5QXhFpkXeTNWyZmTd5+JAm8KUsAZ+n7SnfeN/asoA"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "jcesarmobile",
+        "email": "jcesarmobile@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "ionicjs",
+          "email": "hi@ionicframework.com"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        },
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "nhyatt",
+          "email": "nick@ionic.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.1.0_1639156055855_0.29275082608093017"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.1": {
+      "name": "@capacitor/docgen",
+      "version": "0.1.1",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "build": "npm run clean && tsc",
+        "clean": "rimraf -rf dist",
+        "fmt": "npm run prettier -- --write",
+        "lint": "npm run prettier -- --check",
+        "prettier": "prettier \"**/*.ts\"",
+        "release": "np --no-2fa",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/README.md --output-json src/test/docs.json",
+        "version": "npm run build",
+        "watch": "tsc -w"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "@types/node": "^14.18.0",
+        "colorette": "^2.0.16",
+        "github-slugger": "^1.4.0",
+        "minimist": "^1.2.5",
+        "typescript": "~4.2.4"
+      },
+      "devDependencies": {
+        "@capacitor/cli": "^3.3.3",
+        "@ionic/prettier-config": "^2.0.0",
+        "@stencil/core": "^2.11.0",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.23",
+        "@types/minimist": "^1.2.2",
+        "jest": "^26.6.3",
+        "np": "^7.5.0",
+        "prettier": "^2.5.1",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "304078b6ee4c0eee150de6c84ccaa6f6c65f3477",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.1.1",
+      "_nodeVersion": "16.13.1",
+      "_npmVersion": "8.1.2",
+      "dist": {
+        "integrity": "sha512-+6EVEZulBJdLAjYU60DmNHeiU8BFG6kIELveAr70FYpnUd7CZYw8rpJRVz9IIHTKon/7z3Dq4k227lEMtZ41uw==",
+        "shasum": "71003605f381e3aa119dce6e14d4c26d953700db",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.1.1.tgz",
+        "fileCount": 21,
+        "unpackedSize": 53756,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh6YR6CRA9TVsSAnZWagAA83MP/0bjoXTbBmX/0WuFaiaP\nf5BT7Yg2wW4pitYxqNeZAHKIZQ/txXxFT/orColiqLfZnTWB+hJ+agIV2vhA\nFHJVf+IxwwfaC5/n6htWTKu8L5hCaYkzFmRX0HFfAsyUiklQGRY0H9i53iMc\nHAlCmQ7Oke8oQ9FjuSayYKLQ2969uiV3NmVC6wB8OTrslpPOHTcwVbQOcri3\nWN6ue9cFJr5B+kxUBVEQa7eaHxvzl5RYV3zQkfzc+bB0QkXyJXkf/OG+9uI4\n39R8rcHTZOAmNCzKRSthlgZ63GxVzjyfC80r6vxcY+7wBb7A9KTA60ZLpvO1\nB5n5H2KDTjq23Bd7VObLyiAjJMzeRcXBTG6JEog7oR0SkyUnBK6OQmHorovg\nRDydBZVOoxGy4AgJwT0r1HN1XXV5IR8tUFuyQrQIbFxYoZ17IuMwgkwGUzQh\n7iePFJs74Dddc+xx3T2Lv734c+Rew1apRB8myDphoectTuIZppgqQQsf/6kF\nIO4danolMrJPk+bSCsV0vSu03fudLbe+OpngH2YGF+CrX3F1zEKT1ZKI/s6k\nWmlSCk0AhPM0wnh+zJ6xdQe9Boq+rueQK2WPtwFsSavl97zHzVpdvghVyWQY\nDvAH7KVDvOhKZWlYXnu5NhtNOpCrlpLxe1ePVMBxC1Gfd62pENrj5Js8PbR6\nEH+s\r\n=eq/i\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGuf6pVL5F9IttK2hveNPRJt/T4UngyvEQEqtN4RQewCAiEAzmcj+2ftCv2kul+7S59v90MUSdnXIkeTk82rQPmJovU="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "jcesarmobile",
+        "email": "jcesarmobile@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "ionicjs",
+          "email": "hi@ionicframework.com"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        },
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "nhyatt",
+          "email": "nick@ionic.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.1.1_1642693753888_0.9999020193947863"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.0": {
+      "name": "@capacitor/docgen",
+      "version": "0.2.0",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "build": "npm run clean && tsc",
+        "clean": "rimraf -rf dist",
+        "fmt": "npm run prettier -- --write",
+        "lint": "npm run prettier -- --check",
+        "prettier": "prettier \"**/*.ts\"",
+        "release": "np --no-2fa",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/README.md --output-json src/test/docs.json",
+        "version": "npm run build",
+        "watch": "tsc -w"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "@types/node": "^14.18.0",
+        "colorette": "^2.0.16",
+        "github-slugger": "^1.4.0",
+        "minimist": "^1.2.5",
+        "typescript": "~4.2.4"
+      },
+      "devDependencies": {
+        "@capacitor/cli": "^3.3.3",
+        "@ionic/prettier-config": "^2.0.0",
+        "@stencil/core": "^2.11.0",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.23",
+        "@types/minimist": "^1.2.2",
+        "jest": "^26.6.3",
+        "np": "^7.5.0",
+        "prettier": "^2.5.1",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "c5559632b07316f4b5404c6c7718daf91f1d8a1d",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.2.0",
+      "_nodeVersion": "16.13.1",
+      "_npmVersion": "8.1.2",
+      "dist": {
+        "integrity": "sha512-JoKuEx4Ep9LVnTY1I4zaoQPlxy+AWVMwwOSou/U9f/nXsL391aBRH7hC12lKNZGetiComnt369vQ+/r7n9iXfQ==",
+        "shasum": "712c57fe7068db871db27764446e2c431450205d",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.2.0.tgz",
+        "fileCount": 21,
+        "unpackedSize": 52761,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiPKvZACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmqh3A//VYcWdkcO950klhRtjpDvW9Z7WiZE5LXPn/uUhjLTqLOekqlb\r\nLUxyJB7lzxGUR8EyB9WCelN/4pghygs6o25+Niwf5fTHijKH6pamCoLv8gd5\r\na2EFxsLV8/ixVi4ZEvuIg6eZuMuqz2sZ33svMGyfChoOhZJy6Am63lKo+Gbz\r\nhuODRvxRnztNv9+BAgOvI+cGrK35Np8n9Jw+Vx+Hpdaa/9m6r4DJSEpME7TM\r\nkflRDxU7sdEEo4yEqNBBEqpTveDQpClP//F9yf69dPc9dCMBd8HjmDuw1Vvj\r\n3tEMKD545XJ4G9/HkKKQiYncRlGDE0V5fQ5j3kl++SzIjlcBEqqa+xn6bfYS\r\nfZom3kLezk1RBKHdNIXY7V7VFzwU1T0a1xGkBa3MDD0BjCDBbu40gW9pd2AA\r\neZaQ2G6BiGAlnRCFtbvjbhi3qJPSLalEK50fMfVFjutm1cuf6wic2xk2Vz4O\r\nMzJRY+U6cvH43edafr5c+8SHZrabwKNFe5qjF0CUnCEfNfCCnbxe2iokuEwh\r\nVEe92utt3hWxGQfD/YxOZxVGJuqkPHC1c/Ofn+4QUvUaYzQta3QkOMCoUle9\r\n7sZdHLkgIReBfXs/g6T5U8upQZt9vN0x6tndP6lS/qyIjmQwN1QnfI/65j1A\r\nX8DZpNpNl3kbvmD7z+MofmloZ1kDGP5cD/E=\r\n=z5nC\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEobkRdCB5RwUbk9w+VG/GwO+daZ8zmBi1yXMm2i8DTEAiAVdKd0YCkp/0w/zM4rvm8Af1QP3ycuEtZTA6J38o9z2g=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "jcesarmobile",
+        "email": "jcesarmobile@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "ionicjs",
+          "email": "hi@ionicframework.com"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        },
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "nhyatt",
+          "email": "nick@ionic.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.2.0_1648143321425_0.04039282745401285"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.1": {
+      "name": "@capacitor/docgen",
+      "version": "0.2.1",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "build": "npm run clean && tsc",
+        "clean": "rimraf -rf dist",
+        "fmt": "npm run prettier -- --write",
+        "lint": "npm run prettier -- --check",
+        "prettier": "prettier \"**/*.ts\"",
+        "release": "np --no-2fa",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/README.md --output-json src/test/docs.json",
+        "version": "npm run build",
+        "watch": "tsc -w"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "@types/node": "^14.18.0",
+        "colorette": "^2.0.16",
+        "github-slugger": "^1.4.0",
+        "minimist": "^1.2.5",
+        "typescript": "~4.2.4"
+      },
+      "devDependencies": {
+        "@capacitor/cli": "^3.3.3",
+        "@ionic/prettier-config": "^2.0.0",
+        "@stencil/core": "^2.11.0",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.23",
+        "@types/minimist": "^1.2.2",
+        "jest": "^26.6.3",
+        "np": "^7.5.0",
+        "prettier": "^2.5.1",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "cd1a4b5083d40ab5504ddc3c738c4f1a053a8fdf",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.2.1",
+      "_nodeVersion": "16.14.2",
+      "_npmVersion": "8.5.0",
+      "dist": {
+        "integrity": "sha512-COS5teC6n+EOSaBS7voHnIeIKH7owALnVoI1AhVArIWtBrc1JxSgkUuvLHpti4VGZdXdsrtp4yBPUwGm8WOZKA==",
+        "shasum": "ed9400bd983b56496b7664dd8858e1a4d0c27eaf",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.2.1.tgz",
+        "fileCount": 22,
+        "unpackedSize": 53809,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICs4UKRyZ2x969blRDB7hm4FNU6LNiiaOIwrYPlcAfWvAiEAoLuTtPQrwM7ImS+D+DlA6bxvCuTHnCsMbET+Ii0VUB4="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj4pemACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqvFA/+JTeudBVOSMSuY3dFEANuX0TsLZFiVKWIBqapGp3gnMeBow2F\r\nI3IPT2P8Qe0QNWrchVvEEbQLk58+wjaavZPu7tyw8XLaLb1Wl7tX8qW7DMZD\r\nOTNFzeRgPNr53SY+Y22fu6Cwj7SGMsBRc9TjLXs/Dcziud+SVk7M4hOoDQ6i\r\nDtN1r3QtnvILbC/LqoEkpMlJpmgC/Jj3ZcclWpdKf2kOgDpmKnhCdxIdci8/\r\nOAb58DuT2usjnXe1er9SB+sVEnXVJ7OMfgxCd0WQE3r3MSSV4iea1PdovPTu\r\nLncyKU6wShH64cfiGm4MfkVP7nYRSptmMvLZuduN/4BcuYLBqWQXer33gPjh\r\nlcLgbQ9AaukNrqAJj0Iht/0XTlIV20tKmFOvfF2Fb7xtJyljk0eY8uhEiu/h\r\n5QKdKrhKqFsLIaSVT+fs3yC4I2u0RyWaQfiiemAEVmxoXvm+SIUyvPnIoAaX\r\ncjNnY0rx+Fn+ox1zamw2g13nIKzXNUgwoEGmbzKBdXkG/4Gx3tTgogIUZz2p\r\nuAXw9C38x8KSlGriSwqbTjsXKYOeLf71eFP59UF0VpLMr8iyZ0Fh5VSBkmIn\r\nqYWGBQDF3JItWFISNlyr8PmrYLHhUqMmRGqYJE5SZHXbflwiyhroWCs/fBvP\r\n7ySvgchPAHawbqCsMuDIgjFBO8a1dGrxuxo=\r\n=iueK\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "jcesarmobile",
+        "email": "jcesarmobile@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "itschaced",
+          "email": "chace@ionic.io"
+        },
+        {
+          "name": "it_mike_s",
+          "email": "mike.summerfeldt@gmail.com"
+        },
+        {
+          "name": "larsmikkelsen",
+          "email": "lars@ionic.io"
+        },
+        {
+          "name": "giralte-ionic",
+          "email": "giralte@ionic.io"
+        },
+        {
+          "name": "steven0351-ionic",
+          "email": "steven.sherry@ionic.io"
+        },
+        {
+          "name": "jpender",
+          "email": "joey@ionic.io"
+        },
+        {
+          "name": "ionicjs",
+          "email": "hi@ionic.io"
+        },
+        {
+          "name": "maxlynch",
+          "email": "max@ionic.io"
+        },
+        {
+          "name": "mhartington",
+          "email": "mikehartington@gmail.com"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        },
+        {
+          "name": "cmapoole",
+          "email": "carl@ionic.io"
+        },
+        {
+          "name": "nhyatt",
+          "email": "nick@ionic.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.2.1_1675794342194_0.005747736748954457"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.2": {
+      "name": "@capacitor/docgen",
+      "version": "0.2.2",
+      "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+      "keywords": [
+        "capacitor docs generation",
+        "docsgen",
+        "capacitor",
+        "capacitor plugins"
+      ],
+      "author": {
+        "name": "Ionic Team"
+      },
+      "homepage": "https://capacitorjs.com/",
+      "bin": {
+        "docgen": "bin/docgen"
+      },
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "build": "npm run clean && tsc",
+        "clean": "rimraf -rf dist",
+        "fmt": "npm run prettier -- --write",
+        "lint": "npm run prettier -- --check",
+        "prettier": "prettier \"**/*.ts\"",
+        "release": "np --no-2fa",
+        "test": "jest",
+        "test.watch": "jest --watchAll",
+        "test.output": "node bin/docgen --project src/test/fixtures/tsconfig.json --api HapticsPlugin --output-readme src/test/README.md --output-json src/test/docs.json",
+        "version": "npm run build",
+        "watch": "tsc -w"
+      },
+      "license": "MIT",
+      "dependencies": {
+        "@types/node": "^14.18.0",
+        "colorette": "^2.0.16",
+        "github-slugger": "^1.4.0",
+        "minimist": "^1.2.5",
+        "typescript": "~4.2.4"
+      },
+      "devDependencies": {
+        "@capacitor/cli": "^3.3.3",
+        "@ionic/prettier-config": "^2.0.0",
+        "@stencil/core": "^2.11.0",
+        "@types/github-slugger": "^1.3.0",
+        "@types/jest": "^26.0.23",
+        "@types/minimist": "^1.2.2",
+        "jest": "^26.6.3",
+        "np": "^7.5.0",
+        "prettier": "^2.5.1",
+        "rimraf": "^3.0.2"
+      },
+      "prettier": "@ionic/prettier-config",
+      "engines": {
+        "node": ">=14.5.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+      },
+      "gitHead": "82154f7655004a25b2448247a9958d0cc33d0f8b",
+      "bugs": {
+        "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+      },
+      "_id": "@capacitor/docgen@0.2.2",
+      "_nodeVersion": "16.14.2",
+      "_npmVersion": "8.5.0",
+      "dist": {
+        "integrity": "sha512-617jB5DlKjUljxfoANORWeqffsHqHekckH48oslKWFGzfCHYIAEPfJfMa5M4mVSzn2ifSvWB5C3st4augwhl5w==",
+        "shasum": "c87e325d348c70b9af58f5a79bde767c544be120",
+        "tarball": "https://registry.npmjs.org/@capacitor/docgen/-/docgen-0.2.2.tgz",
+        "fileCount": 22,
+        "unpackedSize": 53354,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQC6AP0gicmmdrkgBSUlPRcrRxM4LWwopgzqfbsQOF+A9gIhAKjo9uOIr43gL74Aw+yviwoDLc3veXEyE/y1fJFmnN1+"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "jcesarmobile",
+        "email": "jcesarmobile@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "dtarnawsky",
+          "email": "damian@ionic.io"
+        },
+        {
+          "name": "mark-ionic",
+          "email": "mark@ionic.io"
+        },
+        {
+          "name": "itschaced",
+          "email": "chace@ionic.io"
+        },
+        {
+          "name": "it_mike_s",
+          "email": "mike.summerfeldt@gmail.com"
+        },
+        {
+          "name": "giralte-ionic",
+          "email": "giralte@ionic.io"
+        },
+        {
+          "name": "jpender",
+          "email": "joey@ionic.io"
+        },
+        {
+          "name": "ionicjs",
+          "email": "hi@ionic.io"
+        },
+        {
+          "name": "jcesarmobile",
+          "email": "jcesarmobile@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/docgen_0.2.2_1706293023459_0.8859730695310202"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2020-09-30T20:05:16.866Z",
+    "0.0.1": "2020-09-30T20:05:17.261Z",
+    "modified": "2024-01-26T18:17:03.986Z",
+    "0.0.2": "2020-09-30T20:23:54.122Z",
+    "0.0.3": "2020-10-01T10:17:08.774Z",
+    "0.0.4": "2020-10-02T19:56:03.786Z",
+    "0.0.5": "2020-10-12T18:00:16.714Z",
+    "0.0.6": "2020-10-12T21:49:57.257Z",
+    "0.0.7": "2020-10-13T17:52:52.443Z",
+    "0.0.8": "2020-10-13T21:41:43.980Z",
+    "0.0.9": "2020-10-20T03:06:47.085Z",
+    "0.0.10": "2020-10-23T15:41:48.046Z",
+    "0.0.11": "2020-12-14T21:50:41.743Z",
+    "0.0.12": "2020-12-15T18:28:54.001Z",
+    "0.0.13": "2020-12-15T19:00:28.479Z",
+    "0.0.14": "2020-12-15T21:27:10.508Z",
+    "0.0.15": "2021-02-01T16:09:10.810Z",
+    "0.0.16": "2021-03-03T17:16:28.127Z",
+    "0.0.17": "2021-06-10T18:00:29.477Z",
+    "0.0.18": "2021-10-12T17:18:09.853Z",
+    "0.1.0": "2021-12-10T17:07:35.987Z",
+    "0.1.1": "2022-01-20T15:49:14.033Z",
+    "0.2.0": "2022-03-24T17:35:21.544Z",
+    "0.2.1": "2023-02-07T18:25:42.376Z",
+    "0.2.2": "2024-01-26T18:17:03.609Z"
+  },
+  "maintainers": [
+    {
+      "name": "dtarnawsky",
+      "email": "damian@ionic.io"
+    },
+    {
+      "name": "mark-ionic",
+      "email": "mark@ionic.io"
+    },
+    {
+      "name": "itschaced",
+      "email": "chace@ionic.io"
+    },
+    {
+      "name": "it_mike_s",
+      "email": "mike.summerfeldt@gmail.com"
+    },
+    {
+      "name": "giralte-ionic",
+      "email": "giralte@ionic.io"
+    },
+    {
+      "name": "jpender",
+      "email": "joey@ionic.io"
+    },
+    {
+      "name": "ionicjs",
+      "email": "hi@ionic.io"
+    },
+    {
+      "name": "jcesarmobile",
+      "email": "jcesarmobile@gmail.com"
+    }
+  ],
+  "description": "Docs Readme Markdown and JSON Generator for Capacitor Plugins",
+  "keywords": [
+    "capacitor docs generation",
+    "docsgen",
+    "capacitor",
+    "capacitor plugins"
+  ],
+  "license": "MIT",
+  "readme": "# @capacitor/docgen\n\nDocs Readme Markdown and JSON Generator for [Capacitor](https://capacitorjs.com/) Plugins.\n\n- Designed specifically for generating docs for Capacitor plugins using TypeScript\n- Generates docs data pulled from [JSDocs](https://en.wikipedia.org/wiki/JSDoc) within source code \n- Replaces placeholders within existing README.md markdown files with the generated docs\n- Outputs a json file of the raw docs data\n- Ideal for formatted docs within Github and NPM readme landing pages\n- If you're looking for an entire docs site generator we recommend [TypeDoc](https://typedoc.org/) instead\n\n```bash\nnpm i @capacitor/docgen --save-dev\n```\n\n## Example Readme File\n\n```\n# My Capacitor Plugin 🔌\n\nThe readme file can be formatted however you'd like. Just insert\nthe docgen placeholder elements where the index of the API methods,\nand the API docs should go.\n\nBelow is an index of all the methods available.\n\n<docgen-index></docgen-index>\n\n## Custom Readme Content\n\nManage your readme content however, and on every `docgen` rebuild\nit will leave the original content as is, but update the inner text \nof the docgen placeholder elements with the updated generated docs.\n\n<docgen-api></docgen-api>\n\n## Commit Your Readme 🚀\n\nThe benefit of this readme file is that is also acts as the landing \npage for the Github repo and NPM package, and the anchors within the \ndocs can also be linked to and shared.\n```\n\n- [Example Readme Output](https://github.com/ionic-team/capacitor-docgen/blob/main/src/test/README.md)\n- [Example JSON Output](https://github.com/ionic-team/capacitor-docgen/blob/main/src/test/docs.json)\n\n\n## CLI\n\nThe easiest way to run `docgen` is to install `@capacitor/docgen` as a dev dependency\nand add the command to the `package.json` scripts. In the example below, \n`HapticsPlugin` is the primary interface:\n\n```bash\ndocgen --api HapticsPlugin --output-readme README.md\n```\n\n| Flag              | Alias | Description                                                                              |\n|-------------------|-------|------------------------------------------------------------------------------------------|\n| `--api`           | `-a`  | The name of the primary application programming interface. **Required**                  |\n| `--output-readme` | `-r`  | Path to the markdown file to update. Note that the file must already exist. **Required** |\n| `--output-json`   | `-j`  | Path to write the raw docs data as a json file.                                          |\n| `--project`       | `-p`  | Path to the project's `tsconfig.json` file, same as the [project](https://www.typescriptlang.org/docs/handbook/compiler-options.html) flag for TypeScript's CLI. By default it'll attempt to find this file. |\n\n\n#### package.json script\n\n```json\n{\n  \"scripts\": {\n    \"docgen\": \"docgen --api HapticsPlugin --output-readme README.md\"\n  }\n}\n```\n\n## API\n\nThe same API that's available to the CLI can also be imported from `@capacitor/docgen`.\n\n\n## Related\n\n- [Capacitor](https://capacitorjs.com/)\n- [Capacitor Community Plugins](https://github.com/capacitor-community)\n",
+  "readmeFilename": "README.md",
+  "homepage": "https://capacitorjs.com/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ionic-team/capacitor-docgen.git"
+  },
+  "author": {
+    "name": "Ionic Team"
+  },
+  "bugs": {
+    "url": "https://github.com/ionic-team/capacitor-docgen/issues"
+  }
+}

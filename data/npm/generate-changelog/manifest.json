@@ -1,0 +1,1530 @@
+{
+  "_id": "generate-changelog",
+  "_rev": "93-59a150ff487a03fcc189dd91b6c62fc9",
+  "name": "generate-changelog",
+  "description": "Generate a changelog from git commits.",
+  "dist-tags": {
+    "latest": "1.8.0"
+  },
+  "versions": {
+    "1.0.0": {
+      "name": "generate-changelog",
+      "version": "1.0.0",
+      "description": "Generate a changelog from git commits.",
+      "bin": {
+        "generate-changelog": "./bin/generate",
+        "changelog": "./bin/generate"
+      },
+      "main": "./lib/index.js",
+      "directories": {
+        "test": "test"
+      },
+      "scripts": {
+        "release:major": "./bin/generate -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+        "release:minor": "./bin/generate -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+        "release:patch": "./bin/generate -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+        "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+        "lint": "eslint .",
+        "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 30000",
+        "test-no-cover": "NODE_ENV=test mocha test --recursive --timeout 30000"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lob/generate-changelog.git"
+      },
+      "keywords": [
+        "changelog",
+        "cli",
+        "npm",
+        "version",
+        "git",
+        "semver"
+      ],
+      "author": {
+        "name": "Lob",
+        "email": "support@lob.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/lob/generate-changelog/issues"
+      },
+      "homepage": "https://github.com/lob/generate-changelog#readme",
+      "dependencies": {
+        "bluebird": "^3.0.6",
+        "commander": "^2.9.0",
+        "github-url-from-git": "^1.4.0"
+      },
+      "devDependencies": {
+        "chai": "^3.4.1",
+        "chai-as-promised": "^5.1.0",
+        "coveralls": "^2.11.6",
+        "eslint": "^1.10.3",
+        "eslint-config-lob": "^1.0.1",
+        "istanbul": "^0.4.1",
+        "mocha": "^2.3.4",
+        "sinon": "^1.17.2"
+      },
+      "engine": {
+        "node": ">= 0.10.x"
+      },
+      "gitHead": "33763aae8020af8b71d9108bcdec957cd539d7af",
+      "_id": "generate-changelog@1.0.0",
+      "_shasum": "ae37b02bf3d407c965d621d458624ab581d06250",
+      "_from": ".",
+      "_npmVersion": "3.3.9",
+      "_nodeVersion": "0.12.2",
+      "_npmUser": {
+        "name": "lob",
+        "email": "engineering@lob.com"
+      },
+      "dist": {
+        "shasum": "ae37b02bf3d407c965d621d458624ab581d06250",
+        "tarball": "https://registry.npmjs.org/generate-changelog/-/generate-changelog-1.0.0.tgz",
+        "integrity": "sha512-d2wF5DlTuDPxttEwhRXk0G5Nelt1UTk3Brdn7ogtPJc/ArsPpyvdW1nTgMLJFPcWmEZyYddHxUFQuERzxH3dOg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIH36gwcs2TDMKWLQHBlYUodxMvICNf+6m9SAQpwwVOzmAiBcrhgXG6sSi8xfS789uf5uAo7miKDWUA+kYLWl9m4zoQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "lob",
+          "email": "engineering@lob.com"
+        }
+      ]
+    },
+    "1.0.1": {
+      "name": "generate-changelog",
+      "version": "1.0.1",
+      "description": "Generate a changelog from git commits.",
+      "bin": {
+        "generate-changelog": "./bin/generate",
+        "changelog": "./bin/generate"
+      },
+      "main": "./lib/index.js",
+      "directories": {
+        "test": "test"
+      },
+      "scripts": {
+        "release:major": "./bin/generate -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+        "release:minor": "./bin/generate -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+        "release:patch": "./bin/generate -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+        "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+        "lint": "eslint .",
+        "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 30000",
+        "test-no-cover": "NODE_ENV=test mocha test --recursive --timeout 30000"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lob/generate-changelog.git"
+      },
+      "keywords": [
+        "changelog",
+        "cli",
+        "npm",
+        "version",
+        "git",
+        "semver"
+      ],
+      "author": {
+        "name": "Lob",
+        "email": "support@lob.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/lob/generate-changelog/issues"
+      },
+      "homepage": "https://github.com/lob/generate-changelog#readme",
+      "dependencies": {
+        "bluebird": "^3.0.6",
+        "commander": "^2.9.0",
+        "github-url-from-git": "^1.4.0"
+      },
+      "devDependencies": {
+        "chai": "^3.4.1",
+        "chai-as-promised": "^5.1.0",
+        "coveralls": "^2.11.6",
+        "eslint": "^1.10.3",
+        "eslint-config-lob": "1.0.x",
+        "istanbul": "^0.4.1",
+        "mocha": "^2.3.4",
+        "sinon": "^1.17.2"
+      },
+      "engine": {
+        "node": ">= 0.10.x"
+      },
+      "gitHead": "ca44430029b73b06a6f4f7edee0db5cf9eb0bf42",
+      "_id": "generate-changelog@1.0.1",
+      "_shasum": "08e9f3db71c1703d3370cc6b6d2e5db3914b8291",
+      "_from": ".",
+      "_npmVersion": "3.3.12",
+      "_nodeVersion": "5.1.1",
+      "_npmUser": {
+        "name": "lob",
+        "email": "engineering@lob.com"
+      },
+      "dist": {
+        "shasum": "08e9f3db71c1703d3370cc6b6d2e5db3914b8291",
+        "tarball": "https://registry.npmjs.org/generate-changelog/-/generate-changelog-1.0.1.tgz",
+        "integrity": "sha512-b0zrlU/Dh3IIbewWqDNGEvbB12c1ZL1ANElMWZ4uMc9Bysqr6kBhOPgPKZuIJaJADv3aLZlWEajdl9x/qU6bPQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDUQxV1fOmqLue8NbinbeC7N2luqhgUtS0eOoNoUZBr4QIgDU7LntMobt1CsHOhv0JWCqHQadkaZqxes6OQdq5EJ7s="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "lob",
+          "email": "engineering@lob.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-5-east.internal.npmjs.com",
+        "tmp": "tmp/generate-changelog-1.0.1.tgz_1455131025867_0.917346749920398"
+      }
+    },
+    "1.0.2": {
+      "name": "generate-changelog",
+      "version": "1.0.2",
+      "description": "Generate a changelog from git commits.",
+      "bin": {
+        "generate-changelog": "./bin/generate",
+        "changelog": "./bin/generate"
+      },
+      "main": "./lib/index.js",
+      "directories": {
+        "test": "test"
+      },
+      "scripts": {
+        "release:major": "./bin/generate -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+        "release:minor": "./bin/generate -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+        "release:patch": "./bin/generate -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+        "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+        "lint": "eslint .",
+        "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 30000",
+        "test-no-cover": "NODE_ENV=test mocha test --recursive --timeout 30000"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lob/generate-changelog.git"
+      },
+      "keywords": [
+        "changelog",
+        "cli",
+        "npm",
+        "version",
+        "git",
+        "semver"
+      ],
+      "author": {
+        "name": "Lob",
+        "email": "support@lob.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/lob/generate-changelog/issues"
+      },
+      "homepage": "https://github.com/lob/generate-changelog#readme",
+      "dependencies": {
+        "bluebird": "^3.0.6",
+        "commander": "^2.9.0",
+        "github-url-from-git": "^1.4.0"
+      },
+      "devDependencies": {
+        "chai": "^3.4.1",
+        "chai-as-promised": "^5.1.0",
+        "coveralls": "^2.11.6",
+        "eslint": "^1.10.3",
+        "eslint-config-lob": "1.0.x",
+        "istanbul": "^0.4.1",
+        "mocha": "^2.3.4",
+        "sinon": "^1.17.2"
+      },
+      "engine": {
+        "node": ">= 0.10.x"
+      },
+      "gitHead": "572a6f552c340da4468026730e4069da4d96f707",
+      "_id": "generate-changelog@1.0.2",
+      "_shasum": "b26116d531a6ac4536a90ef5634121a55088d0eb",
+      "_from": ".",
+      "_npmVersion": "3.8.9",
+      "_nodeVersion": "6.1.0",
+      "_npmUser": {
+        "name": "lob",
+        "email": "engineering@lob.com"
+      },
+      "dist": {
+        "shasum": "b26116d531a6ac4536a90ef5634121a55088d0eb",
+        "tarball": "https://registry.npmjs.org/generate-changelog/-/generate-changelog-1.0.2.tgz",
+        "integrity": "sha512-iKbyLF3ygRxBTXGwFAXeLAtzy7tTNnRS+vBXByOOaXwKA+uJO1lMDkL5vta/LBxncA02h0nd/FrJCEQFEcBVyg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCGc7cre8wsFX26B7t+X4srixjSjH743ZBD29Y+SqbFIgIhAM6AbInxdG4DBnwzszZzMDmo+ycxTBmtHvVzs0F2Z3wS"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "lob",
+          "email": "engineering@lob.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/generate-changelog-1.0.2.tgz_1465336096152_0.8546610183548182"
+      }
+    },
+    "1.1.0": {
+      "name": "generate-changelog",
+      "version": "1.1.0",
+      "description": "Generate a changelog from git commits.",
+      "bin": {
+        "generate-changelog": "./bin/generate",
+        "changelog": "./bin/generate"
+      },
+      "main": "./lib/index.js",
+      "directories": {
+        "test": "test"
+      },
+      "scripts": {
+        "release:major": "./bin/generate -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+        "release:minor": "./bin/generate -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+        "release:patch": "./bin/generate -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+        "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+        "lint": "eslint .",
+        "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 30000",
+        "test-no-cover": "NODE_ENV=test mocha test --recursive --timeout 30000"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lob/generate-changelog.git"
+      },
+      "keywords": [
+        "changelog",
+        "cli",
+        "npm",
+        "version",
+        "git",
+        "semver"
+      ],
+      "author": {
+        "name": "Lob",
+        "email": "support@lob.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/lob/generate-changelog/issues"
+      },
+      "homepage": "https://github.com/lob/generate-changelog#readme",
+      "dependencies": {
+        "bluebird": "^3.0.6",
+        "commander": "^2.9.0",
+        "github-url-from-git": "^1.4.0"
+      },
+      "devDependencies": {
+        "chai": "^3.4.1",
+        "chai-as-promised": "^5.1.0",
+        "coveralls": "^2.11.6",
+        "eslint": "^1.10.3",
+        "eslint-config-lob": "1.0.x",
+        "istanbul": "^0.4.1",
+        "mocha": "^2.3.4",
+        "sinon": "^1.17.2"
+      },
+      "engine": {
+        "node": ">= 0.10.x"
+      },
+      "gitHead": "21a80033a13f90ddee8c87479224c46dd2ca0572",
+      "_id": "generate-changelog@1.1.0",
+      "_shasum": "2a70badc4e47a7cb5e1145194e5cb5acf4ed06e1",
+      "_from": ".",
+      "_npmVersion": "3.3.12",
+      "_nodeVersion": "6.1.0",
+      "_npmUser": {
+        "name": "lob",
+        "email": "engineering@lob.com"
+      },
+      "dist": {
+        "shasum": "2a70badc4e47a7cb5e1145194e5cb5acf4ed06e1",
+        "tarball": "https://registry.npmjs.org/generate-changelog/-/generate-changelog-1.1.0.tgz",
+        "integrity": "sha512-YRLTM7ZcASRejqwtT+BM3RjhybDj/JkWld+kPYiOe71XmPgqOEgSOUBSkniGfwJiNFjZWPSmOtNovGUSSE5MrQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGOSyzR591PJjlKG1MuyPr0xNkO8gDDEGkKzEeQBN9bjAiBHLcwND+vo+Ag+59a67AEv4827GMwUwgaL+9BdsNrxpA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "lob",
+          "email": "engineering@lob.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/generate-changelog-1.1.0.tgz_1481865485612_0.428481831215322"
+      }
+    },
+    "1.2.0": {
+      "name": "generate-changelog",
+      "version": "1.2.0",
+      "description": "Generate a changelog from git commits.",
+      "bin": {
+        "generate-changelog": "./bin/generate",
+        "changelog": "./bin/generate"
+      },
+      "main": "./lib/index.js",
+      "directories": {
+        "test": "test"
+      },
+      "scripts": {
+        "release:major": "./bin/generate -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+        "release:minor": "./bin/generate -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+        "release:patch": "./bin/generate -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+        "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+        "lint": "eslint .",
+        "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 30000",
+        "test-no-cover": "NODE_ENV=test mocha test --recursive --timeout 30000"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lob/generate-changelog.git"
+      },
+      "keywords": [
+        "changelog",
+        "cli",
+        "npm",
+        "version",
+        "git",
+        "semver"
+      ],
+      "author": {
+        "name": "Lob",
+        "email": "support@lob.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/lob/generate-changelog/issues"
+      },
+      "homepage": "https://github.com/lob/generate-changelog#readme",
+      "dependencies": {
+        "bluebird": "^3.0.6",
+        "commander": "^2.9.0",
+        "github-url-from-git": "^1.4.0"
+      },
+      "devDependencies": {
+        "chai": "^3.4.1",
+        "chai-as-promised": "^5.1.0",
+        "coveralls": "^2.11.6",
+        "eslint": "^1.10.3",
+        "eslint-config-lob": "1.0.x",
+        "istanbul": "^0.4.1",
+        "mocha": "^2.3.4",
+        "sinon": "^1.17.2"
+      },
+      "engine": {
+        "node": ">= 0.10.x"
+      },
+      "gitHead": "807e2e4b25ee755f4a46cea54d7f50837f609bef",
+      "_id": "generate-changelog@1.2.0",
+      "_shasum": "96fc267fc631be4a321986a39872687d46c2bbbb",
+      "_from": ".",
+      "_npmVersion": "4.2.0",
+      "_nodeVersion": "7.10.0",
+      "_npmUser": {
+        "name": "lob",
+        "email": "engineering@lob.com"
+      },
+      "dist": {
+        "shasum": "96fc267fc631be4a321986a39872687d46c2bbbb",
+        "tarball": "https://registry.npmjs.org/generate-changelog/-/generate-changelog-1.2.0.tgz",
+        "integrity": "sha512-6MzH33EBAU5JlXTb9jcqz1X8Bh1J0e3qmGuCwDJKAY5+eCj+0QWxq3pNBh3Bz+rBye0eH8ou2VQd0sEdf0T5HA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDhpX9GrE0vkRt0asWNsznXyQ5HGrvdkoa82XiRSfoKLQIhAJ9sqABQ3iYadBX0BJhSttHfYY3Q+RpUb0VmlSeZ9XJ/"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "lob",
+          "email": "engineering@lob.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/generate-changelog-1.2.0.tgz_1497288424405_0.5616316825617105"
+      }
+    },
+    "1.2.1": {
+      "name": "generate-changelog",
+      "version": "1.2.1",
+      "description": "Generate a changelog from git commits.",
+      "bin": {
+        "generate-changelog": "./bin/generate",
+        "changelog": "./bin/generate"
+      },
+      "main": "./lib/index.js",
+      "directories": {
+        "test": "test"
+      },
+      "scripts": {
+        "release:major": "./bin/generate -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+        "release:minor": "./bin/generate -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+        "release:patch": "./bin/generate -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+        "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+        "lint": "eslint .",
+        "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 30000",
+        "test-no-cover": "NODE_ENV=test mocha test --recursive --timeout 30000"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lob/generate-changelog.git"
+      },
+      "keywords": [
+        "changelog",
+        "cli",
+        "npm",
+        "version",
+        "git",
+        "semver"
+      ],
+      "author": {
+        "name": "Lob",
+        "email": "support@lob.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/lob/generate-changelog/issues"
+      },
+      "homepage": "https://github.com/lob/generate-changelog#readme",
+      "dependencies": {
+        "bluebird": "^3.0.6",
+        "commander": "^2.9.0",
+        "github-url-from-git": "^1.4.0"
+      },
+      "devDependencies": {
+        "chai": "^3.4.1",
+        "chai-as-promised": "^5.1.0",
+        "coveralls": "^2.11.6",
+        "eslint": "^1.10.3",
+        "eslint-config-lob": "1.0.x",
+        "istanbul": "^0.4.1",
+        "mocha": "^2.3.4",
+        "sinon": "^1.17.2"
+      },
+      "engine": {
+        "node": ">= 0.10.x"
+      },
+      "gitHead": "cf7aff27287ec9285abb1f108c248e9ec3f1a819",
+      "_id": "generate-changelog@1.2.1",
+      "_shasum": "f3f0f6884d7ac0d7a85f3f82bcd6f400f7614f78",
+      "_from": ".",
+      "_npmVersion": "4.2.0",
+      "_nodeVersion": "7.10.0",
+      "_npmUser": {
+        "name": "lob",
+        "email": "engineering@lob.com"
+      },
+      "dist": {
+        "shasum": "f3f0f6884d7ac0d7a85f3f82bcd6f400f7614f78",
+        "tarball": "https://registry.npmjs.org/generate-changelog/-/generate-changelog-1.2.1.tgz",
+        "integrity": "sha512-OXkAlz1PGr+JFZUWNr8tqbNek5jjT5enL2iMhDg3x/3TmApLJja5WYkjh4OPtHMv+2fljPEQBr5hEzCeaBQSEA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCpoU2qNjT9MAa5KLLUnBLa8DGl1lomAGnnlg+IkoD8NgIhALBAaFDEQ96FO7lP41U1cDq2HhVATzB/bPrc/POD3TLX"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "lob",
+          "email": "engineering@lob.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/generate-changelog-1.2.1.tgz_1497390920723_0.5952342301607132"
+      }
+    },
+    "1.3.0": {
+      "name": "generate-changelog",
+      "version": "1.3.0",
+      "description": "Generate a changelog from git commits.",
+      "bin": {
+        "generate-changelog": "./bin/generate",
+        "changelog": "./bin/generate"
+      },
+      "main": "./lib/index.js",
+      "directories": {
+        "test": "test"
+      },
+      "scripts": {
+        "release:major": "./bin/generate -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+        "release:minor": "./bin/generate -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+        "release:patch": "./bin/generate -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+        "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+        "lint": "eslint .",
+        "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 30000",
+        "test-no-cover": "NODE_ENV=test mocha test --recursive --timeout 30000"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lob/generate-changelog.git"
+      },
+      "keywords": [
+        "changelog",
+        "cli",
+        "npm",
+        "version",
+        "git",
+        "semver"
+      ],
+      "author": {
+        "name": "Lob",
+        "email": "support@lob.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/lob/generate-changelog/issues"
+      },
+      "homepage": "https://github.com/lob/generate-changelog#readme",
+      "dependencies": {
+        "bluebird": "^3.0.6",
+        "commander": "^2.9.0",
+        "github-url-from-git": "^1.4.0"
+      },
+      "devDependencies": {
+        "chai": "^3.4.1",
+        "chai-as-promised": "^5.1.0",
+        "coveralls": "^2.11.6",
+        "eslint": "^1.10.3",
+        "eslint-config-lob": "1.0.x",
+        "istanbul": "^0.4.1",
+        "mocha": "^2.3.4",
+        "sinon": "^1.17.2"
+      },
+      "engine": {
+        "node": ">= 0.10.x"
+      },
+      "gitHead": "fbd1fd8519bfbd5692e1edadc6e52794e242c959",
+      "_id": "generate-changelog@1.3.0",
+      "_shasum": "90510b8c27ecff9ffc33243d412e6bc37bca034b",
+      "_from": ".",
+      "_npmVersion": "4.2.0",
+      "_nodeVersion": "7.10.0",
+      "_npmUser": {
+        "name": "lob",
+        "email": "engineering@lob.com"
+      },
+      "dist": {
+        "shasum": "90510b8c27ecff9ffc33243d412e6bc37bca034b",
+        "tarball": "https://registry.npmjs.org/generate-changelog/-/generate-changelog-1.3.0.tgz",
+        "integrity": "sha512-DsXB1Xc4VBstuJWwl7yBq/5W5Y+og9dai10i6JRYQ34tPvK2UdRBimD7NXDvKpJVb6/cCVbA8fnZKyIEawX7nQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDNJDvcuSJkEZv6BRmammCGmGhi6CSWUSTnZrRpwyEJMQIhAI+dW1+7s+JQ7a1lcxzdxsd2gAWMCPdPtmHaDZMKxrxr"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "lob",
+          "email": "engineering@lob.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/generate-changelog-1.3.0.tgz_1498355424524_0.21437870734371245"
+      }
+    },
+    "1.3.1": {
+      "name": "generate-changelog",
+      "version": "1.3.1",
+      "description": "Generate a changelog from git commits.",
+      "bin": {
+        "generate-changelog": "./bin/generate",
+        "changelog": "./bin/generate"
+      },
+      "main": "./lib/index.js",
+      "directories": {
+        "test": "test"
+      },
+      "scripts": {
+        "release:major": "./bin/generate -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+        "release:minor": "./bin/generate -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+        "release:patch": "./bin/generate -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+        "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+        "lint": "eslint .",
+        "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 30000",
+        "test-no-cover": "NODE_ENV=test mocha test --recursive --timeout 30000"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lob/generate-changelog.git"
+      },
+      "keywords": [
+        "changelog",
+        "cli",
+        "npm",
+        "version",
+        "git",
+        "semver"
+      ],
+      "author": {
+        "name": "Lob",
+        "email": "support@lob.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/lob/generate-changelog/issues"
+      },
+      "homepage": "https://github.com/lob/generate-changelog#readme",
+      "dependencies": {
+        "bluebird": "^3.0.6",
+        "commander": "^2.9.0",
+        "github-url-from-git": "^1.4.0"
+      },
+      "devDependencies": {
+        "chai": "^3.4.1",
+        "chai-as-promised": "^5.1.0",
+        "coveralls": "^2.11.6",
+        "eslint": "^1.10.3",
+        "eslint-config-lob": "1.0.x",
+        "istanbul": "^0.4.1",
+        "mocha": "^2.3.4",
+        "sinon": "^1.17.2"
+      },
+      "engine": {
+        "node": ">= 0.10.x"
+      },
+      "gitHead": "008686e3bd8f11711dbd69b3c59f089e0410fba6",
+      "_id": "generate-changelog@1.3.1",
+      "_npmVersion": "5.0.3",
+      "_nodeVersion": "8.1.4",
+      "_npmUser": {
+        "name": "lob",
+        "email": "engineering@lob.com"
+      },
+      "dist": {
+        "integrity": "sha512-VesdNn6ka8Ke5hd3IjVLKsgye4pmzg06PQnwVfFp9k7XsM2bzGQuiAXI0uJ7+hbkztKxOJIa06MkFs+E7oWfEA==",
+        "shasum": "dd05e004b6be672ecf0b1ff7e838542332791fd8",
+        "tarball": "https://registry.npmjs.org/generate-changelog/-/generate-changelog-1.3.1.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCV3tTUDgeov5kg2VHSj8+vlZGIzzQG/UukNCgxXz/SiwIhAPkjip/f/wCPgS2+2cUiGNH695vDliNXlJuTq5qoPuUb"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "lob",
+          "email": "engineering@lob.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/generate-changelog-1.3.1.tgz_1502782803099_0.7475568607915193"
+      }
+    },
+    "1.4.0": {
+      "name": "generate-changelog",
+      "version": "1.4.0",
+      "description": "Generate a changelog from git commits.",
+      "bin": {
+        "generate-changelog": "./bin/generate",
+        "changelog": "./bin/generate"
+      },
+      "main": "./lib/index.js",
+      "directories": {
+        "test": "test"
+      },
+      "scripts": {
+        "release:major": "./bin/generate -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+        "release:minor": "./bin/generate -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+        "release:patch": "./bin/generate -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "lint": "eslint .",
+        "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 30000",
+        "test-no-cover": "NODE_ENV=test mocha test --recursive --timeout 30000"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lob/generate-changelog.git"
+      },
+      "keywords": [
+        "changelog",
+        "cli",
+        "npm",
+        "version",
+        "git",
+        "semver"
+      ],
+      "author": {
+        "name": "Lob",
+        "email": "support@lob.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/lob/generate-changelog/issues"
+      },
+      "homepage": "https://github.com/lob/generate-changelog#readme",
+      "dependencies": {
+        "bluebird": "^3.0.6",
+        "commander": "^2.9.0",
+        "github-url-from-git": "^1.4.0"
+      },
+      "devDependencies": {
+        "chai": "^3.4.1",
+        "chai-as-promised": "^5.1.0",
+        "coveralls": "^2.11.6",
+        "eslint": "^1.10.3",
+        "eslint-config-lob": "^2.4.0",
+        "eslint-plugin-lob": "^1.1.0",
+        "istanbul": "^0.4.1",
+        "mocha": "^2.3.4",
+        "sinon": "^1.17.2"
+      },
+      "engine": {
+        "node": ">= 0.10.x"
+      },
+      "gitHead": "b20b37cef3a7a7e51f4601721018e4bddb0d5072",
+      "_id": "generate-changelog@1.4.0",
+      "_npmVersion": "5.0.3",
+      "_nodeVersion": "8.1.4",
+      "_npmUser": {
+        "name": "lob",
+        "email": "engineering@lob.com"
+      },
+      "dist": {
+        "integrity": "sha512-uhjurrQ/MZ2kfol1wyuF55mmMSiW7UxLkdwhlfI/90KH/Ucy1QtFMwEc1/yzfBHiqhUXV/0HZSKKZp89sq7Yxw==",
+        "shasum": "07bd5ff7b67a8b3a4c972d31235e7716153da55b",
+        "tarball": "https://registry.npmjs.org/generate-changelog/-/generate-changelog-1.4.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICMrTD+hN+VCz1pUrYIoqFhOQF2tf650ZYtEpkkVsr6xAiEAtvn9SofIE29uwsymeaH1mpjoPktxrENnxqKzDCvyJMU="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "lob",
+          "email": "engineering@lob.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/generate-changelog-1.4.0.tgz_1504025808667_0.046105126617476344"
+      }
+    },
+    "1.5.0": {
+      "name": "generate-changelog",
+      "version": "1.5.0",
+      "description": "Generate a changelog from git commits.",
+      "bin": {
+        "generate-changelog": "./bin/generate",
+        "changelog": "./bin/generate"
+      },
+      "main": "./lib/index.js",
+      "directories": {
+        "test": "test"
+      },
+      "scripts": {
+        "release:major": "./bin/generate -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+        "release:minor": "./bin/generate -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+        "release:patch": "./bin/generate -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "lint": "eslint .",
+        "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 30000",
+        "test-no-cover": "NODE_ENV=test mocha test --recursive --timeout 30000"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lob/generate-changelog.git"
+      },
+      "keywords": [
+        "changelog",
+        "cli",
+        "npm",
+        "version",
+        "git",
+        "semver"
+      ],
+      "author": {
+        "name": "Lob",
+        "email": "support@lob.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/lob/generate-changelog/issues"
+      },
+      "homepage": "https://github.com/lob/generate-changelog#readme",
+      "dependencies": {
+        "bluebird": "^3.0.6",
+        "commander": "^2.9.0",
+        "github-url-from-git": "^1.4.0"
+      },
+      "devDependencies": {
+        "chai": "^3.4.1",
+        "chai-as-promised": "^5.1.0",
+        "coveralls": "^2.11.6",
+        "eslint": "^1.10.3",
+        "eslint-config-lob": "^2.4.0",
+        "eslint-plugin-lob": "^1.1.0",
+        "istanbul": "^0.4.1",
+        "mocha": "^2.3.4",
+        "sinon": "^1.17.2"
+      },
+      "engine": {
+        "node": ">= 0.10.x"
+      },
+      "gitHead": "7912ef07de138d517e8254e6f519d44a6d605974",
+      "_id": "generate-changelog@1.5.0",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.5.0",
+      "_npmUser": {
+        "name": "lob",
+        "email": "engineering@lob.com"
+      },
+      "dist": {
+        "integrity": "sha512-bM2s8LcYpPIBXhw2iFjKyYjlO92mDirrmQHXWaymgGS1N6oyQax4w8d+taYy/pIzF07fg2PwgvLbm6IEAWLNvA==",
+        "shasum": "1ec4f88f58539b174d01e1bf6f993b857b470866",
+        "tarball": "https://registry.npmjs.org/generate-changelog/-/generate-changelog-1.5.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCID9XYNikUkxgEGYao2BRhDdxdq9HhvGVgZcsJsLGdLqtAiEAzznKIa2sJJh0TUYcfNsoAX8elViTlK0Jvg2A7uEPsCs="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "lob",
+          "email": "engineering@lob.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/generate-changelog-1.5.0.tgz_1505870509344_0.6860561778303236"
+      }
+    },
+    "1.6.0": {
+      "name": "generate-changelog",
+      "version": "1.6.0",
+      "description": "Generate a changelog from git commits.",
+      "bin": {
+        "generate-changelog": "./bin/generate",
+        "changelog": "./bin/generate"
+      },
+      "main": "./lib/index.js",
+      "directories": {
+        "test": "test"
+      },
+      "scripts": {
+        "release:major": "./bin/generate -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+        "release:minor": "./bin/generate -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+        "release:patch": "./bin/generate -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "lint": "eslint .",
+        "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 30000",
+        "test-no-cover": "NODE_ENV=test mocha test --recursive --timeout 30000"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lob/generate-changelog.git"
+      },
+      "keywords": [
+        "changelog",
+        "cli",
+        "npm",
+        "version",
+        "git",
+        "semver"
+      ],
+      "author": {
+        "name": "Lob",
+        "email": "support@lob.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/lob/generate-changelog/issues"
+      },
+      "homepage": "https://github.com/lob/generate-changelog#readme",
+      "dependencies": {
+        "bluebird": "^3.0.6",
+        "commander": "^2.9.0",
+        "github-url-from-git": "^1.4.0"
+      },
+      "devDependencies": {
+        "chai": "^3.4.1",
+        "chai-as-promised": "^5.1.0",
+        "coveralls": "^2.11.6",
+        "eslint": "^1.10.3",
+        "eslint-config-lob": "^2.4.0",
+        "eslint-plugin-lob": "^1.1.0",
+        "istanbul": "^0.4.1",
+        "mocha": "^2.3.4",
+        "sinon": "^1.17.2"
+      },
+      "engine": {
+        "node": ">= 0.10.x"
+      },
+      "gitHead": "5fc6ce5c403174fd30d4fede6d3a0be00f9c6b4c",
+      "_id": "generate-changelog@1.6.0",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "8.9.0",
+      "_npmUser": {
+        "name": "lob",
+        "email": "engineering@lob.com"
+      },
+      "dist": {
+        "integrity": "sha512-PhjwWMUdYkfefHBuhWkqdd49VblsxTywkjHEOxSjov6Vb4Etq7+RAY2yzo9fRof0CC4no93Sbkvau/tzxCgmhg==",
+        "shasum": "faf302bbc83b147cafe38bfb10487f560f1ad640",
+        "tarball": "https://registry.npmjs.org/generate-changelog/-/generate-changelog-1.6.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHPf91RT98NKp5YCOTL7EdvrKAOq5cquzQENSDDdkrnGAiEAnNywv7E8inS9zNG25AUUWsVF9/+T4+RUepQUQrdo7Z0="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "lob",
+          "email": "engineering@lob.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/generate-changelog-1.6.0.tgz_1511197509340_0.5533768725581467"
+      }
+    },
+    "1.7.0": {
+      "name": "generate-changelog",
+      "version": "1.7.0",
+      "description": "Generate a changelog from git commits.",
+      "bin": {
+        "generate-changelog": "./bin/generate",
+        "changelog": "./bin/generate"
+      },
+      "main": "./lib/index.js",
+      "directories": {
+        "test": "test"
+      },
+      "scripts": {
+        "release:major": "./bin/generate -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+        "release:minor": "./bin/generate -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+        "release:patch": "./bin/generate -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "lint": "eslint .",
+        "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 30000",
+        "test-no-cover": "NODE_ENV=test mocha test --recursive --timeout 30000"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lob/generate-changelog.git"
+      },
+      "keywords": [
+        "changelog",
+        "cli",
+        "npm",
+        "version",
+        "git",
+        "semver"
+      ],
+      "author": {
+        "name": "Lob",
+        "email": "support@lob.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/lob/generate-changelog/issues"
+      },
+      "homepage": "https://github.com/lob/generate-changelog#readme",
+      "dependencies": {
+        "bluebird": "^3.0.6",
+        "commander": "^2.9.0",
+        "github-url-from-git": "^1.4.0"
+      },
+      "devDependencies": {
+        "chai": "^3.4.1",
+        "chai-as-promised": "^5.1.0",
+        "coveralls": "^2.11.6",
+        "eslint": "^1.10.3",
+        "eslint-config-lob": "^2.4.0",
+        "eslint-plugin-lob": "^1.1.0",
+        "istanbul": "^0.4.1",
+        "mocha": "^2.3.4",
+        "sinon": "^1.17.2"
+      },
+      "engine": {
+        "node": ">= 0.10.x"
+      },
+      "gitHead": "797909e6c0528491d5c62efc39ab531fd4c4e41e",
+      "_id": "generate-changelog@1.7.0",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "8.9.0",
+      "_npmUser": {
+        "name": "lob",
+        "email": "engineering@lob.com"
+      },
+      "dist": {
+        "integrity": "sha512-xGeB54pNZl+zA0tvs5ktji25MAb4ai92b22at2bxd3HKFk1sayw3pN2Xv50huY4qfJxzpICeeou4do0XNkHEiw==",
+        "shasum": "e6321226207d5cbcfe24de39d7ffd65d51698596",
+        "tarball": "https://registry.npmjs.org/generate-changelog/-/generate-changelog-1.7.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCTAH+QkXYABWrjT66f7ht0wyn+N+jtGmZ6FflVAn1MmAIhAJ9hRqFwXfQ0Zy/SuBluQpIb0KYYbdtz25f/3+0+H0Eu"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "lob",
+          "email": "engineering@lob.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/generate-changelog-1.7.0.tgz_1513537636216_0.9615671003703028"
+      }
+    },
+    "1.7.1": {
+      "name": "generate-changelog",
+      "version": "1.7.1",
+      "description": "Generate a changelog from git commits.",
+      "bin": {
+        "generate-changelog": "./bin/generate",
+        "changelog": "./bin/generate"
+      },
+      "main": "./lib/index.js",
+      "directories": {
+        "test": "test"
+      },
+      "scripts": {
+        "release:major": "./bin/generate -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+        "release:minor": "./bin/generate -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+        "release:patch": "./bin/generate -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "lint": "eslint .",
+        "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 30000",
+        "test-no-cover": "NODE_ENV=test mocha test --recursive --timeout 30000"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lob/generate-changelog.git"
+      },
+      "keywords": [
+        "changelog",
+        "cli",
+        "npm",
+        "version",
+        "git",
+        "semver"
+      ],
+      "author": {
+        "name": "Lob",
+        "email": "support@lob.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/lob/generate-changelog/issues"
+      },
+      "homepage": "https://github.com/lob/generate-changelog#readme",
+      "dependencies": {
+        "bluebird": "^3.0.6",
+        "commander": "^2.9.0",
+        "github-url-from-git": "^1.4.0"
+      },
+      "devDependencies": {
+        "chai": "^3.4.1",
+        "chai-as-promised": "^5.1.0",
+        "coveralls": "^2.11.6",
+        "eslint": "^1.10.3",
+        "eslint-config-lob": "^2.4.0",
+        "eslint-plugin-lob": "^1.1.0",
+        "istanbul": "^0.4.1",
+        "mocha": "^2.3.4",
+        "sinon": "^1.17.2"
+      },
+      "engine": {
+        "node": ">= 0.10.x"
+      },
+      "gitHead": "1d7dd52bd0fe141f554927d35106913690ea4003",
+      "_id": "generate-changelog@1.7.1",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "8.9.0",
+      "_npmUser": {
+        "name": "lob",
+        "email": "engineering@lob.com"
+      },
+      "dist": {
+        "integrity": "sha512-f57zId4iD0AVRyjHHH6SwOdevrW+5ikjr6ooqlzUf7Z27DBW4BZvWZtlXmy+LShf5C52aFBCvKVwd86ZA56ObQ==",
+        "shasum": "c0b549de34177e6a5d6414af3d74daea9a3cdc0f",
+        "tarball": "https://registry.npmjs.org/generate-changelog/-/generate-changelog-1.7.1.tgz",
+        "fileCount": 13,
+        "unpackedSize": 24035,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICF19JZV5a46C2Oq4Is80i3rlFp0WZMeyqdwP2Wi3+DFAiEAuftDk1Ji8nA4b1L23B6apltbbZQy3nXik8Nbh/RfaP4="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "lob",
+          "email": "engineering@lob.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/generate-changelog_1.7.1_1522259088781_0.5887553444113025"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.8.0": {
+      "name": "generate-changelog",
+      "version": "1.8.0",
+      "description": "Generate a changelog from git commits.",
+      "bin": {
+        "generate-changelog": "./bin/generate",
+        "changelog": "./bin/generate"
+      },
+      "main": "./lib/index.js",
+      "directories": {
+        "test": "test"
+      },
+      "scripts": {
+        "release:major": "./bin/generate -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+        "release:minor": "./bin/generate -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+        "release:patch": "./bin/generate -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "lint": "eslint .",
+        "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 30000",
+        "test-no-cover": "NODE_ENV=test mocha test --recursive --timeout 30000"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lob/generate-changelog.git"
+      },
+      "keywords": [
+        "changelog",
+        "cli",
+        "npm",
+        "version",
+        "git",
+        "semver"
+      ],
+      "author": {
+        "name": "Lob",
+        "email": "support@lob.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/lob/generate-changelog/issues"
+      },
+      "homepage": "https://github.com/lob/generate-changelog#readme",
+      "dependencies": {
+        "bluebird": "^3.0.6",
+        "commander": "^2.9.0",
+        "github-url-from-git": "^1.4.0"
+      },
+      "devDependencies": {
+        "chai": "^3.4.1",
+        "chai-as-promised": "^5.1.0",
+        "coveralls": "^2.11.6",
+        "eslint": "^1.10.3",
+        "eslint-config-lob": "^2.4.0",
+        "eslint-plugin-lob": "^1.1.0",
+        "istanbul": "^0.4.1",
+        "mocha": "^2.3.4",
+        "sinon": "^1.17.2"
+      },
+      "engine": {
+        "node": ">= 0.10.x"
+      },
+      "gitHead": "55256c98689321ae783d24c0339c277f54592ac2",
+      "_id": "generate-changelog@1.8.0",
+      "_nodeVersion": "12.1.0",
+      "_npmVersion": "6.9.1-next.0",
+      "dist": {
+        "integrity": "sha512-msgpxeB75Ziyg3wGsZuPNl7c5RxChMKmYcAX5obnhUow90dBZW3nLic6nxGtst7Bpx453oS6zAIHcX7F3QVasw==",
+        "shasum": "1d788cdef5a13a649da7eb2a1f3b02674850e4a8",
+        "tarball": "https://registry.npmjs.org/generate-changelog/-/generate-changelog-1.8.0.tgz",
+        "fileCount": 13,
+        "unpackedSize": 25036,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdEmJACRA9TVsSAnZWagAAFQwP+gMjkOYm9Y07oeUU9uvc\nPG25sUBLRh8GujHm3FxLNfN3vVWqGtL1e95hYzHLYKEDLqAdvzm1nUdp51Rm\n2slag3MV2KxhGgI1Z/Kj8PEwAKYjpaQzlf7QQ84xgkFaB2YhGV3dTdHk6NKy\nGBxzX0dweTWmw5VUXLqkwXwO4JfUjClnuLogcES9bBmWYrPnRCyq6Bw072bu\n1feqK3RgqXfQzxFT1TVgqw5e/1ksKhUpF0s7LwFgtoS6r0rN8X0ZPfAwc1Da\nW+wyRbA2QSHue7PdZwXGWyBHrn2LJi7g6vPeqBwufhamL+EvF5uo5apMtqRJ\nnQMzbFsNO04T28SgSwe1FG8Wpo07WzOgVLPg9rb10dNv78L6qXAXmjzPTYjr\nsUIqAhN9TgVnWNIVukZ1/l6YGDoh+bQ7NQhX5XkMD9Uyx+yVWYpVjdVvxEFY\nY9mYyOZxEzW7ja5/UoQ3PO3QkeM8NV4iY0+J8sWcRBm3Q3LTyaKu/Cv9E6TS\n86vivjE2qBZtgT/ypTav0vupWpDzJ2g0pUjt4nTnLY2XuVjRiC4i6vKkqxtd\ny1bOdMhk9vplF/yNpnmd5/VlXLIkD3QcxhzLBQzcwjVXBi3mQFCtUV0aIybX\njqAzCweGFaNqKwOEww2wloHqtbb3m4d0pG2lmet2SzVeC8ZGKfVjaISjQAg3\nQKdP\r\n=tS4w\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAQ/H464HmT1bTQfkBzAMWyx3t51dTppNvxDpZZ1ZczuAiEA9Qh4kX+CgFBx5nYrNKGMPUk8AfNg3UHiSoFdz2Zw+TQ="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "lob",
+          "email": "engineering@lob.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "lob",
+        "email": "engineering@lob.com"
+      },
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/generate-changelog_1.8.0_1561485887820_0.28273134551500356"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "readme": "# Generate Changelog\n\n[![NPM Version](https://badge.fury.io/js/generate-changelog.svg)](https://www.npmjs.com/package/generate-changelog)\n[![Build Status](https://travis-ci.org/lob/generate-changelog.svg)](https://travis-ci.org/lob/generate-changelog)\n[![Coverage Status](https://coveralls.io/repos/lob/generate-changelog/badge.svg?branch=master&service=github)](https://coveralls.io/github/lob/generate-changelog?branch=master)\n[![Dependency Status](https://david-dm.org/lob/generate-changelog.svg)](https://david-dm.org/lob/generate-changelog)\n\nGenerate a changelog from git commits. This is meant to be used so that for every patch, minor, or major version, you update the changelog _prior_ to running `npm version` so that the git tag contains the commit that updated both the changelog and version.\n\n## Installation\n\nYou can either install it as a dev dependency to be referenced in your npm scripts, or you can install this module globally to be used for all of your repos on your local machine.\n\n```bash\n$ npm i generate-changelog -D # install it as a dev dependency\n# OR\n$ npm i generate-changelog -g # install it globally\n```\n\n## Usage\n\nTo use this module, your commit messages have to be in this format:\n\n```\ntype(category): description [flags]\n```\n\nWhere `type` is one of the following:\n\n* `breaking`\n* `build`\n* `ci`\n* `chore`\n* `docs`\n* `feat`\n* `fix`\n* `other`\n* `perf`\n* `refactor`\n* `revert`\n* `style`\n* `test`\n\nWhere `flags` is an optional comma-separated list of one or more of the following (must be surrounded in square brackets):\n\n* `breaking`: alters `type` to be a breaking change\n\nAnd `category` can be anything of your choice. If you use a type not found in the list (but it still follows the same format of the message), it'll be grouped under `other`.\n\n### CLI\n\nYou can run this module as a CLI app that prepends the new logs to a file (recommended):\n\n```bash\n$ changelog -h\n\n  Usage: generate [options]\n\n  Generate a changelog from git commits.\n\n  Options:\n\n    -h, --help             output usage information\n    -V, --version          output the version number\n    -p, --patch            create a patch changelog\n    -m, --minor            create a minor changelog\n    -M, --major            create a major changelog\n    -t, --tag <range>      generate from specific tag or range (e.g. v1.2.3 or v1.2.3..v1.2.4)\n    -x, --exclude <types>  exclude selected commit types (comma separated)\n    -f, --file [file]      file to write to, defaults to ./CHANGELOG.md, use - for stdout\n    -u, --repo-url [url]   specify the repo URL for commit links, defaults to checking the package.json\n    -a, --allow-unknown    allow unkown commit types\n```\n\nIt's possible to create a `./CHANGELOG.md` file for a specific commit range:\n\n```bash\ngenerate-changelog 420c945...2a83752\n```\n\nGit tags are supported too:\n\n```bash\ngenerate-changelog release/3.1.2822...release/3.1.2858\n```\n\n### Code\n\nYou can write a script that calls the `generate` function and does whatever you want with the new logs:\n\n```js\nvar Changelog = require('generate-changelog');\nvar Fs        = require('fs');\n\nreturn Changelog.generate({ patch: true, repoUrl: 'https://github.com/lob/generate-changelog' })\n.then(function (changelog) {\n  Fs.writeFileSync('./CHANGELOG.md', changelog);\n});\n```\n\n### Recommended\n\nThe way that I would recommend using this module would be the way it's being used in this module: as npm scripts. You should install it as a dev dependency and then add the following to the `scripts` object in your `package.json`:\n\n```json\n\"release:major\": \"changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags\",\n\"release:minor\": \"changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags\",\n\"release:patch\": \"changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags\",\n```\n\n## Testing\n\nTo run the test suite, just clone the repository and run the following:\n\n```bash\n$ npm i\n$ npm test\n```\n\n## Contributing\n\nTo contribute, please see the [CONTRIBUTING.md](CONTRIBUTING.md) file.\n\n## License\n\nThis project is released under the MIT license, which can be found in [`LICENSE.txt`](LICENSE.txt).\n",
+  "maintainers": [
+    {
+      "email": "hunter.yoakum@lob.com",
+      "name": "hunteryoakum"
+    },
+    {
+      "email": "rachel.decker@lob.com",
+      "name": "rdimouro7373"
+    },
+    {
+      "email": "troy.armstrong@lob.com",
+      "name": "lobstertroy"
+    },
+    {
+      "email": "josh.nkoy@lob.com",
+      "name": "joshnkoy"
+    },
+    {
+      "email": "michel.perez@lob.com",
+      "name": "michel_lob"
+    },
+    {
+      "email": "harout.stepanyan@lob.com",
+      "name": "haroutrs"
+    },
+    {
+      "email": "kevin.jones@lob.com",
+      "name": "kjones_lob"
+    },
+    {
+      "email": "eamon.barisone@lob.com",
+      "name": "eamon-barisone"
+    },
+    {
+      "email": "nathaniel.waldschmidt@lob.com",
+      "name": "nathanielwaldschmidtlob"
+    },
+    {
+      "email": "zach.reed@lob.com",
+      "name": "zach.reed"
+    },
+    {
+      "email": "rich.podraza@lob.com",
+      "name": "richpodrazalob"
+    },
+    {
+      "email": "ken.crimmins@lob.com",
+      "name": "kencrim"
+    },
+    {
+      "email": "jorge.vivas@lob.com",
+      "name": "jorgelob"
+    },
+    {
+      "email": "nick.place@lob.com",
+      "name": "nick-place-lob"
+    },
+    {
+      "email": "andrew.guterres@lob.com",
+      "name": "andrew.guterres"
+    },
+    {
+      "email": "andrew.jorczak@lob.com",
+      "name": "ajorczak"
+    },
+    {
+      "email": "hanqing@lob.com",
+      "name": "hanqingchen-lob"
+    },
+    {
+      "email": "juan.frissdekereki@lob.com",
+      "name": "juan.frissdekereki"
+    },
+    {
+      "email": "michael.morgan@lob.com",
+      "name": "mmorgan-lob"
+    },
+    {
+      "email": "karan@lob.com",
+      "name": "karankwatra-lob"
+    },
+    {
+      "email": "joey.bates@lob.com",
+      "name": "joey-bates-lob"
+    },
+    {
+      "email": "luke.birdeau@gmail.com",
+      "name": "luke.birdeau"
+    },
+    {
+      "email": "michael.g@lob.com",
+      "name": "mg-lob"
+    },
+    {
+      "email": "vmangwani@lob.com",
+      "name": "vmangwani"
+    },
+    {
+      "email": "sachin@lob.com",
+      "name": "sachinlob"
+    },
+    {
+      "email": "kc@lob.com",
+      "name": "kc-lob"
+    },
+    {
+      "email": "nick.perri@lob.com",
+      "name": "nick.perri"
+    },
+    {
+      "email": "siddharth.pant@lob.com",
+      "name": "siddharthpant92"
+    },
+    {
+      "email": "beth.qiang@lob.com",
+      "name": "bethqiang"
+    },
+    {
+      "email": "ken.pflum@lob.com",
+      "name": "kplob"
+    },
+    {
+      "email": "samkit.sheth@lob.com",
+      "name": "samkitsheth95"
+    },
+    {
+      "email": "erin.doyle@lob.com",
+      "name": "erin-doyle"
+    },
+    {
+      "email": "rich.seviora@lob.com",
+      "name": "rich_seviora_lob"
+    },
+    {
+      "email": "james.davidson@lob.com",
+      "name": "jfdavidson"
+    },
+    {
+      "email": "jack.meussdorffer@lob.com",
+      "name": "meussdorffer"
+    },
+    {
+      "email": "shanna.murry@lob.com",
+      "name": "shannamurry"
+    },
+    {
+      "email": "david.nutting@lob.com",
+      "name": "davidnutting-lob"
+    },
+    {
+      "email": "amaan@lob.com",
+      "name": "amaan_lob"
+    },
+    {
+      "email": "team.platform@lob.com",
+      "name": "team.platform.lob.com"
+    },
+    {
+      "email": "elijah@lob.com",
+      "name": "elijah-lob"
+    },
+    {
+      "email": "jonathan.lowsley@lob.com",
+      "name": "jlowsley-lob"
+    },
+    {
+      "email": "barnaby.go@lob.com",
+      "name": "barnabygo"
+    },
+    {
+      "email": "james.cho@lob.com",
+      "name": "james.cho"
+    },
+    {
+      "email": "james.douglas@lob.com",
+      "name": "douglaje"
+    },
+    {
+      "email": "lob.npm.owner@lob.com",
+      "name": "lob-owner"
+    },
+    {
+      "email": "graeme.lowe@lob.com",
+      "name": "graeme.lowe.lob"
+    }
+  ],
+  "time": {
+    "modified": "2024-03-02T01:38:24.846Z",
+    "created": "2015-12-14T20:21:05.098Z",
+    "1.0.0": "2015-12-14T20:21:05.098Z",
+    "1.0.1": "2016-02-10T19:03:48.841Z",
+    "1.0.2": "2016-06-07T21:48:18.400Z",
+    "1.1.0": "2016-12-16T05:18:07.687Z",
+    "1.2.0": "2017-06-12T17:27:04.600Z",
+    "1.2.1": "2017-06-13T21:55:20.916Z",
+    "1.3.0": "2017-06-25T01:50:24.698Z",
+    "1.3.1": "2017-08-15T07:40:03.192Z",
+    "1.4.0": "2017-08-29T16:56:48.757Z",
+    "1.5.0": "2017-09-20T01:21:50.401Z",
+    "1.6.0": "2017-11-20T17:05:10.218Z",
+    "1.7.0": "2017-12-17T19:07:16.293Z",
+    "1.7.1": "2018-03-28T17:44:48.854Z",
+    "1.8.0": "2019-06-25T18:04:48.185Z"
+  },
+  "homepage": "https://github.com/lob/generate-changelog#readme",
+  "keywords": [
+    "changelog",
+    "cli",
+    "npm",
+    "version",
+    "git",
+    "semver"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lob/generate-changelog.git"
+  },
+  "author": {
+    "name": "Lob",
+    "email": "support@lob.com"
+  },
+  "bugs": {
+    "url": "https://github.com/lob/generate-changelog/issues"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "users": {
+    "franklin": true,
+    "adrianorosa": true,
+    "karl.alnebratt": true,
+    "cdelgado": true,
+    "luoyjx": true,
+    "yowainwright": true,
+    "martinspinks": true
+  }
+}
