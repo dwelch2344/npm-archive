@@ -1,0 +1,2328 @@
+{
+  "_id": "gulp-shell",
+  "_rev": "161-6f6567912df5163b48d37d876453241a",
+  "name": "gulp-shell",
+  "time": {
+    "modified": "2023-06-24T02:18:05.841Z",
+    "created": "2014-02-22T13:14:04.343Z",
+    "0.0.1": "2014-02-22T13:14:04.343Z",
+    "0.0.2": "2014-02-22T13:41:31.538Z",
+    "0.1.0": "2014-02-22T13:47:04.075Z",
+    "0.2.0": "2014-02-23T11:46:34.506Z",
+    "0.2.1": "2014-02-23T16:39:16.218Z",
+    "0.2.2": "2014-02-24T04:59:13.390Z",
+    "0.2.3": "2014-02-24T07:46:47.090Z",
+    "0.2.4": "2014-02-24T12:11:00.216Z",
+    "0.2.5": "2014-05-11T16:01:07.271Z",
+    "0.2.6": "2014-06-17T13:12:13.677Z",
+    "0.2.7": "2014-06-17T13:49:27.832Z",
+    "0.2.8": "2014-07-09T14:55:16.267Z",
+    "0.2.9": "2014-07-28T14:02:26.640Z",
+    "0.2.10": "2014-10-10T14:00:37.705Z",
+    "0.2.11": "2014-11-29T17:45:31.065Z",
+    "0.3.0": "2015-02-09T14:01:16.228Z",
+    "0.4.0": "2015-03-11T09:26:24.682Z",
+    "0.4.1": "2015-04-15T17:51:14.206Z",
+    "0.4.2": "2015-06-03T16:43:52.849Z",
+    "0.4.3": "2015-08-29T07:24:24.478Z",
+    "0.5.0": "2015-10-07T04:10:17.558Z",
+    "0.5.1": "2015-10-29T03:12:05.862Z",
+    "0.5.2": "2016-01-24T15:42:00.216Z",
+    "0.6.0": "2017-02-22T17:18:44.433Z",
+    "0.6.1": "2017-02-23T06:45:45.140Z",
+    "0.6.2": "2017-03-06T20:25:57.406Z",
+    "0.6.3": "2017-03-07T18:40:56.897Z",
+    "0.6.4": "2017-12-30T05:44:04.406Z",
+    "0.6.5": "2017-12-30T17:24:01.066Z",
+    "0.7.0": "2019-03-02T16:59:39.533Z",
+    "0.7.1": "2019-06-07T09:04:56.180Z",
+    "0.8.0": "2020-02-12T12:09:42.456Z"
+  },
+  "description": "A handy command line interface for gulp",
+  "readme": "# gulp-shell\n\n[![NPM version](https://img.shields.io/npm/v/gulp-shell.svg)](https://npmjs.org/package/gulp-shell)\n[![Build Status](https://img.shields.io/travis/sun-zheng-an/gulp-shell/master.svg)](https://travis-ci.org/sun-zheng-an/gulp-shell)\n[![Coveralls Status](https://img.shields.io/coveralls/sun-zheng-an/gulp-shell/master.svg)](https://coveralls.io/r/sun-zheng-an/gulp-shell)\n[![Dependency Status](https://img.shields.io/david/sun-zheng-an/gulp-shell.svg)](https://david-dm.org/sun-zheng-an/gulp-shell)\n[![Downloads](https://img.shields.io/npm/dm/gulp-shell.svg)](https://npmjs.org/package/gulp-shell)\n\n> A handy command line interface for gulp\n\n## Installation\n\n```shell\nnpm install --save-dev gulp-shell\n```\n\n## Usage\n\n```js\nconst gulp = require('gulp')\nconst shell = require('gulp-shell')\n\ngulp.task('example', () => {\n  return gulp\n    .src('*.js', { read: false })\n    .pipe(shell(['echo <%= file.path %>']))\n})\n```\n\nOr you can use this shorthand:\n\n```js\ngulp.task('greet', shell.task('echo Hello, World!'))\n```\n\nYou can find more examples in the [gulpfile](https://github.com/sun-zheng-an/gulp-shell/blob/master/gulpfile.ts) of this project.\n\n**WARNING**: Running commands like ~~`gulp.src('').pipe(shell('whatever'))`~~ is [considered as an anti-pattern](https://github.com/sun-zheng-an/gulp-shell/issues/55). **PLEASE DON'T DO THAT ANYMORE**.\n\n## API\n\n### shell(commands, options) or shell.task(commands, options)\n\n#### commands\n\ntype: `string` or `Array<string>`\n\nA command can be a [template][] which can be interpolated by some [file][] info (e.g. `file.path`).\n\n**WARNING**: [Using command templates can be extremely dangerous](https://github.com/sun-zheng-an/gulp-shell/issues/83). Don't shoot yourself in the foot by ~~passing arguments like `$(rm -rf $HOME)`~~.\n\n#### options.cwd\n\ntype: `string`\n\ndefault: [`process.cwd()`](http://nodejs.org/api/process.html#process_process_cwd)\n\nSets the current working directory for the command. This can be a [template][] which can be interpolated by some [file][] info (e.g. `file.path`).\n\n#### options.env\n\ntype: `object`\n\nBy default, all the commands will be executed in an environment with all the variables in [`process.env`](http://nodejs.org/api/process.html#process_process_env) and `PATH` prepended by `./node_modules/.bin` (allowing you to run executables in your Node's dependencies).\n\nYou can override any environment variables with this option.\n\nFor example, setting it to `{ PATH: process.env.PATH }` will reset the `PATH` if the default one brings your some troubles.\n\n#### options.shell\n\ntype: `string`\n\ndefault: `/bin/sh` on UNIX, and `cmd.exe` on Windows\n\nChange it to `bash` if you like.\n\n#### options.quiet\n\ntype: `boolean`\n\ndefault: `false`\n\nBy default, it will print the command output.\n\n#### options.verbose\n\ntype: `boolean`\n\ndefault: `false`\n\nSet to `true` to print the command(s) to stdout as they are executed\n\n#### options.ignoreErrors\n\ntype: `boolean`\n\ndefault: `false`\n\nBy default, it will emit an `error` event when the command finishes unsuccessfully.\n\n#### options.errorMessage\n\ntype: `string`\n\ndefault: `` Command `<%= command %>` failed with exit code <%= error.code %> ``\n\nYou can add a custom error message for when the command fails.\nThis can be a [template][] which can be interpolated with the current `command`, some [file][] info (e.g. `file.path`) and some error info (e.g. `error.code`).\n\n#### options.templateData\n\ntype: `object`\n\nThe data that can be accessed in [template][].\n\n[template]: http://lodash.com/docs#template\n[file]: https://github.com/wearefractal/vinyl\n\n## Changelog\n\nDetails changes for each release are documented in the [release notes](https://github.com/sun-zheng-an/gulp-shell/releases).\n",
+  "maintainers": [
+    {
+      "name": "sun-zheng-an",
+      "email": "sun.zheng.an.0@gmail.com"
+    }
+  ],
+  "dist-tags": {
+    "latest": "0.8.0"
+  },
+  "versions": {
+    "0.1.0": {
+      "name": "gulp-shell",
+      "version": "0.1.0",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "mocha -R spec -r should && jshint index.js test/*.js",
+        "coverage": "istanbul cover _mocha --report lcovonly -- -R spec",
+        "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/sun-zheng-an/gulp-shell"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "mocha": "~1.17.1",
+        "should": "~3.1.2",
+        "jshint": "~2.4.4",
+        "istanbul": "~0.2.4",
+        "coveralls": "~2.8.0",
+        "mocha-lcov-reporter": "0.0.1"
+      },
+      "dependencies": {
+        "gulp-util": "~2.2.14",
+        "through2": "~0.4.1",
+        "lodash": "~2.4.1",
+        "async": "~0.2.10"
+      },
+      "_id": "gulp-shell@0.1.0",
+      "dist": {
+        "shasum": "deb0dc57f9aba88934b32435d722cd121696b03a",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.1.0.tgz",
+        "integrity": "sha512-yUdkThBbzWsvNVD4z5Lrm34Itce7FmNOAXudLw/Mtv7zITUSqI5WQU6DRB5cLl5y1TPXjMrRMVo6jLWkV/Uu/A==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCyFFE20NScHu6EHJCy0rdIV7pEdZKYQjhcs/6OKM6jTAIgTDW6AabUQ2+x4SpSG4D4vd7HI0BJkQ5GytP4RdgHUQM="
+          }
+        ]
+      },
+      "_from": ".",
+      "_npmVersion": "1.3.22",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "directories": {}
+    },
+    "0.2.0": {
+      "name": "gulp-shell",
+      "version": "0.2.0",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "mocha -R spec -r should && jshint index.js test/*.js",
+        "watch": "mocha -R spec -r should -w",
+        "coverage": "istanbul cover _mocha --report lcovonly -- -R spec",
+        "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/sun-zheng-an/gulp-shell"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "coveralls": "~2.8.0",
+        "istanbul": "~0.2.4",
+        "jshint": "~2.4.4",
+        "mocha": "~1.17.1",
+        "mocha-lcov-reporter": "0.0.1",
+        "should": "~3.1.2"
+      },
+      "dependencies": {
+        "gulp-util": "~2.2.14",
+        "lodash": "~2.4.1",
+        "through2": "~0.4.1"
+      },
+      "_id": "gulp-shell@0.2.0",
+      "dist": {
+        "shasum": "cfc70f9c54e83da0ea3189a51d49931f218e9d0a",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.2.0.tgz",
+        "integrity": "sha512-aOQTt+GjNNfibPmybg4/5ChhWAAv29VXHIDK8lcecRZMm2FvG2S6C/7yDcQcGmiaTZL2Zv4DOQ5jNw4bLp1TAQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCp3nGQgGlJpiZYJ6Pfu8TQ8+UfMu6K5z/SP2CywT/KqwIhAO0LWUWs32HWRIDfVw7m98tCreV1elcJ5TiyRilrBu+h"
+          }
+        ]
+      },
+      "_from": ".",
+      "_npmVersion": "1.3.22",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "directories": {}
+    },
+    "0.2.1": {
+      "name": "gulp-shell",
+      "version": "0.2.1",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "mocha -R spec -r should && jshint index.js test/*.js",
+        "watch": "mocha -R spec -r should -w",
+        "coverage": "istanbul cover _mocha --report lcovonly -- -R spec",
+        "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/sun-zheng-an/gulp-shell"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "coveralls": "~2.8.0",
+        "istanbul": "~0.2.4",
+        "jshint": "~2.4.4",
+        "mocha": "~1.17.1",
+        "mocha-lcov-reporter": "0.0.1",
+        "should": "~3.1.2"
+      },
+      "dependencies": {
+        "async": "~0.2.10",
+        "gulp-util": "~2.2.14",
+        "lodash": "~2.4.1",
+        "through2": "~0.4.1"
+      },
+      "_id": "gulp-shell@0.2.1",
+      "dist": {
+        "shasum": "2c01df7aa9a0e5972a3c2c3371d58d4624022439",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.2.1.tgz",
+        "integrity": "sha512-GB3ZOb9DM7n+VXqxin03s4ZOK1dy9mm0oOUH0LSXkVRviX9VfFwrYDwSWzTi1ONrY1T1Po+Kzk6UBxUfzjcsyA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDKCovpIA7FdbthqvAz3ijTRpd5hDEbAhGqoNTGRFnX1AiEAmJ1/oDY2pI/PVB7lGybCY4k/fTAUJeuacHszW82/bjs="
+          }
+        ]
+      },
+      "_from": ".",
+      "_npmVersion": "1.3.22",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "directories": {}
+    },
+    "0.2.2": {
+      "name": "gulp-shell",
+      "version": "0.2.2",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "mocha -R spec -r should && jshint index.js test/*.js",
+        "watch": "mocha -R spec -r should -w",
+        "coverage": "istanbul cover _mocha -- -R spec",
+        "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/sun-zheng-an/gulp-shell"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "coveralls": "~2.8.0",
+        "istanbul": "~0.2.4",
+        "jshint": "~2.4.4",
+        "mocha": "~1.17.1",
+        "mocha-lcov-reporter": "0.0.1",
+        "should": "~3.1.2"
+      },
+      "dependencies": {
+        "async": "~0.2.10",
+        "gulp-util": "~2.2.14",
+        "lodash": "~2.4.1",
+        "through2": "~0.4.1"
+      },
+      "_id": "gulp-shell@0.2.2",
+      "dist": {
+        "shasum": "95418a230f67d868965c51c89f4ea74103f723a5",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.2.2.tgz",
+        "integrity": "sha512-UkbHpOjYk6yhE/fPDlES5JgDwKfzwwxjcaipBc7WOw3Nik0fcuP66VZ8maJ9TEzWRLjN9sqGGhG6xxTlm45dzQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBnHeQ0sPMpkCce2baF/FXRgWhISPluMl5LH24Uhsze7AiEAyN6FQZPMujz7jvFYE/Pm562jy1hEeQHVfgt0QMixuz0="
+          }
+        ]
+      },
+      "_from": ".",
+      "_npmVersion": "1.3.22",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "directories": {}
+    },
+    "0.2.3": {
+      "name": "gulp-shell",
+      "version": "0.2.3",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/sun-zheng-an/gulp-shell"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "coveralls": "~2.8.0",
+        "gulp": "~3.5.2",
+        "istanbul": "~0.2.4",
+        "jshint": "~2.4.4",
+        "mocha": "~1.17.1",
+        "mocha-lcov-reporter": "0.0.1",
+        "should": "~3.1.2"
+      },
+      "dependencies": {
+        "async": "~0.2.10",
+        "gulp-util": "~2.2.14",
+        "lodash": "~2.4.1",
+        "through2": "~0.4.1"
+      },
+      "_id": "gulp-shell@0.2.3",
+      "dist": {
+        "shasum": "ed53e3eb71bd95cf0de364515d4e425d08f140fc",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.2.3.tgz",
+        "integrity": "sha512-DZPwrWhFoFsrBY6S4yIfL5GIPI4bjN9SkNMlbPBlbc6giiMcMF4yEYcWqqbLDAHmBUnsmIhnzmIV284OTL2xWg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGtSnTUQ/abtBPInsj66rrvigLguLQf5kB09ZfqbXZquAiEAtda0c4f6gEncB+qHPPHjv/9Wtyt2rzP+JgswegWTdRU="
+          }
+        ]
+      },
+      "_from": ".",
+      "_npmVersion": "1.3.22",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "directories": {}
+    },
+    "0.2.4": {
+      "name": "gulp-shell",
+      "version": "0.2.4",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/sun-zheng-an/gulp-shell"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "coveralls": "~2.8.0",
+        "gulp": "~3.5.2",
+        "istanbul": "~0.2.4",
+        "jshint": "~2.4.4",
+        "mocha": "~1.17.1",
+        "mocha-lcov-reporter": "0.0.1",
+        "should": "~3.1.2"
+      },
+      "dependencies": {
+        "async": "~0.2.10",
+        "gulp-util": "~2.2.14",
+        "lodash": "~2.4.1",
+        "through2": "~0.4.1"
+      },
+      "_id": "gulp-shell@0.2.4",
+      "dist": {
+        "shasum": "8ae2142ba74f8002a9f88da0047f39ba9f4462a2",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.2.4.tgz",
+        "integrity": "sha512-v+1tD1VfyUCiGmbDAXU4chaq2WhIaaT35WzQ26I4eaiVHu5yAK0dYvK1YYCkOxfRGhMjHzc+s/VNFOlC6+AANw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBuJaB6byAoTOsYHvBfz+x1m4/aYScx3xYcaZAhc03YSAiEAhWaIbI4VKL6iT9Rxe0w9qkHm4nwVK4WqzNIsPkWrGuw="
+          }
+        ]
+      },
+      "_from": ".",
+      "_npmVersion": "1.3.22",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "directories": {}
+    },
+    "0.2.5": {
+      "name": "gulp-shell",
+      "version": "0.2.5",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/sun-zheng-an/gulp-shell"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "coveralls": "~2.10.0",
+        "gulp": "~3.6.0",
+        "istanbul": "~0.2.6",
+        "jscs": "~1.3.0",
+        "jshint": "~2.4.4",
+        "mocha": "~1.18.2",
+        "mocha-lcov-reporter": "0.0.1",
+        "should": "~3.2.0-beta1"
+      },
+      "dependencies": {
+        "async": "~0.2.10",
+        "gulp-util": "~2.2.14",
+        "lodash": "~2.4.1",
+        "through2": "~0.4.1"
+      },
+      "_id": "gulp-shell@0.2.5",
+      "dist": {
+        "shasum": "8def480234eb148c2d1df6a0e7307e7645689d4f",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.2.5.tgz",
+        "integrity": "sha512-+31iaQVZC6Ck+pKbU3r1cxlePs1CKDKEsgBg+C09+VHxul2W8dE++gC8kaX5mJWEE0Q5ZzcbEJge4siWapWPzw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGw6eGgCvfvWKXJ3hixzBFPZ/cWBNqVCqYM/TpTmWZBWAiEA/VIsqyx99FiRm7MYIlESeTXYTkE1YKhlJXsb3br1nrU="
+          }
+        ]
+      },
+      "_from": ".",
+      "_npmVersion": "1.4.3",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "directories": {}
+    },
+    "0.2.7": {
+      "name": "gulp-shell",
+      "version": "0.2.7",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/sun-zheng-an/gulp-shell"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "coveralls": "~2.10.0",
+        "gulp": "~3.8.0",
+        "istanbul": "~0.2.11",
+        "jscs": "~1.5.1",
+        "jshint": "~2.5.1",
+        "mocha": "~1.20.1",
+        "mocha-lcov-reporter": "0.0.1",
+        "should": "~4.0.4"
+      },
+      "dependencies": {
+        "async": "~0.9.0",
+        "gulp-util": "~2.2.17",
+        "lodash": "~2.4.1",
+        "through2": "~0.5.1"
+      },
+      "gitHead": "64dfa0c17f6e5436ca6939f933124206e8ccda40",
+      "_id": "gulp-shell@0.2.7",
+      "_shasum": "5d6c429d5a358a6651763b1da8f67eba85bcf556",
+      "_from": ".",
+      "_npmVersion": "1.4.14",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "5d6c429d5a358a6651763b1da8f67eba85bcf556",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.2.7.tgz",
+        "integrity": "sha512-IJlJmyumvMn3Ez1djiDBOfwfhoPmiOu88SgTZbycysJ4/uTQw+ialPLz6+viYrDUtWR4ZjLzWlkaTIBusRUe2g==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAelliZSCVD5QPzfP9RYBAVvhIND01d8FTeAuiv0iUwIAiEAo3tXqGRIM/46IleUaOByMCEq8VoPA8NWsWlOdajYjL8="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "0.2.8": {
+      "name": "gulp-shell",
+      "version": "0.2.8",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/sun-zheng-an/gulp-shell"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "coveralls": "~2.10.0",
+        "gulp": "~3.8.0",
+        "istanbul": "~0.2.11",
+        "jscs": "~1.5.1",
+        "jshint": "~2.5.1",
+        "mocha": "~1.20.1",
+        "mocha-lcov-reporter": "0.0.1",
+        "should": "~4.0.4"
+      },
+      "dependencies": {
+        "async": "~0.9.0",
+        "gulp-util": "~2.2.17",
+        "lodash": "~2.4.1",
+        "through2": "~0.5.1"
+      },
+      "gitHead": "771f8bb1dd606fea1a22acd838396bddc0cd48c4",
+      "_id": "gulp-shell@0.2.8",
+      "_shasum": "8e050dbe0015926ee1109581828e3f55659d09eb",
+      "_from": ".",
+      "_npmVersion": "1.4.14",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "8e050dbe0015926ee1109581828e3f55659d09eb",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.2.8.tgz",
+        "integrity": "sha512-MPuqQnBSwZkEcHT4h3pT/7xUXVcwxJ/LN0xVvKW+5b43SDUkIYbnb0EyU4PDnEOofpKzVd7Z4PTsc7P/JLZ5rw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCug7p2mdcpDuRaWxV0NX9wVUiVQ92Gpc1KgsvBfsULvQIgaNv9Ah2pDABvYHpPRhqpzgp6+VtWYHzhvWBB/eCCjno="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "0.2.9": {
+      "name": "gulp-shell",
+      "version": "0.2.9",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/sun-zheng-an/gulp-shell"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "coveralls": "~2.11.1",
+        "gulp": "~3.8.6",
+        "istanbul": "~0.3.0",
+        "jscs": "~1.5.8",
+        "jshint": "~2.5.2",
+        "mocha": "~1.21.3",
+        "mocha-lcov-reporter": "0.0.1",
+        "should": "~4.0.4"
+      },
+      "dependencies": {
+        "async": "~0.9.0",
+        "gulp-util": "~3.0.0",
+        "lodash": "~2.4.1",
+        "through2": "~0.5.1"
+      },
+      "gitHead": "2b00c055fe51c9671a59e054ba20ef7228d2168d",
+      "_id": "gulp-shell@0.2.9",
+      "_shasum": "0a0b53e018429a5691ec6e22c3203557e4b83ab7",
+      "_from": ".",
+      "_npmVersion": "1.4.14",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "0a0b53e018429a5691ec6e22c3203557e4b83ab7",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.2.9.tgz",
+        "integrity": "sha512-RK3g/7iUa6mmDEQI3b1g8nBdswqqvJ0KW9YZbW9v1H/iBGObXFypMhd+JyVKZzT1fBysnH9X3rlECmx1VfhJrQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDTNsZasV4nkUc68WtCIYlX1RLg95jOCUh6UTiraTOe8QIgGlFbHRiix39FQf08Hl309CwanqvXCURYtT7r2RUQvsU="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "0.2.10": {
+      "name": "gulp-shell",
+      "version": "0.2.10",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/sun-zheng-an/gulp-shell"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "coveralls": "~2.11.1",
+        "gulp": "~3.8.6",
+        "istanbul": "~0.3.0",
+        "jscs": "~1.5.8",
+        "jshint": "~2.5.2",
+        "mocha": "~1.21.3",
+        "mocha-lcov-reporter": "0.0.1",
+        "should": "~4.0.4"
+      },
+      "dependencies": {
+        "async": "~0.9.0",
+        "gulp-util": "~3.0.0",
+        "lodash": "~2.4.1",
+        "through2": "~0.5.1"
+      },
+      "gitHead": "05cc5fffa301017e34cfc49ec29bd68bbd64ced1",
+      "_id": "gulp-shell@0.2.10",
+      "_shasum": "eca9fbd20141b41e4c0c471d2b88325717183f7e",
+      "_from": ".",
+      "_npmVersion": "1.4.24",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "eca9fbd20141b41e4c0c471d2b88325717183f7e",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.2.10.tgz",
+        "integrity": "sha512-6n9f0J1gMtNaOOFXPabd9YMFGD6JFMTXhr17j4tHfdDBQrWfHSpbNP0PVRVyynd5DYtljggklm0RHyYO801Xow==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEM46sQCr2PKoR/t/hthy2uW7HsNv3fTVBwHogiIgYrTAiA6Y7DySDvf9IgNI3YqFXykzUeQOtl/+0MrMQTeXpNHPA=="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "0.2.11": {
+      "name": "gulp-shell",
+      "version": "0.2.11",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/sun-zheng-an/gulp-shell"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "coveralls": "~2.11.2",
+        "gulp": "~3.8.10",
+        "istanbul": "~0.3.2",
+        "jscs": "~1.8.1",
+        "jshint": "~2.5.10",
+        "mocha": "~2.0.1",
+        "mocha-lcov-reporter": "0.0.1",
+        "should": "~4.3.0"
+      },
+      "dependencies": {
+        "async": "~0.9.0",
+        "gulp-util": "~3.0.1",
+        "lodash": "~2.4.1",
+        "through2": "~0.6.3"
+      },
+      "gitHead": "39f0bc2861d110b064415e66dbde1be167677ba9",
+      "_id": "gulp-shell@0.2.11",
+      "_shasum": "19ba680b65a866f6042ede0b0e34b62db71f2139",
+      "_from": ".",
+      "_npmVersion": "1.4.14",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "19ba680b65a866f6042ede0b0e34b62db71f2139",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.2.11.tgz",
+        "integrity": "sha512-sDre02gDplZetWBLisCruogBHki1ZqtLDIU6L96dKqYGnPENZCBRyRqgsJaw2BqL12HSTKqgNKOda6VYVPFVqA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIE0jhvfg0Luu+FI7KQNwi4rBufN93QdOPsPx1FtI+LmpAiBJCg9GuC8Fzu/zE+5o2l9vvFHL9oH1RzEAwee1e/6L6w=="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "0.3.0": {
+      "name": "gulp-shell",
+      "version": "0.3.0",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/sun-zheng-an/gulp-shell"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "coveralls": "~2.11.2",
+        "gulp": "~3.8.10",
+        "istanbul": "~0.3.2",
+        "jscs": "~1.8.1",
+        "jshint": "~2.5.10",
+        "mocha": "~2.0.1",
+        "mocha-lcov-reporter": "0.0.1",
+        "should": "~4.3.0"
+      },
+      "dependencies": {
+        "async": "~0.9.0",
+        "gulp-util": "~3.0.1",
+        "lodash": "~2.4.1",
+        "through2": "~0.6.3"
+      },
+      "gitHead": "b0bff0599ee26a93474f86fb65a0512a457603c1",
+      "_id": "gulp-shell@0.3.0",
+      "_shasum": "e74abdbf005c5812a4a6ea5586e21e0af7c18e42",
+      "_from": ".",
+      "_npmVersion": "2.5.0",
+      "_nodeVersion": "1.1.0",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "e74abdbf005c5812a4a6ea5586e21e0af7c18e42",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.3.0.tgz",
+        "integrity": "sha512-F2F6BskjleqP1bZ+lhO0NfFjkLbCdmxoHfOo4krdGLw8sUwXnfUcOXTxqnEjEoC4N2ePx8+qfVk5mpjGkAvr5w==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIF9X7YP0bawgs/48IkZvW1MOpSaAexu4KGukxRRgxA6mAiEA7KOV9KIVKXAtjaAwdjQCa0fMjBa8O2sccpuUsmcXE5c="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "0.4.0": {
+      "name": "gulp-shell",
+      "version": "0.4.0",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/sun-zheng-an/gulp-shell"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "coveralls": "~2.11.2",
+        "gulp": "~3.8.11",
+        "istanbul": "~0.3.7",
+        "jscs": "~1.11.3",
+        "jshint": "~2.6.3",
+        "mocha": "~2.2.1",
+        "mocha-lcov-reporter": "0.0.2",
+        "should": "~5.1.0"
+      },
+      "dependencies": {
+        "async": "~0.9.0",
+        "gulp-util": "~3.0.4",
+        "lodash": "~3.5.0",
+        "through2": "~0.6.3"
+      },
+      "gitHead": "176bd9074158b159e1c261587ad09d0dde5af2bb",
+      "_id": "gulp-shell@0.4.0",
+      "_shasum": "ab8fc7ba19edfac74d4316ac55195b7b3b1ffab8",
+      "_from": ".",
+      "_npmVersion": "2.7.0",
+      "_nodeVersion": "1.1.0",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "ab8fc7ba19edfac74d4316ac55195b7b3b1ffab8",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.4.0.tgz",
+        "integrity": "sha512-3sqWIKZmzodCQjugvZqKebRA4KcYmJIPZgoE8iutWkv6+vp5AA7lvxNwuwKTs6ba43LZZlfrkaq+iIX9CRH4dw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEOIphuVXiF/GCNNU/9ioqurLVxpdY2bkjS1jQ5WA3u1AiAGxhGwvCv0HB2G2HRnw0X+6bErE+JS0fREMsLTgBplRA=="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "0.4.1": {
+      "name": "gulp-shell",
+      "version": "0.4.1",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/sun-zheng-an/gulp-shell"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "chai": "~2.1.1",
+        "coveralls": "~2.11.2",
+        "eslint": "~0.16.2",
+        "gulp": "~3.8.11",
+        "istanbul": "~0.3.7",
+        "mocha": "~2.2.1",
+        "mocha-lcov-reporter": "0.0.2"
+      },
+      "dependencies": {
+        "async": "~0.9.0",
+        "gulp-util": "~3.0.4",
+        "lodash": "~3.5.0",
+        "through2": "~0.6.3"
+      },
+      "gitHead": "dd91319aba5bf11a8d2b14613d7717a3b579665d",
+      "_id": "gulp-shell@0.4.1",
+      "_shasum": "2a923338e2ab531d44a5b838e499c8621df0a796",
+      "_from": ".",
+      "_npmVersion": "2.4.1",
+      "_nodeVersion": "1.1.0",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "2a923338e2ab531d44a5b838e499c8621df0a796",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.4.1.tgz",
+        "integrity": "sha512-UQ4RNABErTEYwy8c41XF9EBAuGO7bCwIE2w9Mqpe4CKj43POgjn1uj9RbkPbPtWRhXjmOg49p+jICz+d7nhFwQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFN4WGm/zmEcA+e7GrZw7fO+ZQcu41oXMN896eQdSy38AiEA3eJ58+qhO1SAfbHHVSgdM63D1txh2ysZ25xqZrKPLig="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "0.4.2": {
+      "name": "gulp-shell",
+      "version": "0.4.2",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sun-zheng-an/gulp-shell.git"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "chai": "~2.3.0",
+        "coveralls": "~2.11.2",
+        "eslint": "~0.22.1",
+        "gulp": "~3.9.0",
+        "istanbul": "~0.3.14",
+        "mocha": "~2.2.5",
+        "mocha-lcov-reporter": "0.0.2"
+      },
+      "dependencies": {
+        "async": "~1.2.0",
+        "gulp-util": "~3.0.5",
+        "lodash": "~3.9.3",
+        "through2": "~0.6.5"
+      },
+      "gitHead": "848cdf44c854b5e1c315f1a595810a7a0c2e89cc",
+      "_id": "gulp-shell@0.4.2",
+      "_shasum": "d5121953cc531df1042ff42f6ec8b544f061cae9",
+      "_from": ".",
+      "_npmVersion": "2.10.1",
+      "_nodeVersion": "0.12.4",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "d5121953cc531df1042ff42f6ec8b544f061cae9",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.4.2.tgz",
+        "integrity": "sha512-xcODfg9RJ9XKUEI3RCkr7t/pADAxSw/0XKAmVyX33S3pLnYdkZA2G2x8nvTkkXmhWTEwhuT/k/nO8KK4De3QKg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICUskIXuwZ8EDKqVaDwr0qSIw7saHeQjwofNp0dlSKOMAiEA83YmA/9ug21foDLrme5axbXkL99TMEIGOe6fS3Y9v14="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "0.4.3": {
+      "name": "gulp-shell",
+      "version": "0.4.3",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sun-zheng-an/gulp-shell.git"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "chai": "~3.2.0",
+        "coveralls": "~2.11.2",
+        "eslint": "~1.3.0",
+        "gulp": "~3.9.0",
+        "istanbul": "~0.3.14",
+        "mocha": "~2.2.5",
+        "mocha-lcov-reporter": "0.0.2"
+      },
+      "dependencies": {
+        "async": "~1.4.2",
+        "gulp-util": "~3.0.5",
+        "lodash": "~3.10.1",
+        "through2": "~2.0.0"
+      },
+      "gitHead": "0aa58d3a1c12538d345cbb2225c6f8f331d03560",
+      "_id": "gulp-shell@0.4.3",
+      "_shasum": "d90f18ecab294c3ca9a6fae1f776e8ada90ac9d8",
+      "_from": ".",
+      "_npmVersion": "2.12.1",
+      "_nodeVersion": "0.12.7",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "d90f18ecab294c3ca9a6fae1f776e8ada90ac9d8",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.4.3.tgz",
+        "integrity": "sha512-lXNcPkeUmyk8qfA9nY3HnvMBAreTkC/rTzeyMMJMk09OaMVhYGtPTza2PVg5dgAaE9THruh24I1Tl2RrL4znTg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAyLO193N8N5Y7BKxP09PnPdpIQD2/rA5VdJbJ4kbAowAiEA/9AbnP3XK1Vglyen79oz7+dpDVDd4sIaBoqdGUaZqjA="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "0.5.0": {
+      "name": "gulp-shell",
+      "version": "0.5.0",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sun-zheng-an/gulp-shell.git"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "chai": "~3.3.0",
+        "coveralls": "~2.11.2",
+        "eslint": "~1.6.0",
+        "gulp": "~3.9.0",
+        "istanbul": "~0.3.14",
+        "mocha": "~2.3.3",
+        "mocha-lcov-reporter": "1.0.0"
+      },
+      "dependencies": {
+        "async": "~1.4.2",
+        "gulp-util": "~3.0.5",
+        "lodash": "~3.10.1",
+        "through2": "~2.0.0"
+      },
+      "gitHead": "e80a85fa1e30d0abe2f7d5d5488742ac36065ddc",
+      "_id": "gulp-shell@0.5.0",
+      "_shasum": "17abd7ccdc67ee666eb73f3cde3a69b8c9145249",
+      "_from": ".",
+      "_npmVersion": "2.14.4",
+      "_nodeVersion": "4.1.2",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "17abd7ccdc67ee666eb73f3cde3a69b8c9145249",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.5.0.tgz",
+        "integrity": "sha512-rJXG3Ga+L4Uej498VFuGvXbDJTdIqJyZebhREOR4zJU4gJjk62+9SKTV3JmjeCzRdKTqfMvlWYH/Mo8hSfVHGw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAwT/FX0PSimAlPE3xKDBPtgwAPUNAzOlXzGMTVHMu3tAiEAvR4O1yo+7BcbYBJSPDx5OCUPHI1bHy0bchEddo+WO5w="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "0.5.1": {
+      "name": "gulp-shell",
+      "version": "0.5.1",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sun-zheng-an/gulp-shell.git"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "chai": "~3.4.0",
+        "coveralls": "~2.11.4",
+        "eslint": "~1.7.3",
+        "gulp": "~3.9.0",
+        "istanbul": "~0.4.0",
+        "mocha": "~2.3.3",
+        "mocha-lcov-reporter": "~1.0.0"
+      },
+      "dependencies": {
+        "async": "~1.5.0",
+        "gulp-util": "~3.0.7",
+        "lodash": "~3.10.1",
+        "through2": "~2.0.0"
+      },
+      "gitHead": "c9b9e6ef3a775c2e4cec064e8c1ceccd2b018d46",
+      "_id": "gulp-shell@0.5.1",
+      "_shasum": "4b559364a598f9ed75f5742ea34d463981f6d210",
+      "_from": ".",
+      "_npmVersion": "2.14.7",
+      "_nodeVersion": "4.2.1",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "4b559364a598f9ed75f5742ea34d463981f6d210",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.5.1.tgz",
+        "integrity": "sha512-ide9ClDQYX554h8/qPKnU5pUHc7kNxvsH4ls8xdwUeW3NIPsFBAtQO7o/eBVzih6SrP7De3bOKxPJh9QKggmZQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDR4nfFm7k96p2qUdfC0Jv7nQ9s/ZXNU/f71XOnfaiSmAiAbKtjCGVb48EgmahQ0w6gjc3jsq8EYVJucLnyD17NN6A=="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "0.5.2": {
+      "name": "gulp-shell",
+      "version": "0.5.2",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sun-zheng-an/gulp-shell.git"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "chai": "~3.4.0",
+        "coveralls": "~2.11.4",
+        "eslint": "~1.10.3",
+        "gulp": "~3.9.0",
+        "istanbul": "~0.4.0",
+        "mocha": "~2.3.3",
+        "mocha-lcov-reporter": "~1.0.0"
+      },
+      "dependencies": {
+        "async": "^1.5.0",
+        "gulp-util": "^3.0.7",
+        "lodash": "^4.0.0",
+        "through2": "^2.0.0"
+      },
+      "gitHead": "b53abf93b42bd34cb05663d9fc436655da0dd6bd",
+      "_id": "gulp-shell@0.5.2",
+      "_shasum": "a4959ca0651ad1c7bbfe70b2d0adbbb4e1aea98d",
+      "_from": ".",
+      "_npmVersion": "3.5.3",
+      "_nodeVersion": "5.4.1",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "a4959ca0651ad1c7bbfe70b2d0adbbb4e1aea98d",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.5.2.tgz",
+        "integrity": "sha512-hlmkFwqZ07kA+pjvf3ZVVYzyB0Z3XQR6Agw/IGXR/KVb807w5WFPCVcoPF5+bEUXwUZC4YeFaX0AklMi8gjORw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDaRtaOZ6GZpTZU1FAXHqkYq+RVkuFFxDqdylNfmWDaEAiBu52ZORv4SqRsbVrSHvM8DBca/yropbB+Ot65hQqNTMg=="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "0.6.0": {
+      "name": "gulp-shell",
+      "version": "0.6.0",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sun-zheng-an/gulp-shell.git"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "chai": "^3.5.0",
+        "coveralls": "^2.11.16",
+        "gulp": "^3.9.1",
+        "istanbul": "^0.4.5",
+        "mocha": "^3.2.0",
+        "mocha-lcov-reporter": "^1.3.0",
+        "standard": "^8.6.0"
+      },
+      "dependencies": {
+        "async": "^2.1.5",
+        "gulp-util": "^3.0.8",
+        "lodash": "^4.17.4",
+        "through2": "^2.0.3"
+      },
+      "gitHead": "ab6552b248fb2461ccd50c10765d4d8459dc08b7",
+      "_id": "gulp-shell@0.6.0",
+      "_shasum": "44c197bd6580522038e300735b77ab1beea76121",
+      "_from": ".",
+      "_npmVersion": "4.1.2",
+      "_nodeVersion": "7.5.0",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "dist": {
+        "shasum": "44c197bd6580522038e300735b77ab1beea76121",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.6.0.tgz",
+        "integrity": "sha512-hueVQrLSk5/8uvmh1DZsaQaOz8vcZAGgkhQ383hX/AdtZwK9dD+kA293Z5A47cPoivsbg9mdai5+koPGWW5MJw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHohq7zj50mdZhQAwI2aMKYAxIffVDZeEL5oU+2NV7czAiEAqjQ2bjL74xwCBUXRyMjYyXYBx4aUjoSvPCfLvaogUZQ="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/gulp-shell-0.6.0.tgz_1487783922756_0.8889363156631589"
+      },
+      "directories": {}
+    },
+    "0.6.1": {
+      "name": "gulp-shell",
+      "version": "0.6.1",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sun-zheng-an/gulp-shell.git"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "chai": "^3.5.0",
+        "coveralls": "^2.11.16",
+        "gulp": "^3.9.1",
+        "istanbul": "^0.4.5",
+        "mocha": "^3.2.0",
+        "mocha-lcov-reporter": "^1.3.0",
+        "standard": "^8.6.0"
+      },
+      "dependencies": {
+        "async": "^2.1.5",
+        "gulp-util": "^3.0.8",
+        "lodash": "^4.17.4",
+        "through2": "^2.0.3"
+      },
+      "engines": {
+        "node": ">=4"
+      },
+      "gitHead": "d0aecbced8d3c9392f74815aa3ad8836c4c34ca5",
+      "_id": "gulp-shell@0.6.1",
+      "_shasum": "e2ce6ce6585ca5d1dd6527cebcb532483c204bb1",
+      "_from": ".",
+      "_npmVersion": "4.1.2",
+      "_nodeVersion": "7.5.0",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "dist": {
+        "shasum": "e2ce6ce6585ca5d1dd6527cebcb532483c204bb1",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.6.1.tgz",
+        "integrity": "sha512-AT8iWUSp2O5bMHuqYcttJNKNtxjntnIPc0PKYGTqjiQxKSiJllJSgoI7e/aL8jwKo5O2A+6F6WYhXHj0isiC3A==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFFOFYAu0Vwx1p774JpN+NaA3qHhhjTb7DwqpaYPo6XhAiEA9PEKiUatPd+8eM1DLp8GLPmAO7/DrfmTxjX+03scjCI="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/gulp-shell-0.6.1.tgz_1487832343421_0.06794449943117797"
+      },
+      "directories": {}
+    },
+    "0.6.2": {
+      "name": "gulp-shell",
+      "version": "0.6.2",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sun-zheng-an/gulp-shell.git"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "chai": "^3.5.0",
+        "coveralls": "^2.11.16",
+        "gulp": "^3.9.1",
+        "istanbul": "^0.4.5",
+        "mocha": "^3.2.0",
+        "mocha-lcov-reporter": "^1.3.0",
+        "standard": "^8.6.0"
+      },
+      "dependencies": {
+        "async": "^2.1.5",
+        "gulp-util": "^3.0.8",
+        "lodash": "^4.17.4",
+        "through2": "^2.0.3"
+      },
+      "engines": {
+        "node": ">=4.8.0"
+      },
+      "gitHead": "d8a5fa29da983700d7a71860964a6fba0b55ec80",
+      "_id": "gulp-shell@0.6.2",
+      "_shasum": "923aa3c1ee472eecd330cd23bdd794389cc2f3c7",
+      "_from": ".",
+      "_npmVersion": "4.1.2",
+      "_nodeVersion": "7.7.1",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "dist": {
+        "shasum": "923aa3c1ee472eecd330cd23bdd794389cc2f3c7",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.6.2.tgz",
+        "integrity": "sha512-ad/+nhW9FND2rzwBt22K80rZh8GjRu53LsYJWZOxAWXl1BnAHU36x0pGAQld1OspMUlvFGM7KLPILNvM7m0HOw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQD8h2A6Yi5+aa5SzHtTYfbLL2nKSrCpquUBAE0+3+bdcAIgI4FPShVL1QegsBIANyopt5jS1j6pCxEZi1GzpHMG6mA="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/gulp-shell-0.6.2.tgz_1488831957165_0.4002458213362843"
+      },
+      "directories": {}
+    },
+    "0.6.3": {
+      "name": "gulp-shell",
+      "version": "0.6.3",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sun-zheng-an/gulp-shell.git"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "chai": "^3.5.0",
+        "coveralls": "^2.11.16",
+        "gulp": "^3.9.1",
+        "istanbul": "^0.4.5",
+        "mocha": "^3.2.0",
+        "mocha-lcov-reporter": "^1.3.0",
+        "standard": "^8.6.0"
+      },
+      "dependencies": {
+        "async": "^2.1.5",
+        "gulp-util": "^3.0.8",
+        "lodash": "^4.17.4",
+        "through2": "^2.0.3"
+      },
+      "engines": {
+        "node": ">=4.8.0 <5.0.0 || >=5.7.0"
+      },
+      "gitHead": "48f79d1629ddb760934decd7c2d64aac52e61f6d",
+      "_id": "gulp-shell@0.6.3",
+      "_shasum": "2eaa6edfffa8bdff7a8f0b9f9852876f33331c6b",
+      "_from": ".",
+      "_npmVersion": "4.1.2",
+      "_nodeVersion": "7.7.1",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "dist": {
+        "shasum": "2eaa6edfffa8bdff7a8f0b9f9852876f33331c6b",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.6.3.tgz",
+        "integrity": "sha512-ZZ1PD09khglSQooaGM7uep8LhsLmxzBKHrlLXT6+lA/fyfzgvoohSzH2KT5NCWTwpwekzy2PKrv4y+xNVUEgCg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGcI9C3rnEh048gQZG2mvK1asq+vOxvaevAAN32UVnENAiAEDDRjsvhG7k/I9xuoCznOMHejltAWpQ7X2ocy8XRHuQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/gulp-shell-0.6.3.tgz_1488912025574_0.11593462363816798"
+      },
+      "directories": {}
+    },
+    "0.6.4": {
+      "name": "gulp-shell",
+      "version": "0.6.4",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sun-zheng-an/gulp-shell.git"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "chai": "^3.5.0",
+        "coveralls": "^2.11.16",
+        "gulp": "^3.9.1",
+        "istanbul": "^0.4.5",
+        "mocha": "^3.2.0",
+        "mocha-lcov-reporter": "^1.3.0",
+        "standard": "^8.6.0"
+      },
+      "dependencies": {
+        "async": "^2.1.5",
+        "chalk": "^2.3.0",
+        "fancy-log": "^1.3.2",
+        "lodash": "^4.17.4",
+        "lodash.template": "^4.4.0",
+        "plugin-error": "^0.1.2",
+        "through2": "^2.0.3",
+        "vinyl": "^2.1.0"
+      },
+      "engines": {
+        "node": ">=4.8.0 <5.0.0 || >=5.7.0"
+      },
+      "gitHead": "212ab2682e7354ede37e51318fb91bb1813f6e7d",
+      "_id": "gulp-shell@0.6.4",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.3.0",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-oQV0ycbQJbqp0aWDl0XW1Zv2jjzTMgpRVSNQUyrudoZEJ7G59aqR/FG/byhzWJcab1lNsQSWQgzODaMJGY2FfA==",
+        "shasum": "e151dbd755c3d19cdd0f0777c0956876a18a1089",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.6.4.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFwc6Ray0SQsQfm/uI+7is0P2cQkZb56Wa7ahXd0dM2uAiEAi78m9bayC5X8MZZDgoteSUEKZELGPKmvPl2aOE7ReOU="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/gulp-shell-0.6.4.tgz_1514612644280_0.005080347647890449"
+      },
+      "directories": {}
+    },
+    "0.6.5": {
+      "name": "gulp-shell",
+      "version": "0.6.5",
+      "description": "A handy command line interface for gulp",
+      "main": "index.js",
+      "scripts": {
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sun-zheng-an/gulp-shell.git"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "chai": "^4.1.2",
+        "coveralls": "^3.0.0",
+        "gulp": "^3.9.1",
+        "istanbul": "^0.4.5",
+        "mocha": "^4.1.0",
+        "mocha-lcov-reporter": "^1.3.0",
+        "standard": "^10.0.3",
+        "vinyl": "^2.1.0"
+      },
+      "dependencies": {
+        "async": "^2.1.5",
+        "chalk": "^2.3.0",
+        "fancy-log": "^1.3.2",
+        "lodash": "^4.17.4",
+        "lodash.template": "^4.4.0",
+        "plugin-error": "^0.1.2",
+        "through2": "^2.0.3"
+      },
+      "engines": {
+        "node": ">=4.8.0 <5.0.0 || >=5.7.0"
+      },
+      "gitHead": "c2f3840ddfe303049733b499927480836d396a65",
+      "_id": "gulp-shell@0.6.5",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.3.0",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-f3m1WcS0o2B72/PGj1Jbv9zYR9rynBh/EQJv64n01xQUo7j7anols0eww9GG/WtDTzGVQLrupVDYkifRFnj5Zg==",
+        "shasum": "f07b204ad8ad1c2659f7a1b6d76efa16d416a759",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.6.5.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIA8nA5GbnZnlBfMHgsvrL8tIUq7KbgG82NxnELgD+/U0AiBo/n/t0Z7I9i4TvIeqhahU2hd1nU62AII7Rug4RjXinA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/gulp-shell-0.6.5.tgz_1514654640963_0.6933129243552685"
+      },
+      "directories": {}
+    },
+    "0.7.0": {
+      "name": "gulp-shell",
+      "version": "0.7.0",
+      "description": "A handy command line interface for gulp",
+      "main": "./lib/index.js",
+      "typings": "./lib/index.d.ts",
+      "scripts": {
+        "build": "gulp build",
+        "test": "gulp test lint",
+        "coveralls": "gulp coveralls",
+        "prepare": "npm run build",
+        "prepublishOnly": "npm test"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sun-zheng-an/gulp-shell.git"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "@types/async": "^2.4.1",
+        "@types/chai": "^4.1.7",
+        "@types/fancy-log": "^1.3.1",
+        "@types/gulp": "^4.0.5",
+        "@types/lodash.template": "^4.4.5",
+        "@types/mocha": "^5.2.6",
+        "@types/node": "^11.10.4",
+        "@types/through2": "^2.0.34",
+        "@typescript-eslint/eslint-plugin": "^1.4.2",
+        "@typescript-eslint/parser": "^1.4.2",
+        "chai": "^4.2.0",
+        "coveralls": "^3.0.3",
+        "eslint": "^5.15.0",
+        "eslint-config-prettier": "^4.1.0",
+        "gulp": "^4.0.0",
+        "mocha": "^6.0.2",
+        "mocha-lcov-reporter": "^1.3.0",
+        "nyc": "^13.3.0",
+        "prettier": "^1.16.4",
+        "ts-node": "^8.0.2",
+        "typescript": "^3.3.3333",
+        "vinyl": "^2.2.0"
+      },
+      "dependencies": {
+        "async": "^2.6.2",
+        "chalk": "^2.4.2",
+        "fancy-log": "^1.3.3",
+        "lodash.template": "^4.4.0",
+        "plugin-error": "^1.0.1",
+        "through2": "^3.0.1"
+      },
+      "engines": {
+        "node": ">=6.0.0"
+      },
+      "gitHead": "96fbc737051e2edc2d963ad9a94710844310fcb7",
+      "_id": "gulp-shell@0.7.0",
+      "_nodeVersion": "11.10.1",
+      "_npmVersion": "6.7.0",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-rpMbI6+b9LZNLB+KkOeqWynLdqVtypy8v68spDVjvMg1cVaVhNQILYVXPvmeH/KtcrPv4JLmoEJeElEB6/IvcA==",
+        "shasum": "7d76956e9e9e169acf819fe3643be0becfeb6148",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.7.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 14436,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcerZ8CRA9TVsSAnZWagAAbb8P/0AQLXbSLbe4r6VIzEDS\nDtfZZZ3PYv8/tzM3pI9Blf6nrqgq+2Up2YMim0FLVI6kuozrisJK1G0RC6ju\na97/QMRB9W3CTGDtH1UOTze1S0tktGFepRAuavQhE3yTsbpBt6oQzFv76OFI\nCqc4Os0pYWMxlzRErE/afGs/TwHq02FIAIoHZgxhi5oOxHbXW0WOcHfYlvDm\nk7oZoXp1rfXFTSDvzvka7bf6KYksD5gsIE9gZR3CaLBq4y4SOLWpFwbElNHQ\nuKFWVBcc8i8Ub8rrZCCtzMisraOTtRBT083Ku4hGAESCpJEC5rP9lh7+HQFW\nnmOwOS+JAT9AiogcezsLtmO9tYocXomP4gWkWaRl5simOI2+yUiGnrfDNJmy\nsJtMZyDSZYLqNDWYUNYTW8SbvJBnyU2iIQ55338H7XodbHTM4BSkGgn12bxO\nN2b4KP7cxu49MzkSqLKuCOpnQzsmY00tHx9gZMal9nxTQOhvBn/hmPTPkpN0\nTt1d2R7RaGtFhrGCjqzkzOfK7URFHZquyznb6F3iLprpd9PfmIuOl3+H5F5f\n9UfaeirdtE7JWhFVelpVjLg+l1klNSYWOUxtz21gT/7Zr8u5fGe/2Eni7v5S\nySD8P0w7Prtq7G8liC/4dhtKm2qnFfefXV17d2C+nx71bVGUdtBqKBi2bRde\nbAtL\r\n=J55j\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICk42IPI3PjZJRgyj+IGyp1/plwD3SzFgb46SdRc6NvkAiAQo5pGfwa+V4P6UYQoldI20csrxd00c0ONSnadW5CalA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/gulp-shell_0.7.0_1551545979334_0.6440249969505376"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.7.1": {
+      "name": "gulp-shell",
+      "version": "0.7.1",
+      "description": "A handy command line interface for gulp",
+      "main": "./lib/index.js",
+      "types": "./lib/index.d.ts",
+      "scripts": {
+        "build": "gulp build",
+        "test": "gulp test",
+        "coveralls": "gulp coveralls",
+        "prepare": "npm run build",
+        "prepublishOnly": "npm test"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sun-zheng-an/gulp-shell.git"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "@types/fancy-log": "^1.3.1",
+        "@types/gulp": "^4.0.6",
+        "@types/jest": "^24.0.13",
+        "@types/lodash.template": "^4.4.6",
+        "@types/node": "^12.0.7",
+        "@types/through2": "^2.0.34",
+        "@typescript-eslint/eslint-plugin": "^1.9.0",
+        "@typescript-eslint/parser": "^1.9.0",
+        "coveralls": "^3.0.4",
+        "eslint": "^5.16.0",
+        "eslint-config-prettier": "^4.3.0",
+        "eslint-plugin-jest": "^22.6.4",
+        "gulp": "^4.0.2",
+        "jest": "^24.8.0",
+        "prettier": "^1.18.0",
+        "ts-jest": "^24.0.2",
+        "ts-node": "^8.2.0",
+        "typescript": "^3.5.1",
+        "vinyl": "^2.2.0"
+      },
+      "dependencies": {
+        "chalk": "^2.4.2",
+        "fancy-log": "^1.3.3",
+        "lodash.template": "^4.4.0",
+        "plugin-error": "^1.0.1",
+        "through2": "^3.0.1",
+        "tslib": "^1.9.3"
+      },
+      "engines": {
+        "node": ">=6.0.0"
+      },
+      "gitHead": "0a44d26c5307663a18e8182e88a5ded49e6b37cc",
+      "_id": "gulp-shell@0.7.1",
+      "_nodeVersion": "12.4.0",
+      "_npmVersion": "6.9.0",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-5dKf1eJDdBiUS4LKCt4tm9IkDnWeXKGCKjQG5EJj/bVeVOisAPse5RLxccGh1OtfbzQdOWCywu936DTB8isZRw==",
+        "shasum": "0434d3dd852eb256824076466935b51c5f7b5191",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.7.1.tgz",
+        "fileCount": 7,
+        "unpackedSize": 14475,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc+ii4CRA9TVsSAnZWagAAm38P/A19h4XoOlT4WJNBYuNU\nGtPu2Le4Jp45ou+P1scIFZcr2a9B5NdV4y3nzeSgmoaLkTCYax3ANTzLiCOG\nej3469HQxvi5mJgL05AN3QwMnDi7QlVkhzgEhT8lJ8QTLpnKOTDdCSNAXY+s\nxLOI6f/RHj3ncD4iRbW/mw/zjZK2WwFLNqpZNXzrT/hJMbR9wv6tY5bvavPs\nKn207j2U1tefhhdPvJODT4COP/jISaIw0zVqIS1Pmf8bx3TN8NqJllid2aI6\nHTLl5BtjNsS4u62pPUHoqlbFeGscUZdkHgehYzk74vwP7EIJPMUfWhNIRkn3\nME7b+QV23VJMqKUAt0FGRKyr+KuTHFNlASSHh+dnJdKkE/Vka0QSoYw2gOzn\nqyDyam/DHVwDZctJyS40PJ2tvvBK3obq8jtdwm5j5FcZqJkTV04pwmnpMv1U\nNf/iyylo+Y49+yWn2d79VraIjwqPVpZtB11TrMoCNH+VRboW55B/xG92ZXvo\nn148KXJNh4V/YlJMohctpfIivKw1OZvzqAjK5jP1pItD2Oj0G0XhhiDFTka6\n93G0PKA+IYpDxJzC3UYMxbRgnQzQ07Dnqtj2oh9EBWnWtLhUSwbA2WsazWdm\n74f0gZN8mYZWO0zM7X62O1XmGMXEaYCiQZ/UiVQGjkFP7rF+y4VXWLWtOXtI\nbwpc\r\n=oaN9\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDBduvZfOZxhJdrrmzEEeDJAhcOeSXyQ4U5UHc9ATsB6QIgERxcQcBIhXRhPly5FHzeqJMVwWrsW5Av/eWI8rJITE0="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/gulp-shell_0.7.1_1559898296078_0.02681554696116306"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.8.0": {
+      "name": "gulp-shell",
+      "version": "0.8.0",
+      "description": "A handy command line interface for gulp",
+      "main": "lib/index.js",
+      "types": "lib/index.d.ts",
+      "scripts": {
+        "build": "gulp build",
+        "test": "gulp test",
+        "coveralls": "gulp coveralls",
+        "prepare": "npm run build",
+        "prepublishOnly": "npm test"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sun-zheng-an/gulp-shell.git"
+      },
+      "keywords": [
+        "gulpplugin",
+        "gulp",
+        "shell",
+        "command"
+      ],
+      "author": {
+        "name": "Sun Zheng'an"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+      },
+      "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+      "devDependencies": {
+        "@types/fancy-log": "^1.3.1",
+        "@types/gulp": "^4.0.6",
+        "@types/jest": "^25.1.2",
+        "@types/lodash.template": "^4.4.6",
+        "@types/node": "^13.7.1",
+        "@types/through2": "^2.0.34",
+        "@typescript-eslint/eslint-plugin": "^2.19.2",
+        "@typescript-eslint/parser": "^2.19.2",
+        "coveralls": "^3.0.9",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.10.0",
+        "eslint-plugin-jest": "^23.7.0",
+        "gulp": "^4.0.2",
+        "jest": "^25.1.0",
+        "prettier": "^1.19.1",
+        "ts-jest": "^25.2.0",
+        "ts-node": "^8.6.2",
+        "typescript": "^3.7.5",
+        "vinyl": "^2.2.0"
+      },
+      "dependencies": {
+        "chalk": "^3.0.0",
+        "fancy-log": "^1.3.3",
+        "lodash.template": "^4.5.0",
+        "plugin-error": "^1.0.1",
+        "through2": "^3.0.1",
+        "tslib": "^1.10.0"
+      },
+      "engines": {
+        "node": ">=10.0.0"
+      },
+      "gitHead": "a2f4a201e20c35fa290ab7bc0dd61936e0310d3c",
+      "_id": "gulp-shell@0.8.0",
+      "_nodeVersion": "13.8.0",
+      "_npmVersion": "6.13.7",
+      "_npmUser": {
+        "name": "sun-zheng-an",
+        "email": "sun.zheng.an.0@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-wHNCgmqbWkk1c6Gc2dOL5SprcoeujQdeepICwfQRo91DIylTE7a794VEE+leq3cE2YDoiS5ulvRfKVIEMazcTQ==",
+        "shasum": "0ed4980de1d0c67e5f6cce971d7201fd0be50555",
+        "tarball": "https://registry.npmjs.org/gulp-shell/-/gulp-shell-0.8.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 14524,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeQ+sGCRA9TVsSAnZWagAASnMP/inq9kRzLvZOxi1CFICv\nWMiU2n7T5bgiJcwPTqBPh7x/GEeYGsUqspUKieKdH+LIun2kV718fVFN1KBn\n/aMkXq5a/cVP/hCkth78NkAC4p1FWkj2Uj0wsyDvRR+eXhCZ1ZhY/BZupOp7\n3BDw7IzcjG/1bLs9Cs9978BPSGF6NceP6JUz4K1jkC8ZhJhVUnonwunuQnC8\nMMRxMSs3W7iWJS2mnkOxvAIMVPhu/vO+7s3vpNNa694ZyKFERUqHFXqQzxTt\nVsb448T8makXoG1HDIhDwkorxf7S37JzwqdXZrPD06xitrgics04nGMfe6sD\niMA45XM4eGgPHAKTNKakGbCif43EessDUebyycSXKf8Sqt9bY0V0a1AeKlr3\nRmJ4xpNY3E3bQfnVi1Q7LYNxWatcxtep5TYJbWs4jE0/yOKtqtIqUaeu/xNW\npNv4xoEjyDJ2Upo89qF6cBW0oXl1/NxjIpm8vy1zp4mxTxtZ7eA23PT0Twa8\n0zovx/Bvin7a1xNEWJ9jVEDUTe2fiI5DzwzzKJEe3TJ4Nw8f7hTssFY37miV\niFwxDLEOaBYmNkX2PSUmgbnySJCds7ghF6kBAvSCO+fGEwFeEA4l3ayuSwEx\nRMYbRMwnY4zfbjG3AsqO22IoQZ4edklgRi9j0V1mr/mf5p4hTaOOp7bhG+5U\nAiT4\r\n=ucqf\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIF2MINI6k7Dd35UF/63bAxX5h8Nt47KvOgrUCTMfgmy9AiAkQ6BW48Fst0eqVlI1sAXEhs8s5Sd1Y9xRsw0LdxA/nw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "sun-zheng-an",
+          "email": "sun.zheng.an.0@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/gulp-shell_0.8.0_1581509382316_0.566061901656925"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/sun-zheng-an/gulp-shell",
+  "keywords": [
+    "gulpplugin",
+    "gulp",
+    "shell",
+    "command"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sun-zheng-an/gulp-shell.git"
+  },
+  "author": {
+    "name": "Sun Zheng'an"
+  },
+  "bugs": {
+    "url": "https://github.com/sun-zheng-an/gulp-shell/issues"
+  },
+  "license": "MIT",
+  "users": {
+    "326060588": true,
+    "shawnsandy": true,
+    "mkelley33": true,
+    "antenando": true,
+    "joreyaesh": true,
+    "everyonme": true,
+    "m3talsmith": true,
+    "zgp_626": true,
+    "bartveneman": true,
+    "wernight": true,
+    "kulakowka": true,
+    "enuobear": true,
+    "logeshpaul": true,
+    "joaocunha": true,
+    "venkateshwar": true,
+    "hal9zillion": true,
+    "lenville": true,
+    "devalias": true,
+    "markthethomas": true,
+    "abrahamwilliams": true,
+    "meedamian": true,
+    "n370": true,
+    "sivan": true,
+    "piecioshka": true,
+    "zwxajh": true,
+    "honzajde": true,
+    "a1ip": true,
+    "codesleuth": true,
+    "sammyteahan": true,
+    "mrahmadawais": true,
+    "aitorllj93": true,
+    "r3nya": true,
+    "jerkovicl": true,
+    "yhui02": true,
+    "dopert": true,
+    "cengagelucas": true,
+    "miroamarillo": true,
+    "crazyjingling": true,
+    "csrui": true,
+    "dkblay": true,
+    "pandao": true,
+    "elussich": true,
+    "meetravi": true,
+    "hany233": true,
+    "marcelohmdias": true,
+    "dbuggerx": true,
+    "doptrois": true,
+    "koutak": true,
+    "bwade231": true,
+    "jordietyahii": true,
+    "muzhen": true,
+    "broxmgs": true,
+    "xenohunter": true,
+    "fanus": true,
+    "dennisli87": true,
+    "shaddyhm": true,
+    "ifeature": true,
+    "kitone": true,
+    "xieranmaya": true,
+    "programmer.severson": true,
+    "larrychen": true,
+    "limichange": true,
+    "areasis": true,
+    "faulfish": true,
+    "kontrax": true,
+    "dzhou777": true,
+    "xingtao": true,
+    "rbecheras": true,
+    "adammacias": true,
+    "martinjh": true,
+    "onursimsek": true,
+    "insomniaqc": true,
+    "powerweb": true,
+    "tin-lek": true,
+    "treatkor": true,
+    "vlasterx": true,
+    "mdecker": true,
+    "toszter": true,
+    "aidenzou": true,
+    "chirag8642": true,
+    "nwservices": true,
+    "viklakhani": true,
+    "flumpus-dev": true
+  }
+}

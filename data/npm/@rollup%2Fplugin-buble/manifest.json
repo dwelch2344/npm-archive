@@ -1,0 +1,1186 @@
+{
+  "_id": "@rollup/plugin-buble",
+  "_rev": "9-7e59f9b4a9f8adad397353d72acbc5c8",
+  "name": "@rollup/plugin-buble",
+  "dist-tags": {
+    "latest": "1.0.3"
+  },
+  "versions": {
+    "0.20.0": {
+      "name": "@rollup/plugin-buble",
+      "version": "0.20.0",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Compile ES2015 with buble",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rollup/plugins.git"
+      },
+      "author": {
+        "name": "Rich Harris",
+        "email": "richard.a.harris@gmail.com"
+      },
+      "homepage": "https://github.com/rollup/plugins/packages/buble/#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "dist/rollup-plugin-buble.cjs.js",
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm run test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:coverage:submit": "curl -s https://codecov.io/bash | bash -s - -F beep",
+        "ci:lint": "pnpm run build && pnpm run lint && pnpm run security",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm run test -- --verbose && pnpm run test:ts",
+        "lint": "pnpm run lint:js && pnpm run lint:docs && pnpm run lint:package",
+        "lint:docs": "prettier --single-quote --write README.md",
+        "lint:js": "eslint --fix --cache src test",
+        "lint:package": "prettier --write package.json --plugin=prettier-plugin-package",
+        "prebuild": "del-cli dist",
+        "prepare": "npm run build",
+        "prepublishOnly": "npm run lint && npm run test && npm run test:ts",
+        "pretest": "npm run build",
+        "security": "echo 'pnpm needs `npm audit` support'",
+        "test": "ava test/test.js",
+        "test:ts": "tsc index.d.ts test/types.ts --noEmit"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "buble",
+        "es2015",
+        "npm",
+        "modules"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0"
+      },
+      "dependencies": {
+        "buble": "^0.19.8",
+        "rollup-pluginutils": "^2.6.0",
+        "typescript": "^3.4.3"
+      },
+      "devDependencies": {
+        "del-cli": "^3.0.0",
+        "rollup": "^1.20.0",
+        "source-map": "^0.7.3"
+      },
+      "ava": {
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "module": "dist/rollup-plugin-buble.es.js",
+      "_id": "@rollup/plugin-buble@0.20.0",
+      "_nodeVersion": "12.3.1",
+      "_npmVersion": "6.11.2",
+      "dist": {
+        "integrity": "sha512-3Qkoa3n+6NjQggLkN5R6ouVL3/jveyqjJjJXxbk04HEig/97YyOwoimWYIOC5vlQ60Z+xLhnAvGd6mM0gFY2wQ==",
+        "shasum": "499cb3a5891fe7a2d30b76ed43f8c387e1c13e89",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-buble/-/plugin-buble-0.20.0.tgz",
+        "fileCount": 8,
+        "unpackedSize": 9532,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdtvOXCRA9TVsSAnZWagAASmUP/01e2MLoz2pHN6oun80G\ncRsXPgVoe2kXTosqF6X79ivE8TYPdKEJZyfI82K9/CsXuzxBua0T86gscV/Q\nxw78fv3Udecm/fIzX064sIK2buOx7avJ0PTByp7WYPo+7nigHo0/BdRfSVjT\njc9Sf+ljr9MKWTA7WKCCgWYccdtfJRG3l3REM+iHi14TEPt/NoQUOUKEcDNO\naMwX12A7d9hG14pHzLaVGKbEBZqsXvxAkR/emTc+lcPrLPlsSH0VJf3Hkxly\nrvQGEEhzWRou/ga4nEImkjE6CY+rju7nNc49AVWiBJP0H/UNmEZPXovM4/9k\nGEfwtNfTej8/MviGPw1FhfzNgA0f/qlmJhk0GHKor3ZlqUGPnvZikLEsbQt0\nYP/RH3OLyZnQ9oWgg6j4WHOLZ2hW61myT5luX+BXJVrr92QcZcijXvbFxpjL\nYzd09z3KgBfwvB7BTuYDKW7VyXNW41aotRO5AgH/Ow+CUAEaA4XX/ESSxfnu\nUBUC2tp4H9wPklvn7oZ2x3ZadjK4krxVmNo4hrNEMDKzIZY1DvG00GIeC0Zr\nwUAZ8Hj9wc4FXW5ACGspM+12VQzHg5NljDOwPSpRJx5KKy7Pi3BY+Te8N9/Q\n6+a+VzMsqLgerJoSzPHeEeUOrd2dZtUsRL5kvsc6MCeVes5EK4/o3NiEAn9o\nUBVw\r\n=QsHN\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDEC5jqYC6BhA3kWCJpc2ckvXBGT7LWx84vZ3jFXlaVYgIhAMZs8i3hZfsBgRTqbECkbeDNnGxtI+JGXADcJxe4PS4S"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-buble_0.20.0_1572270998846_0.6540719587524362"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.21.0": {
+      "name": "@rollup/plugin-buble",
+      "version": "0.21.0",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Compile ES2015 with buble",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rollup/plugins.git"
+      },
+      "author": {
+        "name": "Rich Harris",
+        "email": "richard.a.harris@gmail.com"
+      },
+      "homepage": "https://github.com/rollup/plugins/packages/buble/#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "dist/rollup-plugin-buble.cjs.js",
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm run test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm run build && pnpm run lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm run test -- --verbose && pnpm run test:ts",
+        "lint": "pnpm run lint:js && pnpm run lint:docs && pnpm run lint:package",
+        "lint:docs": "prettier --single-quote --write README.md",
+        "lint:js": "eslint --fix --cache src test",
+        "lint:package": "prettier --write package.json --plugin=prettier-plugin-package",
+        "prebuild": "del-cli dist",
+        "prepare": "pnpm run build",
+        "prepublishOnly": "pnpm run lint && pnpm run test && pnpm run test:ts",
+        "pretest": "pnpm run build",
+        "test": "ava",
+        "test:ts": "tsc index.d.ts test/types.ts --noEmit"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "buble",
+        "es2015",
+        "npm",
+        "modules"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0"
+      },
+      "dependencies": {
+        "@types/buble": "^0.19.2",
+        "buble": "^0.19.8",
+        "rollup-pluginutils": "^2.8.2"
+      },
+      "devDependencies": {
+        "del-cli": "^3.0.0",
+        "rollup": "^1.27.0",
+        "source-map": "^0.7.3",
+        "typescript": "^3.7.2"
+      },
+      "ava": {
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "module": "dist/rollup-plugin-buble.es.js",
+      "_id": "@rollup/plugin-buble@0.21.0",
+      "_nodeVersion": "12.3.1",
+      "_npmVersion": "6.11.2",
+      "dist": {
+        "integrity": "sha512-n6N311RCrVvnsWGyo/if6K2kFoDW+x9r+/hkp+fI73MryLFGxN50Y3zJDg3k0ZTDjRHmveVzM6Nzwv9+plWiLA==",
+        "shasum": "76d2a9c62ae1f1122a3a87526669a736cd86c148",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-buble/-/plugin-buble-0.21.0.tgz",
+        "fileCount": 8,
+        "unpackedSize": 8723,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJd/o2JCRA9TVsSAnZWagAAcTcQAJb88jav7DMb8cxNK1PZ\ncbzZIvAxRhCH4QuQ25N6aMJVOGViNKb+kh/OUU3+cvbJcm+5AKwTVs5N1+bA\n7Vm+3giWvmsA6vnOxutUoHNyb6V5NaNmIWBZ8V8pn+QwWR460BKWYCTIPyiN\nMKns/G3lgUdts2jbmTcOJOTMDBTGAgAEOvmeGuUxoJvGX3ny2YYXY91AJzdz\nF50bRp82V+vEfcIij2DTS7snDY7fWO/1BRsJE/HMs0LzESfX0uxOgYq881zH\nCFVMGKOuzgvuQc9FA8y6W8eVeryz8+QaVaIvDOzzh3BdYLxSX/4IOktym36+\nvk43LTG5nRFpYJHH2NPOr1agXKvBxPdo1Tphu1XodIUno3TYKjxmMqYNKw6p\nqIPvXtUBe13HTLFlypgGaWvJ20H5vTX/VMbh1NBnX2WwPWYmkLalu63l1a/j\nZainih1jogZj5QBiaRQeAwgFHGMrlRdsHaXemtRL3oc+EyEJFRnEEw/eHDRn\nfWD28Wqvt7T+JodTgeHCvAhQTmWrDMK58SE8G1DI4Bb+p51kQ6CcrZS51YUz\n2Qo8iRBOFcdP+SLDj/oQI7Q3f1nhmwPxnwcmAj1yhPz39MmFSH8N7JiZ5QzW\nMKQq+hJ0bhD1TkF7yoQOzStUdYrv696Rql64wIXTuerJ2/cXAUhTkqeozCU5\nQBtl\r\n=u788\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICVa59r2nokPJyq7+aMDX8p3EnVjc2x1Rl3UJPpmd/WrAiEA13okkzvxewsnnZELzLuszwJYluFx2gGgYFC/QFU/FQs="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        }
+      ],
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-buble_0.21.0_1576963465210_0.2814129806089434"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.21.1": {
+      "name": "@rollup/plugin-buble",
+      "version": "0.21.1",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Compile ES2015 with buble",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rollup/plugins.git"
+      },
+      "author": {
+        "name": "Rich Harris",
+        "email": "richard.a.harris@gmail.com"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/buble/#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "dist/rollup-plugin-buble.cjs.js",
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm run test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm run build && pnpm run lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm run test -- --verbose && pnpm run test:ts",
+        "lint": "pnpm run lint:js && pnpm run lint:docs && pnpm run lint:package",
+        "lint:docs": "prettier --single-quote --write README.md",
+        "lint:js": "eslint --fix --cache src test",
+        "lint:package": "prettier --write package.json --plugin=prettier-plugin-package",
+        "prebuild": "del-cli dist",
+        "prepare": "pnpm run build",
+        "prepublishOnly": "pnpm run lint && pnpm run test && pnpm run test:ts",
+        "pretest": "pnpm run build",
+        "test": "ava",
+        "test:ts": "tsc index.d.ts test/types.ts --noEmit"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "buble",
+        "es2015",
+        "npm",
+        "modules"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0"
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^3.0.4",
+        "@types/buble": "^0.19.2",
+        "buble": "^0.19.8"
+      },
+      "devDependencies": {
+        "del-cli": "^3.0.0",
+        "rollup": "^1.27.14",
+        "source-map": "^0.7.3",
+        "typescript": "^3.7.4"
+      },
+      "ava": {
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "module": "dist/rollup-plugin-buble.es.js",
+      "_id": "@rollup/plugin-buble@0.21.1",
+      "_nodeVersion": "12.3.1",
+      "_npmVersion": "6.11.2",
+      "dist": {
+        "integrity": "sha512-Tmd4V95cVyGTwh7qc9ZNkg53E/isFY4q/sqZK7mSyGajYp9Wb0gbJyZWAzYlg9kZxEHmwCDlvcHDcn56SpOCCQ==",
+        "shasum": "186413c2f27770bea4cefa86ba1c0aafd9593339",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-buble/-/plugin-buble-0.21.1.tgz",
+        "fileCount": 8,
+        "unpackedSize": 8921,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeNcBMCRA9TVsSAnZWagAATX0P/3MuQrBNcMidnHkdSg3t\nHJWlq1PF9Z+ZJZqFw/zyH0XApKXQfs2IawEiK7Esv2MU7HEBW/5ySHmMu6lE\nOixsVLp5ErMtBYA3rQUvcsu/rLGZfdPvt7Ol4NKooM8vQzuw6Tx4sflYX1IB\nuwBmNgJ8k21q5gg4K8bBoP5p1oU2MqqHW9VAos4sJ2a2g44rhfS1E84n4zh9\niZGU7ZqGdpeedqJR9QkQjaGPDcNxDj5xs29U+4Vxetb/1ylbQm2rW81TfA5F\nZEsHsjModWXlvLHSUdsW2zZOawzh78bF5qyoehRl7LucDdO/rVMsEwNN1syR\nM7E99TgSUNSL5YvSAAyboPJItqnhAIN/hF4RrLQ3IMOTXQJc7GNy21n1SIjj\nk+/QMwZwojNJp4yFCpsf8um61hZ9Xzea4or+cG35kj8vy1Z5QR5yXPJlT1tP\nWGFWlZcpCXPplm0hZzpqK5FqvOonds1DX0te6Qdyu8oMj/wUyu9Ugw9xqjr/\nEpQ2WbeTfCYgnpVXCkfNuA45mMTOBXnNQ8JHLhuS7mkbxEQ8R6Ubik9/iiHU\n7p0iZan0GXsAVGPztNOkzhcuPRqhQznWBPb3DVUz8uQplNWnbqqIFhn5KRT/\n3HAHknPBFwzp5jB2UKuF7hEmhi2e+wFrOEHQw+TfVTe79Z7r+853atUixJYE\ncJUb\r\n=sXn9\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGJEWfzqO4utQNQVDPpiQ7egdZNWWb8DgnHO1P3ENkdsAiEAtdWhAc8roj0SCAh5pv9rqS+YrqPql8WItEsz3QR9CFE="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        }
+      ],
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-buble_0.21.1_1580580940173_0.6901487623333444"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.21.2": {
+      "name": "@rollup/plugin-buble",
+      "version": "0.21.2",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Compile ES2015 with buble",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rollup/plugins.git"
+      },
+      "author": {
+        "name": "Rich Harris",
+        "email": "richard.a.harris@gmail.com"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/buble/#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "dist/rollup-plugin-buble.cjs.js",
+      "engines": {
+        "node": ">= 8.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm run test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm run build && pnpm run lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm run test -- --verbose",
+        "lint": "pnpm run lint:js && pnpm run lint:docs && pnpm run lint:package",
+        "lint:docs": "prettier --single-quote --write README.md",
+        "lint:js": "eslint --fix --cache src test types --ext .js,.ts",
+        "lint:package": "prettier --write package.json --plugin=prettier-plugin-package",
+        "prebuild": "del-cli dist",
+        "prepare": "pnpm run build",
+        "prepublishOnly": "pnpm run lint && pnpm run test",
+        "pretest": "pnpm run build",
+        "test": "ava",
+        "test:ts": "tsc types/index.d.ts test/types.ts --noEmit"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "buble",
+        "es2015",
+        "npm",
+        "modules"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0"
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^3.0.8",
+        "@types/buble": "^0.19.2",
+        "buble": "^0.19.8"
+      },
+      "devDependencies": {
+        "@rollup/plugin-typescript": "^3.0.0",
+        "del-cli": "^3.0.0",
+        "rollup": "^2.0.0",
+        "source-map": "^0.7.3",
+        "typescript": "^3.7.4"
+      },
+      "ava": {
+        "compileEnhancements": false,
+        "extensions": [
+          "ts"
+        ],
+        "require": [
+          "ts-node/register"
+        ],
+        "files": [
+          "!**/fixtures/**",
+          "!**/output/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "module": "dist/rollup-plugin-buble.es.js",
+      "types": "types/index.d.ts",
+      "_id": "@rollup/plugin-buble@0.21.2",
+      "_nodeVersion": "12.15.0",
+      "_npmVersion": "6.14.3",
+      "dist": {
+        "integrity": "sha512-OEBgX73WAXwmDXu0lJqR02bNHG8ro+bywrrEt5BePUumV4tcz4GRbIoXMCY7MR+uP033Qt9suzzRiCks/qg5PQ==",
+        "shasum": "65f8da56977c13ee01253ce8b78708398c5f109e",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-buble/-/plugin-buble-0.21.2.tgz",
+        "fileCount": 7,
+        "unpackedSize": 8997,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJekmxSCRA9TVsSAnZWagAAI0gQAJWpAileNCQIwha5mNq8\nlt5EcDJJorQ7QbABMQ18TwY9i7MZyXe5rD2q5fICKbLcC8dOdcFWltQWLlj4\n3YHCQ+7JT/V0SQkhAW/6Uh0frScCEhpBkqAgr0tpnZkq/WfehoIVZSwQxZda\nrCTLL/tsqBqVUwcFxG2yesgRyNFpLYj+PAihE3g/vmY37KAnInZv+S3Cipa0\nbMaoQa6HEb3vVdMEqJfhZKQOTsMsIgCFGRdQSfD91i0SB+AB1muZamtrLfu0\nxgxfvSmJ9nHqtz/ONIlgK6f5WUwOMPoI5nJZQAmpYopYm9xmO3KcB5gcXdfh\negAbqqiU+STS1wR61uemky47tYu+jV1+ATYKp/BRMIYkftGp2eQSI5MdJc0R\nML67dq3iS6ky1VLi8oVy3Ns6rdYIOP2aQB7TKhut4aUObLf3qyfWQDqtV19Y\nPNiEGLyfdw8Nv1BI8qgPXdlqHTvgBA9Eyou4yh759TytvqvRC6za2VnExjw9\nRrNHIkEudh+lpHMn2rKSlb/T3eUzxynxDAF7gm6JNstVGhiX7mlH6rqFRtnX\ndUrSr8JgRAD6YuMziSGJHmn08LTGdOYll+2yGywOAGrxMU4iGcdZVktbGDHH\nWc/bxM0Ddc0fQ8xpFDtDUH+PYKg23S2WtMl37Obe3QhyOxJaFjTfGtf7yYDa\nm/fa\r\n=q/4l\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCUxvl6HgKQlJTg0NcP88MESWa+olYdn1dF11PUCGTYdAIhANtaHvE0u/kQMcpozlQ/LD8gUuhhVe6ho5DsiQBlLNAX"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        }
+      ],
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-buble_0.21.2_1586654290265_0.9820587921272474"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.21.3": {
+      "name": "@rollup/plugin-buble",
+      "version": "0.21.3",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Compile ES2015 with buble",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rollup/plugins.git"
+      },
+      "author": {
+        "name": "Rich Harris",
+        "email": "richard.a.harris@gmail.com"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/buble/#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "dist/rollup-plugin-buble.cjs.js",
+      "engines": {
+        "node": ">= 8.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm run test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm run build && pnpm run lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm run test -- --verbose",
+        "lint": "pnpm run lint:js && pnpm run lint:docs && pnpm run lint:package",
+        "lint:docs": "prettier --single-quote --write README.md",
+        "lint:js": "eslint --fix --cache src test types --ext .js,.ts",
+        "lint:package": "prettier --write package.json --plugin=prettier-plugin-package",
+        "prebuild": "del-cli dist",
+        "prepare": "pnpm run build",
+        "prepublishOnly": "pnpm run lint && pnpm run test",
+        "pretest": "pnpm run build",
+        "test": "ava",
+        "test:ts": "tsc types/index.d.ts test/types.ts --noEmit"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "buble",
+        "es2015",
+        "npm",
+        "modules"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0"
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^3.0.8",
+        "@types/buble": "^0.19.2",
+        "buble": "^0.20.0"
+      },
+      "devDependencies": {
+        "@rollup/plugin-typescript": "^3.0.0",
+        "del-cli": "^3.0.0",
+        "rollup": "^2.0.0",
+        "source-map": "^0.7.3",
+        "typescript": "^3.7.4"
+      },
+      "ava": {
+        "compileEnhancements": false,
+        "extensions": [
+          "ts"
+        ],
+        "require": [
+          "ts-node/register"
+        ],
+        "files": [
+          "!**/fixtures/**",
+          "!**/output/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "module": "dist/rollup-plugin-buble.es.js",
+      "types": "types/index.d.ts",
+      "_id": "@rollup/plugin-buble@0.21.3",
+      "_nodeVersion": "12.15.0",
+      "_npmVersion": "6.14.3",
+      "dist": {
+        "integrity": "sha512-Iv8cCuFPnMdqV4pcyU+OrfjOfagPArRQ1PyQjx5KgHk3dARedI+8PNTLSMpJts0lQJr8yF2pAU4GxpxCBJ9HYw==",
+        "shasum": "1649a915b1d051a4f430d40e7734a7f67a69b33e",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-buble/-/plugin-buble-0.21.3.tgz",
+        "fileCount": 7,
+        "unpackedSize": 9095,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJek0c7CRA9TVsSAnZWagAAIakP/i9gqK31iEvz7rZ3mYDa\n7sbhHUYs0Dw41/zRQfZywRe8IP8BDbtdAxC94qdoDkRJgx6Xi4i53joEH3Ji\nCbkL9oTTJtqY86E9lIW4H2m4wIsVH4ryL2ody7C7hz1K4tdXGX9o/qJN29Ye\ngesw3N0XX1xbDvvQGFUPXMBTdw0FyBxPw+MK1wdjJXxqJIQougLf1uY9PmZA\nSebBwYibUcsojwf8wNHyGQaUYrsl/4ro5cHvBVaND8e6m6tdEyxrXpFOhJpi\nPm+tKQVOIMSz17ZTymwW1ArjxHq7xBvdThDP3tmenl+RLkU+bm2tr7IowZGD\nGerHpp1E1cXp4Zrkjr8znxBSBYYvuc0N/shETXMl0TMNZbGVDdBqzShd2jes\nTZ3nVjU8AJeKw1FFPjD54GIiFpG2iQaC9D4KKabPbqVL08+sZA4Mc5v+rlBG\n/pD2hnd7+zAESPRFtjVXvL3TMZqBhK7j0Lq02nrD8jOtj2liBjDbdJ+1S9y8\nh4JqxyuoLHApqoRrj3tLCYIMhvfsuoLdHCjS+aXLOHNxhYs5bUy4N2R30T1j\nHCtp3Tgng4nTFNcHaF6V8rq4URypD1owcZD9ttSUU5asVD3NGqJyKG3Tondh\nBXaNpHxDpQwABYpjLm+WPRJ6VHC3z8sgGEZ3TbrzvwbS9DqqoKPPJRMQuu4x\nMAYV\r\n=WHK8\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICyVw83UFEXp7Qspu/VQ0YXSgL2A58sISuz+zi5fIK8iAiBQa4626Xe66Bd5xpEKp9eCg0sHUG1aTOm97CeOyivFUA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        }
+      ],
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-buble_0.21.3_1586710331003_0.41044131515539606"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.0": {
+      "name": "@rollup/plugin-buble",
+      "version": "1.0.0",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Compile ES2015 with buble",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/rollup/plugins.git",
+        "directory": "packages/buble"
+      },
+      "author": {
+        "name": "Rich Harris",
+        "email": "richard.a.harris@gmail.com"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/buble/#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "./dist/cjs/index.js",
+      "module": "./dist/es/index.js",
+      "exports": {
+        "import": "./dist/es/index.js",
+        "types": "./types/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm build && pnpm lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm test -- --verbose",
+        "prebuild": "del-cli dist",
+        "prepare": "if [ ! -d 'dist' ]; then pnpm build; fi",
+        "prerelease": "pnpm build",
+        "pretest": "pnpm build",
+        "release": "pnpm --workspace-root plugin:release --pkg $npm_package_name",
+        "test": "ava",
+        "test:ts": "tsc types/index.d.ts test/types.ts --noEmit"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "buble",
+        "es2015",
+        "npm",
+        "modules"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0||^3.0.0"
+      },
+      "peerDependenciesMeta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^4.2.1",
+        "@types/buble": "^0.19.2",
+        "buble": "^0.20.0"
+      },
+      "devDependencies": {
+        "@rollup/plugin-typescript": "^8.5.0",
+        "del-cli": "^5.0.0",
+        "rollup": "^3.0.0-7",
+        "source-map": "^0.7.4",
+        "typescript": "^4.8.3"
+      },
+      "types": "./types/index.d.ts",
+      "ava": {
+        "workerThreads": false,
+        "files": [
+          "!**/fixtures/**",
+          "!**/output/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "gitHead": "59b6dfa672eb3fb22b73215f1d676e3c36ccbbd9",
+      "_id": "@rollup/plugin-buble@1.0.0",
+      "_nodeVersion": "18.10.0",
+      "_npmVersion": "8.19.2",
+      "dist": {
+        "integrity": "sha512-VDbhsNtC4cXZ20+hhilL0hzUskrTZWhF9PTabCOuye1NK5Ht8LZzpM1Q0S/yo0kMArjrFnIb2P4N8d3uEKuxnA==",
+        "shasum": "586fa53339683849b25d7bd24369f74a70fef30c",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-buble/-/plugin-buble-1.0.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 6536,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQC/6ku9U7W+2anHE0DsjRhetMrnMbWzzRQjNoR4HPOiuQIhALo5Dg7/etRFVz6yRzuvq2shkZMsP7pE5i/bBAWPcG+D"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjQQc1ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmp+KQ//Rp9DJ+OpflADyBwBoOBu3oE3zX2amoTwDDuR3bXQw/ATT/jI\r\ncQTLzYOJ0b8+1hFdrdpETiOaSR4mxfnStjzzGFhDtn2oXKfOwwNQo4HH0CdL\r\n68jaN7PI38gpzMpSkr3hd+y37f5siQJDkzPpEv5joDTUmSxfAghiWSx5PtMk\r\nHBGnmisyRVwChhMdPxdfMvv96kD8cz6w1Ntfwjq674IWJP7DpICYEaZ/YVvz\r\ny+CO9TfB32s/no46LmfDg2AM3MuMVRiCtb9OixD9JiCDg9onOQillgqZ+M6k\r\nsqVuik3VAqqY2fNUiVoFNmCeBtsKqmLajInDZoolz1xv1BtQA01NP9qeHof1\r\n4XP7OASLVINbLJhZ+4azG0vZSywgeXo14bi0d0YrUkviJXN/JzEQqjP2pjc1\r\nA9HfT8mwWgllo4fgxOGSsJjPG3njcX0PExsDUwSYfto61cb/FnVeETxt5DsE\r\nK4p8Www0DMUSkB5/F95T7VFNZHlgsFHM23gKl+A1P3eUxnN6ru32WOJnPC7G\r\nqJmPpWfz3ep8Fh6Zc94BdIjNsWeBpFw79R82Y98is4APqav2zzxmSaHGyfji\r\nYcfIs+1HN02icZ14vIXhOpJ4efb9qiWUqwifuXYzqGSWEQLDzkJSentiA8AO\r\nupxTvktQnwG4YpGJ4fli6Y0BGWV9n95QBkg=\r\n=00dp\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-buble_1.0.0_1665206069785_0.4991241536528912"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.1": {
+      "name": "@rollup/plugin-buble",
+      "version": "1.0.1",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Compile ES2015 with buble",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/rollup/plugins.git",
+        "directory": "packages/buble"
+      },
+      "author": {
+        "name": "Rich Harris",
+        "email": "richard.a.harris@gmail.com"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/buble/#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "./dist/cjs/index.js",
+      "module": "./dist/es/index.js",
+      "exports": {
+        "import": "./dist/es/index.js",
+        "types": "./types/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm build && pnpm lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm test -- --verbose",
+        "prebuild": "del-cli dist",
+        "prepare": "if [ ! -d 'dist' ]; then pnpm build; fi",
+        "prerelease": "pnpm build",
+        "pretest": "pnpm build",
+        "release": "pnpm --workspace-root plugin:release --pkg $npm_package_name",
+        "test": "ava",
+        "test:ts": "tsc types/index.d.ts test/types.ts --noEmit"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "buble",
+        "es2015",
+        "npm",
+        "modules"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0||^3.0.0"
+      },
+      "peerDependenciesMeta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^5.0.1",
+        "@types/buble": "^0.19.2",
+        "buble": "^0.20.0"
+      },
+      "devDependencies": {
+        "@rollup/plugin-typescript": "^9.0.1",
+        "del-cli": "^5.0.0",
+        "rollup": "^3.2.3",
+        "source-map": "^0.7.4",
+        "typescript": "^4.8.3"
+      },
+      "types": "./types/index.d.ts",
+      "ava": {
+        "workerThreads": false,
+        "files": [
+          "!**/fixtures/**",
+          "!**/output/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "gitHead": "0f8f9f7bef1fe3f51ba051572013d1c7c4d0a21b",
+      "_id": "@rollup/plugin-buble@1.0.1",
+      "_nodeVersion": "18.11.0",
+      "_npmVersion": "8.19.2",
+      "dist": {
+        "integrity": "sha512-4srowx9TM2C2m5qDz72E9eOY7jC2Z0R5jw27tYanm1tEwi22Bl1Sh0ccubGIF3v30wmXWiH0dpvwO7+F5cPiWg==",
+        "shasum": "ca4fe8074901caeef3535a1aadf86e3cbf5f6b9d",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-buble/-/plugin-buble-1.0.1.tgz",
+        "fileCount": 6,
+        "unpackedSize": 6534,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCEDcKpNTRljpjz4oVtxnaqRCc5wYOdu+ezvJJaX7yCnwIhAL9SfvfZSUa6PTVqKGYk0798FFOTp52ufwG3iwx3/Hxz"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjUu33ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmov7xAAhiOC7sGvtfhk3PO94NqsiAnZUmNBmkI16GXbmLWQNFQpkfSW\r\nwYUCZsAHdf4vqLyKIStItPfuyn4qpb5+0S05ylYjXM++PLdAvIi61WSi1LfS\r\nbhWoBeeeFHxDQWC+HOY+Dby+zM3oIcgr7zXS5ICoyb9cc+99ABymrj3f7WgA\r\nnPa8vy5DmVMIUmR0XKMRMlocspnMvX5ujWbmfvqrFyHeI5cZ2vx9M+QsqqFk\r\nUxvfD/NX67X267Y3elxg0bhsLeZQB53L8Uzmt9m/Zr2nTE+BcyMC0j2+IOrb\r\nNDyC3N9RVeZRG5gzgw/mS12kr6UdqHUFYJYu1ysooes2CYOqtClM3C1v93iI\r\n15iypeARjM07F0YEWI11GfPRsKftaXDFgn5SFCszv6127TQ5/hgqktehhRIi\r\neNxuFlICnGg91XdkKKBBMcRSJV8CzLqHOFXfmue47jGDESsQpNVimZhLaBQe\r\nK+03q7kqtajQreetMyZCJozg307sGPRznStOJeG6hxU9P4Rl7MdlSZKbHhuM\r\nGIbjg4AjuYzvRUj3dRnr6NUPhqM3JrjBaAUl02vouDEZGdZO5ybjkHxO0sLT\r\nQPjnvznj5gBCpYMj4i71/dkXas2nVooaKkK+PGsfY0Ts9+hi/OCosp1FJpry\r\nL2ARUNiB2ePPV9ge+cHhRqmKxgWUHTHCrsY=\r\n=up9/\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-buble_1.0.1_1666379254986_0.4191742663061284"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.2": {
+      "name": "@rollup/plugin-buble",
+      "version": "1.0.2",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Compile ES2015 with buble",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/rollup/plugins.git",
+        "directory": "packages/buble"
+      },
+      "author": {
+        "name": "Rich Harris",
+        "email": "richard.a.harris@gmail.com"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/buble/#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "./dist/cjs/index.js",
+      "module": "./dist/es/index.js",
+      "exports": {
+        "types": "./types/index.d.ts",
+        "import": "./dist/es/index.js",
+        "default": "./dist/cjs/index.js"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm build && pnpm lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm test -- --verbose",
+        "prebuild": "del-cli dist",
+        "prepare": "if [ ! -d 'dist' ]; then pnpm build; fi",
+        "prerelease": "pnpm build",
+        "pretest": "pnpm build",
+        "release": "pnpm --workspace-root plugin:release --pkg $npm_package_name",
+        "test": "ava",
+        "test:ts": "tsc types/index.d.ts test/types.ts --noEmit"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "buble",
+        "es2015",
+        "npm",
+        "modules"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0||^3.0.0"
+      },
+      "peerDependenciesMeta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^5.0.1",
+        "@types/buble": "^0.19.2",
+        "buble": "^0.20.0"
+      },
+      "devDependencies": {
+        "@rollup/plugin-typescript": "^9.0.1",
+        "del-cli": "^5.0.0",
+        "rollup": "^3.2.3",
+        "source-map": "^0.7.4",
+        "typescript": "^4.8.3"
+      },
+      "types": "./types/index.d.ts",
+      "ava": {
+        "workerThreads": false,
+        "files": [
+          "!**/fixtures/**",
+          "!**/output/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "gitHead": "701b642a9948013bc523f1edbee9614adb6556a9",
+      "_id": "@rollup/plugin-buble@1.0.2",
+      "_nodeVersion": "18.13.0",
+      "_npmVersion": "8.19.3",
+      "dist": {
+        "integrity": "sha512-Hz9+AigRWwS93vmorrVrhyG9SdSCZAkBDx614w09iFQYFUAP2HmdUrQyZsb1WO2n+iDvPFznrTE16la+eGNcEQ==",
+        "shasum": "30af390341b0888490f781fcf17e469198d118a2",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-buble/-/plugin-buble-1.0.2.tgz",
+        "fileCount": 6,
+        "unpackedSize": 6549,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGk16dUD9lXkOSZ+Zz952ofdq/b+kwb59r3JHdVXseDSAiEA3FqXXniJrWp7QI6ilIm7NojeJP2TaPmeOqAXP6i3UNc="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjyycQACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmonaw/+Pz/1gusDq19vucjay3Dt1ucJndkHoFHCXydU7mDQ7MC2WnvY\r\nQSocV+NZhhLoPNxnDG2ebJ0IJjWfAzMYGskGpuBCvE3QqXC8poafFVEXM1X0\r\nqCOrPwPZ4W5HcSxYtZCUsglWCVrH22q+JpCVukkgvOTGw2R3EiDe0mr9bDae\r\ndMViIuxQV5d5PrRW3AamcUAMpi+mChVFR7qCPymDMRpbviHymehEQNLHlIZv\r\ntfWZGLj6pwl//Eyw1qFkldvdRY6l7SUM2IdkJeLNVd2zw/ynjN0/G3nX11eT\r\nLjGZPsfuaAACR1UsRYnxQi3QDhWB/bSmC5DQGNLXvk1hC/xXmCajrGo4MgAv\r\njGBzEg8XivxzV3ziqjbJia+Brb8Wsav5za4b1kn2EsqC3vIeFsN8rveW+4Dt\r\nxS2QH5M5QN7g8uSaJTLz5DYi5uMGEiE9vtvzyPGW4ennK3HNFRA93iR1Ahwn\r\nOjNElN4y1BL++bBPOL1NiO/M9M1VoU+v9P9V2tTFWryPFQ41IHEXgR78E3xb\r\nCEQIBV+18ZyheNoIUlASsBNYhnkR3xypzfWZ9fsYWN0pQGP79ko1R8eFmEf5\r\nz6rJWKqzREw2b8zdmvrNoNc2nla4LhqiW5eUTeE4ptk5SkgjmhdDG/9NOF8r\r\nMDdkKikgp2z2ZGbOHORb5hcdelGKFZBTEkM=\r\n=4NrK\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-buble_1.0.2_1674258192060_0.8917551003628812"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.3": {
+      "name": "@rollup/plugin-buble",
+      "version": "1.0.3",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Compile ES2015 with buble",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/rollup/plugins.git",
+        "directory": "packages/buble"
+      },
+      "author": {
+        "name": "Rich Harris",
+        "email": "richard.a.harris@gmail.com"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/buble/#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "./dist/cjs/index.js",
+      "module": "./dist/es/index.js",
+      "exports": {
+        "types": "./types/index.d.ts",
+        "import": "./dist/es/index.js",
+        "default": "./dist/cjs/index.js"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm build && pnpm lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm test -- --verbose",
+        "prebuild": "del-cli dist",
+        "prepare": "if [ ! -d 'dist' ]; then pnpm build; fi",
+        "prerelease": "pnpm build",
+        "pretest": "pnpm build",
+        "release": "pnpm --workspace-root plugin:release --pkg $npm_package_name",
+        "test": "ava",
+        "test:ts": "tsc types/index.d.ts test/types.ts --noEmit"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "buble",
+        "es2015",
+        "npm",
+        "modules"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0||^3.0.0||^4.0.0"
+      },
+      "peerDependenciesMeta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^5.0.1",
+        "@types/buble": "^0.19.2",
+        "buble": "^0.20.0"
+      },
+      "devDependencies": {
+        "@rollup/plugin-typescript": "^9.0.1",
+        "del-cli": "^5.0.0",
+        "rollup": "^4.0.0-24",
+        "source-map": "^0.7.4",
+        "typescript": "^4.8.3"
+      },
+      "types": "./types/index.d.ts",
+      "ava": {
+        "workerThreads": false,
+        "files": [
+          "!**/fixtures/**",
+          "!**/output/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "_id": "@rollup/plugin-buble@1.0.3",
+      "gitHead": "a840dcef0a76b0c037b915d349e163d0cd68d7b6",
+      "_nodeVersion": "20.8.0",
+      "_npmVersion": "10.1.0",
+      "dist": {
+        "integrity": "sha512-QYD9BKkJoof0FdCFeSYYhF6/Y8e0Mnf+098xGgmWOFJ4UPHlWujjqOYeVwEm2hJPOmlR5k7HPUdAjqtOWhN64Q==",
+        "shasum": "6ce275f062a3bac583472cf14f54aa5f0957dccf",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-buble/-/plugin-buble-1.0.3.tgz",
+        "fileCount": 6,
+        "unpackedSize": 6560,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDLKLDE8ftjLBldBWSgITBFyH8W7vofXVdS9QEgsulyxQIhAKw3dVSZwa92qMTiiY+8kRNpqxCd/BzOjxKEL3CQK2Is"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-buble_1.0.3_1696507222976_0.5064527028375736"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2019-10-28T13:56:38.812Z",
+    "0.20.0": "2019-10-28T13:56:39.299Z",
+    "modified": "2023-10-05T12:00:23.379Z",
+    "0.21.0": "2019-12-21T21:24:25.307Z",
+    "0.21.1": "2020-02-01T18:15:40.441Z",
+    "0.21.2": "2020-04-12T01:18:10.440Z",
+    "0.21.3": "2020-04-12T16:52:11.186Z",
+    "1.0.0": "2022-10-08T05:14:29.926Z",
+    "1.0.1": "2022-10-21T19:07:35.401Z",
+    "1.0.2": "2023-01-20T23:43:12.272Z",
+    "1.0.3": "2023-10-05T12:00:23.150Z"
+  },
+  "maintainers": [
+    {
+      "name": "shellscape",
+      "email": "andrew@shellscape.org"
+    },
+    {
+      "name": "rich_harris",
+      "email": "richard.a.harris@gmail.com"
+    },
+    {
+      "name": "guybedford",
+      "email": "guybedford@gmail.com"
+    },
+    {
+      "name": "lukastaegert",
+      "email": "lukas.taegert@tngtech.com"
+    }
+  ],
+  "description": "Compile ES2015 with buble",
+  "homepage": "https://github.com/rollup/plugins/tree/master/packages/buble/#readme",
+  "keywords": [
+    "rollup",
+    "plugin",
+    "buble",
+    "es2015",
+    "npm",
+    "modules"
+  ],
+  "repository": {
+    "url": "git+https://github.com/rollup/plugins.git",
+    "directory": "packages/buble"
+  },
+  "author": {
+    "name": "Rich Harris",
+    "email": "richard.a.harris@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/rollup/plugins/issues"
+  },
+  "license": "MIT",
+  "readme": "[npm]: https://img.shields.io/npm/v/@rollup/plugin-buble\n[npm-url]: https://www.npmjs.com/package/@rollup/plugin-buble\n[size]: https://packagephobia.now.sh/badge?p=@rollup/plugin-buble\n[size-url]: https://packagephobia.now.sh/result?p=@rollup/plugin-buble\n\n[![npm][npm]][npm-url]\n[![size][size]][size-url]\n[![libera manifesto](https://img.shields.io/badge/libera-manifesto-lightgrey.svg)](https://liberamanifesto.com)\n\n# @rollup/plugin-buble\n\n🍣 A Rollup plugin which converts ES2015+ code with the Bublé compiler.\n\n## Requirements\n\nThis plugin requires an [LTS](https://github.com/nodejs/Release) Node version (v14.0.0+) and Rollup v1.20.0+.\n\n## Install\n\nUsing npm:\n\n```console\nnpm install @rollup/plugin-buble --save-dev\n```\n\n## Usage\n\nCreate a `rollup.config.js` [configuration file](https://www.rollupjs.org/guide/en/#configuration-files) and import the plugin:\n\n```js\nimport buble from '@rollup/plugin-buble';\n\nexport default {\n  input: 'src/index.js',\n  output: {\n    dir: 'output',\n    format: 'cjs'\n  },\n  plugins: [buble()]\n};\n```\n\nThen call `rollup` either via the [CLI](https://www.rollupjs.org/guide/en/#command-line-reference) or the [API](https://www.rollupjs.org/guide/en/#javascript-api).\n\n## Options\n\n### `transforms`\n\nType: `Object`<br>\nDefault: `{ modules: false }`\n\nSpecifies additional [transform options](https://buble.surge.sh/guide/) for the Bublé compiler.\n\n### `exclude`\n\nType: `String` | `Array[...String]`<br>\nDefault: `null`\n\nA [picomatch pattern](https://github.com/micromatch/picomatch), or array of patterns, which specifies the files in the build the plugin should _ignore_. By default no files are ignored.\n\n### `include`\n\nType: `String` | `Array[...String]`<br>\nDefault: `null`\n\nA [picomatch pattern](https://github.com/micromatch/picomatch), or array of patterns, which specifies the files in the build the plugin should operate on. By default all files are targeted.\n\n## Meta\n\n[CONTRIBUTING](/.github/CONTRIBUTING.md)\n\n[LICENSE (MIT)](/LICENSE)\n",
+  "readmeFilename": "README.md"
+}
