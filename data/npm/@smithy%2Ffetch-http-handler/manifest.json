@@ -1,0 +1,3817 @@
+{
+  "_id": "@smithy/fetch-http-handler",
+  "_rev": "32-1125c86f51ae21dcfb5a9174872a3cdf",
+  "name": "@smithy/fetch-http-handler",
+  "dist-tags": {
+    "latest": "2.4.3"
+  },
+  "versions": {
+    "1.0.0": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "1.0.0",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "workspace:^",
+        "@smithy/querystring-builder": "workspace:^",
+        "@smithy/types": "workspace:^",
+        "@smithy/util-base64": "workspace:^",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "workspace:^",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.73.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "gitHead": "7b4756d90d83f268fb714913ac816d3183b27361",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/fetch-http-handler@1.0.0",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-zPbv/kj+VPRM4Ljo60WWyW5mjzB/bw8vNEXMOYXa7deUjuy7CqRPIhSjMO8U3HIaw+IfeDYWa2bn2jtBR70/2w==",
+        "shasum": "66128fe88382ea7c9c361e2513fc12656b8f5955",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-1.0.0.tgz",
+        "fileCount": 15,
+        "unpackedSize": 27536,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHBeXLS8Uf1WmNFAmeAk1JvCtPCYJJu0oWOKed98H6qHAiAju1IsmLcU6Sdw6Gte+RtSXHaP40eT62RBopwtRaXRIQ=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_1.0.0_1687212040457_0.6105910340965541"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.1": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "1.0.1",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^1.1.0",
+        "@smithy/querystring-builder": "^1.0.1",
+        "@smithy/types": "^1.1.0",
+        "@smithy/util-base64": "^1.0.1",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^1.0.1",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.73.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "63b6fcdb83b164d2409c94a6304dccaec4f35022",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/fetch-http-handler@1.0.1",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-/e2A8eOMk4FVZBQ0o6uF/ttLtFZcmsK5MIwDu1UE3crM4pCAIP19Ul8U9rdLlHhIu81X4AcJmSw55RDSpVRL/w==",
+        "shasum": "0326ed6f4165a40a1979ed990f633c640846c4de",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-1.0.1.tgz",
+        "fileCount": 15,
+        "unpackedSize": 27572,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAmQa9eD1dMgZXO8ftRFsS7T7qlmA+Pp5ys4S8qTqWmXAiBvcEdpEBId+V0eWJmY+uFxYRjCDWkAtj0xLpqmMFJThw=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_1.0.1_1687289195256_0.4024436528643447"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.2": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "1.0.2",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^1.1.1",
+        "@smithy/querystring-builder": "^1.0.2",
+        "@smithy/types": "^1.1.1",
+        "@smithy/util-base64": "^1.0.2",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^1.0.2",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.73.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "95ddb42557074f1cfe11a4763f26e2da5c9d1f34",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/fetch-http-handler@1.0.2",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-kynyofLf62LvR8yYphPPdyHb8fWG3LepFinM/vWUTG2Q1pVpmPCM530ppagp3+q2p+7Ox0UvSqldbKqV/d1BpA==",
+        "shasum": "4186ee6451de22e867f43c05236dcff43eca6e91",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-1.0.2.tgz",
+        "fileCount": 19,
+        "unpackedSize": 28665,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDJX2zhXX+EfAfihHV/T251MvdyFIsqC7EgvfvwOq57mAiEAiAgRdT12fYZFmtSibIHtlK2jgJ1nxMOH0tMFd+w8qjY="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_1.0.2_1688660678665_0.24086735970898654"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.3": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "1.0.3",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^1.1.2",
+        "@smithy/querystring-builder": "^1.0.3",
+        "@smithy/types": "^2.0.0",
+        "@smithy/util-base64": "^1.0.2",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^1.0.3",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "72af08daf21ac83ec08cc604af511bc47e640b11",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/fetch-http-handler@1.0.3",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-+23hIm0abvLDK//aVmRKhdPO/LlB63a9R55UwY03kAyqldSeOiyVz4zrj2NQjigbSAQeqKKkHLQPnBr+kpiZJQ==",
+        "shasum": "146010baca4fa65c189acc0f635200864a399450",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-1.0.3.tgz",
+        "fileCount": 19,
+        "unpackedSize": 28665,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHVUbJgkBr1DCakCyNXCcVRrMS69t1eJxNz8iyuIsRb7AiBBRSbIavqKWpW9hwZOc15P4wLWIhwwIwQp6eyP22yITQ=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_1.0.3_1690228453385_0.5778556184091872"
+      },
+      "_hasShrinkwrap": false,
+      "deprecated": "Deprecated due to incompatible dependency."
+    },
+    "1.1.0": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "1.1.0",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^1.2.0",
+        "@smithy/querystring-builder": "^1.1.0",
+        "@smithy/types": "^1.2.0",
+        "@smithy/util-base64": "^1.1.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^1.1.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "3502553d79fa14e35479d754a706f217b29739a4",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/fetch-http-handler@1.1.0",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-N22C9R44u5WGlcY+Wuv8EXmCAq62wWwriRAuoczMEwAIjPbvHSthyPSLqI4S7kAST1j6niWg8kwpeJ3ReAv3xg==",
+        "shasum": "933694dcc0e1ade205161237a151c1c818479676",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-1.1.0.tgz",
+        "fileCount": 19,
+        "unpackedSize": 28665,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIG7lT7Z8xDhlLqjrUu8xr2oZOd7o3AeJJaN3jZXWjIPjAiEAqpuRvspDJAVhILtGqy/aExUKptUtGpHSUc2GkcJY0to="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_1.1.0_1690231895870_0.8576321105198612"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.0.0",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^2.0.0",
+        "@smithy/querystring-builder": "^2.0.0",
+        "@smithy/types": "^2.0.1",
+        "@smithy/util-base64": "^2.0.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "6d015a4681600b57079a550f6789b75fb6e387ab",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/fetch-http-handler@2.0.0",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-JB5OQawm2xfmf8G60+q3St6Blms4/Cw9mIIvsO2GYouEY9Ywa0jV00SURd7wjXfS0hBt2jHH1c2Ld1oT7GGYMw==",
+        "shasum": "6bf3a167af7b7920a4c4b4d4c147be5ac23f2e4c",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.0.0.tgz",
+        "fileCount": 19,
+        "unpackedSize": 28665,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGJLZq2dKWVuRAw+ixgQnB9Cetxj1EblV79IvOGHkH9UAiAd33RlPGkqtl8uc/T2+8Y92OsnAnx4IplUbTOBX9ap9A=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.0.0_1690234123580_0.8641063531604107"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.1": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.0.1",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^2.0.1",
+        "@smithy/querystring-builder": "^2.0.1",
+        "@smithy/types": "^2.0.2",
+        "@smithy/util-base64": "^2.0.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.1",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "632c5a5cb0b8ba0ef5f2bfc1f701cfb292fa79a1",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/fetch-http-handler@2.0.1",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-/SoU/ClazgcdOxgE4zA7RX8euiELwpsrKCSvulVQvu9zpmqJRyEJn8ZTWYFV17/eHOBdHTs9kqodhNhsNT+cUw==",
+        "shasum": "5c8903897d3fd7ae3758ed7760d559d72d27e902",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.0.1.tgz",
+        "fileCount": 19,
+        "unpackedSize": 28665,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCqEPnnacPqbHugy+f/GxeA03pp6h2D7WtVmpSPJxapnAIgfdN/01yo/veLVa9kurruQss0t+lt9do8+PAGDXT8fiY="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.0.1_1690306797611_0.36455121250034117"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.2": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.0.2",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^2.0.2",
+        "@smithy/querystring-builder": "^2.0.2",
+        "@smithy/types": "^2.1.0",
+        "@smithy/util-base64": "^2.0.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.2",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "4b0be91f301d5e2f8fca9c6a871c8c796e047d6f",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/fetch-http-handler@2.0.2",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-Wo2m1RaiXNSLF4J3D62LpdSoj/YYb+6tn0H8is1tSrzr7eXAdiYVBc0wIa23N0wT4zmN0iG/yNY6gTCDQ6799A==",
+        "shasum": "dcc0e9d365efd8feef4a54dd96a264735a1446b7",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.0.2.tgz",
+        "fileCount": 19,
+        "unpackedSize": 28665,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEV2oeysItOtRpDd6PgQoii8FYJDF4eKDfFDHUE8SUbGAiEAzggyN1b3YgH5H3ZxVELRWeHnycLv+mcMDO0JATMqZKk="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.0.2_1691448551942_0.8379011362402111"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.3": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.0.3",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^2.0.3",
+        "@smithy/querystring-builder": "^2.0.3",
+        "@smithy/types": "^2.2.0",
+        "@smithy/util-base64": "^2.0.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.3",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "1f9fcad7015cdf639e98d4e951ceddc2a1ec11db",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/fetch-http-handler@2.0.3",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-0if2hyn+tDkyK9Tg1bXpo3IMUaezz/FKlaUTwTey3m87hF8gb7a0nKaST4NURE2eUVimViGCB7SH3/i4wFXALg==",
+        "shasum": "e53b6a65f25c9c3b20ec06fbc4795409381d82d6",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.0.3.tgz",
+        "fileCount": 19,
+        "unpackedSize": 28665,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCvGY5KuR8M4mEvj2TyFlrzjFPoSOpumNIRKyzEMQ1G4QIhAJpx0VxzeIcwe34XEVa4TtpTEWxmP583EZtr6tVOg7cZ"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.0.3_1691773099766_0.4188725748894744"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.4": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.0.4",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^2.0.4",
+        "@smithy/querystring-builder": "^2.0.4",
+        "@smithy/types": "^2.2.1",
+        "@smithy/util-base64": "^2.0.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.4",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "a6a1389994d62ebfcdf9843f58f0d1739837af92",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/fetch-http-handler@2.0.4",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-1dwR8T+QMe5Gs60NpZgF7ReZp0SXz1O/aX5BdDhsOJh72fi3Bx2UZlDihCdb++9vPyBRMXFRF7I8/C4x8iIm8A==",
+        "shasum": "f895680bd158c20cb5aaf05b046fbacd55b00071",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.0.4.tgz",
+        "fileCount": 19,
+        "unpackedSize": 28665,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDzLq4BOvTfi3SfC28bpd1qA8r1sJO7Z4wu5iYI9gSD9wIgRo0gJGv4u8K8Zy/qrsycBYs4eTI3hukjWVH68BK3bo8="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.0.4_1692119173447_0.8705870743358506"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.5": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.0.5",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^2.0.5",
+        "@smithy/querystring-builder": "^2.0.5",
+        "@smithy/types": "^2.2.2",
+        "@smithy/util-base64": "^2.0.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.5",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "8f6e5a31335d5469b52bf39007d0c88e373cfa72",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/fetch-http-handler@2.0.5",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-EzFoMowdBNy1VqtvkiXgPFEdosIAt4/4bgZ8uiDiUyfhmNXq/3bV+CagPFFBsgFOR/X2XK4zFZHRsoa7PNHVVg==",
+        "shasum": "822510720598b4306e7c71e839eea34b6928c66b",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.0.5.tgz",
+        "fileCount": 19,
+        "unpackedSize": 28665,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIExceIpSy17T+HYl/Y90Hxqqxg5gmH65vC+S3rCNazrNAiEAsC4DU7oEgQXThevV0QcUkVM9hGjIDbwJfeLEsXKFFtU="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.0.5_1692736968805_0.20604909152646678"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.0": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.1.0",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.0",
+        "@smithy/querystring-builder": "^2.0.6",
+        "@smithy/types": "^2.3.0",
+        "@smithy/util-base64": "^2.0.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.6",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "84ce53b4994faf09aa1cf8e0b9c245d214127b7c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/fetch-http-handler@2.1.0",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-bBsI9Rr5ZExVgmoEqEkaQH92fpQOgym6DTjArs1e6CMI2EtRqGpdgGl5JiBtcLiLXXmFERYqKBO8uMmldKHgZA==",
+        "shasum": "01795edd895be6b904c1b72ca2ae9be632215a26",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.1.0.tgz",
+        "fileCount": 19,
+        "unpackedSize": 29784,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDleWv0Es01WN06W4EsOHSrTttDW+xO1hlnlEnAeUcwCAIgV5M2+s6aCekYOTNQwOi+X5SDP0Led2oeDZGAYEd9RxQ="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.1.0_1694036464765_0.1251757906601254"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.1": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.1.1",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.1",
+        "@smithy/querystring-builder": "^2.0.6",
+        "@smithy/types": "^2.3.0",
+        "@smithy/util-base64": "^2.0.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.6",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "12b06d33f7ebb1e671d52efdfb2d2f36952603b5",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/fetch-http-handler@2.1.1",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-jb2gHYAPpZ3Zkpng3oicPLIw+3ZW2Z3u1bo9LWgX8tEghn72olvRKSLsjykbDSKOQWyWNGywkApHPdDXJcO6fQ==",
+        "shasum": "e71588989acb5bcef90aef59fa0069510a907f15",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.1.1.tgz",
+        "fileCount": 19,
+        "unpackedSize": 29784,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCNhzLAIHsTtuDE0Zxz/aGcpjbN3AX3mTbGNootMQBP0AIgcIOjvOju+StPwHmJSE9P9EY4gpVuP4i0O2/Edo6gono="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.1.1_1694045927812_0.18327703714798127"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.2": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.1.2",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.2",
+        "@smithy/querystring-builder": "^2.0.6",
+        "@smithy/types": "^2.3.0",
+        "@smithy/util-base64": "^2.0.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.6",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "79dd4601426acd32c4ad101ab656d43281c3bf2c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/fetch-http-handler@2.1.2",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-3Gm3pQm4viUPU+e7KkRScS9t5phBxSNRS8rQSZ+HeCwK/busrX0/2HJZiwLvGblqPqi1laJB0lD18AdiOioJww==",
+        "shasum": "626a4202cc82f4d04fc80424917dd34e204ab8c7",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.1.2.tgz",
+        "fileCount": 19,
+        "unpackedSize": 29784,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICV7gTBAibjyFJ6dT8KdzFE2O3WNMt8AROn41zvA1HAXAiA7w2/46fGx5j5JEea5NcTANVymmCc9EMMLStelxGC03g=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.1.2_1694137248463_0.8359433824163611"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.3": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.1.3",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.3",
+        "@smithy/querystring-builder": "^2.0.7",
+        "@smithy/types": "^2.3.1",
+        "@smithy/util-base64": "^2.0.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.7",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "a6d5a23bd699d8f6cb6f3bcb3eefcca254660595",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/fetch-http-handler@2.1.3",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-kUg+Ey4mJeR/3+Ponuhb1rsmsfZRwjCLvC+WcPgeI+ittretEzuWAPN+9anD0HJEoApVjHpndzxPtlncbCUJDQ==",
+        "shasum": "574a40085aef25edb60607dcdd6873549bd9e4c2",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.1.3.tgz",
+        "fileCount": 19,
+        "unpackedSize": 29784,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIETsaigkyv3AagYHdnMEZ8bRVjR0Xy1uB3RMi8/rd+eBAiB5d641qvhGhsLVdb2d10FGW5oCXdL3CnNATNF4AdrUnA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.1.3_1694558645222_0.21757173448747413"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.4": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.1.4",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.4",
+        "@smithy/querystring-builder": "^2.0.8",
+        "@smithy/types": "^2.3.2",
+        "@smithy/util-base64": "^2.0.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.8",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "ea85d88d954d15b262df6905ea0df221e8d2bcd4",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/fetch-http-handler@2.1.4",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-SL24M9W5ERByoXaVicRx+bj9GJVujDnPn+QO7GY7adhY0mPGa6DSF58pVKsgIh4r5Tx/k3SWCPlH4BxxSxA/fQ==",
+        "shasum": "529de518c946f0f343cf379e7e87b4d286c0bb8d",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.1.4.tgz",
+        "fileCount": 19,
+        "unpackedSize": 29784,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFlIgDvzoNB2q4y3S+BnGaRLnuDT/raEhSWtQ8M2vlxxAiB5kO6b4Dygpn5lDQycCENhrq7NUwxnVQINkvcJEwm1MA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.1.4_1694802854873_0.5552387838533923"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.5": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.1.5",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.5",
+        "@smithy/querystring-builder": "^2.0.9",
+        "@smithy/types": "^2.3.3",
+        "@smithy/util-base64": "^2.0.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.9",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "4cc46d5a045177824b880e1227284e859e760dee",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/fetch-http-handler@2.1.5",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-BIeCHGfr5JCGN+EMTwZK74ELvjPXOIrI7OLM5OhZJJ6AmZyRv2S9ANJk18AtLwht0TsSm+8WoXIEp8LuxNgUyA==",
+        "shasum": "0764e232482320b9f2f8ec9c79ebdfa214a761fb",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.1.5.tgz",
+        "fileCount": 19,
+        "unpackedSize": 29784,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGsm97z8Be4J0t6O1uyGToyo0MGAAJYvWKjYyTmWyLiqAiEAxDPIdPsOTN4rJ/DEtDfu0jKdxVmn53ZWnWRk2SD8MQ8="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.1.5_1695162459562_0.7335320843776201"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.2.0": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.2.0",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.6",
+        "@smithy/querystring-builder": "^2.0.10",
+        "@smithy/types": "^2.3.4",
+        "@smithy/util-base64": "^2.0.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.10",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/fetch-http-handler@2.2.0",
+      "gitHead": "b609df10ad503972e31c025fd059c8ce6044d816",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-P2808PM0CsEkXj3rnQAi3QyqRbAAi8iuePYUB5GveJ+dVd1WMv03NM+CYCI14IGXt1j/r7jHGvMJHO+Gv+kdMQ==",
+        "shasum": "f430f7721f66618a0979231e446567665c61866c",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.2.0.tgz",
+        "fileCount": 19,
+        "unpackedSize": 31165,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICpumkGrurrU5seORDLUT7DREmDFWOlpSRc01TJPTJeMAiAkcBsEFoVxlnU5C8cNvfnY5qZsc81FCBIezyz1A4G5Hw=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.2.0_1695923367040_0.999674487517235"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.2.1": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.2.1",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.6",
+        "@smithy/querystring-builder": "^2.0.10",
+        "@smithy/types": "^2.3.4",
+        "@smithy/util-base64": "^2.0.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.10",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/fetch-http-handler@2.2.1",
+      "gitHead": "73d098dceb8490898154253f0f41bb876edb8cca",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-bXyM8PBAIKxVV++2ZSNBEposTDjFQ31XWOdHED+2hWMNvJHUoQqFbECg/uhcVOa6vHie2/UnzIZfXBSTpDBnEw==",
+        "shasum": "a8abbd339c2c3d76456f4d16e65cf934727fc7ad",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.2.1.tgz",
+        "fileCount": 19,
+        "unpackedSize": 31101,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDOcqehJUX7oQ2GutkE+GxbEG/cVbRGVclHzk8JNdHyUgIgb4Jz7MZ9R1kwo6xFazeP01Kq8JUgGaC3IoPR+X5n5Pg="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.2.1_1696284215730_0.4488411765540039"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.2.2": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.2.2",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.7",
+        "@smithy/querystring-builder": "^2.0.11",
+        "@smithy/types": "^2.3.5",
+        "@smithy/util-base64": "^2.0.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.11",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/fetch-http-handler@2.2.2",
+      "gitHead": "5fb6d4c68777a3d358158eddcb18d22da3fd5c8d",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-K7aRtRuaBjzlk+jWWeyfDTLAmRRvmA4fU8eHUXtjsuEDgi3f356ZE32VD2ssxIH13RCLVZbXMt5h7wHzYiSuVA==",
+        "shasum": "c698c24ee75b7b8b6ff7bffb7c26ae9b3363d8cc",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.2.2.tgz",
+        "fileCount": 19,
+        "unpackedSize": 31101,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICOS8inFK3fzsEg6SHXe9Wdun1RJH8WnXLTI39gX42sLAiEAy48Ty1o7qQbdqcCIu6cccsdFJCcHOiq3yBOrwVvhEHg="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.2.2_1696630471384_0.20330302325623117"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.2.3": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.2.3",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.7",
+        "@smithy/querystring-builder": "^2.0.11",
+        "@smithy/types": "^2.3.5",
+        "@smithy/util-base64": "^2.0.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.11",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/fetch-http-handler@2.2.3",
+      "gitHead": "fcc0c4602ff33b3f3e00e4ced42f85ffa57e38bc",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-0G9sePU+0R+8d7cie+OXzNbbkjnD4RfBlVCs46ZEuQAMcxK8OniemYXSSkOc80CCk8Il4DnlYZcUSvsIs2OB2w==",
+        "shasum": "86445f63dbf09ec331b6199fc2f0f44fec1b1417",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.2.3.tgz",
+        "fileCount": 19,
+        "unpackedSize": 31650,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHitkbKe+5+W3eZ524YsSf77OiMi9+gYEF6cE2jPft3bAiBKFf4uCMja7tuyxXjzRRXAu9uwqGQXBs77GWW2jX3RHA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.2.3_1696957298588_0.041020215637436186"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.2.4": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.2.4",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.8",
+        "@smithy/querystring-builder": "^2.0.12",
+        "@smithy/types": "^2.4.0",
+        "@smithy/util-base64": "^2.0.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.12",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/fetch-http-handler@2.2.4",
+      "gitHead": "4c4d1bd13c9e6ba89cc75fa9c3df2aed63e3cb02",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-gIPRFEGi+c6V52eauGKrjDzPWF2Cu7Z1r5F8A3j2wcwz25sPG/t8kjsbEhli/tS/2zJp/ybCZXe4j4ro3yv/HA==",
+        "shasum": "405716581a5a336f2c162daf4169bff600fc47ce",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.2.4.tgz",
+        "fileCount": 19,
+        "unpackedSize": 31650,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDhzx675dCTWj3k36C/Yd4zLbVqjnYWowZNbTA/YKN6OAiB/lwW0q++5OFfvbxxA8iR2+QWCA1rduSD2AGCmnKH/mg=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.2.4_1697750886552_0.8900733651527999"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.2.5": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.2.5",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.8",
+        "@smithy/querystring-builder": "^2.0.12",
+        "@smithy/types": "^2.4.0",
+        "@smithy/util-base64": "^2.0.1",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.12",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/fetch-http-handler@2.2.5",
+      "gitHead": "a4b58b32ac2ae778917e276ba381527f551c2d3d",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-m9yoTx+64XRSpCzWArOpvHeAuVfI2LFz2hDzgzjzCLlN8IIwzkFaCav5ShsYxx4iu9sXp09+on0a5VROY9+MFQ==",
+        "shasum": "1369e24ce8b84984db2dc76e6e841e658d1cfaa0",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.2.5.tgz",
+        "fileCount": 19,
+        "unpackedSize": 31650,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIC2DkcPLTxEV76ciLrGgOCMs0VOPMFIlehJY+8KrDq9jAiEAyrSjt1qGsOv9KRFC8EvL8iIh5Nh6smXStS8JNxwaRDI="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.2.5_1699642020451_0.9332514487637333"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.2.6": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.2.6",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.9",
+        "@smithy/querystring-builder": "^2.0.13",
+        "@smithy/types": "^2.5.0",
+        "@smithy/util-base64": "^2.0.1",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.13",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/fetch-http-handler@2.2.6",
+      "gitHead": "d1ff70d0d4fe18c3cb0198d6351312ed14932b46",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-PStY3XO1Ksjwn3wMKye5U6m6zxXpXrXZYqLy/IeCbh3nM9QB3Jgw/B0PUSLUWKdXg4U8qgEu300e3ZoBvZLsDg==",
+        "shasum": "c3390c1c0533d024a5e2b1d1e8e778bcdcb66bf4",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.2.6.tgz",
+        "fileCount": 19,
+        "unpackedSize": 31650,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGvFlxNVghVUYbDwzk5wgGL9nsP6gUpLaBGp2dxOZXIpAiAJFBsLVHwQpphVLkGQVGDAgUtTSViwHbxwe+Yk36ygew=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.2.6_1699917750803_0.7523202858149278"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.2.7": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.2.7",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.10",
+        "@smithy/querystring-builder": "^2.0.14",
+        "@smithy/types": "^2.6.0",
+        "@smithy/util-base64": "^2.0.1",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.14",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/fetch-http-handler@2.2.7",
+      "gitHead": "f802828bb1ef76990d5277e82c336b9750e4bc65",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-iSDBjxuH9TgrtMYAr7j5evjvkvgwLY3y+9D547uep+JNkZ1ZT+BaeU20j6I/bO/i26ilCWFImrlXTPsfQtZdIQ==",
+        "shasum": "7e06aa774ea86f6529365e439256f17979c18445",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.2.7.tgz",
+        "fileCount": 19,
+        "unpackedSize": 31651,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDj4lf8VPn9RVW4ZmJ8TfTdi77BvJX7Ig4SyoIE7Y4dGAiAXpuLeqI+kpIusYyiM7aCNEOzC+enVx8IMnVQfiMbpHA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.2.7_1700596003278_0.5533617686249206"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.3.0": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.3.0",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.11",
+        "@smithy/querystring-builder": "^2.0.15",
+        "@smithy/types": "^2.7.0",
+        "@smithy/util-base64": "^2.0.1",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.15",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/fetch-http-handler@2.3.0",
+      "gitHead": "912961cb22a3310273fdf24806f294ccf23814c1",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-sw3X6PZf60pnS2RaFBSCskpq3PDcq2rRvoLZGqyMOXjPu/VY34VzhXSEkliflb7bw33IYRasICrrPVniafwJzA==",
+        "shasum": "b5253b61cd4406166b7cdede458da28e73f1eb27",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.3.0.tgz",
+        "fileCount": 19,
+        "unpackedSize": 31451,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCVkbWrBCJDsGDdiyR8J/qilRmNFUlFplUCZIHmVT0PiwIhAI7vqyMzDLEVns1NFO+CfdnU3NHWPBkAfJQMb1PyswRV"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.3.0_1701792604735_0.2524111616731948"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.3.1": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.3.1",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.11",
+        "@smithy/querystring-builder": "^2.0.15",
+        "@smithy/types": "^2.7.0",
+        "@smithy/util-base64": "^2.0.1",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.15",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/fetch-http-handler@2.3.1",
+      "gitHead": "6bada37c93e8d5fa851f4c9a8b5acd892c7b948d",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-6MNk16fqb8EwcYY8O8WxB3ArFkLZ2XppsSNo1h7SQcFdDDwIumiJeO6wRzm7iB68xvsOQzsdQKbdtTieS3hfSQ==",
+        "shasum": "aa055db5bf4d78acec97abe6ef24283fa2c18430",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.3.1.tgz",
+        "fileCount": 19,
+        "unpackedSize": 31529,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDw9bK1AjyRapdm9v17q6Y1G7IEi3zIfa12AoSZHH5MEAIgB/yR5zb86fwRw66vJclDzA2tjQbQne+AIzWzs3KlmJU="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.3.1_1701798794303_0.47313301083083803"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.3.2": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.3.2",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.12",
+        "@smithy/querystring-builder": "^2.0.16",
+        "@smithy/types": "^2.8.0",
+        "@smithy/util-base64": "^2.0.1",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.0.16",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/fetch-http-handler@2.3.2",
+      "gitHead": "e3b13dda0891091282c27cd65cc72b87826753b6",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-O9R/OlnAOTsnysuSDjt0v2q6DcSvCz5cCFC/CFAWWcLyBwJDeFyGTCTszgpQTb19+Fi8uRwZE5/3ziAQBFeDMQ==",
+        "shasum": "930ee473b2a43d0bcf62c3b659f38122442ad514",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.3.2.tgz",
+        "fileCount": 19,
+        "unpackedSize": 31529,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQChPLOiZ3mTsgOgTtflkJQJOdgrPt5IYbdrc2sMFLLDGAIhAIae6r8pyIKJT8AjAvMSCFYz5h4OMmgmFB/XouFd8T8K"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.3.2_1704222045592_0.11911627909866906"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.4.0": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.4.0",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline fetch-http-handler",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.1.0",
+        "@smithy/querystring-builder": "^2.1.0",
+        "@smithy/types": "^2.9.0",
+        "@smithy/util-base64": "^2.1.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.1.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/fetch-http-handler@2.4.0",
+      "gitHead": "1d85e7dea4cfe19aaf555a26b7504e739acb9124",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-fLhPNfbWG8vTcS9PsR1wjHaA54kDcSiAZKVuVAfjHleS7QDWjrCr1SDUqCB2yAc9NBLe2lIDbDL8+i9yoYhxoQ==",
+        "shasum": "007cc090fc944377037404409e6791db1f1c9a80",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.4.0.tgz",
+        "fileCount": 19,
+        "unpackedSize": 31588,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAdTwY/KpkIoso0pZKUXH3lsZLfKJ72lIgw9ajg85wDJAiEA5MAJWShFonR9DN76DnpUXz5+Bud8/Eec4YLepiX1hwE="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.4.0_1705530399057_0.8557335780767543"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.4.1": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.4.1",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline fetch-http-handler",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.1.1",
+        "@smithy/querystring-builder": "^2.1.1",
+        "@smithy/types": "^2.9.1",
+        "@smithy/util-base64": "^2.1.1",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.1.1",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/fetch-http-handler@2.4.1",
+      "gitHead": "3769699491dcc1bd5ace2973f2efdf6d85b37cf4",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-VYGLinPsFqH68lxfRhjQaSkjXM7JysUOJDTNjHBuN/ykyRb2f1gyavN9+VhhPTWCy32L4yZ2fdhpCs/nStEicg==",
+        "shasum": "b4d73bbc1449f61234077d58c705b843a8587bf0",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.4.1.tgz",
+        "fileCount": 19,
+        "unpackedSize": 31590,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC0Gr+i0tLAL60ZGJmJhWblitJibfr6UcN42JZ6dpJaXwIgJQH8SmrSj3Zpu3re5gVSUI7dzuEPZAINQ5+ecuUXpGE="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.4.1_1705685450176_0.7966145002091478"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.4.2": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.4.2",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline fetch-http-handler",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.2.0",
+        "@smithy/querystring-builder": "^2.1.2",
+        "@smithy/types": "^2.10.0",
+        "@smithy/util-base64": "^2.1.1",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.1.2",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/fetch-http-handler@2.4.2",
+      "gitHead": "7baf4b118b55683e97208f262c5083184d99b095",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.1",
+      "_npmVersion": "10.2.4",
+      "dist": {
+        "integrity": "sha512-sIGMVwa/8h6eqNjarI3F07gvML3mMXcqBe+BINNLuKsVKXMNBN6wRzeZbbx7lfiJDEHAP28qRns8flHEoBB7zw==",
+        "shasum": "5ff26c1ef24c6e1d0acd189f6bc064f110fc446f",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.4.2.tgz",
+        "fileCount": 19,
+        "unpackedSize": 31591,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBM5xInqbidz1FqOtFDMzukdK1Y3H0gL2g5PBInnUlbkAiAapdsuF4vJtcRAewxZiLeskhy43bVxuV67iuyPNDXMww=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.4.2_1708636529264_0.4622104528724109"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.4.3": {
+      "name": "@smithy/fetch-http-handler",
+      "version": "2.4.3",
+      "description": "Provides a way to make requests",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline fetch-http-handler",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --coverage --forceExit && karma start karma.conf.js"
+      },
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.2.1",
+        "@smithy/querystring-builder": "^2.1.3",
+        "@smithy/types": "^2.10.1",
+        "@smithy/util-base64": "^2.1.1",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/abort-controller": "^2.1.3",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/fetch-http-handler"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/fetch-http-handler@2.4.3",
+      "gitHead": "3357fda448ea8cee3f7bfa7caeda2768a9751f8f",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.1",
+      "_npmVersion": "10.2.4",
+      "dist": {
+        "integrity": "sha512-Fn/KYJFo6L5I4YPG8WQb2hOmExgRmNpVH5IK2zU3JKrY5FKW7y9ar5e0BexiIC9DhSKqKX+HeWq/Y18fq7Dkpw==",
+        "shasum": "568bd2031af242fc9172e41dfb364d36d48631d1",
+        "tarball": "https://registry.npmjs.org/@smithy/fetch-http-handler/-/fetch-http-handler-2.4.3.tgz",
+        "fileCount": 19,
+        "unpackedSize": 31591,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIA437MQtfsF4vDi5j6gvB/5NOZi6XcGHOPzgc2YO4RUaAiAOiPMD2oW+oNTX1S6vOe0R52dilPh01LOiclKLXdZoOg=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/fetch-http-handler_2.4.3_1709057577275_0.9998937516713857"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2023-06-19T22:00:40.358Z",
+    "1.0.0": "2023-06-19T22:00:40.696Z",
+    "modified": "2024-02-27T18:12:57.858Z",
+    "1.0.1": "2023-06-20T19:26:35.421Z",
+    "1.0.2": "2023-07-06T16:24:38.832Z",
+    "1.0.3": "2023-07-24T19:54:13.608Z",
+    "1.1.0": "2023-07-24T20:51:36.047Z",
+    "2.0.0": "2023-07-24T21:28:43.720Z",
+    "2.0.1": "2023-07-25T17:39:57.799Z",
+    "2.0.2": "2023-08-07T22:49:12.126Z",
+    "2.0.3": "2023-08-11T16:58:19.972Z",
+    "2.0.4": "2023-08-15T17:06:13.675Z",
+    "2.0.5": "2023-08-22T20:42:49.003Z",
+    "2.1.0": "2023-09-06T21:41:05.064Z",
+    "2.1.1": "2023-09-07T00:18:48.050Z",
+    "2.1.2": "2023-09-08T01:40:48.682Z",
+    "2.1.3": "2023-09-12T22:44:05.396Z",
+    "2.1.4": "2023-09-15T18:34:15.060Z",
+    "2.1.5": "2023-09-19T22:27:39.737Z",
+    "2.2.0": "2023-09-28T17:49:27.216Z",
+    "2.2.1": "2023-10-02T22:03:35.936Z",
+    "2.2.2": "2023-10-06T22:14:31.536Z",
+    "2.2.3": "2023-10-10T17:01:38.875Z",
+    "2.2.4": "2023-10-19T21:28:06.767Z",
+    "2.2.5": "2023-11-10T18:47:00.610Z",
+    "2.2.6": "2023-11-13T23:22:30.943Z",
+    "2.2.7": "2023-11-21T19:46:43.435Z",
+    "2.3.0": "2023-12-05T16:10:04.986Z",
+    "2.3.1": "2023-12-05T17:53:14.553Z",
+    "2.3.2": "2024-01-02T19:00:45.752Z",
+    "2.4.0": "2024-01-17T22:26:39.242Z",
+    "2.4.1": "2024-01-19T17:30:50.340Z",
+    "2.4.2": "2024-02-22T21:15:29.477Z",
+    "2.4.3": "2024-02-27T18:12:57.421Z"
+  },
+  "maintainers": [
+    {
+      "name": "smithy-team",
+      "email": "aws-smithy-team+npm@amazon.com"
+    },
+    {
+      "name": "trivikr-aws",
+      "email": "trivikr@amazon.com"
+    }
+  ],
+  "description": "Provides a way to make requests",
+  "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/fetch-http-handler",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awslabs/smithy-typescript.git",
+    "directory": "packages/fetch-http-handler"
+  },
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "bugs": {
+    "url": "https://github.com/awslabs/smithy-typescript/issues"
+  },
+  "license": "Apache-2.0",
+  "readme": "# @smithy/fetch-http-handler\n\n[![NPM version](https://img.shields.io/npm/v/@smithy/fetch-http-handler/latest.svg)](https://www.npmjs.com/package/@smithy/fetch-http-handler)\n[![NPM downloads](https://img.shields.io/npm/dm/@smithy/fetch-http-handler.svg)](https://www.npmjs.com/package/@smithy/fetch-http-handler)\n",
+  "readmeFilename": "README.md"
+}

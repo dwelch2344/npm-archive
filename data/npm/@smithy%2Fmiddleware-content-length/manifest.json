@@ -1,0 +1,2909 @@
+{
+  "_id": "@smithy/middleware-content-length",
+  "_rev": "28-6c6083cec524cf4d73395a4e73ec7d6b",
+  "name": "@smithy/middleware-content-length",
+  "dist-tags": {
+    "latest": "2.1.3"
+  },
+  "versions": {
+    "1.0.0": {
+      "name": "@smithy/middleware-content-length",
+      "version": "1.0.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "workspace:^",
+        "@smithy/types": "workspace:^",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "gitHead": "7b4756d90d83f268fb714913ac816d3183b27361",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/middleware-content-length@1.0.0",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-LNEZOVC7ncYHznWKoVz9+dlkahaR3xYhOjd89OkMyYtNP1Wn8SGTgrdj5LqYpsH1V191uBLLC2BilL7BYjLt/Q==",
+        "shasum": "25114688f89601faf5b938d9c7483167bce236c4",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-1.0.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 16990,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAv9f4AkZb08dINDxrXnRDX5lE0pw4BgbzI47RzILifeAiBm79R/MarQlZkRSvjcqn6oPs5criRPgyrGcpcKUx1Q7w=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_1.0.0_1687212041025_0.4289619628642263"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.1": {
+      "name": "@smithy/middleware-content-length",
+      "version": "1.0.1",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^1.1.0",
+        "@smithy/types": "^1.1.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "63b6fcdb83b164d2409c94a6304dccaec4f35022",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/middleware-content-length@1.0.1",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-vWWigayk5i2cFp9xPX5vdzHyK+P0t/xZ3Ovp4Ss+c8JQ1Hlq2kpJZVWtTKsmdfND5rVo5lu0kD5wgAMUCcmuhw==",
+        "shasum": "78747dfc7079e542c04675bb3ab1370c35511f7b",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-1.0.1.tgz",
+        "fileCount": 6,
+        "unpackedSize": 17041,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIELt9dkIGLhuKBs/41aaruNqNvFLBShYpKRIanD7yJsGAiBbhIwdLUnxVJXjcbED6Pqzg2oPPzjAWx+dbyoB2jKivA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_1.0.1_1687289195575_0.7699865638453085"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.2": {
+      "name": "@smithy/middleware-content-length",
+      "version": "1.0.2",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^1.1.1",
+        "@smithy/types": "^1.1.1",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "95ddb42557074f1cfe11a4763f26e2da5c9d1f34",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/middleware-content-length@1.0.2",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-pa1/SgGIrSmnEr2c9Apw7CdU4l/HW0fK3+LKFCPDYJrzM0JdYpqjQzgxi31P00eAkL0EFBccpus/p1n2GF9urw==",
+        "shasum": "63099f8d01b3419b65e21cfd07b0c2ef47d1f473",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-1.0.2.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17500,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFSWmjor4p7kvzulgf777w0SbzADzVpTCRJvzOKulegQAiEA+rnSp0QqbJoXUTzLaeqsz6tvnu9tlnyMiTgZ4tQiKVk="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_1.0.2_1688660679082_0.49730716635150807"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.3": {
+      "name": "@smithy/middleware-content-length",
+      "version": "1.0.3",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^1.1.2",
+        "@smithy/types": "^2.0.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "72af08daf21ac83ec08cc604af511bc47e640b11",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/middleware-content-length@1.0.3",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-p+dP5bMGh3HMzQrGCmB+r6qJAC+BTk4y7QBejzI17xhSZgtG23I3ojIp6CXLWFixUDQ1TTPc8Tya0vQydiMuDQ==",
+        "shasum": "87ef9002e4024c506573f1b5d806bf92ec6c310a",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-1.0.3.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17500,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDnrjj+S+HNiynJy3JztLNbM1j6cHugsfoSVnWdUU4BpgIgfhYAQzg+hqY19BLPABSoVG4VouRe/7HVvYb32HvWqvs="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_1.0.3_1690228457794_0.39920275341643796"
+      },
+      "_hasShrinkwrap": false,
+      "deprecated": "Deprecated due to incompatible dependency."
+    },
+    "1.1.0": {
+      "name": "@smithy/middleware-content-length",
+      "version": "1.1.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^1.2.0",
+        "@smithy/types": "^1.2.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "3502553d79fa14e35479d754a706f217b29739a4",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/middleware-content-length@1.1.0",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-iNxwhZ7Xc5+LjeDElEOi/Nh8fFsc9Dw9+5w7h7/GLFIU0RgAwBJuJtcP1vNTOwzW4B3hG+gRu8sQLqA9OEaTwA==",
+        "shasum": "77854875535f80efd036d535842c567230b78b0b",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-1.1.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17500,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBGfbN1BZhetF0qQFVWvOAVtx9zycGHZb1Sh2m6QcZJYAiEA7WdNyH2ki635l7NGEZGJUqTVEj16mC4nNqKV0QErz9w="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_1.1.0_1690231896692_0.6598282913021016"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.0.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^2.0.0",
+        "@smithy/types": "^2.0.1",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "6d015a4681600b57079a550f6789b75fb6e387ab",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/middleware-content-length@2.0.0",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-GkFSoZmNcMpe0v+F6oZCReU8SEYSKzkkVlUHQZuI32rIEVaaqPcufLEdtIoQ3Dac6bCOgFBinT2fEcLy055yEA==",
+        "shasum": "c55ed97fce65def56af8e20347306a183dcc985e",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.0.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17500,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBGQtPyrMuOCwk7+Z8OkU5x1JcWaC2qtw40Z73mblP6wAiAVYo1m8F58Ao7MDs5qSYoe1vvzXIZtma+S7IW0ZI7C3w=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.0.0_1690234123975_0.7027446987296511"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.1": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.0.1",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^2.0.1",
+        "@smithy/types": "^2.0.2",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "632c5a5cb0b8ba0ef5f2bfc1f701cfb292fa79a1",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/middleware-content-length@2.0.1",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-IZhRSk5GkVBcrKaqPXddBS2uKhaqwBgaSgbBb1OJyGsKe7SxRFbclWS0LqOR9fKUkDl+3lL8E2ffpo6EQg0igw==",
+        "shasum": "86005cd4cb45eff5420730abe88e08d22c582d79",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.0.1.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17500,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICvXmzBLrlmJBJxJobzjdNcxAOEFt/C20aiwkaYu7VHQAiEA3IK+lCiOWXMLkM7DYZBj3vdlJ7Pr/a2rmOMm9m8YXbo="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.0.1_1690306802433_0.5681300826087659"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.2": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.0.2",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^2.0.2",
+        "@smithy/types": "^2.1.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "4b0be91f301d5e2f8fca9c6a871c8c796e047d6f",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/middleware-content-length@2.0.2",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-FmHlNfuvYgDZE3fIx0G3rD/wLXfAmBYE4mVc/w6d7RllA7TygPzq2pfHL1iCMzWkWTdoAVnt3h4aavAZnhaxEQ==",
+        "shasum": "6167e8ca52cb5f2b06d3c76fa445080c45baaf25",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.0.2.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17500,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCJgcvYu6AqsUqpRp3NK0JEUEJ1bQ4IpA+Kz0JlvdAlwAIgYyKv2VIlk18z8cxAc+2UIcOLulfOFM/rtRF9yD8Qve4="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.0.2_1691448556177_0.8478543380052861"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.3": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.0.3",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^2.0.3",
+        "@smithy/types": "^2.2.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "1f9fcad7015cdf639e98d4e951ceddc2a1ec11db",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/middleware-content-length@2.0.3",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-2FiZ5vu2+iMRL8XWNaREUqqNHjtBubaY9Jb2b3huZ9EbgrXsJfCszK6PPidHTLe+B4T7AISqdF4ZSp9VPXuelg==",
+        "shasum": "6481be833b9daecea710c09d67f89f67de09ba30",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.0.3.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17500,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDCZIhlsxfeWilqmn612iFg1mAF1/X6i0MQUFS6T+RMqAiA2xUhvN2od1CL5KbD0KwrTMUp0tfxxLh+rY6iMiD2xIA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.0.3_1691773107809_0.8248088626650592"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.4": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.0.4",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^2.0.4",
+        "@smithy/types": "^2.2.1",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "a6a1389994d62ebfcdf9843f58f0d1739837af92",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/middleware-content-length@2.0.4",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-Pdd+fhRbvizqsgYJ0pLWE6hjhq42wDFWzMj/1T7mEY9tG9bP6/AcdsQK8SAOckrBLURDoeSqTAwPKalsgcZBxw==",
+        "shasum": "23c8bebc0feffb55b9329432240f40d36f352fb6",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.0.4.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17500,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIA43Ntrk0XAtKfUhf2sH96ydooChuJLgkGx2MPueXKYjAiAKYwiULM3ziYkzXBCHNkB+ANOwnykDvXXoKk5h+Xfvsg=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.0.4_1692119177807_0.7022273588813412"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.5": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.0.5",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0",
+        "test:integration": "jest --config jest.config.integ.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^2.0.5",
+        "@smithy/types": "^2.2.2",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@smithy/util-test": "^0.0.0",
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "8f6e5a31335d5469b52bf39007d0c88e373cfa72",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/middleware-content-length@2.0.5",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-E7VwV5H02fgZIUGRli4GevBCAPvkyEI/fgl9SU47nPPi3DAAX3nEtUb8xfGbXjOcJ5BdSUoWWZn42tEd/blOqA==",
+        "shasum": "b2008c6b664c4c67fb255ef5a9fd5f4bd2c914f6",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.0.5.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17597,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICkEJeOdy4wVbxFNLoIcCZ6hG42eXS09UuJ4uxwTY3q2AiEAuHpAkJkN6+6xaMpU2Y5fhmYyJSmEb6/puLf+U9Em7E8="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.0.5_1692736974655_0.35251730890139177"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.6": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.0.6",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0",
+        "test:integration": "jest --config jest.config.integ.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.0",
+        "@smithy/types": "^2.3.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@smithy/util-test": "^0.1.0",
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "84ce53b4994faf09aa1cf8e0b9c245d214127b7c",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/middleware-content-length@2.0.6",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-CGeHoHJG0Y/yGgQCSbzlDFswBtuoHdLdsjBDncBI4zQFuQl2q8Hixpe60jYeKDXr02NTv755hbE+yr5yCFxPPw==",
+        "shasum": "292bfd126fd6185c2db427c917252f982567f96e",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.0.6.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17597,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIE6dHowfb0UvYjLGP2qySMualWmgxIUR2z8LeG/86kgmAiEA3DUUROQNl5DIa4ccrQ76DD/TGPte2/dSaV3BTq4er0A="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.0.6_1694036470603_0.2500058303509367"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.7": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.0.7",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0",
+        "test:integration": "jest --config jest.config.integ.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.1",
+        "@smithy/types": "^2.3.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@smithy/util-test": "^0.1.1",
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "12b06d33f7ebb1e671d52efdfb2d2f36952603b5",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/middleware-content-length@2.0.7",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-A4TZXhEIROrLL+Um7yHXZnEKU6EnQzhO53DkJfWQbhsL1nMA2s9yk8d1R+JywsnskhAay3BmLDwcIG/dZtAHIw==",
+        "shasum": "f046da02f6c9bb95edbb9cac28f66e77e240b09e",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.0.7.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17597,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQD60K9zl9LTi3n9+qKlybEYLQPBaohzi5+kQU1A/ptAAQIgDGV6yLp0CMZXM1ZoQKRvvM1tgk2geiQFxPEPg6NM1B0="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.0.7_1694045927766_0.8560142133261004"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.8": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.0.8",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0",
+        "test:integration": "jest --config jest.config.integ.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.2",
+        "@smithy/types": "^2.3.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@smithy/util-test": "^0.1.2",
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "79dd4601426acd32c4ad101ab656d43281c3bf2c",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/middleware-content-length@2.0.8",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-fHJFsscHXrYhUSWMFJNXfsZW8KsyhWQfBgU3b0nvDfpm+NAeQLqKYNhywGrDwZQc1k+lt7Fw9faAquhNPxTZRA==",
+        "shasum": "ee2c6614580fea918bae6411cfbcd48ee4af342b",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.0.8.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17597,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHTUfjq3F/+kKLyZLQM+OpTIvZy0dWhXrJqoW/pYDCsaAiBEWevHAsIh4vI66TdqcPifJyRdlrL0M2O4yT8lCHVADA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.0.8_1694137248473_0.9876215006842632"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.9": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.0.9",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0",
+        "test:integration": "jest --config jest.config.integ.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.3",
+        "@smithy/types": "^2.3.1",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@smithy/util-test": "^0.1.3",
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "a6d5a23bd699d8f6cb6f3bcb3eefcca254660595",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/middleware-content-length@2.0.9",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-2XVFsGqswxrIBi0w4Njwzb1zsbte26U513K+WPFm9z6SB/3WR5/VBVjTaTcamrXznTAqBjTwTL0Ysisv1dW0Rw==",
+        "shasum": "ae8767bac02062fad05f2b218f0e525f4c16a569",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.0.9.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17597,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCGfiATtYB4ZP9qxAhzogmPGdxCuVi8vIC5aM9lSUuldwIhALMRhHGibrQseDmC55YnCIFDsGANUt23x07dKkU+2CJn"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.0.9_1694558649198_0.19533213669215277"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.10": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.0.10",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0",
+        "test:integration": "jest --config jest.config.integ.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.4",
+        "@smithy/types": "^2.3.2",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@smithy/util-test": "^0.1.4",
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "ea85d88d954d15b262df6905ea0df221e8d2bcd4",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/middleware-content-length@2.0.10",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-EGSbysyA4jH0p3xI6G0jdXoj9Iz9GUnAta6aEaHtXm3wVWtenRf80y2TeVvNkVSr5jwKOdSCjKIRI2l1A/oZLA==",
+        "shasum": "1b0dcbda63b6b0cfa3ca171871e8f398640a9d37",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.0.10.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17598,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDrEnlngxyMkoqxYjo2mcD7m+tM7QrWjJH83ZEnaZnmJwIhAO6JMdW2CmcsBg3tDDlsvLkutE2z7wpn5WUzybYtHK8a"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.0.10_1694802862159_0.9515956998684272"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.11": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.0.11",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0",
+        "test:integration": "jest --config jest.config.integ.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.5",
+        "@smithy/types": "^2.3.3",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@smithy/util-test": "^0.1.5",
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "4cc46d5a045177824b880e1227284e859e760dee",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/middleware-content-length@2.0.11",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-Malj4voNTL4+a5ZL3a6+Ij7JTUMTa2R7c3ZIBzMxN5OUUgAspU7uFi1Q97f4B0afVh2joQBAWH5IQJUG25nl8g==",
+        "shasum": "3d046f917cb0975caf6af2de96c9622cfa3c33ca",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.0.11.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17598,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHzDQ6jLmJq5TL6WRuPTcCsh+9DYFzlnrjSSpb09VbSfAiBalmHAV3n6TQkgrkxhp2CY2BE75XRxuMTTkaDsndV0og=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.0.11_1695162464230_0.9712627218180903"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.12": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.0.12",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.6",
+        "@smithy/types": "^2.3.4",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@smithy/util-test": "^0.1.6",
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/middleware-content-length@2.0.12",
+      "gitHead": "b609df10ad503972e31c025fd059c8ce6044d816",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-QRhJTo5TjG7oF7np6yY4ZO9GDKFVzU/GtcqUqyEa96bLHE3yZHgNmsolOQ97pfxPHmFhH4vDP//PdpAIN3uI1Q==",
+        "shasum": "e6f874f5eef880561f774a4376b73f04b97efc53",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.0.12.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17576,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHm3e95m1r+Y7yuYoRneGKFeMgwxju/+9xEdnftpfwdrAiEAu5eVyanPAgSL6v5ua2mvDRHcOFjFAupEyHFMaxutM7s="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.0.12_1695923387827_0.7912106131118593"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.13": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.0.13",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.7",
+        "@smithy/types": "^2.3.5",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@smithy/util-test": "^0.1.7",
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/middleware-content-length@2.0.13",
+      "gitHead": "5fb6d4c68777a3d358158eddcb18d22da3fd5c8d",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-Md2kxWpaec3bXp1oERFPQPBhOXCkGSAF7uc1E+4rkwjgw3/tqAXRtbjbggu67HJdwaif76As8AV6XxbD1HzqTQ==",
+        "shasum": "eb8195510fac8e2d925e43f270f347d8e2ce038b",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.0.13.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17576,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAkLrCb8pgotsNJklsAObwNIO0PxflbdVZlJ6ah9zJXiAiEAviD0m8fmC3YXcdDGJ7HXxzglOf2eeQsxF/iyxjDjOvg="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.0.13_1696630477999_0.08086481797977108"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.14": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.0.14",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.8",
+        "@smithy/types": "^2.4.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@smithy/util-test": "^0.1.8",
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/middleware-content-length@2.0.14",
+      "gitHead": "4c4d1bd13c9e6ba89cc75fa9c3df2aed63e3cb02",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-poUNgKTw9XwPXfX9nEHpVgrMNVpaSMZbshqvPxFVoalF4wp6kRzYKOfdesSVectlQ51VtigoLfbXcdyPwvxgTg==",
+        "shasum": "ee1aa842490cee90b6ac208fb13a7d56d3ed84f2",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.0.14.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17576,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIE7Oyp1VnDlWava/vDEoBGiqbrjPucZdF9hf934ZVD2OAiEAiXRZIbe3uExoYcd7eLw1yRNqG+l0tU2mZ27FuXriOH4="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.0.14_1697750897265_0.9958941080183585"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.15": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.0.15",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.9",
+        "@smithy/types": "^2.5.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@smithy/util-test": "^0.1.9",
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/middleware-content-length@2.0.15",
+      "gitHead": "d1ff70d0d4fe18c3cb0198d6351312ed14932b46",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-xH4kRBw01gJgWiU+/mNTrnyFXeozpZHw39gLb3JKGsFDVmSrJZ8/tRqu27tU/ki1gKkxr2wApu+dEYjI3QwV1Q==",
+        "shasum": "cd419737202f66eb441a233e9e8c8bc6bbd6a6f0",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.0.15.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17576,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIG7aeHk8CkGofTc7Ha24xirO+DuFc9XPfy5+XA5vUmXnAiApR0l9c+gnN565Xb7FWNRsG0p9TFnP5vIlB/0GTUZ9Zg=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.0.15_1699917751217_0.5245643477788797"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.16": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.0.16",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.10",
+        "@smithy/types": "^2.6.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@smithy/util-test": "^0.1.10",
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/middleware-content-length@2.0.16",
+      "gitHead": "f802828bb1ef76990d5277e82c336b9750e4bc65",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-9ddDia3pp1d3XzLXKcm7QebGxLq9iwKf+J1LapvlSOhpF8EM9SjMeSrMOOFgG+2TfW5K3+qz4IAJYYm7INYCng==",
+        "shasum": "0d77cfe0d375bfbf1e59f30a38de0e3f14a1e73f",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.0.16.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17578,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICHjqYa0vfG1lKYZA2xQHN6MbZt1Vk7auXhETuZyfsg8AiEAj+D89942kTgLtkBoOdmlrxAx10A6wmNQsKEXP0DAJog="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.0.16_1700596003722_0.9225866780396401"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.17": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.0.17",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.11",
+        "@smithy/types": "^2.7.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@smithy/util-test": "^0.1.11",
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/middleware-content-length@2.0.17",
+      "gitHead": "912961cb22a3310273fdf24806f294ccf23814c1",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-OyadvMcKC7lFXTNBa8/foEv7jOaqshQZkjWS9coEXPRZnNnihU/Ls+8ZuJwGNCOrN2WxXZFmDWhegbnM4vak8w==",
+        "shasum": "13479173a15d1cd4224e3e21071a27c66a74b653",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.0.17.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17588,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIARtfRx5vNbHb05CEU9C5x0mTVec9l3/eyycE0OnsxILAiEA+YqeTee5m7IDWRpmVYofbMyVektuNxjTlD4LosMuNis="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.0.17_1701792605496_0.4418863419792294"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.18": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.0.18",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.0.12",
+        "@smithy/types": "^2.8.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@smithy/util-test": "^0.1.12",
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/middleware-content-length@2.0.18",
+      "gitHead": "e3b13dda0891091282c27cd65cc72b87826753b6",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-ZJ9uKPTfxYheTKSKYB+GCvcj+izw9WGzRLhjn8n254q0jWLojUzn7Vw0l4R/Gq7Wdpf/qmk/ptD+6CCXHNVCaw==",
+        "shasum": "a3b13beb300290f5d0d48ace0f818e44261356fa",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.0.18.tgz",
+        "fileCount": 7,
+        "unpackedSize": 17588,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQD3KLIWSUextiD2lfpW2OGAmcAtbYxLYEOSF+pj137CvwIgb/tqKYmBzPLZX34J+aDKlmU2gXanF6Wauc0ST4aUna4="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.0.18_1704222045839_0.9469313203420331"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.0": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.1.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline middleware-content-length",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.1.0",
+        "@smithy/types": "^2.9.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@smithy/util-test": "^0.1.13",
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/middleware-content-length@2.1.0",
+      "gitHead": "1d85e7dea4cfe19aaf555a26b7504e739acb9124",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-XYhKZPuS8nnecdx0IGGUt1Nt2/ekoVOw1zal4c0ARRaLJEw+umFLxwHUelIeBocbdOcPCeZRE6pdk35Y2T2wpw==",
+        "shasum": "36e941020e4c1d13a96707a36d90986e3b171363",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.1.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 18521,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDeNLWP8reyjGJa86LL6CHNcchR5yUcBZ/3S0MKsKNXEwIgPCFq3omkoWbY2dxaZUJnEJXI+X7th6HrSYVeuSG64fI="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.1.0_1705530401828_0.6642872176973946"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.1": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.1.1",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline middleware-content-length",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.1.1",
+        "@smithy/types": "^2.9.1",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@smithy/util-test": "^0.1.14",
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/middleware-content-length@2.1.1",
+      "gitHead": "3769699491dcc1bd5ace2973f2efdf6d85b37cf4",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-rSr9ezUl9qMgiJR0UVtVOGEZElMdGFyl8FzWEF5iEKTlcWxGr2wTqGfDwtH3LAB7h+FPkxqv4ZU4cpuCN9Kf/g==",
+        "shasum": "df767de12d594bc5622009fb0fc8343522697d8c",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.1.1.tgz",
+        "fileCount": 7,
+        "unpackedSize": 18523,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDp6WipyBgNEaVcqYy5Ka3Dfk7ITyj76fk0RGPWSahhrAIhAK/5nBsO+3Qe9CQWfzpOiv6CmFz5PqTV8BCXix6uMlo4"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.1.1_1705685461647_0.5670155372778285"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.2": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.1.2",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline middleware-content-length",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.2.0",
+        "@smithy/types": "^2.10.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@smithy/util-test": "^0.1.15",
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/middleware-content-length@2.1.2",
+      "gitHead": "7baf4b118b55683e97208f262c5083184d99b095",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.1",
+      "_npmVersion": "10.2.4",
+      "dist": {
+        "integrity": "sha512-XEWtul1tHP31EtUIobEyN499paUIbnCTRtjY+ciDCEXW81lZmpjrDG3aL0FxJDPnvatVQuMV1V5eg6MCqTFaLQ==",
+        "shasum": "c114f955d2b0fd3b61b1068908dd8d87ed070107",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.1.2.tgz",
+        "fileCount": 7,
+        "unpackedSize": 18524,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFOXIrXe9F1beHp1/EdEeoPjgWddnxlXnYcUTixerLXDAiBrg/nKr69qu3QA6QjhPRvXs8ir8JAjibcpQMAU8ezHqg=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.1.2_1708636530152_0.031562387282488835"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.3": {
+      "name": "@smithy/middleware-content-length",
+      "version": "2.1.3",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline middleware-content-length",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "exit 0",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/protocol-http": "^3.2.1",
+        "@smithy/types": "^2.10.1",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/middleware-content-length"
+      },
+      "devDependencies": {
+        "@smithy/util-test": "^0.1.16",
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/middleware-content-length@2.1.3",
+      "gitHead": "3357fda448ea8cee3f7bfa7caeda2768a9751f8f",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.1",
+      "_npmVersion": "10.2.4",
+      "dist": {
+        "integrity": "sha512-aJduhkC+dcXxdnv5ZpM3uMmtGmVFKx412R1gbeykS5HXDmRU6oSsyy2SoHENCkfOGKAQOjVE2WVqDJibC0d21g==",
+        "shasum": "243d74789a311366948dec5a85b03146ac580c51",
+        "tarball": "https://registry.npmjs.org/@smithy/middleware-content-length/-/middleware-content-length-2.1.3.tgz",
+        "fileCount": 7,
+        "unpackedSize": 18524,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCZk8/4Co3DdKzajFkMAP5OUDsFzs1qiMhR+cH9YYcU9AIgdggiz6bFnzeC3O0Am3v89lXf50AioFYrSguGG/VfDKE="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/middleware-content-length_2.1.3_1709057577882_0.649327176160327"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2023-06-19T22:00:40.867Z",
+    "1.0.0": "2023-06-19T22:00:41.182Z",
+    "modified": "2024-02-27T18:12:58.519Z",
+    "1.0.1": "2023-06-20T19:26:35.731Z",
+    "1.0.2": "2023-07-06T16:24:39.267Z",
+    "1.0.3": "2023-07-24T19:54:17.978Z",
+    "1.1.0": "2023-07-24T20:51:36.877Z",
+    "2.0.0": "2023-07-24T21:28:44.146Z",
+    "2.0.1": "2023-07-25T17:40:02.638Z",
+    "2.0.2": "2023-08-07T22:49:16.422Z",
+    "2.0.3": "2023-08-11T16:58:28.026Z",
+    "2.0.4": "2023-08-15T17:06:17.993Z",
+    "2.0.5": "2023-08-22T20:42:54.821Z",
+    "2.0.6": "2023-09-06T21:41:10.914Z",
+    "2.0.7": "2023-09-07T00:18:47.920Z",
+    "2.0.8": "2023-09-08T01:40:48.757Z",
+    "2.0.9": "2023-09-12T22:44:09.569Z",
+    "2.0.10": "2023-09-15T18:34:22.364Z",
+    "2.0.11": "2023-09-19T22:27:44.443Z",
+    "2.0.12": "2023-09-28T17:49:48.001Z",
+    "2.0.13": "2023-10-06T22:14:38.170Z",
+    "2.0.14": "2023-10-19T21:28:17.457Z",
+    "2.0.15": "2023-11-13T23:22:31.365Z",
+    "2.0.16": "2023-11-21T19:46:43.899Z",
+    "2.0.17": "2023-12-05T16:10:05.726Z",
+    "2.0.18": "2024-01-02T19:00:46.056Z",
+    "2.1.0": "2024-01-17T22:26:41.988Z",
+    "2.1.1": "2024-01-19T17:31:01.822Z",
+    "2.1.2": "2024-02-22T21:15:30.437Z",
+    "2.1.3": "2024-02-27T18:12:58.064Z"
+  },
+  "maintainers": [
+    {
+      "name": "smithy-team",
+      "email": "aws-smithy-team+npm@amazon.com"
+    },
+    {
+      "name": "trivikr-aws",
+      "email": "trivikr@amazon.com"
+    }
+  ],
+  "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://ww",
+  "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/middleware-content-length",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awslabs/smithy-typescript.git",
+    "directory": "packages/middleware-content-length"
+  },
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "bugs": {
+    "url": "https://github.com/awslabs/smithy-typescript/issues"
+  },
+  "license": "Apache-2.0",
+  "readme": "# @smithy/middleware-content-length\n\n[![NPM version](https://img.shields.io/npm/v/@smithy/middleware-content-length/latest.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length)\n[![NPM downloads](https://img.shields.io/npm/dm/@smithy/middleware-content-length.svg)](https://www.npmjs.com/package/@smithy/middleware-content-length)\n",
+  "readmeFilename": "README.md"
+}

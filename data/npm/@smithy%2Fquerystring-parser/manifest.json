@@ -1,0 +1,2643 @@
+{
+  "_id": "@smithy/querystring-parser",
+  "_rev": "26-d790e9c1bcb2ef9719f94946d408cc79",
+  "name": "@smithy/querystring-parser",
+  "dist-tags": {
+    "latest": "2.1.3"
+  },
+  "versions": {
+    "1.0.0": {
+      "name": "@smithy/querystring-parser",
+      "version": "1.0.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "workspace:^",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "gitHead": "7b4756d90d83f268fb714913ac816d3183b27361",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/querystring-parser@1.0.0",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-M4BfqoOpnYcksD32w2Hpx5iP2SSBseWdgse1RBDm0r1ocUcUbgxNun+FRL52LNVGdT2TFeE4fdeGzR8mUceTXg==",
+        "shasum": "c97d22da34fce93829d16f904742417a12e5b4ed",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-1.0.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 15284,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCcy4wytCpCr18iRCY+26U4zQtn23ZRqvnAoIhFrtHd8gIhAKCwt19S1J2ya9oPdFb4A8D3VKtDoAV0SG8njmpNvZcC"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_1.0.0_1687212046254_0.1946207010400507"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.1": {
+      "name": "@smithy/querystring-parser",
+      "version": "1.0.1",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^1.1.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "63b6fcdb83b164d2409c94a6304dccaec4f35022",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/querystring-parser@1.0.1",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-zauxdMc3cwxoLitI5DZqH7xN6Fk0mwRxrUMAETbav2j6Se2U0UGak/55rZcDg2yGzOURaLYi5iOm1gHr98P+Bw==",
+        "shasum": "bf5e326debaecb9e1db44972f1eb87d64e8915e8",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-1.0.1.tgz",
+        "fileCount": 6,
+        "unpackedSize": 15340,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBGFup42XVMV2QLLDMm+ASG4aQaivXdUeBc1aE1KCoV3AiEAzecITL72+0bhGZRnrlBaCNCK0MzrUZhXizLHQJOa884="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_1.0.1_1687289199802_0.0234979331605516"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.2": {
+      "name": "@smithy/querystring-parser",
+      "version": "1.0.2",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^1.1.1",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "95ddb42557074f1cfe11a4763f26e2da5c9d1f34",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/querystring-parser@1.0.2",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-IWxwxjn+KHWRRRB+K2Ngl+plTwo2WSgc2w+DvLy0DQZJh9UGOpw40d6q97/63GBlXIt4TEt5NbcFrO30CKlrsA==",
+        "shasum": "559d09c46b21e6fbda71e95deda4bcd8a46bdecc",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-1.0.2.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15529,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQC/pMtsZoR5V55/dVIFcz6SM3JaGMh2DL2HLhvtA8mMGAIhAJSu/JhgM49KyNOqpIAlS/w922/ZPXbK5X1oDtOIovoa"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_1.0.2_1688660684070_0.62212223438939"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.3": {
+      "name": "@smithy/querystring-parser",
+      "version": "1.0.3",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.0.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "72af08daf21ac83ec08cc604af511bc47e640b11",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/querystring-parser@1.0.3",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-QGCESN01v1yE2khC5SUm10gseDLbq+1gggmq2GizO1QBnu2IK4m1M4JDGe/VU8Kv0dVR0NsrXTTy+O6M+ZcKwQ==",
+        "shasum": "9d06a8fa32df8285cfe9ba3a113a7af8e018d3cc",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-1.0.3.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15529,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCi+cwLdUOonm8CXF4L0MI3TjL0GWGVXPa6/fN5hRg11AIhAK4+ApvE51eaHNpTBC46g+Gcf7kpXdW8O1W+yjNKdFJ/"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_1.0.3_1690228462868_0.15681450868553326"
+      },
+      "_hasShrinkwrap": false,
+      "deprecated": "Deprecated due to incompatible dependency."
+    },
+    "1.1.0": {
+      "name": "@smithy/querystring-parser",
+      "version": "1.1.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^1.2.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "3502553d79fa14e35479d754a706f217b29739a4",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/querystring-parser@1.1.0",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-Lm/FZu2qW3XX+kZ4WPwr+7aAeHf1Lm84UjNkKyBu16XbmEV7ukfhXni2aIwS2rcVf8Yv5E7wchGGpOFldj9V4Q==",
+        "shasum": "4bf4be6d1db8b769d346a0d98c5b0db4e99a8ba6",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-1.1.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15529,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCrMiHVqJgq4C9ARGlsKfDpKrUN8ouV3X/2AlFe60KYAwIhAPhbSQELofY8V+rJ2NrSFrCcqEMjoFsSj1iOntVyzEna"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_1.1.0_1690231901805_0.8104301690610654"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0": {
+      "name": "@smithy/querystring-parser",
+      "version": "2.0.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.0.1",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "6d015a4681600b57079a550f6789b75fb6e387ab",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/querystring-parser@2.0.0",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-7LHO6QvAH+qRXpw0sCtESpA7l6v1b/yS2TLL9Q4zyF3f44zcoLHkiMerGIxfr0vxl8pkVOJtKUWr6dOKjyh8Cw==",
+        "shasum": "10ca57bf058f67f89469ac3319fc2881f7b80965",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-2.0.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15529,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCysQf/FH3w/csaHBLF+/IxxwvAFHsG9lPkEykoHxIHLAIhAIfyasxmdS9cBR18RU/y03oHPU5oa9LfFvIYy2vfm5Aq"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_2.0.0_1690234127863_0.19796681402436112"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.1": {
+      "name": "@smithy/querystring-parser",
+      "version": "2.0.1",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.0.2",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "632c5a5cb0b8ba0ef5f2bfc1f701cfb292fa79a1",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/querystring-parser@2.0.1",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-h+e7k1z+IvI2sSbUBG9Aq46JsgLl4UqIUl6aigAlRBj+P6ocNXpM6Yn1vMBw5ijtXeZbYpd1YvCxwDgdw3jhmg==",
+        "shasum": "915872aa7983218da3e87144a5b729dd6ae6f50f",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-2.0.1.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15529,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDwL5xlg0t1TLD6t+SkQv0NNXgD7n3FciaOOgZMMO3ebAiEAjmGyeKskec0y0psb8FlyGBP74cFPvTM8NL6Mdeq2kKE="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_2.0.1_1690306807493_0.14483375430348655"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.2": {
+      "name": "@smithy/querystring-parser",
+      "version": "2.0.2",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.1.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "4b0be91f301d5e2f8fca9c6a871c8c796e047d6f",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/querystring-parser@2.0.2",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-L4VtKQ8O4/aWPQJbiFymbhAmxdfLnEaROh/Vs0OstJ7jtOZeBl2QJmuWY2V7hjt64W7V+tEn2sv6vVvnxkm/xQ==",
+        "shasum": "d6b2562e7ae29282b144939e5fd439b17bdf61dd",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-2.0.2.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15529,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCH2A9lSgXIvB0OgG2UySR84tr+J8iaAqWHJ134UU8VRgIgE9xLEj02pF0nHalXmZo6ZQXhutL5HrAK8fxPZ8HgObI="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_2.0.2_1691448561037_0.31842911780561023"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.3": {
+      "name": "@smithy/querystring-parser",
+      "version": "2.0.3",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.2.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "1f9fcad7015cdf639e98d4e951ceddc2a1ec11db",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/querystring-parser@2.0.3",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-AaiZ2osstDbmOTz5uY+96o0G1E7k1U7dCYrNT8FFcyffdhScTzG7fXr12f5peie2W0XFu2Ub+b6tQwFuZwPoBA==",
+        "shasum": "8915ff4a29518b8521649c1375c51f00ec227be2",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-2.0.3.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15529,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICxqplntujYiEvgLS5f88AwbdRQMcYpzfT92Cz8p6jJJAiBeYU+sLvpNCSIV8FFECGYmNYIS41ybI1fif6Lsy6zdlw=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_2.0.3_1691773112949_0.6335080436173492"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.4": {
+      "name": "@smithy/querystring-parser",
+      "version": "2.0.4",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.2.1",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "a6a1389994d62ebfcdf9843f58f0d1739837af92",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/querystring-parser@2.0.4",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-Uh6+PhGxSo17qe2g/JlyoekvTHKn7dYWfmHqUzPAvkW+dHlc3DNVG3++PV48z33lCo5YDVBBturWQ9N/TKn+EA==",
+        "shasum": "ae90ff05a4804e4545094c61d0ab08cdd738d011",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-2.0.4.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15529,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCUo6FUjHoVsy+qLHu/NuJfslkAGp67Y9N80Jw6EmJRZQIhAMI2VL8NcBuyDsCa0GgNMMfFec3XyvxnVhNRiYV2LVjg"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_2.0.4_1692119182195_0.21112536649809877"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.5": {
+      "name": "@smithy/querystring-parser",
+      "version": "2.0.5",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.2.2",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "8f6e5a31335d5469b52bf39007d0c88e373cfa72",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/querystring-parser@2.0.5",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-C2stCULH0r54KBksv3AWcN8CLS3u9+WsEW8nBrvctrJ5rQTNa1waHkffpVaiKvcW2nP0aIMBPCobD/kYf/q9mA==",
+        "shasum": "aec6733ed4497402634978e7026d0d00661594d6",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-2.0.5.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15529,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAJ323T99b6h3A346MRCKwR80J1FKRy5YhKeIqNVJKaLAiEAruZ5VBHu6t5BAInPiF8trXCBmJ0I9QIKw11y4d0A9D8="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_2.0.5_1692736979955_0.608532359011321"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.6": {
+      "name": "@smithy/querystring-parser",
+      "version": "2.0.6",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.3.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "84ce53b4994faf09aa1cf8e0b9c245d214127b7c",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/querystring-parser@2.0.6",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-i4LKoXHP7pTFAPjLIJyQXYOhWokbcFha3WWsX74sAKmuluv0XM2cxONZoFxwEzmWhsNyM6buSwJSZXyPiec0AQ==",
+        "shasum": "0b4fc7ec5fe5371113fcb1116216daf2d7e2c3ff",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-2.0.6.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15529,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHJHxWiB3GyS6eA+xANsPqdI0OAAQlDf+t96JJ3vQtCnAiEAje52cJeFtdoFbTwUdiKPI5vbEM/72ox9Iq5MAbJABsY="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_2.0.6_1694036479955_0.6447757870289483"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.7": {
+      "name": "@smithy/querystring-parser",
+      "version": "2.0.7",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.3.1",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "a6d5a23bd699d8f6cb6f3bcb3eefcca254660595",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/querystring-parser@2.0.7",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-Cwi/Hgs73nbLKfgH7dXAxzvDxyTrK+BLrlAd0KXU7xcBR94V132nvxoq39BMWckYAPmnMwxCwq8uusNH4Dnagw==",
+        "shasum": "e61979a498f62f5cc18ab340e8f5d41f57de8f5e",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-2.0.7.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15529,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDaCZYcDESkWMiQhq+CYDGV42JjgmJnOW8h2AfplL2vjwIhAIKTr6hrnnZknZngZlAW+T1cvEE17WBN/9voHAtzew+l"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_2.0.7_1694558653525_0.6237378993298923"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.8": {
+      "name": "@smithy/querystring-parser",
+      "version": "2.0.8",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.3.2",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "ea85d88d954d15b262df6905ea0df221e8d2bcd4",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/querystring-parser@2.0.8",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-ArbanNuR7O/MmTd90ZqhDqGOPPDYmxx3huHxD+R3cuCnazcK/1tGQA+SnnR5307T7ZRb5WTpB6qBggERuibVSA==",
+        "shasum": "6c8d7df7ccb0156d83f0a6cbe9c2aa9019ad8f34",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-2.0.8.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15529,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDTNQ5L1iDpq8873y6UhdS80EYapg7YoGLh8gfxXWK8KgIgPjn9l0ol/pLqyyO6kNe0QA1FOEfqdueEfWKzJ+OFQnc="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_2.0.8_1694802867817_0.3711479276906158"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.9": {
+      "name": "@smithy/querystring-parser",
+      "version": "2.0.9",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.3.3",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "4cc46d5a045177824b880e1227284e859e760dee",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/querystring-parser@2.0.9",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-U6z4N743s4vrcxPW8p8+reLV0PjMCYEyb1/wtMVvv3VnbJ74gshdI8SR1sBnEh95cF8TxonmX5IxY25tS9qGfg==",
+        "shasum": "a372fcb652df0c8110aa3ffbf6bc6b512e11a78c",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-2.0.9.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15529,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDekfQSfuv1QZk2axEAU3gKCAzagYJxbPmnI1crcY/BTAiB1jsu+HhOT9PdhXXj+dQNcuC4MnaMj5CWU1NTqK12vfw=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_2.0.9_1695162468472_0.8199655106558041"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.10": {
+      "name": "@smithy/querystring-parser",
+      "version": "2.0.10",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.3.4",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/querystring-parser@2.0.10",
+      "gitHead": "b609df10ad503972e31c025fd059c8ce6044d816",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-WSD4EU60Q8scacT5PIpx4Bahn6nWpt+MiYLcBkFt6fOj7AssrNeaNIU2Z0g40ftVmrwLcEOIKGX92ynbVDb3ZA==",
+        "shasum": "074d770a37feafb0d550094dd8463bdff58515f5",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-2.0.10.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15508,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCnII/+9twsrLXEYawOxIwdyZyzY3XDf04AeQZVXr/x6AIhAJSB4rPF6oG10qNUlCj15edPaifxSqKMqz0Pn+qUzboI"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_2.0.10_1695923404139_0.8746312039165456"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.11": {
+      "name": "@smithy/querystring-parser",
+      "version": "2.0.11",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.3.5",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/querystring-parser@2.0.11",
+      "gitHead": "5fb6d4c68777a3d358158eddcb18d22da3fd5c8d",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-YXe7jhi7s3dQ0Fu9dLoY/gLu6NCyy8tBWJL/v2c9i7/RLpHgKT+uT96/OqZkHizCJ4kr0ZD46tzMjql/o60KLg==",
+        "shasum": "63b7fde68714974c220e386002100ad9b70d91a3",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-2.0.11.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15508,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCHDxQrEaFWbuRQOngV2uVNDmlsnp0MQ19VjScGnFBDLwIgc3hXTUGpFk6fAo5U9MItH8oGqsR77RCdGr7V4Yha0+M="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_2.0.11_1696630487147_0.8921218972058427"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.12": {
+      "name": "@smithy/querystring-parser",
+      "version": "2.0.12",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.4.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/querystring-parser@2.0.12",
+      "gitHead": "4c4d1bd13c9e6ba89cc75fa9c3df2aed63e3cb02",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-fytyTcXaMzPBuNtPlhj5v6dbl4bJAnwKZFyyItAGt4Tgm9HFPZNo7a9r1SKPr/qdxUEBzvL9Rh+B9SkTX3kFxg==",
+        "shasum": "d2c234031e266359716a0c62c8c1208a5bd2557e",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-2.0.12.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15508,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAwIDpo8X8SERrxBCPqznIPFFDtdx8ZUUR8bXGZZCbivAiBrIKJNlfWMANRIsOFRTMIFJqZ+ESFSylwkgaEq2SF+5A=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_2.0.12_1697750902030_0.21719402793337594"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.13": {
+      "name": "@smithy/querystring-parser",
+      "version": "2.0.13",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.5.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/querystring-parser@2.0.13",
+      "gitHead": "d1ff70d0d4fe18c3cb0198d6351312ed14932b46",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-TEiT6o8CPZVxJ44Rly/rrsATTQsE+b/nyBVzsYn2sa75xAaZcurNxsFd8z1haoUysONiyex24JMHoJY6iCfLdA==",
+        "shasum": "9825239eceb2ab6a8906d7a3fa8241d20794b5a7",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-2.0.13.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15508,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEGFRJnFp6BBK7Vy3z/FPwzlcql5ybcEeuez2+IXeAK9AiEAxw6zEw4ge4tEcEi4h+97eJwAxzfylZSur8c6LzYnN1M="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_2.0.13_1699917754197_0.19447078274136653"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.14": {
+      "name": "@smithy/querystring-parser",
+      "version": "2.0.14",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.6.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/querystring-parser@2.0.14",
+      "gitHead": "f802828bb1ef76990d5277e82c336b9750e4bc65",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-+cbtXWI9tNtQjlgQg3CA+pvL3zKTAxPnG3Pj6MP89CR3vi3QMmD0SOWoq84tqZDnJCxlsusbgIXk1ngMReXo+A==",
+        "shasum": "0e3936d44c783540321fedd9d502aac22073a556",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-2.0.14.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15508,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFGQOt3GjZRLoEdXBSFSoVb4onBA8RCZJ5C4C7GudQIzAiEAqQjjMYvAnx3KP9yYvXwFkIo5oy2rkr4vlHVZR4P1Lgk="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_2.0.14_1700596006741_0.019503962168881728"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.15": {
+      "name": "@smithy/querystring-parser",
+      "version": "2.0.15",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.7.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/querystring-parser@2.0.15",
+      "gitHead": "912961cb22a3310273fdf24806f294ccf23814c1",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-jbBvoK3cc81Cj1c1TH1qMYxNQKHrYQ2DoTntN9FBbtUWcGhc+T4FP6kCKYwRLXyU4AajwGIZstvNAmIEgUUNTQ==",
+        "shasum": "46c8806a145f46636e4aee2a5d79e7ba68161a4c",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-2.0.15.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15518,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFpyn2FLvNbKtxuxISBLRRnKA5axJKhSgaiPA/eWM2ydAiEA+4YG9g787uKyy322pxObWHIAtT2iLOw0lxcxYqEFsh8="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_2.0.15_1701792608338_0.2441694315592915"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.16": {
+      "name": "@smithy/querystring-parser",
+      "version": "2.0.16",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.8.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/querystring-parser@2.0.16",
+      "gitHead": "e3b13dda0891091282c27cd65cc72b87826753b6",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-c4ueAuL6BDYKWpkubjrQthZKoC3L5kql5O++ovekNxiexRXTlLIVlCR4q3KziOktLIw66EU9SQljPXd/oN6Okg==",
+        "shasum": "90d9589539ffe8fb4864c8bf6f1f1c9def962a40",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-2.0.16.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15518,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICKcx01F3jjT8SG9ytG13aYQF8nxTumB8jYxg0EXVkDRAiA8ZRh08qqPyeRWabQRcYEmEHyNg6bksQwwRHSKB0Pl2Q=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_2.0.16_1704222048809_0.11458107661860151"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.0": {
+      "name": "@smithy/querystring-parser",
+      "version": "2.1.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline querystring-parser",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.9.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/querystring-parser@2.1.0",
+      "gitHead": "1d85e7dea4cfe19aaf555a26b7504e739acb9124",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-+l17LQQxelslo5CHsLXwSw2F1J6Qmf64OgByreNnLR82gHkJ91ZbMFhxZeLTo2qXxEu0uqraMc4uNw8qE9A6bw==",
+        "shasum": "5abb0e0831edce826cf4b54db76ea5ad155e4dba",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-2.1.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 16436,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCeHEKQLqeuRbtS1wmaUcAhgybtmzOuxM7cK8Sxcl3y0gIgaMm6TcXYgFRH9F1tdJI9rjSY0n+CjHi4gmqwxJq+voQ="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_2.1.0_1705530403538_0.2598879202157953"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.1": {
+      "name": "@smithy/querystring-parser",
+      "version": "2.1.1",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline querystring-parser",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.9.1",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/querystring-parser@2.1.1",
+      "gitHead": "3769699491dcc1bd5ace2973f2efdf6d85b37cf4",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-H4+6jKGVhG1W4CIxfBaSsbm98lOO88tpDWmZLgkJpt8Zkk/+uG0FmmqMuCAc3HNM2ZDV+JbErxr0l5BcuIf/XQ==",
+        "shasum": "a4282a66cc56844317dbff824e573f469bbfc032",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-2.1.1.tgz",
+        "fileCount": 7,
+        "unpackedSize": 16438,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDP1GjwiJgVyi9CMz3ks26V9tSVr3JE97WMqj+2mpSPpQIgGFM/GbXs6cPhozYWDmgXqRtw2PQ3MHqzBMSc9C+VVs4="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_2.1.1_1705685478593_0.4035940731159089"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.2": {
+      "name": "@smithy/querystring-parser",
+      "version": "2.1.2",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline querystring-parser",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.10.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/querystring-parser@2.1.2",
+      "gitHead": "7baf4b118b55683e97208f262c5083184d99b095",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.1",
+      "_npmVersion": "10.2.4",
+      "dist": {
+        "integrity": "sha512-z1yL5Iiagm/UxVy1tcuTFZdfOBK/QtYeK6wfClAJ7cOY7kIaYR6jn1cVXXJmhAQSh1b2ljP4xiZN4Ybj7Tbs5w==",
+        "shasum": "3883dfec5760f0f8cdf9acc837bdc631069df576",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-2.1.2.tgz",
+        "fileCount": 7,
+        "unpackedSize": 16439,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDL4nsRyNWWxonbcDM0ERoJy5wcySOAAdRZbWNceXmuBwIhAK1X9T/zui17Yq+VrA7vikH6SOox2GnynYbTQYj/m2T+"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_2.1.2_1708636533869_0.1877722924839229"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.3": {
+      "name": "@smithy/querystring-parser",
+      "version": "2.1.3",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline querystring-parser",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/types": "^2.10.1",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/querystring-parser"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/querystring-parser@2.1.3",
+      "gitHead": "3357fda448ea8cee3f7bfa7caeda2768a9751f8f",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.1",
+      "_npmVersion": "10.2.4",
+      "dist": {
+        "integrity": "sha512-3+CWJoAqcBMR+yvz6D+Fc5VdoGFtfenW6wqSWATWajrRMGVwJGPT3Vy2eb2bnMktJc4HU4bpjeovFa566P3knQ==",
+        "shasum": "2786dfa36ac6c7a691eb651339fbcaf160891e69",
+        "tarball": "https://registry.npmjs.org/@smithy/querystring-parser/-/querystring-parser-2.1.3.tgz",
+        "fileCount": 7,
+        "unpackedSize": 16439,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDBZSg1bjPx/9g8cpQlSM4PeFLWrpNk7nLVIgBWVuYtLAIhAMD4Hl9LDAdecRfAHI9YxUZG1T0yd3TWrIsJK4/23WwL"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/querystring-parser_2.1.3_1709057583287_0.7743613053983529"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2023-06-19T22:00:46.136Z",
+    "1.0.0": "2023-06-19T22:00:46.388Z",
+    "modified": "2024-02-27T18:13:03.877Z",
+    "1.0.1": "2023-06-20T19:26:39.942Z",
+    "1.0.2": "2023-07-06T16:24:44.257Z",
+    "1.0.3": "2023-07-24T19:54:23.038Z",
+    "1.1.0": "2023-07-24T20:51:41.956Z",
+    "2.0.0": "2023-07-24T21:28:48.038Z",
+    "2.0.1": "2023-07-25T17:40:07.682Z",
+    "2.0.2": "2023-08-07T22:49:21.210Z",
+    "2.0.3": "2023-08-11T16:58:33.114Z",
+    "2.0.4": "2023-08-15T17:06:22.386Z",
+    "2.0.5": "2023-08-22T20:43:00.111Z",
+    "2.0.6": "2023-09-06T21:41:20.093Z",
+    "2.0.7": "2023-09-12T22:44:13.718Z",
+    "2.0.8": "2023-09-15T18:34:27.968Z",
+    "2.0.9": "2023-09-19T22:27:48.739Z",
+    "2.0.10": "2023-09-28T17:50:04.342Z",
+    "2.0.11": "2023-10-06T22:14:47.329Z",
+    "2.0.12": "2023-10-19T21:28:22.216Z",
+    "2.0.13": "2023-11-13T23:22:34.390Z",
+    "2.0.14": "2023-11-21T19:46:46.908Z",
+    "2.0.15": "2023-12-05T16:10:08.591Z",
+    "2.0.16": "2024-01-02T19:00:49.008Z",
+    "2.1.0": "2024-01-17T22:26:43.721Z",
+    "2.1.1": "2024-01-19T17:31:18.760Z",
+    "2.1.2": "2024-02-22T21:15:34.025Z",
+    "2.1.3": "2024-02-27T18:13:03.447Z"
+  },
+  "maintainers": [
+    {
+      "name": "smithy-team",
+      "email": "aws-smithy-team+npm@amazon.com"
+    },
+    {
+      "name": "trivikr-aws",
+      "email": "trivikr@amazon.com"
+    }
+  ],
+  "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@",
+  "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/querystring-parser",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awslabs/smithy-typescript.git",
+    "directory": "packages/querystring-parser"
+  },
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "bugs": {
+    "url": "https://github.com/awslabs/smithy-typescript/issues"
+  },
+  "license": "Apache-2.0",
+  "readme": "# @smithy/querystring-parser\n\n[![NPM version](https://img.shields.io/npm/v/@smithy/querystring-parser/latest.svg)](https://www.npmjs.com/package/@smithy/querystring-parser)\n[![NPM downloads](https://img.shields.io/npm/dm/@smithy/querystring-parser.svg)](https://www.npmjs.com/package/@smithy/querystring-parser)\n\n> An internal package\n\n## Usage\n\nYou probably shouldn't, at least directly.\n",
+  "readmeFilename": "README.md"
+}

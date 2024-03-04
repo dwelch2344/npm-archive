@@ -1,0 +1,3766 @@
+{
+  "_id": "@smithy/util-defaults-mode-browser",
+  "_rev": "35-74e53dc06d5e7d87201fea2f9324ad62",
+  "name": "@smithy/util-defaults-mode-browser",
+  "dist-tags": {
+    "latest": "2.1.4"
+  },
+  "versions": {
+    "1.0.0": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "1.0.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "workspace:^",
+        "@smithy/types": "workspace:^",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/smithy-client": "workspace:^",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "gitHead": "7b4756d90d83f268fb714913ac816d3183b27361",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@1.0.0",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-QzVjal5b6DpAHpdqjYRjT1SniaC9ppU0aRSDgh8S5Z+TqW/KPHDk5EoLEnRO6ZgluQiPxL3YXiYoV2cx9JcYYg==",
+        "shasum": "942b7c4769f09c0f0ae114d2d2e31bb62754c4b3",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-1.0.0.tgz",
+        "fileCount": 15,
+        "unpackedSize": 20465,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAeGPo2R+gfudtgNF8A/PJbt/0qAg0PDSmP0bdqkVVuHAiEAqcN/NEBJ1aKVW9wQUW+/q39kaRLkHqKHPaVp4QVd66o="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_1.0.0_1687212052241_0.005825846591406281"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.1": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "1.0.1",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^1.0.1",
+        "@smithy/types": "^1.1.0",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/smithy-client": "^1.0.1",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "e506006628af63ec47dc4b3ec8d5b6d5b6e46e0b",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@1.0.1",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-/9ObwNch4Z/NJYfkO4AvqBWku60Ju+c2Ck32toPOLmWe/V6eI9FLn8C1abri+GxDRCkLIqvkaWU1lgZ3nWZIIw==",
+        "shasum": "609074d664dacb7fe6567d8fc259a85da2d4d262",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-1.0.1.tgz",
+        "fileCount": 15,
+        "unpackedSize": 20894,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAG7ba/R3Oyxtv9SGS4yFLCBSsQISVOgN7aiWriWGjidAiEAw4FaH//AMe+gIpQ5Sy4IJpNzxuRWgiq4ig8XFJiprcY="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_1.0.1_1687292045386_0.4549302416721679"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.2": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "1.0.2",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^1.0.2",
+        "@smithy/types": "^1.1.1",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/smithy-client": "^1.0.4",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "95ddb42557074f1cfe11a4763f26e2da5c9d1f34",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@1.0.2",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-J1u2PO235zxY7dg0+ZqaG96tFg4ehJZ7isGK1pCBEA072qxNPwIpDzUVGnLJkHZvjWEGA8rxIauDtXfB0qxeAg==",
+        "shasum": "31ad7b9bce7e38fd57f4a370ee416373b4fbd432",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-1.0.2.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22519,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDfOTpml4OBmOQqSqTV44goIV1jgZOkv5iP9NRbuLq8fgIgDWAHoWj6kLn0/xaLrtGWVuQT6Mp7ptWWfXUaTbogXjk="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_1.0.2_1688660689317_0.07195508515849025"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.3": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "1.0.3",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^1.1.0",
+        "@smithy/types": "^2.0.0",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/smithy-client": "^1.0.5",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "72af08daf21ac83ec08cc604af511bc47e640b11",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@1.0.3",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-dczjL1D1FesPUpVzD/b546d6QoNdDzEmAl/7Mkg9xYm1WGi7q6HyUEcuTpxOt/+p56pHxEtEw0u/IgDSqwo+Cg==",
+        "shasum": "a83c875300c55ac459efd0d8d904d9e8b75c4ab7",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-1.0.3.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22519,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCulP7KM3ppGSN+BT6Gate+0YUQTHWHe0VuBEoIL4aNvgIhAK5ZQ3RTJhJN9jJi7o5qOYfWVS8j1eF0g1tKisipd9K/"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_1.0.3_1690228465687_0.9621116741041524"
+      },
+      "_hasShrinkwrap": false,
+      "deprecated": "Deprecated due to incompatible dependency."
+    },
+    "1.1.0": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "1.1.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^1.2.0",
+        "@smithy/types": "^1.2.0",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/smithy-client": "^1.1.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "3502553d79fa14e35479d754a706f217b29739a4",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@1.1.0",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-0bWhs1e412bfC5gwPCMe8Zbz0J8UoZ/meEQdo6MYj8Ne+c+QZ+KxVjx0a1dFYOclvM33SslL9dP0odn8kfblkg==",
+        "shasum": "60a110cdda9595865b98e26eef62206064656beb",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-1.1.0.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22519,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAj4zC1WFGB9CI3hYUMg/pafrHBwXKisLp7KIvGui0jEAiBXX9tXt4YWQd+f81q+wwCIJv311/cY/x0qK7aqFaDJlA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_1.1.0_1690231907398_0.6082236393152431"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.0",
+        "@smithy/types": "^2.0.1",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/smithy-client": "^2.0.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "6d015a4681600b57079a550f6789b75fb6e387ab",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.0",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-n8Ha5OZ1GckOZTa/APa7vnhUeSJK/7G9ur13Os9ycqmVGL0o/SDpInHntfsRzMOa94+SSGNR9UYEvSdWPKvBYQ==",
+        "shasum": "01806d8363327d425c2c6445de0a9bf6ee6506b9",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.0.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22519,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBY9Imnd6bRj1f0TJJLkxjqIZvyKyehD47U5Yfpjrp7/AiEA1gPHdQKBuhqkESdDtiWuSZanr0f1Iw6r2Ctzq9CBq5g="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.0_1690234132315_0.8327645030647051"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.1": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.1",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.1",
+        "@smithy/types": "^2.0.2",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/smithy-client": "^2.0.1",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "632c5a5cb0b8ba0ef5f2bfc1f701cfb292fa79a1",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.1",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-w72Qwsb+IaEYEFtYICn0Do42eFju78hTaBzzJfT107lFOPdbjWjKnFutV+6GL/nZd5HWXY7ccAKka++C3NrjHw==",
+        "shasum": "650805fc2f308dee8efcf812392a6578ebcc652d",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.1.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22519,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEghTeb5Y9vXZcFUblvTlPZcl0HgGHTu0lpkgFz+ZwjbAiEA6/2ZQDcMuWy49MuXvAqKE+PpL6elCVmLpJueCRD7+5Q="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.1_1690306808246_0.1235244353540943"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.2": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.2",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.2",
+        "@smithy/types": "^2.1.0",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/smithy-client": "^2.0.2",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "4b0be91f301d5e2f8fca9c6a871c8c796e047d6f",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.2",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-c2tMMjb624XLuzmlRoZpnFOkejVxcgw3WQKdmgdGZYZapcLzXyC0H9JhnXMjQCt30GqLTlsILRNVBYwFRbw/4Q==",
+        "shasum": "fb3ad350573ddea0ff7222adc98e9ecc4155b0d3",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.2.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22519,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBJdrA9LhsyiQdvVgBcuy1ztLETATJzU47sNtAwTKJ6EAiEAprKp5zvljykHvo4AwO0nQc94aw1BJ2oMF05s9cDqOBM="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.2_1691448563884_0.7319833313258939"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.3": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.3",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.3",
+        "@smithy/types": "^2.2.0",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/smithy-client": "^2.0.3",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "1f9fcad7015cdf639e98d4e951ceddc2a1ec11db",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.3",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-t9cirP55wYeSfDjjvPHSjNiuZj3wc9W3W3fjLXaVzuKKlKX98B9Vj7QM9WHJnFjJdsrYEwolLA8GVdqZeHOkHg==",
+        "shasum": "de860befc4571a7e0939b8668169890b43466de9",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.3.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22519,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDlvVUN5wZgp+F8kxKCzK3yBn5Mnk99/xfrIZ8e+cMavQIgC5IXveU4S51QHsR3Hh4sEzvMh6iVT66V0TUOX4XKbgo="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.3_1691773113690_0.9608272470050385"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.4": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.4",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.4",
+        "@smithy/types": "^2.2.1",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/smithy-client": "^2.0.4",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "a6a1389994d62ebfcdf9843f58f0d1739837af92",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.4",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-wGdnPt4Ng72duUd97HrlqVkq6DKVB/yjaGkSg5n3uuQKzzHjoi3OdjXGumD/VYPHz0dYd7wpLNG2CnMm/nfDrg==",
+        "shasum": "4f13f8aa06092eb6f8eff79f9a618e9c2ba3ea6f",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.4.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22519,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBIHHuCfRqC+qvd3zETlxF3Qcohen9D5q9YSCmh4M8vtAiEA/3xnwIsiE2bpfoBuSJko4iQ6psLSKj1ckw+W6h6KAQk="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.4_1692119183286_0.8041334311179749"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.5": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.5",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.5",
+        "@smithy/types": "^2.2.2",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/smithy-client": "^2.0.5",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "8f6e5a31335d5469b52bf39007d0c88e373cfa72",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.5",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-yciP6TPttLsj731aHTvekgyuCGXQrEAJibEwEWAh3kzaDsfGAVCuZSBlyvC2Dl3TZmHKCOQwHV8mIE7KQCTPuQ==",
+        "shasum": "36d5424749d324bd69f37c74ea20a183f8c2286e",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.5.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22519,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIG2ETnz8MXJ+EzRfPwo56+QJmT9l+A+UnHZ6huVixK5xAiAaw9vD4xC+g8BKZlrXky7cSPg44i7yFQCkVpe/+ugcPg=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.5_1692736981415_0.82142262224919"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.6": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.6",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.6",
+        "@smithy/types": "^2.2.2",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/smithy-client": "^2.0.5",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "e9a378b5b0f7537006c63c07b8d6ee87dbaffc1f",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.6",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-h8xyKTZIIom62DN4xbPUmL+RL1deZcK1qJGmCr4c2yXjOrs5/iZ1VtQQcl+xP78620ga/565AikZE1sktdg2yA==",
+        "shasum": "486279f7adff65db6d09c294b2e8a9641076c3a6",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.6.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22519,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCdOuvxTOxokC0ddWdkaPcOJXzalTPd4m4kS4DEp5qIFQIhAPJRQ0EZgLeQIPXDghqX/5KuTHLBy+v1mYo4Vs61Z0Tk"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.6_1693501601574_0.1926592136040155"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.7": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.7",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.7",
+        "@smithy/types": "^2.3.0",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/smithy-client": "^2.1.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "84ce53b4994faf09aa1cf8e0b9c245d214127b7c",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.7",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-s1caKxC7Y87Q72Goll//clZs2WNBfG9WtFDWVRS+Qgk147YPCOUYtkpuD0XZAh/vbayObFz5tQ1fiX4G19HSCA==",
+        "shasum": "322822e064450ec59e3ae288f3f2eed0a5acbfb1",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.7.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22519,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFzJpc/c1EQ/KjJHbrmC27KG83jJ4HcMnryoUa7AgQDGAiEAosIxKDdEm4czfF8BUM3T1cOQRlJ+aAzFveDS64T0wBM="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.7_1694036483130_0.5785985752174398"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.8": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.8",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.8",
+        "@smithy/types": "^2.3.1",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@smithy/smithy-client": "^2.1.4",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "a6d5a23bd699d8f6cb6f3bcb3eefcca254660595",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.8",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-8znx01mkmfKxhiSB2bOF5eMutuCLMd8m2Kh0ulRp8vgzhwRLDJoU6aHSEUoNptbuTAtiFf4u0gpkYC2XfbWwuA==",
+        "shasum": "3067bcb82976be628c737d1318df51ef37af82e4",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.8.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22519,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCxX+6W1wO8d82hFr2S3EeQWNmrX94QKc7FZyE1MlFojgIhAJOt6NkzLaKtbXhudTJfyEYklRcf6nMdzaxgYgxDNRHY"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.8_1694558654371_0.18618987268256837"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.9": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.9",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.9",
+        "@smithy/smithy-client": "^2.1.5",
+        "@smithy/types": "^2.3.2",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "ea85d88d954d15b262df6905ea0df221e8d2bcd4",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.9",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-JONLJVQWT8165XoSV36ERn3SVlZLJJ4D6IeGsCSePv65Uxa93pzSLE0UMSR9Jwm4zix7rst9AS8W5QIypZWP8Q==",
+        "shasum": "04b78cd4045b9516c5c92edf38fda614027c46ea",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.9.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22519,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC7nvIu/7rqLhbXpbd0uO80onmFG/O5noAspmMeG6WCSQIgUpR9hctJPw1DWkNgYolBSASwYyKKRyxvjp2fxf0ZcbQ="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.9_1694802872356_0.26937595471277453"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.10": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.10",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.10",
+        "@smithy/smithy-client": "^2.1.6",
+        "@smithy/types": "^2.3.3",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "4cc46d5a045177824b880e1227284e859e760dee",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.10",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-M5eaPn961jU2glZkqvmrVd6H4Tz4j1CJ2Kt8kjqMfcWZ4IQFgwPYbRkgND0W93dZXDmFU2GtuJGatwSmWIqxrA==",
+        "shasum": "5a9cfe73bb021b39dd3f591d1f2fc0ccd53d7f3f",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.10.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22521,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFT+r84BclUjE5dYWQ7UvLZqARIEVatGon3hzSqESUNPAiEAwjUJ4VCDRG1tISaRwfhF7zMqml7DzRz8M28UZuv8zFI="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.10_1695162471367_0.5162267496098012"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.11": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.11",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.10",
+        "@smithy/smithy-client": "^2.1.7",
+        "@smithy/types": "^2.3.3",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "c7640d3449366926a30fe8228b558239b89ff892",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.11",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-0syV1Mz/mCQ7CG/MHKQfH+w86xq59jpD0EOXv5oe0WBXLmq2lWPpVHl2Y6+jQ+/9fYzyZ5NF+NC/WEIuiv690A==",
+        "shasum": "46807747f3ca21a13770fc49e4bfb2bbc61a59c8",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.11.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22521,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQC0BP+t8Cmxh8crvRI3DCsXjoLlBazqijCcDnVK62lm0AIhAPDuSOVLcB3rUKiVb7Kh14zeoVJL9cJhCXNHNOF35Rl2"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.11_1695308972511_0.32141989547657945"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.12": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.12",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.11",
+        "@smithy/smithy-client": "^2.1.8",
+        "@smithy/types": "^2.3.4",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.12",
+      "gitHead": "b609df10ad503972e31c025fd059c8ce6044d816",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-BCsFPdNThMS2312/Zj3/TtFsXfO2BwkbDNsoWbdtZ0cAv9cE6vqGKllYXmq2Gj6u+Vv8V3wUgBUicNol6s/7Sg==",
+        "shasum": "38c040f11636cb17110c25c75a61bd5d83ced0b1",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.12.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22499,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCq0+RAfZUi38CsLf0xKRRBDILO/Vj/YG9qXR8+jJ0uvAIgScY1+L3HbP2G9c985eTaz+SyTU298iD1e+zALyHvGXw="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.12_1695923404911_0.055287444190761814"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.13": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.13",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.11",
+        "@smithy/smithy-client": "^2.1.9",
+        "@smithy/types": "^2.3.4",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.13",
+      "gitHead": "73d098dceb8490898154253f0f41bb876edb8cca",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-UmmOdUzaQjqdsl1EjbpEaQxM0VDFqTj6zDuI26/hXN7L/a1k1koTwkYpogHMvunDX3fjrQusg5gv1Td4UsGyog==",
+        "shasum": "8136955f1bef6e66cb8a8702693e7685dcd33e26",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.13.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22499,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAyo9ig9ogAc+itpl3YvgIbEdpYDmknER7pjH+wYs1d1AiAu1FLQraGEFSewYFIkUYcIaLMcTbPNy/POEpUmDWe91Q=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.13_1696284215359_0.9447282879976975"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.14": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.14",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.12",
+        "@smithy/smithy-client": "^2.1.10",
+        "@smithy/types": "^2.3.5",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.14",
+      "gitHead": "5fb6d4c68777a3d358158eddcb18d22da3fd5c8d",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-NupG7SWUucm3vJrvlpt9jG1XeoPJphjcivgcUUXhDJbUPy4F04LhlTiAhWSzwlCNcF8OJsMvZ/DWbpYD3pselw==",
+        "shasum": "e1c6f67277e5887eed8290d24c18175f2ae22b3d",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.14.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22500,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAqVEK/7Ze6EL1dG8pxgccfMyrg+dBhRjLpwL8ZwR+0bAiEAmWmMVznq0l7Cm2OxCF22hZwEHN8WgTfVHQ/5h6L3kPo="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.14_1696630494566_0.7498088169030515"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.15": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.15",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.12",
+        "@smithy/smithy-client": "^2.1.11",
+        "@smithy/types": "^2.3.5",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.15",
+      "gitHead": "fcc0c4602ff33b3f3e00e4ced42f85ffa57e38bc",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-2raMZOYKSuke7QlDg/HDcxQdrp0zteJ8z+S0B9Rn23J55ZFNK1+IjG4HkN6vo/0u3Xy/JOdJ93ibiBSB8F7kOw==",
+        "shasum": "0ab82d6e88dbebcca5e570678790a0160bd2619c",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.15.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22500,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDRdyPyjJz73+09qXqzqPqkLfqY55BYvt7OF47+G3sb2gIgbMbcE4SRN9aTJ3XFxPfd0orJ5PWhrM5SXdlemRPMuHA="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.15_1696957298659_0.6384285708970894"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.16": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.16",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.13",
+        "@smithy/smithy-client": "^2.1.12",
+        "@smithy/types": "^2.4.0",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {
+        "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.16",
+      "gitHead": "4c4d1bd13c9e6ba89cc75fa9c3df2aed63e3cb02",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-Uv5Cu8nVkuvLn0puX+R9zWbSNpLIR3AxUlPoLJ7hC5lvir8B2WVqVEkJLwtixKAncVLasnTVjPDCidtAUTGEQw==",
+        "shasum": "7d60c4e1d00ed569f47fd6343b822c4ff3c2c9f8",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.16.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22500,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIH3UK5zzXAgswlrtM9agxAr8+sIz06ekuB1NQROcMkXXAiEAxxETZg0PH1l57HreV63BK4cbdtUl9b253yb9sWM3JSE="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.16_1697750903314_0.43144863131623756"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.17": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.17",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.13",
+        "@smithy/smithy-client": "^2.1.13",
+        "@smithy/types": "^2.4.0",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {},
+      "browser": {},
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.17",
+      "gitHead": "a4b58b32ac2ae778917e276ba381527f551c2d3d",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-kAJNbe3n4PYOpudOUjcyZ3MZ8G3xWt/oV+lZp/y87Rmd5/evLEc5VVuEW6u030aY8L3Uw2PX6cVA5UuJBIN14Q==",
+        "shasum": "0593c4edffa7813e113b1b7b58645b992d8b09d9",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.17.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22426,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEacHEYofHc85ND+y6HhSu3IthIgiPT38r63S5s05DZTAiBbj0hnkZGvhdz2+OvbVsZZNdWR8yjdYOZCCx0E38Kz8w=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.17_1699642022743_0.6861181124212667"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.18": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.18",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.13",
+        "@smithy/smithy-client": "^2.1.14",
+        "@smithy/types": "^2.4.0",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {},
+      "browser": {},
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.18",
+      "gitHead": "85fd49d141c71379cd787775451f10cd6f7344e9",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-Dok3alNbkKI3MGTiW9zYGY/1gmU0MgrUMk0aRuNOeypY1TuKJ4NuNAbq5dv1GnWvYeFzWk4j0FMIwpJLF8DVmg==",
+        "shasum": "d756347d59801ef4500085eca5f577a7b6cecf42",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.18.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22426,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBiUsW0M4DZdu943xtNbaKG49Ipwl4WCVWrx7brf93m8AiEAz9B1NmiMDjerRAe16fKLfHvOagH0BadxVruMAoJG3nM="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.18_1699753633652_0.45293740711527564"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.19": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.19",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.14",
+        "@smithy/smithy-client": "^2.1.15",
+        "@smithy/types": "^2.5.0",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {},
+      "browser": {},
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.19",
+      "gitHead": "d1ff70d0d4fe18c3cb0198d6351312ed14932b46",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-VHP8xdFR7/orpiABJwgoTB0t8Zhhwpf93gXhNfUBiwAE9O0rvsv7LwpQYjgvbOUDDO8JfIYQB2GYJNkqqGWsXw==",
+        "shasum": "fe437b62e589812cf97b269e689b18f7bcb1d008",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.19.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22426,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCqOyCslE9CEet5Br6HJxEF5oDeBXJCbzJiy1r7IPXSfAIgYWLCFxL32STFAyI2DKjeoaWyClg2kXBoHTC7Atgywus="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.19_1699917757068_0.09108089457197432"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.20": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.20",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.15",
+        "@smithy/smithy-client": "^2.1.16",
+        "@smithy/types": "^2.6.0",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {},
+      "browser": {},
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.20",
+      "gitHead": "f802828bb1ef76990d5277e82c336b9750e4bc65",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-QJtnbTIl0/BbEASkx1MUFf6EaoWqWW1/IM90N++8NNscePvPf77GheYfpoPis6CBQawUWq8QepTP2QUSAdrVkw==",
+        "shasum": "efabf1c0dadd0d86340f796b761bf17b59dcf900",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.20.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22426,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDQmtvBMU3YJ3NE0kUZsAu55VUdrGMFVcbm4O3ISNPMsgIgBoMzkaGjDFaSiyvkjTbbmZ7K/1vxMg+bXJ4T5KShQ8Y="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.20_1700596009047_0.07920388839354309"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.21": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.21",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.16",
+        "@smithy/smithy-client": "^2.1.17",
+        "@smithy/types": "^2.7.0",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {},
+      "browser": {},
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.21",
+      "gitHead": "912961cb22a3310273fdf24806f294ccf23814c1",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-1/oLYsP0yE/eNXhIQ7K9RidhfsCQzvp0P5gIOquu1dX7sH/a0TcCXGR6UkxAufKeJlkEIZhhIVcKAh0PO+tX5A==",
+        "shasum": "fa524e43196b2ca415039c2dc44b2f37067ba235",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.21.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22436,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDurYqUCaZE6DYPeAV64X2YVH0UztMpi4ooEXY7VsFBFAiEA/LGjSN+KA2jbeyTyiXHtEj1xScuTna8bhSSDVKX25v4="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.21_1701792611134_0.7867015464999916"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.22": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.22",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.16",
+        "@smithy/smithy-client": "^2.1.18",
+        "@smithy/types": "^2.7.0",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {},
+      "browser": {},
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.22",
+      "gitHead": "6bada37c93e8d5fa851f4c9a8b5acd892c7b948d",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-qcF20IHHH96FlktvBRICDXDhLPtpVmtksHmqNGtotb9B0DYWXsC6jWXrkhrrwF7tH26nj+npVTqh9isiFV1gdA==",
+        "shasum": "8ef8c36b8c3c2f98f7a62278c3c684d659134269",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.22.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22436,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBnrS12m7CZO9R7jkD0CP1taKeiO0T6e+iEI13pb3ISiAiAZ1mhxKpCRcQ+V10R9tzfEYALQPSy5hvvACFVBOwm3jA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.22_1701798794277_0.3769877397332484"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.23": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.23",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.16",
+        "@smithy/smithy-client": "^2.2.0",
+        "@smithy/types": "^2.7.0",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {},
+      "browser": {},
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.23",
+      "gitHead": "685553fa31dcaf7d3247eb82707d345176cde010",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-2u+7t7Wgz1jlfsf6il3pz6DIzyJHS3qrnNnmATICm00pQeqp2D4kUOYauOgKGIeKgVpwzzq8+hFQe749r3xR5w==",
+        "shasum": "27bce42b7a55974ed4aff5b2b870256ce383613a",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.23.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22435,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDrzm+sCd3iuHSGy26tRDUvWdZHLdqGSPcz4GWVtJrK8QIgNasX0QEQZDgmRRMavG5p0+TLpwV5WADtyIHpi5Ue304="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.23_1703262658778_0.8359944272316258"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.24": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.0.24",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.0.17",
+        "@smithy/smithy-client": "^2.2.1",
+        "@smithy/types": "^2.8.0",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {},
+      "browser": {},
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.0.24",
+      "gitHead": "e3b13dda0891091282c27cd65cc72b87826753b6",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-TsP5mBuLgO2C21+laNG2nHYZEyUdkbGURv2tHvSuQQxLz952MegX95uwdxOY2jR2H4GoKuVRfdJq7w4eIjGYeg==",
+        "shasum": "bfa8fa441db0d0d309c11d091ca9746f2b8e4797",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.24.tgz",
+        "fileCount": 19,
+        "unpackedSize": 22435,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAticJ1qUWjlFrjb/aPXVNKxSbqm1E2Dc+kS4mGI7eiSAiEAsCi09PKrl6cabTd7bdlMJFyWdVN5GBk2lqOzfg7xnvg="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.0.24_1704222051564_0.909287910378926"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.0": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.1.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline util-defaults-mode-browser",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.1.0",
+        "@smithy/smithy-client": "^2.3.0",
+        "@smithy/types": "^2.9.0",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {},
+      "browser": {},
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.1.0",
+      "gitHead": "1d85e7dea4cfe19aaf555a26b7504e739acb9124",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-zmXL4aKeBGBz02kDZdks2QfG+HGq99Tp4/ICPmu2OvSbwTOLjmlCnUrtZJTmLhX4etP3o0voOL9gFEa2PSjlJg==",
+        "shasum": "c64a96d967d0ce0df11ace504ea8ae2989c13c62",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.1.0.tgz",
+        "fileCount": 19,
+        "unpackedSize": 23378,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICmmbi747zndJk2YFTWThtJe7cuFbqO/ssNkZlAtuTIhAiEAp+SDR5A5uqA2QddSE1aCnhvjtQsOwCyfHMsDt3dn2fg="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.1.0_1705530407082_0.6996714458244968"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.1": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.1.1",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline util-defaults-mode-browser",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.1.1",
+        "@smithy/smithy-client": "^2.3.1",
+        "@smithy/types": "^2.9.1",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {},
+      "browser": {},
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.1.1",
+      "gitHead": "3769699491dcc1bd5ace2973f2efdf6d85b37cf4",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-lqLz/9aWRO6mosnXkArtRuQqqZBhNpgI65YDpww4rVQBuUT7qzKbDLG5AmnQTCiU4rOquaZO/Kt0J7q9Uic7MA==",
+        "shasum": "be9ac82acee6ec4821b610e7187b0e147f0ba8ff",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.1.1.tgz",
+        "fileCount": 19,
+        "unpackedSize": 23362,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQD9IZjBO4AKW8KJ91FjDp+1Bh95XVHbxP7SJUPzxd9X9QIgRpT6kUjIMHFHr+lcQwbRIalkS4lbbjpz2yMc8snA8Ro="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.1.1_1705685485604_0.6386141069104261"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.2": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.1.2",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline util-defaults-mode-browser",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.1.2",
+        "@smithy/smithy-client": "^2.4.0",
+        "@smithy/types": "^2.10.0",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {},
+      "browser": {},
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.1.2",
+      "gitHead": "7baf4b118b55683e97208f262c5083184d99b095",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.1",
+      "_npmVersion": "10.2.4",
+      "dist": {
+        "integrity": "sha512-YmojdmsE7VbvFGJ/8btn/5etLm1HOQkgVX6nMWlB0yBL/Vb//s3aTebUJ66zj2+LNrBS3B9S+18+LQU72Yj0AQ==",
+        "shasum": "5f4c328605635656dee624a1686c7616aadccf4d",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.1.2.tgz",
+        "fileCount": 19,
+        "unpackedSize": 23363,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDiqjd+mHQS9MyXVXoqjnxLBXe/I5TYFj95sEB8hIdLkgIgVhskmugeG20cjYO9/hm3AOvIZFIomq96Dyb/LvQE8X8="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.1.2_1708636537750_0.4875007452116529"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.3": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.1.3",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline util-defaults-mode-browser",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.1.3",
+        "@smithy/smithy-client": "^2.4.1",
+        "@smithy/types": "^2.10.1",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {},
+      "browser": {},
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.1.3",
+      "gitHead": "3357fda448ea8cee3f7bfa7caeda2768a9751f8f",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.1",
+      "_npmVersion": "10.2.4",
+      "dist": {
+        "integrity": "sha512-VSAB+fOLo9/b3Aedi1lNxLPxHjzfMdppc9IpD7rsKN51EkJJzDuqmZu18zC1Jpkmxig21BYFqMTH49i5d7Lsgw==",
+        "shasum": "600745449db8963c411622a2b7b75dba55bc3f33",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.1.3.tgz",
+        "fileCount": 19,
+        "unpackedSize": 23363,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCGes1tGS8g81WAUxWnfuJ4Rv19TlQznonxfa74OdoyAQIhAO1dXiXAcRSMZ9N48PA04B/U9TvywKZiNjNB78D8x9m6"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.1.3_1709057595799_0.014836405168003886"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.4": {
+      "name": "@smithy/util-defaults-mode-browser",
+      "version": "2.1.4",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline util-defaults-mode-browser",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/property-provider": "^2.1.3",
+        "@smithy/smithy-client": "^2.4.2",
+        "@smithy/types": "^2.10.1",
+        "bowser": "^2.11.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "react-native": {},
+      "browser": {},
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-defaults-mode-node"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-defaults-mode-browser@2.1.4",
+      "gitHead": "beea4499bec986f091cdea47e5f8d7c69a3b6000",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.1",
+      "_npmVersion": "10.2.4",
+      "dist": {
+        "integrity": "sha512-J6XAVY+/g7jf03QMnvqPyU+8jqGrrtXoKWFVOS+n1sz0Lg8HjHJ1ANqaDN+KTTKZRZlvG8nU5ZrJOUL6VdwgcQ==",
+        "shasum": "e3e85f44480bf8c83a2e22247dd5a7a820ceb655",
+        "tarball": "https://registry.npmjs.org/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.1.4.tgz",
+        "fileCount": 19,
+        "unpackedSize": 23363,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDPjZuRbkpwJcNMbL8KUdkhq5OBTshYzC+D1Rs5o4N8uAiEA+/w8f+a15tBcUwaKg7Y3fPNg5gc0baYl8RFe449/U0c="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-defaults-mode-browser_2.1.4_1709079420996_0.5091139837077578"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2023-06-19T22:00:52.144Z",
+    "1.0.0": "2023-06-19T22:00:52.423Z",
+    "modified": "2024-02-28T00:17:02.049Z",
+    "1.0.1": "2023-06-20T20:14:05.571Z",
+    "1.0.2": "2023-07-06T16:24:49.498Z",
+    "1.0.3": "2023-07-24T19:54:25.834Z",
+    "1.1.0": "2023-07-24T20:51:47.574Z",
+    "2.0.0": "2023-07-24T21:28:52.495Z",
+    "2.0.1": "2023-07-25T17:40:08.405Z",
+    "2.0.2": "2023-08-07T22:49:24.030Z",
+    "2.0.3": "2023-08-11T16:58:33.844Z",
+    "2.0.4": "2023-08-15T17:06:23.471Z",
+    "2.0.5": "2023-08-22T20:43:01.688Z",
+    "2.0.6": "2023-08-31T17:06:41.734Z",
+    "2.0.7": "2023-09-06T21:41:23.283Z",
+    "2.0.8": "2023-09-12T22:44:14.591Z",
+    "2.0.9": "2023-09-15T18:34:32.497Z",
+    "2.0.10": "2023-09-19T22:27:51.534Z",
+    "2.0.11": "2023-09-21T15:09:32.715Z",
+    "2.0.12": "2023-09-28T17:50:05.117Z",
+    "2.0.13": "2023-10-02T22:03:35.531Z",
+    "2.0.14": "2023-10-06T22:14:54.836Z",
+    "2.0.15": "2023-10-10T17:01:38.951Z",
+    "2.0.16": "2023-10-19T21:28:23.572Z",
+    "2.0.17": "2023-11-10T18:47:02.899Z",
+    "2.0.18": "2023-11-12T01:47:13.864Z",
+    "2.0.19": "2023-11-13T23:22:37.259Z",
+    "2.0.20": "2023-11-21T19:46:49.253Z",
+    "2.0.21": "2023-12-05T16:10:11.333Z",
+    "2.0.22": "2023-12-05T17:53:14.442Z",
+    "2.0.23": "2023-12-22T16:30:58.937Z",
+    "2.0.24": "2024-01-02T19:00:51.736Z",
+    "2.1.0": "2024-01-17T22:26:47.285Z",
+    "2.1.1": "2024-01-19T17:31:25.780Z",
+    "2.1.2": "2024-02-22T21:15:37.927Z",
+    "2.1.3": "2024-02-27T18:13:15.969Z",
+    "2.1.4": "2024-02-28T00:17:01.179Z"
+  },
+  "maintainers": [
+    {
+      "name": "smithy-team",
+      "email": "aws-smithy-team+npm@amazon.com"
+    },
+    {
+      "name": "trivikr-aws",
+      "email": "trivikr@amazon.com"
+    }
+  ],
+  "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https:/",
+  "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/util-defaults-mode-node",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awslabs/smithy-typescript.git",
+    "directory": "packages/util-defaults-mode-node"
+  },
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "bugs": {
+    "url": "https://github.com/awslabs/smithy-typescript/issues"
+  },
+  "license": "Apache-2.0",
+  "readme": "# @smithy/util-defaults-mode-browser\n\n[![NPM version](https://img.shields.io/npm/v/@smithy/util-defaults-mode-browser/latest.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser)\n[![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-defaults-mode-browser.svg)](https://www.npmjs.com/package/@smithy/util-defaults-mode-browser)\n\n> An internal package\n\n## Usage\n\nYou probably shouldn't, at least directly.\n",
+  "readmeFilename": "README.md"
+}
