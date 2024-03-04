@@ -1,0 +1,3307 @@
+{
+  "_id": "@smithy/hash-blob-browser",
+  "_rev": "27-d2719ff18c1d1b296cc5172b87679f73",
+  "name": "@smithy/hash-blob-browser",
+  "dist-tags": {
+    "latest": "2.1.3"
+  },
+  "versions": {
+    "1.0.0": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "1.0.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "workspace:^",
+        "@smithy/types": "workspace:^",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "workspace:^",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.73.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "gitHead": "7b4756d90d83f268fb714913ac816d3183b27361",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/hash-blob-browser@1.0.0",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-XHK4BQWO3MFGjt1ruP/PGDS1v9PRKFxqt9u3JEIfQsyNKFxccwj6ySQM+PTk59lVLr1nbyXyOxdnYUZWv94iHw==",
+        "shasum": "eeb47a8f9d7e7646bddf2c97236f0c6f3c4cde28",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-1.0.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 15098,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFm0i26BknoI7ckwoKOHA1ZEBgvXcrIctNbHXNbMDo5QAiB5SHg/GjOEsO663jj7MLBGySEuM9nfKF48fInzt1csbw=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_1.0.0_1687212040812_0.6036835614350919"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.1": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "1.0.1",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^1.0.1",
+        "@smithy/types": "^1.1.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^1.0.1",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.73.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "63b6fcdb83b164d2409c94a6304dccaec4f35022",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/hash-blob-browser@1.0.1",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-gKxJAvuqX6n33MTLr4shf0HZgJVlNAywyWt1RcGjOMYELJ+ntwkZnVUAh/22ZTZaX3m02Cjkyoa5ZiOP4QLvNA==",
+        "shasum": "9ca056c85b0591b103f000342814f52d394cd3fd",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-1.0.1.tgz",
+        "fileCount": 6,
+        "unpackedSize": 15144,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDGLxK8bIqGpD43ix5kMAMzutYzbg/nTIFfgFjxx8x7aAIhAJlkM3wQ4B5ZFj40ZgmkAz5ldJjX7lmB7YIRrOn9X7zQ"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_1.0.1_1687289195447_0.9908220695609535"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.2": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "1.0.2",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^1.0.2",
+        "@smithy/chunked-blob-reader-native": "^1.0.2",
+        "@smithy/types": "^1.1.1",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^1.0.2",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.73.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "95ddb42557074f1cfe11a4763f26e2da5c9d1f34",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/hash-blob-browser@1.0.2",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-6SFzZ18aZNplDTvmbUhaxB83TVPGhe0FEAQInYQIj2lQd5Qraw2/KEE8HIfW4UxqxcoTSb0aYS0PqdUhI+dttQ==",
+        "shasum": "c23b4a85540bdc3aea0e26e9fda8983b2a6006de",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-1.0.2.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15351,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCAcOTDSpyeum+gVTFnsMlxE00QQbjjWGNJA5PD0gA4aQIhAI/slKVNZngbCNCBiFk47Hped6P9s8Cahe6mwFCZH9rN"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_1.0.2_1688660678832_0.45457531063056966"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.3": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "1.0.3",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^1.0.2",
+        "@smithy/chunked-blob-reader-native": "^1.0.2",
+        "@smithy/types": "^2.0.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^1.0.2",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "72af08daf21ac83ec08cc604af511bc47e640b11",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/hash-blob-browser@1.0.3",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-/Wj7MdyzW3wOM4rxxw8tR2Y5mJQc3R12vEAB0z31VpQWtFqufWEv3l9Cax9ihK5M0KkrHtjS3W0R1TS/a+PAmg==",
+        "shasum": "ea2ea7b39ff80192c05794681e310dddfaa6c9bf",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-1.0.3.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15351,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGttScqXrR5kmSzJp+3+10oyksGCHaqrJ4nRHvFO74uWAiBqwzYzidK/aCxn2+3iBfW/FmFxZ7pnfoDRKVUAuPvHdw=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_1.0.3_1690228453056_0.46744160861040585"
+      },
+      "_hasShrinkwrap": false,
+      "deprecated": "Deprecated due to incompatible dependency."
+    },
+    "1.1.0": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "1.1.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^1.1.0",
+        "@smithy/chunked-blob-reader-native": "^1.1.0",
+        "@smithy/types": "^1.2.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^1.1.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "3502553d79fa14e35479d754a706f217b29739a4",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/hash-blob-browser@1.1.0",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-9dt+piziVY0rZQanHav5ud2VgVHL4+RMnsT9QZolgNFZcj9io5fkK+G946gxx1gCslG+40UO0vIvoaE1OGlmNw==",
+        "shasum": "637bdfd54c7107cfd6fcc4a76f93d9f08e098fc9",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-1.1.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15351,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBcSsMWkJRKmo7s+gOpgrjUNumIO7X8KkVnhpwZ2usIOAiEAj3oGrX+O86pya7vzmPuUL1n2++FGppvaKQfUtjN1POM="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_1.1.0_1690231896153_0.40940354750379426"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.0.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.0.0",
+        "@smithy/chunked-blob-reader-native": "^2.0.0",
+        "@smithy/types": "^2.0.1",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.0.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "6d015a4681600b57079a550f6789b75fb6e387ab",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/hash-blob-browser@2.0.0",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-PUJvNh6nUozk7yiPNfrshZYOTZz2YU3Ntz7bOCv5lJKdC04mzJWYRN5hoB1hhn2KPHzAiBFVdx0y28UTUJVyfw==",
+        "shasum": "7fb18757a9a5005ecf2980fbbaf06d913d6fbf4e",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.0.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15351,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDl0mptfSBZUx0iQyUSJLFH1CYzUpUb8ST6l8TJ2vDWfwIgFvU9FQKhZpW6UKsJ2wMcWzRHha2PFQE3KCp7szH7KPA="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.0.0_1690234123582_0.3753525263083084"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.1": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.0.1",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.0.0",
+        "@smithy/chunked-blob-reader-native": "^2.0.0",
+        "@smithy/types": "^2.0.2",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.0.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "632c5a5cb0b8ba0ef5f2bfc1f701cfb292fa79a1",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/hash-blob-browser@2.0.1",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-i/o2+sHb4jDRz5nf2ilTTbC0nVmm4LO//FbODCAB7pbzMdywxbZ6z+q56FmEa8R+aFbtApxQ1SJ3umEiNz6IPg==",
+        "shasum": "3755965d74e2438ed337f5e11cd4d332d8945a9e",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.0.1.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15351,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDYG6MpvNcdkoYhyYYheaQLh0oYnatXdxBnwfgeT0B1tAIhANc5zLZsTMdGg5wQtj2BXKXMPJw7xkmYCQBim2Gp/Qer"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.0.1_1690306797707_0.5579679655416994"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.2": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.0.2",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.0.0",
+        "@smithy/chunked-blob-reader-native": "^2.0.0",
+        "@smithy/types": "^2.1.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.0.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "4b0be91f301d5e2f8fca9c6a871c8c796e047d6f",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/hash-blob-browser@2.0.2",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-CmVGWbiyiEySGDRg3o2C3DLZYW+mH8fMoIEZrmwnBM8bQsepZGOME40tbpvv12BIhZIInJV8srMMHpQ6aKObLA==",
+        "shasum": "23a35029eea0832ff0c3ae0f89cd3c78385b68e9",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.0.2.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15351,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEdq/pJtv/nRnAZZ13wNXiChGncEywSv5sd+JUJn9NGIAiBGS85+KNrxwbVyod6Wr11tmM1EsfGDz3MqL0XsYOwRFw=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.0.2_1691448551926_0.4403313741356951"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.3": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.0.3",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.0.0",
+        "@smithy/chunked-blob-reader-native": "^2.0.0",
+        "@smithy/types": "^2.2.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.0.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "1f9fcad7015cdf639e98d4e951ceddc2a1ec11db",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/hash-blob-browser@2.0.3",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-YQywO2eGG4x3klQZ+R7G8X3oCgrzQaCNC3zYq7kcGibE2Z+q9Lzt3prYiODUwAihDJTCG09xHq1p9IW+z/fp+Q==",
+        "shasum": "6198dd0382e6ddc9d3f27f7b4f85252c12af054d",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.0.3.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15351,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDRjOXhFCKhFxP9iA9MwvWMarGvnLBLTSht90Mcioe3LwIhAJlPNSDkple/LKHmhHLvwgOKblxWkYy23s43dvtqgUKQ"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.0.3_1691773099636_0.516617855179764"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.4": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.0.4",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.0.0",
+        "@smithy/chunked-blob-reader-native": "^2.0.0",
+        "@smithy/types": "^2.2.1",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.0.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "a6a1389994d62ebfcdf9843f58f0d1739837af92",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/hash-blob-browser@2.0.4",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-5upzN7wnk+NBtL6rfJXT8NI1HPQKzz+i+qgaGqpfJ8I1OZaBJhYibRFY7s9mmVAi5ghetpvmDuvfwjvzZd2KRg==",
+        "shasum": "ad84dffc615138c80f52186d5aa854ad849ed278",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.0.4.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15351,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEmFrdgQ43IPDEMldxPW/1EGuPsjCfAoCyIIUBRcFT/KAiAutO9cIqHoMiPJynGAH0Rc6LYxH7G4V/MtN6jRR+WmQA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.0.4_1692119173354_0.8578631422174714"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.5": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.0.5",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.0.0",
+        "@smithy/chunked-blob-reader-native": "^2.0.0",
+        "@smithy/types": "^2.2.2",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.0.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "8f6e5a31335d5469b52bf39007d0c88e373cfa72",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/hash-blob-browser@2.0.5",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-ZVAUBtJXGf9bEko4/RwWcTK6d3b/ZmQMxJMrxOOcQhVDiqny9zI0mzgstO4Oxz3135R7S3V/bbGw3w3woCYpQg==",
+        "shasum": "5cc622f6d448f3e87134eb6d4c4b608b5a4e2002",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.0.5.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15351,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCIgqrp+7uZB0kJjk9RfjtpTQt2cJpYHDXP2pehQ6N5vAIhAK/YRkQiyZCn2l8s5nqeab0wbazkYcaS6Bm5Il52xJR/"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.0.5_1692736968891_0.40388435440919523"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.6": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.0.6",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.0.0",
+        "@smithy/chunked-blob-reader-native": "^2.0.0",
+        "@smithy/types": "^2.3.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.0.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "84ce53b4994faf09aa1cf8e0b9c245d214127b7c",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/hash-blob-browser@2.0.6",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-zmJCRb80WDthCZqQ9LiKeFUEmyPM9WUcd0jYa7tlU3p0LsDnaFKuUS+MT0uJehPGyUEicbi1KBdUmtoqEAQr1A==",
+        "shasum": "266373534b2dc5922cfd153ee881a535e4ef90d6",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.0.6.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15351,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICs2slY8AHJP3rb+ZuLO+jiKIS02whQY9TNlLw4uPgUrAiEApmw4uPKdt/1paGnIM+xyECKdn+5B3ztGZDngDvPty7Q="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.0.6_1694036470667_0.20121553044976936"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.7": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.0.7",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.0.0",
+        "@smithy/chunked-blob-reader-native": "^2.0.0",
+        "@smithy/types": "^2.3.1",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.0.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "a6d5a23bd699d8f6cb6f3bcb3eefcca254660595",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/hash-blob-browser@2.0.7",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-egXnfEZRGvovv7Bedkxy31/Pj2x+4FeskHBME32zNfp2/qiAQrDVNyU/7PBGkPIvuAAZYe0Loe8fZX7jhP0u9w==",
+        "shasum": "707a46e83114de4e608a574a98a434411231d1fa",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.0.7.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15351,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIC3/903DAdOy5FTNStBOuMflPn2uS96Kw7Shv1kB8vfHAiEAypU6SHQ+cF81w1KXOuS+cpEd7w3eM2KTA3xUxoK7NB8="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.0.7_1694558647711_0.2797461792055813"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.8": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.0.8",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.0.0",
+        "@smithy/chunked-blob-reader-native": "^2.0.0",
+        "@smithy/types": "^2.3.2",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.0.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "ea85d88d954d15b262df6905ea0df221e8d2bcd4",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/hash-blob-browser@2.0.8",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-IgvRlBMfg/qLg321a59T1yTdEEbaizLrEVsU3DHj65DAO4lFRMF5f+l7vuV+je6m1G9wSD5GQXLturX8qlGb4g==",
+        "shasum": "b12e767f14ad7c4e8c6f59b6a6fb8158f36b10d5",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.0.8.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15351,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCi+8MtQq3SOfXF/1VMM/YlSp+dip0QQHt8JQPjn4Kn1wIhAP4Li+TwAyhYoQpr1apw/Gasld+tBhPp2MjvokHfBIeM"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.0.8_1694802857080_0.7558950978828878"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.9": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.0.9",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.0.0",
+        "@smithy/chunked-blob-reader-native": "^2.0.0",
+        "@smithy/types": "^2.3.3",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.0.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "4cc46d5a045177824b880e1227284e859e760dee",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/hash-blob-browser@2.0.9",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-JNWOV1ci9vIg4U82klNr07bZXsA6OCumqHugpvZdvvn6cNGwTa4rvpS5FpPcqKeh3Rdg1rr4h8g+X6zyOamnZw==",
+        "shasum": "e02caf03bdd036343bc53883330a1b03fc26a34e",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.0.9.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15351,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHc4vG2BMwX7Yv06INnT47gjnoD9zHhuiaiaG0qrZv9mAiEAid+zuNxxokqei0MvWPQdcHOhdPYOU58xSfhySk365fc="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.0.9_1695162463524_0.7513469155409862"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.10": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.0.10",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.0.0",
+        "@smithy/chunked-blob-reader-native": "^2.0.0",
+        "@smithy/types": "^2.3.4",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.0.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/hash-blob-browser@2.0.10",
+      "gitHead": "b609df10ad503972e31c025fd059c8ce6044d816",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-U2+wIWWloOZ9DaRuz2sk9f7A6STRTlwdcv+q6abXDvS0TRDk8KGgUmfV5lCZy8yxFxZIA0hvHDNqcd25r4Hrew==",
+        "shasum": "fa761e02c9a21b9c4bf827139d65376d50356c69",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.0.10.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15323,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCpfNSvePI9oM8i3i65NL0hDTh3qw05qO+W5XTEFcXB3gIgNY9poTR+9etW/YV7sZeDDPIkfgXFKihyrrhc8B54AyY="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.0.10_1695923387853_0.4274954280920924"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.11": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.0.11",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.0.0",
+        "@smithy/chunked-blob-reader-native": "^2.0.0",
+        "@smithy/types": "^2.3.5",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.0.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/hash-blob-browser@2.0.11",
+      "gitHead": "5fb6d4c68777a3d358158eddcb18d22da3fd5c8d",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-/6vq/NiH2EN3mWdwcLdjVohP+VCng+ZA1GnlUdx959egsfgIlLWQvCyjnB2ze9Hr6VHV5XEFLLpLQH2dHA6Sgw==",
+        "shasum": "6bcd0ffc1f68427dff1d8051c893df92a36f3e7e",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.0.11.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15323,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCKHR4YhlHXqPJ6rbohGvcg/hLvKq923Z7lRs1ez48UdAIgKmc0nocVfPMc8M1UERYkGo0vPrFq+9QP3DZVGz1ooo8="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.0.11_1696630477530_0.13400065200201672"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.12": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.0.12",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.0.0",
+        "@smithy/chunked-blob-reader-native": "^2.0.0",
+        "@smithy/types": "^2.4.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.0.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/hash-blob-browser@2.0.12",
+      "gitHead": "4c4d1bd13c9e6ba89cc75fa9c3df2aed63e3cb02",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-riLnV16f27yyePX8UF0deRHAeccUK8SrOxyTykSTrnVkgS3DsjNapZtTbd8OGNKEbI60Ncdb5GwN3rHZudXvog==",
+        "shasum": "e030356ec480099db614adac8cc30f41a4f8a6ec",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.0.12.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15323,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICL2UgH2quDqhgzQOK/hoS6BfrYyN1AxPFd0L2NfREFCAiEAnOkxoT105g6w4cGbXA1vatwrSKTXM73Q9URaT0yXlh8="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.0.12_1697750893319_0.7003136304166224"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.13": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.0.13",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.0.0",
+        "@smithy/chunked-blob-reader-native": "^2.0.1",
+        "@smithy/types": "^2.4.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.0.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "browser": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/hash-blob-browser@2.0.13",
+      "gitHead": "a4b58b32ac2ae778917e276ba381527f551c2d3d",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-vZeV2dAzNrAet50eIHjKH9kh8fDZTX8ia6eMD9juzMVNd/a/VyEFvguQ2Uawp3Oj9+IUMSCcmkBaQMmc5RFIHg==",
+        "shasum": "19ed44718469325d5a6661e808b96466c4cfd1d4",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.0.13.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15408,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQC1jfyjna2cjuFhH8EA80AV+QoENDaww2zbxUQbD1pKjAIhALsP52seRJVHwdl24xYCQ4I40zB8OGILJH/41N4HZpRr"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.0.13_1699642020431_0.13961412989605337"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.14": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.0.14",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.0.0",
+        "@smithy/chunked-blob-reader-native": "^2.0.1",
+        "@smithy/types": "^2.5.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.0.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "browser": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/hash-blob-browser@2.0.14",
+      "gitHead": "d1ff70d0d4fe18c3cb0198d6351312ed14932b46",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-yWdghyPJIEqLYsaE7YVgd3YhM7jN4Pv6eJQvTomnMsz5K2qRBlpjUx3T9fKlElp1qdeQ7DNc3sAat4i9CUBO7Q==",
+        "shasum": "ec0650114432d123b62dfde90685a62f3d9252fc",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.0.14.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15408,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCX31YH7zqBCu9Zl6JvngUC8D5kinKU5rjqjakwWMaZhQIhAJ3adPgBCmgXv+AJu3F8U/VbT0uOJZgeoNrTL53PuVHD"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.0.14_1699917750741_0.5946759865761011"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.15": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.0.15",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.0.0",
+        "@smithy/chunked-blob-reader-native": "^2.0.1",
+        "@smithy/types": "^2.6.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.0.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "browser": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/hash-blob-browser@2.0.15",
+      "gitHead": "f802828bb1ef76990d5277e82c336b9750e4bc65",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-HX/7GIyPUT/HDWVYe2HYQu0iRnSYpF4uZVNhAhZsObPRawk5Mv0PbyluBgIFI2DDCCKgL/tloCYYwycff1GtQg==",
+        "shasum": "be745ea0e79333dbb2d2a26b4be04ce283636c98",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.0.15.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15408,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQClaMm2lK1REc8ZUKHNsO1iHgh4U8NGkLUXSBU8INIbUgIgaBqLh9twHiRgI2rEBhn3v+u+AYEtXkeLBmVhKzJLje4="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.0.15_1700596003470_0.295727615882742"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.16": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.0.16",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.0.0",
+        "@smithy/chunked-blob-reader-native": "^2.0.1",
+        "@smithy/types": "^2.7.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.0.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "browser": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/hash-blob-browser@2.0.16",
+      "gitHead": "912961cb22a3310273fdf24806f294ccf23814c1",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-cSYRi05LA7DZDwjB1HL0BP8B56eUNNeLglVH147QTXFyuXJq/7erAIiLRfsyXB8+GfFHkSS5BHbc76a7k/AYPA==",
+        "shasum": "6cd3686e79f3c8d96a129076073bf20d06293152",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.0.16.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15418,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDMmsLB8Pdc0PwPWWvJTyX+wt31esGxm7h3Qautu6JHBQIgUi6hbnIWLTt9BxlnxiB9bYDwpEvULuClHYSt1jeRYjo="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.0.16_1701792604848_0.10754814895232334"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.17": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.0.17",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.0.0",
+        "@smithy/chunked-blob-reader-native": "^2.0.1",
+        "@smithy/types": "^2.8.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.0.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "browser": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/hash-blob-browser@2.0.17",
+      "gitHead": "e3b13dda0891091282c27cd65cc72b87826753b6",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-/mPpv1sRiRDdjO4zZuO8be6eeabmg5AVgKDfnmmqkpBtRyMGSJb968fjRuHt+FRAsIGywgIKJFmUUAYjhsi1oQ==",
+        "shasum": "4249f1fba27cb7c40dbf1fa38a31e61dbf9149b9",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.0.17.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15418,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAKRmHtCO51Odha06HIFSeiK5Cy1JSGkxoIzUvRYBc0QAiEAgoDkJSOzl6/L65gqn3Af4BNrNCSE7LDCjYcfszEwRo4="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.0.17_1704222046040_0.8257600754751377"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.0": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.1.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline hash-blob-browser",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.1.0",
+        "@smithy/chunked-blob-reader-native": "^2.1.0",
+        "@smithy/types": "^2.9.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.1.0",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "browser": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/hash-blob-browser@2.1.0",
+      "gitHead": "1d85e7dea4cfe19aaf555a26b7504e739acb9124",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-MVlH6algsOuEaK745oSoymk7Tusny7AqP2bQ1yPzxJiWpHirHnzEzYP/aqZaZ4gWdSLMFF65WOwL6q2ijuKVgA==",
+        "shasum": "6ca196ae696130b423cd2e5ddf0d7069fd102c53",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.1.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 16444,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCXth08YpQgq5+1SyM/n8LCgEDvAj4nkCn+JfEGTUH17wIgdAIwh3pxVvzPWPEHATxgzCKm4vlBvOq2u+TB0t0LmxU="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.1.0_1705530399297_0.7381777960238405"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.1": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.1.1",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline hash-blob-browser",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.1.1",
+        "@smithy/chunked-blob-reader-native": "^2.1.1",
+        "@smithy/types": "^2.9.1",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.1.1",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "browser": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/hash-blob-browser@2.1.1",
+      "gitHead": "3769699491dcc1bd5ace2973f2efdf6d85b37cf4",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-jizu1+2PAUjiGIfRtlPEU8Yo6zn+d78ti/ZHDesdf1SUn2BuZW433JlPoCOLH3dBoEEvTgLvQ8tUGSoTTALA+A==",
+        "shasum": "f4571d4e2fbc2cc1869c443850e5409bf541ba25",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.1.1.tgz",
+        "fileCount": 7,
+        "unpackedSize": 16446,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQD+X8TFwShNXITXkQrfAP96Im1LDQZrEguiyUn+13aBtAIgECWNk3NX9JI3JVjHzRKX9Ey/bmvoKq3u3GVEioRTZDM="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.1.1_1705685450804_0.7313243771302096"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.2": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.1.2",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline hash-blob-browser",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.1.1",
+        "@smithy/chunked-blob-reader-native": "^2.1.1",
+        "@smithy/types": "^2.10.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.1.1",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "browser": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/hash-blob-browser@2.1.2",
+      "gitHead": "7baf4b118b55683e97208f262c5083184d99b095",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.1",
+      "_npmVersion": "10.2.4",
+      "dist": {
+        "integrity": "sha512-f8QHgOVSXeYsc4BLKWdfXRowKa2g9byAkAX5c7Ku89bi9uBquWLEVmKlYXFBlkX562Fkmp2YSeciv+zZuOrIOQ==",
+        "shasum": "0e57a302587f9833e45a036479149990f414cedc",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.1.2.tgz",
+        "fileCount": 7,
+        "unpackedSize": 16447,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDfchZazDhC6UsIKHgHGv7k5BMwj9A/lEexubBM6aSymQIhALCSjfihvM6djXgOAOYaGCk9TcP2PJk1KBF72llPfyQJ"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.1.2_1708636529913_0.3876455028952852"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.3": {
+      "name": "@smithy/hash-blob-browser",
+      "version": "2.1.3",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline hash-blob-browser",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "karma start karma.conf.js"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/chunked-blob-reader": "^2.1.1",
+        "@smithy/chunked-blob-reader-native": "^2.1.1",
+        "@smithy/types": "^2.10.1",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@aws-crypto/sha256-js": "3.0.0",
+        "@smithy/util-hex-encoding": "^2.1.1",
+        "@tsconfig/recommended": "1.0.1",
+        "@types/chai-as-promised": "^7.1.2",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "karma": "6.4.0",
+        "karma-chai": "0.1.0",
+        "karma-chrome-launcher": "3.1.1",
+        "karma-coverage": "2.2.0",
+        "karma-env-preprocessor": "0.1.1",
+        "karma-firefox-launcher": "2.1.2",
+        "karma-jasmine": "5.1.0",
+        "karma-mocha": "2.0.1",
+        "karma-sourcemap-loader": "0.3.8",
+        "karma-typescript": "5.5.3",
+        "karma-webpack": "5.0.0",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "webpack": "5.76.0",
+        "webpack-cli": "4.10.0"
+      },
+      "react-native": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader-native"
+      },
+      "browser": {
+        "@smithy/chunked-blob-reader": "@smithy/chunked-blob-reader"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/hash-blob-browser"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/hash-blob-browser@2.1.3",
+      "gitHead": "3357fda448ea8cee3f7bfa7caeda2768a9751f8f",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.1",
+      "_npmVersion": "10.2.4",
+      "dist": {
+        "integrity": "sha512-sHLTM5xQYw5Wxz07DFo+eh1PVC6P5+kazQRF1k5nsvOhZG5VnkIy4LZ7N0ZNWqJx16g9otGd5MvqUOpb3WWtgA==",
+        "shasum": "f63b391a8bedf640ad120d576c485a10f16c280b",
+        "tarball": "https://registry.npmjs.org/@smithy/hash-blob-browser/-/hash-blob-browser-2.1.3.tgz",
+        "fileCount": 7,
+        "unpackedSize": 16447,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDD2SjGZ8/nWd6C0duG0/WlPUhQyL6p5uH3PL6TSM/mzwIgHX9P9iV853n3SD5yb9wZFTLY7okcqUg2h5XNU9AQJ8c="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hash-blob-browser_2.1.3_1709057578161_0.7574381567532513"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2023-06-19T22:00:40.676Z",
+    "1.0.0": "2023-06-19T22:00:41.042Z",
+    "modified": "2024-02-27T18:12:58.781Z",
+    "1.0.1": "2023-06-20T19:26:35.598Z",
+    "1.0.2": "2023-07-06T16:24:39.012Z",
+    "1.0.3": "2023-07-24T19:54:13.215Z",
+    "1.1.0": "2023-07-24T20:51:36.309Z",
+    "2.0.0": "2023-07-24T21:28:43.781Z",
+    "2.0.1": "2023-07-25T17:39:57.889Z",
+    "2.0.2": "2023-08-07T22:49:12.090Z",
+    "2.0.3": "2023-08-11T16:58:19.802Z",
+    "2.0.4": "2023-08-15T17:06:13.578Z",
+    "2.0.5": "2023-08-22T20:42:49.112Z",
+    "2.0.6": "2023-09-06T21:41:11.003Z",
+    "2.0.7": "2023-09-12T22:44:07.900Z",
+    "2.0.8": "2023-09-15T18:34:17.224Z",
+    "2.0.9": "2023-09-19T22:27:43.716Z",
+    "2.0.10": "2023-09-28T17:49:48.021Z",
+    "2.0.11": "2023-10-06T22:14:37.721Z",
+    "2.0.12": "2023-10-19T21:28:13.548Z",
+    "2.0.13": "2023-11-10T18:47:00.651Z",
+    "2.0.14": "2023-11-13T23:22:30.902Z",
+    "2.0.15": "2023-11-21T19:46:43.613Z",
+    "2.0.16": "2023-12-05T16:10:05.005Z",
+    "2.0.17": "2024-01-02T19:00:46.245Z",
+    "2.1.0": "2024-01-17T22:26:39.448Z",
+    "2.1.1": "2024-01-19T17:30:50.992Z",
+    "2.1.2": "2024-02-22T21:15:30.118Z",
+    "2.1.3": "2024-02-27T18:12:58.326Z"
+  },
+  "maintainers": [
+    {
+      "name": "smithy-team",
+      "email": "aws-smithy-team+npm@amazon.com"
+    },
+    {
+      "name": "trivikr-aws",
+      "email": "trivikr@amazon.com"
+    }
+  ],
+  "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smi",
+  "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/hash-blob-browser",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awslabs/smithy-typescript.git",
+    "directory": "packages/hash-blob-browser"
+  },
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "bugs": {
+    "url": "https://github.com/awslabs/smithy-typescript/issues"
+  },
+  "license": "Apache-2.0",
+  "readme": "# @smithy/sha256-blob-browser\n\n[![NPM version](https://img.shields.io/npm/v/@smithy/hash-blob-browser/latest.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser)\n[![NPM downloads](https://img.shields.io/npm/dm/@smithy/hash-blob-browser.svg)](https://www.npmjs.com/package/@smithy/hash-blob-browser)\n\n> An internal package\n\n## Usage\n\nYou probably shouldn't, at least directly.\n",
+  "readmeFilename": "README.md"
+}

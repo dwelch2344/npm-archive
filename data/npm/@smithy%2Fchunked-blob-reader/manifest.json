@@ -1,0 +1,713 @@
+{
+  "_id": "@smithy/chunked-blob-reader",
+  "_rev": "6-0c3f5de0a9d5eaef793aa262c5977496",
+  "name": "@smithy/chunked-blob-reader",
+  "dist-tags": {
+    "latest": "2.1.1"
+  },
+  "versions": {
+    "1.0.0": {
+      "name": "@smithy/chunked-blob-reader",
+      "version": "1.0.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "tslib": "^2.5.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/chunked-blob-reader",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/chunked-blob-reader"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "gitHead": "7b4756d90d83f268fb714913ac816d3183b27361",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/chunked-blob-reader/latest.svg)](https://www.npmjs.com/package/@smithy/chunked-blob-reader) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/chunked-blob-reader.svg)](https://www.npmjs.com/packag",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/chunked-blob-reader@1.0.0",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-wHdL5Zhg+KodhwcOAhLCswRI7YZNt6UYvjEl6Cj48QCg1b0iqDV4uUaKzQpJsNev4WF2ukaXc2jFwS9DMVXKCw==",
+        "shasum": "b361089330f556eacf4f67068d58be8605d7ad60",
+        "tarball": "https://registry.npmjs.org/@smithy/chunked-blob-reader/-/chunked-blob-reader-1.0.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 15458,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIH64X0IUZThiO5cgfP+tJrmgDevqx5yC3cC6ybH94HvwAiEAstUEorSCR7n56NpG88PnGsKzEt2sgR/zQX+Srj8OoCw="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/chunked-blob-reader_1.0.0_1687212035822_0.20853520476250886"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.1": {
+      "name": "@smithy/chunked-blob-reader",
+      "version": "1.0.1",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "tslib": "^2.5.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/chunked-blob-reader",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/chunked-blob-reader"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "63b6fcdb83b164d2409c94a6304dccaec4f35022",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/chunked-blob-reader/latest.svg)](https://www.npmjs.com/package/@smithy/chunked-blob-reader) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/chunked-blob-reader.svg)](https://www.npmjs.com/packag",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/chunked-blob-reader@1.0.1",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-5cFQ9xLn0CbRxXhpWfnGMSGb9zdw2E8tvA9ACJ5arzyqDvE5gG9qluXgZvmr3BODp/P4ODXDjBjqSOm60eqcFg==",
+        "shasum": "382b49680bfb8d764c0af24d3164ce7047ea18f2",
+        "tarball": "https://registry.npmjs.org/@smithy/chunked-blob-reader/-/chunked-blob-reader-1.0.1.tgz",
+        "fileCount": 6,
+        "unpackedSize": 15519,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIG0y0KHCrouM4uuOvT0C0c4Gx0Cd0NWdNjJ/bu5Yo0BcAiEAx2d7Hk3lSOrQdMVcYHV126q9+micWE8/0b1bCMhbmPo="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/chunked-blob-reader_1.0.1_1687289190982_0.36573394177473695"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.2": {
+      "name": "@smithy/chunked-blob-reader",
+      "version": "1.0.2",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "tslib": "^2.5.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/chunked-blob-reader",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/chunked-blob-reader"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "95ddb42557074f1cfe11a4763f26e2da5c9d1f34",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/chunked-blob-reader/latest.svg)](https://www.npmjs.com/package/@smithy/chunked-blob-reader) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/chunked-blob-reader.svg)](https://www.npmjs.com/packag",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/chunked-blob-reader@1.0.2",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-B2x76NIPqC883lvnISprpO2eDlI41SznmoDTehoPbVpVcI2A7Nwg3nYA+p8XTpFF06cIFgjmOs9M0il2HquFQQ==",
+        "shasum": "be1d2c91a4430de371207c5f143228d4cd671eb0",
+        "tarball": "https://registry.npmjs.org/@smithy/chunked-blob-reader/-/chunked-blob-reader-1.0.2.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15695,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC0kcNyFLbouur/nyVok+OX6Ua9D3HNS918SL14Q1vfEgIgewj46DP+V0HZ6pAiDQre7dM7ETteBmEp3AkyCfrMCj4="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/chunked-blob-reader_1.0.2_1688660673817_0.6358606740874015"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.1.0": {
+      "name": "@smithy/chunked-blob-reader",
+      "version": "1.1.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "tslib": "^2.5.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/chunked-blob-reader",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/chunked-blob-reader"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "3502553d79fa14e35479d754a706f217b29739a4",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/chunked-blob-reader/latest.svg)](https://www.npmjs.com/package/@smithy/chunked-blob-reader) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/chunked-blob-reader.svg)](https://www.npmjs.com/packag",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/chunked-blob-reader@1.1.0",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-yU3BNPaWxWqV5z64vJ2sanu0j9BPzD1bxVm8Ab9MZ9AZc2lZQgoYOlPgKrrG2adRXpXddxFGuoJGgmNL8bIvgw==",
+        "shasum": "15a4421ef50b7e04f3f232dfce43c09b8f03303c",
+        "tarball": "https://registry.npmjs.org/@smithy/chunked-blob-reader/-/chunked-blob-reader-1.1.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15695,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDnfJqSIWkWRm35CAMs3oVmYr+ZJ/PIm5mSzS29aBkstgIgY1p5sy4onm2JPyG0aSE8m36lVJU64XF6pcWBnBypPt4="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/chunked-blob-reader_1.1.0_1690231891503_0.1100287691611217"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0": {
+      "name": "@smithy/chunked-blob-reader",
+      "version": "2.0.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "tslib": "^2.5.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/chunked-blob-reader",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/chunked-blob-reader"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "6d015a4681600b57079a550f6789b75fb6e387ab",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/chunked-blob-reader/latest.svg)](https://www.npmjs.com/package/@smithy/chunked-blob-reader) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/chunked-blob-reader.svg)](https://www.npmjs.com/packag",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/chunked-blob-reader@2.0.0",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-k+J4GHJsMSAIQPChGBrjEmGS+WbPonCXesoqP9fynIqjn7rdOThdH8FAeCmokP9mxTYKQAKoHCLPzNlm6gh7Wg==",
+        "shasum": "c44fe2c780eaf77f9e5381d982ac99a880cce51b",
+        "tarball": "https://registry.npmjs.org/@smithy/chunked-blob-reader/-/chunked-blob-reader-2.0.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 15695,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDyFd0RrbAvhW/NEWbnzTn2M9lcxLvqpQsIMX7o8CcEPAIhAKa9T/HALTLTb4zWXraFS5ovFn4zaKAaL/+ovxKHx4+Y"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/chunked-blob-reader_2.0.0_1690234119763_0.9896224302688552"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.0": {
+      "name": "@smithy/chunked-blob-reader",
+      "version": "2.1.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline chunked-blob-reader",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "tslib": "^2.5.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/chunked-blob-reader",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/chunked-blob-reader"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/chunked-blob-reader@2.1.0",
+      "gitHead": "1d85e7dea4cfe19aaf555a26b7504e739acb9124",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/chunked-blob-reader/latest.svg)](https://www.npmjs.com/package/@smithy/chunked-blob-reader) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/chunked-blob-reader.svg)](https://www.npmjs.com/packag",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-meKoKCIXxixSGzUGVXGc1lnn6cEM21XzknDfUmHopPCaYSgt86w3gaJSua8Gr3VYcSkkMTW2MyAygTXprLEOZQ==",
+        "shasum": "aa397b72db734d1f1ad93b313c06668d7f94917c",
+        "tarball": "https://registry.npmjs.org/@smithy/chunked-blob-reader/-/chunked-blob-reader-2.1.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 16637,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIG4ly3Z3D2/F6zbobaXRTou0vfTfjPWxanqw/6RknJ4cAiEA5aB4ZxLB2PlOAKQkiR0llmu94OyWldinNuQkkfn+1Dw="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/chunked-blob-reader_2.1.0_1705530395888_0.09182432573841481"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.1": {
+      "name": "@smithy/chunked-blob-reader",
+      "version": "2.1.1",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline chunked-blob-reader",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "tslib": "^2.5.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/chunked-blob-reader",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/chunked-blob-reader"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/chunked-blob-reader@2.1.1",
+      "gitHead": "3769699491dcc1bd5ace2973f2efdf6d85b37cf4",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/chunked-blob-reader/latest.svg)](https://www.npmjs.com/package/@smithy/chunked-blob-reader) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/chunked-blob-reader.svg)](https://www.npmjs.com/packag",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-NjNFCKxC4jVvn+lUr3Yo4/PmUJj3tbyqH6GNHueyTGS5Q27vlEJ1MkNhUDV8QGxJI7Bodnc2pD18lU2zRfhHlQ==",
+        "shasum": "997faba8e197e0cb9824dad30ae581466e386e57",
+        "tarball": "https://registry.npmjs.org/@smithy/chunked-blob-reader/-/chunked-blob-reader-2.1.1.tgz",
+        "fileCount": 7,
+        "unpackedSize": 16639,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICT8sWTNt0mb+UIKgkEpJGopAispt6nSEQmj58R4GbYLAiEA/NBR0RUlfgYqHNpqxvu4wq1YwKhiJ3sS7OafmweizLw="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/chunked-blob-reader_2.1.1_1705685440025_0.244593600168854"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2023-06-19T22:00:35.731Z",
+    "1.0.0": "2023-06-19T22:00:35.992Z",
+    "modified": "2024-01-19T17:30:40.391Z",
+    "1.0.1": "2023-06-20T19:26:31.148Z",
+    "1.0.2": "2023-07-06T16:24:34.001Z",
+    "1.1.0": "2023-07-24T20:51:31.678Z",
+    "2.0.0": "2023-07-24T21:28:39.938Z",
+    "2.1.0": "2024-01-17T22:26:36.028Z",
+    "2.1.1": "2024-01-19T17:30:40.191Z"
+  },
+  "maintainers": [
+    {
+      "name": "smithy-team",
+      "email": "aws-smithy-team+npm@amazon.com"
+    },
+    {
+      "name": "trivikr-aws",
+      "email": "trivikr@amazon.com"
+    }
+  ],
+  "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/chunked-blob-reader/latest.svg)](https://www.npmjs.com/package/@smithy/chunked-blob-reader) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/chunked-blob-reader.svg)](https://www.npmjs.com/packag",
+  "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/chunked-blob-reader",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awslabs/smithy-typescript.git",
+    "directory": "packages/chunked-blob-reader"
+  },
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "bugs": {
+    "url": "https://github.com/awslabs/smithy-typescript/issues"
+  },
+  "license": "Apache-2.0",
+  "readme": "# @smithy/chunked-blob-reader\n\n[![NPM version](https://img.shields.io/npm/v/@smithy/chunked-blob-reader/latest.svg)](https://www.npmjs.com/package/@smithy/chunked-blob-reader)\n[![NPM downloads](https://img.shields.io/npm/dm/@smithy/chunked-blob-reader.svg)](https://www.npmjs.com/package/@smithy/chunked-blob-reader)\n\n> An internal package\n\n## Usage\n\nYou probably shouldn't, at least directly.\n",
+  "readmeFilename": "README.md"
+}
