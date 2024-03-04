@@ -1,0 +1,623 @@
+{
+  "_id": "less-vars-to-js",
+  "_rev": "13-0f13dec5b70ad8bf729e68c1580559a8",
+  "name": "less-vars-to-js",
+  "description": "Read LESS variables from the contents of a file and returning them as a javascript object.",
+  "dist-tags": {
+    "latest": "1.3.0"
+  },
+  "versions": {
+    "1.0.0": {
+      "name": "less-vars-to-js",
+      "version": "1.0.0",
+      "description": "Read LESS variables from the contents of a file and returning them as a javascript object.",
+      "main": "dist/index.js",
+      "scripts": {
+        "clean": "rm -rf dist && mkdir dist",
+        "lint": "eslint --config .eslintrc.js src test",
+        "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+        "enforce-coverage": "babel-istanbul check-coverage --branches 100 --statements 100 --lines 100 --functions 100",
+        "test": "npm run lint && npm run test:unit && npm run enforce-coverage",
+        "test:dev": "mocha --compilers js:babel-register --watch --reporter spec",
+        "test:unit": "babel-node ./node_modules/.bin/babel-istanbul cover _mocha",
+        "build": "npm run clean && ./node_modules/.bin/babel -d dist/ src/",
+        "prepublish": "npm run build"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mjt01/less-vars-to-js.git"
+      },
+      "author": {
+        "name": "Michael Taranto"
+      },
+      "license": [
+        {
+          "type": "MIT",
+          "url": "http://mjt01.mit-license.org"
+        }
+      ],
+      "bugs": {
+        "url": "https://github.com/mjt01/less-vars-to-js/issues"
+      },
+      "homepage": "https://github.com/mjt01/less-vars-to-js#readme",
+      "devDependencies": {
+        "babel-cli": "^6.7.7",
+        "babel-eslint": "^6.0.3",
+        "babel-istanbul": "^0.8.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-register": "^6.7.2",
+        "chai": "^3.5.0",
+        "coveralls": "^2.11.9",
+        "eslint": "^2.8.0",
+        "eslint-plugin-mocha": "^2.2.0",
+        "mocha": "^2.4.5"
+      },
+      "gitHead": "cec2f63ed2f5e14938be5339bf9bfb9865a7f5b8",
+      "_id": "less-vars-to-js@1.0.0",
+      "_shasum": "a3a421967101409f20440601ed4caf396c876324",
+      "_from": ".",
+      "_npmVersion": "2.13.2",
+      "_nodeVersion": "0.10.40",
+      "_npmUser": {
+        "name": "mjt01",
+        "email": "michael.taranto@gmail.com"
+      },
+      "dist": {
+        "shasum": "a3a421967101409f20440601ed4caf396c876324",
+        "tarball": "https://registry.npmjs.org/less-vars-to-js/-/less-vars-to-js-1.0.0.tgz",
+        "integrity": "sha512-7+s8EGh/U3VTTP2urHIKwzqdnD1yyiYu5xyjTYrbqu2eoI2Vd3rqddzWoPQD+VlqThGeUY8nHM3rWX2GQrm48g==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQD25nZNVO1XQ9qmqoBfaDJPYyT02zvO+rt/R8YUDRr07wIhAKkZZ1T2/SW4x2u46IKUWTT4wkYrA6URgzyQojvLUpuE"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mjt01",
+          "email": "michael.taranto@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/less-vars-to-js-1.0.0.tgz_1461756986267_0.32775619928725064"
+      },
+      "directories": {}
+    },
+    "1.1.0": {
+      "name": "less-vars-to-js",
+      "version": "1.1.0",
+      "description": "Read LESS variables from the contents of a file and returning them as a javascript object.",
+      "main": "dist/index.js",
+      "scripts": {
+        "clean": "rm -rf dist && mkdir dist",
+        "lint": "eslint --config .eslintrc.js src test",
+        "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+        "enforce-coverage": "babel-istanbul check-coverage --branches 100 --statements 100 --lines 100 --functions 100",
+        "test": "npm run lint && npm run test:unit && npm run enforce-coverage",
+        "test:dev": "mocha --compilers js:babel-register --watch --reporter spec",
+        "test:unit": "babel-node ./node_modules/.bin/babel-istanbul cover _mocha",
+        "build": "npm run clean && ./node_modules/.bin/babel -d dist/ src/",
+        "prepublish": "npm run build"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mjt01/less-vars-to-js.git"
+      },
+      "author": {
+        "name": "Michael Taranto"
+      },
+      "license": [
+        {
+          "type": "MIT",
+          "url": "http://mjt01.mit-license.org"
+        }
+      ],
+      "bugs": {
+        "url": "https://github.com/mjt01/less-vars-to-js/issues"
+      },
+      "homepage": "https://github.com/mjt01/less-vars-to-js#readme",
+      "devDependencies": {
+        "babel-cli": "^6.7.7",
+        "babel-eslint": "^6.0.3",
+        "babel-istanbul": "^0.8.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-register": "^6.7.2",
+        "chai": "^3.5.0",
+        "coveralls": "^2.11.9",
+        "eslint": "^2.8.0",
+        "eslint-plugin-mocha": "^2.2.0",
+        "mocha": "^2.4.5"
+      },
+      "gitHead": "92f98124d954b09045f7b43206c4cb9ed178d1f6",
+      "_id": "less-vars-to-js@1.1.0",
+      "_shasum": "af9cf42376d27997118330f4471d8a3946bae0af",
+      "_from": ".",
+      "_npmVersion": "2.13.2",
+      "_nodeVersion": "0.10.40",
+      "_npmUser": {
+        "name": "mjt01",
+        "email": "michael.taranto@gmail.com"
+      },
+      "dist": {
+        "shasum": "af9cf42376d27997118330f4471d8a3946bae0af",
+        "tarball": "https://registry.npmjs.org/less-vars-to-js/-/less-vars-to-js-1.1.0.tgz",
+        "integrity": "sha512-Ehq7bIhMVoedYXrphXYEMlUpIBqm65b4S1IqYcX6nHVqK6GLy86w6ilTq11XTGUoVS8w99kB+UhWLPoKLccBhA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHYYdTsG+Pv8RgOt4KXgtUN6SEzGXMzaQaK80e0vTQs+AiBIPnkKl0FMWtNQ1T6eTjyQU+qx0lKfAVFFnImFOp9l5Q=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mjt01",
+          "email": "michael.taranto@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/less-vars-to-js-1.1.0.tgz_1461796431977_0.23440847708843648"
+      },
+      "directories": {}
+    },
+    "1.1.1": {
+      "name": "less-vars-to-js",
+      "version": "1.1.1",
+      "description": "Read LESS variables from the contents of a file and returning them as a javascript object.",
+      "main": "dist/index.js",
+      "scripts": {
+        "clean": "rm -rf dist && mkdir dist",
+        "lint": "eslint --config .eslintrc.js src test",
+        "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+        "enforce-coverage": "babel-istanbul check-coverage --branches 100 --statements 100 --lines 100 --functions 100",
+        "test": "npm run lint && npm run test:unit && npm run enforce-coverage",
+        "test:dev": "mocha --compilers js:babel-register --watch --reporter spec",
+        "test:unit": "babel-node ./node_modules/.bin/babel-istanbul cover _mocha",
+        "build": "npm run clean && ./node_modules/.bin/babel -d dist/ src/",
+        "prepublish": "npm run build"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mjt01/less-vars-to-js.git"
+      },
+      "author": {
+        "name": "Michael Taranto"
+      },
+      "license": [
+        {
+          "type": "MIT",
+          "url": "http://mjt01.mit-license.org"
+        }
+      ],
+      "bugs": {
+        "url": "https://github.com/mjt01/less-vars-to-js/issues"
+      },
+      "homepage": "https://github.com/mjt01/less-vars-to-js#readme",
+      "devDependencies": {
+        "babel-cli": "^6.7.7",
+        "babel-eslint": "^6.0.3",
+        "babel-istanbul": "^0.8.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-register": "^6.7.2",
+        "chai": "^3.5.0",
+        "coveralls": "^2.11.9",
+        "eslint": "^2.8.0",
+        "eslint-plugin-mocha": "^2.2.0",
+        "mocha": "^2.4.5"
+      },
+      "gitHead": "ea7a9603e177c055b12463456191dbcf004cf010",
+      "_id": "less-vars-to-js@1.1.1",
+      "_shasum": "3b72f8609581d731b4f1a001436cd2c5b7186953",
+      "_from": ".",
+      "_npmVersion": "2.13.2",
+      "_nodeVersion": "0.10.40",
+      "_npmUser": {
+        "name": "mjt01",
+        "email": "michael.taranto@gmail.com"
+      },
+      "dist": {
+        "shasum": "3b72f8609581d731b4f1a001436cd2c5b7186953",
+        "tarball": "https://registry.npmjs.org/less-vars-to-js/-/less-vars-to-js-1.1.1.tgz",
+        "integrity": "sha512-vyv5XE1G5np6sk19/O3INuBJaMF/dZuWtLoX+3llpoWgid1CY1VPfUjoPmV0epJ5MrsGIqvHViJLg2ayX2twhA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDEdUeohOX5LKMcVSg5AWkmkopZe7tRBGEDsQcwZ/mWagIgWURa3iYUooklugLScpP44XgwRlY0cNcztAz9yNmVxaw="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mjt01",
+          "email": "michael.taranto@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/less-vars-to-js-1.1.1.tgz_1461797625454_0.7196858606766909"
+      },
+      "directories": {}
+    },
+    "1.1.2": {
+      "name": "less-vars-to-js",
+      "version": "1.1.2",
+      "description": "Read LESS variables from the contents of a file and returning them as a javascript object.",
+      "main": "dist/index.js",
+      "scripts": {
+        "clean": "rm -rf dist && mkdir dist",
+        "lint": "eslint --config .eslintrc.js src test",
+        "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+        "enforce-coverage": "babel-istanbul check-coverage --branches 100 --statements 100 --lines 100 --functions 100",
+        "test": "npm run lint && npm run test:unit && npm run enforce-coverage",
+        "test:dev": "mocha --compilers js:babel-register --watch --reporter spec",
+        "test:unit": "babel-node ./node_modules/.bin/babel-istanbul cover _mocha",
+        "build": "npm run clean && ./node_modules/.bin/babel -d dist/ src/",
+        "prepublish": "npm run build"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mjt01/less-vars-to-js.git"
+      },
+      "author": {
+        "name": "Michael Taranto"
+      },
+      "license": [
+        {
+          "type": "MIT",
+          "url": "http://mjt01.mit-license.org"
+        }
+      ],
+      "bugs": {
+        "url": "https://github.com/mjt01/less-vars-to-js/issues"
+      },
+      "homepage": "https://github.com/mjt01/less-vars-to-js#readme",
+      "devDependencies": {
+        "babel-cli": "^6.7.7",
+        "babel-eslint": "^6.0.3",
+        "babel-istanbul": "^0.8.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-register": "^6.7.2",
+        "chai": "^3.5.0",
+        "coveralls": "^2.11.9",
+        "eslint": "^2.8.0",
+        "eslint-plugin-mocha": "^2.2.0",
+        "mocha": "^2.4.5"
+      },
+      "gitHead": "47d3d09527edbd2ca5a2bd150dfd92a3cb640342",
+      "_id": "less-vars-to-js@1.1.2",
+      "_shasum": "eef3e48e0ab8d0fb9a8b515753a2d7b502a9ab0c",
+      "_from": ".",
+      "_npmVersion": "3.8.6",
+      "_nodeVersion": "5.11.1",
+      "_npmUser": {
+        "name": "mjt01",
+        "email": "michael.taranto@gmail.com"
+      },
+      "dist": {
+        "shasum": "eef3e48e0ab8d0fb9a8b515753a2d7b502a9ab0c",
+        "tarball": "https://registry.npmjs.org/less-vars-to-js/-/less-vars-to-js-1.1.2.tgz",
+        "integrity": "sha512-obKQrnIfxlEzYUUwMgmM1PONVScRxYEPgjOesVHoqZJZMeGc3KUoaS/mEFtKh6hazlqKphTPSgpNp3uydJywcA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEJA+D72oyp7IsO1GwxfrMXbG19sww9StHCnhZfhRNc+AiBzcFIMR0kkX25oILUVhcSaajCMNGUcfPFjk33A3rShCA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mjt01",
+          "email": "michael.taranto@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/less-vars-to-js-1.1.2.tgz_1471950622460_0.6930179256014526"
+      },
+      "directories": {}
+    },
+    "1.2.0": {
+      "name": "less-vars-to-js",
+      "version": "1.2.0",
+      "description": "Read LESS variables from the contents of a file and returning them as a javascript object.",
+      "main": "dist/index.js",
+      "scripts": {
+        "clean": "rm -rf dist && mkdir dist",
+        "lint": "eslint --config .eslintrc.js src test",
+        "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+        "enforce-coverage": "babel-istanbul check-coverage --branches 100 --statements 100 --lines 100 --functions 100",
+        "test": "npm run lint && npm run test:unit && npm run enforce-coverage",
+        "test:dev": "mocha --compilers js:babel-register --watch --reporter spec",
+        "test:unit": "babel-node ./node_modules/.bin/babel-istanbul cover _mocha",
+        "build": "npm run clean && ./node_modules/.bin/babel -d dist/ src/",
+        "prepublish": "npm run build"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michaeltaranto/less-vars-to-js.git"
+      },
+      "author": {
+        "name": "Michael Taranto"
+      },
+      "license": [
+        {
+          "type": "MIT",
+          "url": "http://michaeltaranto.mit-license.org"
+        }
+      ],
+      "bugs": {
+        "url": "https://github.com/michaeltaranto/less-vars-to-js/issues"
+      },
+      "homepage": "https://github.com/michaeltaranto/less-vars-to-js#readme",
+      "devDependencies": {
+        "babel-cli": "^6.7.7",
+        "babel-eslint": "^6.0.3",
+        "babel-istanbul": "^0.8.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-register": "^6.7.2",
+        "chai": "^3.5.0",
+        "coveralls": "^2.11.9",
+        "eslint": "^2.8.0",
+        "eslint-plugin-mocha": "^2.2.0",
+        "mocha": "^2.4.5"
+      },
+      "gitHead": "408d751f2f562f4e5beb67bd88b6b4d13f1e6d7f",
+      "_id": "less-vars-to-js@1.2.0",
+      "_shasum": "a9cbccddd2b10d0b74f0017af168382c9e37cba1",
+      "_from": ".",
+      "_npmVersion": "4.2.0",
+      "_nodeVersion": "7.8.0",
+      "_npmUser": {
+        "name": "mjt01",
+        "email": "michael.taranto@gmail.com"
+      },
+      "dist": {
+        "shasum": "a9cbccddd2b10d0b74f0017af168382c9e37cba1",
+        "tarball": "https://registry.npmjs.org/less-vars-to-js/-/less-vars-to-js-1.2.0.tgz",
+        "integrity": "sha512-XqMpEhI/rA7EptyaLekeiin/1uIatgCpkB6DLvWMouQScE4pQW+FVnBewGtbypy0ozFiN0VQpn4Q4oTcERwgwA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDA7F1fTFBUWkxyHH0u8RZ4pRbuXiGcVVk1RRzxD9i23AiBGfpcln9eh9HRPELt1Rox4Qu87NNprm1CzvoJvEmKcIA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mjt01",
+          "email": "michael.taranto@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/less-vars-to-js-1.2.0.tgz_1502195468014_0.17480153660289943"
+      },
+      "directories": {}
+    },
+    "1.2.1": {
+      "name": "less-vars-to-js",
+      "version": "1.2.1",
+      "description": "Read LESS variables from the contents of a file and returning them as a javascript object.",
+      "main": "dist/index.js",
+      "scripts": {
+        "clean": "rm -rf dist && mkdir dist",
+        "lint": "eslint --config .eslintrc.js src test",
+        "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+        "enforce-coverage": "babel-istanbul check-coverage --branches 100 --statements 100 --lines 100 --functions 100",
+        "test": "npm run lint && npm run test:unit && npm run enforce-coverage",
+        "test:dev": "mocha --compilers js:babel-register --watch --reporter spec",
+        "test:unit": "babel-node ./node_modules/.bin/babel-istanbul cover _mocha",
+        "build": "npm run clean && ./node_modules/.bin/babel -d dist/ src/",
+        "prepublish": "npm run build"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michaeltaranto/less-vars-to-js.git"
+      },
+      "author": {
+        "name": "Michael Taranto"
+      },
+      "license": [
+        {
+          "type": "MIT",
+          "url": "http://michaeltaranto.mit-license.org"
+        }
+      ],
+      "bugs": {
+        "url": "https://github.com/michaeltaranto/less-vars-to-js/issues"
+      },
+      "homepage": "https://github.com/michaeltaranto/less-vars-to-js#readme",
+      "devDependencies": {
+        "babel-cli": "^6.7.7",
+        "babel-eslint": "^6.0.3",
+        "babel-istanbul": "^0.8.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-register": "^6.7.2",
+        "chai": "^3.5.0",
+        "coveralls": "^2.11.9",
+        "eslint": "^2.8.0",
+        "eslint-plugin-mocha": "^2.2.0",
+        "mocha": "^2.4.5"
+      },
+      "gitHead": "df4f63911fa52918b8834232f8e7eda1113bb8fc",
+      "_id": "less-vars-to-js@1.2.1",
+      "_shasum": "7d48f096a98f0cbad77d07a242bad2ff14f01934",
+      "_from": ".",
+      "_npmVersion": "4.2.0",
+      "_nodeVersion": "7.8.0",
+      "_npmUser": {
+        "name": "mjt01",
+        "email": "michael.taranto@gmail.com"
+      },
+      "dist": {
+        "shasum": "7d48f096a98f0cbad77d07a242bad2ff14f01934",
+        "tarball": "https://registry.npmjs.org/less-vars-to-js/-/less-vars-to-js-1.2.1.tgz",
+        "integrity": "sha512-S5EfHXdxLAgRZ/wSAU9zDx5OXjKbMeC5njADBmai0E2pn5Z6t/935XaRCtfESv7oUR99yTZxZKPpUZKiIYf4bQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBPUxxqGzGheeFIbtk62LqFq5ug8alFo3kP4wPQ1oPgtAiAwNqzFG2z6B+EaA7cC0jjh1vW8iUcZoGZPcm6N+eoNug=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mjt01",
+          "email": "michael.taranto@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/less-vars-to-js-1.2.1.tgz_1510735986421_0.08210792811587453"
+      },
+      "directories": {}
+    },
+    "1.3.0": {
+      "name": "less-vars-to-js",
+      "version": "1.3.0",
+      "description": "Read LESS variables from the contents of a file and returning them as a javascript object.",
+      "main": "dist/index.js",
+      "scripts": {
+        "clean": "rm -rf dist && mkdir dist",
+        "lint": "eslint --config .eslintrc.js src test",
+        "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+        "enforce-coverage": "babel-istanbul check-coverage --branches 100 --statements 100 --lines 100 --functions 100",
+        "pretest": "npm run lint",
+        "test": "npm run test:unit && npm run enforce-coverage",
+        "test:dev": "mocha --compilers js:babel-register --watch --reporter spec",
+        "test:unit": "babel-node ./node_modules/.bin/babel-istanbul cover _mocha",
+        "prebuild": "npm run clean",
+        "build": "babel -d dist/ src/",
+        "commit": "git-cz",
+        "commitmsg": "commitlint --edit --extends @commitlint/config-conventional",
+        "prepublishOnly": "npm run build",
+        "semantic-release": "semantic-release"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michaeltaranto/less-vars-to-js.git"
+      },
+      "author": {
+        "name": "Michael Taranto"
+      },
+      "licenses": [
+        {
+          "type": "MIT",
+          "url": "http://michaeltaranto.mit-license.org"
+        }
+      ],
+      "bugs": {
+        "url": "https://github.com/michaeltaranto/less-vars-to-js/issues"
+      },
+      "homepage": "https://github.com/michaeltaranto/less-vars-to-js#readme",
+      "devDependencies": {
+        "@commitlint/cli": "^7.0.0",
+        "@commitlint/config-conventional": "^7.0.1",
+        "babel-cli": "^6.7.7",
+        "babel-eslint": "^6.0.3",
+        "babel-istanbul": "^0.8.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-register": "^6.7.2",
+        "chai": "^3.5.0",
+        "commitizen": "^2.10.1",
+        "coveralls": "^2.11.9",
+        "cz-conventional-changelog": "^2.1.0",
+        "eslint": "^2.8.0",
+        "eslint-plugin-mocha": "^2.2.0",
+        "husky": "^0.14.3",
+        "mocha": "^2.4.5",
+        "semantic-release": "^15.9.8"
+      },
+      "dependencies": {
+        "strip-json-comments": "^2.0.1"
+      },
+      "engines": {
+        "node": ">=8"
+      },
+      "config": {
+        "commitizen": {
+          "path": "./node_modules/cz-conventional-changelog"
+        }
+      },
+      "gitHead": "7844ed3d135202ee343d7d607d875c798b705db3",
+      "_id": "less-vars-to-js@1.3.0",
+      "_npmVersion": "6.3.0",
+      "_nodeVersion": "8.11.3",
+      "_npmUser": {
+        "name": "mjt01",
+        "email": "michael.taranto@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-xeiLLn/IMCGtdyCkYQnW8UuzoW2oYMCKg9boZRaGI58fLz5r90bNJDlqGzmVt/1Uqk75/DxIVtQSNCMkE5fRZQ==",
+        "shasum": "c322cf43a3c8fc3fab655da3e51a14c1499ab571",
+        "tarball": "https://registry.npmjs.org/less-vars-to-js/-/less-vars-to-js-1.3.0.tgz",
+        "fileCount": 16,
+        "unpackedSize": 55271,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbchXHCRA9TVsSAnZWagAAsQgP/R2kd8NFDCMjbOUpnFMp\n3FyFJXuJ+3x458565ZtfLcVZbHMczqXj3V41Scq6SujRLYqLnvq6SmK50Ihx\ne8Tb+bYk8TRaA94k65VVsWPWn28gcUmJgDWng7MDVuGvol2S1HWPVNsHiA8c\nyhWL8FQADhTu1C56490BDSeqhe62hDdbJyZt9TkUiURQEVkjMif3LB0WsMNB\nWWzjZzSqOJCTl9aTaAUh5E1tFZE5F+GaFoKh00DhLLY6YWHnQdIJ+kfu+s22\nnJZIjGsMB1us5+WGAKMehFAIouHbLj0hENU+r51aO1ly4rYCs3GuT414K7Mv\nDpQZDFTtdwGXuOL9FeeLOM6l7piN+hUJuWYsV2mkrDjNJsOfJCg/7wrO83Gz\n5BGPCb/pWRsn6VOFMwSWr+RdC36PfJ7R05kTQoMRW4GunvqNc6tczhoDOm8A\nHValcyet2y3QSUouguvai6KsA+r8LuI9sH8zCoYD8FbvrBvR7OOeyG9xm64D\nNm1x226KEbRtFWeMhKlst3LFogt6dDDceLO/AQuytGl8hVecNbJ1SFjhLPAS\n2M+CoHWUro9stEGuUWW5ctaQSQJexyI5ysPM+EksS6YFvg79QDo7PilMGOfW\nH1j1fu31CIY+e6oOkJYzJhBlGhFsSYALpPz2ComQ3PBZVNgICBU+6Fi7YFn6\nkM6D\r\n=qLIs\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCdb2mS5BgmBPXsHV6x9JfX/RDx3+MycOpU4ebB9P71KgIgMB7L60LgSsQ5ooMQgnj7xgwhvPoxhiOPCTrOeBfw7zE="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mjt01",
+          "email": "michael.taranto@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/less-vars-to-js_1.3.0_1534203335086_0.6823351186599214"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "readme": "[![Build Status](https://img.shields.io/travis/michaeltaranto/less-vars-to-js/master.svg?style=flat-square)](https://travis-ci.org/michaeltaranto/less-vars-to-js)\n[![Coverage Status](https://img.shields.io/coveralls/michaeltaranto/less-vars-to-js.svg?style=flat-square)](https://coveralls.io/github/michaeltaranto/less-vars-to-js?branch=master)\n[![npm](https://img.shields.io/npm/v/less-vars-to-js.svg?style=flat-square)](https://www.npmjs.com/package/less-vars-to-js) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)\n# less-vars-to-js\nRead [LESS](http://lesscss.org/) variables from the contents of a file and return them as a javascript object.\n```js\n$ npm install --save less-vars-to-js\n```\n\n### Why?\nI wrote this to use in our living style guide where we document our colour palette, typography, grid, components etc. This allows variables to be visualised in the style guide without having to read through the code (useful for non-technical team members).\n\n### What does it do?\nTakes in the contents of a less file as a `string` and returns an `object` containing all the variables it found. It is deliberately naive as it is not intending to be a less parser. Basically it reads anything starting with an `@`, so it will ignore comments, rule definitions, import statements etc.\n\nExample :\n```less\n@import (reference) \"theme\";\n\n// Colour palette\n@blue: #0d3880;\n@pink: #e60278;\n\n// Elements\n@background: @gray;\n@favourite: blanchedalmond;\n\n// Grid\n@row-height: 9;\n\n.element {\n  @foreground: black;\n  color: @foreground;\n}\n```\nExample output:\n```json\n{\n  \"@blue\": \"#0d3880\",\n  \"@pink\": \"#e60278\",\n  \"@background\": \"@gray\",\n  \"@favourite\": \"blanchedalmond\",\n  \"@row-height\": 9,\n  \"@foreground\": \"black\"\n}\n```\n**Note:** while it does return variables it finds within rules, it is recommended to use this on files containing only variables, as it's not a parser and is designed to extract design principles for style guides.\n\n### Options\n| Option            | Effect                                                                                                       |\n| ----------------- | ------------------------------------------------------------------------------------------------------------ |\n| resolveVariables  | Resolves variables when they are defined in the same file.                                                   |\n| dictionary        | When `resolveVariables` is true, passes an object to use when the value cannot be resolved in the same file. |\n| stripPrefix       | Removes the `@` or `$` in the returned object keys.                                                          |\n\n### Usage\n```js\nimport lessToJs from 'less-vars-to-js';\nimport fs from 'fs';\n\n// Read the less file in as string\nconst paletteLess = fs.readFileSync('palette.less', 'utf8');\n\n// Pass in file contents\nconst palette = lessToJs(paletteLess, {resolveVariables: true, stripPrefix: true});\n\n// Use the variables (example React component)\nexport default class Palette extends Component {\n  render() {\n    return (\n      <div>\n      {\n        Object.keys(palette)\n          .forEach(colour => (\n            <div style={{ backgroundColor: palette[colour] }}>\n              <p>{ colour }</p>\n              <p>{ palette[colour] }</p>\n            </div>\n          ))\n      }\n      </div>\n    );\n  }\n}\n```\n\n### License\n\n[MIT](http://michaeltaranto.mit-license.org)\n",
+  "maintainers": [
+    {
+      "name": "mjt01",
+      "email": "michael.taranto@gmail.com"
+    }
+  ],
+  "time": {
+    "modified": "2022-06-19T11:42:00.247Z",
+    "created": "2016-04-27T11:36:28.470Z",
+    "1.0.0": "2016-04-27T11:36:28.470Z",
+    "1.1.0": "2016-04-27T22:33:54.375Z",
+    "1.1.1": "2016-04-27T22:53:45.880Z",
+    "1.1.2": "2016-08-23T11:10:25.887Z",
+    "1.2.0": "2017-08-08T12:31:08.378Z",
+    "1.2.1": "2017-11-15T08:53:07.222Z",
+    "1.3.0": "2018-08-13T23:35:35.191Z"
+  },
+  "homepage": "https://github.com/michaeltaranto/less-vars-to-js#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaeltaranto/less-vars-to-js.git"
+  },
+  "author": {
+    "name": "Michael Taranto"
+  },
+  "bugs": {
+    "url": "https://github.com/michaeltaranto/less-vars-to-js/issues"
+  },
+  "readmeFilename": "README.md",
+  "users": {
+    "hyteer": true,
+    "coinoperatedgoi": true,
+    "vincentlau": true
+  }
+}

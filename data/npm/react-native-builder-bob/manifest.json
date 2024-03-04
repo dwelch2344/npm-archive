@@ -1,0 +1,2511 @@
+{
+  "_id": "react-native-builder-bob",
+  "_rev": "23-16ad337b257e2b73e522a98723b056c4",
+  "name": "react-native-builder-bob",
+  "dist-tags": {
+    "latest": "0.23.2"
+  },
+  "versions": {
+    "0.17.0": {
+      "name": "react-native-builder-bob",
+      "version": "0.17.0",
+      "description": "CLI to build JavaScript files for React Native libraries",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/callstack/react-native-builder-bob.git"
+      },
+      "homepage": "https://github.com/callstack/react-native-builder-bob/blob/main/README.md",
+      "author": {
+        "name": "Satyajit Sahoo",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "license": "MIT",
+      "main": "src/index.js",
+      "bin": {
+        "bob": "bin/bob"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+      },
+      "scripts": {
+        "lint": "eslint \"**/*.{js,ts,tsx}\"",
+        "typescript": "tsc --noEmit",
+        "build": "babel --extensions .ts,.tsx src --out-dir lib --ignore '**/__tests__/**' --source-maps --delete-dir-on-start",
+        "watch": "concurrently 'yarn typescript --watch' 'yarn build --watch'",
+        "prepare": "yarn build",
+        "release": "release-it"
+      },
+      "dependencies": {
+        "@babel/core": "^7.12.10",
+        "@babel/plugin-proposal-class-properties": "^7.12.1",
+        "@babel/preset-env": "^7.12.11",
+        "@babel/preset-flow": "^7.12.1",
+        "@babel/preset-react": "^7.12.10",
+        "@babel/preset-typescript": "^7.12.7",
+        "browserslist": "^4.16.0",
+        "chalk": "^4.1.0",
+        "cosmiconfig": "^7.0.0",
+        "cross-spawn": "^7.0.3",
+        "dedent": "^0.7.0",
+        "del": "^6.0.0",
+        "ejs": "^3.1.5",
+        "fs-extra": "^9.0.1",
+        "github-username": "^5.0.1",
+        "glob": "^7.1.6",
+        "is-git-dirty": "^2.0.1",
+        "json5": "^2.1.3",
+        "prompts": "^2.4.0",
+        "validate-npm-package-name": "^3.0.0",
+        "which": "^2.0.2",
+        "yargs": "^16.2.0",
+        "jetifier": "^1.6.6"
+      },
+      "optionalDependencies": {
+        "jetifier": "^1.6.6"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.12.10",
+        "@commitlint/config-conventional": "^11.0.0",
+        "@release-it/conventional-changelog": "^2.0.0",
+        "@types/babel__core": "^7.1.12",
+        "@types/browserslist": "^4.8.0",
+        "@types/chalk": "^2.2.0",
+        "@types/cross-spawn": "^6.0.2",
+        "@types/dedent": "^0.7.0",
+        "@types/del": "^4.0.0",
+        "@types/ejs": "^3.0.5",
+        "@types/fs-extra": "^9.0.5",
+        "@types/glob": "^7.1.3",
+        "@types/json5": "^0.0.30",
+        "@types/prompts": "^2.0.9",
+        "@types/validate-npm-package-name": "^3.0.2",
+        "@types/which": "^1.3.2",
+        "@types/yargs": "^15.0.12",
+        "commitlint": "^11.0.0",
+        "concurrently": "^5.3.0",
+        "eslint": "^7.15.0",
+        "eslint-config-satya164": "^3.1.8",
+        "husky": "^4.3.6",
+        "prettier": "^2.2.1",
+        "release-it": "^14.2.2",
+        "typescript": "^4.1.3"
+      },
+      "husky": {
+        "hooks": {
+          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+          "pre-commit": "yarn lint && yarn typescript"
+        }
+      },
+      "commitlint": {
+        "extends": [
+          "@commitlint/config-conventional"
+        ]
+      },
+      "release-it": {
+        "git": {
+          "commitMessage": "chore: release ${version}",
+          "tagName": "v${version}"
+        },
+        "npm": {
+          "publish": true
+        },
+        "github": {
+          "release": true
+        },
+        "plugins": {
+          "@release-it/conventional-changelog": {
+            "preset": "angular"
+          }
+        }
+      },
+      "eslintConfig": {
+        "extends": "satya164",
+        "env": {
+          "node": true
+        }
+      },
+      "eslintIgnore": [
+        "node_modules/",
+        "coverage/",
+        "lib/",
+        "templates/"
+      ],
+      "prettier": {
+        "singleQuote": true,
+        "tabWidth": 2,
+        "trailingComma": "es5",
+        "useTabs": false
+      },
+      "gitHead": "4d5d6ba4c373ad935e567275e6b36c5e5ad59761",
+      "bugs": {
+        "url": "https://github.com/callstack/react-native-builder-bob/issues"
+      },
+      "_id": "react-native-builder-bob@0.17.0",
+      "_nodeVersion": "12.17.0",
+      "_npmVersion": "6.14.4",
+      "dist": {
+        "integrity": "sha512-0+5sSED2fedu5E12SemmjCwy7BrFWcOaVl5dVSRr3njlo0Z59oNiL+6s0cdhLqtaSEVuhEU+9RbE8ns+3vlaww==",
+        "shasum": "2655426c7eb47c90f6f7e653bcda3c67f9480beb",
+        "tarball": "https://registry.npmjs.org/react-native-builder-bob/-/react-native-builder-bob-0.17.0.tgz",
+        "fileCount": 135,
+        "unpackedSize": 423709,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJf2i8zCRA9TVsSAnZWagAA9gAP/RFe+Kj8cghLW6js13vh\nRRpr3ey2UkRX/R9me/gYYqxOpjZpfQKVxFoC427t41KeMQSOs82gqE/xklBf\n+3Rn/qO4DNTqOHaar8qPPDHM+LAlILtkwL5OohTFX4hOAJlmVTawUpPAdN9F\nnngkMJelakL0//cAE/tGk+yqEnbAPdwAn9z6HtFRAaGEycUegIqclln2DRSo\nubyCPyu+NJO2Ya4NZ5raBlkdow6DryQUtq4AwvBYdu95rWR47dhtoJ+VeNCX\n0O1nTHmlloYxv1U2qDrHVS6kAxxNeWwZnmj62eZ7CrCnRDDpDedPwaSClzjm\nJqaih7XW47yKYlx+/HH8ddbrfWcX7z2x23oh1mxGFHeXGYecZ/uBy9MxP8D/\nYxuXrm83QsTeoFWO9tpprGxTtGtelCCfdOhkZ/xSrZXASELUpqJAqmGI8Tqk\nTApa+vwmxs6AEwrceVEEdEtO97W4rUbn+0KmC28Krs97JrzDBbtZ5gc08QR4\nYrwVVaXqIfOSjWB9loHjCBBIr3gN/g/6ELYRZImQFVph84oZAwtl4XCe42HO\nvzTinX32/jR/66cmYkyUWr0P6x1dOk7Et7QqxLwHYhFtNWwF+Ixaj+fbXXez\nVpkRzXN9nMGEU+mGWTMjTku29aN+AuMk2m/bCOjIrXyRBK4wckF5mDjse/rD\nZK9n\r\n=itlO\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDJBCmcjtXrFN6gE4tpZJKlFvO5vg42pv0CT1vP5lN5XAiA+0PMx+RxwkZZXAo30Bs2bYSObvv6ljvFBh9DOMla4Fw=="
+          }
+        ]
+      },
+      "_npmUser": {},
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "satya164",
+          "email": "satyajit.happy@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/react-native-builder-bob_0.17.0_1608134451302_0.7250282841827205"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.17.1": {
+      "name": "react-native-builder-bob",
+      "version": "0.17.1",
+      "description": "CLI to build JavaScript files for React Native libraries",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/callstack/react-native-builder-bob.git"
+      },
+      "homepage": "https://github.com/callstack/react-native-builder-bob/blob/main/README.md",
+      "author": {
+        "name": "Satyajit Sahoo",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "license": "MIT",
+      "main": "src/index.js",
+      "bin": {
+        "bob": "bin/bob"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+      },
+      "scripts": {
+        "lint": "eslint \"**/*.{js,ts,tsx}\"",
+        "typescript": "tsc --noEmit",
+        "build": "babel --extensions .ts,.tsx src --out-dir lib --ignore '**/__tests__/**' --source-maps --delete-dir-on-start",
+        "watch": "concurrently 'yarn typescript --watch' 'yarn build --watch'",
+        "prepare": "yarn build",
+        "release": "release-it"
+      },
+      "dependencies": {
+        "@babel/core": "^7.12.10",
+        "@babel/plugin-proposal-class-properties": "^7.12.1",
+        "@babel/preset-env": "^7.12.11",
+        "@babel/preset-flow": "^7.12.1",
+        "@babel/preset-react": "^7.12.10",
+        "@babel/preset-typescript": "^7.12.7",
+        "browserslist": "^4.16.0",
+        "chalk": "^4.1.0",
+        "cosmiconfig": "^7.0.0",
+        "cross-spawn": "^7.0.3",
+        "dedent": "^0.7.0",
+        "del": "^6.0.0",
+        "ejs": "^3.1.5",
+        "fs-extra": "^9.0.1",
+        "github-username": "^5.0.1",
+        "glob": "^7.1.6",
+        "is-git-dirty": "^2.0.1",
+        "json5": "^2.1.3",
+        "prompts": "^2.4.0",
+        "validate-npm-package-name": "^3.0.0",
+        "which": "^2.0.2",
+        "yargs": "^16.2.0",
+        "jetifier": "^1.6.6"
+      },
+      "optionalDependencies": {
+        "jetifier": "^1.6.6"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.12.10",
+        "@commitlint/config-conventional": "^11.0.0",
+        "@release-it/conventional-changelog": "^2.0.0",
+        "@types/babel__core": "^7.1.12",
+        "@types/browserslist": "^4.8.0",
+        "@types/chalk": "^2.2.0",
+        "@types/cross-spawn": "^6.0.2",
+        "@types/dedent": "^0.7.0",
+        "@types/del": "^4.0.0",
+        "@types/ejs": "^3.0.5",
+        "@types/fs-extra": "^9.0.5",
+        "@types/glob": "^7.1.3",
+        "@types/json5": "^0.0.30",
+        "@types/prompts": "^2.0.9",
+        "@types/validate-npm-package-name": "^3.0.2",
+        "@types/which": "^1.3.2",
+        "@types/yargs": "^15.0.12",
+        "commitlint": "^11.0.0",
+        "concurrently": "^5.3.0",
+        "eslint": "^7.15.0",
+        "eslint-config-satya164": "^3.1.8",
+        "husky": "^4.3.6",
+        "prettier": "^2.2.1",
+        "release-it": "^14.2.2",
+        "typescript": "^4.1.3"
+      },
+      "husky": {
+        "hooks": {
+          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+          "pre-commit": "yarn lint && yarn typescript"
+        }
+      },
+      "commitlint": {
+        "extends": [
+          "@commitlint/config-conventional"
+        ]
+      },
+      "release-it": {
+        "git": {
+          "commitMessage": "chore: release ${version}",
+          "tagName": "v${version}"
+        },
+        "npm": {
+          "publish": true
+        },
+        "github": {
+          "release": true
+        },
+        "plugins": {
+          "@release-it/conventional-changelog": {
+            "preset": "angular"
+          }
+        }
+      },
+      "eslintConfig": {
+        "extends": "satya164",
+        "env": {
+          "node": true
+        }
+      },
+      "eslintIgnore": [
+        "node_modules/",
+        "coverage/",
+        "lib/",
+        "templates/"
+      ],
+      "prettier": {
+        "singleQuote": true,
+        "tabWidth": 2,
+        "trailingComma": "es5",
+        "useTabs": false
+      },
+      "gitHead": "9917b0639e5a829bcddcd7078d769b08c1207a3e",
+      "bugs": {
+        "url": "https://github.com/callstack/react-native-builder-bob/issues"
+      },
+      "_id": "react-native-builder-bob@0.17.1",
+      "_nodeVersion": "12.17.0",
+      "_npmVersion": "6.14.4",
+      "dist": {
+        "integrity": "sha512-vO3PYa/vgIqUFOfXZWNEsqQfjJMiNJAfJ0Sq4ovZa4zb/bnMKF4vDbARo3uhA8eg/wA0h4W6BlceY/Kjo74+6g==",
+        "shasum": "4bb12f721acf9417d62065232d42e0201b673315",
+        "tarball": "https://registry.npmjs.org/react-native-builder-bob/-/react-native-builder-bob-0.17.1.tgz",
+        "fileCount": 135,
+        "unpackedSize": 425601,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJf252oCRA9TVsSAnZWagAAo0kP/0OaDibpvXO86kwyhUNZ\n73KT1jKWf233sSz5CJMNDjwcOL03S8YwIHgRUm5Jc+0FkxmKhV4MsKETdR7n\nvVRBOUc+ikCxrUHjB9YBYtEXAGyouGvcrUdk96/tWqXV1NqmGE9jGnpJ9r0z\n2kvdmGPSp4nY/XuKqh4a0IoTqS33caJkI1384hwKjDOYFm3qazb/73I6eu+H\nIRtCHm5rOQXSRvIKv3XtnOGrwM9QqilogMakpFYqaeUKhgJYkfWzr/rUOLAB\n94JEthyLdAtS0iZE7S1oqHCvxDvofYfUM8miVBIVtBI8Sj8WdcQKLIMP6ZHL\n7QSXOf1anrdMUw0LfexSfDuud5oshKVPb3PmLAkCXJSk8BXwbgfIMJzN+8vv\nMtwuCajrvnK5AgN/qZUVhwqnQ12/+S1DWJWN3KNn+fAdKcmxaRpoOBRIGiGO\nMoChG/Z2u3L9+SkQJ2DvqaKu9XwAudI2ylTyS83/LqJf8T/wNJkPJ+1hdCQu\nIyL8rGfbzYKV1oVRxvJuWOQtb1f3WEgklk4N5/0zDdRXrlJ6OsL1C3TFyhnN\nN1KuHVzgYkG8JGGZLIqM08kL8p76mcbyQro37Dq127uP2/GtKetMXhRrIsb1\nRNl7BGmffu4ZT+pgtHNSx6nNyO0JOATfgsDxVpsIoYUhn6bzASQube9qEoqP\nUsBU\r\n=MwRb\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDECKgIHGjfs+6x7mPx+kNSGt9Z0OSKBj2WG9P5mWhPOwIgLlMWmSUGXuZ4GfwKnX8xcHqQgd1c5SpwJhVYdknh/d0="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "satya164",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "satya164",
+          "email": "satyajit.happy@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/react-native-builder-bob_0.17.1_1608228264084_0.7880146251242894"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.18.0": {
+      "name": "react-native-builder-bob",
+      "version": "0.18.0",
+      "description": "CLI to build JavaScript files for React Native libraries",
+      "keywords": [
+        "react-native",
+        "library",
+        "build"
+      ],
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/callstack/react-native-builder-bob.git",
+        "directory": "packages/react-native-builder-bob"
+      },
+      "bugs": {
+        "url": "https://github.com/callstack/react-native-builder-bob/issues"
+      },
+      "homepage": "https://github.com/callstack/react-native-builder-bob/blob/main/README.md",
+      "main": "lib/index.js",
+      "bin": {
+        "bob": "bin/bob"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+      },
+      "scripts": {
+        "prepare": "babel --extensions .ts,.tsx src --out-dir lib --source-maps --delete-dir-on-start"
+      },
+      "dependencies": {
+        "@babel/core": "^7.12.10",
+        "@babel/plugin-proposal-class-properties": "^7.12.1",
+        "@babel/preset-env": "^7.12.11",
+        "@babel/preset-flow": "^7.12.1",
+        "@babel/preset-react": "^7.12.10",
+        "@babel/preset-typescript": "^7.12.7",
+        "browserslist": "^4.16.0",
+        "chalk": "^4.1.0",
+        "cosmiconfig": "^7.0.0",
+        "cross-spawn": "^7.0.3",
+        "dedent": "^0.7.0",
+        "del": "^6.0.0",
+        "fs-extra": "^9.0.1",
+        "glob": "^7.1.6",
+        "is-git-dirty": "^2.0.1",
+        "json5": "^2.1.3",
+        "prompts": "^2.4.0",
+        "which": "^2.0.2",
+        "yargs": "^16.2.0",
+        "jetifier": "^1.6.6"
+      },
+      "optionalDependencies": {
+        "jetifier": "^1.6.6"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.12.10",
+        "@types/babel__core": "^7.1.12",
+        "@types/browserslist": "^4.8.0",
+        "@types/chalk": "^2.2.0",
+        "@types/cross-spawn": "^6.0.2",
+        "@types/dedent": "^0.7.0",
+        "@types/del": "^4.0.0",
+        "@types/fs-extra": "^9.0.5",
+        "@types/glob": "^7.1.3",
+        "@types/json5": "^0.0.30",
+        "@types/prompts": "^2.0.9",
+        "@types/which": "^1.3.2",
+        "@types/yargs": "^15.0.12",
+        "concurrently": "^5.3.0"
+      },
+      "gitHead": "6108d38923806d96ecddb33390f11310878ca7f5",
+      "_id": "react-native-builder-bob@0.18.0",
+      "_nodeVersion": "12.17.0",
+      "_npmVersion": "lerna/3.22.1/node@v12.17.0+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-5/5msCmBdI9q4QcYLsEmS+QIunfi/tzmvF6ynRbnBmlOYVBHT5KcFglUyCPt84GicpC/4cUNCsx26V9ncoZBUQ==",
+        "shasum": "a9a609b55b6470bd0ea2efb074abe25f73532571",
+        "tarball": "https://registry.npmjs.org/react-native-builder-bob/-/react-native-builder-bob-0.18.0.tgz",
+        "fileCount": 28,
+        "unpackedSize": 90623,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgPoLWCRA9TVsSAnZWagAAvxkP/3fmUuunyCFDff/LxUDo\nxBCy6o3tVCmb+oWN493gnrny2frbk5IF4sLseC7m7KLSV2fvHqO332qcSl9+\nE/DcvQbV/ebfuPc6YWdGKGAzGUcav/S0Xq0fGwjbcmWs6Ya8Vfq590vIbohh\n5sBCirDBur0tJl6sRivN1RZ/hdLjkQn0lHDI9ub/5JCY5xrBklWn4rfVjxtQ\nKxsw/OOQCviuJwhc5mfI/SnPMfaREv7ICoaH2ARtd6lWdlu7exEOwHBukjbc\noeo7p+qM0kJXV8eryZLYNQA/2ujnTLQDB3avSRpoLgmFIFzTauwsAbQDS5ey\nw5dttHQKmDscT4M9GLhfjDyWSADhEnbjnAUJ4RN4Hb4M5EvaZJhg72T1DygR\nAiyITduRmuxESEDfi1igft95+CSByGuSRCBQ3H0LXLyc+rxtL4gPTz+kVxXZ\npQtEj1fdQD9qer4F8P32VaQ36oqDOY3IatIWS4WmAVNRZnOYcvsZrzMi8onx\nMsiHtp8r69P209J4eQ1mR7p304y/z384qfDS4nyMlS8f7p8dzxjSTDu10tgY\nesDUiHnBqKiLJ+QNbmFhnttdaURJcL7/PNkMiTnsviLaROcjcXkumGm3kiJx\nYj8hGy6HKIJ6mPZ6ATOQUvXgEQgTAZ3gq1LtPMWLgn//OjSe+mWkGSHWIgkN\nkL8x\r\n=mt9A\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCo7CKCSemlCP7quSOxVXKVSKPDNulGckCJb7OTqU9bZAIgFwfJQR0kIBImxRftp6MBm4hH67+pXkaAjV61ElGPUpU="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "satya164",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "satya164",
+          "email": "satyajit.happy@gmail.com"
+        },
+        {
+          "name": "krizzu",
+          "email": "krizzu.dev@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/react-native-builder-bob_0.18.0_1614709461675_0.20189278376067632"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.18.1": {
+      "name": "react-native-builder-bob",
+      "version": "0.18.1",
+      "description": "CLI to build JavaScript files for React Native libraries",
+      "keywords": [
+        "react-native",
+        "library",
+        "build"
+      ],
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/callstack/react-native-builder-bob.git",
+        "directory": "packages/react-native-builder-bob"
+      },
+      "bugs": {
+        "url": "https://github.com/callstack/react-native-builder-bob/issues"
+      },
+      "homepage": "https://github.com/callstack/react-native-builder-bob/blob/main/README.md",
+      "main": "lib/index.js",
+      "bin": {
+        "bob": "bin/bob"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+      },
+      "scripts": {
+        "prepare": "babel --extensions .ts,.tsx src --out-dir lib --source-maps --delete-dir-on-start"
+      },
+      "dependencies": {
+        "@babel/core": "^7.12.10",
+        "@babel/plugin-proposal-class-properties": "^7.12.1",
+        "@babel/preset-env": "^7.12.11",
+        "@babel/preset-flow": "^7.12.1",
+        "@babel/preset-react": "^7.12.10",
+        "@babel/preset-typescript": "^7.12.7",
+        "browserslist": "^4.16.0",
+        "chalk": "^4.1.0",
+        "cosmiconfig": "^7.0.0",
+        "cross-spawn": "^7.0.3",
+        "dedent": "^0.7.0",
+        "del": "^6.0.0",
+        "fs-extra": "^9.0.1",
+        "glob": "^7.1.6",
+        "is-git-dirty": "^2.0.1",
+        "json5": "^2.1.3",
+        "prompts": "^2.4.0",
+        "which": "^2.0.2",
+        "yargs": "^16.2.0",
+        "jetifier": "^1.6.6"
+      },
+      "optionalDependencies": {
+        "jetifier": "^1.6.6"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.12.10",
+        "@types/babel__core": "^7.1.12",
+        "@types/browserslist": "^4.8.0",
+        "@types/chalk": "^2.2.0",
+        "@types/cross-spawn": "^6.0.2",
+        "@types/dedent": "^0.7.0",
+        "@types/del": "^4.0.0",
+        "@types/fs-extra": "^9.0.5",
+        "@types/glob": "^7.1.3",
+        "@types/json5": "^0.0.30",
+        "@types/prompts": "^2.0.9",
+        "@types/which": "^1.3.2",
+        "@types/yargs": "^15.0.12",
+        "concurrently": "^5.3.0"
+      },
+      "gitHead": "733d2cc3468513995bb2b48550ca6849f0f19e71",
+      "_id": "react-native-builder-bob@0.18.1",
+      "_nodeVersion": "12.17.0",
+      "_npmVersion": "lerna/3.22.1/node@v12.17.0+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-cFhgXLE30HaY4APDxaXA/cwuL3xl0Rser75yLrVTfHQquPqCoixNs+cc97Cbk/nInkkDmHzBoJkC3tVItqKRsQ==",
+        "shasum": "43f238e6cb6efffa6e3d23ac449eb7392650c2c3",
+        "tarball": "https://registry.npmjs.org/react-native-builder-bob/-/react-native-builder-bob-0.18.1.tgz",
+        "fileCount": 28,
+        "unpackedSize": 90845,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgP12YCRA9TVsSAnZWagAADiwP/judESG9M2enAa+eA2Nl\nQv7pRN3HislQr4O9YUtGf29KY55Cd/tB16cgAHIljY02gbnBOhWRSfbm2VQ5\nOTL9OzVrc+mO2aZj/vMP+L7HG0MqRb1IauK5KA1AVdeWDnh0uevglAMkh4z8\nBt09N+KXr0qiuJof39qzp4N4KdvgF/uv964OpW2v3k6egyGKKkwxxLULeM4B\nW9i0wrmx7tYi6LUVIfOiwarM+2xk4cRSherwaS9lBg1mqKh61r2pFeeMq+6H\nfvmh6WwWYUyrf+MoXA3YOthaFftuZVeT0yZa2HahzOIQoGCD1d0uAm5I3rwm\nzKGM22QAQydMwxlkJ2NXgaJDPyLuYI+GpV+xhnCqCpK3syeDX/6v8tOOqvAx\nhJ6VSMydbocbM2Wng/p4foiAceSkNE6WaWJaqz/lLH6osye8IW+Zt307tVRu\npXYvyL1AOKk5j6WKRiFJg78aWMDvctcZvvj9HhIFphzpcl85bYAI/PxFyZqK\n2ivA77hmsN+Su+A/BaphhOA7Qh/sJzetP6LtnmqE09nlRl5jOWX0ptB9GjOF\nZbFBx/K2e0+1EPzlC4+wP6d+IPopQtQSs6qUTjP2XjumbhormMk03r89vFt3\nu+kDd1J/u3h4KuGX7/BWO87w5XBgiWPNaLWwmHIQBl1vzWx+6/u/07U3VwTk\n/J/a\r\n=tGjd\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIB6ZBVs9uo/pbn1slTemesBx9y1WbUP3UpYU7jAEboD9AiEAz1JzsM3/FUPFBAwPEiH9qYRcWVy8OOG3Fm6CNESn/nA="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "satya164",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "satya164",
+          "email": "satyajit.happy@gmail.com"
+        },
+        {
+          "name": "krizzu",
+          "email": "krizzu.dev@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/react-native-builder-bob_0.18.1_1614765463571_0.6172512030706265"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.18.2": {
+      "name": "react-native-builder-bob",
+      "version": "0.18.2",
+      "description": "CLI to build JavaScript files for React Native libraries",
+      "keywords": [
+        "react-native",
+        "library",
+        "build"
+      ],
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/callstack/react-native-builder-bob.git",
+        "directory": "packages/react-native-builder-bob"
+      },
+      "bugs": {
+        "url": "https://github.com/callstack/react-native-builder-bob/issues"
+      },
+      "homepage": "https://github.com/callstack/react-native-builder-bob/blob/main/README.md",
+      "main": "lib/index.js",
+      "bin": {
+        "bob": "bin/bob"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+      },
+      "scripts": {
+        "prepare": "babel --extensions .ts,.tsx src --out-dir lib --source-maps --delete-dir-on-start"
+      },
+      "dependencies": {
+        "@babel/core": "^7.12.10",
+        "@babel/plugin-proposal-class-properties": "^7.12.1",
+        "@babel/preset-env": "^7.12.11",
+        "@babel/preset-flow": "^7.12.1",
+        "@babel/preset-react": "^7.12.10",
+        "@babel/preset-typescript": "^7.12.7",
+        "browserslist": "^4.16.0",
+        "chalk": "^4.1.0",
+        "cosmiconfig": "^7.0.0",
+        "cross-spawn": "^7.0.3",
+        "dedent": "^0.7.0",
+        "del": "^6.0.0",
+        "fs-extra": "^9.0.1",
+        "glob": "^7.1.6",
+        "is-git-dirty": "^2.0.1",
+        "json5": "^2.1.3",
+        "prompts": "^2.4.0",
+        "which": "^2.0.2",
+        "yargs": "^16.2.0",
+        "jetifier": "^1.6.6"
+      },
+      "optionalDependencies": {
+        "jetifier": "^1.6.6"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.12.10",
+        "@types/babel__core": "^7.1.12",
+        "@types/browserslist": "^4.8.0",
+        "@types/chalk": "^2.2.0",
+        "@types/cross-spawn": "^6.0.2",
+        "@types/dedent": "^0.7.0",
+        "@types/del": "^4.0.0",
+        "@types/fs-extra": "^9.0.5",
+        "@types/glob": "^7.1.3",
+        "@types/json5": "^0.0.30",
+        "@types/prompts": "^2.0.9",
+        "@types/which": "^1.3.2",
+        "@types/yargs": "^15.0.12",
+        "concurrently": "^5.3.0"
+      },
+      "gitHead": "7409f5ec57a50ff3c1e45db72e7c0c6c8407c203",
+      "_id": "react-native-builder-bob@0.18.2",
+      "_nodeVersion": "16.9.1",
+      "_npmVersion": "lerna/3.22.1/node@v16.9.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-HA7ryoG99tkWh92s7Qb/619qAAfa3TMAKP4Q5l/smqZQwnJ77z5ESiPgRZl8gQMiCnrmmPVb/c5yUscKOL9GdQ==",
+        "shasum": "e3a96abe3ead84b167c1c1ea97747ef8ffc2a9f4",
+        "tarball": "https://registry.npmjs.org/react-native-builder-bob/-/react-native-builder-bob-0.18.2.tgz",
+        "fileCount": 28,
+        "unpackedSize": 91224,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh24mtCRA9TVsSAnZWagAAyjEP/1PIRYnrwDC6XoDACksx\n4UHNWIBDfB96by9tmlvMM/rj75kCJx6pbpL1YsR1fKqJFDFZcYQEd0l3/aR1\nFVagKgNi170UEd+Yzhzjq/lC3cNNfdHjIAZUrRbo7MHiJv+URk5h2twEZwaM\n73E+jAUOytnIE7BT4Sbv1uOiwKwoV7gfnsBxTBKg638rkyZnQmt9aOA/g+Gl\ndEuqKNaQc69gpsfIZA3YJ58vecXKcvS587ima6rhS0uBVjtO8P8FQKtWwMoA\nrLN2fD6lHzhoIV1KYPAZXvwoRYTh80Ra+UUt1d8oT9NbjI7BCZ6Wkl1W6dmR\nSbMDIB3VGDQZ5udAp0a4v4VxiBfjw+hwWxTOdsFpkEXuYRBLElpLOSIf+i9/\nbF+B1z+wzsEHF44OtMAmV7qKhvGgeYB/nvdfXU/VC9y0qGze/IYGl9/xMvkb\nnUa3rlunmy/l0HxYmtVfYlJPHTwU2SnAWCB8+mSaqvxLnYosRE4B0+cyNZ0m\n/3JtVUmtG7PF97F80IjWf/T29kCAGanl+c0bLm6ukEXXrjq7ZqLbiwro/9u9\n3c6PKXwNU1rkZPbhmI7vQBTtQeqFfPsDNMpSsnSEXxAeWCXIGVusAD55FY5K\nhbNqBny8mHu+p4gy+7JwZgnmQDVIW58A/j+3Eo1a0D+xSF0Nq9I4lDYs+0rN\n5FTY\r\n=Hu0u\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHFj2M4heFAxlMCdXTyJQ0aiyA6tXH9p77ZgnlhQTcgIAiEAnRpa4nupbGMcNPg4iCdGmnbOwXbN8jv1IVGx/+/+mXc="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "satya164",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "satya164",
+          "email": "satyajit.happy@gmail.com"
+        },
+        {
+          "name": "krizzu",
+          "email": "krizzu.dev@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/react-native-builder-bob_0.18.2_1632820126364_0.8099582211014988"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.18.3": {
+      "name": "react-native-builder-bob",
+      "version": "0.18.3",
+      "description": "CLI to build JavaScript files for React Native libraries",
+      "keywords": [
+        "react-native",
+        "library",
+        "build"
+      ],
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/callstack/react-native-builder-bob.git",
+        "directory": "packages/react-native-builder-bob"
+      },
+      "bugs": {
+        "url": "https://github.com/callstack/react-native-builder-bob/issues"
+      },
+      "homepage": "https://github.com/callstack/react-native-builder-bob/blob/main/README.md",
+      "main": "lib/index.js",
+      "bin": {
+        "bob": "bin/bob"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+      },
+      "scripts": {
+        "prepare": "babel --extensions .ts,.tsx src --out-dir lib --source-maps --delete-dir-on-start"
+      },
+      "dependencies": {
+        "@babel/core": "^7.18.5",
+        "@babel/plugin-proposal-class-properties": "^7.17.12",
+        "@babel/preset-env": "^7.18.2",
+        "@babel/preset-flow": "^7.17.12",
+        "@babel/preset-react": "^7.17.12",
+        "@babel/preset-typescript": "^7.17.12",
+        "browserslist": "^4.20.4",
+        "cosmiconfig": "^7.0.1",
+        "cross-spawn": "^7.0.3",
+        "dedent": "^0.7.0",
+        "del": "^6.1.1",
+        "fs-extra": "^10.1.0",
+        "glob": "^8.0.3",
+        "is-git-dirty": "^2.0.1",
+        "json5": "^2.2.1",
+        "kleur": "^4.1.4",
+        "prompts": "^2.4.2",
+        "which": "^2.0.2",
+        "yargs": "^17.5.1",
+        "jetifier": "^2.0.0"
+      },
+      "optionalDependencies": {
+        "jetifier": "^2.0.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@types/babel__core": "^7.1.19",
+        "@types/browserslist": "^4.15.0",
+        "@types/cross-spawn": "^6.0.2",
+        "@types/dedent": "^0.7.0",
+        "@types/del": "^4.0.0",
+        "@types/fs-extra": "^9.0.13",
+        "@types/glob": "^7.2.0",
+        "@types/json5": "^2.2.0",
+        "@types/prompts": "^2.0.14",
+        "@types/which": "^2.0.1",
+        "@types/yargs": "^17.0.10",
+        "concurrently": "^7.2.2"
+      },
+      "gitHead": "94c1fbe9b43643c45dbbbfa092752c28c7fbc9f5",
+      "_id": "react-native-builder-bob@0.18.3",
+      "_nodeVersion": "16.14.0",
+      "_npmVersion": "lerna/5.1.4/node@v16.14.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-togj+ClsPAsTK3ZFmFZVIftUIkxvN1YxJws0/6sQIlAr14U3rvtBseOQAQM0Pora1GD2aObdBVHDVhKBHWojLA==",
+        "shasum": "fb4d3e50a3b2290db3c88de6d40403ac7eb9f85f",
+        "tarball": "https://registry.npmjs.org/react-native-builder-bob/-/react-native-builder-bob-0.18.3.tgz",
+        "fileCount": 27,
+        "unpackedSize": 90312,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAJOeuKxjnnURExOuXrA6k9mUiY/KPzVrbGUizHl51KzAiBqx7KoejUu9W6FSAC48Ct8gnXVlCKrWY/BdSqAuIqIYw=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJisidzACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpRuQ//Vd+j06YyPT+s4DyyDAd2mAa9UU0G/UoMZwfkMFaO1fLLdqlu\r\nW26DFYV68fzLPexHFWftkLQ0HXrWVbKPBKaUsjR+2w/Rf6DS27BGcH5P11WX\r\nc2IoO2hgxsSPyH1ws9TsPYgB+Kg1enb9pDs6Wi1egdVvS/XwMoOWl9q51klQ\r\n4MqHBakwXKK2m2GAXMGZI1gjX9UPvWn2i1Cv/HLhVE0doVjxlKyukNZULzt4\r\njYYjCoQ+oXQaPpySDE+NAuU9tnLOBuITNwTgcDFtr8Qdz6mpajfKA1ayGOpI\r\nG62t91tgjvWOREkXDoYTJKt8FArKt+ulqneLhBVSQQtyo/CbUEO9YT5t3oX+\r\nQ0llWyJmdUXYlR/ByB0RG/6So8ZVWdZl+cdnpkylyHgRtKIwSa5rY3UxkEmF\r\nB4cimrewtvqt/yq3IgdxWq+SJ5r3PVgphCZcQikOjgxDsdyrkbtscaPrQUkY\r\ncsZ+szkJT5pibXEppTtDuA+SQFDbKQXHpLVYr2XkMaILrEzmF/gz3A1p22gX\r\npTWMOxY/Vc8Un3W2GVnozlLzQfaVgE/Iia5Lb3jQ3DT46VeFA4JFGyDlvHMH\r\n0BqXcq02a3B0lNpUAgxhF5/jIwIq1ZDi/V1rnvfSbk4MbXRuoAMiXqBjCX5N\r\n5yaDwaL0q72YndJuYbJ6YbVOczUBA06BZRs=\r\n=OcQM\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "satya164",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "satya164",
+          "email": "satyajit.happy@gmail.com"
+        },
+        {
+          "name": "krizzu",
+          "email": "krizzu.dev@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/react-native-builder-bob_0.18.3_1655842675218_0.5548655815456613"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.19.0": {
+      "name": "react-native-builder-bob",
+      "version": "0.19.0",
+      "description": "CLI to build JavaScript files for React Native libraries",
+      "keywords": [
+        "react-native",
+        "library",
+        "build"
+      ],
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/callstack/react-native-builder-bob.git",
+        "directory": "packages/react-native-builder-bob"
+      },
+      "bugs": {
+        "url": "https://github.com/callstack/react-native-builder-bob/issues"
+      },
+      "homepage": "https://github.com/callstack/react-native-builder-bob/blob/main/README.md",
+      "main": "lib/index.js",
+      "bin": {
+        "bob": "bin/bob"
+      },
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+      },
+      "scripts": {
+        "prepare": "babel --extensions .ts,.tsx src --out-dir lib --source-maps --delete-dir-on-start"
+      },
+      "dependencies": {
+        "@babel/core": "^7.18.5",
+        "@babel/plugin-proposal-class-properties": "^7.17.12",
+        "@babel/preset-env": "^7.18.2",
+        "@babel/preset-flow": "^7.17.12",
+        "@babel/preset-react": "^7.17.12",
+        "@babel/preset-typescript": "^7.17.12",
+        "browserslist": "^4.20.4",
+        "cosmiconfig": "^7.0.1",
+        "cross-spawn": "^7.0.3",
+        "dedent": "^0.7.0",
+        "del": "^6.1.1",
+        "fs-extra": "^10.1.0",
+        "glob": "^8.0.3",
+        "is-git-dirty": "^2.0.1",
+        "json5": "^2.2.1",
+        "kleur": "^4.1.4",
+        "prompts": "^2.4.2",
+        "which": "^2.0.2",
+        "yargs": "^17.5.1",
+        "jetifier": "^2.0.0"
+      },
+      "optionalDependencies": {
+        "jetifier": "^2.0.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@types/babel__core": "^7.1.19",
+        "@types/browserslist": "^4.15.0",
+        "@types/cross-spawn": "^6.0.2",
+        "@types/dedent": "^0.7.0",
+        "@types/del": "^4.0.0",
+        "@types/fs-extra": "^9.0.13",
+        "@types/glob": "^7.2.0",
+        "@types/json5": "^2.2.0",
+        "@types/prompts": "^2.0.14",
+        "@types/which": "^2.0.1",
+        "@types/yargs": "^17.0.10",
+        "concurrently": "^7.2.2"
+      },
+      "gitHead": "1715cc1e8d30bf7620efa18bde580f3c234a5e32",
+      "_id": "react-native-builder-bob@0.19.0",
+      "_nodeVersion": "16.14.0",
+      "_npmVersion": "lerna/5.1.4/node@v16.14.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-3fiDa7SlUPidyFLfa1yEiuGEIKptHtx3e2rXGJicbQ41vhG7QsB0gG1N84tZJ7ZYElVTzC6ECuk7qGzjpm/qvg==",
+        "shasum": "2a3141a453149bcd3501f223f495bd003d10db20",
+        "tarball": "https://registry.npmjs.org/react-native-builder-bob/-/react-native-builder-bob-0.19.0.tgz",
+        "fileCount": 27,
+        "unpackedSize": 90027,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQChAjHPderuCDZRf7SM3agzxPDtXIbO2C7+PjClMGfYvwIhAN51hCWEoPQDVNMZgzxe6InDmEQ2B6UJG653xhgdv/mU"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjSDpAACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqREQ/+Pj6EISVKUBWcpNe+7gZndmo1dHcGVARpl/ekg3Syq+TJ5/8h\r\n3vzj0tCWGFd4nfPIiu+1sCAUvDCkwFv4xCxi2O+UqdYRLe7Vo8rmiMuoktu/\r\n2w37uzzVx5xGyYErZowhxo1c/WP8KpSAUvVlZXVN98yMgLxv71AMwqKtmia6\r\ntLCB7SFK9GQh65kJO8oTURi56STLXCC3JqDEJyNyI4Wd8/r9cXj8FAzLfw4j\r\n3VyLcaO6fnQkplUiQGW4x1mHtDglsG5xzsK0GrUHFTA53kn9n1zT8Y/1s2LI\r\nTyEFwWumJhzcYdDgzdr0b16jqhuPQnofjGugcFtXZKeKDJFoxeIqUf+GWqK5\r\npzPgueU9e6+y3A+nsqdNZFG7nPksTyKHBVlAFkqziownNJuvjHvDtTipLB2d\r\nqfFU62RPIYC2W/L/1/Lj6yyIWpIaFHD2BA90YsWTb0MJdTCYDxeMd9PWkzmN\r\nG2g+UFIj540V+gC5Fpf7qoXIW2G1lYrtwk87uj9VQgwn5B6JHUi0ef5GUKIm\r\nLiw9SKtmb8m8JCmLnT1XoPXCjn+qZP/6pLCpESmyOq7AQ5Q5x/ULz4uVSHig\r\nHmdoAqnqEUGaW1fwI4WbG5al/4dIHk0+M5Em0euWv7FaCDaCWbWz5T9vB0co\r\nut2ThAvVQbIlJnXXZIX30+AMQk2NW0zwuWg=\r\n=1vew\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "satya164",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "satya164",
+          "email": "satyajit.happy@gmail.com"
+        },
+        {
+          "name": "krizzu",
+          "email": "krizzu.dev@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/react-native-builder-bob_0.19.0_1665677888122_0.10764720395633454"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.19.1": {
+      "name": "react-native-builder-bob",
+      "version": "0.19.1",
+      "description": "CLI to build JavaScript files for React Native libraries",
+      "keywords": [
+        "react-native",
+        "library",
+        "build"
+      ],
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/callstack/react-native-builder-bob.git",
+        "directory": "packages/react-native-builder-bob"
+      },
+      "bugs": {
+        "url": "https://github.com/callstack/react-native-builder-bob/issues"
+      },
+      "homepage": "https://github.com/callstack/react-native-builder-bob/blob/main/README.md",
+      "main": "lib/index.js",
+      "bin": {
+        "bob": "bin/bob"
+      },
+      "engines": {
+        "node": ">= 16.0.0"
+      },
+      "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+      },
+      "scripts": {
+        "prepare": "babel --extensions .ts,.tsx src --out-dir lib --source-maps --delete-dir-on-start"
+      },
+      "dependencies": {
+        "@babel/core": "^7.18.5",
+        "@babel/plugin-proposal-class-properties": "^7.17.12",
+        "@babel/preset-env": "^7.18.2",
+        "@babel/preset-flow": "^7.17.12",
+        "@babel/preset-react": "^7.17.12",
+        "@babel/preset-typescript": "^7.17.12",
+        "browserslist": "^4.20.4",
+        "cosmiconfig": "^7.0.1",
+        "cross-spawn": "^7.0.3",
+        "dedent": "^0.7.0",
+        "del": "^6.1.1",
+        "fs-extra": "^10.1.0",
+        "glob": "^8.0.3",
+        "is-git-dirty": "^2.0.1",
+        "json5": "^2.2.1",
+        "kleur": "^4.1.4",
+        "prompts": "^2.4.2",
+        "which": "^2.0.2",
+        "yargs": "^17.5.1",
+        "jetifier": "^2.0.0"
+      },
+      "optionalDependencies": {
+        "jetifier": "^2.0.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@types/babel__core": "^7.1.19",
+        "@types/browserslist": "^4.15.0",
+        "@types/cross-spawn": "^6.0.2",
+        "@types/dedent": "^0.7.0",
+        "@types/del": "^4.0.0",
+        "@types/fs-extra": "^9.0.13",
+        "@types/glob": "^7.2.0",
+        "@types/json5": "^2.2.0",
+        "@types/prompts": "^2.0.14",
+        "@types/which": "^2.0.1",
+        "@types/yargs": "^17.0.10",
+        "concurrently": "^7.2.2"
+      },
+      "gitHead": "1443536916d842ed42712680d0f8d583f8009454",
+      "_id": "react-native-builder-bob@0.19.1",
+      "_nodeVersion": "14.20.1",
+      "_npmVersion": "lerna/5.1.4/node@v14.20.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-wuDlnC9In9txUC9tn/vugiZW28V3rGDeS7201w2Jw5H/O0auljEv9orfY7OAG/ylZ9AfV3B9PKrmF9dHtYXP0w==",
+        "shasum": "aa63a99265c45c13d3a96da0ded1f307f099d8ab",
+        "tarball": "https://registry.npmjs.org/react-native-builder-bob/-/react-native-builder-bob-0.19.1.tgz",
+        "fileCount": 27,
+        "unpackedSize": 90027,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHwNwA4+hSiK71mG5mp0XWrulFiZ+HuHAGemx6G3+QT3AiAfbG+TCr2GSL/mXFOKsIeke25f1bhZ5ICo6tQT3GYL9w=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjSTkIACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoIFxAAjIbkB0SIsOV8cOHTIXxNdQgKsGVnC4xS1X+6S+w+lTET8itn\r\nlxm2uCxqFq23l2KVMBdBjqHEQ1UnO5oxVks1DltAJPvwR5cysQlbh8R7glKS\r\nJHmM44HyTTmYUGo1ylxGtTViN1/Y34ennXHQNl0Sx7m4DUELm+K0dzltd3ho\r\nTJxwFR91u9bAo/M4AI21EsqyN44Uw0l2bqQicrEqOko4F20Iccf32Ak7igiC\r\nIl6sy8Hmj+ahqNWwRpxrBOvGc/T9yrtHklFCjXdU6uFow685EE4TeOcgx0oa\r\nDRk9DAznH2RXdH9Gkj9XP9lxcZyn+RdNd1YYo8xdJsylY9EKsYVuvMTX9GfS\r\ne/Q/hmHhMZ9HvuBv6jf8K1tlySdE6N+PRB8L3H2cjyszfuHU/gWokfcyD+Mp\r\n9ASgN7TJdc8fvpgxFW9yqhay6V0EHopDsEjcsEEYifVDMRlw6Vf/BpW2rXKJ\r\nVK1bFKznqqbiHKGNO9/6Y4c7BhfB3w3CJ4tXVl0UV0VGEmG5aw99VaLuxLtF\r\nmO5c724WKy5ys73BYLuc8U3wy0D0jgtC9NPbS4/uZSaZB5d/8yifENPHsKqc\r\nkNh0vhS5FPz8HYzsU4n4fpYerHTyh/dQCLX5jY8gxW5Je41GIBx2CqVMr7pJ\r\n541ZGm8quqO5hTxfBYc4kQgd+5G76WbQ1NQ=\r\n=/06S\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "satya164",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "satya164",
+          "email": "satyajit.happy@gmail.com"
+        },
+        {
+          "name": "krizzu",
+          "email": "krizzu.dev@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/react-native-builder-bob_0.19.1_1665743112036_0.05003094036865963"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.20.0": {
+      "name": "react-native-builder-bob",
+      "version": "0.20.0",
+      "description": "CLI to build JavaScript files for React Native libraries",
+      "keywords": [
+        "react-native",
+        "library",
+        "build"
+      ],
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/callstack/react-native-builder-bob.git",
+        "directory": "packages/react-native-builder-bob"
+      },
+      "bugs": {
+        "url": "https://github.com/callstack/react-native-builder-bob/issues"
+      },
+      "homepage": "https://github.com/callstack/react-native-builder-bob/blob/main/README.md",
+      "main": "lib/index.js",
+      "bin": {
+        "bob": "bin/bob"
+      },
+      "engines": {
+        "node": ">= 16.0.0"
+      },
+      "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+      },
+      "scripts": {
+        "prepare": "babel --extensions .ts,.tsx src --out-dir lib --source-maps --delete-dir-on-start"
+      },
+      "dependencies": {
+        "@babel/core": "^7.18.5",
+        "@babel/plugin-proposal-class-properties": "^7.17.12",
+        "@babel/preset-env": "^7.18.2",
+        "@babel/preset-flow": "^7.17.12",
+        "@babel/preset-react": "^7.17.12",
+        "@babel/preset-typescript": "^7.17.12",
+        "browserslist": "^4.20.4",
+        "cosmiconfig": "^7.0.1",
+        "cross-spawn": "^7.0.3",
+        "dedent": "^0.7.0",
+        "del": "^6.1.1",
+        "fs-extra": "^10.1.0",
+        "glob": "^8.0.3",
+        "is-git-dirty": "^2.0.1",
+        "json5": "^2.2.1",
+        "kleur": "^4.1.4",
+        "prompts": "^2.4.2",
+        "which": "^2.0.2",
+        "yargs": "^17.5.1",
+        "jetifier": "^2.0.0"
+      },
+      "optionalDependencies": {
+        "jetifier": "^2.0.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@types/babel__core": "^7.1.19",
+        "@types/browserslist": "^4.15.0",
+        "@types/cross-spawn": "^6.0.2",
+        "@types/dedent": "^0.7.0",
+        "@types/del": "^4.0.0",
+        "@types/fs-extra": "^9.0.13",
+        "@types/glob": "^7.2.0",
+        "@types/json5": "^2.2.0",
+        "@types/prompts": "^2.0.14",
+        "@types/which": "^2.0.1",
+        "@types/yargs": "^17.0.10",
+        "concurrently": "^7.2.2"
+      },
+      "gitHead": "0b98ff188b786e2c70916b3af34cc57106d8eb9e",
+      "_id": "react-native-builder-bob@0.20.0",
+      "_nodeVersion": "16.18.0",
+      "_npmVersion": "lerna/5.1.4/node@v16.18.0+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-PvH1ekERU6x+OOOrcLggG3AMpV1I+gM5lOb4dGuxLKh7iQCWQT+BvYBoX9X1tDKj0DKsqPRn1dl4/hMIpk7r8w==",
+        "shasum": "f6ea6ba6baae59ebe30d5ed5d384b7e728fd68c5",
+        "tarball": "https://registry.npmjs.org/react-native-builder-bob/-/react-native-builder-bob-0.20.0.tgz",
+        "fileCount": 27,
+        "unpackedSize": 94935,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCR7klqI8uw4/JTOmj5UiNfl9NSxoJUFlQ/Udwlk+i0KQIgRaZpYAeYXe87hpmJXYgnbkP0hda/vdz8b9pRjLk3hpk="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjSxEQACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmo1iA//TmMY0ZfJEr/lOQyEtXGH5JfLP9hLGT3qVjl6lvnojvHDlcwq\r\n94FEOtGqVo3eStxsZKy/UFGrHzjUuD6tVzjbH0tOpDZNN6XSiwesIjxSJwxO\r\n2DADoiJ8/sJ8uvSXwB9+IMziQPihrDoEe6B3tdS//TGYpJgNJ+xjagFukYnX\r\nWWETrP0LxMUSp8g2bFbKwoAchi250UR4g/ueCjI72yYqh16LuoJdk0SprVAH\r\n4qWdi1l9YZelGTzvgS6GOz4PFvVc3c1n7l8pVNpQvKZfwhP48GaXVdFn8YFT\r\nAbQgjKrPt44E7h47/vHEuXkbTBZcCIYMTgWddTQAtuBZq9CJt1M52QTYz38q\r\n//izW7ulwYRT9Z1EYdELQ8qDKLbZNIKiccqV3Y3QWmaoqKW4TaMiYeItB9wG\r\nWDqgBDe5T18p0YrJrYMffLjdTnZZJCUxKZSpvGnBQBPqpyHCMc6VU5GijDNl\r\n09ecGIdvCZ8BHIef0MxKIgTBOlz1xtWQhsS+j5/6OUrCG0wd5LoNmI9BxeH/\r\nkvYMjc9lgmj5X7wqptQbHrNpMfQOV2XBbyiPiKUe8NaHgDFsC+G8o/vhraQH\r\npnL7Xw5k32AEF8qEijYX54NiGlUZ/h+IZazi9UjvcSX+NFEVaFQP1i64tvG/\r\nf0XBGv0X2eM5KlQfxDiJ6Rknup4bM7LnKlY=\r\n=OdT0\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "satya164",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "satya164",
+          "email": "satyajit.happy@gmail.com"
+        },
+        {
+          "name": "krizzu",
+          "email": "krizzu.dev@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/react-native-builder-bob_0.20.0_1665863952154_0.19722567819250458"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.20.1": {
+      "name": "react-native-builder-bob",
+      "version": "0.20.1",
+      "description": "CLI to build JavaScript files for React Native libraries",
+      "keywords": [
+        "react-native",
+        "library",
+        "build"
+      ],
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/callstack/react-native-builder-bob.git",
+        "directory": "packages/react-native-builder-bob"
+      },
+      "bugs": {
+        "url": "https://github.com/callstack/react-native-builder-bob/issues"
+      },
+      "homepage": "https://github.com/callstack/react-native-builder-bob/blob/main/README.md",
+      "main": "lib/index.js",
+      "bin": {
+        "bob": "bin/bob"
+      },
+      "engines": {
+        "node": ">= 16.0.0"
+      },
+      "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+      },
+      "scripts": {
+        "prepare": "babel --extensions .ts,.tsx src --out-dir lib --source-maps --delete-dir-on-start"
+      },
+      "dependencies": {
+        "@babel/core": "^7.18.5",
+        "@babel/plugin-proposal-class-properties": "^7.17.12",
+        "@babel/preset-env": "^7.18.2",
+        "@babel/preset-flow": "^7.17.12",
+        "@babel/preset-react": "^7.17.12",
+        "@babel/preset-typescript": "^7.17.12",
+        "browserslist": "^4.20.4",
+        "cosmiconfig": "^7.0.1",
+        "cross-spawn": "^7.0.3",
+        "dedent": "^0.7.0",
+        "del": "^6.1.1",
+        "fs-extra": "^10.1.0",
+        "glob": "^8.0.3",
+        "is-git-dirty": "^2.0.1",
+        "json5": "^2.2.1",
+        "kleur": "^4.1.4",
+        "prompts": "^2.4.2",
+        "which": "^2.0.2",
+        "yargs": "^17.5.1",
+        "jetifier": "^2.0.0"
+      },
+      "optionalDependencies": {
+        "jetifier": "^2.0.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@types/babel__core": "^7.1.19",
+        "@types/browserslist": "^4.15.0",
+        "@types/cross-spawn": "^6.0.2",
+        "@types/dedent": "^0.7.0",
+        "@types/del": "^4.0.0",
+        "@types/fs-extra": "^9.0.13",
+        "@types/glob": "^7.2.0",
+        "@types/json5": "^2.2.0",
+        "@types/prompts": "^2.0.14",
+        "@types/which": "^2.0.1",
+        "@types/yargs": "^17.0.10",
+        "concurrently": "^7.2.2"
+      },
+      "gitHead": "805bcb851bbf3a8f5c72bcf8362b59a9e46753c7",
+      "_id": "react-native-builder-bob@0.20.1",
+      "_nodeVersion": "16.14.0",
+      "_npmVersion": "lerna/5.1.4/node@v16.14.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-8lTEXe4DqCT4Q3C3AGPI/xrT637pkyfAdeX7SayBP5JbfuPZvX2KCz/RjbRwLN5ecr4FPRcPg5Uhn2U7D9K6rA==",
+        "shasum": "8aa50e16d6f31bc23dd15681b05bd69d40fe9e07",
+        "tarball": "https://registry.npmjs.org/react-native-builder-bob/-/react-native-builder-bob-0.20.1.tgz",
+        "fileCount": 27,
+        "unpackedSize": 90027,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBylXnz4DLVBnstKmKWyShjSF0jZMt47+ZV8nWbwltgCAiAelmNVELRul1OCr/sZvFlOLuouZTEW8OND8Dfi4Z87cw=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjY7u9ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoU1A//SXR+uLKqueXJ/07v7sjudXt0X31TSJs2PnZNe0be0emBK91I\r\nJrDfco5CZdC8iSm0q39ZAwPgmkxS5C6H2fS9dDSaV118reNjIW4BaVBNrtEf\r\nKi4Li0fMfBiQFj1dpQBQ00xcwRbOU7lADguoB1A715UeMzEBsi6zXLZs+D17\r\ng9QnS/OJHgQEacFOnf7W39CHMq/k41U5WiU1vym+l6QR/gojmIylEQA8T6Da\r\nZHkaBgireZvZ7U2BeYxuudpV4Il51HQB2UvP4xCeIn3Jxp4hNJ9QxY81KpGp\r\nj4TlGcKW0h3wQLvfcpil9Q17WryZQInraz11Hq2WWvr+sfbfFqQetzLOzhDX\r\nD/WKb7Oh596ehS4ho3VhGTO1iMrc+Gi0+zABY3qh7MWEmTG2BMj2Q+BHYD5E\r\nZRb+pIYiUeUmUtFrerWBqHrosqnQoYghtd0L5SI5J7lFPp4C69FSqDJCZJBx\r\nImZFhmPe6Pe6P/QxUbDCvbI9Ww7TEfo5M9zumpGVqmmGy6ZwZF71GDuUBlMg\r\nFOu8q2wIuY8xHN6SGNHOZLNTR+e9zuaeIyoQtRzfePlp4ELZrwF3ZvixRaYu\r\nAdzccGnWjoISM/NCdRue+0DusIYXS5ppJDsEmk+BafRwI9Q/PK9MVZfHDZAc\r\nYLQ0tatJTlkrDr8uxi/unER7J3WcdB37apo=\r\n=fd57\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "satya164",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "satya164",
+          "email": "satyajit.happy@gmail.com"
+        },
+        {
+          "name": "krizzu",
+          "email": "krizzu.dev@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/react-native-builder-bob_0.20.1_1667480509354_0.15583850332473537"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.20.2": {
+      "name": "react-native-builder-bob",
+      "version": "0.20.2",
+      "description": "CLI to build JavaScript files for React Native libraries",
+      "keywords": [
+        "react-native",
+        "library",
+        "build"
+      ],
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/callstack/react-native-builder-bob.git",
+        "directory": "packages/react-native-builder-bob"
+      },
+      "bugs": {
+        "url": "https://github.com/callstack/react-native-builder-bob/issues"
+      },
+      "homepage": "https://github.com/callstack/react-native-builder-bob/blob/main/README.md",
+      "main": "lib/index.js",
+      "bin": {
+        "bob": "bin/bob"
+      },
+      "engines": {
+        "node": ">= 16.0.0"
+      },
+      "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+      },
+      "scripts": {
+        "prepare": "babel --extensions .ts,.tsx src --out-dir lib --source-maps --delete-dir-on-start"
+      },
+      "dependencies": {
+        "@babel/core": "^7.18.5",
+        "@babel/plugin-proposal-class-properties": "^7.17.12",
+        "@babel/preset-env": "^7.18.2",
+        "@babel/preset-flow": "^7.17.12",
+        "@babel/preset-react": "^7.17.12",
+        "@babel/preset-typescript": "^7.17.12",
+        "browserslist": "^4.20.4",
+        "cosmiconfig": "^7.0.1",
+        "cross-spawn": "^7.0.3",
+        "dedent": "^0.7.0",
+        "del": "^6.1.1",
+        "fs-extra": "^10.1.0",
+        "glob": "^8.0.3",
+        "is-git-dirty": "^2.0.1",
+        "json5": "^2.2.1",
+        "kleur": "^4.1.4",
+        "prompts": "^2.4.2",
+        "which": "^2.0.2",
+        "yargs": "^17.5.1",
+        "jetifier": "^2.0.0"
+      },
+      "optionalDependencies": {
+        "jetifier": "^2.0.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@types/babel__core": "^7.1.19",
+        "@types/browserslist": "^4.15.0",
+        "@types/cross-spawn": "^6.0.2",
+        "@types/dedent": "^0.7.0",
+        "@types/del": "^4.0.0",
+        "@types/fs-extra": "^9.0.13",
+        "@types/glob": "^7.2.0",
+        "@types/json5": "^2.2.0",
+        "@types/prompts": "^2.0.14",
+        "@types/which": "^2.0.1",
+        "@types/yargs": "^17.0.10",
+        "concurrently": "^7.2.2"
+      },
+      "gitHead": "03252b0272a4ae3c3920c0fad394528ec0cfcc1c",
+      "_id": "react-native-builder-bob@0.20.2",
+      "_nodeVersion": "16.18.1",
+      "_npmVersion": "lerna/5.1.4/node@v16.18.1+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-8ISspLPMKV2FvhZ8kvDy6j6AoM1y5DyAZKJErgl3JDN9eLtWqEKuCWVa88O9ulgdM3sxtJ2SErs0AaPGwEbCqw==",
+        "shasum": "e8c478dded8c072ecc09e7b0ff57ce43a56f68c8",
+        "tarball": "https://registry.npmjs.org/react-native-builder-bob/-/react-native-builder-bob-0.20.2.tgz",
+        "fileCount": 27,
+        "unpackedSize": 93874,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAo7BpI9Dmb3h5F2cVWp1gxi7RlpP9mrk1NdrqAHQZwVAiEA8pcSIvH58WolrlY8b9m5ZbYYup7rC+e7cL4YvjTkPmI="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjilM0ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmrhcw/5AUeFSIsSrFVRBVQtPSRQ0s53md5Yb+PesCYl7ZDcVvpZCSHu\r\nbnjQYYqoZM3kJ+DqBDGLjceVjTeyC+qx5S6opDZperuXeNPUPEvDHbzF5+Db\r\nVOUbZS/Dybn3fbTZs3Itnj7+x9uU9Ey+S3Ybs0MgQ2LRZbBhpEX+HuhlY/r0\r\nTr/Lybf20StFGLJGHD9qZE1u1O2aQcbeZ/5Uq/EA/CnV+tH6JWiIY0PD4Dyr\r\nsR0b+PdhCAQRSOKPSM6AtKdgNZ+JgDTgS0UMr/QoL5sKVAbU/UByHzYiPu8D\r\n07sMboYRlg0oUcsclM0q3ByJb22HVekXoSJGd08Jy0nHjPr/pFMPfHLG5f7L\r\nZ0P6bCW5r72s8t6AiOGosLEF5jxddDG5jGBGkQqIrrhhgnpZqUvaTMIsNPqs\r\nHDfnh7TUgfReRURxhkbXFt9f1rOwwVx8QS0CKDJm+xJF9Bp/ON4p4tzKTS3+\r\nrJM5BBdbogVxvydqZJo6GQDEmQ9SWJVwKmI+I/xaNt5BktLSasWqL2UEOeoW\r\nKFq7O4kVIu4hRx/vMTBa/571eg+zEcOC2TWvc6MjoDbXrIbepfvSzOy5YPqR\r\n0gj6INeNvh5JXi4HaNK5M65nicCPu5jn6Fys8prQHS6Wx4SnOyYqDnmIoghw\r\nprRppDhBUUk9+cL9RmW6h19pw6LTD5aUjc8=\r\n=PFR5\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "satya164",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "satya164",
+          "email": "satyajit.happy@gmail.com"
+        },
+        {
+          "name": "krizzu",
+          "email": "krizzu.dev@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/react-native-builder-bob_0.20.2_1670009651915_0.7542293255562798"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.20.3": {
+      "name": "react-native-builder-bob",
+      "version": "0.20.3",
+      "description": "CLI to build JavaScript files for React Native libraries",
+      "keywords": [
+        "react-native",
+        "library",
+        "build"
+      ],
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/callstack/react-native-builder-bob.git",
+        "directory": "packages/react-native-builder-bob"
+      },
+      "bugs": {
+        "url": "https://github.com/callstack/react-native-builder-bob/issues"
+      },
+      "homepage": "https://github.com/callstack/react-native-builder-bob/blob/main/README.md",
+      "main": "lib/index.js",
+      "bin": {
+        "bob": "bin/bob"
+      },
+      "engines": {
+        "node": ">= 16.0.0"
+      },
+      "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+      },
+      "scripts": {
+        "prepack": "babel --extensions .ts,.tsx src --out-dir lib --source-maps --delete-dir-on-start"
+      },
+      "dependencies": {
+        "@babel/core": "^7.18.5",
+        "@babel/plugin-proposal-class-properties": "^7.17.12",
+        "@babel/preset-env": "^7.18.2",
+        "@babel/preset-flow": "^7.17.12",
+        "@babel/preset-react": "^7.17.12",
+        "@babel/preset-typescript": "^7.17.12",
+        "browserslist": "^4.20.4",
+        "cosmiconfig": "^7.0.1",
+        "cross-spawn": "^7.0.3",
+        "dedent": "^0.7.0",
+        "del": "^6.1.1",
+        "fs-extra": "^10.1.0",
+        "glob": "^8.0.3",
+        "is-git-dirty": "^2.0.1",
+        "json5": "^2.2.1",
+        "kleur": "^4.1.4",
+        "prompts": "^2.4.2",
+        "which": "^2.0.2",
+        "yargs": "^17.5.1",
+        "jetifier": "^2.0.0"
+      },
+      "optionalDependencies": {
+        "jetifier": "^2.0.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@types/babel__core": "^7.1.19",
+        "@types/browserslist": "^4.15.0",
+        "@types/cross-spawn": "^6.0.2",
+        "@types/dedent": "^0.7.0",
+        "@types/del": "^4.0.0",
+        "@types/fs-extra": "^9.0.13",
+        "@types/glob": "^7.2.0",
+        "@types/json5": "^2.2.0",
+        "@types/prompts": "^2.0.14",
+        "@types/which": "^2.0.1",
+        "@types/yargs": "^17.0.10",
+        "concurrently": "^7.2.2"
+      },
+      "gitHead": "710d3f91747298695f371f1f85c5b8a6ce258a5f",
+      "_id": "react-native-builder-bob@0.20.3",
+      "_nodeVersion": "16.18.1",
+      "_npmVersion": "lerna/1.13.0/node@v16.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-TGuCo/61V95kIXTF13NJGGzR7bZuICe+LCWaYvLm/VUuEXMKwS6wSAk02EgmGZ7kfWpCFrDXmwrFFzfLhETSxg==",
+        "shasum": "da3d3238650d3e8bcf8e36bbca8aa852bdbebe15",
+        "tarball": "https://registry.npmjs.org/react-native-builder-bob/-/react-native-builder-bob-0.20.3.tgz",
+        "fileCount": 27,
+        "unpackedSize": 93874,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCuQitNNLAZ9+PZM5KsPEbpiq3kCeFbSOwltPOFSqw3ywIgENJ1E1Zb9xq0wYz1q9IMYHGyBqyk3OOYueI/eD6GAq8="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjjSsoACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoQVhAAnQ5Tw9VA2nxmDSVK618mSqwHJRaclNdvyIgVUlwupJ7dmIw2\r\noN8cjK+yFonQ3L6tXfc/CYDnZ28MJ1GGiSaNMOmborja/S7agzSlvnqIW5PJ\r\n1duokrKCySiFKjTUS96PGatVnD+/wbqKzrBAV1JXuA6zBg7iz0cSaTXBMgpG\r\n7Figff5cFGauBLIWfBZh1vDGpUsrVGEbGiKyfZ/T9RIIjxtOodcBXtsdtlb7\r\n4SNK+iHNi+bvtJVK10bc4aAkNwhkCUvDHpH7YzcHeoYmGMpr8o+0Gddbd7fl\r\nVXtMfq3k9uW6MdfpobJsec6IYxcoFoVDhmRIKy1+RDMe5ohSOgWzdRpj6AQM\r\n4DfJL5Xec0YGGEF7F5PgV0D3AlfOHow6ddsJ4cxzuRjR5jbVxc/Md4Hr/feI\r\nSV++RHvrSoYMJBEBQpPgmxu06Ba6DaJyk7iHLcMvh67QMNf4BXmKJ8yf0F/s\r\nKNISIERGGnME+3R6sB5QVqN1APQtuCFn24y5peI94gup+c/KBXzVHVnuFlFy\r\n1om7LOtE/ySKsHx2TYDeDKyr1/NPSX1pWixGS46YDsmEDHF8m3nVAt5L6lCL\r\njUyGz9EynIgNz//raW3uoA7tRvCh7qlrZirn7u3hogSmLbfi/WoZIyXo8Van\r\nryxyWogJivgs6jqr9uPuOjOGqLxdIyGTZNM=\r\n=SeWo\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "satya164",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "satya164",
+          "email": "satyajit.happy@gmail.com"
+        },
+        {
+          "name": "krizzu",
+          "email": "krizzu.dev@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/react-native-builder-bob_0.20.3_1670196007851_0.6016119639570825"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.20.4": {
+      "name": "react-native-builder-bob",
+      "version": "0.20.4",
+      "description": "CLI to build JavaScript files for React Native libraries",
+      "keywords": [
+        "react-native",
+        "library",
+        "build"
+      ],
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/callstack/react-native-builder-bob.git",
+        "directory": "packages/react-native-builder-bob"
+      },
+      "bugs": {
+        "url": "https://github.com/callstack/react-native-builder-bob/issues"
+      },
+      "homepage": "https://github.com/callstack/react-native-builder-bob/blob/main/README.md",
+      "main": "lib/index.js",
+      "bin": {
+        "bob": "bin/bob"
+      },
+      "engines": {
+        "node": ">= 16.0.0"
+      },
+      "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+      },
+      "scripts": {
+        "prepack": "babel --extensions .ts,.tsx src --out-dir lib --source-maps --delete-dir-on-start"
+      },
+      "dependencies": {
+        "@babel/core": "^7.18.5",
+        "@babel/plugin-proposal-class-properties": "^7.17.12",
+        "@babel/preset-env": "^7.18.2",
+        "@babel/preset-flow": "^7.17.12",
+        "@babel/preset-react": "^7.17.12",
+        "@babel/preset-typescript": "^7.17.12",
+        "browserslist": "^4.20.4",
+        "cosmiconfig": "^7.0.1",
+        "cross-spawn": "^7.0.3",
+        "dedent": "^0.7.0",
+        "del": "^6.1.1",
+        "fs-extra": "^10.1.0",
+        "glob": "^8.0.3",
+        "is-git-dirty": "^2.0.1",
+        "json5": "^2.2.1",
+        "kleur": "^4.1.4",
+        "prompts": "^2.4.2",
+        "which": "^2.0.2",
+        "yargs": "^17.5.1",
+        "jetifier": "^2.0.0"
+      },
+      "optionalDependencies": {
+        "jetifier": "^2.0.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@types/babel__core": "^7.1.19",
+        "@types/browserslist": "^4.15.0",
+        "@types/cross-spawn": "^6.0.2",
+        "@types/dedent": "^0.7.0",
+        "@types/del": "^4.0.0",
+        "@types/fs-extra": "^9.0.13",
+        "@types/glob": "^7.2.0",
+        "@types/json5": "^2.2.0",
+        "@types/prompts": "^2.0.14",
+        "@types/which": "^2.0.1",
+        "@types/yargs": "^17.0.10",
+        "concurrently": "^7.2.2"
+      },
+      "gitHead": "588a18ddb1f74534b3f4cc5407458c7825c2e1cc",
+      "_id": "react-native-builder-bob@0.20.4",
+      "_nodeVersion": "18.14.2",
+      "_npmVersion": "lerna/1.13.0/node@v18.14.2+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-3ZmYP8H7Fg2D8/JAPvxT78I4VWzf5DNMUf69cxWPw7Pukt+hHp1PSQ303af63uv1QXxWMJtrQ11+nuUfVqQf0Q==",
+        "shasum": "02df01b8dc02f1bb2d566f820e33c5d42bfb9c99",
+        "tarball": "https://registry.npmjs.org/react-native-builder-bob/-/react-native-builder-bob-0.20.4.tgz",
+        "fileCount": 27,
+        "unpackedSize": 93886,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAURYgd1Aj58QCYpj3QrL47oijeBE3r5qpnGquEJtcSPAiBvaX4fad2EOngloHf7epN9+3AS879W1lGzTzwQRXoc3Q=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj+63/ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmo0AQ/+IQwTMf+FnvrJMIfvjJHNAU7BMdP4nvgfeveOB3RWhoMBrVYf\r\np0o0Sq75cvI580JgnvSDdiHpo2sENJgHw5cq63fCdeT8bjGCW0zm9eXQMMta\r\nujkAmqcb5opELmfzqqQyawdFPpfPGIH6uwCuZtYQRTvNoJaZ5sTMb4NvGnc/\r\nCtw3GYpJICd7L8qG1JsemOnsssafhDap1dCQw/epThrGtKPyiKMpvkk6+XUl\r\nyBjlIKP/Oe6dsU9fMyE7JVZnU/ANu6kgHY6rmPRMkFsw3N4X1mfajOFZxE5K\r\n4Tllz0vTnKD1dnSPpnb+hxByF9gfg1R7FiKSlTwmgQCOX6W/ElPL0Gii81jP\r\nqstLaIMWy4gjvdDWoixKeYZMTur0WBGh7F7aIgEVZEgGj1lsWLN4yurTrTtG\r\n+8obBKXZe+lKtIiuMR4luX75NUGk2XRxh+rYf3mmMA0ZX9p0gMTsJ1GpOqV0\r\niJbLSTNFiQQxoeloFgoZn/V1WSHLpTle67cMN/E4cJfyBAW7Gs8Pr8MqPsyJ\r\nbL+kaUtcQ9LqjDeuflnsR7DMWj/F7MWJkh05n4dM1sqn0UdcG43yrGXvp6r8\r\nTotWlq1WzuT/EN/eA+KsAiASZFn2Dxrj+HJJY18Oa2zVjp0ptJuRJ9p8E69t\r\n+FHxnkXHRr8+M/iLs8y4lSTDAXIHgMZmKpo=\r\n=Vh2B\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "satya164",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "satya164",
+          "email": "satyajit.happy@gmail.com"
+        },
+        {
+          "name": "krizzu",
+          "email": "krizzu.dev@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/react-native-builder-bob_0.20.4_1677438463189_0.006774703253751735"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.21.0": {
+      "name": "react-native-builder-bob",
+      "version": "0.21.0",
+      "description": "CLI to build JavaScript files for React Native libraries",
+      "keywords": [
+        "react-native",
+        "library",
+        "build"
+      ],
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/callstack/react-native-builder-bob.git",
+        "directory": "packages/react-native-builder-bob"
+      },
+      "bugs": {
+        "url": "https://github.com/callstack/react-native-builder-bob/issues"
+      },
+      "homepage": "https://github.com/callstack/react-native-builder-bob/blob/main/README.md",
+      "main": "lib/index.js",
+      "bin": {
+        "bob": "bin/bob"
+      },
+      "engines": {
+        "node": ">= 16.0.0"
+      },
+      "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+      },
+      "scripts": {
+        "prepack": "babel --extensions .ts,.tsx src --out-dir lib --source-maps --delete-dir-on-start"
+      },
+      "dependencies": {
+        "@babel/core": "^7.18.5",
+        "@babel/plugin-proposal-class-properties": "^7.17.12",
+        "@babel/preset-env": "^7.18.2",
+        "@babel/preset-flow": "^7.17.12",
+        "@babel/preset-react": "^7.17.12",
+        "@babel/preset-typescript": "^7.17.12",
+        "browserslist": "^4.20.4",
+        "cosmiconfig": "^7.0.1",
+        "cross-spawn": "^7.0.3",
+        "dedent": "^0.7.0",
+        "del": "^6.1.1",
+        "fs-extra": "^10.1.0",
+        "glob": "^8.0.3",
+        "is-git-dirty": "^2.0.1",
+        "json5": "^2.2.1",
+        "kleur": "^4.1.4",
+        "prompts": "^2.4.2",
+        "which": "^2.0.2",
+        "yargs": "^17.5.1",
+        "jetifier": "^2.0.0"
+      },
+      "optionalDependencies": {
+        "jetifier": "^2.0.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@types/babel__core": "^7.1.19",
+        "@types/browserslist": "^4.15.0",
+        "@types/cross-spawn": "^6.0.2",
+        "@types/dedent": "^0.7.0",
+        "@types/del": "^4.0.0",
+        "@types/fs-extra": "^9.0.13",
+        "@types/glob": "^7.2.0",
+        "@types/json5": "^2.2.0",
+        "@types/prompts": "^2.0.14",
+        "@types/which": "^2.0.1",
+        "@types/yargs": "^17.0.10",
+        "concurrently": "^7.2.2"
+      },
+      "gitHead": "a37a86db58af63a4024a60ba261b7bc5179eb05e",
+      "_id": "react-native-builder-bob@0.21.0",
+      "_nodeVersion": "16.18.1",
+      "_npmVersion": "lerna/1.13.0/node@v16.18.1+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-NAzbqYay7VUeAQY/8tW7at/kNNsF3yXXUG+EsR+Xu9b4e5BvWajQvNK2yyhxCWl9yq6Wesjdppifgb2kQ/GVTw==",
+        "shasum": "5978d1e4c7c37d0139c0e9ffefc76bd83d5083aa",
+        "tarball": "https://registry.npmjs.org/react-native-builder-bob/-/react-native-builder-bob-0.21.0.tgz",
+        "fileCount": 27,
+        "unpackedSize": 102102,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQC66ygb1Yw6YUsSEJv3c4apuwYZP1Q7IBiksSGyAePCDwIhALqtKDhZRqhoaKW6EGD/MI7OQLaWPdYxySTW93sNnqCS"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "satya164",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "satya164",
+          "email": "satyajit.happy@gmail.com"
+        },
+        {
+          "name": "krizzu",
+          "email": "krizzu.dev@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/react-native-builder-bob_0.21.0_1687951213623_0.843329915847866"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.21.1": {
+      "name": "react-native-builder-bob",
+      "version": "0.21.1",
+      "description": "CLI to build JavaScript files for React Native libraries",
+      "keywords": [
+        "react-native",
+        "library",
+        "build"
+      ],
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/callstack/react-native-builder-bob.git",
+        "directory": "packages/react-native-builder-bob"
+      },
+      "bugs": {
+        "url": "https://github.com/callstack/react-native-builder-bob/issues"
+      },
+      "homepage": "https://github.com/callstack/react-native-builder-bob/blob/main/README.md",
+      "main": "lib/index.js",
+      "bin": {
+        "bob": "bin/bob"
+      },
+      "engines": {
+        "node": ">= 16.0.0"
+      },
+      "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+      },
+      "scripts": {
+        "prepack": "babel --extensions .ts,.tsx src --out-dir lib --source-maps --delete-dir-on-start"
+      },
+      "dependencies": {
+        "@babel/core": "^7.18.5",
+        "@babel/plugin-proposal-class-properties": "^7.17.12",
+        "@babel/preset-env": "^7.18.2",
+        "@babel/preset-flow": "^7.17.12",
+        "@babel/preset-react": "^7.17.12",
+        "@babel/preset-typescript": "^7.17.12",
+        "browserslist": "^4.20.4",
+        "cosmiconfig": "^7.0.1",
+        "cross-spawn": "^7.0.3",
+        "dedent": "^0.7.0",
+        "del": "^6.1.1",
+        "fs-extra": "^10.1.0",
+        "glob": "^8.0.3",
+        "is-git-dirty": "^2.0.1",
+        "json5": "^2.2.1",
+        "kleur": "^4.1.4",
+        "prompts": "^2.4.2",
+        "which": "^2.0.2",
+        "yargs": "^17.5.1",
+        "jetifier": "^2.0.0"
+      },
+      "optionalDependencies": {
+        "jetifier": "^2.0.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@types/babel__core": "^7.1.19",
+        "@types/browserslist": "^4.15.0",
+        "@types/cross-spawn": "^6.0.2",
+        "@types/dedent": "^0.7.0",
+        "@types/del": "^4.0.0",
+        "@types/fs-extra": "^9.0.13",
+        "@types/glob": "^7.2.0",
+        "@types/json5": "^2.2.0",
+        "@types/prompts": "^2.0.14",
+        "@types/which": "^2.0.1",
+        "@types/yargs": "^17.0.10",
+        "concurrently": "^7.2.2"
+      },
+      "gitHead": "9335b5c8bcbc360903514d1f5972f5a01c60c92f",
+      "_id": "react-native-builder-bob@0.21.1",
+      "_nodeVersion": "16.18.1",
+      "_npmVersion": "lerna/1.13.0/node@v16.18.1+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-dsKzUTPVeKhyO35LGHz+UcDZI4p/qHdpfl2GVHtk+PJd2xW16CTHKrgaixk7F36rYd79a7PF9N9CygBhEpmitQ==",
+        "shasum": "409c82cb7ffaf632a5a5c6aba6736ec6eb066087",
+        "tarball": "https://registry.npmjs.org/react-native-builder-bob/-/react-native-builder-bob-0.21.1.tgz",
+        "fileCount": 27,
+        "unpackedSize": 102384,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCnPt2o5rOpFr2+FZJe0Nfgi66fEqWozei6cUEncFTuygIgIZNEKSeYF1SK8clEaFxPq6wRMp2HA+1lqobjCNMoS3o="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "satya164",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "satya164",
+          "email": "satyajit.happy@gmail.com"
+        },
+        {
+          "name": "krizzu",
+          "email": "krizzu.dev@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/react-native-builder-bob_0.21.1_1688492162303_0.9430631705667394"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.21.2": {
+      "name": "react-native-builder-bob",
+      "version": "0.21.2",
+      "description": "CLI to build JavaScript files for React Native libraries",
+      "keywords": [
+        "react-native",
+        "library",
+        "build"
+      ],
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/callstack/react-native-builder-bob.git",
+        "directory": "packages/react-native-builder-bob"
+      },
+      "bugs": {
+        "url": "https://github.com/callstack/react-native-builder-bob/issues"
+      },
+      "homepage": "https://github.com/callstack/react-native-builder-bob/blob/main/README.md",
+      "main": "lib/index.js",
+      "bin": {
+        "bob": "bin/bob"
+      },
+      "engines": {
+        "node": ">= 16.0.0"
+      },
+      "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+      },
+      "scripts": {
+        "prepack": "babel --extensions .ts,.tsx src --out-dir lib --source-maps --delete-dir-on-start"
+      },
+      "dependencies": {
+        "@babel/core": "^7.18.5",
+        "@babel/plugin-proposal-class-properties": "^7.17.12",
+        "@babel/preset-env": "^7.18.2",
+        "@babel/preset-flow": "^7.17.12",
+        "@babel/preset-react": "^7.17.12",
+        "@babel/preset-typescript": "^7.17.12",
+        "browserslist": "^4.20.4",
+        "cosmiconfig": "^7.0.1",
+        "cross-spawn": "^7.0.3",
+        "dedent": "^0.7.0",
+        "del": "^6.1.1",
+        "fs-extra": "^10.1.0",
+        "glob": "^8.0.3",
+        "is-git-dirty": "^2.0.1",
+        "json5": "^2.2.1",
+        "kleur": "^4.1.4",
+        "prompts": "^2.4.2",
+        "which": "^2.0.2",
+        "yargs": "^17.5.1",
+        "jetifier": "^2.0.0"
+      },
+      "optionalDependencies": {
+        "jetifier": "^2.0.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@types/babel__core": "^7.1.19",
+        "@types/browserslist": "^4.15.0",
+        "@types/cross-spawn": "^6.0.2",
+        "@types/dedent": "^0.7.0",
+        "@types/del": "^4.0.0",
+        "@types/fs-extra": "^9.0.13",
+        "@types/glob": "^7.2.0",
+        "@types/json5": "^2.2.0",
+        "@types/prompts": "^2.0.14",
+        "@types/which": "^2.0.1",
+        "@types/yargs": "^17.0.10",
+        "concurrently": "^7.2.2"
+      },
+      "gitHead": "2fe844a037e535f590c6542b7aceb0e261d877b1",
+      "_id": "react-native-builder-bob@0.21.2",
+      "_nodeVersion": "16.18.1",
+      "_npmVersion": "lerna/1.13.0/node@v16.18.1+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-OPPv+tAJ4ddoo8zp0P0GFA3IBkqwMNq9d4CkiQVYba7q27L9BEOGOadI5gwEJZWTfKtjF5nCf26vaRnFXLg4ew==",
+        "shasum": "e0d5f158049b9fefbfb1c60a96ae36b15e9b59e2",
+        "tarball": "https://registry.npmjs.org/react-native-builder-bob/-/react-native-builder-bob-0.21.2.tgz",
+        "fileCount": 27,
+        "unpackedSize": 103748,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDMCcaMgYfC17LHOq6U79wLazkG8yH9XJIldHdbITPruAiEArupXqNN23gJW98qaiQpaOrqEa0vxuOvlHxB9unK+fWU="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "satya164",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "satya164",
+          "email": "satyajit.happy@gmail.com"
+        },
+        {
+          "name": "krizzu",
+          "email": "krizzu.dev@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/react-native-builder-bob_0.21.2_1688503537592_0.27142863957804475"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.21.3": {
+      "name": "react-native-builder-bob",
+      "version": "0.21.3",
+      "description": "CLI to build JavaScript files for React Native libraries",
+      "keywords": [
+        "react-native",
+        "library",
+        "build"
+      ],
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/callstack/react-native-builder-bob.git",
+        "directory": "packages/react-native-builder-bob"
+      },
+      "bugs": {
+        "url": "https://github.com/callstack/react-native-builder-bob/issues"
+      },
+      "homepage": "https://github.com/callstack/react-native-builder-bob/blob/main/README.md",
+      "main": "lib/index.js",
+      "bin": {
+        "bob": "bin/bob"
+      },
+      "engines": {
+        "node": ">= 16.0.0"
+      },
+      "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+      },
+      "scripts": {
+        "prepack": "babel --extensions .ts,.tsx src --out-dir lib --source-maps --delete-dir-on-start"
+      },
+      "dependencies": {
+        "@babel/core": "^7.18.5",
+        "@babel/plugin-proposal-class-properties": "^7.17.12",
+        "@babel/preset-env": "^7.18.2",
+        "@babel/preset-flow": "^7.17.12",
+        "@babel/preset-react": "^7.17.12",
+        "@babel/preset-typescript": "^7.17.12",
+        "browserslist": "^4.20.4",
+        "cosmiconfig": "^7.0.1",
+        "cross-spawn": "^7.0.3",
+        "dedent": "^0.7.0",
+        "del": "^6.1.1",
+        "fs-extra": "^10.1.0",
+        "glob": "^8.0.3",
+        "is-git-dirty": "^2.0.1",
+        "json5": "^2.2.1",
+        "kleur": "^4.1.4",
+        "prompts": "^2.4.2",
+        "which": "^2.0.2",
+        "yargs": "^17.5.1",
+        "jetifier": "^2.0.0"
+      },
+      "optionalDependencies": {
+        "jetifier": "^2.0.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@types/babel__core": "^7.1.19",
+        "@types/browserslist": "^4.15.0",
+        "@types/cross-spawn": "^6.0.2",
+        "@types/dedent": "^0.7.0",
+        "@types/del": "^4.0.0",
+        "@types/fs-extra": "^9.0.13",
+        "@types/glob": "^7.2.0",
+        "@types/json5": "^2.2.0",
+        "@types/prompts": "^2.0.14",
+        "@types/which": "^2.0.1",
+        "@types/yargs": "^17.0.10",
+        "concurrently": "^7.2.2"
+      },
+      "gitHead": "44df3f943f7c96bb022150348cfdfaa79a8fdca0",
+      "_id": "react-native-builder-bob@0.21.3",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "lerna/1.13.0/node@v18.17.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-ZlEXWzgIRfRvQEDEYnoTeJ2og5zDbORB0BMGzpE34TxO22+DZeXH4yFYUtZLrUxvUi5WVo/1V2sVjjnUNZL85Q==",
+        "shasum": "6cdef5a020bae60286e72c6941df9a2d410e3f19",
+        "tarball": "https://registry.npmjs.org/react-native-builder-bob/-/react-native-builder-bob-0.21.3.tgz",
+        "fileCount": 27,
+        "unpackedSize": 105249,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC52DJ7sVa0J96LtzT3gzwlfBWiDGq60fN9R7hAgCfzRQIgVxFcjtu7e1+nglWxG85oE4iHxjRGoG7MgxXft49woTs="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "satya164",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "satya164",
+          "email": "satyajit.happy@gmail.com"
+        },
+        {
+          "name": "krizzu",
+          "email": "krizzu.dev@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/react-native-builder-bob_0.21.3_1689771373058_0.6767159079638783"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.22.0": {
+      "name": "react-native-builder-bob",
+      "version": "0.22.0",
+      "description": "CLI to build JavaScript files for React Native libraries",
+      "keywords": [
+        "react-native",
+        "library",
+        "build"
+      ],
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/callstack/react-native-builder-bob.git",
+        "directory": "packages/react-native-builder-bob"
+      },
+      "bugs": {
+        "url": "https://github.com/callstack/react-native-builder-bob/issues"
+      },
+      "homepage": "https://github.com/callstack/react-native-builder-bob/blob/main/README.md",
+      "main": "lib/index.js",
+      "bin": {
+        "bob": "bin/bob"
+      },
+      "engines": {
+        "node": ">= 18.0.0"
+      },
+      "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+      },
+      "scripts": {
+        "prepack": "babel --extensions .ts,.tsx src --out-dir lib --source-maps --delete-dir-on-start"
+      },
+      "dependencies": {
+        "@babel/core": "^7.18.5",
+        "@babel/plugin-proposal-class-properties": "^7.17.12",
+        "@babel/preset-env": "^7.18.2",
+        "@babel/preset-flow": "^7.17.12",
+        "@babel/preset-react": "^7.17.12",
+        "@babel/preset-typescript": "^7.17.12",
+        "browserslist": "^4.20.4",
+        "cosmiconfig": "^7.0.1",
+        "cross-spawn": "^7.0.3",
+        "dedent": "^0.7.0",
+        "del": "^6.1.1",
+        "fs-extra": "^10.1.0",
+        "glob": "^8.0.3",
+        "is-git-dirty": "^2.0.1",
+        "json5": "^2.2.1",
+        "kleur": "^4.1.4",
+        "prompts": "^2.4.2",
+        "which": "^2.0.2",
+        "yargs": "^17.5.1"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@types/babel__core": "^7.1.19",
+        "@types/browserslist": "^4.15.0",
+        "@types/cross-spawn": "^6.0.2",
+        "@types/dedent": "^0.7.0",
+        "@types/del": "^4.0.0",
+        "@types/fs-extra": "^9.0.13",
+        "@types/glob": "^7.2.0",
+        "@types/json5": "^2.2.0",
+        "@types/prompts": "^2.0.14",
+        "@types/which": "^2.0.1",
+        "@types/yargs": "^17.0.10",
+        "concurrently": "^7.2.2"
+      },
+      "gitHead": "2a92f26b642637b853c0dfe7f59e2d561d6394af",
+      "_id": "react-native-builder-bob@0.22.0",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "lerna/1.13.0/node@v18.17.1+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-dp4CmeF5rC9iehQaSZaZAfMyE3QWeU4xjsJ05oOty09qQB7PzC5bwo1RLlP1dCb+TbQqRcoP2gDoUQW1m+f4Mw==",
+        "shasum": "6b55e073888c0f69421c024e7e524d194a887df6",
+        "tarball": "https://registry.npmjs.org/react-native-builder-bob/-/react-native-builder-bob-0.22.0.tgz",
+        "fileCount": 23,
+        "unpackedSize": 97209,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDWENCrrKQLK5viQE5dmpTbAdh/IV1T2S8YGTP3eCCrdgIhAKMecTPLJtkYeK36xnzMmmywGM6aAPxdfcXZYd93YYFD"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "satya164",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "satya164",
+          "email": "satyajit.happy@gmail.com"
+        },
+        {
+          "name": "krizzu",
+          "email": "krizzu.dev@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/react-native-builder-bob_0.22.0_1694780025568_0.1324720202830969"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.23.0": {
+      "name": "react-native-builder-bob",
+      "version": "0.23.0",
+      "description": "CLI to build JavaScript files for React Native libraries",
+      "keywords": [
+        "react-native",
+        "library",
+        "build"
+      ],
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/callstack/react-native-builder-bob.git",
+        "directory": "packages/react-native-builder-bob"
+      },
+      "bugs": {
+        "url": "https://github.com/callstack/react-native-builder-bob/issues"
+      },
+      "homepage": "https://github.com/callstack/react-native-builder-bob/blob/main/README.md",
+      "main": "lib/index.js",
+      "bin": {
+        "bob": "bin/bob"
+      },
+      "engines": {
+        "node": ">= 18.0.0"
+      },
+      "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+      },
+      "scripts": {
+        "prepare": "babel --extensions .ts,.tsx src --out-dir lib --source-maps --delete-dir-on-start"
+      },
+      "dependencies": {
+        "@babel/core": "^7.18.5",
+        "@babel/plugin-proposal-class-properties": "^7.17.12",
+        "@babel/preset-env": "^7.18.2",
+        "@babel/preset-flow": "^7.17.12",
+        "@babel/preset-react": "^7.17.12",
+        "@babel/preset-typescript": "^7.17.12",
+        "browserslist": "^4.20.4",
+        "cosmiconfig": "^7.0.1",
+        "cross-spawn": "^7.0.3",
+        "dedent": "^0.7.0",
+        "del": "^6.1.1",
+        "fs-extra": "^10.1.0",
+        "glob": "^8.0.3",
+        "is-git-dirty": "^2.0.1",
+        "json5": "^2.2.1",
+        "kleur": "^4.1.4",
+        "prompts": "^2.4.2",
+        "which": "^2.0.2",
+        "yargs": "^17.5.1"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@types/babel__core": "^7.1.19",
+        "@types/browserslist": "^4.15.0",
+        "@types/cross-spawn": "^6.0.2",
+        "@types/dedent": "^0.7.0",
+        "@types/del": "^4.0.0",
+        "@types/fs-extra": "^9.0.13",
+        "@types/glob": "^7.2.0",
+        "@types/json5": "^2.2.0",
+        "@types/prompts": "^2.0.14",
+        "@types/which": "^2.0.1",
+        "@types/yargs": "^17.0.10",
+        "concurrently": "^7.2.2"
+      },
+      "gitHead": "51fc83e7e3f4e5482b81f7f9e3dff748e474cd16",
+      "_id": "react-native-builder-bob@0.23.0",
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "lerna/1.17.0/node@v18.18.0+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-Qx0h7J34bBBFGp4bvbXkGa+iqKp7yRo/iyGdhj7wT5LMY629SDMBJdPldD6cue5sI4dj2rdN9jBn3MxxT9+iYg==",
+        "shasum": "2627a9abe9dd01a28f333b95c28f40dba7373f7b",
+        "tarball": "https://registry.npmjs.org/react-native-builder-bob/-/react-native-builder-bob-0.23.0.tgz",
+        "fileCount": 23,
+        "unpackedSize": 102229,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQC215WfAuJEw+R/kLlNMme9oYm0BfJfuyohowwTTjmsygIhAIgTEc2tTYJxSrLXon4U4If1DLMRJa/uaS+JSSsfJY0B"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "satya164",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "satya164",
+          "email": "satyajit.happy@gmail.com"
+        },
+        {
+          "name": "krizzu",
+          "email": "krizzu.dev@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/react-native-builder-bob_0.23.0_1696094329824_0.0783864204797815"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.23.1": {
+      "name": "react-native-builder-bob",
+      "version": "0.23.1",
+      "description": "CLI to build JavaScript files for React Native libraries",
+      "keywords": [
+        "react-native",
+        "library",
+        "build"
+      ],
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/callstack/react-native-builder-bob.git",
+        "directory": "packages/react-native-builder-bob"
+      },
+      "bugs": {
+        "url": "https://github.com/callstack/react-native-builder-bob/issues"
+      },
+      "homepage": "https://callstack.github.io/react-native-builder-bob/build",
+      "main": "lib/index.js",
+      "bin": {
+        "bob": "bin/bob"
+      },
+      "engines": {
+        "node": ">= 18.0.0"
+      },
+      "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+      },
+      "scripts": {
+        "prepare": "babel --extensions .ts,.tsx src --out-dir lib --source-maps --delete-dir-on-start"
+      },
+      "dependencies": {
+        "@babel/core": "^7.18.5",
+        "@babel/plugin-proposal-class-properties": "^7.17.12",
+        "@babel/preset-env": "^7.18.2",
+        "@babel/preset-flow": "^7.17.12",
+        "@babel/preset-react": "^7.17.12",
+        "@babel/preset-typescript": "^7.17.12",
+        "browserslist": "^4.20.4",
+        "cosmiconfig": "^7.0.1",
+        "cross-spawn": "^7.0.3",
+        "dedent": "^0.7.0",
+        "del": "^6.1.1",
+        "fs-extra": "^10.1.0",
+        "glob": "^8.0.3",
+        "is-git-dirty": "^2.0.1",
+        "json5": "^2.2.1",
+        "kleur": "^4.1.4",
+        "prompts": "^2.4.2",
+        "which": "^2.0.2",
+        "yargs": "^17.5.1"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@types/babel__core": "^7.1.19",
+        "@types/browserslist": "^4.15.0",
+        "@types/cross-spawn": "^6.0.2",
+        "@types/dedent": "^0.7.0",
+        "@types/del": "^4.0.0",
+        "@types/fs-extra": "^9.0.13",
+        "@types/glob": "^7.2.0",
+        "@types/json5": "^2.2.0",
+        "@types/prompts": "^2.0.14",
+        "@types/which": "^2.0.1",
+        "@types/yargs": "^17.0.10",
+        "concurrently": "^7.2.2"
+      },
+      "gitHead": "1d82fb23700516ca8c2d5864c6df90f9ae3e3c11",
+      "_id": "react-native-builder-bob@0.23.1",
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "lerna/1.17.0/node@v18.18.0+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-LA+cRp72+lCpOG/AhUu/TuBnAZrntPEWLt6z6xlAK8K5WanXOSFL49eYRCnxVx9EUrOW3ix/Y0j4zbXAC1R+rw==",
+        "shasum": "d7810798fa9898c3631c6d76679a991c0d77cac6",
+        "tarball": "https://registry.npmjs.org/react-native-builder-bob/-/react-native-builder-bob-0.23.1.tgz",
+        "fileCount": 23,
+        "unpackedSize": 102651,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCnKxTGC8GFa2MO4VQnmVVlGXSOXcKbUfqOssrRXrx+9wIhAOUFPa67SML5VceZNWZarKrryhCbrDTREzThR6vrOcvp"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "satya164",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "satya164",
+          "email": "satyajit.happy@gmail.com"
+        },
+        {
+          "name": "krizzu",
+          "email": "krizzu.dev@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/react-native-builder-bob_0.23.1_1696442262538_0.2728435975879926"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.23.2": {
+      "name": "react-native-builder-bob",
+      "version": "0.23.2",
+      "description": "CLI to build JavaScript files for React Native libraries",
+      "keywords": [
+        "react-native",
+        "library",
+        "build"
+      ],
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/callstack/react-native-builder-bob.git",
+        "directory": "packages/react-native-builder-bob"
+      },
+      "bugs": {
+        "url": "https://github.com/callstack/react-native-builder-bob/issues"
+      },
+      "homepage": "https://callstack.github.io/react-native-builder-bob/build",
+      "main": "lib/index.js",
+      "bin": {
+        "bob": "bin/bob"
+      },
+      "engines": {
+        "node": ">= 18.0.0"
+      },
+      "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+      },
+      "scripts": {
+        "prepare": "babel --extensions .ts,.tsx src --out-dir lib --source-maps --delete-dir-on-start"
+      },
+      "dependencies": {
+        "@babel/core": "^7.18.5",
+        "@babel/plugin-proposal-class-properties": "^7.17.12",
+        "@babel/preset-env": "^7.18.2",
+        "@babel/preset-flow": "^7.17.12",
+        "@babel/preset-react": "^7.17.12",
+        "@babel/preset-typescript": "^7.17.12",
+        "browserslist": "^4.20.4",
+        "cosmiconfig": "^7.0.1",
+        "cross-spawn": "^7.0.3",
+        "dedent": "^0.7.0",
+        "del": "^6.1.1",
+        "fs-extra": "^10.1.0",
+        "glob": "^8.0.3",
+        "is-git-dirty": "^2.0.1",
+        "json5": "^2.2.1",
+        "kleur": "^4.1.4",
+        "prompts": "^2.4.2",
+        "which": "^2.0.2",
+        "yargs": "^17.5.1"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@types/babel__core": "^7.1.19",
+        "@types/browserslist": "^4.15.0",
+        "@types/cross-spawn": "^6.0.2",
+        "@types/dedent": "^0.7.0",
+        "@types/del": "^4.0.0",
+        "@types/fs-extra": "^9.0.13",
+        "@types/glob": "^7.2.0",
+        "@types/json5": "^2.2.0",
+        "@types/prompts": "^2.0.14",
+        "@types/which": "^2.0.1",
+        "@types/yargs": "^17.0.10",
+        "concurrently": "^7.2.2"
+      },
+      "gitHead": "c233fed21e9a67e20207eedb84c85e9e2c0f985c",
+      "_id": "react-native-builder-bob@0.23.2",
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "lerna/1.17.0/node@v18.18.2+arm64 (darwin)",
+      "dist": {
+        "integrity": "sha512-ehv2XKS9cvPR5JR7FIpSx3qY7tULkljT2Kb82FBAxXsFLjqlRU1WfqHRLh6lytL2XqAxLQODpPfHUH53SsXnag==",
+        "shasum": "9f3f6509a9cba8102468169963ca7e1f0aa941a5",
+        "tarball": "https://registry.npmjs.org/react-native-builder-bob/-/react-native-builder-bob-0.23.2.tgz",
+        "fileCount": 23,
+        "unpackedSize": 102607,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDNEu30dqBduFIoTgRht50duGHitqJmjBMfJXlDOaSelgIgTPl3K7Fj8iw/lrw4iNixNLe3zkzO4l0xmvIRX9IiCdI="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "satya164",
+        "email": "satyajit.happy@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "satya164",
+          "email": "satyajit.happy@gmail.com"
+        },
+        {
+          "name": "krizzu",
+          "email": "krizzu.dev@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/react-native-builder-bob_0.23.2_1700830166237_0.10274829462834933"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2020-12-16T16:00:51.268Z",
+    "0.17.0": "2020-12-16T16:00:51.489Z",
+    "modified": "2023-11-24T12:49:26.592Z",
+    "0.17.1": "2020-12-17T18:04:24.261Z",
+    "0.18.0": "2021-03-02T18:24:21.869Z",
+    "0.18.1": "2021-03-03T09:57:43.765Z",
+    "0.18.2": "2021-09-28T09:08:46.530Z",
+    "0.18.3": "2022-06-21T20:17:55.386Z",
+    "0.19.0": "2022-10-13T16:18:08.297Z",
+    "0.19.1": "2022-10-14T10:25:12.278Z",
+    "0.20.0": "2022-10-15T19:59:12.364Z",
+    "0.20.1": "2022-11-03T13:01:49.566Z",
+    "0.20.2": "2022-12-02T19:34:12.103Z",
+    "0.20.3": "2022-12-04T23:20:08.038Z",
+    "0.20.4": "2023-02-26T19:07:43.325Z",
+    "0.21.0": "2023-06-28T11:20:13.812Z",
+    "0.21.1": "2023-07-04T17:36:02.500Z",
+    "0.21.2": "2023-07-04T20:45:37.736Z",
+    "0.21.3": "2023-07-19T12:56:13.233Z",
+    "0.22.0": "2023-09-15T12:13:45.829Z",
+    "0.23.0": "2023-09-30T17:18:50.071Z",
+    "0.23.1": "2023-10-04T17:57:42.777Z",
+    "0.23.2": "2023-11-24T12:49:26.418Z"
+  },
+  "maintainers": [
+    {
+      "name": "satya164",
+      "email": "satyajit.happy@gmail.com"
+    },
+    {
+      "name": "krizzu",
+      "email": "krizzu.dev@gmail.com"
+    }
+  ],
+  "description": "CLI to build JavaScript files for React Native libraries",
+  "homepage": "https://callstack.github.io/react-native-builder-bob/build",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/callstack/react-native-builder-bob.git",
+    "directory": "packages/react-native-builder-bob"
+  },
+  "bugs": {
+    "url": "https://github.com/callstack/react-native-builder-bob/issues"
+  },
+  "license": "MIT",
+  "readme": "# react-native-builder-bob\n\nCLI to build JavaScript files for React Native libraries.\n\nQuick start:\n\n```sh\ncd your-project\nnpx react-native-builder-bob@latest init\n```\n\nSee more details on the [documentation website](https://callstack.github.io/react-native-builder-bob/build).\n",
+  "readmeFilename": "README.md",
+  "keywords": [
+    "react-native",
+    "library",
+    "build"
+  ]
+}
