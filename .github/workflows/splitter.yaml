@@ -66,6 +66,12 @@ jobs:
           echo "About to initialize $TARGET"
           node dist/gha/joiner.js "$TARGET"
 
+      - name: Set UUID
+        id: set-uuid
+        run: |
+          UUID=$(uuidgen)
+          echo "UUID=$UUID" >> $GITHUB_ENV
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
@@ -73,6 +79,6 @@ jobs:
           commit-message: "Update from ${{ matrix.file }}"
           title: "Automated update from ${{ matrix.file }}"
           body: "This is an automated update."
-          branch: "update-from-${{ github.workflow.step.id }}"
+          branch: "update-from-${{ github.job }}-${{ github.run_number }}-${{ env.UUID }}"
           base: "main"
           labels: auto-merge
