@@ -1,0 +1,1906 @@
+{
+  "_id": "@datadog/native-iast-taint-tracking",
+  "_rev": "27-34bf9f7accead792f5c985b9d46fedfa",
+  "name": "@datadog/native-iast-taint-tracking",
+  "dist-tags": {
+    "latest": "1.7.0"
+  },
+  "versions": {
+    "0.1.0-beta.0": {
+      "name": "@datadog/native-iast-taint-tracking",
+      "homepage": "https://github.com/DataDog/dd-native-iast-taint-tracking-js/blob/main/README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/DataDog/dd-native-iast-taint-tracking-js.git"
+      },
+      "version": "0.1.0-beta.0",
+      "description": "Datadog IAST tant tracking support for NodeJS",
+      "main": "index.js",
+      "scripts": {
+        "build": "node-gyp configure && node-gyp build",
+        "build:arm": "node-gyp configure -arch=arm64 && node-gyp build -arch=arm64",
+        "build:asan": "node-gyp configure && CXXFLAGS=\"-g -O0 -fsanitize=address\" LDFLAGS=\"-fsanitize=address\" node-gyp build",
+        "build:valgrind": "node-gyp configure && CXXFLAGS=\"-g -O0\" node-gyp build",
+        "postbuild": "node ./scripts/pack.js",
+        "postbuild:asan": "npm run postbuild",
+        "postbuild:valgrind": "npm run postbuild",
+        "test": "./scripts/cpputest.sh",
+        "test:junit": "./scripts/cpputest.sh --ci",
+        "pretest:asan": "npm run build:asan",
+        "pretest:js-junit": "npm run build",
+        "pretest:js-valgrind": "npm run build",
+        "pretest:js-asan": "npm run build:asan",
+        "test:asan": "./scripts/cpputest.sh --asan",
+        "test:js-asan": "LD_PRELOAD=`gcc -print-file-name=libasan.so` mocha --recursive",
+        "test:js-valgrind": "valgrind mocha --recursive",
+        "test:js-junit": "mocha --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "test:docker": "./scripts/test_docker.sh"
+      },
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-iast-native-taint-tracking-js/issues"
+      },
+      "devDependencies": {
+        "nan": "2.14.0",
+        "node-gyp": "^6.0.1",
+        "segfault-handler": "^1.3.0",
+        "mocha": "^10.0.0",
+        "mocha-junit-reporter": "^2.0.2",
+        "node-addon-api": "^4.3.0"
+      },
+      "types": "./index.d.ts",
+      "_id": "@datadog/native-iast-taint-tracking@0.1.0-beta.0",
+      "_nodeVersion": "18.4.0",
+      "_npmVersion": "8.12.1",
+      "dist": {
+        "integrity": "sha512-DhT50WOWv61KNSazZyzU4RlM0e4jKpbGOe8jxeYQg8KYEOgHg+qVz5ISSR5CmXFPEW1Nmc55ovgItKIp3GZBzw==",
+        "shasum": "8bf2b057ee455da1741716848ca71970e60c83c9",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-0.1.0-beta.0.tgz",
+        "fileCount": 22,
+        "unpackedSize": 4757144,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCq40du/NJGFMomoHNMF/2OL13Wc5MxLwlG0OQiqki4LQIgbE8LTkL1u78o4Oa6lXQwCopipUB5H+e8Xmu2KFm0N1A="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjW5VjACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmooVA/+Nb7ZLH24TlF6BQi6hFNh/BFBP2w9kpC6ckN0oEL26b/1cq6E\r\nCnn8fnzch1yYDVNDKSpt0KMjS+V5P6FK+qUGLQDAsgzHM3ZNiQqLEzgf4VNK\r\nNHqc4YKrzFop/ilKl5CQ0X0NTR5f+trBCQ/vqAWq+uWkonwfGWz3gjyo5vZQ\r\n22GzRJ1O+/5VOFNXh4yd7lAQzGRvPjPwDhKiSC0rCr3OWweUFb/HjSuLwo72\r\n+7Q4LtTU19MQQ8NiStdwsjj1lS9kZFl4+sUYRM7V++SlHfBLDO/L6v3pUpV+\r\nmvnIJW3JPbqfZqkuQ60u/EUyDQNK4SWlMEuG2FCYBSzN0Doxki/kuH/UDXR+\r\njzssRDHKal538W2Gflx4Mj0KXFPG3pTMU8BeTihEHBNCDvydWRzIRGdew6Lf\r\nEa/6zxCU5nozJ4V3OsTENWoS1RXCi80mVF97yiabifVi74GSCgii6TOycoWY\r\nXGL7XUBuGjYN1JRHAahLmXEGmooFIask3tj14ZddSwG2eVgEwxgLc8GWE13Q\r\niwCZ5+f7iXTW9hv8jDYsP4NoojIFrGjaayppRcRm7ia9iERptmBsOT3dC/vp\r\ng65nb+9itHw5PhOfvBrDrUHll103hUGCcKFmM0RCEB6QqdWcaqmWSut7x+VC\r\n67GqMwEqiLlBjT/J+Lkut2ya56O3czKfzLM=\r\n=1/T4\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-taint-tracking_0.1.0-beta.0_1666946402211_0.5581424410623632"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.0-beta.1": {
+      "name": "@datadog/native-iast-taint-tracking",
+      "home": "https://github.com/DataDog/dd-native-iast-taint-tracking-js/blob/main/README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/DataDog/dd-native-iast-taint-tracking-js.git"
+      },
+      "version": "0.1.0-beta.1",
+      "description": "Datadog IAST tant tracking support for NodeJS",
+      "main": "index.js",
+      "scripts": {
+        "build": "node-gyp configure && node-gyp build",
+        "build:arm": "node-gyp configure -arch=arm64 && node-gyp build -arch=arm64",
+        "build:asan": "node-gyp configure && CXXFLAGS=\"-g -O0 -fsanitize=address\" LDFLAGS=\"-fsanitize=address\" node-gyp build",
+        "build:valgrind": "node-gyp configure && CXXFLAGS=\"-g -O0\" node-gyp build",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "postbuild": "node ./scripts/pack.js",
+        "postbuild:asan": "npm run postbuild",
+        "postbuild:valgrind": "npm run postbuild",
+        "test": "./scripts/cpputest.sh",
+        "test:junit": "./scripts/cpputest.sh --ci",
+        "pretest:asan": "npm run build:asan",
+        "pretest:js-junit": "npm run build",
+        "pretest:js-valgrind": "npm run build",
+        "pretest:js-asan": "npm run build:asan",
+        "test:asan": "./scripts/cpputest.sh --asan",
+        "test:js-asan": "LD_PRELOAD=`gcc -print-file-name=libasan.so` mocha --recursive",
+        "test:js-valgrind": "valgrind mocha --recursive",
+        "test:js-junit": "mocha --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "test:docker": "./scripts/test_docker.sh"
+      },
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-iast-native-taint-tracking-js/issues"
+      },
+      "devDependencies": {
+        "eslint": "^8.26.0",
+        "eslint-config-standard": "^17.0.0",
+        "mocha": "^10.0.0",
+        "mocha-junit-reporter": "^2.0.2",
+        "nan": "2.14.0",
+        "node-addon-api": "^4.3.0",
+        "node-gyp": ">=7.1.2",
+        "proxyquire": "^2.1.3",
+        "segfault-handler": "^1.3.0"
+      },
+      "types": "./index.d.ts",
+      "homepage": "https://github.com/DataDog/dd-native-iast-taint-tracking-js#readme",
+      "_id": "@datadog/native-iast-taint-tracking@0.1.0-beta.1",
+      "_integrity": "sha512-247W2kSEwD/6uuoN7hVzIrMM/I98ifKtmRZjMeWJ2v7yvIA3G37C3RVKdk9BZ4iM10y05pTxiPN67UUvbvWuJg==",
+      "_resolved": "/Users/ugaitz.urien/Downloads/datadog-native-iast-taint-tracking-0.1.0-beta.1.tgz",
+      "_from": "file:datadog-native-iast-taint-tracking-0.1.0-beta.1.tgz",
+      "_nodeVersion": "18.8.0",
+      "_npmVersion": "8.18.0",
+      "dist": {
+        "integrity": "sha512-247W2kSEwD/6uuoN7hVzIrMM/I98ifKtmRZjMeWJ2v7yvIA3G37C3RVKdk9BZ4iM10y05pTxiPN67UUvbvWuJg==",
+        "shasum": "2fae7f175f11ef40dc8d10ab1c32164db655166f",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-0.1.0-beta.1.tgz",
+        "fileCount": 47,
+        "unpackedSize": 9147751,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQClChqI3P22FSA25YCYqs8nAFA2vuESk5SBiLbeFZ5e/gIgBx66BO8tfwNWveY69XTu0vfnr0U9txXVJlFS6WIW68s="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjZQIUACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmo0dA/6ApXWOec7ViBJgqzLEixOeySExpz1zvct4ULQ7m5CG7JY8b0q\r\ndtIzv0INin87EOAHuPr+3zVld9QGskBGraERLfLn8SgrINSt9J3gGdbbeM2H\r\nV9MA0AUIkmV0DnxZRBUDhWfQmBbXVtkrW+AcOz2Hsy7UZdiEIGfDbZp8IYMd\r\n55ik1Fs76Vg5+oPe1wGshhqNob/ngYugYJPhaXL8o+Ib6Lenlu7BeGhJRXzT\r\ngGoc9GWdg7WBnzO4hF15P6mlAOFC2QLaiWGKCsewdLyr1QO9Touw2ydH/lp9\r\nNXR+Kb4iiW2uu8yDPmY1Rck+ez+m6edarT+YaAs9vh4tuN8qCaKaT+pIIzSJ\r\na59l6thQ6RuQw4sXH3GUFkoECoK6RGpdKkt5fY9RQCChUv/SaPOm/dbuJbDC\r\nkBAYgjtpC1Ui+z4lTPAvDeel1HBV3T3+rIjzWtwiE7AhLnIZab8ouDw63bSr\r\nmo1KdgxRnXhxuFiCIgmpstjrpJ6IDGAaIXWWumIRfPLTfwuJxvgX3RHcQHlX\r\nZLaMAGaerAg7X+cgA1+mECWg47bglq1CcOX59sp9xyQ8xLgc5XXpCAEUxf02\r\n1/nop3KP8hFAU4E5zrd8ZU+LqpMLnT4dGA4L6Zn6PsZMx6D13bx3PMofx1xk\r\ns8r3hVgdF/KmripQgRRfgzjssxWffwKXE0A=\r\n=nzL9\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-taint-tracking_0.1.0-beta.1_1667564051938_0.4264687189450991"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.0-beta.2": {
+      "name": "@datadog/native-iast-taint-tracking",
+      "home": "https://github.com/DataDog/dd-native-iast-taint-tracking-js/blob/main/README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/DataDog/dd-native-iast-taint-tracking-js.git"
+      },
+      "version": "0.1.0-beta.2",
+      "description": "Datadog IAST tant tracking support for NodeJS",
+      "main": "index.js",
+      "scripts": {
+        "build": "node-gyp configure && node-gyp build",
+        "build:arm": "node-gyp configure -arch=arm64 && node-gyp build -arch=arm64",
+        "build:asan": "node-gyp configure && CXXFLAGS=\"-g -O0 -fsanitize=address\" LDFLAGS=\"-fsanitize=address\" node-gyp build",
+        "build:valgrind": "node-gyp configure && CXXFLAGS=\"-g -O0\" node-gyp build",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "postbuild": "node ./scripts/pack.js",
+        "postbuild:asan": "npm run postbuild",
+        "postbuild:valgrind": "npm run postbuild",
+        "test:native": "./scripts/cpputest.sh",
+        "test:junit": "./scripts/cpputest.sh --ci",
+        "pretest:asan": "npm run build:asan",
+        "pretest:js-junit": "npm run build",
+        "pretest:js-valgrind": "npm run build",
+        "pretest:js-asan": "npm run build:asan",
+        "test:asan": "./scripts/cpputest.sh --asan",
+        "test:js-asan": "LD_PRELOAD=`gcc -print-file-name=libasan.so` mocha --recursive",
+        "test:js-valgrind": "valgrind mocha --recursive",
+        "test": "mocha --recursive",
+        "test:js-junit": "mocha --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "test:docker": "./scripts/test_docker.sh"
+      },
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-iast-native-taint-tracking-js/issues"
+      },
+      "devDependencies": {
+        "eslint": "^8.26.0",
+        "eslint-config-standard": "^17.0.0",
+        "mocha": "^10.0.0",
+        "mocha-junit-reporter": "^2.0.2",
+        "nan": "2.14.0",
+        "node-addon-api": "^4.3.0",
+        "node-gyp": ">=7.1.2",
+        "proxyquire": "^2.1.3",
+        "segfault-handler": "^1.3.0",
+        "semver": "^7.3.8"
+      },
+      "dependencies": {
+        "node-gyp-build": "^3.9.0"
+      },
+      "types": "./index.d.ts",
+      "homepage": "https://github.com/DataDog/dd-native-iast-taint-tracking-js#readme",
+      "_id": "@datadog/native-iast-taint-tracking@0.1.0-beta.2",
+      "_integrity": "sha512-8qP9uMxut0sxXmN5vjTZSDIP28W5Aip4Nhbw21XVFQyWmLgs2DiJ4teJnejLpMY1u7CWHPKv0Jd6/rv4Xs0f3A==",
+      "_resolved": "/Users/ugaitz.urien/Downloads/datadog-native-iast-taint-tracking-0.1.0-beta.2.tgz",
+      "_from": "file:datadog-native-iast-taint-tracking-0.1.0-beta.2.tgz",
+      "_nodeVersion": "18.8.0",
+      "_npmVersion": "8.18.0",
+      "dist": {
+        "integrity": "sha512-8qP9uMxut0sxXmN5vjTZSDIP28W5Aip4Nhbw21XVFQyWmLgs2DiJ4teJnejLpMY1u7CWHPKv0Jd6/rv4Xs0f3A==",
+        "shasum": "dd8d834be6c2a359bc37127ecb8fa1bb8f174aeb",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-0.1.0-beta.2.tgz",
+        "fileCount": 61,
+        "unpackedSize": 12682932,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAqAYhlDfimc9xTU0XvlwFVG3OJykwfw48SGwMHWcH3bAiEA/2xOJxXkVTj2nurVuTjDsBE4gGXzS8iiPIRSxCYpTgk="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjc5fmACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrDJhAAgTHbYr0ckQrsIRaFX7FL82DJfEsaoBZ0cvJ3PKNCnfo+aHzT\r\np6P9LCaRyybIU8i6j2HxR+9fY8mP5uHBqh+H3GPwmKRHDpsylq4GXXk4wdG9\r\nJsDpWqlPp4nU266IIEaW2twjhH6gVfZSVNIFDGsA1aNYn2w+OIAav51EAZFi\r\ndtRXmF/jz0/m9BNti7l95lwL2QgRa1Vjm7jTnTZSOW6u95kWFKU9KcTNzLp+\r\nfWL9B3r/lh6lgsLyNIsLVM6nggw/0NGH0eWI8WOOMMhcwBytNawNJmREBCCp\r\nPlCddPdOZjqUP2irDy0uyyaAlLuC8PH22dOiAuE1IAWZCwrLpWkVYH5IFRe9\r\nr8x4JqSJrAK4FbJvCZ/oi1TRdR5ti9UbTm35sfW4wGTjtlxdyjXh3f0svcDj\r\nNs+9RhG78ZwNsG3CIIyu4XhMyOq8FqKhVlNq1JNoF9f5dGX7DgtJtXjFkWEA\r\ngyqXby4rPocc8wlzS7IORJnB67MkDC8Gg8xa22KrFKDz/5MMtisf4HVB9FDV\r\nd5v26lfttJbOIqxAjHaM7LY0gIOB9Ka2jy5aATFW+FqtYI9Hgxi9GLhCUZHB\r\n4PeDDzOJZM2tSwN4X+yzISL+TKNnUW6lBB406f1RhJ1nnNka4hlD5hkHspbR\r\nbosQI99ni57fy4G9lOmzxUJdyXPBvV0KTkE=\r\n=7/KB\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-taint-tracking_0.1.0-beta.2_1668519909851_0.28812307706838447"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.0": {
+      "name": "@datadog/native-iast-taint-tracking",
+      "home": "https://github.com/DataDog/dd-native-iast-taint-tracking-js/blob/main/README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/DataDog/dd-native-iast-taint-tracking-js.git"
+      },
+      "version": "1.0.0",
+      "description": "Datadog IAST tant tracking support for NodeJS",
+      "main": "index.js",
+      "scripts": {
+        "build": "node-gyp configure && node-gyp build",
+        "build:arm": "node-gyp configure -arch=arm64 && node-gyp build -arch=arm64",
+        "build:asan": "node-gyp configure && CXXFLAGS=\"-g -O0 -fsanitize=address\" LDFLAGS=\"-fsanitize=address\" node-gyp build",
+        "build:valgrind": "node-gyp configure && CXXFLAGS=\"-g -O0\" node-gyp build",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "postbuild": "node ./scripts/pack.js",
+        "postbuild:asan": "npm run postbuild",
+        "postbuild:valgrind": "npm run postbuild",
+        "test:native": "./scripts/cpputest.sh",
+        "test:junit": "./scripts/cpputest.sh --ci",
+        "pretest:asan": "npm run build:asan",
+        "pretest:js-junit": "npm run build",
+        "pretest:js-valgrind": "npm run build",
+        "pretest:js-asan": "npm run build:asan",
+        "test:asan": "./scripts/cpputest.sh --asan",
+        "test:js-asan": "LD_PRELOAD=`gcc -print-file-name=libasan.so` mocha --recursive",
+        "test:js-valgrind": "valgrind mocha --recursive",
+        "test": "mocha --recursive",
+        "test:js-junit": "mocha --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "test:docker": "./scripts/test_docker.sh"
+      },
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-iast-native-taint-tracking-js/issues"
+      },
+      "devDependencies": {
+        "eslint": "^8.26.0",
+        "eslint-config-standard": "^17.0.0",
+        "mocha": "^10.0.0",
+        "mocha-junit-reporter": "^2.0.2",
+        "nan": "2.14.0",
+        "node-addon-api": "^4.3.0",
+        "node-gyp": ">=7.1.2",
+        "proxyquire": "^2.1.3",
+        "segfault-handler": "^1.3.0",
+        "semver": "^7.3.8"
+      },
+      "dependencies": {
+        "node-gyp-build": "^3.9.0"
+      },
+      "_resolved": "",
+      "_integrity": "",
+      "_from": "file:datadog-native-iast-taint-tracking-1.0.0.tgz",
+      "homepage": "https://github.com/DataDog/dd-native-iast-taint-tracking-js#readme",
+      "_id": "@datadog/native-iast-taint-tracking@1.0.0",
+      "_nodeVersion": "12.22.12",
+      "_npmVersion": "6.14.16",
+      "dist": {
+        "integrity": "sha512-fS7XoRE5T4JQ7UzWjNT/wZQhS6nmLDwt12IDcSBZfRRJ2VyFth5GvOlQtCPa6Q0k7WMIrt9UXIl/v807cVq1SQ==",
+        "shasum": "d875cf0a3ef3907c27311386f85b3f3a9d99431b",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-1.0.0.tgz",
+        "fileCount": 61,
+        "unpackedSize": 12736789,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAfxR8Kc/fAjtOB9C+T4gUxi82ARBThykigPvTuQB4CeAiEAi0RFivdagg9DL2z0HXjZMjugHAEHbtdqZBd4iZMTuhk="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJje7FrACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmo/Uw/5ANhJsXozQ/EU9tqGRb1c3WpAduKWBykdCYF3wC2+yPY8KnHD\r\nyRWaiIYl1s6x5xxyQnLQ68zcCaV262QrH59luzBV7gPbsgMWd7cCx2tqDHz8\r\ntXcoQCpkiohNg7WLjAbvL5nbfJdIj7Iyvp2ByPwbo1DSc19oWU6paMulPE15\r\nySsuNcfC4hmjk3AbKz+7/TdGZBU1OQB1QptGC8WnGRIQr3zw4IHZ+qGwfT4q\r\n9wd8nXb+lYYN7Py5adF22hoHQxSrgrCkI75qeuMfMWlvDdtx7u9NDJcn93qh\r\niGmq8WqLdpVp9hthAVdn3/Q0cxkfHQ97vHITCt1HO92nv81v73IEqO1t+DOI\r\nCZkFUWrCZvSViIo7E4fqRUjMchUAM5UJW7A0e25txUVRlYHtxpg6c4ozefn3\r\nCcyylzs6rlMCgrJTh5kp5L6qzlGqZpZrc+t9Zd5CdxMbHtBDTY0uPoS0w26g\r\n1BeLY4JVJE30Idf3um+cTMAKMU1tzgjyAiPcbQ8CZMN2dSDCaAo5J+Liq76c\r\nYkQtLpEZK1UJNo1pLQ2H8ba7IMt3Q+cPvCzFRmzpOP1VQP230poYvWMrAENM\r\nU3FWPdMbNVH9kDIsX4+rMov9Dyrq7qy+r75y75yXzaSztenoKQBHLLm30PYo\r\nFRonpOfYQbZzo5KncmdvjUUR4y2ma6NVk8Q=\r\n=gGbM\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-taint-tracking_1.0.0_1669050731247_0.24813080568389845"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.1.0": {
+      "name": "@datadog/native-iast-taint-tracking",
+      "home": "https://github.com/DataDog/dd-native-iast-taint-tracking-js/blob/main/README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/DataDog/dd-native-iast-taint-tracking-js.git"
+      },
+      "version": "1.1.0",
+      "description": "Datadog IAST tant tracking support for NodeJS",
+      "main": "index.js",
+      "scripts": {
+        "build": "node-gyp configure && node-gyp build",
+        "build:arm": "node-gyp configure -arch=arm64 && node-gyp build -arch=arm64",
+        "build:asan": "node-gyp configure && CXXFLAGS=\"-g -O0 -fsanitize=address\" LDFLAGS=\"-fsanitize=address\" node-gyp build",
+        "build:valgrind": "node-gyp configure && CXXFLAGS=\"-g -O0\" node-gyp build",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "postbuild": "node ./scripts/pack.js",
+        "postbuild:asan": "npm run postbuild",
+        "postbuild:valgrind": "npm run postbuild",
+        "test:native": "./scripts/cpputest.sh",
+        "test:junit": "./scripts/cpputest.sh --ci",
+        "pretest:asan": "npm run build:asan",
+        "pretest:js-junit": "npm run build",
+        "pretest:js-valgrind": "npm run build",
+        "pretest:js-asan": "npm run build:asan",
+        "test:asan": "./scripts/cpputest.sh --asan",
+        "test:js-asan": "LD_PRELOAD=`gcc -print-file-name=libasan.so` mocha --recursive",
+        "test:js-valgrind": "valgrind mocha --recursive",
+        "test": "mocha --recursive",
+        "test:js-junit": "mocha --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "test:docker": "./scripts/test_docker.sh"
+      },
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-iast-native-taint-tracking-js/issues"
+      },
+      "devDependencies": {
+        "eslint": "^8.26.0",
+        "eslint-config-standard": "^17.0.0",
+        "mocha": "^10.0.0",
+        "mocha-junit-reporter": "^2.0.2",
+        "nan": "2.14.0",
+        "node-addon-api": "^4.3.0",
+        "node-gyp": ">=7.1.2",
+        "proxyquire": "^2.1.3",
+        "segfault-handler": "^1.3.0",
+        "semver": "^7.3.8"
+      },
+      "dependencies": {
+        "node-gyp-build": "^3.9.0"
+      },
+      "_resolved": "",
+      "_integrity": "",
+      "_from": "file:datadog-native-iast-taint-tracking-1.1.0.tgz",
+      "homepage": "https://github.com/DataDog/dd-native-iast-taint-tracking-js#readme",
+      "_id": "@datadog/native-iast-taint-tracking@1.1.0",
+      "_nodeVersion": "14.19.3",
+      "_npmVersion": "6.14.17",
+      "dist": {
+        "integrity": "sha512-TOrngpt6Qh52zWFOz1CkFXw0g43rnuUziFBtIMUsOLGzSHr9wdnTnE6HAyuvKy3f3ecAoZESlMfilGRKP93hXQ==",
+        "shasum": "8f7d0016157b32dbf5c01b15b8afb1c4286b4a18",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-1.1.0.tgz",
+        "fileCount": 62,
+        "unpackedSize": 13384693,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBU7bgwa9VsRsK4am0gyG/OMTamcwf5diCn44ziEdxByAiB5uuMKXwsYWgWwVTNz6TNAuaYng5CFPGPnoObJxcAvLA=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjpITRACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmosqg/7Bn1SvKkU3HmCBl8XBrabHGt7YNWjE1Chg2jt033S0AKWWxiX\r\n42rXrHa990RE3SmLWGiPBRCiPDmPCdZBhgUdSWIQvHEqnKy8n3y+cDUn4OOj\r\ngG8Z2jrL4J1S+TNIeeEBCV8XWwixPsOpzTWFfoeyUMKcVgG4OhAA+667pG5Y\r\nILLs9yzxQImVs7adLBlJZnF2g1/kI1OWF7H8d2mzpjY61nLV/WG1sZqu8yXa\r\nipk4+Ceu6DcXJs7ctJoPweMSQwdC8s6DsKfsr67OcXdyQu1iHYNbbvttv+y4\r\njiPOUcNl1RQCRR6ORonCYqzIk7XZ+JgO9HiKRJbDfPTrKHW6mPkvgZaj568E\r\nPXhSFRMSzr31tD/7YleIXBxAIoPey7EwdzgqzQV5N22+Zv6wMMsn3BW2aVuU\r\n2MI23xhKKTxHAR9PsmyaITlgIvC16SqboIAzIniOhOP5zRbQOUyPBNOV47TE\r\nVezSnaaSFUQg9s5mYPB8s0H3ZFAQeRebdUZm/hoAo9E84n4xt1rkm6Qy1rvJ\r\npfDj5jueId7IqXSfa7ktF5MHPLqCpXyHxaDkd4exYQsdtUcRRkmtTC8jAMw5\r\nheEmeHDQQPui/W+xjLg+LUlgpMWyE/CdfqtJUtxpXki5y0wP/g5FlsTysxbL\r\nwYvbeJLFv+/8ap/EvMiC1a9Ft1DGTVxvEkY=\r\n=Sal9\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-taint-tracking_1.1.0_1671726289673_0.21475381240839986"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.1.1": {
+      "name": "@datadog/native-iast-taint-tracking",
+      "home": "https://github.com/DataDog/dd-native-iast-taint-tracking-js/blob/main/README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/DataDog/dd-native-iast-taint-tracking-js.git"
+      },
+      "version": "1.1.1",
+      "description": "Datadog IAST tant tracking support for NodeJS",
+      "main": "index.js",
+      "scripts": {
+        "build": "node-gyp configure && node-gyp build",
+        "build:arm": "node-gyp configure -arch=arm64 && node-gyp build -arch=arm64",
+        "build:asan": "node-gyp configure && CXXFLAGS=\"-g -O0 -fsanitize=address\" LDFLAGS=\"-fsanitize=address\" node-gyp build",
+        "build:valgrind": "node-gyp configure && CXXFLAGS=\"-g -O0\" node-gyp build",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "postbuild": "node ./scripts/pack.js",
+        "postbuild:asan": "npm run postbuild",
+        "postbuild:valgrind": "npm run postbuild",
+        "test:native": "./scripts/cpputest.sh",
+        "test:junit": "./scripts/cpputest.sh --ci",
+        "pretest:asan": "npm run build:asan",
+        "pretest:js-junit": "npm run build",
+        "pretest:js-valgrind": "npm run build",
+        "pretest:js-asan": "npm run build:asan",
+        "test:asan": "./scripts/cpputest.sh --asan",
+        "test:js-asan": "LD_PRELOAD=`gcc -print-file-name=libasan.so` mocha --recursive",
+        "test:js-valgrind": "valgrind mocha --recursive",
+        "test": "mocha --recursive",
+        "test:js-junit": "mocha --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "test:docker": "./scripts/test_docker.sh"
+      },
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-iast-native-taint-tracking-js/issues"
+      },
+      "devDependencies": {
+        "eslint": "^8.26.0",
+        "eslint-config-standard": "^17.0.0",
+        "mocha": "^10.0.0",
+        "mocha-junit-reporter": "^2.0.2",
+        "nan": "2.14.0",
+        "node-addon-api": "^4.3.0",
+        "node-gyp": ">=7.1.2",
+        "proxyquire": "^2.1.3",
+        "segfault-handler": "^1.3.0",
+        "semver": "^7.3.8"
+      },
+      "dependencies": {
+        "node-gyp-build": "^3.9.0"
+      },
+      "types": "./index.d.ts",
+      "homepage": "https://github.com/DataDog/dd-native-iast-taint-tracking-js#readme",
+      "_id": "@datadog/native-iast-taint-tracking@1.1.1",
+      "_nodeVersion": "16.15.1",
+      "_npmVersion": "8.11.0",
+      "dist": {
+        "integrity": "sha512-VkESVYpVlLHqw38UHqqEYsJaJTp3+JpKIJhfB9nlQO13dYBc3Sgq/QJZNdPViU73SVsCJtuw4D0SXRyjTXP1IA==",
+        "shasum": "cbeace022b6c1f3a0a40dc0000cc40079c6d4895",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-1.1.1.tgz",
+        "fileCount": 62,
+        "unpackedSize": 13384693,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC9+UZuUkNwlHnOVvWzUvHJLlGbAvrIxeXeVy+5h5zwxwIgRQsXkqoxYc2UjVvm9uEh9wKTX7OaND/SXWHjbv/kHAQ="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj5iJ7ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmog+g/6AiV6rgbgDf2hoE9VDOMNEq0W7QluALl/zjEnrFBsBD0DgIVm\r\nrrrlmMqTd621+mARDXkmQgvyT2PlOUxMDalgWtuWm2iaPOPptzL4rKrSGquC\r\n9gSknEevrNEo6Ytws7Ujm0cPACXYV4NQWSAd+uIAu3Ap1V7DCpifVXByYC4B\r\nDL1xoas5iuk0cwtUYrx1/BzbH9yMtIw4UMEH3+BRy2Jeb5mCSzSM6O1ZwaP4\r\nKXg7nfT0cektPMYaIED0c2mmK8wg3Wfdmi4tZDpfcVHf1f6sHA+AKRl8PhvC\r\nU+n09U0HgAaF2G848e1U7ZFSI1FtXzBHjxkYR/TGtzwrqNRb6476wTUYvjBG\r\nsumOhkG+wCGKFKyU8Lnk4YeeP4dT00/RxnYizJVrF6eorh12/oGDF1nRZ4sy\r\nBAuDfTVaPP7FUkSColPGxr7jdhx3VxO4uZyqkUZF783O6woYUtuJvGm4FPQN\r\n06pTRyOLdP3WRpK6Ri1S9K/vC/Plc22vLvui0OncikkaksyzREZ9BxfdRvYB\r\nPAryIxVh3cC/MXAmMPM20QnpgF8fWIoX0mAs8tPJwHqSBbu4DHKgMGbe+ueW\r\nVSVKgXKsWY1FzACJn6BeHeaRu0YmhiZ+HjuHrpHkov5pIEQkXVsopfCeme/H\r\njt09UuxpMFaXtF5ZhrPiUDW4ID/O++yKT70=\r\n=ZkeR\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-taint-tracking_1.1.1_1676026490785_0.5970304082110987"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.2.0": {
+      "name": "@datadog/native-iast-taint-tracking",
+      "home": "https://github.com/DataDog/dd-native-iast-taint-tracking-js/blob/main/README.md",
+      "repository": "git@github.com:DataDog/dd-native-iast-taint-tracking-js.git",
+      "version": "1.2.0",
+      "description": "Datadog IAST tant tracking support for NodeJS",
+      "main": "index.js",
+      "scripts": {
+        "build": "node-gyp configure && node-gyp build",
+        "build:arm": "node-gyp configure -arch=arm64 && node-gyp build -arch=arm64",
+        "build:asan": "node-gyp configure && CXXFLAGS=\"-g -O0 -fsanitize=address\" LDFLAGS=\"-fsanitize=address\" node-gyp build",
+        "build:valgrind": "node-gyp configure && CXXFLAGS=\"-g -O0\" node-gyp build",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "postbuild": "node ./scripts/pack.js",
+        "postbuild:asan": "npm run postbuild",
+        "postbuild:valgrind": "npm run postbuild",
+        "test:native": "./scripts/cpputest.sh",
+        "test:junit": "./scripts/cpputest.sh --ci",
+        "pretest:asan": "npm run build:asan",
+        "pretest:js-junit": "npm run build",
+        "pretest:js-valgrind": "npm run build",
+        "pretest:js-asan": "npm run build:asan",
+        "test:asan": "./scripts/cpputest.sh --asan",
+        "test:js-asan": "LD_PRELOAD=`gcc -print-file-name=libasan.so` mocha --recursive",
+        "test:js-valgrind": "valgrind mocha --recursive",
+        "test": "mocha --recursive",
+        "test:js-junit": "mocha --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "test:docker": "./scripts/test_docker.sh"
+      },
+      "author": "Datadog Inc. <info@datadoghq.com>",
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-iast-native-taint-tracking-js/issues"
+      },
+      "devDependencies": {
+        "eslint": "^8.26.0",
+        "eslint-config-standard": "^17.0.0",
+        "mocha": "^10.0.0",
+        "mocha-junit-reporter": "^2.0.2",
+        "nan": "2.14.0",
+        "node-addon-api": "^4.3.0",
+        "node-gyp": ">=7.1.2",
+        "proxyquire": "^2.1.3",
+        "segfault-handler": "^1.3.0",
+        "semver": "^7.3.8"
+      },
+      "dependencies": {
+        "node-gyp-build": "^3.9.0"
+      },
+      "_id": "@datadog/native-iast-taint-tracking@1.2.0",
+      "_integrity": "sha512-6BZNn6GBFH8E2pOGOgY59CwG/MIFcpBcbqJxAp6UFiJnxqfPo4FOcE9a2jHlvZxNvZJexjAWg3oq/E3/bLHvrA==",
+      "_resolved": "/home/igor/Downloads/datadog-native-iast-taint-tracking-1.2.0.tgz",
+      "_from": "file:/home/igor/Downloads/datadog-native-iast-taint-tracking-1.2.0.tgz",
+      "_nodeVersion": "16.13.1",
+      "_npmVersion": "8.1.2",
+      "dist": {
+        "integrity": "sha512-6BZNn6GBFH8E2pOGOgY59CwG/MIFcpBcbqJxAp6UFiJnxqfPo4FOcE9a2jHlvZxNvZJexjAWg3oq/E3/bLHvrA==",
+        "shasum": "81b3d9ab196f9843963b4049f84ac6b74abc3282",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-1.2.0.tgz",
+        "fileCount": 62,
+        "unpackedSize": 13418150,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCtIVuIE9jQBiE/IooK+5ETAdG2wzK/W1gZiytWYFjqdwIhALkbbfTV/aRCBuz0dsqZYNXdAdNeX1SKhJjn4gvNexIA"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj9NRbACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoB4w//Yjq3XgRKZimzwxy2EpoV7Vr79AaUDVMgSyjVJHh2n6J/8Kye\r\n8c7ZGiFDbpb6ymAHeRFvYh9l/fMAVV++ADhX26OAI1rXHinL/C9mF1JACqyo\r\nzZ3EAlEkMkB61A01vjGM0zvhB44LhkpyAuB5n6Y1vRCjx0mCEx7ARAveleVv\r\noYZItcIO2ZMVWahOIdEsJ1heKSUTsTyx/KMXkP1shCF0HTHu8StNmB3AG5+f\r\nsgt/zeaWT7mLfO6D81OBkXMpzhQ+14+JjnK2kqM5mO0PNfLEqjSlvMX+H8jH\r\nDbm/7bsEv5QcFFLedxbRBIsOEVoDfCmL94CEyM0zK4JIJBD+X4nfjWWRbnD0\r\njoKV5Ot7o29/w4/twtdvPcQ2cn0bZ3QMf84GmaozAGqlbTD5rBA29rpBGlQY\r\n/CZ5FojzfvMJRxtT5I/JwyGYIdB8myVtTQlDYIP+6GEIYQXxr5DEpdMu+Ysv\r\nogyaoIWbxfBdi2+Ab7+L80qVdBC32OAihdaZBaSOL44mWeXGv1tTP0AhDC7S\r\nYyFj0NsiBl4YXsR0fhnpHKym2/CI5TrEQazyiN/pc2tOCs2c9Ue+ZnHyfX0Z\r\npOlJhSqyi4VsDnIKpKXv/QODzs+i7J5nDSNpHFnddgaTcKA4FzuXhrwBgCSP\r\nO5Z5ckCroQNI+bs7J2uYBvV7LqJ5NMukff0=\r\n=EP5/\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-taint-tracking_1.2.0_1676989531319_0.1708951790561053"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.2.1": {
+      "name": "@datadog/native-iast-taint-tracking",
+      "home": "https://github.com/DataDog/dd-native-iast-taint-tracking-js/blob/main/README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/DataDog/dd-native-iast-taint-tracking-js.git"
+      },
+      "version": "1.2.1",
+      "description": "Datadog IAST tant tracking support for NodeJS",
+      "main": "index.js",
+      "scripts": {
+        "build": "node-gyp configure && node-gyp build",
+        "build:arm": "node-gyp configure -arch=arm64 && node-gyp build -arch=arm64",
+        "build:asan": "node-gyp configure && CXXFLAGS=\"-g -O0 -fsanitize=address\" LDFLAGS=\"-fsanitize=address\" node-gyp build",
+        "build:valgrind": "node-gyp configure && CXXFLAGS=\"-g -O0\" node-gyp build",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "postbuild": "node ./scripts/pack.js",
+        "postbuild:asan": "npm run postbuild",
+        "postbuild:valgrind": "npm run postbuild",
+        "test:native": "./scripts/cpputest.sh",
+        "test:junit": "./scripts/cpputest.sh --ci",
+        "pretest:asan": "npm run build:asan",
+        "pretest:js-junit": "npm run build",
+        "pretest:js-valgrind": "npm run build",
+        "pretest:js-asan": "npm run build:asan",
+        "test:asan": "./scripts/cpputest.sh --asan",
+        "test:js-asan": "LD_PRELOAD=`gcc -print-file-name=libasan.so` mocha --recursive",
+        "test:js-valgrind": "valgrind mocha --recursive",
+        "test": "mocha --recursive",
+        "test:js-junit": "mocha --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "test:docker": "./scripts/test_docker.sh"
+      },
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-iast-native-taint-tracking-js/issues"
+      },
+      "devDependencies": {
+        "eslint": "^8.26.0",
+        "eslint-config-standard": "^17.0.0",
+        "mocha": "^10.0.0",
+        "mocha-junit-reporter": "^2.0.2",
+        "nan": "2.14.0",
+        "node-addon-api": "^4.3.0",
+        "node-gyp": ">=7.1.2",
+        "proxyquire": "^2.1.3",
+        "segfault-handler": "^1.3.0",
+        "semver": "^7.3.8"
+      },
+      "dependencies": {
+        "node-gyp-build": "^3.9.0"
+      },
+      "types": "./index.d.ts",
+      "homepage": "https://github.com/DataDog/dd-native-iast-taint-tracking-js#readme",
+      "_id": "@datadog/native-iast-taint-tracking@1.2.1",
+      "_integrity": "sha512-3jUuutsGBTvYPCsMiCPOdVcyrFTpGCQ93Tv7fD7ZZ9tZhTcvjLTXvImis7XiuvFlfY6jJ0sK7qtywRsCKCZPUA==",
+      "_resolved": "/home/julio/Downloads/datadog-native-iast-taint-tracking-1.2.1.tgz",
+      "_from": "file:datadog-native-iast-taint-tracking-1.2.1.tgz",
+      "_nodeVersion": "16.16.0",
+      "_npmVersion": "8.11.0",
+      "dist": {
+        "integrity": "sha512-3jUuutsGBTvYPCsMiCPOdVcyrFTpGCQ93Tv7fD7ZZ9tZhTcvjLTXvImis7XiuvFlfY6jJ0sK7qtywRsCKCZPUA==",
+        "shasum": "5b1aafde571b9c1fa4c99b6f92e2d980ec112f78",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-1.2.1.tgz",
+        "fileCount": 62,
+        "unpackedSize": 13419174,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCjwEr9uNWrJnxf0WOi98ie7IJ39wz61WIh8XvU0W3f4wIgefF2MMn3P4XbKGzl2d1e/Mxjt3attB7xH2sVaYWdlYU="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj9gFjACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpOFRAAlSsGqETfww8YIPF3Bquk1tcKfzWJwyXi4gabXLApSmHIvMTp\r\n0E9nGFZSMWUfbHBcxkiZa1sRVFOXjJGsJ2dirGe91di/FqHvy57eD+/Qq489\r\nhOSYmMuhXCVwBlBVFJcCNiLbpUK8K6EGo0oY00ggmm7QQHS0o8NjPoyV/9aq\r\nnzmnUt9YN+wIQXre/k1EEoItYHqFmAOjuVROJ71X35b1u1+nogOCoc3ysEw1\r\n2f1Q/DEbpju32ztxxoyQsfnlSnqxSa0KVIJrp3oyc7uMioPVsS3mb/BXlsdi\r\naW99Hh4gT3m2ZFaQtMdbbLJcUQlmDrX8bR/DXlNS2j0zqqOJ3tMrJPGKnNzk\r\ngzywUkYRPOQ75MshW8rb9YYce0b7RYonPYibuM3oFJ0Gu9YO73jGZKraw07V\r\nnh1kr1OCuEfIqfS0o90KndJwQbxyVGOyALKIM7CTAFrTjCutmGKDC5LMOE7X\r\nFql/jJAC7LPlSC/i4dep36XNQdAEk0ogJ5F8MsUQcdFD2V6CZJmZR5/pq642\r\nGNQ4M2hO6sgoQtu1otjh4BEvZ+O4URyqY3frLKKVCoASsQ42kKu6ftECCEs2\r\nl887p9lcoL+JjBc+5FB8x8zQH4RDdui63GZjWEciaR7OymY75IeLXxmXePqy\r\n3fqF+QsQSsxx2PkAgeO8K0uVGCEFODq6YqU=\r\n=k6qA\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-taint-tracking_1.2.1_1677066594947_0.8904899036718821"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.3.0": {
+      "name": "@datadog/native-iast-taint-tracking",
+      "home": "https://github.com/DataDog/dd-native-iast-taint-tracking-js/blob/main/README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/DataDog/dd-native-iast-taint-tracking-js.git"
+      },
+      "version": "1.3.0",
+      "description": "Datadog IAST tant tracking support for NodeJS",
+      "main": "index.js",
+      "scripts": {
+        "build": "node-gyp configure && node-gyp build",
+        "build:arm": "node-gyp configure -arch=arm64 && node-gyp build -arch=arm64",
+        "build:asan": "node-gyp configure && CXXFLAGS=\"-g -O0 -fsanitize=address\" LDFLAGS=\"-fsanitize=address\" node-gyp build",
+        "build:valgrind": "node-gyp configure && CXXFLAGS=\"-g -O0\" node-gyp build",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "postbuild": "node ./scripts/pack.js",
+        "postbuild:asan": "npm run postbuild",
+        "postbuild:valgrind": "npm run postbuild",
+        "test:native": "./scripts/cpputest.sh",
+        "test:junit": "./scripts/cpputest.sh --ci",
+        "pretest:asan": "npm run build:asan",
+        "pretest:js-junit": "npm run build",
+        "pretest:js-valgrind": "npm run build",
+        "pretest:js-asan": "npm run build:asan",
+        "test:asan": "./scripts/cpputest.sh --asan",
+        "test:js-asan": "LD_PRELOAD=`gcc -print-file-name=libasan.so` mocha --recursive",
+        "test:js-valgrind": "valgrind mocha --recursive",
+        "test": "mocha --recursive",
+        "test:js-junit": "mocha --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "test:docker": "./scripts/test_docker.sh"
+      },
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-iast-native-taint-tracking-js/issues"
+      },
+      "devDependencies": {
+        "eslint": "^8.26.0",
+        "eslint-config-standard": "^17.0.0",
+        "mocha": "^10.0.0",
+        "mocha-junit-reporter": "^2.0.2",
+        "nan": "2.14.0",
+        "node-addon-api": "^4.3.0",
+        "node-gyp": ">=7.1.2",
+        "proxyquire": "^2.1.3",
+        "segfault-handler": "^1.3.0",
+        "semver": "^7.3.8"
+      },
+      "dependencies": {
+        "node-gyp-build": "^3.9.0"
+      },
+      "types": "./index.d.ts",
+      "homepage": "https://github.com/DataDog/dd-native-iast-taint-tracking-js#readme",
+      "_id": "@datadog/native-iast-taint-tracking@1.3.0",
+      "_integrity": "sha512-KUIVyNLq7WtqIYyIZwrVt121iuFgH7mz4Vad+wqLfmmln+kUrlpBo8qCaHCthZ3/8wZ7v0yg3MFF8cSvf0CLbA==",
+      "_resolved": "/home/julio/Projects/js/dd-native-iast-taint-tracking-js/datadog-native-iast-taint-tracking-1.3.0.tgz",
+      "_from": "file:datadog-native-iast-taint-tracking-1.3.0.tgz",
+      "_nodeVersion": "16.16.0",
+      "_npmVersion": "8.11.0",
+      "dist": {
+        "integrity": "sha512-KUIVyNLq7WtqIYyIZwrVt121iuFgH7mz4Vad+wqLfmmln+kUrlpBo8qCaHCthZ3/8wZ7v0yg3MFF8cSvf0CLbA==",
+        "shasum": "bf4fb533328503b7767c8dbad8236ba6b1003322",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-1.3.0.tgz",
+        "fileCount": 9,
+        "unpackedSize": 136180,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIE1N7DghfYT1duZ1qiepL0yoTai1ExIxqEdoaWkZp9mWAiEAnH9f/BJ2mfroeJBF7Tc6Vtc1ji0gIWyMtkkyw0PkR6g="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkHajwACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpYRg//SZx2iC/yRxjbUXlOoM1POjytmwoa6vTGEvMdVQIXcHjWg8hI\r\nGb2oLOy5LDjkcbaKzAhrERidO+gf8Qbr4dpzdOX5wmlWkIDOkSZb7A2LVU19\r\n16IjmQ7rEjGMr1YbXpnUb1IVieA1zM9/Acrpmq3tuxjln9GJcUQS6LHUdiLd\r\nxId5CfjqrCzTRab6xd0lhRKHVBGw8oCohCLgOFOdJ+ayDsjUXEfoi9+h4hKD\r\nt67FVpqWo2rtT4cE9hB6XSoiI8g8kCyI2V8Yij+YVfOHXhZaHTLcZqoYh+uc\r\nsonS69mMaQGXpP0c9MK1mZOLuBAP6tHQSMrHvv12OYqIwgzSGCHzJ2KykkWl\r\n7633pnv/l/XGbcyLmlgQUPcA5Up8166m31LH+9dmvmxGm4KyL520Im6lA6gh\r\nRhkTOCUePtzBPQ6mLy0q/T8cHD6G0VudSa8ax+3Hsd5RqfaHmhGV2WUVUSEy\r\nXfcEV2QiRl6yYyCv6FVNvb3jcTseDk8a4qWaOQ4jY7Vw+p9Y//q06a7JM3g3\r\nCeuLrD3gAMdsxiNr60D8WJAQL7DASFKi4ihmz0fnoO7psD5uDgkye4CB2mMp\r\n7IfyRktnb5dSBUvN33nfYvVkNv9a0uxOsu5GFFB4a1hsnnTLzj85nBQV8RDo\r\nISJddZ7ihcR2hFEmYpMPBjtgk8IClAyd43s=\r\n=pIRO\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-taint-tracking_1.3.0_1679665392733_0.03943459098501556"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.3.1": {
+      "name": "@datadog/native-iast-taint-tracking",
+      "home": "https://github.com/DataDog/dd-native-iast-taint-tracking-js/blob/main/README.md",
+      "repository": "git@github.com:DataDog/dd-native-iast-taint-tracking-js.git",
+      "version": "1.3.1",
+      "description": "Datadog IAST tant tracking support for NodeJS",
+      "main": "index.js",
+      "scripts": {
+        "build": "node-gyp configure && node-gyp build",
+        "build:arm": "node-gyp configure -arch=arm64 && node-gyp build -arch=arm64",
+        "build:asan": "node-gyp configure && CXXFLAGS=\"-g -O0 -fsanitize=address\" LDFLAGS=\"-fsanitize=address\" node-gyp build",
+        "build:valgrind": "node-gyp configure && CXXFLAGS=\"-g -O0\" node-gyp build",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "postbuild": "node ./scripts/pack.js",
+        "postbuild:asan": "npm run postbuild",
+        "postbuild:valgrind": "npm run postbuild",
+        "test:native": "./scripts/cpputest.sh",
+        "test:junit": "./scripts/cpputest.sh --ci",
+        "pretest:asan": "npm run build:asan",
+        "pretest:js-junit": "npm run build",
+        "pretest:js-valgrind": "npm run build",
+        "pretest:js-asan": "npm run build:asan",
+        "test:asan": "./scripts/cpputest.sh --asan",
+        "test:js-asan": "LD_PRELOAD=`gcc -print-file-name=libasan.so` mocha --recursive",
+        "test:js-valgrind": "valgrind mocha --recursive",
+        "test": "mocha --recursive",
+        "test:js-junit": "mocha --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "test:docker": "./scripts/test_docker.sh"
+      },
+      "author": "Datadog Inc. <info@datadoghq.com>",
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-iast-native-taint-tracking-js/issues"
+      },
+      "devDependencies": {
+        "eslint": "^8.26.0",
+        "eslint-config-standard": "^17.0.0",
+        "mocha": "^10.0.0",
+        "mocha-junit-reporter": "^2.0.2",
+        "nan": "2.14.0",
+        "node-addon-api": "^4.3.0",
+        "node-gyp": ">=7.1.2",
+        "proxyquire": "^2.1.3",
+        "segfault-handler": "^1.3.0",
+        "semver": "^7.3.8"
+      },
+      "dependencies": {
+        "node-gyp-build": "^3.9.0"
+      },
+      "_id": "@datadog/native-iast-taint-tracking@1.3.1",
+      "_integrity": "sha512-KWKmK4/GANisxqVZ1TtGlBIOw2RIXdUO0r7361QJHiBVUxwNKmKNVDVuCTKGpRRH/0GZcxY0yVgl38ee/6HM3A==",
+      "_resolved": "/home/julio/Downloads/datadog-native-iast-taint-tracking-1.3.1.tgz",
+      "_from": "file:datadog-native-iast-taint-tracking-1.3.1.tgz",
+      "_nodeVersion": "12.22.9",
+      "_npmVersion": "8.5.1",
+      "dist": {
+        "integrity": "sha512-KWKmK4/GANisxqVZ1TtGlBIOw2RIXdUO0r7361QJHiBVUxwNKmKNVDVuCTKGpRRH/0GZcxY0yVgl38ee/6HM3A==",
+        "shasum": "49b3befc3049370f4034babcf57c3d67e9f4d56b",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-1.3.1.tgz",
+        "fileCount": 62,
+        "unpackedSize": 13465492,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQChlR+xWneFK6aT302UZQ0o/JWeLZWOlGl5ENfqqQRaSQIhAOIVP12hbFLPAfhE7ApNMo+6T74rGRGNGd3x8SbEcZ4r"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkI+lBACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoS3w//Vp/JUNpP7ZSAAqR3pevmASkTanLIEEpTU9g0h4xHqhECvxHA\r\n40tCksPnC0cafBA5ezuqQyCisUH1j+eRjH6THoIRv4FRYWRlXzd/C9/Rm3HD\r\nw0bI55KjQbB4LQROfpAyNVs5pGWR6+Bv2NnaL635L2kMPrrYiPGb8H3vQDwU\r\nGNFIuQb+h+FU2IvKpktertHhK9oezr/geyiArfPqn6kjc+sDBiv60K7v/rWJ\r\nxOcVS/ybYALE8SPNmNTgAyuzxWqycb2dvUzkgRgLsdKp8PI79YTCCXeGONWJ\r\nD7SaIs5cUFVmg9djjgO7tTTMavLB7RwMSLTvK63OukeuMJcHkQe51w+6Mbgv\r\n4rcWr4p7brYYPC31gzHnFFuG75AjGPf6Xj/bbuf9Lid9luCrnXbvZ60iDGk3\r\nXI5iUIp2G4Hyyi5feykkbY+8AEWMedKX/4az4HNIzpjXnduTRUTVRaDePpXd\r\nz0/0bMJLHJNxjNv0TYKm7+UaJ9TMlqs3Ittg7vJWldw4XmAFsJlopPo/NbL2\r\nmVn0rXfrYTzxt/Ob9LWFFS4SOJyaYsdOf73yqwppNHxlJwX6SzmnN6UkGmrv\r\nVbGfb3z2CXUvI/tuUZKIdlmSrGWtW2y0kveiP6Gk/vO5FgbN99dynXv1Qwjm\r\n44zq15ya6iRGqzF9q9SLZKVRfkKMUy7EPKc=\r\n=ji6J\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-taint-tracking_1.3.1_1680075073324_0.6619657288854208"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.4.0": {
+      "name": "@datadog/native-iast-taint-tracking",
+      "home": "https://github.com/DataDog/dd-native-iast-taint-tracking-js/blob/main/README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/DataDog/dd-native-iast-taint-tracking-js.git"
+      },
+      "version": "1.4.0",
+      "description": "Datadog IAST tant tracking support for NodeJS",
+      "main": "index.js",
+      "scripts": {
+        "build": "node-gyp configure && node-gyp build",
+        "build:arm": "node-gyp configure -arch=arm64 && node-gyp build -arch=arm64",
+        "build:asan": "node-gyp configure && CXXFLAGS=\"-g -O0 -fsanitize=address\" LDFLAGS=\"-fsanitize=address\" node-gyp build",
+        "build:valgrind": "node-gyp configure && CXXFLAGS=\"-g -O0\" node-gyp build",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "postbuild": "node ./scripts/pack.js",
+        "postbuild:asan": "npm run postbuild",
+        "postbuild:valgrind": "npm run postbuild",
+        "test:native": "./scripts/cpputest.sh",
+        "test:junit": "./scripts/cpputest.sh --ci",
+        "pretest:asan": "npm run build:asan",
+        "pretest:js-junit": "npm run build",
+        "pretest:js-valgrind": "npm run build",
+        "pretest:js-asan": "npm run build:asan",
+        "test:asan": "./scripts/cpputest.sh --asan",
+        "test:js-asan": "LD_PRELOAD=`gcc -print-file-name=libasan.so` mocha --recursive",
+        "test:js-valgrind": "valgrind mocha --recursive",
+        "test": "mocha --recursive",
+        "test:js-junit": "mocha --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "test:docker": "./scripts/test_docker.sh"
+      },
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-iast-native-taint-tracking-js/issues"
+      },
+      "devDependencies": {
+        "eslint": "^8.26.0",
+        "eslint-config-standard": "^17.0.0",
+        "mocha": "^10.0.0",
+        "mocha-junit-reporter": "^2.0.2",
+        "nan": "2.14.0",
+        "node-addon-api": "^4.3.0",
+        "node-gyp": ">=7.1.2",
+        "proxyquire": "^2.1.3",
+        "segfault-handler": "^1.3.0",
+        "semver": "^7.3.8"
+      },
+      "dependencies": {
+        "node-gyp-build": "^3.9.0"
+      },
+      "homepage": "https://github.com/DataDog/dd-native-iast-taint-tracking-js#readme",
+      "_id": "@datadog/native-iast-taint-tracking@1.4.0",
+      "_nodeVersion": "14.19.3",
+      "_npmVersion": "6.14.17",
+      "dist": {
+        "integrity": "sha512-lIX9HZmScAOjXHdJyCRJS9may806LxGvm/qb52cUa8Ni4sIRyEhT5Fe4mv+WDB2fT2SMFFKUC3iSlU1iBIENgw==",
+        "shasum": "95c6574469cd6b9b58734a910f5d91d7a7587c48",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-1.4.0.tgz",
+        "fileCount": 68,
+        "unpackedSize": 14887407,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQD2Bc5VpRb8uB2GjhEozcRydoeflMDsi/4l8Gn1mfDg3wIhAJIsnG8ygWkBNHvrfV4KFfcym6xINwrI4sNlEc7+ooO/"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkQsg9ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqZHA//b2fZf774piUEO7d3crIIt69e1NrNIosQ7ZBFyRvZY+wFOBAp\r\nyoAVgWrt3t2yte7f2PWXf774CNOY8siwtvYvJPY/konENdCZsS++ok3NvzaH\r\nvhTlDM2FgtLRnbb6550b1NZg2txaSZ7x7EJT3i/5jVqdldQXTNatXiCoNFck\r\n3vGpsKp9QBW6qZP4k+VoI+XX9z313h6r2qxy86dTGGFgEhHmCpBA+NQKPDXu\r\nhtrcVlAtANbPL7TnDYNZfEvts28dkwTZ5AyOUglIJN3a2a4aIHMvQYRfaU+5\r\nLRXPC5YItUdkkgN6Ipaa2ZtqAS/N/ml126OaryUpbhqq9eyL67gsi331MnEJ\r\nlbgYgxe4zP82bbpNoy7PZXqjeZARzhhS5/BWi7KCqvgIeZjL//96AhovIEf/\r\nVxaMPcSMkcJKXt4XBQaLc8T1UVEmRA6cchnHDlkzh+PzyaT0PBoVXQt83tch\r\nExw3rRypRXbKLR1d105wRY7JFxAmDjYqrfMA+iUdJtvS8AxS6nhwTrPGlhHw\r\n8ZtcwCtJhzHlHFKNVq2B5wa4jqor7BkrauNbazgY1CXzFHBniEWrra5w+Tpu\r\nTDzx8FnoQGv42YpuXA6dSg7Q89abLm6Pyzxi6S5u7IZQ1El9U4HjcJQdCVBt\r\nCX1hpWF0NQlwOiqUNAgt6PNdpE3Lje5GFow=\r\n=qkU/\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-taint-tracking_1.4.0_1682098236827_0.9726723640394184"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.4.1": {
+      "name": "@datadog/native-iast-taint-tracking",
+      "home": "https://github.com/DataDog/dd-native-iast-taint-tracking-js/blob/main/README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/DataDog/dd-native-iast-taint-tracking-js.git"
+      },
+      "version": "1.4.1",
+      "description": "Datadog IAST tant tracking support for NodeJS",
+      "main": "index.js",
+      "scripts": {
+        "build": "node-gyp configure && node-gyp build",
+        "build:arm": "node-gyp configure -arch=arm64 && node-gyp build -arch=arm64",
+        "build:asan": "node-gyp configure && CXXFLAGS=\"-g -O0 -fsanitize=address\" LDFLAGS=\"-fsanitize=address\" node-gyp build",
+        "build:valgrind": "node-gyp configure && CXXFLAGS=\"-g -O0\" node-gyp build",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "postbuild": "node ./scripts/pack.js",
+        "postbuild:asan": "npm run postbuild",
+        "postbuild:valgrind": "npm run postbuild",
+        "test:native": "./scripts/cpputest.sh",
+        "test:junit": "./scripts/cpputest.sh --ci",
+        "pretest:asan": "npm run build:asan",
+        "pretest:js-junit": "npm run build",
+        "pretest:js-valgrind": "npm run build",
+        "pretest:js-asan": "npm run build:asan",
+        "test:asan": "./scripts/cpputest.sh --asan",
+        "test:js-asan": "LD_PRELOAD=`gcc -print-file-name=libasan.so` mocha --recursive",
+        "test:js-valgrind": "valgrind mocha --recursive",
+        "test": "mocha --recursive",
+        "test:js-junit": "mocha --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "test:docker": "./scripts/test_docker.sh"
+      },
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-iast-native-taint-tracking-js/issues"
+      },
+      "devDependencies": {
+        "eslint": "^8.26.0",
+        "eslint-config-standard": "^17.0.0",
+        "mocha": "^10.0.0",
+        "mocha-junit-reporter": "^2.0.2",
+        "nan": "2.14.0",
+        "node-addon-api": "^4.3.0",
+        "node-gyp": ">=7.1.2",
+        "proxyquire": "^2.1.3",
+        "segfault-handler": "^1.3.0",
+        "semver": "^7.3.8"
+      },
+      "dependencies": {
+        "node-gyp-build": "^3.9.0"
+      },
+      "types": "./index.d.ts",
+      "homepage": "https://github.com/DataDog/dd-native-iast-taint-tracking-js#readme",
+      "_id": "@datadog/native-iast-taint-tracking@1.4.1",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "8.19.2",
+      "dist": {
+        "integrity": "sha512-wWJebnK5fADXGGwmoHi9ElMsvR/M4IZpRxBxzAfKU2WI1GRkCvSxQBhbIFUTQEuO7l6ZOpASWQ9yUXK3cx8n+w==",
+        "shasum": "e84198607230e0193d0d88f06c1f56d5938daf9e",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-1.4.1.tgz",
+        "fileCount": 68,
+        "unpackedSize": 14849863,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBz3QEbqThfajvbf4S7ls1Jh7KCqkc3TPzGgqniOMYyuAiBJ1N9Npt1uUzYZIYdp0iOp3iGO3nAvL8sEqQ5TGBpXWw=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-taint-tracking_1.4.1_1683641325043_0.47313484715793774"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.5.0": {
+      "name": "@datadog/native-iast-taint-tracking",
+      "home": "https://github.com/DataDog/dd-native-iast-taint-tracking-js/blob/main/README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/DataDog/dd-native-iast-taint-tracking-js.git"
+      },
+      "version": "1.5.0",
+      "description": "Datadog IAST tant tracking support for NodeJS",
+      "main": "index.js",
+      "scripts": {
+        "build": "node-gyp configure && node-gyp build",
+        "build:arm": "node-gyp configure -arch=arm64 && node-gyp build -arch=arm64",
+        "build:asan": "node-gyp configure && CXXFLAGS=\"-g -O0 -fsanitize=address\" LDFLAGS=\"-fsanitize=address\" node-gyp build",
+        "build:valgrind": "node-gyp configure && CXXFLAGS=\"-g -O0\" node-gyp build",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "postbuild": "node ./scripts/pack.js",
+        "postbuild:asan": "npm run postbuild",
+        "postbuild:valgrind": "npm run postbuild",
+        "test:native": "./scripts/cpputest.sh",
+        "test:junit": "./scripts/cpputest.sh --ci",
+        "pretest:asan": "npm run build:asan",
+        "pretest:js-junit": "npm run build",
+        "pretest:js-valgrind": "npm run build",
+        "pretest:js-asan": "npm run build:asan",
+        "test:asan": "./scripts/cpputest.sh --asan",
+        "test:js-asan": "LD_PRELOAD=`gcc -print-file-name=libasan.so` mocha --recursive",
+        "test:js-valgrind": "valgrind mocha --recursive",
+        "test": "mocha --recursive",
+        "test:js-junit": "mocha --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "test:docker": "./scripts/test_docker.sh"
+      },
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-iast-native-taint-tracking-js/issues"
+      },
+      "devDependencies": {
+        "eslint": "^8.26.0",
+        "eslint-config-standard": "^17.0.0",
+        "mocha": "^10.0.0",
+        "mocha-junit-reporter": "^2.0.2",
+        "nan": "2.14.0",
+        "node-addon-api": "^4.3.0",
+        "node-gyp": ">=7.1.2",
+        "proxyquire": "^2.1.3",
+        "segfault-handler": "^1.3.0",
+        "semver": "^7.3.8"
+      },
+      "dependencies": {
+        "node-gyp-build": "^3.9.0"
+      },
+      "homepage": "https://github.com/DataDog/dd-native-iast-taint-tracking-js#readme",
+      "_id": "@datadog/native-iast-taint-tracking@1.5.0",
+      "_nodeVersion": "14.19.3",
+      "_npmVersion": "6.14.17",
+      "dist": {
+        "integrity": "sha512-SOWIk1M6PZH0osNB191Voz2rKBPoF5hISWVSK9GiJPrD40+xjib1Z/bFDV7EkDn3kjOyordSBdNPG5zOqZJdyg==",
+        "shasum": "1a55eca6692079ac6167696682acb972aa0b0181",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-1.5.0.tgz",
+        "fileCount": 69,
+        "unpackedSize": 14855555,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBak2Yrs0+kQOYTEkCmZ88i7CRwpgu0sXpbgHmSwt02kAiEAlyMWIQUq4K2TclCMqkPP/1vuDKlQQaLKs0jWFpy+aO0="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-taint-tracking_1.5.0_1686555824891_0.7549258383688386"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0-pre": {
+      "name": "@datadog/native-iast-taint-tracking",
+      "home": "https://github.com/DataDog/dd-native-iast-taint-tracking-js/blob/main/README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/DataDog/dd-native-iast-taint-tracking-js.git"
+      },
+      "version": "2.0.0-pre",
+      "description": "Datadog IAST tant tracking support for NodeJS",
+      "main": "index.js",
+      "scripts": {
+        "build": "node-gyp configure && node-gyp build",
+        "build:arm": "node-gyp configure -arch=arm64 && node-gyp build -arch=arm64",
+        "build:asan": "node-gyp configure && CXXFLAGS=\"-g -O0 -fsanitize=address\" LDFLAGS=\"-fsanitize=address\" node-gyp build",
+        "build:valgrind": "node-gyp configure && CXXFLAGS=\"-g -O0\" node-gyp build",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "postbuild": "node ./scripts/pack.js",
+        "postbuild:asan": "npm run postbuild",
+        "postbuild:valgrind": "npm run postbuild",
+        "test:native": "./scripts/cpputest.sh",
+        "test:junit": "./scripts/cpputest.sh --ci",
+        "pretest:asan": "npm run build:asan",
+        "pretest:js-junit": "npm run build",
+        "pretest:js-valgrind": "npm run build",
+        "pretest:js-asan": "npm run build:asan",
+        "test:asan": "./scripts/cpputest.sh --asan",
+        "test:js-asan": "LD_PRELOAD=`gcc -print-file-name=libasan.so` mocha --recursive",
+        "test:js-valgrind": "valgrind mocha --recursive",
+        "test": "mocha --recursive",
+        "test:js-junit": "mocha --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "test:docker": "./scripts/test_docker.sh",
+        "install": "node-gyp rebuild"
+      },
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-iast-native-taint-tracking-js/issues"
+      },
+      "devDependencies": {
+        "eslint": "^8.26.0",
+        "eslint-config-standard": "^17.0.0",
+        "mocha": "^10.0.0",
+        "mocha-junit-reporter": "^2.0.2",
+        "nan": "2.14.0",
+        "node-addon-api": "^4.3.0",
+        "node-gyp": ">=7.1.2",
+        "proxyquire": "^2.1.3",
+        "segfault-handler": "^1.3.0",
+        "semver": "^7.3.8"
+      },
+      "dependencies": {
+        "node-gyp-build": "^3.9.0"
+      },
+      "types": "./index.d.ts",
+      "gypfile": true,
+      "gitHead": "991fcf334ac7e7a7d9c99d1bfa211b1ffcc57f15",
+      "homepage": "https://github.com/DataDog/dd-native-iast-taint-tracking-js#readme",
+      "_id": "@datadog/native-iast-taint-tracking@2.0.0-pre",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-B7w7D2mgxEc7C4ltLthhj8ixQ+neJY/NFoVjjrzJpk2nQMx3bnGYUZu0bbw2Iw188wYTTyiwqcFa8zf14ianog==",
+        "shasum": "b315b64903feca3ebad9b34f5c4378e6dfb632a6",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-2.0.0-pre.tgz",
+        "fileCount": 68,
+        "unpackedSize": 14849411,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDk66KKoKr4hcaWF/aV/p7guPdCTdLJK1d7xMpKHq/hygIgAXwpHmXszBOVIS4RcFz5nCaz45bTzxbAiYXxjdq6Vww="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-taint-tracking_2.0.0-pre_1686751752626_0.9835533858141168"
+      },
+      "_hasShrinkwrap": false,
+      "deprecated": "Package updloaded by CI/CD by mistake"
+    },
+    "1.6.0": {
+      "name": "@datadog/native-iast-taint-tracking",
+      "home": "https://github.com/DataDog/dd-native-iast-taint-tracking-js/blob/main/README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/DataDog/dd-native-iast-taint-tracking-js.git"
+      },
+      "version": "1.6.0",
+      "description": "Datadog IAST tant tracking support for NodeJS",
+      "main": "index.js",
+      "scripts": {
+        "build": "node-gyp configure && node-gyp build",
+        "build:arm": "node-gyp configure -arch=arm64 && node-gyp build -arch=arm64",
+        "build:asan": "node-gyp configure && CXXFLAGS=\"-g -O0 -fsanitize=address\" LDFLAGS=\"-fsanitize=address\" node-gyp build",
+        "build:valgrind": "node-gyp configure && CXXFLAGS=\"-g -O0\" node-gyp build",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "postbuild": "node ./scripts/pack.js",
+        "postbuild:asan": "npm run postbuild",
+        "postbuild:valgrind": "npm run postbuild",
+        "test:native": "./scripts/cpputest.sh",
+        "test:junit": "./scripts/cpputest.sh --ci",
+        "pretest:asan": "npm run build:asan",
+        "pretest:js-junit": "npm run build",
+        "pretest:js-valgrind": "npm run build",
+        "pretest:js-asan": "npm run build:asan",
+        "test:asan": "./scripts/cpputest.sh --asan",
+        "test:js-asan": "LD_PRELOAD=`gcc -print-file-name=libasan.so` mocha --recursive",
+        "test:js-valgrind": "valgrind mocha --recursive",
+        "test": "mocha --recursive",
+        "test:js-junit": "mocha --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "test:docker": "./scripts/test_docker.sh",
+        "install": "node-gyp rebuild"
+      },
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-iast-native-taint-tracking-js/issues"
+      },
+      "devDependencies": {
+        "eslint": "^8.26.0",
+        "eslint-config-standard": "^17.0.0",
+        "mocha": "^10.0.0",
+        "mocha-junit-reporter": "^2.0.2",
+        "nan": "2.14.0",
+        "node-addon-api": "^4.3.0",
+        "node-gyp": ">=7.1.2",
+        "proxyquire": "^2.1.3",
+        "segfault-handler": "^1.3.0",
+        "semver": "^7.3.8"
+      },
+      "dependencies": {
+        "node-gyp-build": "^3.9.0"
+      },
+      "types": "./index.d.ts",
+      "gypfile": true,
+      "gitHead": "afc5eaa9b3204811123fd3ab364c0db2dcd75161",
+      "homepage": "https://github.com/DataDog/dd-native-iast-taint-tracking-js#readme",
+      "_id": "@datadog/native-iast-taint-tracking@1.6.0",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-RlU6/DSHbfI+eLBoopRSm4FXKXJelwJKq+dMDDgXONf+esj0ae6aWnk2JUYuc99r2VjjstIldibmU+5zO6T14A==",
+        "shasum": "e14776af6acb11bf6820bb8398bbe3123b1b72eb",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-1.6.0.tgz",
+        "fileCount": 68,
+        "unpackedSize": 14957127,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCPYwyo0xVTvaEVs2rcXiRZPOdYgPfU9qa8agkYssmeEwIhAPweGfdWX7HYp5xCrUkuKY6oLB38WfgIKPV4fFqaJ1wa"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-taint-tracking_1.6.0_1689762445215_0.6458859373247638"
+      },
+      "_hasShrinkwrap": false,
+      "deprecated": "Unexpected use of the package in the tracer"
+    },
+    "1.6.1": {
+      "name": "@datadog/native-iast-taint-tracking",
+      "home": "https://github.com/DataDog/dd-native-iast-taint-tracking-js/blob/main/README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/DataDog/dd-native-iast-taint-tracking-js.git"
+      },
+      "version": "1.6.1",
+      "description": "Datadog IAST tant tracking support for NodeJS",
+      "main": "index.js",
+      "scripts": {
+        "build": "node-gyp configure && node-gyp build",
+        "build:arm": "node-gyp configure -arch=arm64 && node-gyp build -arch=arm64",
+        "build:asan": "node-gyp configure && CXXFLAGS=\"-g -O0 -fsanitize=address\" LDFLAGS=\"-fsanitize=address\" node-gyp build",
+        "build:valgrind": "node-gyp configure && CXXFLAGS=\"-g -O0\" node-gyp build",
+        "install": "exit 0",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "postbuild": "node ./scripts/pack.js",
+        "postbuild:asan": "npm run postbuild",
+        "postbuild:valgrind": "npm run postbuild",
+        "test:native": "./scripts/cpputest.sh",
+        "test:junit": "./scripts/cpputest.sh --ci",
+        "pretest:asan": "npm run build:asan",
+        "pretest:js-junit": "npm run build",
+        "pretest:js-valgrind": "npm run build",
+        "pretest:js-asan": "npm run build:asan",
+        "test:asan": "./scripts/cpputest.sh --asan",
+        "test:js-asan": "LD_PRELOAD=`gcc -print-file-name=libasan.so` mocha --recursive",
+        "test:js-valgrind": "valgrind mocha --recursive",
+        "test": "mocha --recursive",
+        "test:js-junit": "mocha --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "test:docker": "./scripts/test_docker.sh"
+      },
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-iast-native-taint-tracking-js/issues"
+      },
+      "devDependencies": {
+        "eslint": "^8.26.0",
+        "eslint-config-standard": "^17.0.0",
+        "mocha": "^10.0.0",
+        "mocha-junit-reporter": "^2.0.2",
+        "nan": "2.14.0",
+        "node-addon-api": "^4.3.0",
+        "node-gyp": ">=7.1.2",
+        "proxyquire": "^2.1.3",
+        "segfault-handler": "^1.3.0",
+        "semver": "^7.3.8"
+      },
+      "dependencies": {
+        "node-gyp-build": "^3.9.0"
+      },
+      "types": "./index.d.ts",
+      "homepage": "https://github.com/DataDog/dd-native-iast-taint-tracking-js#readme",
+      "_id": "@datadog/native-iast-taint-tracking@1.6.1",
+      "_integrity": "sha512-V1X0UbEROcEkqP4IIovqK9uu8jPXq80m8xOW1Vb6xJ9otO3eBphvDFDSa/OJ4pEYhajjjmGlraLlV6rXjaSGlQ==",
+      "_resolved": "/home/runner/work/dd-native-iast-taint-tracking-js/dd-native-iast-taint-tracking-js/datadog-native-iast-taint-tracking-1.6.1.tgz",
+      "_from": "file:datadog-native-iast-taint-tracking-1.6.1.tgz",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-V1X0UbEROcEkqP4IIovqK9uu8jPXq80m8xOW1Vb6xJ9otO3eBphvDFDSa/OJ4pEYhajjjmGlraLlV6rXjaSGlQ==",
+        "shasum": "fcf2f376797dbfc368d6cb3636b922372d2be50e",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-1.6.1.tgz",
+        "fileCount": 68,
+        "unpackedSize": 14958176,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDJT9M4sJ7rlw9NJgSojtKbx8RKWo1eLdJMIVrYPjKORwIhAMpcc/iRpEdmSUwBju1gN+sIAimqOtU3O5ic8JlUjkUO"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-taint-tracking_1.6.1_1691499725401_0.9890780708456877"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.6.2": {
+      "name": "@datadog/native-iast-taint-tracking",
+      "home": "https://github.com/DataDog/dd-native-iast-taint-tracking-js/blob/main/README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/DataDog/dd-native-iast-taint-tracking-js.git"
+      },
+      "version": "1.6.2",
+      "description": "Datadog IAST tant tracking support for NodeJS",
+      "main": "index.js",
+      "scripts": {
+        "build": "node-gyp configure && node-gyp build",
+        "build:arm": "node-gyp configure -arch=arm64 && node-gyp build -arch=arm64",
+        "build:asan": "node-gyp configure && CXXFLAGS=\"-g -O0 -fsanitize=address\" LDFLAGS=\"-fsanitize=address\" node-gyp build",
+        "build:valgrind": "node-gyp configure && CXXFLAGS=\"-g -O0\" node-gyp build",
+        "install": "exit 0",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "postbuild": "node ./scripts/pack.js",
+        "postbuild:asan": "npm run postbuild",
+        "postbuild:valgrind": "npm run postbuild",
+        "test:native": "./scripts/cpputest.sh",
+        "test:junit": "./scripts/cpputest.sh --ci",
+        "pretest:asan": "npm run build:asan",
+        "pretest:js-junit": "npm run build",
+        "pretest:js-valgrind": "npm run build",
+        "pretest:js-asan": "npm run build:asan",
+        "test:asan": "./scripts/cpputest.sh --asan",
+        "test:js-asan": "LD_PRELOAD=`gcc -print-file-name=libasan.so` mocha --recursive",
+        "test:js-valgrind": "valgrind mocha --recursive",
+        "test": "mocha --recursive",
+        "test:js-junit": "mocha --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "test:docker": "./scripts/test_docker.sh"
+      },
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-iast-native-taint-tracking-js/issues"
+      },
+      "devDependencies": {
+        "eslint": "^8.26.0",
+        "eslint-config-standard": "^17.0.0",
+        "mocha": "^10.0.0",
+        "mocha-junit-reporter": "^2.0.2",
+        "nan": "2.14.0",
+        "node-addon-api": "^4.3.0",
+        "node-gyp": ">=7.1.2",
+        "proxyquire": "^2.1.3",
+        "segfault-handler": "^1.3.0",
+        "semver": "^7.3.8"
+      },
+      "dependencies": {
+        "node-gyp-build": "^3.9.0"
+      },
+      "types": "./index.d.ts",
+      "homepage": "https://github.com/DataDog/dd-native-iast-taint-tracking-js#readme",
+      "_id": "@datadog/native-iast-taint-tracking@1.6.2",
+      "_integrity": "sha512-I0Id29q5rBl2FV+S6uIxlsY2ZynI1BgC6i7Tj++iMCkXv9VdspU15eqmjBzqBSjhg+nuRSE8XAcwSXt9lDtwAg==",
+      "_resolved": "/home/runner/work/dd-native-iast-taint-tracking-js/dd-native-iast-taint-tracking-js/datadog-native-iast-taint-tracking-1.6.2.tgz",
+      "_from": "file:datadog-native-iast-taint-tracking-1.6.2.tgz",
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-I0Id29q5rBl2FV+S6uIxlsY2ZynI1BgC6i7Tj++iMCkXv9VdspU15eqmjBzqBSjhg+nuRSE8XAcwSXt9lDtwAg==",
+        "shasum": "0fb28152df8d17ec4c19488e2c7e60704783fb0e",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-1.6.2.tgz",
+        "fileCount": 68,
+        "unpackedSize": 14993448,
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@datadog%2fnative-iast-taint-tracking@1.6.2",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIB92lIHQECQ9maytkkyiZ3TbsM7/enIgcEN3g2FLZyH0AiEAzsjNn0Rg0crFaGDvuxJ+QjQmuRytdydqK7OY8n6OOfg="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-taint-tracking_1.6.2_1695973968362_0.6551241502638012"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.6.3": {
+      "name": "@datadog/native-iast-taint-tracking",
+      "home": "https://github.com/DataDog/dd-native-iast-taint-tracking-js/blob/main/README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/DataDog/dd-native-iast-taint-tracking-js.git"
+      },
+      "version": "1.6.3",
+      "description": "Datadog IAST tant tracking support for NodeJS",
+      "main": "index.js",
+      "scripts": {
+        "build": "node-gyp configure && node-gyp build",
+        "build:arm": "node-gyp configure -arch=arm64 && node-gyp build -arch=arm64",
+        "build:asan": "node-gyp configure && CXXFLAGS=\"-g -O0 -fsanitize=address\" LDFLAGS=\"-fsanitize=address\" node-gyp build",
+        "build:valgrind": "node-gyp configure && CXXFLAGS=\"-g -O0\" node-gyp build",
+        "install": "exit 0",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "postbuild": "node ./scripts/pack.js",
+        "postbuild:asan": "npm run postbuild",
+        "postbuild:valgrind": "npm run postbuild",
+        "test:native": "./scripts/cpputest.sh",
+        "test:junit": "./scripts/cpputest.sh --ci",
+        "pretest:asan": "npm run build:asan",
+        "pretest:js-junit": "npm run build",
+        "pretest:js-valgrind": "npm run build",
+        "pretest:js-asan": "npm run build:asan",
+        "test:asan": "./scripts/cpputest.sh --asan",
+        "test:js-asan": "LD_PRELOAD=`gcc -print-file-name=libasan.so` mocha --recursive",
+        "test:js-valgrind": "valgrind mocha --recursive",
+        "test": "mocha --recursive",
+        "test:js-junit": "mocha --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "test:docker": "./scripts/test_docker.sh"
+      },
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-iast-native-taint-tracking-js/issues"
+      },
+      "devDependencies": {
+        "eslint": "^8.26.0",
+        "eslint-config-standard": "^17.0.0",
+        "mocha": "^10.0.0",
+        "mocha-junit-reporter": "^2.0.2",
+        "nan": "2.14.0",
+        "node-addon-api": "^4.3.0",
+        "node-gyp": ">=7.1.2",
+        "proxyquire": "^2.1.3",
+        "segfault-handler": "^1.3.0",
+        "semver": "^7.3.8"
+      },
+      "dependencies": {
+        "node-gyp-build": "^3.9.0"
+      },
+      "types": "./index.d.ts",
+      "homepage": "https://github.com/DataDog/dd-native-iast-taint-tracking-js#readme",
+      "_id": "@datadog/native-iast-taint-tracking@1.6.3",
+      "_integrity": "sha512-u/bBPNx0w8Bq+I+30enI99Ua2WPbVLkANGNyQNjW4tz2PHyeGI++HyzZV+fGm0YSy41FuHZq9EWP3SSDz/eSVw==",
+      "_resolved": "/home/runner/work/dd-native-iast-taint-tracking-js/dd-native-iast-taint-tracking-js/datadog-native-iast-taint-tracking-1.6.3.tgz",
+      "_from": "file:datadog-native-iast-taint-tracking-1.6.3.tgz",
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-u/bBPNx0w8Bq+I+30enI99Ua2WPbVLkANGNyQNjW4tz2PHyeGI++HyzZV+fGm0YSy41FuHZq9EWP3SSDz/eSVw==",
+        "shasum": "cb2125f7bf18806da6f326c3a6b7210da3e05d8b",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-1.6.3.tgz",
+        "fileCount": 74,
+        "unpackedSize": 16425027,
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@datadog%2fnative-iast-taint-tracking@1.6.3",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIF31vwgZFbtPrLzywyYXFxkqFMucr54b6Z0yq3KsJT6XAiEA06Rzi22zgqx+wWJbYb2h52TdXAUYBiHFn1KMf8z0B7Q="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-taint-tracking_1.6.3_1697806196491_0.21720957324857748"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.6.4": {
+      "name": "@datadog/native-iast-taint-tracking",
+      "home": "https://github.com/DataDog/dd-native-iast-taint-tracking-js/blob/main/README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/DataDog/dd-native-iast-taint-tracking-js.git"
+      },
+      "version": "1.6.4",
+      "description": "Datadog IAST tant tracking support for NodeJS",
+      "main": "index.js",
+      "scripts": {
+        "build": "node-gyp configure && node-gyp build",
+        "build:arm": "node-gyp configure -arch=arm64 && node-gyp build -arch=arm64",
+        "build:asan": "node-gyp configure && CXXFLAGS=\"-g -O0 -fsanitize=address\" LDFLAGS=\"-fsanitize=address\" node-gyp build",
+        "build:valgrind": "node-gyp configure && CXXFLAGS=\"-g -O0\" node-gyp build",
+        "install": "exit 0",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "postbuild": "node ./scripts/pack.js",
+        "postbuild:asan": "npm run postbuild",
+        "postbuild:valgrind": "npm run postbuild",
+        "test:native": "./scripts/cpputest.sh",
+        "test:junit": "./scripts/cpputest.sh --ci",
+        "pretest:asan": "npm run build:asan",
+        "pretest:js-junit": "npm run build",
+        "pretest:js-valgrind": "npm run build",
+        "pretest:js-asan": "npm run build:asan",
+        "test:asan": "./scripts/cpputest.sh --asan",
+        "test:js-asan": "LD_PRELOAD=`gcc -print-file-name=libasan.so` mocha --recursive",
+        "test:js-valgrind": "valgrind mocha --recursive",
+        "test": "mocha --recursive",
+        "test:js-junit": "mocha --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "test:docker": "./scripts/test_docker.sh"
+      },
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-iast-native-taint-tracking-js/issues"
+      },
+      "devDependencies": {
+        "eslint": "^8.26.0",
+        "eslint-config-standard": "^17.0.0",
+        "mocha": "^10.0.0",
+        "mocha-junit-reporter": "^2.0.2",
+        "nan": "2.14.0",
+        "node-addon-api": "^4.3.0",
+        "proxyquire": "^2.1.3",
+        "segfault-handler": "^1.3.0",
+        "semver": "^7.3.8"
+      },
+      "dependencies": {
+        "node-gyp-build": "^3.9.0"
+      },
+      "types": "./index.d.ts",
+      "homepage": "https://github.com/DataDog/dd-native-iast-taint-tracking-js#readme",
+      "_id": "@datadog/native-iast-taint-tracking@1.6.4",
+      "_integrity": "sha512-Owxk7hQ4Dxwv4zJAoMjRga0IvE6lhvxnNc8pJCHsemCWBXchjr/9bqg05Zy5JnMbKUWn4XuZeJD6RFZpRa8bfw==",
+      "_resolved": "/home/runner/work/dd-native-iast-taint-tracking-js/dd-native-iast-taint-tracking-js/datadog-native-iast-taint-tracking-1.6.4.tgz",
+      "_from": "file:datadog-native-iast-taint-tracking-1.6.4.tgz",
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-Owxk7hQ4Dxwv4zJAoMjRga0IvE6lhvxnNc8pJCHsemCWBXchjr/9bqg05Zy5JnMbKUWn4XuZeJD6RFZpRa8bfw==",
+        "shasum": "16c21ad7c36a53420c0d3c5a3720731809cc7e98",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-1.6.4.tgz",
+        "fileCount": 74,
+        "unpackedSize": 16426485,
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@datadog%2fnative-iast-taint-tracking@1.6.4",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC7jGnLk0PdLmwLVUWM5Ge3gl5HmnHuOTFlMRlyCpKSmgIgduxD3uoVPBt597JtT6ObBbQJka+OggsM7JNnu1jkbDU="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-taint-tracking_1.6.4_1699625603551_0.17849288670641528"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.7.0": {
+      "name": "@datadog/native-iast-taint-tracking",
+      "home": "https://github.com/DataDog/dd-native-iast-taint-tracking-js/blob/main/README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/DataDog/dd-native-iast-taint-tracking-js.git"
+      },
+      "version": "1.7.0",
+      "description": "Datadog IAST tant tracking support for NodeJS",
+      "main": "index.js",
+      "scripts": {
+        "build": "node-gyp configure && node-gyp build",
+        "build:arm": "node-gyp configure -arch=arm64 && node-gyp build -arch=arm64",
+        "build:asan": "node-gyp configure && CXXFLAGS=\"-g -O0 -fsanitize=address\" LDFLAGS=\"-fsanitize=address\" node-gyp build",
+        "build:valgrind": "node-gyp configure && CXXFLAGS=\"-g -O0\" node-gyp build",
+        "install": "exit 0",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "postbuild": "node ./scripts/pack.js",
+        "postbuild:asan": "npm run postbuild",
+        "postbuild:valgrind": "npm run postbuild",
+        "test:native": "./scripts/cpputest.sh",
+        "test:junit": "./scripts/cpputest.sh --ci",
+        "pretest:asan": "npm run build:asan",
+        "pretest:js-junit": "npm run build",
+        "pretest:js-valgrind": "npm run build",
+        "pretest:js-asan": "npm run build:asan",
+        "test:asan": "./scripts/cpputest.sh --asan",
+        "test:js-asan": "LD_PRELOAD=`gcc -print-file-name=libasan.so` mocha --recursive",
+        "test:js-valgrind": "valgrind mocha --recursive",
+        "test": "mocha --recursive",
+        "test:js-junit": "mocha --recursive --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "test:docker": "./scripts/test_docker.sh"
+      },
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-iast-native-taint-tracking-js/issues"
+      },
+      "devDependencies": {
+        "eslint": "^8.26.0",
+        "eslint-config-standard": "^17.0.0",
+        "mocha": "^10.0.0",
+        "mocha-junit-reporter": "^2.0.2",
+        "nan": "2.14.0",
+        "node-addon-api": "^4.3.0",
+        "proxyquire": "^2.1.3",
+        "segfault-handler": "^1.3.0",
+        "semver": "^7.3.8"
+      },
+      "dependencies": {
+        "node-gyp-build": "^3.9.0"
+      },
+      "types": "./index.d.ts",
+      "homepage": "https://github.com/DataDog/dd-native-iast-taint-tracking-js#readme",
+      "_id": "@datadog/native-iast-taint-tracking@1.7.0",
+      "_integrity": "sha512-p3qnYJrUr9TQ38tuOFoutDAQWOobLdaaWpTl0SHu126JH3ANBxWL/QirtJy6czfzLpm5eXwYHwHidD1Y0mNPdg==",
+      "_resolved": "/home/runner/work/dd-native-iast-taint-tracking-js/dd-native-iast-taint-tracking-js/datadog-native-iast-taint-tracking-1.7.0.tgz",
+      "_from": "file:datadog-native-iast-taint-tracking-1.7.0.tgz",
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-p3qnYJrUr9TQ38tuOFoutDAQWOobLdaaWpTl0SHu126JH3ANBxWL/QirtJy6czfzLpm5eXwYHwHidD1Y0mNPdg==",
+        "shasum": "0bcd4f287c25403d2a965939b33c35ae8544b363",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-1.7.0.tgz",
+        "fileCount": 74,
+        "unpackedSize": 16710069,
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@datadog%2fnative-iast-taint-tracking@1.7.0",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCk9vUATLWe87pM7r3tMNbn4BmZZk3UrGilzo6jmr4NLgIhANHiIzAlfhtW5xMK8zy1vVBdcVpO7Dy4SGT+pEc8DWUK"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-taint-tracking_1.7.0_1705685500414_0.6952237211607575"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2022-10-28T08:40:02.157Z",
+    "0.1.0-beta.0": "2022-10-28T08:40:03.014Z",
+    "modified": "2024-01-19T17:31:41.100Z",
+    "0.1.0-beta.1": "2022-11-04T12:14:12.248Z",
+    "0.1.0-beta.2": "2022-11-15T13:45:10.165Z",
+    "1.0.0": "2022-11-21T17:12:11.530Z",
+    "1.1.0": "2022-12-22T16:24:49.952Z",
+    "1.1.1": "2023-02-10T10:54:51.035Z",
+    "1.2.0": "2023-02-21T14:25:31.587Z",
+    "1.2.1": "2023-02-22T11:49:55.192Z",
+    "1.3.0": "2023-03-24T13:43:12.866Z",
+    "1.3.1": "2023-03-29T07:31:13.673Z",
+    "1.4.0": "2023-04-21T17:30:37.183Z",
+    "1.4.1": "2023-05-09T14:08:45.369Z",
+    "1.5.0": "2023-06-12T07:43:45.142Z",
+    "2.0.0-pre": "2023-06-14T14:09:12.992Z",
+    "1.6.0": "2023-07-19T10:27:25.553Z",
+    "1.6.1": "2023-08-08T13:02:05.706Z",
+    "1.6.2": "2023-09-29T07:52:48.666Z",
+    "1.6.3": "2023-10-20T12:49:56.883Z",
+    "1.6.4": "2023-11-10T14:13:23.849Z",
+    "1.7.0": "2024-01-19T17:31:40.745Z"
+  },
+  "maintainers": [
+    {
+      "name": "datadog",
+      "email": "robot-npm-frontend@datadoghq.com"
+    }
+  ],
+  "description": "Datadog IAST tant tracking support for NodeJS",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/DataDog/dd-native-iast-taint-tracking-js.git"
+  },
+  "author": {
+    "name": "Datadog Inc.",
+    "email": "info@datadoghq.com"
+  },
+  "bugs": {
+    "url": "https://github.com/DataDog/dd-iast-native-taint-tracking-js/issues"
+  },
+  "license": "Apache-2.0",
+  "readme": "# dd-native-iast-taint-tracking-js\nNode taint tracking native addon \n",
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/DataDog/dd-native-iast-taint-tracking-js#readme"
+}
