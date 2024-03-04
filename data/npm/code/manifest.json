@@ -1,0 +1,2308 @@
+{
+  "_id": "code",
+  "_rev": "145-8d1c9cfc7d2b04bfff2440d04abbbe51",
+  "name": "code",
+  "time": {
+    "modified": "2023-12-01T08:26:32.028Z",
+    "created": "2012-04-12T06:44:31.278Z",
+    "0.0.1": "2012-04-12T06:44:33.530Z",
+    "0.0.0": "2014-10-21T07:36:16.794Z",
+    "1.0.0": "2014-10-21T21:53:00.491Z",
+    "1.1.0": "2014-10-21T22:24:08.224Z",
+    "1.1.1": "2014-10-21T23:54:42.970Z",
+    "1.2.0": "2014-10-22T06:15:57.323Z",
+    "1.2.1": "2014-11-02T19:00:21.387Z",
+    "1.3.0": "2015-01-22T03:53:36.922Z",
+    "1.4.0": "2015-03-26T22:20:11.791Z",
+    "1.4.1": "2015-06-16T19:03:43.735Z",
+    "1.5.0": "2015-07-29T23:57:38.152Z",
+    "2.0.0": "2015-10-30T18:47:18.546Z",
+    "2.0.1": "2015-10-30T19:43:35.965Z",
+    "2.1.0": "2015-12-30T15:52:17.306Z",
+    "2.1.1": "2016-03-13T17:27:27.930Z",
+    "2.2.0": "2016-04-06T13:57:26.384Z",
+    "2.2.1": "2016-04-27T19:59:22.989Z",
+    "2.3.0": "2016-05-06T19:26:13.961Z",
+    "3.0.0": "2016-05-21T01:36:11.997Z",
+    "3.0.1": "2016-06-07T13:19:08.122Z",
+    "3.0.2": "2016-07-27T19:17:30.519Z",
+    "4.0.0": "2016-09-21T23:40:40.008Z",
+    "4.1.0": "2017-06-08T16:26:24.291Z",
+    "5.0.0": "2017-09-16T05:23:13.913Z",
+    "5.1.0": "2017-09-17T20:22:47.344Z",
+    "5.1.2": "2017-11-03T07:01:34.820Z",
+    "5.2.0": "2018-02-09T23:15:26.486Z",
+    "5.2.1": "2018-10-23T20:54:10.639Z",
+    "5.2.2": "2018-11-01T07:16:55.372Z",
+    "5.2.3": "2018-11-02T23:38:50.138Z",
+    "5.2.4": "2018-11-22T07:33:35.465Z"
+  },
+  "maintainers": [
+    {
+      "email": "jonas.pauthier@gmail.com",
+      "name": "nargonath"
+    },
+    {
+      "email": "devinivy@gmail.com",
+      "name": "devinivy"
+    },
+    {
+      "email": "nicolas@morel.io",
+      "name": "marsup"
+    },
+    {
+      "email": "quitlahok@gmail.com",
+      "name": "nlf"
+    }
+  ],
+  "dist-tags": {
+    "latest": "5.2.4"
+  },
+  "description": "assertion library",
+  "readme": "# code\n\n> BDD assertion library.\n\n[![Current Version](https://img.shields.io/npm/v/code.svg)](https://www.npmjs.org/package/code)\n[![Build Status](https://secure.travis-ci.org/hapijs/code.svg)](http://travis-ci.org/hapijs/code)\n\nLead Maintainer - [Colin Ihrig](https://github.com/cjihrig)\n\n## Example\n\n```js\nconst Code = require('code');\nconst expect = Code.expect;\n\nexpect(true).to.be.a.boolean().and.to.not.equal(false);\nexpect('this string').to.only.include(['this', 'string']);\n```\n\n## Acknowledgments\n\n**code** was created as a direct rewrite of the powerful [**chai**](http://chaijs.com) assertions\nlibrary. This virtual fork was created for a few reasons. First, **chai** mixed usage of methods and\nproperties creates a problematic environment in which it is too easy to forget a method `()` and result\nin an assertion that is never executed (and therefor passes incorrectly). This observation was noted by\nthe [**must**](https://github.com/moll/js-must) author.\n\nThe second reason is that similar to [**lab**](https://github.com/hapijs/lab), our test runner, we wanted\nan assertion library that is small, simple, and intuitive - without plugins, extensions, or the overhead\nof having to support testing in the browser. **code** provides much of the same functionality in about\n300 lines of code that are trivial to read in a few minutes.\n\nAnd last, we wanted to experiment with some new features that allow deeper integration between the test\nrunner and assertions library. The first of which are two methods exported (and used by **lab**) for getting\nthe total assertions count (which is a measure of the tests comprehensiveness), and by verifying that every\nassertion created (e.g. every `expect()` call) is also executed. This will alert when a statement like\n`expect(5).to.be.a.string` is not allowed to remain unnoticed (and fail to throw due to the missing `()`).\n\nLike **lab**, the goal is to keep this module small and simple. If you need extensibility or other\nfunctionality, we recommend looking at the many other excellent assertions libraries available.\n\n## API\nSee the [API Reference](API.md).\n",
+  "versions": {
+    "0.0.0": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "0.0.0",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code"
+      },
+      "main": "index",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=0.10.32"
+      },
+      "dependencies": {
+        "hoek": "2.x.x"
+      },
+      "devDependencies": {
+        "lab": "4.x.x"
+      },
+      "scripts": {
+        "test": "make test-cov"
+      },
+      "licenses": [
+        {
+          "type": "BSD",
+          "url": "http://github.com/hapijs/code/raw/master/LICENSE"
+        }
+      ],
+      "gitHead": "3064838ef17d079f6908c583039998f154845363",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code",
+      "_id": "code@0.0.0",
+      "_shasum": "68ab8c0e30c44057b58126430089509d0a8fb90f",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "hueniverse",
+        "email": "eran@hueniverse.com"
+      },
+      "maintainers": [
+        {
+          "name": "hueniverse",
+          "email": "eran@hueniverse.com"
+        }
+      ],
+      "dist": {
+        "shasum": "68ab8c0e30c44057b58126430089509d0a8fb90f",
+        "tarball": "https://registry.npmjs.org/code/-/code-0.0.0.tgz",
+        "integrity": "sha512-3ZZHnZ/yoZSyoLBhUGHLWOt/sfdgOUJPd8tH40xLVCqTa+nYVdySx81Mrxmp1fQPCDQC9deot7XbddotyxY+LQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCjaJbnNbt3pXzb9y5TiM7MhNSQjA64g6mZkuphDEeC6AIgaWny1Qf+n1+JNVyP5y9ubFRyNpdWj9TpHBfDEu1ry/8="
+          }
+        ]
+      },
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "1.0.0": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "1.0.0",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code"
+      },
+      "main": "index",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=0.10.32"
+      },
+      "dependencies": {
+        "hoek": "2.x.x"
+      },
+      "devDependencies": {
+        "lab": "4.x.x"
+      },
+      "scripts": {
+        "test": "make test-cov"
+      },
+      "licenses": [
+        {
+          "type": "BSD",
+          "url": "http://github.com/hapijs/code/raw/master/LICENSE"
+        }
+      ],
+      "gitHead": "50cb937691aa7bed564eaee266fa507f3d40063c",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code",
+      "_id": "code@1.0.0",
+      "_shasum": "f7eaa75b8390cf86e1d315117005dd96688f2751",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "hueniverse",
+        "email": "eran@hueniverse.com"
+      },
+      "maintainers": [
+        {
+          "name": "hueniverse",
+          "email": "eran@hueniverse.com"
+        }
+      ],
+      "dist": {
+        "shasum": "f7eaa75b8390cf86e1d315117005dd96688f2751",
+        "tarball": "https://registry.npmjs.org/code/-/code-1.0.0.tgz",
+        "integrity": "sha512-Q2hz82+gP0TyC6ehk/dk0nf8cQBKrZShjSfZKgvct5Kj4UKK4fA8SCc8IOsGoVvmE3eM/aFR+3nIYHrxtOKXQQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCsfAx0RfWpU6nGSjscVtemict4UdvfHkONiMKgVo1mWAIgVzv+C3TTlgExIuItzOxI1bouG9+BOn+JBu5igga8kUI="
+          }
+        ]
+      },
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "1.1.0": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "1.1.0",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code"
+      },
+      "main": "index",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=0.10.32"
+      },
+      "dependencies": {
+        "hoek": "2.x.x"
+      },
+      "devDependencies": {
+        "lab": "4.x.x"
+      },
+      "scripts": {
+        "test": "make test-cov"
+      },
+      "licenses": [
+        {
+          "type": "BSD",
+          "url": "http://github.com/hapijs/code/raw/master/LICENSE"
+        }
+      ],
+      "gitHead": "733e4634fdf34436d86d48e2166faa5e687d27dd",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code",
+      "_id": "code@1.1.0",
+      "_shasum": "355a9c8eb399cae49e4747257650dd6c31f10cf9",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "hueniverse",
+        "email": "eran@hueniverse.com"
+      },
+      "maintainers": [
+        {
+          "name": "hueniverse",
+          "email": "eran@hueniverse.com"
+        }
+      ],
+      "dist": {
+        "shasum": "355a9c8eb399cae49e4747257650dd6c31f10cf9",
+        "tarball": "https://registry.npmjs.org/code/-/code-1.1.0.tgz",
+        "integrity": "sha512-gbXWg7uzvZPUjxz0OPwYlbaCKKUlaIAjjPCkUAXOGz4WsnLoib/Cfl2rM1kFWyOIbS7Aa8rLw5/hJVrUpdqBlA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGnd0MenFcpHGWzaNRXBoVcOv7coT22KpTi8zbbhZ1uZAiBu87BOi0z8lsiJkJzJlzZ7B8z2ynFUzR4J5Rr2GRXZhA=="
+          }
+        ]
+      },
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "1.1.1": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "1.1.1",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code"
+      },
+      "main": "index",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=0.10.32"
+      },
+      "dependencies": {
+        "hoek": "2.x.x"
+      },
+      "devDependencies": {
+        "lab": "4.x.x"
+      },
+      "scripts": {
+        "test": "make test-cov"
+      },
+      "licenses": [
+        {
+          "type": "BSD",
+          "url": "http://github.com/hapijs/code/raw/master/LICENSE"
+        }
+      ],
+      "gitHead": "1a039823805f7e553f8dfaf4da675956b9bfa7e7",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code",
+      "_id": "code@1.1.1",
+      "_shasum": "add9c8175c59e5e22cbe83aaf54cad8cf3cf89e1",
+      "_from": ".",
+      "_npmVersion": "2.1.4",
+      "_nodeVersion": "0.10.32",
+      "_npmUser": {
+        "name": "hueniverse",
+        "email": "eran@hueniverse.com"
+      },
+      "maintainers": [
+        {
+          "name": "hueniverse",
+          "email": "eran@hueniverse.com"
+        }
+      ],
+      "dist": {
+        "shasum": "add9c8175c59e5e22cbe83aaf54cad8cf3cf89e1",
+        "tarball": "https://registry.npmjs.org/code/-/code-1.1.1.tgz",
+        "integrity": "sha512-+MLmmP7JapyE/80PpXnHGr2B+d9kdg4Zo3jufR5CEfZQWzAG9uuxkKM5T9oKJ76tRs6bDUyLrgU8Swx2OGbN+w==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIF9CSbTOQZtnwjO55qUdU8ldcIUjXemqJ7nzf9QbNxWJAiBMroTjlkHWkbcym76C0o3MA9+Zve1KijIYor20CXkIHw=="
+          }
+        ]
+      },
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "1.2.0": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "1.2.0",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code"
+      },
+      "main": "index",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=0.10.32"
+      },
+      "dependencies": {
+        "hoek": "2.x.x"
+      },
+      "devDependencies": {
+        "lab": "4.x.x"
+      },
+      "scripts": {
+        "test": "make test-cov"
+      },
+      "licenses": [
+        {
+          "type": "BSD",
+          "url": "http://github.com/hapijs/code/raw/master/LICENSE"
+        }
+      ],
+      "gitHead": "c501d32e0f7e21533a01806a188eeb9d76c46512",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code",
+      "_id": "code@1.2.0",
+      "_shasum": "457f48734ba6896fd40d8a6891416274073bdaf5",
+      "_from": ".",
+      "_npmVersion": "2.1.4",
+      "_nodeVersion": "0.10.32",
+      "_npmUser": {
+        "name": "hueniverse",
+        "email": "eran@hueniverse.com"
+      },
+      "maintainers": [
+        {
+          "name": "hueniverse",
+          "email": "eran@hueniverse.com"
+        }
+      ],
+      "dist": {
+        "shasum": "457f48734ba6896fd40d8a6891416274073bdaf5",
+        "tarball": "https://registry.npmjs.org/code/-/code-1.2.0.tgz",
+        "integrity": "sha512-mZngmvCMHc6MHd7O4sfrhRjQJtKp2QVN+qh8nf95m+fAaknbKXhlYYCdhzfp4QI7zha5bYrMpt54mz4wYBqGrw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIH3Ab/zapSbLIun1ACaH4HJmyi2Awqcz7gNqUu+jK0v0AiA/bEWip1vKMH9AeALE1rIEkxQNTp0Qi9HxETAZWKJZ7w=="
+          }
+        ]
+      },
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "1.2.1": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "1.2.1",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code"
+      },
+      "main": "index",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=0.10.32"
+      },
+      "dependencies": {
+        "hoek": "2.x.x"
+      },
+      "devDependencies": {
+        "lab": "5.x.x"
+      },
+      "scripts": {
+        "test": "make test-cov"
+      },
+      "licenses": [
+        {
+          "type": "BSD",
+          "url": "http://github.com/hapijs/code/raw/master/LICENSE"
+        }
+      ],
+      "gitHead": "56e2f88aa887550929b1e904bab0a87a8750830c",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code",
+      "_id": "code@1.2.1",
+      "_shasum": "d8483aef63573959b7a1cb9673ae8c272307fc9d",
+      "_from": ".",
+      "_npmVersion": "2.1.4",
+      "_nodeVersion": "0.10.32",
+      "_npmUser": {
+        "name": "hueniverse",
+        "email": "eran@hueniverse.com"
+      },
+      "maintainers": [
+        {
+          "name": "hueniverse",
+          "email": "eran@hueniverse.com"
+        }
+      ],
+      "dist": {
+        "shasum": "d8483aef63573959b7a1cb9673ae8c272307fc9d",
+        "tarball": "https://registry.npmjs.org/code/-/code-1.2.1.tgz",
+        "integrity": "sha512-v+HgNLlakybpAoSleWyOVml0w6Buk/AsAcwyPH0Jr0OsE3bzNTGjyDZZn3KEE05V++PMfcqsYM4wF4sToTqPwg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEk8zdk0U+Jkl4eFe8Z5KAPwphKxJf7v/I3VsD7PsYA2AiEA1tiAwBBqkRDBtc1IOAPpn4nYMz4bo6dMRHhk6D3WqXk="
+          }
+        ]
+      },
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "1.3.0": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "1.3.0",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code"
+      },
+      "main": "index",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=0.10.32"
+      },
+      "dependencies": {
+        "hoek": "2.x.x"
+      },
+      "devDependencies": {
+        "lab": "5.x.x"
+      },
+      "scripts": {
+        "test": "make test-cov"
+      },
+      "licenses": [
+        {
+          "type": "BSD",
+          "url": "http://github.com/hapijs/code/raw/master/LICENSE"
+        }
+      ],
+      "gitHead": "55db87b2d0e773cd56e0db0c2147ec74f647ead9",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code",
+      "_id": "code@1.3.0",
+      "_shasum": "75d6916b649b2c4efe8c1b7aa40fc0ae58ac3643",
+      "_from": ".",
+      "_npmVersion": "2.2.0",
+      "_nodeVersion": "1.0.4",
+      "_npmUser": {
+        "name": "cjihrig",
+        "email": "cjihrig@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "hueniverse",
+          "email": "eran@hueniverse.com"
+        },
+        {
+          "name": "cjihrig",
+          "email": "cjihrig@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "75d6916b649b2c4efe8c1b7aa40fc0ae58ac3643",
+        "tarball": "https://registry.npmjs.org/code/-/code-1.3.0.tgz",
+        "integrity": "sha512-mUfUttFKERLaRrbMiN6LFmjZwaG8YNVJSf79+UJBq/+U6hM4eqpoNhta6wJVx+FlgK+3jSam4Nii1PZYOHR6zg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHnsjBiStp1LShJv0+heTj75+TWCxyWplSiD5w2s64i/AiEAhxtDP1WWF5ZXoj3Ohw0kuC3mbUI630nqBxmZ/a5tWsE="
+          }
+        ]
+      },
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "1.4.0": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "1.4.0",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code"
+      },
+      "main": "index",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=0.10.32"
+      },
+      "dependencies": {
+        "hoek": "2.x.x"
+      },
+      "devDependencies": {
+        "lab": "5.x.x"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html"
+      },
+      "licenses": [
+        {
+          "type": "BSD",
+          "url": "http://github.com/hapijs/code/raw/master/LICENSE"
+        }
+      ],
+      "gitHead": "2203b09a4c71e38130ce7c753f91463d073189bf",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code",
+      "_id": "code@1.4.0",
+      "_shasum": "f8e7c08bf14309ba4bf193f3b7aa88d94808b0db",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "cjihrig",
+        "email": "cjihrig@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "hueniverse",
+          "email": "eran@hueniverse.com"
+        },
+        {
+          "name": "cjihrig",
+          "email": "cjihrig@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "f8e7c08bf14309ba4bf193f3b7aa88d94808b0db",
+        "tarball": "https://registry.npmjs.org/code/-/code-1.4.0.tgz",
+        "integrity": "sha512-poM5t8nekfcyu3pqRGIMo0ci0aCkTkJRlNy68ZveKXefO0tdl3oZyRw6YOGmeclyKmlD4k++y6ZoB0WMbW9ITw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEEEtBGphWFnPIFeJid63qQdYqmJrD14U1pMLrUkLBUdAiBEN976je6LNZsRTi1In6Kg3d95TL152UBtULJh85wl4Q=="
+          }
+        ]
+      },
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "1.4.1": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "1.4.1",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code.git"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=0.10.32"
+      },
+      "dependencies": {
+        "hoek": "2.x.x"
+      },
+      "devDependencies": {
+        "lab": "5.x.x"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "77afa8ea7914223df089de3ff27a62e913dc4966",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code#readme",
+      "_id": "code@1.4.1",
+      "_shasum": "1900571901ac3a3413a4cb5f6c408566e8f612f2",
+      "_from": ".",
+      "_npmVersion": "2.10.1",
+      "_nodeVersion": "2.1.1",
+      "_npmUser": {
+        "name": "cjihrig",
+        "email": "cjihrig@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "hueniverse",
+          "email": "eran@hueniverse.com"
+        },
+        {
+          "name": "cjihrig",
+          "email": "cjihrig@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "1900571901ac3a3413a4cb5f6c408566e8f612f2",
+        "tarball": "https://registry.npmjs.org/code/-/code-1.4.1.tgz",
+        "integrity": "sha512-n+5eh6J3qHwaZiHltdH4oEacHAry3mzf9QTEs60HjRRMabliZRFJbpgTt/ARhN8OtYEtsPZQssgeuxnBUGrwQg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICxRjTTWZDvZhxmygVIs0Mfm1LjHztvcETb+CoQOuWuZAiBhW4ueFYjoEaF/OdVfNUgbTBGFlMeM8E9aOreW5qzDZQ=="
+          }
+        ]
+      },
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "1.5.0": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "1.5.0",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code.git"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=0.10.32"
+      },
+      "dependencies": {
+        "hoek": "2.x.x"
+      },
+      "devDependencies": {
+        "lab": "5.x.x"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "41530c14f234accc0d94ab795f48951e22d522d4",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code#readme",
+      "_id": "code@1.5.0",
+      "_shasum": "d6159fbd0ee9f8445167809d43b5cd9bc405103a",
+      "_from": ".",
+      "_npmVersion": "2.10.0",
+      "_nodeVersion": "0.10.38",
+      "_npmUser": {
+        "name": "hueniverse",
+        "email": "eran@hammer.io"
+      },
+      "dist": {
+        "shasum": "d6159fbd0ee9f8445167809d43b5cd9bc405103a",
+        "tarball": "https://registry.npmjs.org/code/-/code-1.5.0.tgz",
+        "integrity": "sha512-09mx0RWsYbZKFs++PeV/wAjGWCkF4mbo0r15U0BfZBz1O+HBrtBrjwVuEqRKqvY+XkeJCs0lVSb7+qOjDbtjOw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIA7A2lJmb6306J81quU+/GvTYkyBkIrJYPH+GrrSDLvNAiB7I/zpWylwCf2ho9KuWr0M19f+41r6zpk6jMX18Ew7Ig=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "hueniverse",
+          "email": "eran@hueniverse.com"
+        },
+        {
+          "name": "cjihrig",
+          "email": "cjihrig@gmail.com"
+        }
+      ],
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "2.0.0": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "2.0.0",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "dependencies": {
+        "hoek": "2.x.x"
+      },
+      "devDependencies": {
+        "lab": "7.x.x"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "f1b697cabef0aa351f092c8b3cd83ffc1af65d26",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code",
+      "_id": "code@2.0.0",
+      "_shasum": "7e2443418dcdefdb15f63a75e08ab840225bc233",
+      "_from": ".",
+      "_npmVersion": "3.3.6",
+      "_nodeVersion": "5.0.0",
+      "_npmUser": {
+        "name": "cjihrig",
+        "email": "cjihrig@gmail.com"
+      },
+      "dist": {
+        "shasum": "7e2443418dcdefdb15f63a75e08ab840225bc233",
+        "tarball": "https://registry.npmjs.org/code/-/code-2.0.0.tgz",
+        "integrity": "sha512-udlRBktYktV+gR8uhKgWkGtDhI+0PFCaSE+EIz8dEGTk1x2S7I+LWZjD2QAcgB08NGkhqTp6eSGShaQE4RdTZg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDfIL8DUGSc7rA41DRYDr8ldVLvtHX31Weil8zwmC2hrgIgAtZpEgWE99xzMuOLmrOsno7hQqiWPh1BJGXcwLRvl3I="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "hueniverse",
+          "email": "eran@hueniverse.com"
+        },
+        {
+          "name": "cjihrig",
+          "email": "cjihrig@gmail.com"
+        }
+      ],
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "2.0.1": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "2.0.1",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "dependencies": {
+        "hoek": "3.x.x"
+      },
+      "devDependencies": {
+        "lab": "7.x.x"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "ded1abfb1b95bed2a6eb961cf71ed2b602314901",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code",
+      "_id": "code@2.0.1",
+      "_shasum": "69848e6e84832d25ca868006b081e83446efa3cf",
+      "_from": ".",
+      "_npmVersion": "3.3.6",
+      "_nodeVersion": "5.0.0",
+      "_npmUser": {
+        "name": "cjihrig",
+        "email": "cjihrig@gmail.com"
+      },
+      "dist": {
+        "shasum": "69848e6e84832d25ca868006b081e83446efa3cf",
+        "tarball": "https://registry.npmjs.org/code/-/code-2.0.1.tgz",
+        "integrity": "sha512-63oEm0D8OIuyZS5ipjNJ43BYjJYrWCoiSHYk87bFJnfhTCPIamno2hUhSuJQVM/gFHFFEG7vH6uulvFatAs/6w==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIETgdP64dyvVDzLNflqWW2fuWpreeTe8ZPyJdqKHNWFPAiAdtHaf6sH7HO4aeM0aNSgHbnXjwAhg4yF/CfUIeD4RBQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "hueniverse",
+          "email": "eran@hueniverse.com"
+        },
+        {
+          "name": "cjihrig",
+          "email": "cjihrig@gmail.com"
+        }
+      ],
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "2.1.0": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "2.1.0",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "dependencies": {
+        "hoek": "3.x.x"
+      },
+      "devDependencies": {
+        "lab": "7.x.x"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "ff1345a4dc421b74904bb0957fb78beac3806815",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code",
+      "_id": "code@2.1.0",
+      "_shasum": "01cc18115b1b6ef3408df903845136726276a434",
+      "_from": ".",
+      "_npmVersion": "3.3.12",
+      "_nodeVersion": "6.0.0-pre",
+      "_npmUser": {
+        "name": "cjihrig",
+        "email": "cjihrig@gmail.com"
+      },
+      "dist": {
+        "shasum": "01cc18115b1b6ef3408df903845136726276a434",
+        "tarball": "https://registry.npmjs.org/code/-/code-2.1.0.tgz",
+        "integrity": "sha512-42LuQyI9GL26erRrtexmXD5w+sfBmQVwpCX7Pu5cp1Q11vJL4s4E5rxYWq3pxZZqKb4+wHSp1jLYiXLpzUXM3w==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDW5WF1NJkrJ77I5aKVujEiK44TtXJpXZ7+0YWoZ/QjWQIhAN0QMqCDitG7plPlhv4gE0L+9qWa/RV1Brd8m/NiY0iH"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "hueniverse",
+          "email": "eran@hueniverse.com"
+        },
+        {
+          "name": "cjihrig",
+          "email": "cjihrig@gmail.com"
+        }
+      ],
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "2.1.1": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "2.1.1",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "dependencies": {
+        "hoek": "3.x.x"
+      },
+      "devDependencies": {
+        "lab": "10.x.x",
+        "markdown-toc": "0.12.3"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html",
+        "toc": "node generate-api-toc.js",
+        "version": "npm run toc && git add API.md"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "b456673cc5498a8c4bca565843b747a7815c580c",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code",
+      "_id": "code@2.1.1",
+      "_shasum": "d420f715353a5ccb4de850ff782b65fdedf6fda4",
+      "_from": ".",
+      "_npmVersion": "2.14.20",
+      "_nodeVersion": "4.4.0",
+      "_npmUser": {
+        "name": "cjihrig",
+        "email": "cjihrig@gmail.com"
+      },
+      "dist": {
+        "shasum": "d420f715353a5ccb4de850ff782b65fdedf6fda4",
+        "tarball": "https://registry.npmjs.org/code/-/code-2.1.1.tgz",
+        "integrity": "sha512-+ZHdmsDQZYEvjLeXChywY63YdLs5Ehkw8MRw/VGJaDenDxpWlho0yPtIdHPxbDPCopMleRr4IMjHGR4YjrGwng==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFQuGPPDe6I6NFsAixsmQs1uHsaO4e9ehEHHrxkoeow6AiEAjGPKYXociQOZwLiZ4N87KG2pIxUi99ybvHWYgYk9j5o="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "hueniverse",
+          "email": "eran@hueniverse.com"
+        },
+        {
+          "name": "cjihrig",
+          "email": "cjihrig@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/code-2.1.1.tgz_1457890045778_0.18352417484857142"
+      },
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "2.2.0": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "2.2.0",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code.git"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "dependencies": {
+        "hoek": "3.x.x"
+      },
+      "devDependencies": {
+        "lab": "10.x.x",
+        "markdown-toc": "0.12.3"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html",
+        "toc": "node generate-api-toc.js",
+        "version": "npm run toc && git add API.md"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "88967760555d74bcf839b8af2953dc238088bdfc",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code#readme",
+      "_id": "code@2.2.0",
+      "_shasum": "fe837a91d2104ff64ba0ee129475e066a5dcb696",
+      "_from": ".",
+      "_npmVersion": "3.8.3",
+      "_nodeVersion": "5.7.0",
+      "_npmUser": {
+        "name": "cjihrig",
+        "email": "cjihrig@gmail.com"
+      },
+      "dist": {
+        "shasum": "fe837a91d2104ff64ba0ee129475e066a5dcb696",
+        "tarball": "https://registry.npmjs.org/code/-/code-2.2.0.tgz",
+        "integrity": "sha512-qqQ2RJdJHZso9b9tOd9bd3Q8YvDVfXz56ultuMhH3EJLNL2Rrv5Ti1LD8BAy8bKXIX8Dn2MNxWBYCnyHdnGrbQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCqWWIDsT3mSdFZROiROBrgBK/euDjgxmqjKPggV58AXgIgSLYXRnxGvOkCHeBJIJ2BB0KoZXmtIT3Z3mUKkEeGNzI="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "hueniverse",
+          "email": "eran@hueniverse.com"
+        },
+        {
+          "name": "cjihrig",
+          "email": "cjihrig@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/code-2.2.0.tgz_1459951043778_0.5288988922256976"
+      },
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "2.2.1": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "2.2.1",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code.git"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "dependencies": {
+        "hoek": "4.x.x"
+      },
+      "devDependencies": {
+        "lab": "10.x.x",
+        "markdown-toc": "0.12.x"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html",
+        "toc": "node generate-api-toc.js",
+        "version": "npm run toc && git add API.md"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "86ebd4639dfc09bfd46f726f8e57b8e9c165d2c7",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code#readme",
+      "_id": "code@2.2.1",
+      "_shasum": "0d7b015f6e27bb49a0bc5274d487af81419ebe8b",
+      "_from": ".",
+      "_npmVersion": "3.8.6",
+      "_nodeVersion": "6.0.0",
+      "_npmUser": {
+        "name": "cjihrig",
+        "email": "cjihrig@gmail.com"
+      },
+      "dist": {
+        "shasum": "0d7b015f6e27bb49a0bc5274d487af81419ebe8b",
+        "tarball": "https://registry.npmjs.org/code/-/code-2.2.1.tgz",
+        "integrity": "sha512-tW8pTm7TUBeXp9hVLaJwXcws0u/SP2sz7To/5aHocFXrG6KNLAfboCLVy9MIFT+aXBr3/9dz64x7tgEwb3CSOA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGC4H5lVe0SsMkK4FrQFDQlaN0QWoohv7D17HKdYDHQeAiEAhhkj7lCNC12rYEVUQSQvwp3NiXya0OZ3rNsiaC6Q4Wk="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "hueniverse",
+          "email": "eran@hueniverse.com"
+        },
+        {
+          "name": "cjihrig",
+          "email": "cjihrig@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/code-2.2.1.tgz_1461787160528_0.6092082234099507"
+      },
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "2.3.0": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "2.3.0",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code.git"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "dependencies": {
+        "hoek": "4.x.x"
+      },
+      "devDependencies": {
+        "lab": "10.x.x",
+        "markdown-toc": "0.12.x"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html",
+        "toc": "node generate-api-toc.js",
+        "version": "npm run toc && git add API.md"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "999d09b1d8f81143fd66a0b10701c6da8b53c672",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code#readme",
+      "_id": "code@2.3.0",
+      "_shasum": "b0b74c69dd7dbf571fb5c9deca21ee48545313ba",
+      "_from": ".",
+      "_npmVersion": "2.15.1",
+      "_nodeVersion": "4.4.3",
+      "_npmUser": {
+        "name": "cjihrig",
+        "email": "cjihrig@gmail.com"
+      },
+      "dist": {
+        "shasum": "b0b74c69dd7dbf571fb5c9deca21ee48545313ba",
+        "tarball": "https://registry.npmjs.org/code/-/code-2.3.0.tgz",
+        "integrity": "sha512-pWZDcSGF5IcRnELbVneDcS4sPjKj4t7QbAHcRwpAEaIRdiqkWentKPSJDMLoZUI1gAawiOvjYRoK9Hs+ncky5w==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDDXJUUuzmhWfSNJNj7+DLcK9rFD0PF8vQiK2And5yPggIhANsiYj1THOipmQW/M0FG3j8gWyIsQ735vvAHisDNjL8a"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "hueniverse",
+          "email": "eran@hueniverse.com"
+        },
+        {
+          "name": "cjihrig",
+          "email": "cjihrig@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/code-2.3.0.tgz_1462562772385_0.6983191771432757"
+      },
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "3.0.0": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "3.0.0",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code.git"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "dependencies": {
+        "hoek": "4.x.x"
+      },
+      "devDependencies": {
+        "lab": "10.x.x",
+        "markdown-toc": "0.12.x"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html",
+        "toc": "node generate-api-toc.js",
+        "version": "npm run toc && git add API.md"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "1ae51876d340f793af1fc7301628bda9cf44700a",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code#readme",
+      "_id": "code@3.0.0",
+      "_shasum": "01307d7cb6ad31a278ced93a8162c5c90bfd6ca8",
+      "_from": ".",
+      "_npmVersion": "2.15.1",
+      "_nodeVersion": "4.4.3",
+      "_npmUser": {
+        "name": "cjihrig",
+        "email": "cjihrig@gmail.com"
+      },
+      "dist": {
+        "shasum": "01307d7cb6ad31a278ced93a8162c5c90bfd6ca8",
+        "tarball": "https://registry.npmjs.org/code/-/code-3.0.0.tgz",
+        "integrity": "sha512-XZnJPxrzT4AoO6rmnXN1neMHNqBPAZvpmLbZ8rteeQnjAp/0CP3vsBOIAYMAzxAqfDJmTK1EbYOu8u1zlKWKgg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHtZER8fVNNYFZaHsDtYwjLeWkWzM7fa066pXfnFmzAOAiEA0pRxc4OdZnCOHQXZ/qy4btrrjQZcLVT3tmCWFZ3c9Yo="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "hueniverse",
+          "email": "eran@hueniverse.com"
+        },
+        {
+          "name": "cjihrig",
+          "email": "cjihrig@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/code-3.0.0.tgz_1463794570935_0.6459353449754417"
+      },
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "3.0.1": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "3.0.1",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code.git"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "dependencies": {
+        "hoek": "4.x.x"
+      },
+      "devDependencies": {
+        "lab": "10.x.x",
+        "markdown-toc": "0.12.x"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html",
+        "toc": "node generate-api-toc.js",
+        "version": "npm run toc && git add API.md"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "43e551ca3152b5e8bccba445b0806d46015d5d54",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code#readme",
+      "_id": "code@3.0.1",
+      "_shasum": "5d08a7e2c82dbc5ac5dddc1d38718c762cee38ab",
+      "_from": ".",
+      "_npmVersion": "2.15.1",
+      "_nodeVersion": "4.4.3",
+      "_npmUser": {
+        "name": "cjihrig",
+        "email": "cjihrig@gmail.com"
+      },
+      "dist": {
+        "shasum": "5d08a7e2c82dbc5ac5dddc1d38718c762cee38ab",
+        "tarball": "https://registry.npmjs.org/code/-/code-3.0.1.tgz",
+        "integrity": "sha512-/84fhzdx+p3h2OBznLDy5qWFLPEKsv8RhOw+Ik3HGcYUwf6Gka124AWftDLIoGSRKI/sqyrA88FjHZoqswKLPA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICDZ4KK2Lf+09Oss2JM/87xySQ60QUM3yBLoo+FlxLYTAiALMnw26J6FLBE4MOrocGkGLOhOFExtoPCbHS7qD5iUEQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "hueniverse",
+          "email": "eran@hueniverse.com"
+        },
+        {
+          "name": "cjihrig",
+          "email": "cjihrig@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/code-3.0.1.tgz_1465305545725_0.2424927402753383"
+      },
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "3.0.2": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "3.0.2",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code.git"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "dependencies": {
+        "hoek": "4.x.x"
+      },
+      "devDependencies": {
+        "lab": "10.x.x",
+        "markdown-toc": "0.12.x"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html",
+        "toc": "node generate-api-toc.js",
+        "version": "npm run toc && git add API.md"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "890e7b3272d736850bed8bcec27fe612bc20ba6e",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code#readme",
+      "_id": "code@3.0.2",
+      "_shasum": "73265c70159dbce2b023c8fb6863e7b76704a4fc",
+      "_from": ".",
+      "_npmVersion": "3.10.3",
+      "_nodeVersion": "6.3.0",
+      "_npmUser": {
+        "name": "hueniverse",
+        "email": "eran@hammer.io"
+      },
+      "dist": {
+        "shasum": "73265c70159dbce2b023c8fb6863e7b76704a4fc",
+        "tarball": "https://registry.npmjs.org/code/-/code-3.0.2.tgz",
+        "integrity": "sha512-GtIYEgA1qKiXjC15a9q0h6gJSP57ccS2s44f9v8PMjuaeUTr1Wgh8Tsdskk7g6+ElfVR1r3l1SQKVfrPYLUelw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFDiopj2SE3r50cQafqyXb5x17BTkVi9COHFQ3+eqT8NAiEA6sR1beV1ypEjb4kJqwn+mexSesuz/smgTwsFMSG+X+8="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "hueniverse",
+          "email": "eran@hueniverse.com"
+        },
+        {
+          "name": "cjihrig",
+          "email": "cjihrig@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/code-3.0.2.tgz_1469647048434_0.13639473705552518"
+      },
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "4.0.0": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "4.0.0",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code.git"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "dependencies": {
+        "hoek": "4.x.x"
+      },
+      "devDependencies": {
+        "lab": "11.x.x",
+        "markdown-toc": "0.12.x"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html",
+        "toc": "node generate-api-toc.js",
+        "version": "npm run toc && git add API.md"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "7ff3fdb75869c8c0e98f9b828f6592683fd4dda3",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code#readme",
+      "_id": "code@4.0.0",
+      "_shasum": "ec7953fd79190052cea2569d63d7b4c0d47c0204",
+      "_from": ".",
+      "_npmVersion": "2.15.9",
+      "_nodeVersion": "4.5.0",
+      "_npmUser": {
+        "name": "cjihrig",
+        "email": "cjihrig@gmail.com"
+      },
+      "dist": {
+        "shasum": "ec7953fd79190052cea2569d63d7b4c0d47c0204",
+        "tarball": "https://registry.npmjs.org/code/-/code-4.0.0.tgz",
+        "integrity": "sha512-24FW9z/x/+8wMMFNHbQY8FOVxjv2Dxl+JAlep485069jglhNlj3l3to+DU4mEiKG7K1sHXmlR22XcdriBW/T6Q==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDIQpFr8wSESQzaHmTjIpGIa0PmWhWfjeYfpRdxmOXfpAiBZDx0ihGMmacXNip15+NDtbX8LopEknODhmYQ5/mFbUQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "hueniverse",
+          "email": "eran@hueniverse.com"
+        },
+        {
+          "name": "cjihrig",
+          "email": "cjihrig@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/code-4.0.0.tgz_1474501239343_0.1210229501593858"
+      },
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "4.1.0": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "4.1.0",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code.git"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "dependencies": {
+        "hoek": "4.x.x"
+      },
+      "devDependencies": {
+        "lab": "13.x.x",
+        "markdown-toc": "1.1.x"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html",
+        "toc": "node generate-api-toc.js",
+        "version": "npm run toc && git add API.md"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "2559673ade374ee065cb425bdb35f6173af64e7a",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code#readme",
+      "_id": "code@4.1.0",
+      "_shasum": "209ad11d05af8a0c1c7aaf694d9fa4d2c7d95b85",
+      "_from": ".",
+      "_npmVersion": "4.5.0",
+      "_nodeVersion": "8.0.0-pre",
+      "_npmUser": {
+        "name": "cjihrig",
+        "email": "cjihrig@gmail.com"
+      },
+      "dist": {
+        "shasum": "209ad11d05af8a0c1c7aaf694d9fa4d2c7d95b85",
+        "tarball": "https://registry.npmjs.org/code/-/code-4.1.0.tgz",
+        "integrity": "sha512-xE9Tq+zJSWfFLBkPsc556eHD+8qD8ZLyx4FyuTnUSneINNMwa7GKy/mpJlw8686GqNm5nICyfAeBaxbdqvLsRQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCqnSBBgIjF5CTLI0n2g3HVFRfLoRm9XzPWs5k2IZjMiwIgTTDg+nMowqhK1bY4734fFZujVZWUYl+wZQxNXtBZCRs="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "cjihrig",
+          "email": "cjihrig@gmail.com"
+        },
+        {
+          "name": "hueniverse",
+          "email": "eran@hammer.io"
+        },
+        {
+          "name": "marsup",
+          "email": "nicolas@morel.io"
+        },
+        {
+          "name": "nlf",
+          "email": "quitlahok@gmail.com"
+        },
+        {
+          "name": "wyatt",
+          "email": "wpreul@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/code-4.1.0.tgz_1496939183324_0.9513106881640851"
+      },
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "5.0.0": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "5.0.0",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code.git"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=8.0.0"
+      },
+      "dependencies": {
+        "hoek": "4.x.x"
+      },
+      "devDependencies": {
+        "lab": "14.x.x",
+        "markdown-toc": "1.1.x"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html",
+        "toc": "node generate-api-toc.js",
+        "version": "npm run toc && git add API.md"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "50faff7eeb9e5a9a437910cecbca72a99e1fbf6f",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code#readme",
+      "_id": "code@5.0.0",
+      "_npmVersion": "5.4.2",
+      "_nodeVersion": "8.4.0",
+      "_npmUser": {
+        "name": "hueniverse",
+        "email": "eran@hammer.io"
+      },
+      "dist": {
+        "integrity": "sha512-BiXB0o1Feu3VzVtufM28i1t7lIlRFbrBYE6gjRzyWapbWA4vvb5p2qf4wWtnmeUxDF46/AZ+1eq5d5yAlIQ3Kg==",
+        "shasum": "d9c0892bbebd28b44c5a9db8dd7191a92ee36d6a",
+        "tarball": "https://registry.npmjs.org/code/-/code-5.0.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDNzvAnsnV3BygaxZ92QcfBgxQl5t28jMMOzd1UA1xl/AiEA6pf9OwC0Kjpl+aX51g+nrIDgSeXJNSnSs66uxx7cfhM="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "cjihrig@gmail.com",
+          "name": "cjihrig"
+        },
+        {
+          "email": "eran@hammer.io",
+          "name": "hueniverse"
+        },
+        {
+          "email": "wpreul@gmail.com",
+          "name": "wyatt"
+        },
+        {
+          "email": "nicolas@morel.io",
+          "name": "marsup"
+        },
+        {
+          "email": "quitlahok@gmail.com",
+          "name": "nlf"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/code-5.0.0.tgz_1505539392774_0.07941590342670679"
+      },
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "5.1.0": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "5.1.0",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code.git"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=8.0.0"
+      },
+      "dependencies": {
+        "hoek": "4.x.x"
+      },
+      "devDependencies": {
+        "lab": "14.x.x",
+        "markdown-toc": "1.1.x"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html",
+        "toc": "node generate-api-toc.js",
+        "version": "npm run toc && git add API.md"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "a878e86667c05b3974b4456386e2277bb770f02e",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code#readme",
+      "_id": "code@5.1.0",
+      "_npmVersion": "5.4.2",
+      "_nodeVersion": "8.4.0",
+      "_npmUser": {
+        "name": "hueniverse",
+        "email": "eran@hammer.io"
+      },
+      "dist": {
+        "integrity": "sha512-hZauglmpiFug2U+f4jMgDmwOQ6vs8okiPT+n0LW3289NbBo45FdjI5svSH/5AJzFJv+MGE2BuMUZV/Fu/u8s+g==",
+        "shasum": "205e4213536c3cf21b12194384901fadcd81bc1a",
+        "tarball": "https://registry.npmjs.org/code/-/code-5.1.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFShn/JwwRENmb/HCwiX5dS7Ca9S6KuLekzG/X3gqfoqAiEAuXrbG4ja9p0/VSLY3MiKdMFhqXyOojvvTO3InjpWuvk="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "cjihrig@gmail.com",
+          "name": "cjihrig"
+        },
+        {
+          "email": "eran@hammer.io",
+          "name": "hueniverse"
+        },
+        {
+          "email": "wpreul@gmail.com",
+          "name": "wyatt"
+        },
+        {
+          "email": "nicolas@morel.io",
+          "name": "marsup"
+        },
+        {
+          "email": "quitlahok@gmail.com",
+          "name": "nlf"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/code-5.1.0.tgz_1505679767262_0.8441165608819574"
+      },
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "5.1.2": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "5.1.2",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code.git"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=8.9.0"
+      },
+      "dependencies": {
+        "hoek": "5.x.x"
+      },
+      "devDependencies": {
+        "lab": "15.x.x",
+        "markdown-toc": "1.1.x"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html",
+        "toc": "node generate-api-toc.js",
+        "version": "npm run toc && git add API.md"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "18cd84c06f0d58f80857cf2901c146879da979df",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code#readme",
+      "_id": "code@5.1.2",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "8.9.0",
+      "_npmUser": {
+        "name": "hueniverse",
+        "email": "eran@hammer.io"
+      },
+      "dist": {
+        "integrity": "sha512-Typ0BuWOKPGNOY9M7hBDY60J9uSPok4Y7hhtTG/3Cpqg0/AhauZSWax0Mb0lZuzm89w1YgVvl8BTrBW/4Sw6sw==",
+        "shasum": "e3310c2078ca7dc0b49b9c39a8b0a7b06bd75efe",
+        "tarball": "https://registry.npmjs.org/code/-/code-5.1.2.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIG8JHNBb7DVmokilxx7jrBAZ3xLkmqNBVd9VTMt04N5eAiAPxZLE2hRtjZ9HFZkmmgHT4g4Epa0yP+3tjBxBLudo1Q=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "cjihrig@gmail.com",
+          "name": "cjihrig"
+        },
+        {
+          "email": "eran@hammer.io",
+          "name": "hueniverse"
+        },
+        {
+          "email": "wpreul@gmail.com",
+          "name": "wyatt"
+        },
+        {
+          "email": "nicolas@morel.io",
+          "name": "marsup"
+        },
+        {
+          "email": "quitlahok@gmail.com",
+          "name": "nlf"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/code-5.1.2.tgz_1509692494681_0.8457145672291517"
+      },
+      "directories": {},
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "5.2.0": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "5.2.0",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code.git"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=8.9.0"
+      },
+      "dependencies": {
+        "hoek": "5.x.x"
+      },
+      "devDependencies": {
+        "lab": "15.x.x",
+        "markdown-toc": "1.1.x"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html",
+        "toc": "node generate-api-toc.js",
+        "version": "npm run toc && git add API.md"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "40e5271f208928e623ad5bcfc28bc6fcb6d7e9bd",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code#readme",
+      "_id": "code@5.2.0",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "8.9.1",
+      "_npmUser": {
+        "name": "hueniverse",
+        "email": "eran@hammer.io"
+      },
+      "dist": {
+        "integrity": "sha512-Ul69Vhv+L/sewD9azem9xvj6W+dW7XJ6UYust04KDEYQwyCb9M3ZkUjS7udFNSdvnYvbokBYDoXQXUg0P4DN5g==",
+        "shasum": "fb3a5e247afc17e3d65c49e7ce0f69ebe51a75b5",
+        "tarball": "https://registry.npmjs.org/code/-/code-5.2.0.tgz",
+        "fileCount": 5,
+        "unpackedSize": 19704,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDto3P5eTdCUB3PkJ7KOHZ9qRnLmnhm6Qywj2Japp36vAIgPw4aPGga8Yiys8DO7IHqdlEI9kmu+p5MzgN6OoX0AMU="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "cjihrig@gmail.com",
+          "name": "cjihrig"
+        },
+        {
+          "email": "eran@hammer.io",
+          "name": "hueniverse"
+        },
+        {
+          "email": "nicolas@morel.io",
+          "name": "marsup"
+        },
+        {
+          "email": "quitlahok@gmail.com",
+          "name": "nlf"
+        },
+        {
+          "email": "wpreul@gmail.com",
+          "name": "wyatt"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/code_5.2.0_1518218125743_0.9101739816859631"
+      },
+      "_hasShrinkwrap": false,
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "5.2.1": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "5.2.1",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code.git"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=8.9.0"
+      },
+      "dependencies": {
+        "hoek": "5.x.x"
+      },
+      "devDependencies": {
+        "lab": "17.x.x",
+        "markdown-toc": "1.1.x"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html",
+        "toc": "node generate-api-toc.js",
+        "version": "npm run toc && git add API.md"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "b458d1301a1a4130b08cc1817b515b6fa854dc73",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code#readme",
+      "_id": "code@5.2.1",
+      "_npmVersion": "6.4.1",
+      "_nodeVersion": "11.0.0",
+      "_npmUser": {
+        "name": "cjihrig",
+        "email": "cjihrig@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-jrv3JuJJP5UpH1BzXn/y+kEdGt8+YOti1NecGXyaGNNPByNu+epzvCSzy+UpIPOkujaZUqr3CRKIOlBetmKcww==",
+        "shasum": "880bbf1445cab9e40d05858c1074529abb5cf867",
+        "tarball": "https://registry.npmjs.org/code/-/code-5.2.1.tgz",
+        "fileCount": 5,
+        "unpackedSize": 19133,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbz4pzCRA9TVsSAnZWagAAc6IP/1OZIVjQU9jQgwt0ll+N\n8W3ax2lT7KDEopWiSjVh7SpXzqb2HrsKI7i7PxUyXRE9/M8Fx3W0oX9EwOO+\nJPZoz9yo7J2kx/9nH5adhdEQ7oNg1kZkn29nPtv5e7bWLhrAsu/C/JsCf3gi\nnNq5urInY4lTmDIkq0AIZEw+y1FbwnX8UVR8pkfZyEP1GoWNGFymNjWE7OAi\nDVWcH/MPqPyrqZjvHSfYxPLQYrceHWTTwjzTUmeQ92QG6P/XWaxkx76HjnZN\nN9lPG5UiWlhC0QolNJU7iK5Wvak+dW09qEZWgLzu0cXvuPPTDG+GzEt/MvS/\nZ7ejoa0TW1qrbwQrsBOQ5+d8a5NweMnD3q6sj3PdiMW4jLVPaK+bRMZI3XgB\n16K/642ev6FgovP5zD4l1Vmx2IrZrtJn2BrPyMHT6zIAadKymWGl7gvzraZC\nwGzPspmHAS+GZ6L1a5GPkhiKRwpUxHICHpioVux1fXNdMcFDM+dacFT7au7s\nSpdFpsKeahiRvFMgQtcc4Wrdmyau/rNbaw3sQLMu3l1y0GaNLyG0TfKwm0o/\niXQI8/bPQPk/+uIFamgnc/tRwQpwk/Zwixs6ZcQOv4VfoohzCz/EGPnVT2f7\nVaT7hgyffLXH54EagZUJYHTehdSdAKxxDJ9XjwZ8cPVwiuRYK+Qddmtzwo+7\nRbXE\r\n=xx+N\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDatbrDKQSa+oI3pZErE0Qx3TxwsV7wO2YvSBoxkixGFAIhAJwGO9dd62QcXJEX9MVQoUV8uJfklshgYTI8v4NDBaVf"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "cjihrig@gmail.com",
+          "name": "cjihrig"
+        },
+        {
+          "email": "eran@hammer.io",
+          "name": "hueniverse"
+        },
+        {
+          "email": "nicolas@morel.io",
+          "name": "marsup"
+        },
+        {
+          "email": "quitlahok@gmail.com",
+          "name": "nlf"
+        },
+        {
+          "email": "wpreul@gmail.com",
+          "name": "wyatt"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/code_5.2.1_1540328050471_0.08605804875359135"
+      },
+      "_hasShrinkwrap": false,
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "5.2.2": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "5.2.2",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code.git"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "engines": {
+        "node": ">=8.9.0"
+      },
+      "dependencies": {
+        "hoek": "6.x.x"
+      },
+      "devDependencies": {
+        "lab": "17.x.x",
+        "markdown-toc": "1.1.x"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html",
+        "toc": "node generate-api-toc.js",
+        "version": "npm run toc && git add API.md"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "6d8766944faf68e82611c20840dbf759cb140d2d",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code#readme",
+      "_id": "code@5.2.2",
+      "_npmVersion": "6.4.1",
+      "_nodeVersion": "8.12.0",
+      "_npmUser": {
+        "name": "hueniverse",
+        "email": "eran@hammer.io"
+      },
+      "dist": {
+        "integrity": "sha512-7XvXfuaEH999SGVSIEU2vvAgIRy/rPNT8A+eSiX3iTRPl1c2qWicH26Lci6KPLLOeTC/J2TgA6VmXmgVS2LG7Q==",
+        "shasum": "66b2ac6cf094884f6db1449f5379e4fd14f3a019",
+        "tarball": "https://registry.npmjs.org/code/-/code-5.2.2.tgz",
+        "fileCount": 5,
+        "unpackedSize": 19033,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb2qhnCRA9TVsSAnZWagAAWtUP+gNYUesRxLbxtRdPIEnm\nBQoEOUDHP/KUAzvQMN20JmXO/KWQIgY+rXTW9nwQTCIE9X2OypoUtGl2UQO1\n+wuneyrROTN1M31Nz00AgHpsNe7NdmuGSi3uH2pXhX9OrYQxGxpv1tYUAT1w\n9XAjxBv5zLcgHZfHDk+BGw2/4Y0YpSuGoiI5Wcjfzj62+LGNuBuZDq0SCM6i\nLo83ju7wVe+7YJlpmBZxjmQIcm3/0A+fONC8pK/W0WKKm8U8LQpt8kV/Uz/S\nVPjrVbKsjtTbWSwwjxc+17kwyK2rb9eJKn9p2XYFcvd3YisyvRr0aCjinV71\n35jfFakZGi6Bg4iGaepHm25Ap9QkhJS8vXNSF5KPgLjzW7UKjOKnHo8lgpb7\niqxJ73X73i1aKWP+RfOdPfoFh06o48JJuJMrBuQthSKWy6JYcVUwX1LND/0P\n3Re1393xStleyTzn58d553OMEDEczQecELUlxc+NhZFoXkfCsCJG+c4wGDKE\n7A195nK7njx5CtS2dRfKcAfhtAt+84S9llpeUW8EZ1kXO4fj/bo6+Og35o86\nestIpj+z9oJZBIfOjqMemXSW+RWR1Do3ExDkEjH3F0D05xyfmIQVWnfm38Tj\nHu7H+TB1lojWXF2JtNxV4vIWeN24MENGs6t9r5lAOyAWBcu6OWb1uPb/iqXM\n1/bq\r\n=jqAc\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEo7ZbB5E0M5tMFi4mLJVR1fmtE2S70zLbORZ+QH2ZjCAiAa2fqgiYFTBZojWczM7TXw/X8C8AyhfbtY+9bucPetNA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "cjihrig@gmail.com",
+          "name": "cjihrig"
+        },
+        {
+          "email": "eran@hammer.io",
+          "name": "hueniverse"
+        },
+        {
+          "email": "nicolas@morel.io",
+          "name": "marsup"
+        },
+        {
+          "email": "quitlahok@gmail.com",
+          "name": "nlf"
+        },
+        {
+          "email": "wpreul@gmail.com",
+          "name": "wyatt"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/code_5.2.2_1541056615220_0.6889817713775348"
+      },
+      "_hasShrinkwrap": false,
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "5.2.3": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "5.2.3",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code.git"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "dependencies": {
+        "hoek": "6.x.x"
+      },
+      "devDependencies": {
+        "lab": "17.x.x",
+        "markdown-toc": "1.1.x"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html",
+        "toc": "node generate-api-toc.js",
+        "version": "npm run toc && git add API.md"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "57c974c4c2332cb4a1b8a7768e8850084cc79395",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code#readme",
+      "_id": "code@5.2.3",
+      "_npmVersion": "6.4.1",
+      "_nodeVersion": "8.12.0",
+      "_npmUser": {
+        "name": "hueniverse",
+        "email": "eran@hammer.io"
+      },
+      "dist": {
+        "integrity": "sha512-Ia4TRcboSruXWohmKkMN6FthJvlrbGcck0qessx0Q6Tv4cpKO+Q1XkrwW5KZuiKuVwvrbioMtOr5YS5VoBKrAA==",
+        "shasum": "2110afd3542c2971a97d29afae46619624fab42d",
+        "tarball": "https://registry.npmjs.org/code/-/code-5.2.3.tgz",
+        "fileCount": 5,
+        "unpackedSize": 18983,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb3OAKCRA9TVsSAnZWagAABWIP/1/aaIG2juSoLHc63MQ/\nVgmLrKNFbLwto+dU2zJy7gPN5u3Jt3Mq800EmMncMCQ569FuhaASDyHz//GC\nHx1qhalvwkPUe1NpewHdJfGD0OJhbwLI2pFEUNS5Vg4RbwuHPbZGbobZPYLZ\nnYlbcUye/UEamC7RkmJX/B/DCI0FlnXlck1s3E+nb2zflx9rYqXaC/jXRRjS\nvBuln/CK1YCqF77sTpjZLCLb0i4xBlOsP3l127yKhgHVzeK1ZO/tsGQZZMR9\ntN4b25ebHBpnq3kTUk4t1vf69cZSFV9o96MKJTPDClj+eQTGOc0WnsW7efZn\nN/Cz3Gs1jvPLIb8NucOeYNaIcGe4T9MZMdqahu8pwP2yQ+b//kWaSEe8ub7m\nYym/cfdOv+v097485cWQSYR3UIi1JhCRiNWEwhxo3XHnRiS2PI3MAYJEfhas\npXZjc5aGk+IW2wkgnl2Lm3iiOm1a9FrodfJKXxdWMgvXRjt7QuSIKpXoyffE\nt2OL8Luu7smNxeE0ZtVrbDhSOxzmsbJjpOi2bS5dOKW2luuGPRSjZU5vKsj6\ncB79qOYP9g+u7WPDCpg3Ki4GZOlbevDAnTi2iL/6ySs0flhgaXpmVzLgShWw\nlCqJQXKqK4BPvmoF6IhniJBTH9l9/r5ZueOa655piuUPHhjDNFkYa3j7b9iY\nPMgC\r\n=7bb5\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICXHMPLB4f4iFTo2oOEXQb8Z6h5LNhw5ANZWkW+IJGYrAiEA0/I3RizpI1e+b1E1SGvEhfN0NO4YhQPfQBVzzWwdwYE="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "cjihrig@gmail.com",
+          "name": "cjihrig"
+        },
+        {
+          "email": "eran@hammer.io",
+          "name": "hueniverse"
+        },
+        {
+          "email": "nicolas@morel.io",
+          "name": "marsup"
+        },
+        {
+          "email": "quitlahok@gmail.com",
+          "name": "nlf"
+        },
+        {
+          "email": "wpreul@gmail.com",
+          "name": "wyatt"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/code_5.2.3_1541201930022_0.2501201051345203"
+      },
+      "_hasShrinkwrap": false,
+      "deprecated": "This version has been deprecated in accordance with the hapi support policy (hapi.im/support). Please upgrade to the latest version to get the best features, bug fixes, and security patches. If you are unable to upgrade at this time, paid support is available for older versions (hapi.im/commercial)."
+    },
+    "5.2.4": {
+      "name": "code",
+      "description": "assertion library",
+      "version": "5.2.4",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/hapijs/code.git"
+      },
+      "main": "lib/index.js",
+      "keywords": [
+        "test",
+        "expect",
+        "assertion"
+      ],
+      "dependencies": {
+        "hoek": "6.x.x"
+      },
+      "devDependencies": {
+        "lab": "18.x.x",
+        "markdown-toc": "1.1.x"
+      },
+      "scripts": {
+        "test": "lab -v -t 100 -L",
+        "test-cov-html": "lab -L -r html -o coverage.html",
+        "toc": "node generate-api-toc.js",
+        "version": "npm run toc && git add API.md"
+      },
+      "license": "BSD-3-Clause",
+      "gitHead": "e3d110feced57c09879855040434cc1b9e11b380",
+      "bugs": {
+        "url": "https://github.com/hapijs/code/issues"
+      },
+      "homepage": "https://github.com/hapijs/code#readme",
+      "_id": "code@5.2.4",
+      "_npmVersion": "6.4.1",
+      "_nodeVersion": "11.2.0",
+      "_npmUser": {
+        "name": "cjihrig",
+        "email": "cjihrig@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-PkH2B69kE/ETlWJCFrMHbBXzmReeSHMdky5nAfX01cnloOxfYEQ6mGlowBpeyJUZr8kNBjvHd88NkGqYZltbTw==",
+        "shasum": "b1bb981e96acf8099ff847605b42d04db05caffa",
+        "tarball": "https://registry.npmjs.org/code/-/code-5.2.4.tgz",
+        "fileCount": 5,
+        "unpackedSize": 18981,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb9lvQCRA9TVsSAnZWagAAHrkQAJuMlgeYaB02PBBBnaXO\n66mjpKv3lIZZvNW5OvqUOH5BXJq9hQZvTPDDoi3Q1AO4W0DiCf1j9uq25NPo\ne9xBWGyDeFa/gbllj6V7/DvnUtux9M0ItvGOxrWabjyWmzue7hv+dLONcQiV\nIfpz5vjHKTkAPlVLPf5OUOLwT2gBAkH/Biea40rQGN0bbA/sHluFcB5SWGoe\nyFidjbLcE6JXBC4GY7RSetDoJTPezHkCB80TCIKfrHTo2pz+wV2vxg0dilnO\np6cIJ/Vsl8Mzpe9ebh28kZ2kU7gDT0w4pJoYwIpPlrAOBwcCUTGIaEn0LuIK\nNeEPnBvSqdbtQwwyOcvMxBMa0l9yUjsBDk7wjTFGwhPeXPJ2W0seUc8sfomU\nOwxSv0zsm0gdr9BZ5OZ3mw71mGCn8q12i+lkZpx5OO+lBtr+5ueGUpAnd/0G\nsJtusOpmIv2g1XrKEuJfsUW+UYHxu9V9bpHt53ywVMizGGOrwQrLDHqZPEFp\n/R4xmutXUZ7TsYVJnu8CSd4u4M/+9o8x7OpHLTHQMDQkeHGgjGE24QSQ1FBr\nbo4I0YKcbs+Gl3ng+mDyum12nOxxo7htL1/Z2noMgES6tQ6UC6VSoFaPayaQ\nv7nqP7UdXlsnAEtP9zIbc1sxNgTyvs5uqBACwLa6tkAjuABLOBBJ3IISoRKS\nvYEh\r\n=1ccB\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIC9MLyO5ESsKUEemEke8E5QFtgVzoYDlFyor9rIni4DsAiBQnOEDf8LhlKxrLcHaqDEnI0+DMgLdOUEAS331prKjeA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "cjihrig@gmail.com",
+          "name": "cjihrig"
+        },
+        {
+          "email": "eran@hammer.io",
+          "name": "hueniverse"
+        },
+        {
+          "email": "nicolas@morel.io",
+          "name": "marsup"
+        },
+        {
+          "email": "quitlahok@gmail.com",
+          "name": "nlf"
+        },
+        {
+          "email": "wpreul@gmail.com",
+          "name": "wyatt"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/code_5.2.4_1542872015378_0.5552264879629905"
+      },
+      "_hasShrinkwrap": false,
+      "deprecated": "This module has moved and is now available at @hapi/code. Please update your dependencies as this version is no longer maintained an may contain bugs and security issues."
+    }
+  },
+  "homepage": "https://github.com/hapijs/code#readme",
+  "keywords": [
+    "test",
+    "expect",
+    "assertion"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hapijs/code.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hapijs/code/issues"
+  },
+  "readmeFilename": "README.md",
+  "users": {
+    "hueniverse": true,
+    "jsumners": true,
+    "peteut": true,
+    "rogier.spieker": true,
+    "nukisman": true,
+    "arkanciscan": true,
+    "pixlab": true,
+    "ruiquelhas": true,
+    "makay": true,
+    "tribou": true,
+    "admin123": true,
+    "leonardorb": true,
+    "jmsherry": true,
+    "blacksun1": true,
+    "ziflex": true,
+    "natterstefan": true,
+    "gurunate": true
+  },
+  "license": "BSD-3-Clause"
+}

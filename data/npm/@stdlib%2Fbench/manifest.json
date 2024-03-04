@@ -1,0 +1,2585 @@
+{
+  "_id": "@stdlib/bench",
+  "_rev": "19-2033aa4b0eed4230f74b29c584310a67",
+  "name": "@stdlib/bench",
+  "dist-tags": {
+    "latest": "0.3.1"
+  },
+  "versions": {
+    "0.0.1-alpha.0": {
+      "name": "@stdlib/bench",
+      "version": "0.0.1-alpha.0",
+      "description": "Benchmark harness.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "bin": {
+        "bench": "bin/cli"
+      },
+      "main": "./lib",
+      "directories": {
+        "bin": "./bin",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "tape $(find . -type d -name test -exec grep -irl --include=\\*.js tape {} +) | tap-spec",
+        "test-cov": "istanbul cover --dir ./reports/coverage --report lcov tape -- $(find . -type d -name test -exec grep -irl --include=\\*.js tape {} +)",
+        "examples": "find examples/** -name \"*.js\" ! -path \"examples/fixtures/**\" | while read -r file; do echo \"\"; echo \"Running example: $file\"; node $file || exit 1; done"
+      },
+      "homepage": "https://github.com/stdlib-js/stdlib",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/bench.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert": "^0.0.x",
+        "@stdlib/cli": "^0.0.x",
+        "@stdlib/fs": "^0.0.x",
+        "@stdlib/process": "^0.0.x",
+        "@stdlib/regexp": "^0.0.x",
+        "@stdlib/streams": "^0.0.x",
+        "@stdlib/string": "^0.0.x",
+        "@stdlib/time": "^0.0.x",
+        "@stdlib/utils": "^0.0.x",
+        "glob": "^7.0.5",
+        "resolve": "^1.1.7"
+      },
+      "devDependencies": {
+        "@stdlib/buffer": "^0.0.x",
+        "@stdlib/math": "^0.0.x",
+        "@stdlib/random": "^0.0.x",
+        "proxyquire": "^2.0.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "standard",
+        "library",
+        "lib",
+        "bench",
+        "benchmark",
+        "tap",
+        "harness",
+        "measure",
+        "performance",
+        "perf"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "820d9d68667460c07e09b5c9e0095d67a3fdd06a",
+      "_id": "@stdlib/bench@0.0.1-alpha.0",
+      "_nodeVersion": "14.17.0",
+      "_npmVersion": "6.14.13",
+      "dist": {
+        "integrity": "sha512-unepVXOtZZiJxsFec55f7KvaDZw80s1ZjQ8wPPDqdD3WqcpdGzjP+HCkCLiB2WDpSKUxwsdefRoLhYHvv2/kUw==",
+        "shasum": "bd7174012ed07a79e11ecdee34d2e30256d3ae7e",
+        "tarball": "https://registry.npmjs.org/@stdlib/bench/-/bench-0.0.1-alpha.0.tgz",
+        "fileCount": 58,
+        "unpackedSize": 187752,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgwmiXCRA9TVsSAnZWagAA778P/iY4+/MkaprH95j7s2v7\n+myhK6SlALJRKQnRDFz40/sFnHbXUhV8UBqLmkPc/IKAdW0KDO2ia6/kDMNN\naFhG1ql+9Rc1TyMOaynh4KGMx9na5KtkXDYqyzj+fhFvNtCBstfv/g5FL0ql\nNHvg/8QF89OEhPH8IHFrDL4IrD82YmRXl8+e4SHbfSfhwwDViiDY8nettQhj\nc5pfpz7X/cNujmfOjq+e5jNO1RWSAUxpkvnPHYtDDR+dORHnr/cXmAfFK3L4\nibAWOKn7QmEV73raPiUT8ZXE1fpxfTfTBoIySB6Fwa9mLLw4MFspT6qrIA5Z\ns1P25OW1YjoI5PqJTCxBsmo1+FhCoD0mTWpdvE4ahZQhi2RAMV3XkEc5khKX\nbe2hDn2XbNFU51CbvR0+1Rn+us6x1DSpeg6wwLktPf71HmNB4cQLZgAtuh8I\n0ua3u7lOI0SrjIYavU0E0Zy2YODfNjG5WEeHhyqSuhYrISvUI39WeeasIHe+\n9EyKWKVyd4McOoKI7eu3UZ8Mhe0W7WLeEGwyNeE3VBKLtpn2hd9Ns3I5nN76\nfip9VFAydpPPYz12NGMiNGcOp980JjHYw9WcRPwFskcoWT6zVa3ilEGsXkaA\ntYrfHYBpRmnZzcLBfBPgGf5+/vdLCzRThiqInH1sFD/LOsS2Du5RyBwOUZpN\n4TYr\r\n=ZVMg\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCZICTVPrjxa5Ssd3Z0d6dCkkUvnGezm8ppM8LH5ZktCgIhAJaC++c7HGU+Iecm7mBQYBxvR9taoTG3pgdyjCePBJXz"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/bench_0.0.1-alpha.0_1623353495482_0.2965825453510045"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.1": {
+      "name": "@stdlib/bench",
+      "version": "0.0.1",
+      "description": "Benchmark harness.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "bin": {
+        "bench": "bin/cli"
+      },
+      "main": "./lib",
+      "directories": {
+        "bin": "./bin",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "tape $(find . -type d -name test -exec grep -irl --include=\\*.js tape {} +) | tap-spec",
+        "test-cov": "istanbul cover --dir ./reports/coverage --report lcov tape -- $(find . -type d -name test -exec grep -irl --include=\\*.js tape {} +)",
+        "examples": "find examples/** -name \"*.js\" ! -path \"examples/fixtures/**\" | while read -r file; do echo \"\"; echo \"Running example: $file\"; node $file || exit 1; done"
+      },
+      "homepage": "https://github.com/stdlib-js/stdlib",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/bench.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert": "^0.0.x",
+        "@stdlib/cli": "^0.0.x",
+        "@stdlib/fs": "^0.0.x",
+        "@stdlib/process": "^0.0.x",
+        "@stdlib/regexp": "^0.0.x",
+        "@stdlib/streams": "^0.0.x",
+        "@stdlib/string": "^0.0.x",
+        "@stdlib/time": "^0.0.x",
+        "@stdlib/utils": "^0.0.x",
+        "glob": "^7.0.5",
+        "resolve": "^1.1.7"
+      },
+      "devDependencies": {
+        "@stdlib/buffer": "^0.0.x",
+        "@stdlib/math": "^0.0.x",
+        "@stdlib/random": "^0.0.x",
+        "proxyquire": "^2.0.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "standard",
+        "library",
+        "lib",
+        "bench",
+        "benchmark",
+        "tap",
+        "harness",
+        "measure",
+        "performance",
+        "perf"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "24d9dd231d6b2ba0459c1e14806b25e901cbc729",
+      "_id": "@stdlib/bench@0.0.1",
+      "_nodeVersion": "14.17.0",
+      "_npmVersion": "6.14.13",
+      "dist": {
+        "integrity": "sha512-dIitIHXL1t/24e/4EgDLv7BdyLzIdqjrkQViroQe8D8uxeBFTx8wwZOMlS9deMF1Gk4uZG4MX1KzKvrRTd68Lg==",
+        "shasum": "4b87934d052d4a7552173048c4829bd513d53b39",
+        "tarball": "https://registry.npmjs.org/@stdlib/bench/-/bench-0.0.1.tgz",
+        "fileCount": 58,
+        "unpackedSize": 187744,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgwoahCRA9TVsSAnZWagAAIqkQAINbomzAHrmiB/DDxxbl\ngcAh0N5H3E0e5b7QQlRpR9Ab+TQBCrYeTFGOhrcpTvxzxi2OQLDUevxxveqL\nlSu7h5dl0Uz7Jn0qoj/o0Cx3NFJ36Eo5P34niw1pCmo6E/3x27B9JkMX7CDR\nSR1I7Uia5oEwk0W7S30H5DgwhxBGnGDLSZjNobjGrSZDzHyULdVBVKwZHu36\nf33LBqlmMNbSxPIBWQ4RahmYIXjMuR66EDQVEs1pCA/JvTr5lAs2MizdmeiG\nT9+LBaUU/d9VgimiZNNyrmKaY6wIncOGPXDLlMI51UNUNIAvlq6699NxSX4D\nlNQZ3BfWfLuekcntyGAUUNl/OsZi55jY0LIr4hXYUoSKeLuk99auBb/yUm2p\nyU42Nc4LONL3IQ//B7iYNyOqvR7un/aXiUDHlkx9U6lpjkewxVBt6usKcIhG\nHSbgVxu1Cp5Ka6UOvmmOuJcXTUWsKOB/AEm1bQDt9uzAqM0gfwIIW7Pu+LVt\nEHEL4fB63IyBY3I6m1BNumdz9g9ncvOrSue13RPGDxpsxaQa9XunQNEcfhbT\n/JCQx4/p92vKywOtGOP+F5+K23cflht1dWd/B6/4AlHzsw/ntjgtDnGIMs9y\nQSVoH5LXAl4YVdwQYNsLMIIjJEANyYGzQP2RnR0s/7FUKWf1uXRocZ6iQTwe\nHES5\r\n=S9JE\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCeg4MLGEuFcbbz94BIjrMhx8bud1uAA5b4zyyOiPca9gIgWofqTbQwWP0bxO6pzmanhbZIfYw71uklZk9EMn2snhQ="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/bench_0.0.1_1623361185501_0.24542466995838752"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.2": {
+      "name": "@stdlib/bench",
+      "version": "0.0.2",
+      "description": "Benchmark harness.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "bin": {
+        "bench": "bin/cli"
+      },
+      "main": "./lib",
+      "directories": {
+        "bin": "./bin",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "tape $(find . -type d -name test -exec grep -irl --include=\\*.js tape {} +) | tap-spec",
+        "test-cov": "istanbul cover --dir ./reports/coverage --report lcov tape -- $(find . -type d -name test -exec grep -irl --include=\\*.js tape {} +)",
+        "examples": "find examples/** -name \"*.js\" ! -path \"examples/fixtures/**\" | while read -r file; do echo \"\"; echo \"Running example: $file\"; node $file || exit 1; done"
+      },
+      "homepage": "https://github.com/stdlib-js/stdlib",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/bench.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert": "^0.0.x",
+        "@stdlib/cli": "^0.0.x",
+        "@stdlib/fs": "^0.0.x",
+        "@stdlib/process": "^0.0.x",
+        "@stdlib/regexp": "^0.0.x",
+        "@stdlib/streams": "^0.0.x",
+        "@stdlib/string": "^0.0.x",
+        "@stdlib/time": "^0.0.x",
+        "@stdlib/utils": "^0.0.x",
+        "glob": "^7.0.5",
+        "resolve": "^1.1.7"
+      },
+      "devDependencies": {
+        "@stdlib/buffer": "^0.0.x",
+        "@stdlib/math": "^0.0.x",
+        "@stdlib/random": "^0.0.x",
+        "proxyquire": "^2.0.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "standard",
+        "library",
+        "lib",
+        "bench",
+        "benchmark",
+        "tap",
+        "harness",
+        "measure",
+        "performance",
+        "perf"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "1d1b8e99137e691942e923ff576e8d5b29495811",
+      "_id": "@stdlib/bench@0.0.2",
+      "_nodeVersion": "14.17.0",
+      "_npmVersion": "6.14.13",
+      "dist": {
+        "integrity": "sha512-XYlv4OKEQjSX/WMyXyrX4cy4UQUvejZPUH2nkviFnLk7aCGnoxR/inlcvXJV6CZVfvKxn6zDNuxvUlIcyX5XSA==",
+        "shasum": "2f6e62dbe1f84bcc722001d32e6fe0ff671fd477",
+        "tarball": "https://registry.npmjs.org/@stdlib/bench/-/bench-0.0.2.tgz",
+        "fileCount": 58,
+        "unpackedSize": 187744,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgwo0JCRA9TVsSAnZWagAAicsQAIf+HVVraA2AA/iaRE/Q\n89Iad096x5juVhV1VTiNCwXUJL0GnQfnFq3xgBsT2UO2gF0nXw/fCO5r581S\nEiX9ep6YM04cs8KobRyB45XB92u6ScKwMtzFX5HAAqUuTY19oD1Rc24f9Ow9\nCIToqFJWM4LRpBuzwHLinVGAWZTNSIYDkH4UhhTqRu2WivX+7KiCeUGwkyVF\nHtAoT0U8kpq0tf5aLUxtQqHQjN2ZZomNevAg8xSeLwEB4sR7a//HlYlK1viJ\nBYWIqQaNsI8T5QdpE7YBHdrTe+y8PTdmCVBHjWMIxds6tUzqsFX6eOZf2pPo\n+kVIksNquM94JANBgWKejx28h/aH7fLrKB1wpFBeP4xeq+vl2LN5oIUCp/5e\noR7LkkQ+LZdCoN3nKAWimNtIuQ25b5lP/JyZah8NBK3SCpM2r6uTj+pTdOvR\n+xGTnVeUmA8a3LYET4peAJL48ztbltqkkvUuvssrtMzDG3GdWJrDNCpVCh34\nrRcNB0PWmT/JYhUn1IXsrJ803JJXHBk8TByxmaz714uj3yqZXz1fkH1kRPrm\ne15qtGQwD5yr70n/lbw2CTamWuwMeU305cax1aj9LMP0uIcWLIpAiS5SoDuG\nOWh2wKesUuQkdmwtJUwCnNymQCKT77mR4OduhJfTR5JBKN3MPhqYWhNKFwbi\nF/Kw\r\n=iNV9\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBHr31+QPKgfiqqjGEA6VqiDI8JiiwAXdqdnH/t2awA/AiACQmsZuI2KfpOmxqGt5ZjR7EN0BUV6Eg9qoTNMYaTcUA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/bench_0.0.2_1623362825166_0.029735211219477975"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.3": {
+      "name": "@stdlib/bench",
+      "version": "0.0.3",
+      "description": "Benchmark harness.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "bin": {
+        "bench": "bin/cli"
+      },
+      "main": "./lib",
+      "directories": {
+        "bin": "./bin",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples"
+      },
+      "homepage": "https://github.com/stdlib-js/stdlib",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/bench.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert": "^0.0.x",
+        "@stdlib/cli": "^0.0.x",
+        "@stdlib/fs": "^0.0.x",
+        "@stdlib/process": "^0.0.x",
+        "@stdlib/regexp": "^0.0.x",
+        "@stdlib/streams": "^0.0.x",
+        "@stdlib/string": "^0.0.x",
+        "@stdlib/time": "^0.0.x",
+        "@stdlib/utils": "^0.0.x",
+        "glob": "^7.0.5",
+        "resolve": "^1.1.7"
+      },
+      "devDependencies": {
+        "@stdlib/buffer": "^0.0.x",
+        "@stdlib/math": "^0.0.x",
+        "@stdlib/random": "^0.0.x",
+        "proxyquire": "^2.0.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "standard",
+        "library",
+        "lib",
+        "bench",
+        "benchmark",
+        "tap",
+        "harness",
+        "measure",
+        "performance",
+        "perf"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "9c1bb83be6d63c4f13d279590da3f27d4f7d6d1b",
+      "_id": "@stdlib/bench@0.0.3",
+      "_nodeVersion": "14.17.0",
+      "_npmVersion": "6.14.13",
+      "dist": {
+        "integrity": "sha512-ySbzZlewDmdVqX4LhOSKMf5NBaapMGFrTJvkd/KEIR22la+uq1AxUipa4WTdS8FNhSPvdvsMYllTinKwMCtRKA==",
+        "shasum": "e4f7f21d3b60818883125ffdfd2b6396323eb619",
+        "tarball": "https://registry.npmjs.org/@stdlib/bench/-/bench-0.0.3.tgz",
+        "fileCount": 5,
+        "unpackedSize": 32805,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgxNxsCRA9TVsSAnZWagAANFIP/1Y2YIXGUxEogFKPVGE+\n4YmcM6PnyRrW2bhZweyqIrrZDI0F6j8APCAwqO9dBY//cL2Tib96X3phwI5Q\nPFA67pkQiVfGHKJD9CzAkmRfm++0kk4oDG+98Z9P/42grOaZq+5Zj+GyOvkl\nYkGZQzfXEKh5irAXKd0YrvLJC4MNvwXVKTxdxuBqtKtIaC2GfkAJbq7+3+Ln\n1QG5KBR/icUj6GLD73/ntkuoUnkFuvA/FoZ+ruLtyDVULJX5hiRNr12fDxoE\nYFTopt9PY3TU1ZUaZUCPWNM1FN4SV11fc0zHk5kqM9xUClq3+LIS/0isN7RV\nUs5jSC40m5rnxuez71RPBAiChtcHXcA1pBnRQrKBNct54PfTwXzn4luLVKx0\npXuxCYbNE3MVuJJFNFPofWESFu7Rq+fwwpSGMlly/+jWXHGGexAcXVykZDE8\nB/AfgaOMklzNenVIc1pcp4NLPdGclApWatIP5O5PMSkp1FNMy2xFUuCA1rYM\nSd1EQdOMyZT+CHD15A7BCEyR9pMONZLu/p6Ib9NcVRYmHdErVt82hpyxF614\n/d9h0Iumdu/AzXdsVqe3xsKw0hJnDVOauib8P6c1OkR/dtKj0IwL4wXab6qn\np0gOcpP7xWW6Kfi66Oj8ATLZyZItjilt5JV++lqh+um8PpeTiW0gdAYmg+cK\ni4J4\r\n=8nsl\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIC7rW0w+MLx6dEH+Rvi0jYejRFYxR+NE/LvqtF15gc16AiEAll+QLYiZGBt9qKaVYQUlIfgtx3RTXX03CjevQnTulhg="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/bench_0.0.3_1623514220839_0.23828939104593783"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.4": {
+      "name": "@stdlib/bench",
+      "version": "0.0.4",
+      "description": "Benchmark harness.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "bin": {
+        "bench": "bin/cli"
+      },
+      "main": "./lib",
+      "directories": {
+        "bin": "./bin",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples"
+      },
+      "homepage": "https://github.com/stdlib-js/stdlib",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/bench.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert": "^0.0.x",
+        "@stdlib/cli": "^0.0.x",
+        "@stdlib/fs": "^0.0.x",
+        "@stdlib/process": "^0.0.x",
+        "@stdlib/regexp": "^0.0.x",
+        "@stdlib/streams": "^0.0.x",
+        "@stdlib/string": "^0.0.x",
+        "@stdlib/time": "^0.0.x",
+        "@stdlib/utils": "^0.0.x",
+        "glob": "^7.0.5",
+        "resolve": "^1.1.7"
+      },
+      "devDependencies": {
+        "@stdlib/buffer": "^0.0.x",
+        "@stdlib/math": "^0.0.x",
+        "@stdlib/random": "^0.0.x",
+        "proxyquire": "^2.0.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "standard",
+        "library",
+        "lib",
+        "bench",
+        "benchmark",
+        "tap",
+        "harness",
+        "measure",
+        "performance",
+        "perf"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "2c9cf16491de111c5d3caf450f80df0958b6b523",
+      "_id": "@stdlib/bench@0.0.4",
+      "_nodeVersion": "14.17.0",
+      "_npmVersion": "6.14.13",
+      "dist": {
+        "integrity": "sha512-k6AnY0WC93uJy1Vw0b5/dErv6RGcRnx+406Ix3PaNovcqpQcLGPxyK8DfyEn2G7F/Z7yVrF1KOuq+ZK5s2NhSQ==",
+        "shasum": "1c99c218bdafd851753ac1e9d1a46f9e05924841",
+        "tarball": "https://registry.npmjs.org/@stdlib/bench/-/bench-0.0.4.tgz",
+        "fileCount": 59,
+        "unpackedSize": 201523,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgxQTiCRA9TVsSAnZWagAAUG0P/2tGUrtYYdgDabVDpwts\ntOa9sbyDvQ/NFzPEwB+utO3piJgew+7F3CYJRxjraiTqLHw0tKHB1DP/FcV9\n51F1IDS/utGgQJl9HzDvBXrBPz6hacY3tYPZC2BDRk/qkQo5yOdtkXkXFhkB\n4zCnWkYGeJnycrnA6YgOrU8omtULPD5Zd8LeSLy/J/cmVnfQ77IORE6fizaL\nd4v49vEu86XEvisw6PK1rf3Y6HA569N78jZIA71UAQ0fw3v8KiGU5hYBicmx\nbge7V+AJ9Y+y/r/PPZnyOv87bhkmpLmqP7yvj9PuK2ZXjqFFDWx59NnFXFFo\nYMnjIyvAcrwGIbYYTCCN08dL6zflyr1FGL3A89CxdzVHQQbrZqXknN/4TBya\n+T2rEwsbKo5OB2b4LhylIUT/AYXTpyLx+y2O9Jfv3+o/oQZ0ask1YVMuo9rm\nDbgEeByJjhKzrKeS04MNtGm7cZ69vIjp9QCGqe31AhfLVYtsXai8VmwByY7Y\nvhzLEFQ1zm5w5IqbkDcXH7KEUxTs6o2scz9YRoB2IjbtLdpJs+1KVC4bHUhj\nYvfdNzFWyH9tUma6LNvjdI8YDF+xB74Lmfge3SUPlBkaazkRtTEDl7TR1Nes\npCwz14pkOdRJSWgV5v1DznX5juRs9AzvBi//Rnbt7dsQfMWQ8YxrFiRtIwcL\nR8YB\r\n=0Pxv\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCOUkLmASog4JUggPB7BKKdPH/0og8bFCkD0gkS33RlOQIgayevD90w37uJkcFa3nspzQpWrb9Xfus5gxkNSjSrnCg="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/bench_0.0.4_1623524578779_0.442690479890421"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.5": {
+      "name": "@stdlib/bench",
+      "version": "0.0.5",
+      "description": "Benchmark harness.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "bin": {
+        "bench": "bin/cli"
+      },
+      "main": "./lib",
+      "directories": {
+        "bin": "./bin",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples"
+      },
+      "homepage": "https://github.com/stdlib-js/stdlib",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/bench.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert": "^0.0.x",
+        "@stdlib/cli": "^0.0.x",
+        "@stdlib/fs": "^0.0.x",
+        "@stdlib/process": "^0.0.x",
+        "@stdlib/regexp": "^0.0.x",
+        "@stdlib/streams": "^0.0.x",
+        "@stdlib/string": "^0.0.x",
+        "@stdlib/time": "^0.0.x",
+        "@stdlib/utils": "^0.0.x",
+        "glob": "^7.0.5",
+        "resolve": "^1.1.7"
+      },
+      "devDependencies": {
+        "@stdlib/buffer": "^0.0.x",
+        "@stdlib/math": "^0.0.x",
+        "@stdlib/random": "^0.0.x",
+        "proxyquire": "^2.0.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "standard",
+        "library",
+        "lib",
+        "bench",
+        "benchmark",
+        "tap",
+        "harness",
+        "measure",
+        "performance",
+        "perf"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "17afcb0b19cc582caa6d056115201d6d62f769aa",
+      "_id": "@stdlib/bench@0.0.5",
+      "_nodeVersion": "14.17.0",
+      "_npmVersion": "6.14.13",
+      "dist": {
+        "integrity": "sha512-6f1XO1Bp2A0dAwP833zY8Lp5OFdFefdGsgvNTCF7G/eUopX7m58GboJDvTxyr+tLIlDtXYEriexZuMcjK3t2Wg==",
+        "shasum": "a4a9eb18e624f41aaa5d3e465ed5a0bfdf7911e0",
+        "tarball": "https://registry.npmjs.org/@stdlib/bench/-/bench-0.0.5.tgz",
+        "fileCount": 59,
+        "unpackedSize": 201513,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgxk+vCRA9TVsSAnZWagAAYHUP/3m2l68dw4GXIf7VolcT\nod2HpQ4hEPcw9Suxf+E/0KTfxs1sTGMAqgUVd6bLiuYVVdVLg3G5JbYKwl4D\nlWYmiQlK4zgLsHGF29Q+57n5Ju8V8j5dg7j/BH84wjhq3q3F4gYxdfzoTavL\nRgvu5yhYhE0UL91Cowioc87hbLG39iRQryIF60DcQ4keZeKBexLj0WP/LLUk\nF6wE7Urxtp375pAmkE0nP9ImJYtRHK/RKcrpuf2pOKOgfL33YLuE8rZnZxhx\nHOPjMQ2k4pZ78UtJs22QiOST/XRWduswzq8G5eBPtTVVH+JLati5feNJEH++\nXOa6QciIvJC/Wtz1WfKBLXvMoS97hAHAW4WjtrzuDtmaWxwh11+Ft2pzY2K2\nnXZGmEOAKUJ+Olix+u7A2Hj7dqQTgvtzvM52PYkIpiziFbFO08BRCP+i7jSi\ndA1ZHCzLhMc8sBZfk0DLS2BbT3cmzh3y+ECnZPAL/dSgPLMEAZaxgdckxZcl\n2buVHMHSUA5C3p6b0jqKP0BnHw2VN4PuDp+I5q3lppO2dLoH+j9HrGccB1UX\nZtsEAcXFu+ja3IiPQ1XnpEGB+sQCUSt6reoQ0/TSuO8ozUW4kd85woDgtQLq\nqyYsxfkJYPwa4sCqFn3ajWAujcWvhq/s5WjwwhvkjlZMmyiqWW8dkhPtyFG0\nvEdX\r\n=k+Ff\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDELlTV29vv5tRPagDYiQhrqu6IJHEIgPFiPG6deoXDrwIhAOcrNu4yekNYAetljNJlMMmBB8oqBKG+ATDZFVSjU4CX"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/bench_0.0.5_1623609263277_0.9495749873363306"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.6": {
+      "name": "@stdlib/bench",
+      "version": "0.0.6",
+      "description": "Benchmark harness.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "bin": {
+        "bench": "bin/cli"
+      },
+      "main": "./lib",
+      "directories": {
+        "bin": "./bin",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples"
+      },
+      "homepage": "https://github.com/stdlib-js/stdlib",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/bench.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert": "^0.0.x",
+        "@stdlib/cli": "^0.0.x",
+        "@stdlib/fs": "^0.0.x",
+        "@stdlib/process": "^0.0.x",
+        "@stdlib/regexp": "^0.0.x",
+        "@stdlib/streams": "^0.0.x",
+        "@stdlib/string": "^0.0.x",
+        "@stdlib/time": "^0.0.x",
+        "@stdlib/utils": "^0.0.x",
+        "glob": "^7.0.5",
+        "resolve": "^1.1.7"
+      },
+      "devDependencies": {
+        "@stdlib/buffer": "^0.0.x",
+        "@stdlib/math": "^0.0.x",
+        "@stdlib/random": "^0.0.x",
+        "proxyquire": "^2.0.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "standard",
+        "library",
+        "lib",
+        "bench",
+        "benchmark",
+        "tap",
+        "harness",
+        "measure",
+        "performance",
+        "perf"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "011ee986d5b4d2ecec5ff273814fd64ab442abd8",
+      "_id": "@stdlib/bench@0.0.6",
+      "_nodeVersion": "14.17.0",
+      "_npmVersion": "6.14.13",
+      "dist": {
+        "integrity": "sha512-CtacTEds0Fp440A4twSERRk21ZdxsbVC+c1aUHNkmkpi1rlvgSopxu6bAwmUPYI8yUrsRb3Yqo4jSRPuPm32Ag==",
+        "shasum": "cd1a5766e150197274dc963c31140987705c3631",
+        "tarball": "https://registry.npmjs.org/@stdlib/bench/-/bench-0.0.6.tgz",
+        "fileCount": 59,
+        "unpackedSize": 201514,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgx5hQCRA9TVsSAnZWagAAWBQP/283KGmY9Gjs1qsEuaH8\nwf+0//tD4UUgh2auAXb+04LE4U6C/ohNZZ+jhlVorHGj1S/+a9nY0Lo5vod6\nEfC2NKi2QrzBIen/2/p+YKErh/yTHoADoCy5nSUzZItgOcXWExCBprd4YJwA\nICATYip2Y0lSXz+bTyNk+jT7lZSVOMHuzGq7rdAi9nnaIyqh4Uk8Bnr1xhMj\ni/LaDvhNSmc68iH1bLGl2P1OziWPaq7OiLefag+kVIh6L7oOoCth3CtWIcYl\nn6TtEuJk1IJX1XBlH0s53XXGMFjl2htV8K8775Vphq9BZjQ60fMwnvR/ExZm\nR8GTM39HbF+X1v/U5Ki6R7bn1MyYrsxq4jzASttQgXYE2qyx1egQiHzW+50i\nm4o/R6tRBDAUBT+yDthSW0pX/rMA017iYEAcBWMXqAaR+1RYDiA/EXZAea1I\ngkng1KopruZRdob8vfV4uGFjYhtWpsZbiR22sv6sC0bKZ4NxsOdvxkMLE8sX\nBI+B2JHWtS41UlDX+8cej+VXSqK3IID46Rr1ASQga0ytVu/OhT2TuUgkvQJm\nOl3ci/TgCt3v8gEkGQ/Qzvaep/oB0HhblygYvJDfKGZr4HTFXyFD1kFI3LaM\nV1vdYjCQEU6AWuxBFredtXXvjiyON3C67E0sD6BxhweVobOGObei4U8ZCK62\n0BV/\r\n=Ou41\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCO0e4Pf8jcEBrcrrs/hItg8ALKVyGozKuQWPZFf9iW0gIgG0r91L+XPFRT51ZJYi6B45hqfDIoa3Ilc1okIgheYTQ="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/bench_0.0.6_1623693392149_0.09260095395431978"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.7": {
+      "name": "@stdlib/bench",
+      "version": "0.0.7",
+      "description": "Benchmark harness.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "bin": {
+        "bench": "bin/cli"
+      },
+      "main": "./lib",
+      "directories": {
+        "bin": "./bin",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples"
+      },
+      "homepage": "https://github.com/stdlib-js/stdlib",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/bench.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert": "^0.0.x",
+        "@stdlib/cli": "^0.0.x",
+        "@stdlib/fs": "^0.0.x",
+        "@stdlib/process": "^0.0.x",
+        "@stdlib/regexp": "^0.0.x",
+        "@stdlib/streams": "^0.0.x",
+        "@stdlib/string": "^0.0.x",
+        "@stdlib/time": "^0.0.x",
+        "@stdlib/utils": "^0.0.x",
+        "glob": "^7.0.5",
+        "resolve": "^1.1.7"
+      },
+      "devDependencies": {
+        "@stdlib/buffer": "^0.0.x",
+        "@stdlib/math": "^0.0.x",
+        "@stdlib/random": "^0.0.x",
+        "proxyquire": "^2.0.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "standard",
+        "library",
+        "lib",
+        "bench",
+        "benchmark",
+        "tap",
+        "harness",
+        "measure",
+        "performance",
+        "perf"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "b872127ad993f19f19939e97c40cabccacfd9f70",
+      "_id": "@stdlib/bench@0.0.7",
+      "_nodeVersion": "15.14.0",
+      "_npmVersion": "7.7.6",
+      "dist": {
+        "integrity": "sha512-Q/t9g+mbrMiGpMl5OlVPIUvIW62DogVaGEYHZLRtfKPQ+acmKbl2HfmNemOa/VO7ZjtK06bd80JeBOYjeEzLkg==",
+        "shasum": "b990c0fee3dbf9f3f9fdff0c836c10cc793e5dfc",
+        "tarball": "https://registry.npmjs.org/@stdlib/bench/-/bench-0.0.7.tgz",
+        "fileCount": 59,
+        "unpackedSize": 201514,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgyHdsCRA9TVsSAnZWagAA9UkP/iGpZpD5/6kUYAWg9KaK\n4T/j6Xny82jgwtwaj6KMMoQVnRN4MXS9B8b7Sh0y0nfoSoz40sn74iNf/rR0\nebdKviTQaZSA8vzOAq4H/DNch/Gr6vFfi1moG5dGl5uHVY3XKKj9Mq0cSKUO\nI5GGnqVpsE1vfkNKrprKnZcsclqDWwHKLHf/UtyndXSsKSDlr9GKcfacfZVX\nKmGAKdzPkkfxnTwabt3gof9jFe2fB0ASakuKAwqrF5w7vzLxhYOPwjpyDlDu\nBwaHh2UBRspJyqiX8aw5wIJL8FnyQ+cbbrj5xsThZewUPsVS+ap4Ecd8jPYI\n9uks0+vZM7HKR/2D12atHmOIwRM0RpKkbYoNHO5BsCGlkxki4OXnrtnynhxQ\nAy7TG2o7HTJNlur8itfm9kgwe2h1IF2CM2mYEGtXo77HQkvErQb9RvHMQ0HY\n3qIR9fT1tPLx+flLGgoL0orMXuDV9DNuOFxqsIXVH7InqduQyJF9PFdGvrNK\nPKuULXW1FJ3tGeKRKfc54vzI4Xn/HiqfeBlM+7+PC+HnyP5JSb587U4EPpQe\nQlXesSx4KPBxBlm2qULJJzdOijtK/oO/DfXwA9tlq++p0KXisH4dQIiB1Ctt\n0MykKPcz3XQfLVCrRtxVbpBvAyfucrX21kV0+8JBD0RGGp4GQWPzA6KQFNHq\nzixL\r\n=h5Z9\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQClNl6etn2faR3SZxCMcoWcp8gu2XMQBEzs6g1TAs+aKAIhANd8m0dOJGiqixWqeiLyowQVeVOEF93h6IOgmgu5Ypxf"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/bench_0.0.7_1623750508451_0.9327436757932828"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.8": {
+      "name": "@stdlib/bench",
+      "version": "0.0.8",
+      "description": "Benchmark harness.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "bin": {
+        "bench": "bin/cli"
+      },
+      "main": "./lib",
+      "directories": {
+        "bin": "./bin",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples"
+      },
+      "homepage": "https://github.com/stdlib-js/stdlib",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/bench.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert": "^0.0.x",
+        "@stdlib/cli": "^0.0.x",
+        "@stdlib/fs": "^0.0.x",
+        "@stdlib/process": "^0.0.x",
+        "@stdlib/regexp": "^0.0.x",
+        "@stdlib/streams": "^0.0.x",
+        "@stdlib/string": "^0.0.x",
+        "@stdlib/time": "^0.0.x",
+        "@stdlib/utils": "^0.0.x",
+        "glob": "^7.0.5",
+        "resolve": "^1.1.7"
+      },
+      "devDependencies": {
+        "@stdlib/buffer": "^0.0.x",
+        "@stdlib/math": "^0.0.x",
+        "@stdlib/random": "^0.0.x",
+        "proxyquire": "^2.0.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "standard",
+        "library",
+        "lib",
+        "bench",
+        "benchmark",
+        "tap",
+        "harness",
+        "measure",
+        "performance",
+        "perf"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "c887df01a2943afaa9cd9da7d84441b50d46fbc8",
+      "_id": "@stdlib/bench@0.0.8",
+      "_nodeVersion": "15.14.0",
+      "_npmVersion": "7.7.6",
+      "dist": {
+        "integrity": "sha512-buwCztVK91zF8rseJwgZMHm1uvbhlqxUBdZcVwR4W9mAMuM7qE38zrQKj37sJ15rtn/qJ/H95tgzqcjvEe9yXA==",
+        "shasum": "43458982cd5f8fd97735de4ab691697aa605fe76",
+        "tarball": "https://registry.npmjs.org/@stdlib/bench/-/bench-0.0.8.tgz",
+        "fileCount": 63,
+        "unpackedSize": 189424,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgyZG/CRA9TVsSAnZWagAAacgP/2ZW7ii24FM0PC2DBVwg\nY630bTqmgj8csy1IOdQRbd4jdd28OAMchi/QYXtvlgrC3RmezwYJ0Cscbjb6\nvQmdnzdpLq93/m7kuu1p062lzqJdhbHoU0ZtPXN8CYE0qv5Vn5zLaNm2SZ8M\nNTOjWoxPn0Ou3nkbkziYCBjzAnd2nObktQJup2Wc+mAhe8pVmztbc8tD9O6A\nkBLEMpvXAaIjpOjIA7ma/6gLLnxVHLnMGUPQPdtnIyoOmtrCADTuGkHjI5Km\nLX2TVLjkVRIx4NrIEUQ8zXoAtbRUyyI9NMgtI47aGw9UNukvUq05pu08AHYM\nybtE6lu2lJVpjCHQV3hDyHovd59V+mI/sZ23mSm+LJovvvR/eaxquE7Lw5sM\nyzYw84QtJxy9P8OqVYQAklXR8+cjY2S+Hz2cAwMPNGT1TGSUFsKQaiCqcIoK\nNQ/ddZ+vp3tFbYrY/FTrRLW+V2/kjL71EjdHH3Uxbf2ZOxEgMQcCFvho8Zt5\nOajwhSF0/58IJ6CA3BAcj58oK8BAXJECl3+mXSsoBMgDgqaQSrMPVXeaFatz\nRl7WRkez4PisbaMfCscSHIXtVA1zzYkRskT0Fr5x/69mCSQmzdxZNqJQTZRN\nhnto+IqMF4B8fW7sMzfQ8ZSgoT7eytwr7alPXFsab6hssOZaplGJcTaMNJeN\ntHDy\r\n=rDEf\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCqsGh1lY8JPkXXaR7oIe/9meY4zFwGM6Qo78L9P9LvogIgUnstGm1MsFeHbHXq1nJh2CAq5B3i6gYnijKTWOp7b70="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/bench_0.0.8_1623822783251_0.01681766906279525"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.9": {
+      "name": "@stdlib/bench",
+      "version": "0.0.9",
+      "description": "Benchmark harness.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "bin": {
+        "bench": "bin/cli"
+      },
+      "main": "./lib",
+      "directories": {
+        "bin": "./bin",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/bench.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert": "^0.0.x",
+        "@stdlib/cli": "^0.0.x",
+        "@stdlib/fs": "^0.0.x",
+        "@stdlib/process": "^0.0.x",
+        "@stdlib/regexp": "^0.0.x",
+        "@stdlib/streams": "^0.0.x",
+        "@stdlib/string": "^0.0.x",
+        "@stdlib/time": "^0.0.x",
+        "@stdlib/utils": "^0.0.x",
+        "glob": "^7.0.5",
+        "resolve": "^1.1.7"
+      },
+      "devDependencies": {
+        "@stdlib/buffer": "^0.0.x",
+        "@stdlib/math": "^0.0.x",
+        "@stdlib/random": "^0.0.x",
+        "proxyquire": "^2.0.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "standard",
+        "library",
+        "lib",
+        "bench",
+        "benchmark",
+        "tap",
+        "harness",
+        "measure",
+        "performance",
+        "perf"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "ff0d862b0a44fbb0217485b959dc2d0d32559b57",
+      "_id": "@stdlib/bench@0.0.9",
+      "_nodeVersion": "15.14.0",
+      "_npmVersion": "7.7.6",
+      "dist": {
+        "integrity": "sha512-EKuoJ8aPeJ/ga3KCQn24YT/nPjR074bLAjzAn3uRu22Jev3Wlj2eiF7MTCdSI0DplLb3y7l+S7me2J74GmHFuQ==",
+        "shasum": "1e13e8d1d5f5ce4edc5ed7ecd4bdc0ed7f99be7d",
+        "tarball": "https://registry.npmjs.org/@stdlib/bench/-/bench-0.0.9.tgz",
+        "fileCount": 63,
+        "unpackedSize": 189578,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg2QvPCRA9TVsSAnZWagAALbQP/1/bOWezuUf5UtzafIZK\nX9xx5T6RZiyb7v2ffV/W9v+oK0aS0Jp3LU6Adc9D+IA6DB4UfytuFJlkMHo/\nBs7efzzE+qJ11CXjwBjY7wLuScrA0hPeoi5ay4otYe/DH86lCouw4cGYIGiQ\nQyU/09hVhoAk7BmvF/IgyfrJCo8G+5pd26T7ydrFxPH9gJCVpzZBAODm7rq/\nCfmzyVRACjnr3JWP8Ggr4CtQw2uvdFESttpL16+wDHfrItjJsVgoEcqAXzXB\nTEYnVZvSlwdNdBdfFTCNSbQvzC2N7OdKgQxcEDhkAOWvmnuLGJCYTY3eKg7m\n8B+eYov+ORw4XU+9ZBcR6bBMSih27eyux9QUBlefZ3Nc30h/IE3jlVix6878\nFxP6pRgdeNHV9Q+idhJuZ1som4UYbM3o47WGuBpcvv21HKyrFKAfUKUANnt3\nFp/E9kJjdInUaxBO01YO5eAicQYfR73VX0Vyxpy0j2ICBEd3sJ/iW/3bG9j4\npR4vnIf73uAQ7Ht4csqGpuoTmDOELO7OTq6hJXXDOcCEGAawSL5ufgVqhqk0\na1MW4uMHGmRSznyw1mQQ63DqH0u45WUV/hYickQ4HpAyMc/RC2jktZXNIxiP\n85q7ani1q91PJlpWoJKHoMX+V967DNEkJF9Zs41DthXp6Q1bnSYr3AAYG2wJ\n5W45\r\n=5Flp\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBJ8qZ9hQrnqgN0fxsBshXJhtDZDHGEp6jXiFek4d5RAAiA2nCXCx/l+vWOkZiSOVHs3KMTcm569R7wVPYtJiNsAxw=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/bench_0.0.9_1624837070808_0.7534930072097894"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.10": {
+      "name": "@stdlib/bench",
+      "version": "0.0.10",
+      "description": "Benchmark harness.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "bin": {
+        "bench": "bin/cli"
+      },
+      "main": "./lib",
+      "directories": {
+        "bin": "./bin",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/bench.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert": "^0.0.x",
+        "@stdlib/cli": "^0.0.x",
+        "@stdlib/fs": "^0.0.x",
+        "@stdlib/process": "^0.0.x",
+        "@stdlib/regexp": "^0.0.x",
+        "@stdlib/streams": "^0.0.x",
+        "@stdlib/string": "^0.0.x",
+        "@stdlib/time": "^0.0.x",
+        "@stdlib/utils": "^0.0.x",
+        "glob": "^7.0.5",
+        "resolve": "^1.1.7"
+      },
+      "devDependencies": {
+        "@stdlib/buffer": "^0.0.x",
+        "@stdlib/math": "^0.0.x",
+        "@stdlib/random": "^0.0.x",
+        "proxyquire": "^2.0.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "standard",
+        "library",
+        "lib",
+        "bench",
+        "benchmark",
+        "tap",
+        "harness",
+        "measure",
+        "performance",
+        "perf"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "c62a373e9a38635b5fda589863efed3773515bc2",
+      "_id": "@stdlib/bench@0.0.10",
+      "_nodeVersion": "15.14.0",
+      "_npmVersion": "7.7.6",
+      "dist": {
+        "integrity": "sha512-nTlPhGv7N+/Ny21SuEHtsK5a2ryNziEddzQDN4pTIwoAcYEgwQ3r9IK1o6qM+yWPEHlkOITb19RebOPqYCzIcQ==",
+        "shasum": "126cd3eef226aa5ab32ff786a270af328879500c",
+        "tarball": "https://registry.npmjs.org/@stdlib/bench/-/bench-0.0.10.tgz",
+        "fileCount": 63,
+        "unpackedSize": 189589,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg5QlHCRA9TVsSAnZWagAAaWQP+wbHJh30oXCphWwNGaRP\nXF82YOJqxJsNXozCb6xq9+nhjZp24/fec+J9i8KZSQa2inqug6w4A6PkNHBA\n8iNDhmth7KhBfzXs89kdwT0k+P+/+on8JOqOy4G87ZFP0UM/qWlTCUh5DTjA\nOWKn+yD+uZimRU7JiIDLAp9d2tfj9F3x91PoQeE1/vq1hVH/pkt8ssmMu7P2\ndyb/RGwUPe648nI9Xm2dDwt0ALtVw9oNcGgsoy6RRikW+hSaTp+dlBn0E+gL\nNkBLKHjr57JVPiRoJnBxcuJT7Duy9Jk8ZQYe6G7g3RieG/bkAaZVDmMttS/T\nY5LZHdjeyHRZ/1WJm8BnHaKQ0YhknENCmyYNrwtkySD9rxEUI4PW5ieh1ph9\nb2j9e47WYavoRYG/7eDnJxAykVfJqTnTSR8DZG5ktiZKsW6n7gITnu3shdq5\nk8gBF3xnV3rjT+pepyyZhs/n+OkDJtnkGsiCgk5I3bN7EwefHrOd9v9SnO3m\nPDJFPEkVjlEUPjwGkOlh+IKAlN2PA24GdoXppVpWAnNc3aw01fvF5L40HDTT\npLxcMcc1RJVzWbK3C3WmGtERxC0CVMCj0PdYpljR8wKojcCaW9f4VKhITPy7\n7+/Wk8aL6VZs7ykMf4wu21uDfVBb3xoi9hPPt1s5I32MfxTCrlQU38xo6jYk\ntkMb\r\n=b4B8\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFhPprUGsT3HIPvg/mBff3lNeLwqTOL+DfsVqAtP/1tkAiAIV8LBqmfHOaGsfx73PdlHYHILBdibKrgtrJd/yaf9Ng=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/bench_0.0.10_1625622855005_0.8497835777049663"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.11": {
+      "name": "@stdlib/bench",
+      "version": "0.0.11",
+      "description": "Benchmark harness.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "bin": {
+        "bench": "bin/cli"
+      },
+      "main": "./lib",
+      "directories": {
+        "bin": "./bin",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/bench.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert": "^0.0.x",
+        "@stdlib/cli": "^0.0.x",
+        "@stdlib/fs": "^0.0.x",
+        "@stdlib/process": "^0.0.x",
+        "@stdlib/regexp": "^0.0.x",
+        "@stdlib/streams": "^0.0.x",
+        "@stdlib/string": "^0.0.x",
+        "@stdlib/time": "^0.0.x",
+        "@stdlib/utils": "^0.0.x",
+        "glob": "^7.0.5",
+        "resolve": "^1.1.7"
+      },
+      "devDependencies": {
+        "@stdlib/buffer": "^0.0.x",
+        "@stdlib/math": "^0.0.x",
+        "@stdlib/random": "^0.0.x",
+        "proxyquire": "^2.0.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "standard",
+        "library",
+        "lib",
+        "bench",
+        "benchmark",
+        "tap",
+        "harness",
+        "measure",
+        "performance",
+        "perf"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "67aad0a95efa7fb60bf31d7c327d31b17b29bf67",
+      "_id": "@stdlib/bench@0.0.11",
+      "_nodeVersion": "15.14.0",
+      "_npmVersion": "7.7.6",
+      "dist": {
+        "integrity": "sha512-MwuBAiVCL3VVoiht91Bz/JxukCyyNlT+xIqlmaW3cBJuu5IJ7R7EeNWFd3yYoekdX4kUxf/ndaF8d648B7+3AQ==",
+        "shasum": "0791ce4a64d1204c3f7bcf2039e2d1d4fbafc032",
+        "tarball": "https://registry.npmjs.org/@stdlib/bench/-/bench-0.0.11.tgz",
+        "fileCount": 63,
+        "unpackedSize": 189589,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg6OdPCRA9TVsSAnZWagAArsMQAILdeoSpF2YWAXYEOl3r\njeM89lpetdVbzASOao48wlpS2o1vOn/6Ly6LsCUy7q02QiEIHW3C1tgQMovS\n5bAX8/mHPY6QZI2I8AvCcNqll2Ml/MmekHBEKr91b7FQeeWeBHZBCPLwKbep\nTxyhJVdnHwOkqSMrXxfhxlA3IaV5mAmKvmVQcStMgMFuOReECsJfFng50lLu\nGWx4vQIBsxsSn8sUs5XwC4q2aTPCBAW+xDUEfON4AU9owx/U6MyulL38ei1z\nugFaX1TAdZh+npUY/CCcFHqcqqo6lPkKSHdSJ9MWMf1Vlshod5mqddIyAiia\nNGVVwdHy1Qn9kTYbUC++WLmWEic7Z3a1uzWGyjzi+W9zYC1BYkfEaHmhrVb9\nuQhAwxu8IKE8CBkJ0RPWnffJXCUdePtdqITo0sfBduQFV4VZ4DGWwAPHSIql\nqMqpw8UmExgaMJUsntoZGzHghcvKDrasSiEIyyX7i0Ff65EbHRT8VYILdB5S\ncsI24HHTRIs7yEQ5xQmUIdczohjmuGS3iqBgcuxJDKDSNgRdszo9wbqzv2FS\nThliG7kzIdt6qUOIorPSs57VCGUhJNYqcBSJ5BuoqXR8FH8nQOoLuyf60LEg\nuqaXgLmwdafzq9b83N++HYiVNYE0X+FaSRgUT99pVTIn0SBIWLxpr3zuL+oG\nPH2z\r\n=0r1w\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEsjoEtrZATsDwrULjXbe0OfEn+VgUCWQgl4Ku/Fsd2EAiEAsFwH7Ws6iW937MNRv5uwuOkOjN0+Bo5cMMNhBOtxB+M="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        },
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/bench_0.0.11_1625876303136_0.37850364806889036"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.12": {
+      "name": "@stdlib/bench",
+      "version": "0.0.12",
+      "description": "Benchmark harness.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "bin": {
+        "bench": "bin/cli"
+      },
+      "main": "./lib",
+      "directories": {
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/bench.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert": "^0.0.x",
+        "@stdlib/cli": "^0.0.x",
+        "@stdlib/fs": "^0.0.x",
+        "@stdlib/process": "^0.0.x",
+        "@stdlib/regexp": "^0.0.x",
+        "@stdlib/streams": "^0.0.x",
+        "@stdlib/string": "^0.0.x",
+        "@stdlib/time": "^0.0.x",
+        "@stdlib/utils": "^0.0.x",
+        "glob": "^7.0.5",
+        "resolve": "^1.1.7"
+      },
+      "devDependencies": {
+        "@stdlib/buffer": "^0.0.x",
+        "@stdlib/math": "^0.0.x",
+        "@stdlib/random": "^0.0.x",
+        "proxyquire": "^2.0.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "standard",
+        "library",
+        "lib",
+        "bench",
+        "benchmark",
+        "tap",
+        "harness",
+        "measure",
+        "performance",
+        "perf"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "05fe04a311c26993b0f2098a72cc2301c7a1857d",
+      "_id": "@stdlib/bench@0.0.12",
+      "_nodeVersion": "16.7.0",
+      "_npmVersion": "7.20.3",
+      "dist": {
+        "integrity": "sha512-5weBlQyd9cNrNIQiGjS9oVz5nq34imM8Vf2IdIJJeKtXdnuQM9NTukuTOwYddptRjp4Qxbyzqzh4aYy3n9q8sQ==",
+        "shasum": "95b3011077a2067493093a2828daf9d66f353e6b",
+        "tarball": "https://registry.npmjs.org/@stdlib/bench/-/bench-0.0.12.tgz",
+        "fileCount": 62,
+        "unpackedSize": 189488,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhIw1YCRA9TVsSAnZWagAAAzkP+gLgE5dH5mp0IamyxAcy\nEIbFhND8nY6ofwjxe70BFiscIbjJ+wIe/RJ+0tsKWYH61qrFmvx9fL3vOBq7\nX91+l9yHcKur+tZvRaE7w5Ah87ko/rhXec1U5ht32iCbOyjAZ1uxHTLKCR+u\nUmvPD+/gDa0YdjwfuK9uf0/xPiA6Cm3QKMioaKVbFMzDDAOwb4ReYNZUB8l/\nRSw1r2/Ssn+UPuFo2FEtJG+xRC6S8zfbn6grxjEVFN4TdmwkOvbDvAY75XKR\nV2d6CBWEAIff95V1RLgPfweZGehY6ZGqVckig+QeWBi7GFyUMhUyEIvE5lgo\niwltSffvC55qQwUkVEpA6+OLt5oJpWEKq9O0NLex5/Ko5NZoESB098JvyjpG\nwJZ2+mWedNEdQHhme7RtXiLAVonUTRNSPfizGuo9bhDon5NtWZxq0N9fM+Rl\ny7ZPD/WPPp1aC7W/jFzsvA87/rwlunJnrByIc9ehdENoxa8fAqgC1tBxVhFV\n/CUIe4HLhhteshHSCTOB/y2zeLaH+9iq/XmRR4k8e7Zhm7ED3pmx6AVvRZSz\nPwiuEx4tntllLiruvmdZdPy8bE0HGjqiErskcuYBFJlscvQsVLICWaQ7Ackh\n+ArGxZaLAv54f91Fj9HaeCzI94q/4WEcn3zljCuvXqIO2ALQTKLLip+iN5Ee\n/2YV\r\n=XowK\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDXpEjSefFjykUo1UxGy5aWqD5GqHWbV6FPIUDCumXqUQIhAIwC+eTzEScp3kkEWpbSARmP5p08bV9lJSnZl0kpKZcY"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/bench_0.0.12_1629687128796_0.23848818366329927"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.0": {
+      "name": "@stdlib/bench",
+      "version": "0.1.0",
+      "description": "Benchmark harness.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "bin": {
+        "bench": "bin/cli"
+      },
+      "main": "./lib",
+      "directories": {
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/bench.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert": "^0.0.12",
+        "@stdlib/cli": "^0.0.10",
+        "@stdlib/fs": "^0.0.12",
+        "@stdlib/process": "^0.0.12",
+        "@stdlib/regexp": "^0.0.13",
+        "@stdlib/streams": "^0.0.12",
+        "@stdlib/string": "^0.0.14",
+        "@stdlib/time": "^0.0.14",
+        "@stdlib/utils": "^0.0.12",
+        "glob": "^7.0.5",
+        "resolve": "^1.1.7"
+      },
+      "devDependencies": {
+        "@stdlib/buffer": "^0.0.11",
+        "@stdlib/math": "^0.0.11",
+        "@stdlib/random": "^0.0.12",
+        "proxyquire": "^2.0.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-min": "git+https://github.com/Planeshifter/tap-min.git"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "standard",
+        "library",
+        "lib",
+        "bench",
+        "benchmark",
+        "tap",
+        "harness",
+        "measure",
+        "performance",
+        "perf"
+      ],
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/stdlib"
+      },
+      "gitHead": "8c7185f6d825b89ad613fac8b4e26dddd8592936",
+      "_id": "@stdlib/bench@0.1.0",
+      "_nodeVersion": "16.20.2",
+      "_npmVersion": "8.19.4",
+      "dist": {
+        "integrity": "sha512-lZQLn361n5RylSf5j9XhNCXXu+YR21OHPmGK2r0GBr8gll73lCq6Xhnfgm7fanLCN2gI/XwI3P4Gvp1ulfRM4g==",
+        "shasum": "b3e11b91b6a49d842e2659213c8d95e57dd7ac11",
+        "tarball": "https://registry.npmjs.org/@stdlib/bench/-/bench-0.1.0.tgz",
+        "fileCount": 65,
+        "unpackedSize": 319159,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDLSZxkWvNE/MvbtfeX6fykjkbs34L+rMvbn725dH/KxwIhAPvIuQ+sahG+iCiGigsGHmTX1eQCIYv+Mjw3O5iJtCcc"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte+stdlibbot@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte+stdlibbot@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/bench_0.1.0_1695408212930_0.7538839937055566"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.0": {
+      "name": "@stdlib/bench",
+      "version": "0.2.0",
+      "description": "Benchmark harness.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "bin": {
+        "bench": "bin/cli"
+      },
+      "main": "./lib",
+      "directories": {
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/bench.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert": "^0.0.12",
+        "@stdlib/cli": "^0.0.10",
+        "@stdlib/fs": "^0.0.12",
+        "@stdlib/process": "^0.0.12",
+        "@stdlib/regexp": "^0.0.13",
+        "@stdlib/streams": "^0.0.12",
+        "@stdlib/string": "^0.0.14",
+        "@stdlib/time": "^0.0.14",
+        "@stdlib/utils": "^0.0.12",
+        "glob": "^7.0.5",
+        "resolve": "^1.1.7"
+      },
+      "devDependencies": {
+        "@stdlib/buffer": "^0.0.11",
+        "@stdlib/math": "^0.0.11",
+        "@stdlib/random": "^0.0.12",
+        "proxyquire": "^2.0.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-min": "git+https://github.com/Planeshifter/tap-min.git"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "standard",
+        "library",
+        "lib",
+        "bench",
+        "benchmark",
+        "tap",
+        "harness",
+        "measure",
+        "performance",
+        "perf"
+      ],
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/stdlib"
+      },
+      "gitHead": "4340e7cb2f29b372d14e40baca268c306bd31944",
+      "_id": "@stdlib/bench@0.2.0",
+      "_nodeVersion": "16.20.2",
+      "_npmVersion": "8.19.4",
+      "dist": {
+        "integrity": "sha512-/4TadqVS5gM5lVt2nYJu2hZMi988swUu9hZ68tJc2raspIxhYi4IWXiWWhKZTbKN/CqPDSQ62PyFnG5gBBubLw==",
+        "shasum": "aa3e534c892c614810f6a4a08a0b4336e1502f85",
+        "tarball": "https://registry.npmjs.org/@stdlib/bench/-/bench-0.2.0.tgz",
+        "fileCount": 65,
+        "unpackedSize": 319159,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICki6nGDYIiG/h9p/6T3wxmZhTeRak54Mh4/Oq4U+ZtnAiEA/2wpVlocFMczeRf+QwdkUh7DQIQ7PJG2gKZjx54U2hk="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte+stdlibbot@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte+stdlibbot@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/bench_0.2.0_1699413866454_0.3670986910160381"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.1": {
+      "name": "@stdlib/bench",
+      "version": "0.2.1",
+      "description": "Benchmark harness.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "bin": {
+        "bench": "bin/cli"
+      },
+      "main": "./lib",
+      "directories": {
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/bench.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert": "^0.1.1",
+        "@stdlib/cli": "^0.1.1",
+        "@stdlib/fs": "^0.1.1",
+        "@stdlib/process": "^0.1.1",
+        "@stdlib/regexp": "^0.1.1",
+        "@stdlib/streams": "^0.1.1",
+        "@stdlib/string": "^0.1.1",
+        "@stdlib/time": "^0.1.1",
+        "@stdlib/utils": "^0.1.1",
+        "glob": "^7.0.5",
+        "resolve": "^1.1.7"
+      },
+      "devDependencies": {
+        "@stdlib/buffer": "^0.1.1",
+        "@stdlib/math": "^0.1.1",
+        "@stdlib/random": "^0.1.1",
+        "proxyquire": "^2.0.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-min": "git+https://github.com/Planeshifter/tap-min.git"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "standard",
+        "library",
+        "lib",
+        "bench",
+        "benchmark",
+        "tap",
+        "harness",
+        "measure",
+        "performance",
+        "perf"
+      ],
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/stdlib"
+      },
+      "gitHead": "26aef2895b8430b2db15e967df75e2eaebbac145",
+      "_id": "@stdlib/bench@0.2.1",
+      "_nodeVersion": "16.20.2",
+      "_npmVersion": "8.19.4",
+      "dist": {
+        "integrity": "sha512-ESKoWwHfYyTlICE9tCSExAb/gN18M4qbNvx96wZzxS95yNPRksByy772OUwzfPwqbbXxUH5AsZ2Ly3wlOEJl/A==",
+        "shasum": "1a8a8821e3a5cc071551f40ca6499ad2f1351a8f",
+        "tarball": "https://registry.npmjs.org/@stdlib/bench/-/bench-0.2.1.tgz",
+        "fileCount": 65,
+        "unpackedSize": 319147,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCSVg19Wy0fU2RQJNXUlGSY8MxrFAnToHOAbIVHKiYf6AIgVeMgy529QMOc8bu5VlVNIP7q1yp8ZXRM88vFxHVxQrI="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte+stdlibbot@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte+stdlibbot@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/bench_0.2.1_1700363327412_0.8434027596584204"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.3.0": {
+      "name": "@stdlib/bench",
+      "version": "0.3.0",
+      "description": "Benchmark harness.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "bin": {
+        "bench": "bin/cli"
+      },
+      "main": "./lib",
+      "directories": {
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/bench.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert": "^0.1.1",
+        "@stdlib/cli": "^0.1.1",
+        "@stdlib/fs": "^0.1.1",
+        "@stdlib/process": "^0.1.1",
+        "@stdlib/regexp": "^0.1.1",
+        "@stdlib/streams": "^0.1.1",
+        "@stdlib/string": "^0.1.1",
+        "@stdlib/time": "^0.1.1",
+        "@stdlib/utils": "^0.1.1",
+        "glob": "^7.0.5",
+        "resolve": "^1.1.7"
+      },
+      "devDependencies": {
+        "@stdlib/buffer": "^0.1.1",
+        "@stdlib/math": "^0.1.1",
+        "@stdlib/random": "^0.1.1",
+        "proxyquire": "^2.0.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-min": "git+https://github.com/Planeshifter/tap-min.git"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "standard",
+        "library",
+        "lib",
+        "bench",
+        "benchmark",
+        "tap",
+        "harness",
+        "measure",
+        "performance",
+        "perf"
+      ],
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/stdlib"
+      },
+      "gitHead": "18c250220e23aa825b05ec5898927ea6b261ca43",
+      "_id": "@stdlib/bench@0.3.0",
+      "_nodeVersion": "16.20.2",
+      "_npmVersion": "8.19.4",
+      "dist": {
+        "integrity": "sha512-SP+givrko1kX7dpz4+jGgqVNFUhFRlgCDWGLBXaxDQgkACuoGIrWRMcRfsjypysRufNQqzS/6wP8AlGKthLwew==",
+        "shasum": "8bb87743ade170dbd3cc22cca771f9045526c99e",
+        "tarball": "https://registry.npmjs.org/@stdlib/bench/-/bench-0.3.0.tgz",
+        "fileCount": 65,
+        "unpackedSize": 318934,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCfKb/X+aAlebMKYthzmhoo/M+wTDXQJWCKB16h/PJFtwIhAI4jfi4ZXeeJGB1Btpkla2gy/ZrAGDcDGA+zBZyfHDia"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte+stdlibbot@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte+stdlibbot@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/bench_0.3.0_1707102161746_0.8657179894108809"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.3.1": {
+      "name": "@stdlib/bench",
+      "version": "0.3.1",
+      "description": "Benchmark harness.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "bin": {
+        "bench": "bin/cli"
+      },
+      "main": "./lib",
+      "directories": {
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/bench.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert": "^0.2.0",
+        "@stdlib/cli": "^0.2.0",
+        "@stdlib/fs": "^0.2.0",
+        "@stdlib/process": "^0.2.0",
+        "@stdlib/regexp": "^0.2.0",
+        "@stdlib/streams": "^0.2.0",
+        "@stdlib/string": "^0.2.0",
+        "@stdlib/time": "^0.2.0",
+        "@stdlib/utils": "^0.2.0",
+        "glob": "^7.0.5",
+        "resolve": "^1.1.7"
+      },
+      "devDependencies": {
+        "@stdlib/buffer": "^0.2.0",
+        "@stdlib/math": "^0.2.0",
+        "@stdlib/random": "^0.2.0",
+        "proxyquire": "^2.0.0",
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-min": "git+https://github.com/Planeshifter/tap-min.git"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "standard",
+        "library",
+        "lib",
+        "bench",
+        "benchmark",
+        "tap",
+        "harness",
+        "measure",
+        "performance",
+        "perf"
+      ],
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/stdlib"
+      },
+      "gitHead": "18c250220e23aa825b05ec5898927ea6b261ca43",
+      "_id": "@stdlib/bench@0.3.1",
+      "_nodeVersion": "16.20.2",
+      "_npmVersion": "8.19.4",
+      "dist": {
+        "integrity": "sha512-cGYgir0oGd5hvF1YXrXs6kf99HESIbwRU3pF6ykBnAqvo5wM3y5jGq7M9JZ22AbPYz7VMDMHpQAd2h2DDxfbdg==",
+        "shasum": "42987b2e4fbff684cef081af245aaa167cc39c43",
+        "tarball": "https://registry.npmjs.org/@stdlib/bench/-/bench-0.3.1.tgz",
+        "fileCount": 65,
+        "unpackedSize": 318934,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQD9IiNytFXo8TtZt5O+DcVpkxwlYw7TalIEo9fb1R84tQIgDoZViY1Ht/0te5Dvq75HXtNs6LuS6prfUm4Qw1a5/nY="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte+stdlibbot@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte+stdlibbot@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/bench_0.3.1_1707104695607_0.9361935677561812"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2021-06-10T19:31:35.319Z",
+    "0.0.1-alpha.0": "2021-06-10T19:31:35.674Z",
+    "modified": "2024-02-05T03:44:55.994Z",
+    "0.0.1": "2021-06-10T21:39:45.688Z",
+    "0.0.2": "2021-06-10T22:07:05.630Z",
+    "0.0.3": "2021-06-12T16:10:20.958Z",
+    "0.0.4": "2021-06-12T19:02:58.907Z",
+    "0.0.5": "2021-06-13T18:34:23.461Z",
+    "0.0.6": "2021-06-14T17:56:32.392Z",
+    "0.0.7": "2021-06-15T09:48:28.662Z",
+    "0.0.8": "2021-06-16T05:53:03.365Z",
+    "0.0.9": "2021-06-27T23:37:50.985Z",
+    "0.0.10": "2021-07-07T01:54:15.125Z",
+    "0.0.11": "2021-07-10T00:18:23.260Z",
+    "0.0.12": "2021-08-23T02:52:08.956Z",
+    "0.1.0": "2023-09-22T18:43:33.204Z",
+    "0.2.0": "2023-11-08T03:24:26.652Z",
+    "0.2.1": "2023-11-19T03:08:47.619Z",
+    "0.3.0": "2024-02-05T03:02:41.912Z",
+    "0.3.1": "2024-02-05T03:44:55.790Z"
+  },
+  "maintainers": [
+    {
+      "name": "stdlib-bot",
+      "email": "kgryte+stdlibbot@gmail.com"
+    },
+    {
+      "name": "kgryte",
+      "email": "kgryte@gmail.com"
+    },
+    {
+      "name": "planeshifter",
+      "email": "pgb@andrew.cmu.edu"
+    },
+    {
+      "name": "rreusser",
+      "email": "rsreusser@gmail.com"
+    }
+  ],
+  "description": "Benchmark harness.",
+  "homepage": "https://stdlib.io",
+  "keywords": [
+    "stdlib",
+    "standard",
+    "library",
+    "lib",
+    "bench",
+    "benchmark",
+    "tap",
+    "harness",
+    "measure",
+    "performance",
+    "perf"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stdlib-js/bench.git"
+  },
+  "contributors": [
+    {
+      "name": "The Stdlib Authors",
+      "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+    }
+  ],
+  "author": {
+    "name": "The Stdlib Authors",
+    "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+  },
+  "bugs": {
+    "url": "https://github.com/stdlib-js/stdlib/issues"
+  },
+  "license": "Apache-2.0",
+  "readme": "<!--\n\n@license Apache-2.0\n\nCopyright (c) 2018 The Stdlib Authors.\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n   http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n\n-->\n\n\n<details>\n  <summary>\n    About stdlib...\n  </summary>\n  <p>We believe in a future in which the web is a preferred environment for numerical computation. To help realize this future, we've built stdlib. stdlib is a standard library, with an emphasis on numerical and scientific computation, written in JavaScript (and C) for execution in browsers and in Node.js.</p>\n  <p>The library is fully decomposable, being architected in such a way that you can swap out and mix and match APIs and functionality to cater to your exact preferences and use cases.</p>\n  <p>When you use stdlib, you can be absolutely certain that you are using the most thorough, rigorous, well-written, studied, documented, tested, measured, and high-quality code out there.</p>\n  <p>To join us in bringing numerical computing to the web, get started by checking us out on <a href=\"https://github.com/stdlib-js/stdlib\">GitHub</a>, and please consider <a href=\"https://opencollective.com/stdlib\">financially supporting stdlib</a>. We greatly appreciate your continued support!</p>\n</details>\n\n# Benchmark\n\n[![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] <!-- [![dependencies][dependencies-image]][dependencies-url] -->\n\n> Benchmark harness.\n\n<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->\n\n<section class=\"intro\">\n\n</section>\n\n<!-- /.intro -->\n\n<!-- Package usage documentation. -->\n\n<section class=\"installation\">\n\n## Installation\n\n```bash\nnpm install @stdlib/bench\n```\n\n</section>\n\n<section class=\"usage\">\n\n## Usage\n\n```javascript\nvar bench = require( '@stdlib/bench' );\n```\n\n#### bench( name\\[, options]\\[, benchmark] )\n\nThis function is an alias for [@stdlib/bench/harness][@stdlib/bench/harness].\n\n</section>\n\n<!-- /.usage -->\n\n<!-- Package usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->\n\n<section class=\"notes\">\n\n</section>\n\n<!-- /.notes -->\n\n<!-- Package usage examples. -->\n\n<section class=\"examples\">\n\n</section>\n\n<!-- /.examples -->\n\n<!-- Section to include cited references. If references are included, add a horizontal rule *before* the section. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->\n\n<section class=\"references\">\n\n</section>\n\n<!-- /.references -->\n\n<!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->\n\n<section class=\"related\">\n\n* * *\n\n## See Also\n\n-   <span class=\"package-name\">[`@stdlib/utils/timeit`][@stdlib/utils/timeit]</span><span class=\"delimiter\">: </span><span class=\"description\">time a snippet.</span>\n\n</section>\n\n<!-- /.related -->\n\n<!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->\n\n\n<section class=\"main-repo\" >\n\n* * *\n\n## Notice\n\nThis package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.\n\nFor more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].\n\n#### Community\n\n[![Chat][chat-image]][chat-url]\n\n---\n\n## License\n\nSee [LICENSE][stdlib-license].\n\n\n## Copyright\n\nCopyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].\n\n</section>\n\n<!-- /.stdlib -->\n\n<!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->\n\n<section class=\"links\">\n\n[npm-image]: http://img.shields.io/npm/v/@stdlib/bench.svg\n[npm-url]: https://npmjs.org/package/@stdlib/bench\n\n[test-image]: https://github.com/stdlib-js/bench/actions/workflows/test.yml/badge.svg?branch=v0.3.1\n[test-url]: https://github.com/stdlib-js/bench/actions/workflows/test.yml?query=branch:v0.3.1\n\n[coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/bench/main.svg\n[coverage-url]: https://codecov.io/github/stdlib-js/bench?branch=main\n\n<!--\n\n[dependencies-image]: https://img.shields.io/david/stdlib-js/bench.svg\n[dependencies-url]: https://david-dm.org/stdlib-js/bench/main\n\n-->\n\n[chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg\n[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im\n\n[stdlib]: https://github.com/stdlib-js/stdlib\n\n[stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors\n\n[umd]: https://github.com/umdjs/umd\n[es-module]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules\n\n[deno-url]: https://github.com/stdlib-js/bench/tree/deno\n[deno-readme]: https://github.com/stdlib-js/bench/blob/deno/README.md\n[umd-url]: https://github.com/stdlib-js/bench/tree/umd\n[umd-readme]: https://github.com/stdlib-js/bench/blob/umd/README.md\n[esm-url]: https://github.com/stdlib-js/bench/tree/esm\n[esm-readme]: https://github.com/stdlib-js/bench/blob/esm/README.md\n[branches-url]: https://github.com/stdlib-js/bench/blob/main/branches.md\n\n[stdlib-license]: https://raw.githubusercontent.com/stdlib-js/bench/main/LICENSE\n\n[@stdlib/bench/harness]: https://github.com/stdlib-js/bench/tree/main/harness\n\n<!-- <related-links> -->\n\n[@stdlib/utils/timeit]: https://www.npmjs.com/package/@stdlib/utils-timeit\n\n<!-- </related-links> -->\n\n</section>\n\n<!-- /.links -->\n",
+  "readmeFilename": "README.md",
+  "users": {
+    "flumpus-dev": true
+  }
+}
