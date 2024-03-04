@@ -1,0 +1,3740 @@
+{
+  "_id": "@opentelemetry/otlp-proto-exporter-base",
+  "_rev": "32-dcf42368861b4fd67c873a9f8907fd1f",
+  "name": "@opentelemetry/otlp-proto-exporter-base",
+  "dist-tags": {
+    "next": "0.34.0",
+    "latest": "0.49.1"
+  },
+  "versions": {
+    "0.28.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.28.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../",
+        "compile": "tsc --build",
+        "clean": "tsc --build --clean",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "postcompile": "npm run submodule && npm run protos:copy",
+        "protos:copy": "cpx protos/opentelemetry/**/*.* build/protos/opentelemetry",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos:copy && tsc -w",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=8.12.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "8.2.3",
+        "@types/node": "14.17.33",
+        "@types/sinon": "10.0.6",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "7.2.0",
+        "nyc": "15.1.0",
+        "rimraf": "3.0.2",
+        "sinon": "12.0.1",
+        "ts-loader": "8.3.0",
+        "ts-mocha": "8.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@grpc/proto-loader": "^0.6.9",
+        "@opentelemetry/core": "1.2.0",
+        "@opentelemetry/otlp-exporter-base": "0.28.0",
+        "protobufjs": "^6.9.0"
+      },
+      "gitHead": "a0a670a03fd35b0799bee8cc466f79e93b5b6dd2",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js#readme",
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.28.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/3.22.1/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-flCuxMgLSHVlq4OFpjdfqBhArp9yTyXN1Si85sl2mrsRBePicKsJkrRdpl9UVGG75Hh44nVw2Q2zjrlSvvUaIg==",
+        "shasum": "dd51d1a467e881a96f3f0525b7ac9460b77669ce",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.28.0.tgz",
+        "fileCount": 29,
+        "unpackedSize": 100145,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDia8VmUoaSNEi2GCqjjZeqcf61HYWZVNGRgbka6kd0IwIgfa8ZCNtoHh+G7pRNSThxACdMlPhssHizyTV/Q+/dREg="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiYsI/ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmq/txAAn3pfwL1Tj18nEluXguh0bPzEihWPE7kL/UcKkxrKgKAOMH+M\r\nfy+ukRO4XpJvIbejqih2tPPj7twEzZv/2rkAYa3NX/d4Beuu8LRJ2FqeYL/X\r\njIFNWGJEyw5OspqTUrN7x/6PkBu7MhBBQ+edR5M9Zk/YzHKRqGze1o+MbKUe\r\n9elnorfS60Q8pJ7QhZ+w+629QTmyqieoPHyZYD26RDXaZwJ8dM+MdMbBThum\r\nstI3tiLUKLjqoWHGlrmAtRzQTrb+BswsOLk8UoitriiiO1Rrv/c1wYRCRunQ\r\nZiLh0mkXZEtpnwbmKd9wrnLZUdyCBuJXQd+2rkQqjU2kxr9VtVgDdcZZV3I9\r\nBEY8F2LytOSZbTMhXgS3fLc55b5hDDluFzTkDVy8yd13Of77PDiKZxPVfjPU\r\nLTP76YbYstshTu6EqutTT5QBLSqYc5g/YmPmrPzzS1VrqwhEHZQPTpcuSvVc\r\nVg8Ahjbf9lSNdROC8DperxUehsgvY5iboSE/Dm2IEDSVUbc39mi1vF39Di5T\r\nhpYxjPoGijdlj4coQ3rnZIlzr01tVYrULf1LNyo4eyQ7wn9kYKC3yGmYJDpe\r\nl1BpkAL3H1ttuzDzN8DWetdJxXm2ENuiWvNTVQb1K86YSWZgJMcp1hlFgqKG\r\nefvhms/HzO11k5PERD4QwKLkhYNS4AQCOSY=\r\n=Jdyh\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.28.0_1650639423726_0.14522904980846607"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.29.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.29.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build",
+        "clean": "tsc --build --clean",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "postcompile": "npm run submodule && npm run protos:copy",
+        "protos:copy": "cpx protos/opentelemetry/**/*.* build/protos/opentelemetry",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos:copy && tsc -w",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=8.12.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "8.2.3",
+        "@types/node": "14.17.33",
+        "@types/sinon": "10.0.6",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "7.2.0",
+        "nyc": "15.1.0",
+        "rimraf": "3.0.2",
+        "sinon": "12.0.1",
+        "ts-loader": "8.3.0",
+        "ts-mocha": "9.0.2",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@grpc/proto-loader": "^0.6.9",
+        "@opentelemetry/core": "1.3.0",
+        "@opentelemetry/otlp-exporter-base": "0.29.0",
+        "protobufjs": "^6.9.0"
+      },
+      "gitHead": "eda0b092db484855ded8b4837ba7fc19a377c5a7",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js#readme",
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.29.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/3.22.1/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-55YQ+myQlSb3DClLD+6zv7P0aau897UGoGLon64UTpV+vwC0XBNQydOc+wueGmCMuCzVflHxTXeRWhIqcWEG/Q==",
+        "shasum": "878b647473b521c2356d24c7f0672f7d07568cb2",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.29.0.tgz",
+        "fileCount": 28,
+        "unpackedSize": 106152,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIC+giQsy00p+d+N+K2rA7UGLuAbvLAEvcez6hK0Q6/fNAiB3OQU6aRz4nl9/4/zuUu3Vg/nTpcjh5UndTnXDFp/ngQ=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJikSlkACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmo2pBAAho28bhqwPMpzP/fFym47BeKrH/Ws3NHF6PEaRygC11ADiwLV\r\nDPLPVOgNPDLChe4sCUmmguV9Dh/HgYkm2A+dx0IP/EG81oW7AT5wkPIwzVlq\r\nrumd2bIIFWNP5nqrC6aS2oquLzEI640QtgSJQUgGgj72wYR3BDYSPucEyJgo\r\nGlFCMW9ihBfh3kfM/meWixmiNmxNs+K8sBG0B5RjE7Imd4xLato++B0d5VZl\r\nfN/xPxw4GrVyXmAwqSIr5twQLBsJPQq+LZslhaKkSZ6N3ZqukCap8AFtexMg\r\nHKJsyIYc6C6BgKkJHLf3NO/4DTpAvGwg4PQiJcEq+0SyngNjVSLWgTQhJCaf\r\nFrs0CRvi0ckOoUMoxQQWya3FXvX67xsnaqqNav9lH2kVQwBZb35qOz8nPxSg\r\nVFQzgPaj+scJNukxjG/HZKiI7jyWhrZ96oVoMIcMWxmixHBOL5PEHQOjxJ1K\r\nOZgycPl1csNh392ZhX7BbngrKt/XcVZikuoHZyN/8SqxWtVOgX/5KKU8igxY\r\ndwh2cH+eWFbVouxaQkeWHBKna0FdtUylWEm92ZAyrSGBpPmn8AKkKgm5+ver\r\nEJjGRZANXN7MFEguoxjkhwc6Kp8Gi4G2tp6MZP3Z6sM0hHjXTPWFWuZSmBO8\r\nko2zVql6X8fVEykGrM7RyZSfrIyi9a34Vrs=\r\n=8VLw\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.29.0_1653680484090_0.8759762861931519"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.29.1": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.29.1",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build",
+        "clean": "tsc --build --clean",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "postcompile": "npm run submodule && npm run protos:copy",
+        "protos:copy": "cpx protos/opentelemetry/**/*.* build/protos/opentelemetry",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos:copy && tsc -w",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=8.12.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "8.2.3",
+        "@types/node": "14.17.33",
+        "@types/sinon": "10.0.6",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "7.2.0",
+        "nyc": "15.1.0",
+        "rimraf": "3.0.2",
+        "sinon": "12.0.1",
+        "ts-loader": "8.3.0",
+        "ts-mocha": "9.0.2",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@grpc/proto-loader": "^0.6.9",
+        "@opentelemetry/core": "1.3.0",
+        "@opentelemetry/otlp-exporter-base": "0.29.1",
+        "protobufjs": "^6.9.0"
+      },
+      "gitHead": "094f016ac6697fc45ba5d7b5765f5c3e56f18d1e",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js#readme",
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.29.1",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/3.22.1/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-6qNTf4rM38LeXEDDHVzfKogwlvnOj0U5ehjfbeCHXY+AfPwlOmIokOR57hNRUJ2yXrUkVw8GrmjO8DxOTXeYow==",
+        "shasum": "271553f3103ca13217e3fd17fa7619420cea812b",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.29.1.tgz",
+        "fileCount": 28,
+        "unpackedSize": 106152,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDescBH9VuUW/gA+DplKX00AsCaNws1aJhU0AuimrK6BAIhAJFoLmub38DHwGbAfw3cmfKrmNQDNu9KhyyoRQefzlwc"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJil6wpACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpN8BAAluBL68/j3jf+LKHcwZvM/KJCP9eRw+k1IlGP2fEIrs3jVxwR\r\nY+HXEPnqyPmE/CuYmKHgYMLoq0tXDGfj+5bCjMH/pcYxaN6wHz5CyulBdWwv\r\nKzPN9wVe0CO1Uc+9lzrzCooOOPdLuBUzMj6xpONrJgjd0UYOV3xTUhl9Ft+c\r\nedCw5Mv7/ty2pSkLq5anZpdRuqPXAesVApvy1yDmAgzWG8b0hHARx5VAQS9e\r\nFxEL3DrxRMF/sAHl7ZLOoZvW7nJB1JnJByRr0Emy7wUIv3r0GFyyxHXsqIu2\r\nnD0chkusDovwvrl6EdObN8leXquVtob4GGsyWfEIt3BLsddCPF9cVqzRLf3G\r\nJenbUpv7+IUDzaG79cxh4Y/PoamATQGqQDkJSX2OuWPRsWwqaVlSwY3Ft8/T\r\nVqBHTd+u8h9PCSM1Byw4qqd6gNXXYtBvEjwdSQpSD68GXyjrJ0jA3VyCp9O9\r\nGZNqh+00Smh5hh1exjIaN+YISbXY+mPmFQu01zqb/1xkQeVy1EfJtZAZfldI\r\nOSE2WW4CyQ5m9LIBO1IFu52XVNHGklPBA/TZ1xV4I+k6GALapKCEMTZoftdj\r\nAO/RrvnCkWz5LwIq4JHByj0G74E9jVNXEnYSxy/l5gNS87bK5Ti+Lzgud5MQ\r\ntvGzkeC3xsR3ah0PnJErdpRbJz+MuxKzuUA=\r\n=NRTz\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.29.1_1654107176960_0.1216921481726887"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.29.2": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.29.2",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build",
+        "clean": "tsc --build --clean",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "postcompile": "npm run submodule && npm run protos:copy",
+        "protos:copy": "cpx protos/opentelemetry/**/*.* build/protos/opentelemetry",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos:copy && tsc -w",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=8.12.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "8.2.3",
+        "@types/node": "14.17.33",
+        "@types/sinon": "10.0.6",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "7.2.0",
+        "nyc": "15.1.0",
+        "rimraf": "3.0.2",
+        "sinon": "12.0.1",
+        "ts-loader": "8.3.0",
+        "ts-mocha": "9.0.2",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@grpc/proto-loader": "^0.6.9",
+        "@opentelemetry/core": "1.3.1",
+        "@opentelemetry/otlp-exporter-base": "0.29.2",
+        "protobufjs": "^6.9.0"
+      },
+      "gitHead": "51afd54bd63e46d5d530266761144c7be2f6b3a7",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js#readme",
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.29.2",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/3.22.1/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-a46z6yMUzVKrPMbKZLWyO5z+9x1ja7zyS3dlZ1vQLB9fymdsubZsqpCetyh3uSpmfGtHweTie8z0MgR6MMsmiA==",
+        "shasum": "d97fa53e911ebbb6344e6d536e032eaa8cc5e00d",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.29.2.tgz",
+        "fileCount": 28,
+        "unpackedSize": 106152,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICD6Z0HQ23Jkw38b8LhD4d5yd972q5GaS40MHgYpZhWcAiEA3LyBk6MqlU0OI4AeG3he4g+FOzsCt+y/gX+dqfS7C6Q="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJinmLpACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpGcxAAiAv3fGVizL6Hpl4X1RNILEHBDNBpSq515hR1z0yWMhGjQfn/\r\nyDKKZKEdDEr/F7LrWu+MNJkAB9zaqwv3YrdW09d8BFTmuQEDnMLJPyka/liK\r\njWloXNrCu5P+/iTBc3pT5bmiAUMeFGZ4AU5N4+Pi72C34U5fRZwZaXkcXBbS\r\ngZvmYpRtR6/GaNXf2GBTUL7+ZbOp0ywPJSKIU2BF6RO4AHorcIg6hZ7zMllj\r\nGrpvHR3BShdked/pLcDLKo5oj73OrWLHL/8ObruGTRJ+GU98JQyH0gyudB6W\r\ndIYRIY+IR23tjbVMsUQIzD/7u/47UZOmjQAZP0tZfsU1Ff5xjOps+ofV5MG2\r\nBwqsoo2k3nkTYsZzzCnibwEisYP9DEvMsO+ZVfGwdy4JLagG8SL3hQ6zOrcT\r\nQA3zdejM6vtlfQHEyWK0l5XHyhbAtTa6rXeO8TXfuD+Q3ecVyo/3W/yjOtZg\r\nQrNAPeJQA1RtTDqmJGGf/TPTLWgLmTyL9fh3XANFXZelJZxp9kQHFkiAbMKS\r\nIj9i6AwY/4nFjbUsIljOCQyivwMDwUuVkRhBs16hJeklQ9z30ljL4osss6Ma\r\nyGUIyFxwkLtFwM9/1DDHGcjdwNFRV1kRLPMZHWiEEDP+fJwGUgIcAroO/xuR\r\nF9R0CTesLbjX6XA4lDXNYYqkupsbEsBUMpU=\r\n=ayqR\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.29.2_1654547177162_0.7395836604047166"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.30.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.30.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build",
+        "clean": "tsc --build --clean",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "postcompile": "npm run submodule && npm run protos:copy",
+        "protos:copy": "cpx protos/opentelemetry/**/*.* build/protos/opentelemetry",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos:copy && tsc -w",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "8.2.3",
+        "@types/node": "14.17.33",
+        "@types/sinon": "10.0.6",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "7.2.0",
+        "nyc": "15.1.0",
+        "rimraf": "3.0.2",
+        "sinon": "12.0.1",
+        "ts-loader": "8.3.0",
+        "ts-mocha": "9.0.2",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@grpc/proto-loader": "^0.6.9",
+        "@opentelemetry/core": "1.4.0",
+        "@opentelemetry/otlp-exporter-base": "0.30.0",
+        "protobufjs": "^6.9.0"
+      },
+      "gitHead": "e39ab883b18636238ef0fd741df4ce5ed53e8d04",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js#readme",
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.30.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/3.22.1/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-/IOIyZHr06pN3NPdnxEaCZlDGp47Hk9NYW3CugSVbgjE/FZpVnfAmNzLKKpZ7uxd40UsIeGFBoOR3q0I4UTd3g==",
+        "shasum": "a9569b20388cc8c61be5b7e5bcd140a6f5b3fdf3",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.30.0.tgz",
+        "fileCount": 28,
+        "unpackedSize": 106445,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDl/NIj4IbZcz0hLbb1yARB9F1JwFiWb0M0kLgrJeIZrQIgeVHoynAktqexwKnILKCBeoUDS/gkvD0PNRLOHMqZu8Y="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJixe1pACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmp5SA/+LPXJ6D05yKtOXCz8blc/7ToGQSf/fCBuc6yvj/+0EGiikJQ4\r\nAnTi2VYvOBHTCdToS4itRgk4Ho7+MXL1LfV/JtoISpb2tHaRBdhuI1P3el77\r\nH8oxr7pLbjpzk+ZXZE11yjLGqpHWDcm7YsAfiEuk3exnCAEgocp6i8aRTo+7\r\nUyjEL57wPK7lve6xrawBFQwcP+pC8uNewXg8mo2Hc+uvTLtqggmDxEbVECo3\r\nFMspqrB0fwXRw/Eg6eEJt0qbWUNWGYOIuvL/1JsED4bAdFNo/u0hq/2AMNNO\r\nF3SG2YBjjND/7lcACsLMIuQjXad1JsTdL3lasGEXZRmdOew7NaRi+x9shwUM\r\ngO8Y9DPlmZPJSvGhSqqlFNqAn87AV6+yfAdIWSOwvoWbcF42CxdxqYaX0pVe\r\nDftDX69/Qlg2lE2TvSNL1Gdba0ERbMlX12/P9W17ybph53OIrAvbQJ0mvk4w\r\ncoyrbj0P7tRyZveYdN30jAe/gcW9k4hps1rAYw5ffC0rzvnvgCjG6DPPcHrJ\r\nVCMG0tG/NHoBmoIR6mK7KsbFs38bO878Qrw4MyVKbQYdVWf0hdl9EtFlYGEy\r\njVGXP96B12pwAnCn694xEEWbKrQSZDg+tjm6By8ibsE4s6FiZFgPK0VsF7Zq\r\nf/1N4uvLQAjETOXRJIosELsn1vsN6f4OjM0=\r\n=PMih\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.30.0_1657138537375_0.02097790844027303"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.31.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.31.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build",
+        "clean": "tsc --build --clean",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && node scripts/protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "8.2.3",
+        "@types/node": "14.17.33",
+        "@types/sinon": "10.0.6",
+        "codecov": "3.8.3",
+        "mocha": "7.2.0",
+        "nyc": "15.1.0",
+        "protobufjs": "^6.9.0",
+        "rimraf": "3.0.2",
+        "sinon": "12.0.1",
+        "ts-loader": "8.3.0",
+        "ts-mocha": "9.0.2",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@grpc/proto-loader": "^0.6.9",
+        "@opentelemetry/core": "1.5.0",
+        "@opentelemetry/otlp-exporter-base": "0.31.0"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "gitHead": "776656b6e0cd0fc49a52b734702bc77110e483f1",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.31.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/3.22.1/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-jb63BsOyR3BzCnePFgYK5gpuQoFnB7nZEbudkd6Q4bZ3fVSFO8xUcKhJ8q13EoOhQXiMEh5MDqEveFeyiy/B9A==",
+        "shasum": "571fcad9343ef6f70ab50036174d597a846e6310",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.31.0.tgz",
+        "fileCount": 21,
+        "unpackedSize": 1676341,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDxn5h+yjTtZMF+FAudJWwwA+gJgnJpkBIHZ/KkfFD3qQIhAOLQntRfa44tWofrOEA/+tlCng7v5DmNBFIOWPV9pU1k"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJi4FP+ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrjshAAgO9YYW83wi5iYl6ssGf3Ipp/mxRAaiW7hD0S0hkhIsUixsxX\r\nTszZA4JfCgqE3iLkXKJgyJNyJJNLAyJ6NDOYfNpyIUEMfLKTXIyHxnuyeMDE\r\no6WCavxIW7dUK+00s4Z0QDP2iRmAM+4VBCVRlgSRzXOQq8h4MTrEdjOsYSQ7\r\ndEXHIseCDGD6309uDnwxJmQ/NJzVyh0Hx/bgWv9MOEfowZqCOu0lMVapNiEL\r\n8tyaP5h9OxfhRg3cSptl/5oSLc6BUj8ReOmE9oTdO2Gc8hdrB/y7neccuE5F\r\nwEwNDWnPkBzsF8fgftEGpBFLcU+ORRzjFvvJTvH1L+CJhxIdDPmOS0CVQPjQ\r\ndUPT4ftYIS93ogZSqXaIt6dic9TdnYrKaaEV+XJ1tm3E79ilXzpi7AgrLDe5\r\nUzmdSag1mou6lIoCi3+FmVHy0XGD6Kd1/BjbLgbsaIgrieX9IBH5PtHkwrBF\r\npqPWjYlvj22LqPKYhr1tYMENWOno6A5zUHiy9R2lPk2ToZy8IKeAKsbt/zsw\r\nPaqsEAjbpVcSaIkbbeha3TwSoDu4JPBWNxa/N8eWrGYZymzkQ6LlaLGoD5qj\r\ngFVaQ5QvSuBGZcBpsRFNaMWBtxnV16Pi2z1GRw2dWzerv3OIlEpnzMxeX1Bm\r\nYgYOviYxgctN+XYibKpzdUm7POW9X9WgT/g=\r\n=elYR\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.31.0_1658868734260_0.8247608177879284"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.32.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.32.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build",
+        "clean": "tsc --build --clean",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && node scripts/protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "9.1.1",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "protobufjs": "6.11.3",
+        "rimraf": "3.0.2",
+        "sinon": "14.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@grpc/proto-loader": "^0.6.9",
+        "@opentelemetry/core": "1.6.0",
+        "@opentelemetry/otlp-exporter-base": "0.32.0"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "gitHead": "a5abee69119cc41d9d34f6beb5c1826eef1ac0dd",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.32.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/5.4.3/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-LVCSpz1+xNfI36MjrzsEuX58XNbS1Xe5VC+503Rr3MFXWbcBuXOAF4pCGJIMoe+9oAN5YwIxCBUB74PJjXmzkQ==",
+        "shasum": "c4a4bd629f73400e20aab2def7be4ad5af5f5f01",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.32.0.tgz",
+        "fileCount": 21,
+        "unpackedSize": 1676342,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIF1lmsPidPTl/Rve9JQW5xDp3T1u4/cBsG4pIJzb2lZeAiEAiRJigvkOB5dPb31OMWbMyzVvTei+sl6a+wFqiSLt1WA="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjBmODACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmosEg//axNi4j/Lfo12QjRlg88uQUzNnLY68OgtuFmczDuhgrwsHTQu\r\nQCeowRrVhLE9N6vLdN5c224KDR5FzPYX/4YFYm1jLavFZ3xZrhO4cU02ZPB/\r\nkP8BWx0hQ1PNqAg9ol9D3EvUAuz+ZIiNMqSOmchH2iqf7FfC7xFfrqiWmojA\r\nyPR43TiVZ0k99SV7DQaFAOlU2R6WqZLFz4E+1rfLxifIJeTWDzy0c+wtbQZS\r\nA88iw6hw95j85F6JTSMBfd9YmsrpYjKfMbPhXtpbYLP9aHI1OskUTcFB9BsF\r\nvg3aiVy/q9BbcmIQGAyaa/w4pMs4oe/JRyiDVvKJPwiA9q+UzX/ziio6+L9O\r\nDXozy0vtN6SCKrHVuBFjIuwWvYsvQQaZDNuhyGSo028oS/B8m4JmVkfKP8hU\r\nh7DkbIodFUuGOAh8lyY7P+nnYKwoySRg0mgiAHPgt9nEe6hkam+FYWv86IKg\r\nsmFVfZCY0tgsDlPETLCtuw8AR7AoMTUMNQhINhBYFEhIW1EuycZstBwhA7tr\r\ndgz1uLVLm0CEDRshQ2yIRq/m3RsOsGZ4w/tZOe0o5iogsXtFT22HIVa+TZFG\r\n+BVRIB4SCId4ToEAeXV/mDj/pFf/T74Eltjrqw/X07do58yhXC3FgpolNe9e\r\n0Ox2PlyJwPZInKowldzSEmqlaF07L5seweU=\r\n=rDjD\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.32.0_1661363075050_0.5800944767676517"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.33.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.33.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build",
+        "clean": "tsc --build --clean",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && node scripts/protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "9.1.1",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "^1.0.2",
+        "rimraf": "3.0.2",
+        "sinon": "14.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@grpc/proto-loader": "^0.6.9",
+        "@opentelemetry/core": "1.7.0",
+        "@opentelemetry/otlp-exporter-base": "0.33.0",
+        "protobufjs": "7.1.1"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "gitHead": "ad88c3d9aa0100fe259b93f4b660e84417b757ac",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.33.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/5.4.3/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-DFJrqp4VoaFmUbo12Nlw9CxxmqQIa6Aq48OR7Ecv4sh3pf8vgztqak76EPIKlSrw2Fpuo352Dw+Y0nnDyEN15Q==",
+        "shasum": "6c3072a2da9409cb994aa4ca65f8630c1c3e433b",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.33.0.tgz",
+        "fileCount": 21,
+        "unpackedSize": 1760083,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAHTPTplnQ+DCZtcV6MuLjslgCty4CYUaJ9CArw3QYQXAiAMYvlpMaVm1bg9IHKox1VSfDx9RQVOF/mVUBKviBxQhA=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjJGjBACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmpv9xAAnDmTETkgDwycGs3q9tTD53HVxlg34Ra00Kyj6ahQNULvyW/8\r\nsb1lxP/zA2z+uty36D29Otfm0U3/vI2X5xwEYUBqYKE8FdW6iWEgbQuasU6W\r\nfV9N47Gg17EL8hdiRikRh4DkT/LfW5GOdM5Mut7bMHz+OTexgP3Q9aqXqJmk\r\nhAtidQ0ltCgUjMnTX9DN8DWUdIipETkYI5Dtilk5yYhu1abMyCH69/uEDUZ9\r\ngU2b5INEOG68CDFBaPyrCnHLbxgpm7VE7nvy8RTa1+UJqZuxqj2WTkZTWN/6\r\nrrYcC/kdovjUzzZunN3JZJM66gjHK4wSS35Z0Xl2uy0D1u810MP3ldtBBrVj\r\nzmv9V8lcuCQmamKjE7RJBuTIX0OoH+FN+5y8d2uLDw255RWljMU3wG60beUW\r\nz/NKq7updQetTqYqSVOKwjCDlCWRzgfI2NHt9BM9UjSnz85dW4oUJG7bEXU2\r\nqRNnFURp+3MrCoNMWayf3Q3MSQIKULPWI3x22oavVGoKwfRqDRmFzwMa9Z4G\r\n6sg2gmHGXBVQPfDzdGtOx6+pYqu9u8qlpt95K4l6tAX4XhafhQ5O/yCFg/84\r\nQDJHcWsMCZ14DeO1qiU6r8zYhQfE8yRw6y0xwdMtpe4G8m2SvPbf7TU2Tuiw\r\nJ+KQ3ltw/yjdzqYphi/0iedC1DYsBoTFrew=\r\n=30t/\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.33.0_1663330497660_0.377674793207708"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.34.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.34.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build",
+        "clean": "tsc --build --clean",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && node scripts/protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.0.2",
+        "rimraf": "3.0.2",
+        "sinon": "14.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.8.0",
+        "@opentelemetry/otlp-exporter-base": "0.34.0",
+        "protobufjs": "7.1.1"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "7972edf6659fb6e0d5928a5cf7a35f26683e168f",
+      "readme": "# OpenTelemetry Collector Exporter for node with protobuf\n\n[![NPM Published Version][npm-img]][npm-url]\n[![Apache License][license-image]][license-image]\n\n**Note: This is an experimental package under active development. New releases may include breaking changes.**\n\nThis module provides a OTLP-http/protobuf exporter base for Node.js (browsers not supported) to be used with [opentelemetry-collector][opentelemetry-collector-url].\n\n## Installation\n\n```bash\nnpm install --save @opentelemetry/otlp-proto-exporter-base\n```\n\n## Useful links\n\n- For more information on OpenTelemetry, visit: <https://opentelemetry.io/>\n- For more about OpenTelemetry JavaScript: <https://github.com/open-telemetry/opentelemetry-js>\n- For help or feedback on this project, join us in [GitHub Discussions][discussions-url]\n\n## License\n\nApache 2.0 - See [LICENSE][license-url] for more information.\n\n[discussions-url]: https://github.com/open-telemetry/opentelemetry-js/discussions\n[license-url]: https://github.com/open-telemetry/opentelemetry-js/blob/main/LICENSE\n[license-image]: https://img.shields.io/badge/license-Apache_2.0-green.svg?style=flat\n[npm-url]: https://www.npmjs.com/package/@opentelemetry/otlp-proto-exporter-base\n[npm-img]: https://badge.fury.io/js/%40opentelemetry%2Fotlp-proto-exporter-base.svg\n[opentelemetry-collector-url]: https://github.com/open-telemetry/opentelemetry-collector\n",
+      "readmeFilename": "README.md",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.34.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/5.4.3/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-qHnwcAafW8OKeM2a1YQNoL9/sgWVE+JxvMgxf2CtYBqsccIakGPoQ43hLCFLAL3I2Af4BNb5t4KnW8lrtnyUjg==",
+        "shasum": "7d1561b9e97e02448da2eb790e443cfe745083b3",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.34.0.tgz",
+        "fileCount": 21,
+        "unpackedSize": 1760071,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHndw8oVUzEHG5wTtD1ZA8O1D7LgxaThQLWlTiewhp5+AiAhyyvpcdKn4Vpy7P+uebXdZ3RY78nHKjwUc76GAAEQUA=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjbANdACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmrsew/+Pz7LyLMuYaP7XJa/JMdCusCWQLxMalk2b4TZ9R8sjITbPbqS\r\na/2z+2LsEvC6cGpEx/31ZGVc1JnEJ6Q0SpCBwYgOGxqgDH6Q+CceA1F1O0F4\r\nfraudLiN5rCjG80yEAnObDqyk0PzL0YVAyxy8zcGXlvE7B+fArT5e1KbrMEq\r\nP8ybxd3EDtBIqbhdXZPE20UNe8YH24Va02OX4euBR8D+fDgTwmi+zHpjwJ3n\r\nHxDcPBgYJwjJfL18zSf8uTGC2EVNNayx5FS66UfL8edA2zVizMtWfeneWjzI\r\nmkJhFCSJ/ToyjaTkuqzYTE8hQRFNpMIj6Jhy9TINP4lMfwcNYc4Y1wY6C3Ls\r\ns10n9mCixS/4EGY4xNVl66B2jHuDI90FnlKUAvZQLY/aY/Da0knqbIOeadBH\r\nK7Inm6IKSTM9mSzCybrpbX4QRDsC4iQl5sBkZrGXZO6Cm8pXJcbWgMgi1dN/\r\ni0XoqiVMz2Brf2KBStB2/50+jI11liKfbg26ChibAg3i4cBOn8v49Zs1Wsq2\r\n7mmXF0Gr/ASsQq+dcLDI+BvUq5797ikqK2O3RVuw6XYQ5ebJvMndUPlUq9xU\r\nxdEAvW6gGRby7HZvfUzgwBozLNaPPqvZUnZtmG2nYmxAyDqb7xZNekHWH8iA\r\nKoK1hxI6za6tv+gh3B0I2oZQl3hqJy93EIQ=\r\n=jME1\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.34.0_1668023133662_0.7805229075614217"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.35.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.35.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build",
+        "clean": "tsc --build --clean",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && node scripts/protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.0.2",
+        "rimraf": "3.0.2",
+        "sinon": "15.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.9.0",
+        "@opentelemetry/otlp-exporter-base": "0.35.0",
+        "protobufjs": "^7.1.2"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "08f597f3a3d71a4852b0afbba120af15ca038121",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.35.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/6.0.3/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-yJhHeqh0tU/3vzPbFD0mVrlQe+ccrE9LShy5YlXk9RB9x/RXkSU5uNdKmOgmQU+6CSMZYporJYviUNE5knnYHQ==",
+        "shasum": "6deef39f57efa8b3aed3ebfa015f8bc25a106456",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.35.0.tgz",
+        "fileCount": 21,
+        "unpackedSize": 1760167,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCyRUNwIPR0YKmxIAdVD8pApI53L8xCO5cQHyDcxFq7rAIhAL3irXlDfpoGLle8/km0LH/TFij3ZuG/yO42lht0iyzr"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjvy4qACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrwCxAAkqtyz3QeaizPjQfy2ojtF1FSWQ3lwQ95W7W8kEDVeZCRYE5P\r\nvJQ3CWwQZhGhl0Afr8USnxC40GIKvSEg9beveDDD3gqK9YgxcKgt57QWbUB9\r\nmwwGGg/QXvMuaiLsPnxGUvidtNsG8Zx1SdL1niGW8gOviWrfqatVvGdsA/Zo\r\n9pzUEuYWp3IJ31G0DrIIMqmBcGREfAQu8Q7V82Z+UWsgNnCIesbhrGFRQN89\r\npcQM7noe/0MjHGnvo5XkfJ+8B/6CxBhD5Ok2Al/3sa5z2Wiji6Ovl/oB+8zV\r\nnRSYiQJpAk9pjBFKwE7qb+gobHc442RU4js7s8Cyyp3yA9WWrXtFv2CnCVpw\r\nqWPXbQ8u7loJzwKIynMwg7ltLOdS+A3Rwzaa07TqkNvbOaaBe3JdCCLcpa0A\r\nUPGu32ffy5GiGifmmPbX9cSELtfGhkNUo5PwbBU3DPKOrMUih+xAWOb1LdDX\r\nQepWoSjUMR6mPhblVjT6VaHXpEyWPWwX1gMH/A0QIoq0RJXiEYeOvepHtEg8\r\nwAChLyysb827molW1YfsLtahVF2KV2v8MFjdIsh9620jUOD7y4KPYSUJrXlE\r\n6h8vUV9v7JNjBwRMxos5FWOlh95FQMlbyr05NlSD9ybfmDqRvPVh57Mt6Tje\r\n6PkTaNfTBjIGSDthfeXDzlXOyjvvSSPBo2w=\r\n=Z3R5\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.35.0_1673473577871_0.36339850151480557"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.35.1": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.35.1",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && node scripts/protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.0.2",
+        "rimraf": "4.1.2",
+        "sinon": "15.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.9.1",
+        "@opentelemetry/otlp-exporter-base": "0.35.1",
+        "protobufjs": "^7.1.2"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "279458e7ddf16f7ddca5fe60c78672e05fafce66",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.35.1",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/6.0.3/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-EVL1eMMg7hxZA80wr6s0x3L8nAXBad+1/sNHQLioAAXLU1FbAI8eX5s0ko+REIqOjZw4r/ddMF0VAwUEUipSqw==",
+        "shasum": "b540e9419c59c38ccf4c5e21d21029d073b55200",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.35.1.tgz",
+        "fileCount": 93,
+        "unpackedSize": 5293982,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDufFetEy5RqXuRfITsqstVjPg9Tb0FpFu/X4iq/GFVEAIgJRcPscuy9YXNZvb2YEmWToXT+0erw1JK2KK4zz0pNaA="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj1+KJACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpBhg/+ME94KeAe9glqBKsfOqzPBnopFsOQbLlPVPnzcO8d9EfoxjLE\r\nS+thoPt1MjXv38yV2/BZ0/SQGUgzA+OeJzVV/2sFENN0m4xSEIVWBjCozJN4\r\n0LSO6h0pGV2rxaIyxSdG+2eU1BlwSX24A0t+2JVoNA0DYA85RtokHE/fn/nK\r\nUEslzyS7jdB6UY7EqqqAYMCGFPc7R5DwaEl1GAxHTccrPtjMYVMva/b3PRiV\r\nLTikb1X6/l4NMoZjHDI+4HPJKHeDnS+Uq7uBoCyKayB34J/nQBH7ndcp0taI\r\nha2ZeUBUClv+y7sV1lxC2gL/kTDFfLq5VK+iPP6j7UvKpfo+9r7Hq2eIxyyX\r\nmELtn10FiqJ7sOSRUaQ+PmHbatGUSbGyh4TjBGfi/1J7KvBwX/3dl1D9zWVk\r\nG5hlCA7nYujJ89SIbm6kZvhypOJEgwZ8oPERNiNgx8oC8ARg7eh5arkG/me9\r\nJaQqJDzIhshM/AOXauoJpWGicDb2XEV3Rx0Ud76HPBZRpAWVnRDZrtxIBIdD\r\nj5dhSQ95KGzE0OMh3fjDzMttKDF7eT1AEs81Nxx+bcS9f1Stewe9YWouNiKi\r\njMKQi9yhGX1+wf40sQkYJj1wOwcV/yAbYOAknm32ZVsdKR5dVeRnm6cUYY19\r\n9+kSW67kZXXQV0a6jqlcFw+nH0gXOQ94Mak=\r\n=OPUo\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.35.1_1675092616763_0.6860134641927478"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.36.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.36.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && node scripts/protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "1.4.1",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.0.2",
+        "rimraf": "4.1.2",
+        "sinon": "15.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.10.0",
+        "@opentelemetry/otlp-exporter-base": "0.36.0",
+        "protobufjs": "^7.1.2"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "56e6b1bb890f844b8963a146780d0b9cfa8abd0d",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.36.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/6.0.3/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-ZFOTrhx6RdWsJ4ttLzLAYgmmkiNMfbh+BcZwEZMPhIhyjRNJ4DfQtdUk6z0OpSEonBQm5x++EhtC1I3bRt040Q==",
+        "shasum": "458c74fc48576f7122a66efebf182a3e7d58cfd9",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.36.0.tgz",
+        "fileCount": 93,
+        "unpackedSize": 5293982,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCHNNjLCDQa8ME6eiGQa/xVTbbYUZ+K4Prrt7T1aF806AIgcOmIPqIivNc+y8Ch9WJ6aJj+unxJMGPs6j2U2iAl+6g="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkD0cMACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrdURAAgEXaMRT7URzn85g+Gq9Hm0ji/TULIiky2Blixbk3CFIglrMi\r\nkS7fLofDKfJlsKCWtvBmHmMltZi681+vtm2kK3abE7v0QDTEQlrn90Nr48hi\r\nB3TPbYgU7yXbjIfDZn6qWwXLjCeIr8milngXFQTc0ZfAMo6go1z+K/7aL7EH\r\nzoJ86mg1pNSu5pDNFd09Towp8oZY+j7f+kuaw8EurLECYjGJ2jzcMAiUf0ff\r\nJHW656UEyftYZRjyXJa990pGoQGLl4J+FlaF9d+R4NmlWmanFK2LweU3sKh4\r\ncS421OaPaJ+whIXTwCsfDo1R2n+HhnMeT488Kv1uLn1OyaaX0RDHt9ofum5N\r\nst5epgPGh6BHSPo6XVbzWaazhvkZD6K4H1FlPYvTjtedUHt94lcaMz1jQ6ln\r\n5PiSVAppX8k+qGLgt0VoiXd4FyiOgl0yZtZ9T8uzI1dURPAt4w/i66m6rklk\r\nIZ9WKw4Ub4TCzmynwYkOXVXbYu/LxDMGLMiAoDB+e16UbIXtwmw8MWgFkRQc\r\neQ467V1nO7BrCUNI+Ihj1XhsZ05ODVuCUBVpbEyzLph9zg8gSBu6iF+YWOiP\r\nAcbzePVV9BKpOZRvXgW3oFTZw7qWMndR8wK5AaP0VUN5C2HPPzKzUT16yAco\r\n3UTSv030sgLj4wW2KikHcXaZRKF83fZYjCg=\r\n=eo4y\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.36.0_1678722828334_0.5617952075310051"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.36.1": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.36.1",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && node scripts/protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "1.4.1",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.0.2",
+        "rimraf": "4.1.2",
+        "sinon": "15.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.10.1",
+        "@opentelemetry/otlp-exporter-base": "0.36.1",
+        "protobufjs": "^7.1.2"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "486df99906958de9b8b666839785b00160a6a229",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.36.1",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/6.0.3/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-9ErknJ5fS7r2NxEFeca93H+pGWnCjZCUWsz6Stcj5/z2rgsiZGHXLz3fQoUGQz+iXjiXKkks9wxTCRgWOW+Yiw==",
+        "shasum": "3e5eb68942c20a6e67d5379f385ec07bdf36c142",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.36.1.tgz",
+        "fileCount": 93,
+        "unpackedSize": 5293982,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCGV0N+vzPFHR/2ZHqMuwI4E7lrvXj/7uiZ9nVI+uZ4tAIgV2h6yeULgup6nzjyeRQ7/riE2ZhiGEpv4zC6XLMOC3Q="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkGIV6ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoC7g//cXCvTqj9gLcqEAR1ySOryXzdaIgYPATHbqeG1FhFzVqVRdJs\r\n305Jk2JRcbPtbuhqiWcf26cJGuQQB5pIXxTcdYc6XrVkS8Ucy9PbhATwgNH1\r\n6APhYzuUQIFw7rq9rG0W+gumP6Lmv1APe2hoEr2lkFC7Z25sleyW6yo7+V1Z\r\n3DaG4xRyAWDJ4HIMEIHFny917l7n31+sZw1ZGu5vu4nHuXkwgS3AYrVEknG5\r\nwkc1vzueCQ83P+a3QzL0948RanAAaVOtbD9o+6mYaMga2bI8ziZFh3hgU5fd\r\n+PFlfn7V/B3bjNrf0uVpdmstySZ3DjUZXxlp8SUJOkdCFH+/MF3Pi1CxgK2v\r\nCGD2yiOAk7VXkVmibxhcndYRztl4G14puhtpYD60HkiVBeD7JC8sGs9bIW4S\r\nhBEclRR4uZ+L75csTMCrVz/aMQZ1jj0nP1XDgS65vk38gZ16lNaTzMv1PhXl\r\nXeLg7INrrmEUIzdPY4Kf0J7n6CC2V+qZwWBlSdgIFQo8Se7mQPjiWvgr+3O7\r\nZI647qpMZYhXmw7J6uThDXjcIc0l6NsVtazx0NF+glU1bhO8XVQKiBFULwJp\r\n1DzSyPzUml2VyiRzvPnN5AZm3zHoXcVC3qjq3Rn7+ZgtmR1X06US+IWglZ5F\r\n3mXHeOIHa1Lu8lUN2avVTtB/0oxKMVlfhtI=\r\n=kvmp\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.36.1_1679328634724_0.2752931197105879"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.37.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.37.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && node scripts/protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "1.4.1",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.0.2",
+        "rimraf": "4.1.2",
+        "sinon": "15.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.11.0",
+        "@opentelemetry/otlp-exporter-base": "0.37.0",
+        "protobufjs": "^7.1.2"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "1328ee04ae78f9f6cf143af7050c00aaa6d2eb3b",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.37.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/6.0.3/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-KU1aJetRLQWwtoiXiuJcsW2H8e6H3qn9gvoT2SLyA3f566C/i2z1aJRqJnO+ZEo87SBxDf/gk2R300PohDOBrQ==",
+        "shasum": "c5375a8d14f9821098650cae94c6dd00c39682cd",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.37.0.tgz",
+        "fileCount": 93,
+        "unpackedSize": 5293982,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBhPkNs7E/lNHrYKxakC5jO/wvTFLt4/7XM/iilA5d2oAiB228Z0VsWaVWh0Y02PweEJkvm9BXdZDPCjV7ALEGz/+w=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkJaswACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmpr1BAAipupzbrDmuqd37LYK38STM1MMlflVoWIMYu8cdNkZvIS3RAy\r\nfew8/gLrQwBBTQAHXE3o+/AHYnv/ZP/SEwllOWznrF5gTXlmqNV7XSWM5NDg\r\n5Jut8jmzJHs6Q3yPDl47uVyPtbhrD49i0fCAoYtwRa7CTbHlJkBSfAWf37y1\r\nfH1+Jl0RRyVzM53+2mJSNnLeDwiafbzSVv9UPQ+z3Y99gBjZOwVa8xA0Xixf\r\n6dj3Cnm45AQ8YFA3zn6cTAwkglfTiz8PL9E/bbb7OoEF8Db3WrBekndd/eDB\r\nSS79svTou7whH9tD+9RnemRh6PlRecDy6mjoOymNO1daw824109pHb0vJyFA\r\nmZnsdwc4ZVrRoX6CFuXnKmv4q6Ru/UqydDTvNgShRerNg++sSDLrIiaXkK5K\r\nxIf7xFnn0yGqXaCCbriVSTM+BnKNfRcQVu3Ygn9+z4d8qlJSXFrbuRDq3X+q\r\n7vInGkkATKoQNs0ByrBTJ18d5FwZK1Brf+jJj4zb6qp1CKIzLtcUaUKxOJB2\r\n2skop6q/99hMo32KyJv7tG3NmeXi6D6X1gnTR3ioRdl+rQ75tIYtszJxjHce\r\n0TcFak/MyD2AXGvrBwAiERm6oQi5FDKJZUIVPCKwkJJytmf9W0xeuwb0NvBJ\r\nklsWyJqXZ75/Pckw45hbpqDLUkWwioGEgmM=\r\n=2jNH\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.37.0_1680190255719_0.9986432151466922"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.38.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.38.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && node scripts/protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "1.4.1",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.0.2",
+        "rimraf": "4.1.2",
+        "sinon": "15.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.12.0",
+        "@opentelemetry/otlp-exporter-base": "0.38.0",
+        "protobufjs": "^7.1.2"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "a04090010ee18e17487b449984807cc2b7b6e3e6",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.38.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/6.0.3/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-/Z68pIgFv+IwQQfJOJQ9ga7KZ5ET2cFAnpWO9JsxrHjW9glmX+T9RgcF7rfSAFl2JSM9A+kQ11WYRjE2tNKxqg==",
+        "shasum": "c42273b2789f73e6c380534b2db9587d87dd3bbb",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.38.0.tgz",
+        "fileCount": 93,
+        "unpackedSize": 5293982,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDprBs9Almsb4EzXjuSg4LtrbNeAjj+DrRyPMgVfue/6wIgc6oEU9xX4zCR/euLBFUrGD+sNvLKhP4DqcnnJLGR7r0="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkOEYsACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrKzg//Tntm0b4p1hi/ua5P0SaYXqV3SzrZtzqQ+50azUxOBV7IBWJd\r\n94kvCjtwvpkvXw+bi6tDBEmTF1s+RmgOz6jCLIrV5r+aqfhIt1yYU4WXOR7O\r\nQaFM565e4JYLpjvROsNjOV9jVGXmRPVx2jD3BGrJyJx6at7qxpDwX/ePsyBm\r\nwLnyyqzTddMn8rNdvGRZLIcEiBr3TBtmFQIjUt2W21i6n95jznYxQK9QCHUJ\r\nKEM2xdd1rTdgikAMSOkvmHBMIdwgSX18H89qMFFSLhq/WUwaioGQEL7w8v/a\r\n5mZz4Wjio1sZPVop4CBiA03GGUdNGIcOGdkMEVTCgpJSxW4C8imSvSDy4GUf\r\nk4XnAX2qQ5M+6g/MaGq7cBhHpIoLYFRiiMyleN++IBSwxcULJyXTsQdNVOJg\r\ntQ6lRy6cVhhqJM1LD5xee1KFNrqqKRovMxGpYSEL03TmhKfRZR49tqGUniVD\r\nCdIbuDrIP/Iv6HK8Dv70Hh7EIzW3qNmQr+ZFhv/DPaDvjC3RNdtFylJwMgGT\r\nfZt5cORKIAs47s3kDPKJGWf7uP74AYI6KlbK76Nt8AYIdVs8HjGgnspZxCXw\r\n3CqAl+ijwTjzYA2nUlfbLXp9POsF0sUbTc4NGTsK02wa11bHot/WnnG97jdA\r\nx9C69qYibhQ892n571zRKRyuhFef6zCQGmo=\r\n=4Jpc\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.38.0_1681409580406_0.9776409938040358"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.39.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.39.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && npm run protos:generate",
+        "protos:generate": "node ../../../scripts/generate-protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "1.4.1",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.0.2",
+        "sinon": "15.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.13.0",
+        "@opentelemetry/otlp-exporter-base": "0.39.0",
+        "protobufjs": "^7.1.2"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "8fc76896595aac912bf9e15d4f19c167317844c8",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.39.0",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/6.0.3/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-4u4gYHcCkLluLidVWTuQCFF+lBvl/gyPl/jWPDVZJEw0Cmkr95uLw7dBhU7dHUcSkUWAQjdDSpzMLYdM4cmYhw==",
+        "shasum": "b33f1451f94acb97ce740f1b13116e5a6e112d16",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.39.0.tgz",
+        "fileCount": 93,
+        "unpackedSize": 6318842,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCnRZGA+2axAM0Y8528vWfk7DK8RcZYvFwgmrSQUldFggIgGRehyv4rX7zi8XjJ1/cy65lU1WZyyE/u1lhrKz1omNs="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.39.0_1683811806631_0.7020422765197536"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.39.1": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.39.1",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && npm run protos:generate",
+        "protos:generate": "node ../../../scripts/generate-protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "1.4.1",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.0.2",
+        "sinon": "15.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.13.0",
+        "@opentelemetry/otlp-exporter-base": "0.39.1",
+        "protobufjs": "^7.1.2"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "bba09c0e5a6d92fc71ed08028966ae9d56da53db",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.39.1",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/6.0.3/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-VssdfGYu6LkSliQATdkvoP8lPSQuNLENRdHTUOV2veF4iqY/UpxBFFlkarY29W+MYjWXIBfYntgNjQvcn78A+w==",
+        "shasum": "04a46c7497724759a260d8ded5463a20ac5c6d39",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.39.1.tgz",
+        "fileCount": 93,
+        "unpackedSize": 6318842,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCo1NKMB+WFSi2lh0DYqpwVg7zRUXb6Gwvxkmdw6PBWPQIgQbGJtxKkHExjKz0UIIsIvEn5O2oGNvPENojm2l15iBY="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.39.1_1683897176249_0.24739628755414933"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.40.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.40.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && npm run protos:generate",
+        "protos:generate": "node ../../../scripts/generate-protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "1.4.1",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.0.2",
+        "sinon": "15.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.14.0",
+        "@opentelemetry/otlp-exporter-base": "0.40.0",
+        "protobufjs": "^7.1.2"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "edebbcc757535bc88f01340409dbbecc0bb6ccf8",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.40.0",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/6.0.3/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-Wc3Nrmi/BBffrRPgf4ic1jrSnvLEd3+vb2sytDDBzRM97Oobx6RI1Y6bDkCN9pI/VRBaaFap8qT9riVec0MIug==",
+        "shasum": "250b801688de1a4eafffc9efdf664ad01e8bac97",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.40.0.tgz",
+        "fileCount": 102,
+        "unpackedSize": 6320116,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCklzA5nB3Za/FxL1lD7ZIWDuzc64zIkXEaDhdcVRvS0AIgYfB4T4EI9Fbi2hqjVT9qIaiK7euXckUdyXTs1O1vZwY="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.40.0_1686031255170_0.4124262413582973"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.41.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.41.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && npm run protos:generate",
+        "protos:generate": "node ../../../scripts/generate-protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.6",
+        "@opentelemetry/api": "1.4.1",
+        "@types/mocha": "10.0.1",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.15",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "lerna": "7.1.1",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.1.1",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.15.0",
+        "@opentelemetry/otlp-exporter-base": "0.41.0",
+        "protobufjs": "^7.2.3",
+        "tslib": "^2.3.1"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "06e919d6c909e8cc8e28b6624d9843f401d9b059",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.41.0",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/7.1.1/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-VY/7y8ne72PIzPxFN3uzHfrmxo9rCDWP08/fY3iodjizCxmCCRFM4Sb7VX0ZSrjakL1mLXFd0FSwe71AsAtM9A==",
+        "shasum": "3425ded083279d43d4118b03e0042503eb9283a3",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.41.0.tgz",
+        "fileCount": 102,
+        "unpackedSize": 6217452,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFVTt3HS6G+eNoGjskWXa3nQgifn51RhZwhH5X2OH3zKAiAiKftfOr3+Qyj8AvEv27XlaBvIMJy0cA/YaniKNmyYXA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.41.0_1688642828519_0.9412702479906645"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.41.1": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.41.1",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && npm run protos:generate",
+        "protos:generate": "node ../../../scripts/generate-protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.9",
+        "@opentelemetry/api": "1.4.1",
+        "@types/mocha": "10.0.1",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.15",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "lerna": "7.1.3",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.1.1",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.15.1",
+        "@opentelemetry/otlp-exporter-base": "0.41.1",
+        "protobufjs": "^7.2.3"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "9f71800fdc2a5ee5055684037a12498af71955f2",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.41.1",
+      "_nodeVersion": "18.4.0",
+      "_npmVersion": "lerna/7.1.3/node@v18.4.0+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-FnO/moJj/5gdFgoFRV0LFnN87SMIP2mL58zdNYsxleUXGZCyO2BWwgjVBul8TseCicrzIyO0PIAJ1+Ys1nh+bg==",
+        "shasum": "152004ec88a80749f668fe34e6da5c86460a59e3",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.41.1.tgz",
+        "fileCount": 102,
+        "unpackedSize": 6219771,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDdz9zuWEvIsSHl6+42vVeIvXWLGhpxEbK8KUo8bnqz9QIgTjO7kk4bPB2g6PQTmJXcOspdqltL7OIwXVl5AlXZT2w="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.41.1_1690209168278_0.6511497535279105"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.41.2": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.41.2",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && npm run protos:generate",
+        "protos:generate": "node ../../../scripts/generate-protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.10",
+        "@opentelemetry/api": "1.4.1",
+        "@types/mocha": "10.0.1",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.16",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "lerna": "7.1.4",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.1.1",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.15.2",
+        "@opentelemetry/otlp-exporter-base": "0.41.2",
+        "protobufjs": "^7.2.3"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "48fb15862e801b742059a3e39dbcc8ef4c10b2e2",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.41.2",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/7.1.4/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-BxmEMiP6tHiFroe5/dTt9BsxCci7BTLtF7A6d4DKHLiLweWWZxQ9l7hON7qt/IhpKrQcAFD1OzZ1Gq2ZkNzhCw==",
+        "shasum": "10b1a4bb973bd6e0e741931d90f22387c5a3a151",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.41.2.tgz",
+        "fileCount": 102,
+        "unpackedSize": 6219772,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDbjt/DYx+KmK3kGDlbzBevChLrGMLXmridYOz1Bz2HegIhANUOaRnBrQkXtHAM2cehtOieSC2NyDxPuFEGhItY4tnb"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.41.2_1691500880759_0.8976270284199002"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.42.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.42.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && npm run protos:generate",
+        "protos:generate": "node ../../../scripts/generate-protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.17",
+        "@opentelemetry/api": "1.5.0",
+        "@types/mocha": "10.0.1",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.16",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "lerna": "7.1.5",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.1.2",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.16.0",
+        "@opentelemetry/otlp-exporter-base": "0.42.0",
+        "protobufjs": "^7.2.3"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "5fcd8cf136e2235903dde3df9ba03ced594f0e95",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.42.0",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/7.1.5/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-jF5sZndx8Nh3hxxD/0Db55+pr/X3zrLGBNxGbFZ/aSMHLRCqL0Mtkg0OywDT6bD6mgTl/b79sUvzdEpmo+Y1tg==",
+        "shasum": "db18fdbdf22037e0c2a9477e153ea007d01c45c4",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.42.0.tgz",
+        "fileCount": 102,
+        "unpackedSize": 6219778,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFqs+ij9rlxgPKzm7itvb0BwhX7qRT++EVhhHc3BSZKLAiEApbVrwm2f8uqITigE/TMydrSbvxQQNCrcJaT3ZFRVQ/U="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.42.0_1694434470999_0.16780821093602816"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.43.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.43.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && npm run protos:generate",
+        "protos:generate": "node ../../../scripts/generate-protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.17",
+        "@opentelemetry/api": "1.6.0",
+        "@types/mocha": "10.0.1",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.16",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "lerna": "7.1.5",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.1.2",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.17.0",
+        "@opentelemetry/otlp-exporter-base": "0.43.0",
+        "protobufjs": "^7.2.3"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "faf939c77591f709afbc23fadbe629c9d3607ef6",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.43.0",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/7.1.5/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-6s74egvK4MbN1ZYpaq5+k8wPe2s/OCUzz6aNwjLHGNAA/f4up6asTMlNE8F5PAmx2nQf2jvx+s90b6DjuEYElg==",
+        "shasum": "e7d3ddca4a29edcdd7c5e9646bdff5f8ffb7f581",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.43.0.tgz",
+        "fileCount": 102,
+        "unpackedSize": 6219778,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCQqfYQjlS8JQPtGYa1lgV9RrdbG4LAuYV7XjU03ds9ewIhAKwMMk3J++Bu///bBPCmcZdLrpOY8lzZAXQm2OBtxrHG"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.43.0_1694524354543_0.9993658493402839"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.44.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.44.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && npm run protos:generate",
+        "protos:generate": "node ../../../scripts/generate-protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.20",
+        "@opentelemetry/api": "1.6.0",
+        "@types/mocha": "10.0.2",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.18",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "lerna": "7.1.5",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.1.2",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.17.1",
+        "@opentelemetry/otlp-exporter-base": "0.44.0",
+        "protobufjs": "^7.2.3"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "f8e187b473274cc2011e7385992f07d319d667dc",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.44.0",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/7.1.5/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-vgQvWEkXNk8X4BW93+j054TZBVs1ryguXQjeoLeHV/dzopdGuAypI0xC5OtSr+eRftuyPqPl2DVp4tjRq4z4dw==",
+        "shasum": "10caa329223a0b1f19c29d950bce6576aa84fe5c",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.44.0.tgz",
+        "fileCount": 102,
+        "unpackedSize": 6219778,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDm2/CV7BzHP5I628Bm/b7Kd3UXA+4IArSNWGkCWalfuwIgLXCRQotmxpv+lqPvUzjcPBi33C0TldT7s9ZgcHCquo4="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.44.0_1696947496436_0.9223190983388694"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.45.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.45.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && npm run protos:generate",
+        "protos:generate": "node ../../../scripts/generate-protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.20",
+        "@opentelemetry/api": "1.7.0",
+        "@types/mocha": "10.0.3",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.20",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "lerna": "6.6.2",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.1.2",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.18.0",
+        "@opentelemetry/otlp-exporter-base": "0.45.0",
+        "protobufjs": "^7.2.3"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "73b446688f10fd8dc4cf403a085f0a39070df7b4",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.45.0",
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "lerna/6.6.2/node@v18.18.2+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-rHcQvhRHYGnappZ/m277PPvjYINfQQcd/JCfgC/oPOjA/c9MIn2J0TIBqovPHYTIoQeWUnnv046prT6/KKJDaA==",
+        "shasum": "bf268f411a7800489d240a31dfeb6a03674c3900",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.45.0.tgz",
+        "fileCount": 102,
+        "unpackedSize": 6219778,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDa/wvJvzUpTapSOUz80KHSOAu2fL8AiE4DJyrKPiBBfwIhALLrH85GtfS7PbdrbYlHkPbf8HDIA5V2s21dMh9r+dF6"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.45.0_1699353886790_0.30657380132996503"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.45.1": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.45.1",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && npm run protos:generate",
+        "protos:generate": "node ../../../scripts/generate-protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.20",
+        "@opentelemetry/api": "1.7.0",
+        "@types/mocha": "10.0.3",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.20",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "lerna": "6.6.2",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.1.2",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.18.1",
+        "@opentelemetry/otlp-exporter-base": "0.45.1",
+        "protobufjs": "^7.2.3"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "f665499096189390e691cf1a772e677fa67812d7",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.45.1",
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "lerna/6.6.2/node@v18.18.2+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-jtDkly6EW8TZHpbPpwJV9YT5PgbtL5B2UU8zcyGDiLT1wkIAYjFJZ1AqWmROIpydu8ohMq0dRwe4u0izNMdHpA==",
+        "shasum": "791129f256f6c3ae298e0cd96020eaa65d7a0689",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.45.1.tgz",
+        "fileCount": 102,
+        "unpackedSize": 6219778,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQC/2WqL/LY+b4M9LlsWY+CcOfiji9PlWmU6dP/kEOL/+AIhAMDVeE+jlYB/WiZnNOWt61jFqYgR08MT52mOWHdP6NG8"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.45.1_1699466948955_0.5563044835378013"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.46.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.46.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && npm run protos:generate",
+        "protos:generate": "node ../../../scripts/generate-protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.23.6",
+        "@opentelemetry/api": "1.7.0",
+        "@types/mocha": "10.0.6",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.20",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "lerna": "6.6.2",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.1.2",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.19.0",
+        "@opentelemetry/otlp-exporter-base": "0.46.0",
+        "protobufjs": "^7.2.3"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "d3c311aec24137084dc820805a2597e120335672",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.46.0",
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "lerna/6.6.2/node@v18.18.2+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-rEJBA8U2AxfEzrdIUcyyjOweyVFkO6V1XAxwP161JkxpvNuVDdULHAfRVnGtoZhiVA1XsJKcpIIq2MEKAqq4cg==",
+        "shasum": "b82364ce5c7e36d101354973eca92152965e9af4",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.46.0.tgz",
+        "fileCount": 102,
+        "unpackedSize": 6219777,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBEhk8SvoC6nw7oVlmrKWX2a4Qk0XicxLxyO4bsl93W5AiEAz0mdInyGRQQiSz4JQoFd0ArhI2hWBvRfwhAZw8bkbII="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.46.0_1702557329484_0.1940494963317898"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.47.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.47.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && npm run protos:generate",
+        "protos:generate": "node ../../../scripts/generate-protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.23.6",
+        "@opentelemetry/api": "1.7.0",
+        "@types/mocha": "10.0.6",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.20",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "lerna": "6.6.2",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.1.2",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.20.0",
+        "@opentelemetry/otlp-exporter-base": "0.47.0",
+        "protobufjs": "^7.2.3"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "57008533aba7ccd51ea80f38ff4f29404d47eb9c",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.47.0",
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "lerna/6.6.2/node@v18.19.0+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-SFVuzf3b7U9+5jfxqWrwsq/HlGF8CEKFe4avSFtEFpj8VOSRDOTYK6A641HEAHiQp/nTLlTHtV7djdp6ZyIUVw==",
+        "shasum": "df5b0afc058ca1f44e3787c97d2ba3104158ec39",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.47.0.tgz",
+        "fileCount": 102,
+        "unpackedSize": 6219777,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDDmjrJ+VW9SfQ/akvey4USr3fO5WaHjM5DCH5hdDSGDAiEAhsR7qsbMi5vhvXAr7GwIr9Q99H4vFbxtNu6dxp2KZrw="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.47.0_1705313747233_0.8574507286769548"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.48.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.48.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && npm run protos:generate",
+        "protos:generate": "node ../../../scripts/generate-protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.23.6",
+        "@babel/preset-env": "7.22.20",
+        "@opentelemetry/api": "1.7.0",
+        "@types/mocha": "10.0.6",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.20",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "lerna": "6.6.2",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.1.2",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.21.0",
+        "@opentelemetry/otlp-exporter-base": "0.48.0",
+        "protobufjs": "^7.2.3"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "828f2ed730e4d26d71f92e220f96b60a552a673a",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.48.0",
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "lerna/6.6.2/node@v18.19.0+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-14GSTvPZPfrWsB54fYMGb8v+Uge5xGXyz0r2rf4SzcRnO2hXCPHEuL3yyL50emaKPAY+fj29Dm0bweawe8UA6A==",
+        "shasum": "520c5b3c533bf6d1e4b414f894801366d4c1b752",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.48.0.tgz",
+        "fileCount": 102,
+        "unpackedSize": 6219813,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDHYsp3qBt8P74avKq5t04ZEhUvZRVtuegBW/wN1Ty3XgIgMfTjckU9F85DnhMLRl4rBMrvAIrmRiVVBRTqxulRqwQ="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.48.0_1706249469194_0.9192832024052819"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.49.0": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.49.0",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && npm run protos:generate",
+        "protos:generate": "node ../../../scripts/generate-protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.23.6",
+        "@babel/preset-env": "7.22.20",
+        "@opentelemetry/api": "1.8.0",
+        "@types/mocha": "10.0.6",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.20",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "lerna": "6.6.2",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.1.2",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.22.0",
+        "@opentelemetry/otlp-exporter-base": "0.49.0",
+        "protobufjs": "^7.2.3"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "7be35c7845e206b27b682e8ce1cee850b09cec04",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.49.0",
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "lerna/6.6.2/node@v18.19.0+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-AnKuysKtXYTVYEfzOy4scTEIhCC/m7guBFNXP8KUnzF8iRj+S7ccBR+N7rRcZ1rCbx7CCoIu15ZPx9gkkl8Iqw==",
+        "shasum": "92917e864e522420a9143c1cd20a6c49f9346be2",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.49.0.tgz",
+        "fileCount": 102,
+        "unpackedSize": 6219813,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFdljzBbdxcd7IdOmQTbyuDsUB/+VWWPlhqZD8GS2lcuAiBl4OFlCY4Yk7mx4G80fE1Y6YXa/y7NzWSJPZq9+fz40A=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.49.0_1709198293931_0.5604062302581474"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.49.1": {
+      "name": "@opentelemetry/otlp-proto-exporter-base",
+      "version": "0.49.1",
+      "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "npm run protos && tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "protos": "npm run submodule && npm run protos:generate",
+        "protos:generate": "node ../../../scripts/generate-protos.js",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos && tsc -w tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.23.6",
+        "@babel/preset-env": "7.22.20",
+        "@opentelemetry/api": "1.8.0",
+        "@types/mocha": "10.0.6",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.20",
+        "codecov": "3.8.3",
+        "cross-var": "1.1.0",
+        "lerna": "6.6.2",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "protobufjs-cli": "1.1.2",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.22.0",
+        "@opentelemetry/otlp-exporter-base": "0.49.1",
+        "protobufjs": "^7.2.3"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+      "sideEffects": false,
+      "gitHead": "3920b158d08daa776280bde68a79e44bafa4e8ea",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/otlp-proto-exporter-base@0.49.1",
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "lerna/6.6.2/node@v18.19.0+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-x1qB4EUC7KikUl2iNuxCkV8yRzrSXSyj4itfpIO674H7dhI7Zv37SFaOJTDN+8Z/F50gF2ISFH9CWQ4KCtGm2A==",
+        "shasum": "ad1f979f94c5a2d114a72dd4813dfc6635b9f4b1",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/otlp-proto-exporter-base/-/otlp-proto-exporter-base-0.49.1.tgz",
+        "fileCount": 102,
+        "unpackedSize": 6219813,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIQCR3DqenEWujYQOTIUWoc7+//QCPA2ZqWJlGVbVs0gvaQIfEsp3n3XAocPghtPQcA5ypfZxGS/tBtjgGhHU5JpkbA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/otlp-proto-exporter-base_0.49.1_1709214966854_0.17478833690810225"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2022-04-22T14:57:03.649Z",
+    "0.28.0": "2022-04-22T14:57:03.962Z",
+    "modified": "2024-02-29T13:56:07.562Z",
+    "0.29.0": "2022-05-27T19:41:24.197Z",
+    "0.29.1": "2022-06-01T18:12:57.139Z",
+    "0.29.2": "2022-06-06T20:26:17.328Z",
+    "0.30.0": "2022-07-06T20:15:37.499Z",
+    "0.31.0": "2022-07-26T20:52:14.436Z",
+    "0.32.0": "2022-08-24T17:44:35.217Z",
+    "0.33.0": "2022-09-16T12:14:57.860Z",
+    "0.34.0": "2022-11-09T19:45:33.841Z",
+    "0.35.0": "2023-01-11T21:46:18.083Z",
+    "0.35.1": "2023-01-30T15:30:17.012Z",
+    "0.36.0": "2023-03-13T15:53:48.555Z",
+    "0.36.1": "2023-03-20T16:10:34.911Z",
+    "0.37.0": "2023-03-30T15:30:55.982Z",
+    "0.38.0": "2023-04-13T18:13:00.673Z",
+    "0.39.0": "2023-05-11T13:30:06.829Z",
+    "0.39.1": "2023-05-12T13:12:56.528Z",
+    "0.40.0": "2023-06-06T06:00:55.422Z",
+    "0.41.0": "2023-07-06T11:27:08.682Z",
+    "0.41.1": "2023-07-24T14:32:48.497Z",
+    "0.41.2": "2023-08-08T13:21:21.018Z",
+    "0.42.0": "2023-09-11T12:14:31.310Z",
+    "0.43.0": "2023-09-12T13:12:34.735Z",
+    "0.44.0": "2023-10-10T14:18:16.819Z",
+    "0.45.0": "2023-11-07T10:44:47.044Z",
+    "0.45.1": "2023-11-08T18:09:09.255Z",
+    "0.46.0": "2023-12-14T12:35:29.819Z",
+    "0.47.0": "2024-01-15T10:15:47.421Z",
+    "0.48.0": "2024-01-26T06:11:09.427Z",
+    "0.49.0": "2024-02-29T09:18:14.172Z",
+    "0.49.1": "2024-02-29T13:56:07.088Z"
+  },
+  "maintainers": [
+    {
+      "name": "pichlermarc",
+      "email": "marc.pichler@dynatrace.com"
+    },
+    {
+      "name": "bogdandrutu",
+      "email": "bogdandrutu@gmail.com"
+    },
+    {
+      "name": "dyladan",
+      "email": "dyladan@gmail.com"
+    }
+  ],
+  "description": "OpenTelemetry OTLP-HTTP-protobuf Exporter base (for internal use only)",
+  "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/otlp-proto-exporter-base",
+  "keywords": [
+    "opentelemetry",
+    "nodejs",
+    "protobuf",
+    "tracing",
+    "profiling",
+    "metrics",
+    "stats"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+  },
+  "author": {
+    "name": "OpenTelemetry Authors"
+  },
+  "bugs": {
+    "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+  },
+  "license": "Apache-2.0",
+  "readme": "# OpenTelemetry Collector Exporter for node with protobuf\n\n[![NPM Published Version][npm-img]][npm-url]\n[![Apache License][license-image]][license-image]\n\n**Note: This package is intended for internal use only.**\n\n**Note: This is an experimental package under active development. New releases may include breaking changes.**\n\nThis module provides a OTLP-http/protobuf exporter base for Node.js (browsers not supported) to be used with [opentelemetry-collector][opentelemetry-collector-url].\n\n## Installation\n\n```bash\nnpm install --save @opentelemetry/otlp-proto-exporter-base\n```\n\n## Useful links\n\n- For more information on OpenTelemetry, visit: <https://opentelemetry.io/>\n- For more about OpenTelemetry JavaScript: <https://github.com/open-telemetry/opentelemetry-js>\n- For help or feedback on this project, join us in [GitHub Discussions][discussions-url]\n\n## License\n\nApache 2.0 - See [LICENSE][license-url] for more information.\n\n[discussions-url]: https://github.com/open-telemetry/opentelemetry-js/discussions\n[license-url]: https://github.com/open-telemetry/opentelemetry-js/blob/main/LICENSE\n[license-image]: https://img.shields.io/badge/license-Apache_2.0-green.svg?style=flat\n[npm-url]: https://www.npmjs.com/package/@opentelemetry/otlp-proto-exporter-base\n[npm-img]: https://badge.fury.io/js/%40opentelemetry%2Fotlp-proto-exporter-base.svg\n[opentelemetry-collector-url]: https://github.com/open-telemetry/opentelemetry-collector\n",
+  "readmeFilename": "README.md"
+}

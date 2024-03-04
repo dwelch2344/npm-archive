@@ -1,0 +1,826 @@
+{
+  "_id": "@stdlib/error-tools-fmtprodmsg",
+  "_rev": "6-d7cf0af298b5e68f3edc4ef12ca3ca36",
+  "name": "@stdlib/error-tools-fmtprodmsg",
+  "dist-tags": {
+    "latest": "0.2.1"
+  },
+  "versions": {
+    "0.0.1": {
+      "name": "@stdlib/error-tools-fmtprodmsg",
+      "version": "0.0.1",
+      "description": "Format an error message for production.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/error-tools-fmtprodmsg.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/assert-has-own-property": "^0.0.x",
+        "@stdlib/assert-is-plain-object": "^0.0.x",
+        "@stdlib/assert-is-string": "^0.0.x",
+        "@stdlib/string-replace": "^0.0.x",
+        "@stdlib/types": "^0.0.x",
+        "@stdlib/utils-copy": "^0.0.x",
+        "@stdlib/utils-define-nonenumerable-read-only-property": "^0.0.x"
+      },
+      "devDependencies": {
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdutils",
+        "stdutil",
+        "utils",
+        "util",
+        "utilities",
+        "utility",
+        "error",
+        "err",
+        "message",
+        "msg",
+        "format",
+        "fmt",
+        "minify",
+        "minification"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "f8a736a47fdc02faba867597d7f3a9bd0053e4d8",
+      "_id": "@stdlib/error-tools-fmtprodmsg@0.0.1",
+      "_nodeVersion": "16.14.0",
+      "_npmVersion": "8.3.1",
+      "dist": {
+        "integrity": "sha512-R5dx2sf3GKxgZ5RoJdJdgu3j+NEW6dZGJT7xGenwcAS/4LiAantRcuqDzkAk8aOMEdfBN89eBBk1OYOHfyfUXA==",
+        "shasum": "b6f69630616074d6a682798cf410f90372d0b6be",
+        "tarball": "https://registry.npmjs.org/@stdlib/error-tools-fmtprodmsg/-/error-tools-fmtprodmsg-0.0.1.tgz",
+        "fileCount": 11,
+        "unpackedSize": 44356,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiKQzrACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpTTw//dJUxrT7wPNX89wNIObn1t+JbLJ0DjiSXUgE/tCMRoOjGp0N0\r\nbfxSJhFgM9nwcE5I7Geybm2I0QifSPE114xyaYtJ8QjgMXFVozZ7kxBJUEL8\r\naAeBYBPHVrK+OaAoGBORsLo1hFk+yJRjqi9r3VYB7vboRotQfNTFd+AgWpHW\r\nSsfkDffsui6oko7LvlaFEREEM2+F3NSzBazIvOD2qkgkvlb6aelHMc+KmPrL\r\nx2GBVgFqHjztoCr8GJtAPSOJov69PzS8TAGQE9pI4lkhrl2DLaURQBSken/k\r\nARQaGyis9aLOJu3hoPvf4R7RgpIB11TQ8rv5b61NGM+eeUnE5V4DkgQKQ1uN\r\nQjxoHxc+BYnSiy0U9cZPp3/0EGhsY4e57YpAEgDJ4rRMw1UtRfWQPHYDwYVj\r\nwhXM9S06ThRXljmPM92DmTwB3nLaTjSiLAnGQ3f43+MliEEtJm0sPI3VUHX6\r\n3JVq1oO507HmmhG4KHc1hJZupFkSSbSxjUEYjHWcmBZx8Qqwgdqu5BZYo2qB\r\nD826bBXQrDgwT6he4NCt9KvUI66OvMAUzcb1v6gKjpOKi8Bv2yeq5PA0Dgfi\r\nkAOzuchl/mfLbd9ipEZHA5Dwry5fYC4zNrOaGBrknZjZcapK3ZgjO0xvj0UF\r\nJNhiMHIhOzCZNr8MfPYHhViNwPN0Z62vqVo=\r\n=+NyK\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFvKIHRhCv7R0EFXfB2cC+dLiYXhohUew6e1jZNygTNBAiEAnjAWnOQvvFXpK+12+asU0GcSIC2/zMQaqqyeG1DRcSQ="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/error-tools-fmtprodmsg_0.0.1_1646857451636_0.574366600644403"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.2": {
+      "name": "@stdlib/error-tools-fmtprodmsg",
+      "version": "0.0.2",
+      "description": "Format an error message for production.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "benchmark": "./benchmark",
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/error-tools-fmtprodmsg.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/types": "^0.0.x"
+      },
+      "devDependencies": {
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-spec": "5.x.x"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdutils",
+        "stdutil",
+        "utils",
+        "util",
+        "utilities",
+        "utility",
+        "error",
+        "err",
+        "message",
+        "msg",
+        "format",
+        "fmt",
+        "minify",
+        "minification"
+      ],
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/athan"
+      },
+      "gitHead": "2d1c6b77824f23ac7be2ac0ffc314ea7eac5f041",
+      "_id": "@stdlib/error-tools-fmtprodmsg@0.0.2",
+      "_nodeVersion": "16.15.1",
+      "_npmVersion": "8.11.0",
+      "dist": {
+        "integrity": "sha512-N9ggnn+QsfNjFb5yQdGJVvwCaYnVqoz8nMSmQXhyTEbDSm95C3hSm4I47PUbPr1cSrxNkoAq0x42JVapsDQJ4Q==",
+        "shasum": "433a77feadcc84f9711af5ac512f6ebe7eefe2b9",
+        "tarball": "https://registry.npmjs.org/@stdlib/error-tools-fmtprodmsg/-/error-tools-fmtprodmsg-0.0.2.tgz",
+        "fileCount": 8,
+        "unpackedSize": 20718,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBr3fL1hlCXOYY536EQ3T8rr2acMm/tlYkYuKvCPgkQxAiANnpx8QIdE3MOPtuwaaHetJuUfXEFz0azuGi988gb6rA=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiwYOUACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrATBAAgl3Bqnqw6pQR9u+t9bebRF2l69JrRtRaZF/iyXoPy4CUYzLA\r\njahDB9uc22z0Ra9Xv+RjXdx5njDBesdlWq+2DDSrtejjj7G2TFcBIA77FoH4\r\nnCVR/HF3cWUgmT0BFyjNBCjHNsPLmTSZCBURHd89PQ6QKU2kl8ww/q7N+tlq\r\nLp9U27OfPxtOcHYr5dhL5c8X7fTnFStTHuePrhoFwJghZjWvD77ckHrpRyGA\r\nGNMyVCGuBWkf5cvBX1PW8Rl+gHSLLQPDiSoNB4SVpNAYTlI6QyhRchbZ3/TH\r\nZBcDRH/LNZS6oAbJRhthkw+Vr/enQyKMyAvCctHQz1J5MXs32rS+H9Bzuo/n\r\nKGa6T8PBbaIOSEAUropLqUR0q+UO8RPsnm/XXJPpzAeVrvU8OXfIeDgYvRm/\r\ngcy+I8BcubTp5WxUDWg8W8tLiWVxZrMx6pglnG4qD7A+6O898qQg7FSpFo0C\r\n8cN9g0jJ+9u4WBnlIyhs9P1bW8vQJc6VDsxbNZIgjSlcO7C/OFJhRzxT/UL4\r\n+6X5nzPgb0ycVInAv70fi+3x8pfgQuqwXmkv4I+iT/QgvX/CPsDDE28hqSpP\r\n4wPGSTYzzZoJjYv8QyANrXnDGiu7Edk5LhMoohdn9dUUbPVR/+H8eJyGwAHu\r\nvIUzWKuZr1EoFM/stm2taRZGySiYWdOAZgU=\r\n=2ZMF\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "kgryte",
+        "email": "kgryte@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/error-tools-fmtprodmsg_0.0.2_1656849300313_0.18427611299372293"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.0": {
+      "name": "@stdlib/error-tools-fmtprodmsg",
+      "version": "0.1.0",
+      "description": "Format an error message for production.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/error-tools-fmtprodmsg.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/types": "^0.0.14"
+      },
+      "devDependencies": {
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-min": "git+https://github.com/Planeshifter/tap-min.git"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdutils",
+        "stdutil",
+        "utils",
+        "util",
+        "utilities",
+        "utility",
+        "error",
+        "err",
+        "message",
+        "msg",
+        "format",
+        "fmt",
+        "minify",
+        "minification"
+      ],
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/stdlib"
+      },
+      "gitHead": "4f2310de3494fe36f4b74db309593f63e9d24dcc",
+      "_id": "@stdlib/error-tools-fmtprodmsg@0.1.0",
+      "_nodeVersion": "16.20.2",
+      "_npmVersion": "8.19.4",
+      "dist": {
+        "integrity": "sha512-6PmedxAav0pbjvj9do+n82k6shdRWy/6OMnfFnGC7LmmnVLKaEQrhZPbYEo+aB33/Z5rJi9Ab2d1yKs9MKyUpw==",
+        "shasum": "4717cf74eab099e04a97e6a96cbf7df7d55cba87",
+        "tarball": "https://registry.npmjs.org/@stdlib/error-tools-fmtprodmsg/-/error-tools-fmtprodmsg-0.1.0.tgz",
+        "fileCount": 11,
+        "unpackedSize": 24701,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICxYLufQu8afyh+hy4wJ/dh9HLC0ErB8b0A+4pQqn0bBAiAB/ZwxSngdQ1uvyJQDU3mZWlzZVPdMeTvkk5NLT/tgoQ=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte+stdlibbot@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte+stdlibbot@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/error-tools-fmtprodmsg_0.1.0_1695353811493_0.9567226805807001"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.1": {
+      "name": "@stdlib/error-tools-fmtprodmsg",
+      "version": "0.1.1",
+      "description": "Format an error message for production.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/error-tools-fmtprodmsg.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/types": "^0.1.0"
+      },
+      "devDependencies": {
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-min": "git+https://github.com/Planeshifter/tap-min.git"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdutils",
+        "stdutil",
+        "utils",
+        "util",
+        "utilities",
+        "utility",
+        "error",
+        "err",
+        "message",
+        "msg",
+        "format",
+        "fmt",
+        "minify",
+        "minification"
+      ],
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/stdlib"
+      },
+      "gitHead": "836b37cf688bfa381fcb3cb3a2dd327f0a94ad19",
+      "_id": "@stdlib/error-tools-fmtprodmsg@0.1.1",
+      "_nodeVersion": "16.20.2",
+      "_npmVersion": "8.19.4",
+      "dist": {
+        "integrity": "sha512-gyQsjgr+TacoDXpPUIkL5LxEx+tT7uWycyv92no0Jo4J+mCzxOq47cBNuwTxboeIKtUSuscD5trWpL9oIdYYbQ==",
+        "shasum": "7d054b3d8ccb16caf7b66eb4d5102f256e9bfca2",
+        "tarball": "https://registry.npmjs.org/@stdlib/error-tools-fmtprodmsg/-/error-tools-fmtprodmsg-0.1.1.tgz",
+        "fileCount": 11,
+        "unpackedSize": 24700,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCID/PHu3pDcRbZk1BBcASIs8wjwijAjE4q7reoS+aGZRKAiEAry2XQm+A+aISlAkYoQm9lwNUbwOjuRTZQ5n4vyC68f8="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte+stdlibbot@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte+stdlibbot@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/error-tools-fmtprodmsg_0.1.1_1696374641251_0.22522086971132094"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.0": {
+      "name": "@stdlib/error-tools-fmtprodmsg",
+      "version": "0.2.0",
+      "description": "Format an error message for production.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "doc": "./docs",
+        "example": "./examples",
+        "lib": "./lib",
+        "test": "./test"
+      },
+      "types": "./docs/types",
+      "scripts": {
+        "test": "make test",
+        "test-cov": "make test-cov",
+        "examples": "make examples"
+      },
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/error-tools-fmtprodmsg.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {
+        "@stdlib/types": "^0.3.1"
+      },
+      "devDependencies": {
+        "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+        "istanbul": "^0.4.1",
+        "tap-min": "git+https://github.com/Planeshifter/tap-min.git"
+      },
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdutils",
+        "stdutil",
+        "utils",
+        "util",
+        "utilities",
+        "utility",
+        "error",
+        "err",
+        "message",
+        "msg",
+        "format",
+        "fmt",
+        "minify",
+        "minification"
+      ],
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/stdlib"
+      },
+      "gitHead": "7137673f0798ef13d7c9fd7becf78e557b1d583b",
+      "_id": "@stdlib/error-tools-fmtprodmsg@0.2.0",
+      "_nodeVersion": "16.20.2",
+      "_npmVersion": "8.19.4",
+      "dist": {
+        "integrity": "sha512-aJeTntjyR4mdVnaCGhb2q7sgN5Nv/imOnp4Fl5AOSU786JFgfB7nxApE1LEeQLIa0Gzsnmw/pU1pNaVfQlZqYA==",
+        "shasum": "16d17b0306acd81b57fd605e9ddca59522d0a734",
+        "tarball": "https://registry.npmjs.org/@stdlib/error-tools-fmtprodmsg/-/error-tools-fmtprodmsg-0.2.0.tgz",
+        "fileCount": 11,
+        "unpackedSize": 24538,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCUb0CVCh2/l+8FdZ2Xv8gamJNBxTi3C6jxxSa96gPXXwIhAKbq0AXQ5kFf3e9G0HEniBw4iS8Hib7EVjoxtVY0iIaV"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte+stdlibbot@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte+stdlibbot@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/error-tools-fmtprodmsg_0.2.0_1707881937473_0.6037558541346144"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.1": {
+      "name": "@stdlib/error-tools-fmtprodmsg",
+      "version": "0.2.1",
+      "description": "Format an error message for production.",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "The Stdlib Authors",
+        "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+      },
+      "contributors": [
+        {
+          "name": "The Stdlib Authors",
+          "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+        }
+      ],
+      "main": "./lib",
+      "directories": {
+        "doc": "./docs",
+        "lib": "./lib",
+        "dist": "./dist"
+      },
+      "types": "./docs/types",
+      "scripts": {},
+      "homepage": "https://stdlib.io",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/stdlib-js/error-tools-fmtprodmsg.git"
+      },
+      "bugs": {
+        "url": "https://github.com/stdlib-js/stdlib/issues"
+      },
+      "dependencies": {},
+      "devDependencies": {},
+      "engines": {
+        "node": ">=0.10.0",
+        "npm": ">2.7.0"
+      },
+      "os": [
+        "aix",
+        "darwin",
+        "freebsd",
+        "linux",
+        "macos",
+        "openbsd",
+        "sunos",
+        "win32",
+        "windows"
+      ],
+      "keywords": [
+        "stdlib",
+        "stdutils",
+        "stdutil",
+        "utils",
+        "util",
+        "utilities",
+        "utility",
+        "error",
+        "err",
+        "message",
+        "msg",
+        "format",
+        "fmt",
+        "minify",
+        "minification"
+      ],
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/stdlib"
+      },
+      "gitHead": "64931c5fdb4abc3a339b619658d3b5acc089e556",
+      "_id": "@stdlib/error-tools-fmtprodmsg@0.2.1",
+      "_nodeVersion": "16.20.2",
+      "_npmVersion": "8.19.4",
+      "dist": {
+        "integrity": "sha512-SaxvGeGfWfda/O3rTNGRGBzAL9gsY/yd8n1hXwzOl/2aUHf8nxcf6Fz6/BQ5PguT0GiBkca19XEhHZZHxX3X/g==",
+        "shasum": "e47f2e6a4981a47992ff658af4de205e6d16a833",
+        "tarball": "https://registry.npmjs.org/@stdlib/error-tools-fmtprodmsg/-/error-tools-fmtprodmsg-0.2.1.tgz",
+        "fileCount": 11,
+        "unpackedSize": 24224,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBL/gMdtP99VAqWc0iyP8LSvUT9ajUnAUd9gYTRD7FIDAiAwpLVEzc2ZZjEBr+4nVGkJTxqCNOZitCptjwTTncgEPQ=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "stdlib-bot",
+        "email": "kgryte+stdlibbot@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "stdlib-bot",
+          "email": "kgryte+stdlibbot@gmail.com"
+        },
+        {
+          "name": "kgryte",
+          "email": "kgryte@gmail.com"
+        },
+        {
+          "name": "planeshifter",
+          "email": "pgb@andrew.cmu.edu"
+        },
+        {
+          "name": "rreusser",
+          "email": "rsreusser@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/error-tools-fmtprodmsg_0.2.1_1708551710004_0.688369070861433"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2022-03-09T20:24:11.591Z",
+    "0.0.1": "2022-03-09T20:24:11.775Z",
+    "modified": "2024-02-21T21:41:50.655Z",
+    "0.0.2": "2022-07-03T11:55:00.480Z",
+    "0.1.0": "2023-09-22T03:36:51.700Z",
+    "0.1.1": "2023-10-03T23:10:41.510Z",
+    "0.2.0": "2024-02-14T03:38:57.622Z",
+    "0.2.1": "2024-02-21T21:41:50.187Z"
+  },
+  "maintainers": [
+    {
+      "name": "stdlib-bot",
+      "email": "kgryte+stdlibbot@gmail.com"
+    },
+    {
+      "name": "kgryte",
+      "email": "kgryte@gmail.com"
+    },
+    {
+      "name": "planeshifter",
+      "email": "pgb@andrew.cmu.edu"
+    },
+    {
+      "name": "rreusser",
+      "email": "rsreusser@gmail.com"
+    }
+  ],
+  "description": "Format an error message for production.",
+  "homepage": "https://stdlib.io",
+  "keywords": [
+    "stdlib",
+    "stdutils",
+    "stdutil",
+    "utils",
+    "util",
+    "utilities",
+    "utility",
+    "error",
+    "err",
+    "message",
+    "msg",
+    "format",
+    "fmt",
+    "minify",
+    "minification"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stdlib-js/error-tools-fmtprodmsg.git"
+  },
+  "contributors": [
+    {
+      "name": "The Stdlib Authors",
+      "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+    }
+  ],
+  "author": {
+    "name": "The Stdlib Authors",
+    "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+  },
+  "bugs": {
+    "url": "https://github.com/stdlib-js/stdlib/issues"
+  },
+  "license": "Apache-2.0",
+  "readme": "<!--\n\n@license Apache-2.0\n\nCopyright (c) 2022 The Stdlib Authors.\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n   http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n\n-->\n\n\n<details>\n  <summary>\n    About stdlib...\n  </summary>\n  <p>We believe in a future in which the web is a preferred environment for numerical computation. To help realize this future, we've built stdlib. stdlib is a standard library, with an emphasis on numerical and scientific computation, written in JavaScript (and C) for execution in browsers and in Node.js.</p>\n  <p>The library is fully decomposable, being architected in such a way that you can swap out and mix and match APIs and functionality to cater to your exact preferences and use cases.</p>\n  <p>When you use stdlib, you can be absolutely certain that you are using the most thorough, rigorous, well-written, studied, documented, tested, measured, and high-quality code out there.</p>\n  <p>To join us in bringing numerical computing to the web, get started by checking us out on <a href=\"https://github.com/stdlib-js/stdlib\">GitHub</a>, and please consider <a href=\"https://opencollective.com/stdlib\">financially supporting stdlib</a>. We greatly appreciate your continued support!</p>\n</details>\n\n# fmtprodmsg\n\n[![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] <!-- [![dependencies][dependencies-image]][dependencies-url] -->\n\n> Format an error message for production.\n\n<section class=\"installation\">\n\n## Installation\n\n```bash\nnpm install @stdlib/error-tools-fmtprodmsg\n```\n\n</section>\n\n<section class=\"usage\">\n\n## Usage\n\n```javascript\nvar fmtprodmsg = require( '@stdlib/error-tools-fmtprodmsg' );\n```\n\n#### fmtprodmsg( code, ...args )\n\nFormats an error message for production.\n\n```javascript\nvar msg = fmtprodmsg( '27', 'foo', 'bar' );\n// returns 'https://stdlib.io/e/27?arg[]=foo&arg[]=bar'\n```\n\n<!-- /.usage -->\n\n<!-- Package usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->\n\n<section class=\"notes\">\n\n</section>\n\n<!-- /.notes -->\n\n<section class=\"examples\">\n\n## Examples\n\n<!-- TODO: better examples -->\n\n<!-- eslint no-undef: \"error\" -->\n\n```javascript\nvar fmtprodmsg = require( '@stdlib/error-tools-fmtprodmsg' );\n\nvar msg = fmtprodmsg( '3', 'foo' );\n// returns 'https://stdlib.io/e?code=3&arg[]=foo'\n\nmsg = fmtprodmsg( '5', 'foo', 'bar' );\n// returns 'https://stdlib.io/e/5?arg[]=foo&arg[]=bar'\n\nmsg = fmtprodmsg( '5', 'foo', 'bar', 123 );\n// returns 'https://stdlib.io/e/5?arg[]=foo&arg[]=bar&arg[]=123'\n```\n\n</section>\n\n<!-- /.examples -->\n\n<!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->\n\n<section class=\"related\">\n\n</section>\n\n<!-- /.related -->\n\n<!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->\n\n\n<section class=\"main-repo\" >\n\n* * *\n\n## Notice\n\nThis package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.\n\nFor more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].\n\n#### Community\n\n[![Chat][chat-image]][chat-url]\n\n---\n\n## License\n\nSee [LICENSE][stdlib-license].\n\n\n## Copyright\n\nCopyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].\n\n</section>\n\n<!-- /.stdlib -->\n\n<!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->\n\n<section class=\"links\">\n\n[npm-image]: http://img.shields.io/npm/v/@stdlib/error-tools-fmtprodmsg.svg\n[npm-url]: https://npmjs.org/package/@stdlib/error-tools-fmtprodmsg\n\n[test-image]: https://github.com/stdlib-js/error-tools-fmtprodmsg/actions/workflows/test.yml/badge.svg?branch=v0.2.1\n[test-url]: https://github.com/stdlib-js/error-tools-fmtprodmsg/actions/workflows/test.yml?query=branch:v0.2.1\n\n[coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/error-tools-fmtprodmsg/main.svg\n[coverage-url]: https://codecov.io/github/stdlib-js/error-tools-fmtprodmsg?branch=main\n\n<!--\n\n[dependencies-image]: https://img.shields.io/david/stdlib-js/error-tools-fmtprodmsg.svg\n[dependencies-url]: https://david-dm.org/stdlib-js/error-tools-fmtprodmsg/main\n\n-->\n\n[chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg\n[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im\n\n[stdlib]: https://github.com/stdlib-js/stdlib\n\n[stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors\n\n[umd]: https://github.com/umdjs/umd\n[es-module]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules\n\n[deno-url]: https://github.com/stdlib-js/error-tools-fmtprodmsg/tree/deno\n[deno-readme]: https://github.com/stdlib-js/error-tools-fmtprodmsg/blob/deno/README.md\n[umd-url]: https://github.com/stdlib-js/error-tools-fmtprodmsg/tree/umd\n[umd-readme]: https://github.com/stdlib-js/error-tools-fmtprodmsg/blob/umd/README.md\n[esm-url]: https://github.com/stdlib-js/error-tools-fmtprodmsg/tree/esm\n[esm-readme]: https://github.com/stdlib-js/error-tools-fmtprodmsg/blob/esm/README.md\n[branches-url]: https://github.com/stdlib-js/error-tools-fmtprodmsg/blob/main/branches.md\n\n[stdlib-license]: https://raw.githubusercontent.com/stdlib-js/error-tools-fmtprodmsg/main/LICENSE\n\n</section>\n\n<!-- /.links -->\n",
+  "readmeFilename": "README.md"
+}
