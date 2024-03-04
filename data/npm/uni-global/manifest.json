@@ -1,0 +1,216 @@
+{
+  "_id": "uni-global",
+  "_rev": "2-c48378034b26fa7a7831e663c361e91d",
+  "name": "uni-global",
+  "dist-tags": {
+    "latest": "1.0.0"
+  },
+  "versions": {
+    "1.0.0": {
+      "name": "uni-global",
+      "version": "1.0.0",
+      "description": "Global namespace without polluting the global scope",
+      "author": {
+        "name": "Mariusz Nowak",
+        "email": "medyk@medikoo.com",
+        "url": "https://www.medikoo.com/"
+      },
+      "keywords": [
+        "global",
+        "globalThis"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/medikoo/uni-global.git"
+      },
+      "dependencies": {
+        "type": "^2.5.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^13.2.0",
+        "chai": "^4.3.4",
+        "eslint": "^7.32.0",
+        "eslint-config-medikoo": "^4.1.0",
+        "ext": "^1.6.0",
+        "git-list-updated": "^1.2.1",
+        "github-release-from-cc-changelog": "^2.2.0",
+        "husky": "^4.3.8",
+        "lint-staged": "^11.1.2",
+        "mocha": "^9.1.2",
+        "ncjsm": "^4.2.0",
+        "nyc": "^15.1.0",
+        "prettier-elastic": "^2.2.1",
+        "standard-version": "^9.3.1"
+      },
+      "husky": {
+        "hooks": {
+          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+          "pre-commit": "lint-staged"
+        }
+      },
+      "lint-staged": {
+        "*.js": [
+          "eslint"
+        ],
+        "*.{css,html,js,json,md,yaml,yml}": [
+          "prettier -c"
+        ]
+      },
+      "eslintConfig": {
+        "extends": "medikoo/es3",
+        "root": true,
+        "globals": {
+          "Symbol": true
+        },
+        "overrides": [
+          {
+            "files": "test/**/*.js",
+            "env": {
+              "mocha": true
+            }
+          }
+        ]
+      },
+      "prettier": {
+        "printWidth": 100,
+        "tabWidth": 4,
+        "overrides": [
+          {
+            "files": [
+              "*.md",
+              "*.yml"
+            ],
+            "options": {
+              "tabWidth": 2
+            }
+          }
+        ]
+      },
+      "nyc": {
+        "all": true,
+        "exclude": [
+          ".github",
+          "coverage/**",
+          "test/**",
+          "prettier.config.js"
+        ],
+        "reporter": [
+          "lcov",
+          "html",
+          "text-summary"
+        ]
+      },
+      "standard-version": {
+        "skip": {
+          "commit": true,
+          "tag": true
+        },
+        "types": [
+          {
+            "type": "feat",
+            "section": "Features"
+          },
+          {
+            "type": "fix",
+            "section": "Bug Fixes"
+          },
+          {
+            "type": "perf",
+            "section": "Performance Improvements"
+          },
+          {
+            "type": "refactor",
+            "section": "Maintenance Improvements"
+          },
+          {
+            "type": "chore",
+            "section": "Maintenance Improvements"
+          }
+        ]
+      },
+      "scripts": {
+        "commitlint": "commitlint -f HEAD@{15}",
+        "coverage": "nyc npm test",
+        "lint": "eslint --ignore-path=.gitignore .",
+        "lint:updated": "pipe-git-updated --ext=js -- eslint --ignore-pattern '!*'",
+        "prepare-release": "standard-version && prettier --write CHANGELOG.md",
+        "prettier-check": "prettier -c --ignore-path .gitignore \"**/*.{css,html,js,json,md,yaml,yml}\"",
+        "prettier-check:updated": "pipe-git-updated --ext=css --ext=html --ext=js --ext=json --ext=md --ext=yaml --ext=yml -- prettier -c",
+        "prettify": "prettier --write --ignore-path .gitignore \"**/*.{css,html,js,json,md,yaml,yml}\"",
+        "prettify:updated": "pipe-git-updated --ext=css --ext=html --ext=js --ext=json --ext=md --ext=yaml --ext=yml -- prettier --write",
+        "test": "mocha"
+      },
+      "license": "ISC",
+      "gitHead": "c3cdadd00edd6d399e0853decd0e2282cb32436a",
+      "bugs": {
+        "url": "https://github.com/medikoo/uni-global/issues"
+      },
+      "homepage": "https://github.com/medikoo/uni-global#readme",
+      "_id": "uni-global@1.0.0",
+      "_nodeVersion": "14.18.0",
+      "_npmVersion": "6.14.15",
+      "dist": {
+        "integrity": "sha512-WWM3HP+siTxzIWPNUg7hZ4XO8clKi6NoCAJJWnuRL+BAqyFXF8gC03WNyTefGoUXYc47uYgXxpKLIEvo65PEHw==",
+        "shasum": "3583c449e87a2d9dc270ea221410a649bcdad040",
+        "tarball": "https://registry.npmjs.org/uni-global/-/uni-global-1.0.0.tgz",
+        "fileCount": 9,
+        "unpackedSize": 9516,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh2+73CRA9TVsSAnZWagAAoFoP/RMzUPhRgf/Bwi9fYQAS\nTJvgb45gz66rf19DaBGNKimpfz+1d+qqTW8Nm/figNtzhwm7Z9jDUeHvzlrh\neTbnXmAonZD8gdWHp9ZajtfcLFrYCBIL47ywDudURkhb2HSBznl6MHV1v0hb\ns7cF2cOkZPndGAonWGu8YL2wwbcX1zyBsiby+reXqbjwNK+WcCcT0y8zLb7/\n926yQJ3amGmOwS9YTrOTtg5e9n5eiOffuI/Mzflx/Udt7sGUzOtsuLCnPFb3\nKO4JOPnxt4Ud86AQEqq7EQhq0QD7b76EuwEab5NVKYEmd8oTgM09SxcO2C2c\njfyeIviFEcAERnXqe9qDRxGJ/vET0LfcuIpCu8yx0FgUx3ztl9D3GO/LDFqW\nxz2KSewpQZIkjHJZADULFEzee1DHYInXbdPQFwqE9F7lCt+gUfTAjLHOGXLe\nYFWlczBy6Lx2/DPBxJrjSJB8io6knox54MFNbqMueckRmWAVWXSGKvxCvCe2\nzjTWTOCQis62rMS1paLD2Ka5HNvQ/Yw5SYrTIzR5S3qYnco2eGaNZJin10bh\nVXt/f8cWJit6/papOVyeLx/I0QVC0K6ggVk1loqMg1M2MAR+aSdGFx54O9Dj\nKoc4o5FiQ9Gzw5oukvDekm6dpys8nHFZJAycbYMc6LExvaHibtl0sey1H+df\nYvKf\r\n=FLFQ\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDellrahodzdkgZUBRFPRewgWe+IesRb1i951R876S2uAiEAt3If2bzaOIqxuOyUiz/G/S+71IQnlv5gC5gMtRZKc4A="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "medikoo",
+        "email": "medikoo+npm@medikoo.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "medikoo",
+          "email": "medikoo+npm@medikoo.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/uni-global_1.0.0_1633508224700_0.7903668991046924"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2021-10-06T08:17:04.700Z",
+    "1.0.0": "2021-10-06T08:17:04.833Z",
+    "modified": "2022-05-22T18:16:54.558Z"
+  },
+  "maintainers": [
+    {
+      "name": "medikoo",
+      "email": "medikoo+npm@medikoo.com"
+    }
+  ],
+  "description": "Global namespace without polluting the global scope",
+  "homepage": "https://github.com/medikoo/uni-global#readme",
+  "keywords": [
+    "global",
+    "globalThis"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/medikoo/uni-global.git"
+  },
+  "author": {
+    "name": "Mariusz Nowak",
+    "email": "medyk@medikoo.com",
+    "url": "https://www.medikoo.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/medikoo/uni-global/issues"
+  },
+  "license": "ISC",
+  "readme": "[![Build status][build-image]][build-url]\n[![Tests coverage][cov-image]][cov-url]\n[![npm version][npm-image]][npm-url]\n\n# uni-global\n\n## Global namespace with no global scope pollution\n\n### Use case\n\nIn modules world, there's possiblity that two different instance of same modules (e.g. installed in different `node_modules`) are being run in same process.\n\nIf for any reason they need to operate on context instance that's same for the given application or process, then ocassionally introduced multiple installations may break the application.\n\nThis module provides interface wich can be used by those to modules to ensure that no matter how many instances of given module are loaded, in all cases they end with same context instance.\n\n### Example usage:\n\n```javascript\n// No matter how many instances of given module are loaded in the process, they will always end with same context instance\nconst globalContext = require(\"uni-global\")(\"my-scope-name\");\n\n// globalContext is a plain object, on which needed global data can be stored.\nglobalContext.someSingletonData = ...\n\n```\n\n### Adapt manually other realm\n\nIf there's a need to adapt other environment realm (e.g. coming from iframe) to share same uni-global directory.\n\nRegister it with `adaptRealm` util as below:\n\n```javascript\nconst adaptRealm = require(\"uni-global/adapt-realm\");\n\nadaptRealm(iFrameWindow); // Pass global object of the other realm\n```\n\n### Installation\n\n```bash\nnpm install uni-global\n```\n\n[build-image]: https://github.com/medikoo/uni-global/workflows/Integrate/badge.svg\n[build-url]: https://github.com/medikoo/uni-global/actions?query=workflow%3AIntegrate\n[cov-image]: https://img.shields.io/codecov/c/github/medikoo/uni-global.svg\n[cov-url]: https://codecov.io/gh/medikoo/uni-global\n[npm-image]: https://img.shields.io/npm/v/uni-global.svg\n[npm-url]: https://www.npmjs.com/package/uni-global\n",
+  "readmeFilename": "README.md"
+}
