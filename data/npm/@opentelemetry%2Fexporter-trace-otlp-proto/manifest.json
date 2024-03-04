@@ -1,0 +1,4146 @@
+{
+  "_id": "@opentelemetry/exporter-trace-otlp-proto",
+  "_rev": "37-a9334b24cc6f279e42576ebd7a9b0972",
+  "name": "@opentelemetry/exporter-trace-otlp-proto",
+  "dist-tags": {
+    "latest": "0.49.1",
+    "next": "0.34.0"
+  },
+  "versions": {
+    "0.27.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.27.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "scripts": {
+        "compile": "tsc --build",
+        "clean": "tsc --build --clean",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "postcompile": "npm run submodule && npm run protos:copy",
+        "protos:copy": "cpx protos/opentelemetry/**/*.* build/protos/opentelemetry",
+        "submodule": "git submodule sync --recursive && git submodule update --init --recursive",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "npm run protos:copy && tsc -w",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-filtered-dependencies",
+        "prewatch": "npm run precompile"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=8.0.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.15.0",
+        "@opentelemetry/api": "^1.0.3",
+        "@types/mocha": "8.2.3",
+        "@types/node": "14.17.11",
+        "@types/sinon": "10.0.2",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "7.2.0",
+        "nyc": "15.1.0",
+        "rimraf": "3.0.2",
+        "sinon": "12.0.1",
+        "ts-loader": "8.3.0",
+        "ts-mocha": "8.0.0",
+        "typescript": "4.3.5"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@grpc/proto-loader": "^0.6.4",
+        "@opentelemetry/core": "1.0.1",
+        "@opentelemetry/exporter-trace-otlp-http": "0.27.0",
+        "@opentelemetry/resources": "1.0.1",
+        "@opentelemetry/sdk-trace-base": "1.0.1",
+        "protobufjs": "^6.9.0"
+      },
+      "gitHead": "f5e227f0cb829df1ca2dc220a3e0e8ae0e607405",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js#readme",
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.27.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/3.22.1/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-Q1PlH9iR3RUiLDnSbKmaAdXEuquvI0oLIN1WW37tUyTuqK5BArPXMzcquQtX/aG+4T5I6IHzgCpZxiedhW42Wg==",
+        "shasum": "40865fd6b756d551e485b5c52be9830957f8e187",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.27.0.tgz",
+        "fileCount": 32,
+        "unpackedSize": 108664,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh2UpjCRA9TVsSAnZWagAAH4sP/2rmJ0a9XWfeGaRXBCbp\nRE6KdaQfuoa3nFujzK+qfpIRT3SJ2sjnOrRvvf/oCSf5YXjQhBUhSf9xGb0Z\nWyISaeu4fz5VTxbNXUjBv4VPUVoOumYMrYeAXEXj/pmZYYTG61m9t4rnmF1/\nMM33NQ315vBG+cBDLLmNmBvDIDoApZyvtR63tZ8QjTBWRETmtHyFvH+ZqDZK\nt/IKpWevobzHDvbRcQKiU4G2RjxMitzSvLVomnKNZDYrJKeS3BZSSu9K0U98\nfzvEy24aZMQJUNVdsAj2VrtUTWEInGac4krewcWC3qKHyZcasO2ZOyxzq8r5\nDEn2i+uh1FI7JNeHBxUIGNf4PffmyyQUQqa91EJhVTl13WanXnECIUmXkY5s\nMzkzb+Gsd2wFbB6dRzEjRuomwGNNTdOWZ9yWriJhofZs8UoY7FODMUaelNNR\nmpKrX+bRdGgxkYMoSLhwhuplJLHvyMpnnJddwqfSL3qN+Q5KEvXi0ObA8lou\n3Am+nA6YCf1YmSVWG7xsBoiSL/UyJqXXYGAMS3YPBa2JGusGuIkkeK2PSTer\n4I2QCZMmt8OjT+JuXmsjKFSvxy8s/BCsCRCQU7SpETUW+Ogw45AB3JKLX277\nCn9gIG7E1Twb3dKMrgRP13l4eEkauvESA5AxZFhSJF5eFqksZfGlf5/0P2HE\nE+if\r\n=VQ3w\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIG3iWBpW/khhJ2ijt/h3fln1pMr+8aJcVkl/XniO3G24AiEAkJlLrOOvuxMI7A2kPXTQDB3HyYfyzhJsIHKaCnItCAg="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "mayurkale22",
+          "email": "mayurkale22@gmail.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        },
+        {
+          "name": "obecny",
+          "email": "bobecny@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.27.0_1636643260338_0.19673200236046484"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.28.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.28.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build",
+        "clean": "tsc --build --clean",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc -w",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=8.12.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "8.2.3",
+        "@types/node": "14.17.33",
+        "@types/sinon": "10.0.6",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "7.2.0",
+        "nyc": "15.1.0",
+        "rimraf": "3.0.2",
+        "sinon": "12.0.1",
+        "ts-loader": "8.3.0",
+        "ts-mocha": "8.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@grpc/proto-loader": "^0.6.9",
+        "@opentelemetry/core": "1.1.1",
+        "@opentelemetry/exporter-trace-otlp-http": "0.28.0",
+        "@opentelemetry/otlp-exporter-base": "0.28.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.28.0",
+        "@opentelemetry/resources": "1.2.0",
+        "@opentelemetry/sdk-trace-base": "1.2.0",
+        "protobufjs": "^6.9.0"
+      },
+      "gitHead": "a0a670a03fd35b0799bee8cc466f79e93b5b6dd2",
+      "readme": "# OpenTelemetry Collector Exporter for node with protobuf\n\n[![NPM Published Version][npm-img]][npm-url]\n[![Apache License][license-image]][license-image]\n\nThis module provides exporter for node to be used with [opentelemetry-collector][opentelemetry-collector-url] - last tested with version **0.25.0**.\n\n## Installation\n\n```bash\nnpm install --save @opentelemetry/exporter-trace-otlp-proto\n```\n\n## Service Name\n\nThe OpenTelemetry Collector Exporter does not have a service name configuration.\nIn order to set the service name, use the `service.name` resource attribute as prescribed in the [OpenTelemetry Resource Semantic Conventions][semconv-resource-service-name].\nTo see documentation and sample code for the metric exporter, see the [exporter-metrics-otlp-proto package][metrics-exporter-url]\n\n## Traces in Node - PROTO over http\n\n```js\nconst { BasicTracerProvider, SimpleSpanProcessor } = require('@opentelemetry/sdk-trace-base');\nconst { OTLPTraceExporter } =  require('@opentelemetry/exporter-trace-otlp-proto');\n\nconst collectorOptions = {\n  url: '<opentelemetry-collector-url>', // url is optional and can be omitted - default is http://localhost:4318/v1/traces\n  headers: {\n    foo: 'bar'\n  }, //an optional object containing custom headers to be sent with each request will only work with http\n};\n\nconst provider = new BasicTracerProvider();\nconst exporter = new OTLPTraceExporter(collectorOptions);\nprovider.addSpanProcessor(new SimpleSpanProcessor(exporter));\n\nprovider.register();\n\n```\n\n## Running opentelemetry-collector locally to see the traces\n\n1. Go to examples/otlp-exporter-node\n2. run `npm run docker:start`\n3. Open page at `http://localhost:9411/zipkin/` to observe the traces\n\n## Useful links\n\n- For more information on OpenTelemetry, visit: <https://opentelemetry.io/>\n- For more about OpenTelemetry JavaScript: <https://github.com/open-telemetry/opentelemetry-js>\n- For help or feedback on this project, join us in [GitHub Discussions][discussions-url]\n\n## License\n\nApache 2.0 - See [LICENSE][license-url] for more information.\n\n[discussions-url]: https://github.com/open-telemetry/opentelemetry-js/discussions\n[license-url]: https://github.com/open-telemetry/opentelemetry-js/blob/main/LICENSE\n[license-image]: https://img.shields.io/badge/license-Apache_2.0-green.svg?style=flat\n[npm-url]: https://www.npmjs.com/package/@opentelemetry/exporter-trace-otlp-proto\n[npm-img]: https://badge.fury.io/js/%40opentelemetry%2Fexporter-trace-otlp-proto.svg\n[opentelemetry-collector-url]: https://github.com/open-telemetry/opentelemetry-collector\n[semconv-resource-service-name]: https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md#service\n[metrics-exporter-url]: https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-exporter-metrics-otlp-proto\n",
+      "readmeFilename": "README.md",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js#readme",
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.28.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/3.22.1/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-aF2UDJSUzVR0EmvAAgEu97aNAJV2hBhe/OSwOi/IgwWBneFZuW4e7R3ewfPn8xhxU3ddvBLz4z0+MQFpdvx9MQ==",
+        "shasum": "177622b6b9790a7bf66a5b12e62a69fce3d6fb57",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.28.0.tgz",
+        "fileCount": 12,
+        "unpackedSize": 27481,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEhztkiXYCD8NgWPWEGhXfNvh3GUrg3xsbg4DC2BfexeAiEAmtnh8+U8Fdp47jAByAjmgiFxJh8xdACA8qt30+cNmqo="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiYsJDACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmplow/+Inpv1H+MZXFnq4Mi+VBYYYr5afo0xx+NhqzxhC76fwvc7uOi\r\nG/GM5hQE9GyZ3M+YaDYcA8cX+pxibye0V+VfJhaPDWkF/3qq6KtZ5wkOfvzQ\r\niozmToOUaXQlfYILiW1Xs5ZChCSsRErU1CnyvzR/44Hh8VBjLoQzVXCUy1KP\r\n5C+/dlpnfGenNNxB9Yfp3yaaZlNsrC7zb7DssdRbgxLuwCdawZM6LwOT75V8\r\nJWodXiXSSCIiILvgycGDBxZqcsBn7u+GmqJh8cP/QvLNj5+slW9YZy4+frTd\r\nqpkmsD+k+38sBAtLd8g4QEGYRhOAlZwzGQaQiVUBExqr1+mIBFZd4c9Shf1X\r\nX3KolXwNzeMTsNCCaQ+a7WRxfaGfXTuHoGUusFv+TQI0DCjRUfj4zNXmiURI\r\nglBhPgAwrKD4daLPduZgHhKV5KeikKT2JT+DyXLT+QCRSk6S+N5YD1q2yeUw\r\nOEZPJcIrHzN5SojRZhNgTqt6U4HT2vRvheJJpzDv3rV6wNvnn/Ee9UpDxuPp\r\n/eaH1BcTzaKZdjp1iBEAfrM7RJdX81+MZBaEQkwyx40awBX/UMgYXLALaK8d\r\ng5s+pUXlifnfk7kwQH3zRwyWfuXewHfCsEKMI+ZNKz7IwrYTBAVRiYdRo9Wt\r\nUYA2TQkoHtJcBDMnuPV0SCBKS8yMl7pbBD0=\r\n=sehJ\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.28.0_1650639426729_0.4605863354011688"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.29.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.29.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build",
+        "clean": "tsc --build --clean",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc -w",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=8.12.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "8.2.3",
+        "@types/node": "14.17.33",
+        "@types/sinon": "10.0.6",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "7.2.0",
+        "nyc": "15.1.0",
+        "rimraf": "3.0.2",
+        "sinon": "12.0.1",
+        "ts-loader": "8.3.0",
+        "ts-mocha": "9.0.2",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@grpc/proto-loader": "^0.6.9",
+        "@opentelemetry/core": "1.1.1",
+        "@opentelemetry/otlp-exporter-base": "0.29.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.29.0",
+        "@opentelemetry/otlp-transformer": "0.29.0",
+        "@opentelemetry/resources": "1.3.0",
+        "@opentelemetry/sdk-trace-base": "1.3.0",
+        "protobufjs": "^6.9.0"
+      },
+      "gitHead": "eda0b092db484855ded8b4837ba7fc19a377c5a7",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js#readme",
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.29.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/3.22.1/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-5Ga8LD2mM9VHLG/PbiMACCqShgK8HwI49Tf249toPGK1k8Wtca0aNrhKmnYANMiWympNW8XmVwmhUTCXKeEyQg==",
+        "shasum": "225cc0b90536bc82cf5cab32e5c03f20ee2a5790",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.29.0.tgz",
+        "fileCount": 12,
+        "unpackedSize": 28896,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDeyzq6Grh4bnLY3YF9PHYNmHa8J+x7zdnAcLH6o0ZSxgIgSRrmauRrZyZb4t/TcJou1W2yjyBF2ilD2tcE6GUT8Tk="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJikSlnACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrCoBAAks7yVNE09qH6/GKcCXHuDy0aJdO+xkLMe9UXBfkpFKAdrpLX\r\n4OPlteHP4rk9epnnkGZTblon+BOqBiaTpn7LqEXoWKvXi3B7XDpunIgoZtCa\r\n2lPeibJeUhGOOt5B/pXcd2xulfu/LTF3YbEciKzmhTaqpBfJxbRUy+sXMBz9\r\nInC+NkDoEcyFVrcd5W3eg475HfmLNwmcOwSfoEUB1gTkIGUN8s+mSoE1z//p\r\n/bmWVaWGfECCCq5YB2OwjQIgyG7KUT20y8GvW2zCW18WTy6L64/AKla8+51I\r\ng8qqdcMwtDWcF+6DHT/hfNneQpThZkyDs/pTJvDQHfPYoEYpdpEYhouJuhtr\r\nMsGJv47Uti72DvjZ6QwJueUy/Bv5Bthfjr6WruBmD1JZBi+k3C8NUZLmTijd\r\n6xX2glI2bw54Y//0FHfwdZvPDLjUt+WbEJDIF53wlE4Suda1yBFxmbHRIuW8\r\nyQYvzREAvEFCEdf0Nr8tQu+d+xC0jAJ5jrE4HApTcN9FzJzwHC/Bl6VPvHgO\r\n856tHklnGEPIUdcpXUb4Nd2VM1KMWRP67Ocfjq9i+kn22tlXyC1hwlFHq6wX\r\ntg7IoNxn2EiJngTfhs8ST91dx47kiAboYwJPnlRbiOLb6FjZLZad5/d1DmEd\r\naXQbAcecQKkh04IHFtk3ge0oNYvjPokZsuA=\r\n=XN2H\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.29.0_1653680487430_0.4712038196286392"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.29.1": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.29.1",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build",
+        "clean": "tsc --build --clean",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc -w",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=8.12.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "8.2.3",
+        "@types/node": "14.17.33",
+        "@types/sinon": "10.0.6",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "7.2.0",
+        "nyc": "15.1.0",
+        "rimraf": "3.0.2",
+        "sinon": "12.0.1",
+        "ts-loader": "8.3.0",
+        "ts-mocha": "9.0.2",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@grpc/proto-loader": "^0.6.9",
+        "@opentelemetry/core": "1.1.1",
+        "@opentelemetry/otlp-exporter-base": "0.29.1",
+        "@opentelemetry/otlp-proto-exporter-base": "0.29.1",
+        "@opentelemetry/otlp-transformer": "0.29.1",
+        "@opentelemetry/resources": "1.3.0",
+        "@opentelemetry/sdk-trace-base": "1.3.0",
+        "protobufjs": "^6.9.0"
+      },
+      "gitHead": "094f016ac6697fc45ba5d7b5765f5c3e56f18d1e",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js#readme",
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.29.1",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/3.22.1/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-hH0mxuC9dTdKjMCFRAX6kpz5XfVTmcxOoSia8EMLmCCFnbL3m/YsVsMw3nqXnYf+EwMSQgMeWpuAvq2kZWKhhA==",
+        "shasum": "c936fabf0895fa1a0198b8022143d5f582dc992f",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.29.1.tgz",
+        "fileCount": 12,
+        "unpackedSize": 28896,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFUhTHgTbxSd7bFUQ/Zu+b51IePcJiWP7ETkUx17FGQsAiEA0shGmm5CPBjvMX8jDkimzPQIpIQLMIXKEKfkAZxvA7Y="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJil6wwACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqNJQ//YG/cTv5ECetPEC+EiX5IEAM8MlBPh5m7dplbD2tSOqjAFFj7\r\ni87r1boywKDrzZPw8CrY5x+9rXObqS0dlLCaAqAS9OSAjZw+zcOpPxBSDcFY\r\n7wivhlmTm8j+xFpXVfqE7JRPBSW/n2zxLVzjbLpTithROjZL8U+ZI8FXXU+K\r\nGfN++DrbTsYlnz/gdRDCjLlu29kO5i26nKx8mFTn6n9kqKa2WwSTPs/j6GO/\r\nbxek3QkcSUWWEasiG758qIQgu/AGaFHUp1cRyCLFCRqBBnzFBexdV6FTf0PP\r\nIT/CNBppnyPIOXHNJLltAKCf3qPt3OvKBDABDzYwOWVLB+7A/88gYLj8bGLm\r\nMbcl16B72kKlWzdbwJpgwzr0dMZpmLrBlMRk2dwFXXaMtNkPmj3008oTdMBd\r\nl4xWZFEMTfS3+DJ+MwHW5eAaaOoq5KwMN020Hie+5ggTFhC17jQ9yXEI74Rf\r\nUlSHOkzUkIGqUaOk903KVMWZQL13t5nLL+26sC1GtISRgRugLNWt6F4TGUDA\r\n7wcJ51dBGqB19Keg0fIA+5gC3ngMQgQT6OedgPpkGrUOR8/a3nWbuUrNKGHR\r\nf6mh6m6RC5uIlTMGJTEr3B+UTna02g+WyxkVb3cEgTr3Jio2foy9B/VS1o6e\r\n9AbNjWg4eXN+6eCpWgPdlf7g2gmRKoN3fts=\r\n=kHVY\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.29.1_1654107184010_0.401709389819775"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.29.2": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.29.2",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build",
+        "clean": "tsc --build --clean",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc -w",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=8.12.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "8.2.3",
+        "@types/node": "14.17.33",
+        "@types/sinon": "10.0.6",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "7.2.0",
+        "nyc": "15.1.0",
+        "rimraf": "3.0.2",
+        "sinon": "12.0.1",
+        "ts-loader": "8.3.0",
+        "ts-mocha": "9.0.2",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@grpc/proto-loader": "^0.6.9",
+        "@opentelemetry/core": "1.3.1",
+        "@opentelemetry/otlp-exporter-base": "0.29.2",
+        "@opentelemetry/otlp-proto-exporter-base": "0.29.2",
+        "@opentelemetry/otlp-transformer": "0.29.2",
+        "@opentelemetry/resources": "1.3.1",
+        "@opentelemetry/sdk-trace-base": "1.3.1",
+        "protobufjs": "^6.9.0"
+      },
+      "gitHead": "51afd54bd63e46d5d530266761144c7be2f6b3a7",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js#readme",
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.29.2",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/3.22.1/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-fnKOiOzfahHfyi8OekJm/HRoV9VloJ1VmDoxG5PDxdxbJirkZxokJ+mdE/UZ8Z0PSaL/yqPvBkBnaeFyhoEMng==",
+        "shasum": "8747be71a55770b76957cb32051230bef7c7db17",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.29.2.tgz",
+        "fileCount": 12,
+        "unpackedSize": 28896,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC8wfoXMXQorakKyi1X3R1cC8tqU2MQ/NG1uQMAPxgJTwIgCxf2qCC9zWEDf3inPsq/aI6onUwQwbheScmTZzIeuQM="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJinmLsACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoM9A//WGtngualnc/yHQUXHmWv/MMu4pmpUeAcNR678Xmoi+0vTmur\r\nUwKJ+BZ5fThm9dp1t7tl1068ZRnbMuTeu7yy41W7TvXquEbaQqsTq6HyPvFH\r\nqJeMQGUltBaXMBU5DoaU+xyJzPaeXrRBBBU+VUFZzHUJgcEIuH0yog7qwAKM\r\n5lzgMxgGrCf23iVP5j28kXwiojVJZOC/a84SX1LoEAcxQKCD8PNenyKTsUIW\r\nE90kIr1lS+uBaL3m/m6caEx+sxm8Ynm+CPfZu2lftW4agxYN0O6GC9DNi6RT\r\njhMGWv6AgP4/VugoPN3jdY2sPwbe6xLMlSJoZAZ4QYQCIBmzU3aZlwhK8/mL\r\nPKBv+498+xaoAl89ebRAbBvcVLtpZfQSe5mujOxAkXw6Nw3YoQtma6hZ38tL\r\npCiWfgZWRbgTfMiQRV14PDrIGvCfb+LVoTxkECJyLzIcA1Dngr6QpMQbA6tf\r\nh9MYX+iWgV9n+MtXLDlnU8rXqLdYrU5V6eKt8sXqe0+ttme3slg4gPlRyxAw\r\nST/y4Fd1MlQxVk1Bq+Adrd6TrcqXF+2IuB+ReSuZp04oq3DZkrLJi60R1x0O\r\n4TMvdkU5mxZaN/Mx/XuRR1vCydM8DfiN7FElzKcESGivKWaalsskgD1AzMa/\r\nCPRlQlTF/spV1SX1M6I9Kri2TbFMlLHklsY=\r\n=PyIv\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.29.2_1654547179912_0.4761121187050463"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.30.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.30.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build",
+        "clean": "tsc --build --clean",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc -w",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "8.2.3",
+        "@types/node": "14.17.33",
+        "@types/sinon": "10.0.6",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "7.2.0",
+        "nyc": "15.1.0",
+        "rimraf": "3.0.2",
+        "sinon": "12.0.1",
+        "ts-loader": "8.3.0",
+        "ts-mocha": "9.0.2",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@grpc/proto-loader": "^0.6.9",
+        "@opentelemetry/core": "1.4.0",
+        "@opentelemetry/otlp-exporter-base": "0.30.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.30.0",
+        "@opentelemetry/otlp-transformer": "0.30.0",
+        "@opentelemetry/resources": "1.4.0",
+        "@opentelemetry/sdk-trace-base": "1.4.0",
+        "protobufjs": "^6.9.0"
+      },
+      "gitHead": "e39ab883b18636238ef0fd741df4ce5ed53e8d04",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js#readme",
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.30.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/3.22.1/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-QFZH9IWayqsZn/I3c4cx+00UyjQON6udpOMHyMdHvyCEAUidZWylC3uL8usGHJ9FJE5vj7Fs+yVMqHlxITYfuA==",
+        "shasum": "76326ff9fc2e90fd5b90a67e0ff133ef365c60ad",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.30.0.tgz",
+        "fileCount": 12,
+        "unpackedSize": 28881,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCbaqjGx8L0gRRf6X19l1EU47Os9XYfvKdrY1o54cEsewIhAN4Qsm3chpjoN3mimUV+dwO6vGE5FXMXeACu5xphd5l9"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJixe1tACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrawQ//Xi+aKTIt8VQKK7RHS4X0fc9InXbZOkRykEk6g4ZT1RyrdCrr\r\nehTccAvxf3Vahqs/BG2PxxgKUipcvdRqnbavvU1vgUAUc23wJU5M23Bc4bnF\r\nEnXRAGs/SnGFt1AdcYPCb708bI746MlkPnWgVpAbupRK21xiqG1++h07BZ/2\r\nOWkP7T2X0e6fmJQKA+Z93KWtNZwlCFex7Dt0JWmPqcAVe0Zm0ooVL115iDEZ\r\nX1F8JOfirRF18j4X1PvGLlneToRhMySEEr5E09CKkpIw7z2JTFW0jrClSupy\r\nQeZiNz3ZkyZaLt2SPiar0dIUlcKEXyFfZN6f/5sOWp8V53mw5CukXUPTh52o\r\nkn3A8fB3SVz2XiGElCMyxSoQWGgENr3FspW7wzRL4ScmKirB/I9lm9OODTWS\r\n7gp95iIUqHKARV/VhtgE3PLZcobFt/ENU/OsjYZINoGsUly/+4RwLoc+pFGd\r\n+KEQTzcBDx7QpVVPCWrXiMRUAltqZ5UrNyCcSpJNGCemcekMlL87itdXF/tq\r\n4AMXjCYCgJBsRT27iZo4hWAJujWxpGU2dIWINQs9n/PK2j1rgIKhspg0wzoA\r\nxC1XfR9G6Cj2VyE4XmWUuilm6Nrp1P+nwxQlHym7GG9d1sbylC0m/fLBc3N0\r\nRMLPX3tauZWLT8pGtlMRoleksNL2xDWiLfs=\r\n=5IIr\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.30.0_1657138541171_0.7257565479020172"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.31.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.31.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build",
+        "clean": "tsc --build --clean",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc -w",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "8.2.3",
+        "@types/node": "14.17.33",
+        "@types/sinon": "10.0.6",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "7.2.0",
+        "nyc": "15.1.0",
+        "rimraf": "3.0.2",
+        "sinon": "12.0.1",
+        "ts-loader": "8.3.0",
+        "ts-mocha": "9.0.2",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@grpc/proto-loader": "^0.6.9",
+        "@opentelemetry/core": "1.5.0",
+        "@opentelemetry/otlp-exporter-base": "0.31.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.31.0",
+        "@opentelemetry/otlp-transformer": "0.31.0",
+        "@opentelemetry/resources": "1.5.0",
+        "@opentelemetry/sdk-trace-base": "1.5.0",
+        "protobufjs": "^6.9.0"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "gitHead": "776656b6e0cd0fc49a52b734702bc77110e483f1",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.31.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/3.22.1/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-SSASJsSp82Mo+q7jBhcbNuq0epRWrTR8jJS8smuhNGaNtBF2STT+QsCSULAq1Rm2FSgfYMBpuEQu9DH/HSyH3Q==",
+        "shasum": "0c8b37a56f3b4df7330c6c12815df6224732f6e0",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.31.0.tgz",
+        "fileCount": 12,
+        "unpackedSize": 29007,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCVS02cyNW4OrQH2uTLjyaeGhpMn9rDhXML7ZPMV6FcbwIgPk5x+nHUf6R2iFOAtyiZeddgbg+HJ73efazQOQtyPOE="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJi4FQHACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmq9iA/+MwZwcOO4TqBXBOHW0qzgeNIydn1abBE+iu6vRjQrlQGisoGr\r\nqg2HbmFtdLZnmfqbobVfBsE3lACVsVvkW3CSfFAnrcCUtHeqmeJD4y8V+mLZ\r\n2nzWdaTTDgLjdt8nxSe7sEhobs9aIpfLQSjmHUzSSWrEAEYiwfKRRiGoNa3X\r\ny6iZtGgZSfgXsYm3jU6eEabGPhp8I/KR/sOu2eR9cEBgA/G/lqxTgeY/0G++\r\n/dIurXlSsWOh0pEDQD3gsj7ga0kbNkhb2NHhlKczoAMiqhCiIJw7WK53ws4a\r\nniwwVDrqzHLLj4mO8UWeOgCDEfn43dnEHT+jFAJlO7s2ZmecaZPXXMOjRPBI\r\nqRB1bVswfp8BxKut+TAKJ2air26JbYb63lWtF/i4hjj8Kk5pS9RiKNRUvfvG\r\nQmoQFij51p1pvdS7R8gD7ruiuAJ/pfyJfftRIuYp1DHYcCK2XUDSpVqrz03z\r\nJHLoUnpMNsmkpMMrMQ8H+4PVKfUsU7eukjrp6xK1qLLcQsgu9d8xSmIbnPIR\r\n4TxinToKzGivfxupMnKvUAjdQuK/iS6BbVLSULLENaP3jH4LA7Le2pPKim4c\r\nuoALse09Vb3538LCDRMQqjwpFDjE+w7oKoeKcMb0Ayo2Cjenb4m3JcWIP+A4\r\npDp3u7dwX87Q7lbEBAA/6T7sC6sF57kl1kU=\r\n=dNqd\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.31.0_1658868742740_0.9204327631376734"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.32.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.32.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build",
+        "clean": "tsc --build --clean",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc -w",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "9.1.1",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "rimraf": "3.0.2",
+        "sinon": "14.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@grpc/proto-loader": "^0.6.9",
+        "@opentelemetry/core": "1.6.0",
+        "@opentelemetry/otlp-exporter-base": "0.32.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.32.0",
+        "@opentelemetry/otlp-transformer": "0.32.0",
+        "@opentelemetry/resources": "1.6.0",
+        "@opentelemetry/sdk-trace-base": "1.6.0",
+        "protobufjs": "^6.9.0"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "gitHead": "a5abee69119cc41d9d34f6beb5c1826eef1ac0dd",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.32.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/5.4.3/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-fjuqy/uWv5nNMOZU0ufhkNABYnoB9Jk3GCThTBmjms0A9luYf/gAa/d6b2jZEdyJ0C+fZJCZmuLyDfE7nwKwNQ==",
+        "shasum": "ddc1e91a81d66897678ca492108aa2db1d7b885b",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.32.0.tgz",
+        "fileCount": 12,
+        "unpackedSize": 29008,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICATCb2nofZinnSe9U6dXAUsAvBlk7k9eMqOdHcw9nPFAiAVWckyc3ULVMyOt2y43gNSzwK9KF/ON7KOOCApR8ZORg=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjBmOGACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrGQA/+Mo7q3TRvp//XPQCJKU6pE/nv4MpOaM5JkUriYm587cu7Sx9Q\r\n+J8La++AZmuundiVwoOz5d3CchC+EwJqZ/RCbOzQtZ2U1RogvE9iZSP9lFlo\r\nJ6hit4Rd2IEoR/ejlT5Xy+PpKPFDtVXOwrzUA5TD6y2AEVOHG3+Px1HTPm/0\r\nB1Ed276DqVInasAVXtkX64XGpEFO8g61MKA+oAMtM8C35oC4hqpup46U7+qH\r\ncdLhj7zv1KATJrj7yebZudBDFU/VpukWwllx5LD/Se9PExqrfwLFnjsWXrUu\r\nKAhCuhffrNGxoJbhS40FdTBHii5ipx2D4V+7CHfHOejoLOyxp1xu84gDyxKl\r\nm1Qz9fy4/v/NeBclQOhCjJKQ2L0796M4veefaiwGNVIOcNLX/0RWDpA7qHXS\r\nZ4vXEzugKKmRJAtdH1haPrU1MyQokGLDZL4ImgXZB3y8E9obzrZEtgr+DsFR\r\nED8/lTeW/3lFddNcNIHGnUSHclPZ1fhyqFjP/0ReFiy9togGvUm9TXZJZx30\r\nu7L1M1A98+bfsCig+0LcafBWXml41wcm3Fw+Gnc0Am5ecl5A1ZVMmH/Os7ho\r\novvs3HL6LOoHKP/fa31jKyheeh77ff/KfqeZqMZ1DBgo/HyFI0iyxoEVOOHy\r\ntMsrNmTi2ve+eIduS+srL9RBRyTU53uKhsg=\r\n=db/G\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.32.0_1661363077566_0.7272591126303862"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.33.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.33.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build",
+        "clean": "tsc --build --clean",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc -w",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "9.1.1",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "rimraf": "3.0.2",
+        "sinon": "14.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@grpc/proto-loader": "^0.6.9",
+        "@opentelemetry/core": "1.7.0",
+        "@opentelemetry/otlp-exporter-base": "0.33.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.33.0",
+        "@opentelemetry/otlp-transformer": "0.33.0",
+        "@opentelemetry/resources": "1.7.0",
+        "@opentelemetry/sdk-trace-base": "1.7.0"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "gitHead": "ad88c3d9aa0100fe259b93f4b660e84417b757ac",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.33.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/5.4.3/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-hGf6WMtJpoepHw4kJ4jYsos/45pq6PNHs3pc1PGm+Vbm7e4m6K1j4ZsRAPsWDw4AbYndFJd+u8YjphcPivhxFw==",
+        "shasum": "f8572b0ca69fbfa4c9236748a617c96ec5f2aed8",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.33.0.tgz",
+        "fileCount": 12,
+        "unpackedSize": 29092,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCoDBr9tsJEP6Q89aU5ERPgtZRzvpYMU7yM8qf+CL8G8wIhAKeoHIVU8Gxqq0U/Ft9WuC+sBqTfK59+mEozGyYz6Scs"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjJGjEACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmobKhAAk9RWMHzrSxwzP8wIWAcC7WsP0x34Zb9/CBjBCcM9wX144eSH\r\n38WwxClerPwDtkJMdr3VWb/OrqC7hHOuAwDtAgFHb2Pm+gEsF82T9o2w6jDL\r\nPQVgSEbRouYFF25Ba1CQ5xD+rbaWLiCTj9Xr87xsH1AtT+ALZMWpTXcVDXNw\r\nEIwiB4VQ2J4dM68Hm/RenKmXlNyPrO/iN4csYSJ8t7iTG3uQ4SICrvgg9Rhf\r\nHJXET6jCCPHdv1YWWgbZ4yojWM42jdbq81Sl6+g/WSOrWQ/lHvUQ5vaU3F/a\r\nsvFR0No4GO4CJzGcBHs4kE5WzHFSLNqnFTp0vmGQTvGYdXeKhC1s1ec4X5wz\r\nm/164WVVtW0v8OAnCUbTFU6c5Wqt+A8jyr89bA2WaduOnHS1NCKSugshIJAp\r\nmJ33OTbNca6D0iwZNY1qse69x2qHM94244QBieGz+sU0z7UQrLVaboszjU60\r\nlgvtpnIod8LJnXsoeacH+aSP3NtXCi0e6WBa2QCV8yptk5DJ8dcPA2maPY2M\r\n/qaypIzKV13i3flDYNo+3uAkq2ivGoKSy7WBt1eAiy6S/n/9Nlq6jFzz9zJ4\r\nJ7Bn8Sj0WQpz/Vec09XkD3s6MC3O8uC25AH9GLWbB6RZNGIkIrcQmTZnLkg6\r\nWJGtIaBXMCtPviFbSWBX5nSsPuxAPuAi8E8=\r\n=+ZN/\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.33.0_1663330500357_0.022204664755671955"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.34.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.34.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build",
+        "clean": "tsc --build --clean",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc -w",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "rimraf": "3.0.2",
+        "sinon": "14.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.8.0",
+        "@opentelemetry/otlp-exporter-base": "0.34.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.34.0",
+        "@opentelemetry/otlp-transformer": "0.34.0",
+        "@opentelemetry/resources": "1.8.0",
+        "@opentelemetry/sdk-trace-base": "1.8.0"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "7972edf6659fb6e0d5928a5cf7a35f26683e168f",
+      "readme": "# OpenTelemetry Collector Exporter for node with protobuf\n\n[![NPM Published Version][npm-img]][npm-url]\n[![Apache License][license-image]][license-image]\n\n**Note: This is an experimental package under active development. New releases may include breaking changes.**\n\nThis module provides exporter for node to be used with OTLP (`http/protobuf`) compatible receivers.\nCompatible with [opentelemetry-collector][opentelemetry-collector-url] versions `>=0.32 <=0.50`.\n\n## Installation\n\n```bash\nnpm install --save @opentelemetry/exporter-trace-otlp-proto\n```\n\n## Service Name\n\nThe OpenTelemetry Collector Exporter does not have a service name configuration.\nIn order to set the service name, use the `service.name` resource attribute as prescribed in the [OpenTelemetry Resource Semantic Conventions][semconv-resource-service-name].\nTo see documentation and sample code for the metric exporter, see the [exporter-metrics-otlp-proto package][metrics-exporter-url]\n\n## Traces in Node - PROTO over http\n\n```js\nconst { BasicTracerProvider, SimpleSpanProcessor } = require('@opentelemetry/sdk-trace-base');\nconst { OTLPTraceExporter } =  require('@opentelemetry/exporter-trace-otlp-proto');\n\nconst collectorOptions = {\n  url: '<opentelemetry-collector-url>', // url is optional and can be omitted - default is http://localhost:4318/v1/traces\n  headers: {\n    foo: 'bar'\n  }, //an optional object containing custom headers to be sent with each request will only work with http\n};\n\nconst provider = new BasicTracerProvider();\nconst exporter = new OTLPTraceExporter(collectorOptions);\nprovider.addSpanProcessor(new SimpleSpanProcessor(exporter));\n\nprovider.register();\n\n```\n\n## Exporter Timeout Configuration\n\nThe OTLPTraceExporter has a timeout configuration option which is the maximum time, in milliseconds, the OTLP exporter will wait for each batch export. The default value is 10000ms.\n\nTo override the default timeout duration, use the following options:\n\n+ Set with environment variables:\n\n  | Environment variable | Description |\n  |----------------------|-------------|\n  | OTEL_EXPORTER_OTLP_TRACES_TIMEOUT | The maximum waiting time, in milliseconds, allowed to send each OTLP trace batch. Default is 10000. |\n  | OTEL_EXPORTER_OTLP_TIMEOUT | The maximum waiting time, in milliseconds, allowed to send each OTLP trace and metric batch. Default is 10000. |\n\n  > `OTEL_EXPORTER_OTLP_TRACES_TIMEOUT` takes precedence and overrides `OTEL_EXPORTER_OTLP_TIMEOUT`.\n\n+ Provide `timeoutMillis` to OTLPTraceExporter with `collectorOptions`:\n\n  ```js\n  const collectorOptions = {\n    timeoutMillis: 15000,\n    url: '<opentelemetry-collector-url>', // url is optional and can be omitted - default is http://localhost:4318/v1/traces\n    headers: {\n      foo: 'bar'\n    }, //an optional object containing custom headers to be sent with each request will only work with http\n  };\n\n  const exporter = new OTLPTraceExporter(collectorOptions);\n  ```\n\n  > Providing `timeoutMillis` with `collectorOptions` takes precedence and overrides timeout set with environment variables.\n\n## Running opentelemetry-collector locally to see the traces\n\n1. Go to examples/otlp-exporter-node\n2. run `npm run docker:start`\n3. Open page at `http://localhost:9411/zipkin/` to observe the traces\n\n## Useful links\n\n+ For more information on OpenTelemetry, visit: <https://opentelemetry.io/>\n+ For more about OpenTelemetry JavaScript: <https://github.com/open-telemetry/opentelemetry-js>\n+ For help or feedback on this project, join us in [GitHub Discussions][discussions-url]\n\n## License\n\nApache 2.0 - See [LICENSE][license-url] for more information.\n\n[discussions-url]: https://github.com/open-telemetry/opentelemetry-js/discussions\n[license-url]: https://github.com/open-telemetry/opentelemetry-js/blob/main/LICENSE\n[license-image]: https://img.shields.io/badge/license-Apache_2.0-green.svg?style=flat\n[npm-url]: https://www.npmjs.com/package/@opentelemetry/exporter-trace-otlp-proto\n[npm-img]: https://badge.fury.io/js/%40opentelemetry%2Fexporter-trace-otlp-proto.svg\n[opentelemetry-collector-url]: https://github.com/open-telemetry/opentelemetry-collector\n[semconv-resource-service-name]: https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md#service\n[metrics-exporter-url]: https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-exporter-metrics-otlp-proto\n",
+      "readmeFilename": "README.md",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.34.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/5.4.3/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-Ump/OyKxq1b4I01aBWSHJw8PCquZAHZh6ykplcmFBs9BZ8DIM7Jl3+zqrS8Vb7YcZ7DZTYORl8Xv/JQoQ+cFlw==",
+        "shasum": "526a2749007f35f7a70cf7d08406fcd421a03d8b",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.34.0.tgz",
+        "fileCount": 12,
+        "unpackedSize": 29003,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCpGzJRH6djxQeb9g9sqEQDcOM5sk9vZW2TrBshriYbCgIgSSzbeNaMwmGRYKCtaUYnkh+P58m9MiiWX5mY5qpDZuI="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjbANhACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmrhgg//UKXaT/NXqyGi/VsX0JnzwrfhE8vIK7p12YO7pxLAXjazzq4F\r\nTbDWn1NBdUhHoOqSkawdND7BrlmU3gV7KuVcWq8jnbKEtz2V4r7vIrfUupmL\r\niO/Ir+pDIseZ2jZICKrCaPh+2ws4e7IwB1ICZ4S2Q8GPZF8G2vinGD/1Auq0\r\nWSrC3NGnWkuRiEGi0qP+TR/bRRBQiaK5iw56jdRQYwsetpYRMxOJSLtKOoDa\r\nSw8ujcfhw9lb16ZX+iMFoiFNGzQxThfAhMug1Jex/qrtyNhWmzJum1s+kNhW\r\nDqnCGgQn6Q9dIxIdKfN73vHaFC9nC+JSPwl8OpNE4AqS+q5AryGQM89cptLA\r\nKOjgJLiGAImAzhAJrt9i1pxKPIwvvtU3+dZsZaElqC7ziV+dfGaxsJozRqiN\r\n0xbNdbe/TJh4m5bw4g/C1mB43XBXFENkeDHRYEXU+FnEqZPVXl0zij6ZyDcI\r\nOUcKQbVGgJjDNTmu1CWaHvgncIiOnIsci474EQcvdW9grlry1xOYEjXS0+Ix\r\nsJGGsZDt74qCj/0bHM3evABmlMhudCoA2NbtKvm7ymHqcshoo4bCddSd2lzi\r\nQ42K/B/modKaeNtbJN9PFifYlOYPgc7T94TbOpesB0/Yf1vs2LGcCJkvegSM\r\nd7fJTyBbHRTBMfJqm5Fn4+Ac8C5f/Wob5DU=\r\n=fSWg\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.34.0_1668023136827_0.035639831120682475"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.35.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.35.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build",
+        "clean": "tsc --build --clean",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts'",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "rimraf": "3.0.2",
+        "sinon": "15.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.9.0",
+        "@opentelemetry/otlp-exporter-base": "0.35.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.35.0",
+        "@opentelemetry/otlp-transformer": "0.35.0",
+        "@opentelemetry/resources": "1.9.0",
+        "@opentelemetry/sdk-trace-base": "1.9.0"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "08f597f3a3d71a4852b0afbba120af15ca038121",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.35.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/6.0.3/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-B2Evc3h8MopqwvljFDpTZyWe9PPVbYKxFEOpN5cls84GtYDsveHchCwiSG98liOqTQHORVNsz8lvLRNoK/J+Tw==",
+        "shasum": "d23335bad697a14b61a1e6321466ee294874aee0",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.35.0.tgz",
+        "fileCount": 12,
+        "unpackedSize": 29044,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEWvG18wed2Pbzi5bEYTQHtEFfbNH43YEoEXkp9NgzOCAiATX8Wy8jwBqCj5hhveyWCFGB0LTFraGE6dKHxyVtAr9A=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjvy44ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpbJxAAjD8pPEgStkrwQMdbkAOIKFDMNwU0zSPZgOea9a/XujENZ9zO\r\nz2My6EWH074AamjXmGS9I0PSlDpfFkeBt/cFGBDcTKn2vYu+70PTcfOfpAah\r\nEsrDDHOeM3FHqovXkYJaD6krAnAjZ0lIlr26NiU9/t0RMXJgkOpCyssKK0Dy\r\nqjHSdyAtfwkgAqeqI8b0TGuaNpNqSw05wqCgnmv0B3E97pvhFoimhrPzeVK2\r\nV+ThnPP+zpWJxZNZfdC3e5nQAW+U9LM0JHN5KSBtqgyP3obS+ni4wRbTOCik\r\nt853Df0hE5L1sQQFMLa6tFuWogtiadoChsQVOJQnNZsM672W9/EPBufEkZVK\r\nofUY5/AIdqHEqOpRe9Y9aNxHWuq6JG1+b5Ks5uYACHIwr7th+9tzSIKg1eeY\r\nHFExUifp5yFftm+3R6kzDLHZIkEa01pGvnuqZMzcvYAdxoByLi7s7PL+flSd\r\nquyVF1PO3NRanNTygBEDV+otA9beZdJo+skODygAq04P49agKxH5/fV48COe\r\nA21ajJolbEVMP6QDUQFl3y6gN+IuVhbFnsyLQ5Y16wlYE70Add4uuCpUGEtM\r\n9CqCO1MJdmc6YDQMPyr4VnRNvq24kbVi6kVz2tbudZgmuUfOVMAZjX7RgFRl\r\n9gsUvvVXzH8pMuSfHPCWjqFrIOgnmsnOuRE=\r\n=hoNB\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.35.0_1673473592607_0.1158321236969948"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.35.1": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.35.1",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts' --exclude 'test/browser/**/*.ts'",
+        "test:browser": "nyc karma start --single-run",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "^1.0.0",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "rimraf": "4.1.2",
+        "sinon": "15.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.9.1",
+        "@opentelemetry/otlp-exporter-base": "0.35.1",
+        "@opentelemetry/otlp-proto-exporter-base": "0.35.1",
+        "@opentelemetry/otlp-transformer": "0.35.1",
+        "@opentelemetry/resources": "1.9.1",
+        "@opentelemetry/sdk-trace-base": "1.9.1"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "279458e7ddf16f7ddca5fe60c78672e05fafce66",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.35.1",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/6.0.3/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-ki6wBjL+TR45fYJibtoacONp0eJezQLqnY3QyKSWP9GAftThhM+aZzIHBRetHb99PJN4ipIIVWL5WYdeAttc9g==",
+        "shasum": "49e2cb87554e0bb23e50ddd1566d70917d3b5e89",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.35.1.tgz",
+        "fileCount": 66,
+        "unpackedSize": 87544,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEHmuoK21SEstHNON9EzmiakZKXUQBuWC331GH3tsG4yAiEA0XgnVzxvtoyKerXlLOt6Daawm7uK9moktlodtyRGJKs="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj1+KOACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmpkng//WTpoCMY1CHl0Nz0qYLfqa7p6fv+Z17hfxeO8ayYw1sCf28sv\r\nyka0nOrsoAbLHM35vVkh24BJcJsipIlLNO6rlJBVbJ/O+srC1W1nEUwVU1DF\r\np6QKEVkWPa2hkjecgMf0xs4D3IkmoK9etMFVev98stVEWv05wcnw6gfUnAHZ\r\nKOCZF0YrPbnaef0+Cje8B3Lz7BRoR/wMdcfONZLGtJ6LcH6Y5ywdBxSQy5Jt\r\nlgddOmq8TusNW0A0/oKT5nMzY/67quwXaCFQAjdm0SCa4fL4BXtTT3aRZssZ\r\ndKdeB+qpGKRzKej5R7aPoq6yPz7tEitiGfaBqNfJnVv97BZsFZ0BxbkLxW5x\r\n3hgXvlKDQazpH0fvZqso8spMqrQS97uf0oosP60VCktM/e5JwS451m/+5dyA\r\ndcUIv7C1JTi2ca51Tm/dCuHSwZvlyuNFbQwKk/86Vuk2PVsuUmVi5KECaTGT\r\n3OmQm/nmQxfTfXzchJJQ0aEgtQGY4MtI0cS9F0dTWeZYvLKnS3OgG8xcN203\r\nH3PsXKthip2xzk/0KBb700igoVXlxqRakom7NjGM6SpA6wJQDglwS7FTGRfh\r\nl9v7O8Wc5NBD8dSc1ALTAAgUGqShvwqtGn3wKGB55UPV0owL0GyzSOq9kmEy\r\nQcnMXccxqaTzHX1LlQ8TP1R3Wkaw1YjFWy4=\r\n=CHtM\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.35.1_1675092622220_0.012322332712940476"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.36.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.36.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts' --exclude 'test/browser/**/*.ts'",
+        "test:browser": "nyc karma start --single-run",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "1.4.1",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "rimraf": "4.1.2",
+        "sinon": "15.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.10.0",
+        "@opentelemetry/otlp-exporter-base": "0.36.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.36.0",
+        "@opentelemetry/otlp-transformer": "0.36.0",
+        "@opentelemetry/resources": "1.10.0",
+        "@opentelemetry/sdk-trace-base": "1.10.0"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "56e6b1bb890f844b8963a146780d0b9cfa8abd0d",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.36.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/6.0.3/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-QtJzxO8OwKDae3gmvGlaCKZSOtA09KRJBIc8NlkRPS6YjN+rpMVfoIzlm8oKovrt9YgX57pFVmpm5ElDfJk7yw==",
+        "shasum": "8025c0631b7067b24f701c5b70132e22959abddd",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.36.0.tgz",
+        "fileCount": 66,
+        "unpackedSize": 88662,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDj4qwpUEkddmE/nacVNkBCmB4UwiOWQjI14Qd1wUKH2wIhAKgXiLjTRtfo2Plv9DSatCsY2De4GVL3XIf04eJmIbE2"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkD0chACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrV+A//a18+98w2Mk2FPk28gCsQnfEd3P79FSez+O1BEUCAJOhWy2RL\r\natp9OuKmC9rM87/5I41+HbTwMimh50dr0azRw+uH7+WCmLIVLbEhyT41GVGH\r\nv0Hs1rsj47gbfBTSH/fN5WKtnCI3t0gzBDMpqTL+Ndq3Ut7cG4pRS3GaYMxN\r\n+QsTntAbyyqvOtn3E+cCqxVIKXHaYzi7e1ShrAW/Symjj7QpXdVFIl8PtmhJ\r\nrbvpfCUBTrgGdgS1hVorefzrGojzRooQbGXMddPbV/C19gyNbRrz1HBglsio\r\ngTAP83rJC/KjijQmiGGQAC6ibDJf80naU5O5xSF7N0UDAUBLq0a/46gDTzVb\r\nibXdaHhE6dG76xrtgEsaUWiz998NPfscZft5EXuwjXYDIUAYtIG5DWkvchfR\r\ncgsF6HPq/UJnTwaYbPoAX3KK/+uiSuy84rv2IHqcuaTS3mqGZZxrISdQtoIm\r\nshred6rnaQD1aZrNwynwxHmkO5fHThZu8RPoMxAO6gAd/2Hb+ewBTYRd1VUl\r\nzTtnHZDKJ+xKzCNrnd+OhMMlTxox4Tzf4UdUaTwizFJA41a9Vl/QSHfun4Bs\r\nPwR37uveM/1DSsvqv49SmpxuO9xnnV7NH2neDyaEM7ywD+Ej+lmtI6kF4Ejg\r\n7roM2ZkZsBZyrC40G4/muy8xDvwVgv3nUlg=\r\n=Ik1Q\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.36.0_1678722849072_0.33841248531936485"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.36.1": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.36.1",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts' --exclude 'test/browser/**/*.ts'",
+        "test:browser": "nyc karma start --single-run",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "1.4.1",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "rimraf": "4.1.2",
+        "sinon": "15.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.10.1",
+        "@opentelemetry/otlp-exporter-base": "0.36.1",
+        "@opentelemetry/otlp-proto-exporter-base": "0.36.1",
+        "@opentelemetry/otlp-transformer": "0.36.1",
+        "@opentelemetry/resources": "1.10.1",
+        "@opentelemetry/sdk-trace-base": "1.10.1"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "486df99906958de9b8b666839785b00160a6a229",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.36.1",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/6.0.3/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-pNfrto7amygyyhmL4Kf96wuepROEecBYXSrtoXIVb1aUhUqjWLsA3/6DR3unB5EfSRA1Oq1Z9bqHfNuKqGfPNw==",
+        "shasum": "14fe04539805186748ca2f119e36d8ff64cfd9c2",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.36.1.tgz",
+        "fileCount": 66,
+        "unpackedSize": 88662,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDqDZQqzD4FWNmPIUpERyoA9gCbRG3kCoaUI100cpYh+AiBk3HFXWIfik+od7QHxThhcX5iv7qPS0D9TiVz7e32zIw=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkGIV+ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrQQQ//bIHZ9WoBG4MbK75iPvksIqmBgUyDSrgZrvbi/LLSOGFGchvR\r\negNISpxtkfavlE8NwcJlgsjSbP0PwJbCMyX1jWj5vJx7ArG0kQ7xYZ5tE2rv\r\nZLMvEPRGyLsojJvdfC6AKZLVsKWW5RykC/iRl/x/XJR1h0T0f4kdglzsiwYZ\r\n0t1fj93PDl1xvZzTGtKCTRwVe2LpSY4uxJmI5F3cu8VNa+9dQaGni5sOBTLs\r\nIaJ9GobU7nfWkLsEAsq73fMip8yHuIMVJ7awL0ItXjPuxqxHJSVhuZUBLCwu\r\nB1PX4rmM7+DvZT6tlZRMbg3VvqCVyApkJ0s/v645oiDhQoSN84nvi2qFl/j/\r\nmIgfL1jgYkv2NogFj+++82cioMmtQQmtVouwThGxstg0I3QG/dJpDJ9pT6BC\r\nriQEVh+Ysi+iCzWybevSRryN+3DY0o5Pe3OiJSmAbcEOiqV3++0Zr7clX58J\r\nX6d6DuqL0LbkTPLUAZ7hfI11mU+sMIiIE5/6z68segtmYw/eWg/AhM6+wjCa\r\nTWz1fBQgZ/FWrOVpcOPl1cnV53p4RSDQU3Iz9xZFG2V9VW7lLd34gQAcKFx6\r\nM5N3Sc3Z+N5LaOIbjXALrol1gI1PaTTCYxrdEypw2yldagIKMwbWkzfZE/PH\r\nJP7oh0FT2A1CxJBnC61vNz56PkKYaLhpfSo=\r\n=rq1h\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.36.1_1679328638228_0.12509245015082215"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.37.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.37.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts' --exclude 'test/browser/**/*.ts'",
+        "test:browser": "nyc karma start --single-run",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "1.4.1",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "rimraf": "4.1.2",
+        "sinon": "15.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.11.0",
+        "@opentelemetry/otlp-exporter-base": "0.37.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.37.0",
+        "@opentelemetry/otlp-transformer": "0.37.0",
+        "@opentelemetry/resources": "1.11.0",
+        "@opentelemetry/sdk-trace-base": "1.11.0"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "1328ee04ae78f9f6cf143af7050c00aaa6d2eb3b",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.37.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/6.0.3/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-xOXs28I8EhZpQhjIyJyfDUJUsM6GbsGmQRIwhB5LFsbs1sPKiTWlcXZLJN16Ipeqz9Am8Rgbk5HdL99aQ6SEBA==",
+        "shasum": "5a1c3622d8d445fd8824ac8d8144011d1f6f03e8",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.37.0.tgz",
+        "fileCount": 66,
+        "unpackedSize": 88662,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHnb0ljwcu9sTK+DX6WnaWRGmiwoJIGxeRYTMgF9pqwgAiAQr7uuEpNC3eS/HtZc+l4pCC+Zf+pN+Bz21ZT9UaXqrg=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkJasyACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqDWBAAl0NBOr+WVpXaJZToyMylB8JYQ7cSGyl/g9HLJEFlec4+7LOO\r\nSUbDQtZ0qYBEsUq/mmeL4HGwL1IiTyPX2wkbCCffirM9KtZgfBkGorafXlsj\r\napbNzKtuf/8lUysd+wxISzZa24auYcrYXvh/nL6mBZk6kjmMOnqLeteK8p4r\r\ng+s3pSrDjIDQYWLGuYxwr8yG8NwYbT6o9nVJdE+Diq/e5Yav3toCT7AzeWPc\r\nj5/N2xJcNF2+VEo1QwBBOMGnr7hwzuc1AXjZusr/+C3LQ9CzfW0j0N7NJoE/\r\nVza505LHKIyKC0yJfRcQetkUBTSqgcYFR1kzi+l9k+cQV9vm7T6dtDRqDmYx\r\nVh4mGi9XB4UsY8JKQV+EJZlB7QVrKAtie9Oh6jE+U9Tejpv6IPfC5KBmrDtG\r\nh0SoEMFMzsK+l0mq7qvtTd6MjlbmcFiDDsC3Bhn7pPKKsQVZkKgju0ovxmcc\r\nk3Xt7guEm0rAPuB1CDyXPcBX1wNUj32+seKeKN+TL7v0Mf7EGbbTYig2lwbZ\r\nZQMwjUqs0h2AIUuZtEx4TeLi4G0By2byXAfcOX+wOK5O0aHY/aKYol2DFN+3\r\n1pKQo+KRW2Uatuycz7yJhrcUfhZy+27O4P/UPBsCPbPwvdo89OPXSJM51gc8\r\nLl5NxaBjwoyIRKUawSiLtVXHHoQ0JDwRTU8=\r\n=y/tk\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.37.0_1680190258478_0.7498095819237518"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.38.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.38.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts' --exclude 'test/browser/**/*.ts'",
+        "test:browser": "nyc karma start --single-run",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "1.4.1",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "rimraf": "4.1.2",
+        "sinon": "15.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.12.0",
+        "@opentelemetry/otlp-exporter-base": "0.38.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.38.0",
+        "@opentelemetry/otlp-transformer": "0.38.0",
+        "@opentelemetry/resources": "1.12.0",
+        "@opentelemetry/sdk-trace-base": "1.12.0"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "a04090010ee18e17487b449984807cc2b7b6e3e6",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.38.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "lerna/6.0.3/node@v14.18.1+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-M1YctP+T6485noDAJPsnpsx85xsfqyCr06CadTQBJHIgjStgsKTDA86iVpv7XEqW5lwdIThn/boDou2vyi0bQA==",
+        "shasum": "922ce69386657e6752d732957ddcbded8d1b6b41",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.38.0.tgz",
+        "fileCount": 66,
+        "unpackedSize": 88662,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCP8UYj8eJ2PdSlbpkzV0eL+jndelDNQcIif/xWs0tDIQIgP2NjlBh7wbXC45UNxiRsgtUtyl6iEwY0+aqBSxFgCYg="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkOEZwACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmq6Jg//QZBpIMFEdSAStzGgQz4k9NCjHSmsY/BwEMhLpnVjeF7HtrZo\r\nqi9Og0qkBKYISqzgfcP7RPMDi8K//MKxUExaiBIw4ozl4PEGVuWmC8iMg7Ol\r\ng3qgC8N5P3V94NUmhFtc5c285rcibF5lQ8tb2Em7HDwG/1bxdD/iU+IrAi14\r\ndgZz+l4XBrHspN74ghISMhOZjOksRSHZgjb9zjTGRZxaaJ8SdhTgOwvaKjfc\r\nv6phWaBZ0lStylswTgXjbDK5q6M79ewXDiY4O6P3sDNcZVm0epxfevt5dKeI\r\nan99E6DUtC2fYK6XB/YGd0IEIR9E/+AucG4X8Y6b7cX4jRXps1PCrkj9dHFj\r\nROf0bsWM1PZ9NufN/enl+OPPTCDA2ztZxfbV6QJKMlggMh0SXItDTARw3H5S\r\nvHMBj9X76xSgce/pI2zF7XjfzlOiucNvZ39OIDslO/jp1TKsmo8BFgKL1Ip4\r\nNuuabciK0JuqN7jXJozzeZgfOWWhEjfYs/ChCIsWjcNoS6svPm1yP3jus8VX\r\nY8Zd9Zx1XVlnkPatRzK0BVY9tnJb7dyEuAKaZZQJXE18JPVPKDVq7t2ptsmE\r\nQoodR0DcgUN1WAdn+B850obrpqXPeWuf5GzeRMrQCzbPz96okP2uwbi+H4NM\r\nzIBCknSOUXrb+CjMICpO0T1SO4148xG0jEg=\r\n=B1rR\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.38.0_1681409647969_0.8321717419335923"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.39.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.39.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts' --exclude 'test/browser/**/*.ts'",
+        "test:browser": "nyc karma start --single-run",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "1.4.1",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "sinon": "15.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.13.0",
+        "@opentelemetry/otlp-exporter-base": "0.39.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.39.0",
+        "@opentelemetry/otlp-transformer": "0.39.0",
+        "@opentelemetry/resources": "1.13.0",
+        "@opentelemetry/sdk-trace-base": "1.13.0"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "8fc76896595aac912bf9e15d4f19c167317844c8",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.39.0",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/6.0.3/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-/VwDRslkitB3/tlltoNtxPI+Xr+M3zt6ubvTfUcTUUvMbFEeXoCjSUs6xXNQj2cpAC7pxg0/Rva/92iWUMF7Kg==",
+        "shasum": "c03e85ab67ec325dafa1b9a726a08a436a8ca854",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.39.0.tgz",
+        "fileCount": 66,
+        "unpackedSize": 88639,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDXlhUWKNHAHw9xwpTl5QbY6lAiwZqTtKex6Biu3oGQ8gIgIYLyG976hvWBYDIMMP47dPJW3qi+4IkqcTN4nVkWkOM="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.39.0_1683811810664_0.48103650004069176"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.39.1": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.39.1",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts' --exclude 'test/browser/**/*.ts'",
+        "test:browser": "nyc karma start --single-run",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "1.4.1",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "sinon": "15.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.13.0",
+        "@opentelemetry/otlp-exporter-base": "0.39.1",
+        "@opentelemetry/otlp-proto-exporter-base": "0.39.1",
+        "@opentelemetry/otlp-transformer": "0.39.1",
+        "@opentelemetry/resources": "1.13.0",
+        "@opentelemetry/sdk-trace-base": "1.13.0"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "bba09c0e5a6d92fc71ed08028966ae9d56da53db",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.39.1",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/6.0.3/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-oJQC7a67iwExRYynKqn/O9Fl5gUjDa43ZQsZu2iKAADs/6YJ+u5MJ/wcq3CpJsn2KU/8j8HWAKOcDkkQXPuJ9A==",
+        "shasum": "0d8f8a57e2a4e61849e19fb325292d0c2c32f7bc",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.39.1.tgz",
+        "fileCount": 66,
+        "unpackedSize": 88639,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGCFjTa8PcIKLOCvRuv00rYQ9yxL+MUpZMe9qJdhqR7bAiBGfapXPPY+yRIX002LfEVlc1903nshcO3BDbYjgqdc2w=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.39.1_1683897178541_0.474831850241471"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.40.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.40.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts' --exclude 'test/browser/**/*.ts'",
+        "test:browser": "nyc karma start --single-run",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "lerna run version --scope $(npm pkg get name) --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.16.0",
+        "@opentelemetry/api": "1.4.1",
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.13",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "mocha": "10.0.0",
+        "nyc": "15.1.0",
+        "sinon": "15.0.0",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.14.0",
+        "@opentelemetry/otlp-exporter-base": "0.40.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.40.0",
+        "@opentelemetry/otlp-transformer": "0.40.0",
+        "@opentelemetry/resources": "1.14.0",
+        "@opentelemetry/sdk-trace-base": "1.14.0"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "edebbcc757535bc88f01340409dbbecc0bb6ccf8",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.40.0",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/6.0.3/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-1bICfJOrBF+Q+4UYjI0X3brZftLmzPEmVV78/fAiMIEM+DpAYYXW4dEPGL9ta8J5hYI3XXZkwnB3bfeyRA58AQ==",
+        "shasum": "a344210e643308d8299421531f04cff4b26bb95e",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.40.0.tgz",
+        "fileCount": 66,
+        "unpackedSize": 90236,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEytbEkCcGpDJgyVztdkQIkW6Lrt3IhhT5RSpxSckdVAAiA9b08IsdbgBfmupx+uVGoDxZZOp++Ujh1b8DFDODxT/g=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.40.0_1686031258003_0.41238755696026397"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.41.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.41.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts' --exclude 'test/browser/**/*.ts'",
+        "test:browser": "nyc karma start --single-run",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.6",
+        "@opentelemetry/api": "1.4.1",
+        "@types/mocha": "10.0.1",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.15",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "cross-var": "1.1.0",
+        "lerna": "7.1.1",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.15.0",
+        "@opentelemetry/otlp-exporter-base": "0.41.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.41.0",
+        "@opentelemetry/otlp-transformer": "0.41.0",
+        "@opentelemetry/resources": "1.15.0",
+        "@opentelemetry/sdk-trace-base": "1.15.0",
+        "tslib": "^2.3.1"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "06e919d6c909e8cc8e28b6624d9843f401d9b059",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.41.0",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/7.1.1/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-rDx9uJGpBkvWwwmUk68F3ScowHoCrG5Q1IY0ED4Yx74nS9+KhgigN8IiSXlJyjzmw4IFxL1byNctbKlJ95090Q==",
+        "shasum": "89a039fd682a164d618bac10ffd230445330c75a",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.41.0.tgz",
+        "fileCount": 66,
+        "unpackedSize": 88347,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIG6pAvHRqbglGiR/tbQ0uIxa8IuUBWUUoFyAqHR3Ed7VAiBopwpNyKGyN3zXfh5giFPK1pQYUUFNV/TIL93toZGGcQ=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.41.0_1688642831472_0.5512400493999234"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.41.1": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.41.1",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts' --exclude 'test/browser/**/*.ts'",
+        "test:browser": "karma start --single-run",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.9",
+        "@opentelemetry/api": "1.4.1",
+        "@types/mocha": "10.0.1",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.15",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "7.1.3",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "4.46.0",
+        "webpack-cli": "4.10.0",
+        "webpack-merge": "5.9.0"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.15.1",
+        "@opentelemetry/otlp-exporter-base": "0.41.1",
+        "@opentelemetry/otlp-proto-exporter-base": "0.41.1",
+        "@opentelemetry/otlp-transformer": "0.41.1",
+        "@opentelemetry/resources": "1.15.1",
+        "@opentelemetry/sdk-trace-base": "1.15.1"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "9f71800fdc2a5ee5055684037a12498af71955f2",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.41.1",
+      "_nodeVersion": "18.4.0",
+      "_npmVersion": "lerna/7.1.3/node@v18.4.0+x64 (darwin)",
+      "dist": {
+        "integrity": "sha512-fETFOEmjDtp4FCm53FEO9OFJ954ZB8iCIYrS/7oXXQWZKlwzkuX55mwG1Xiqk8trT1CpqJdzWB1vtwcPxwtY+Q==",
+        "shasum": "3ea507084b1eb714f3e185439540410d8c429b86",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.41.1.tgz",
+        "fileCount": 66,
+        "unpackedSize": 90496,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEjCt9fy1Nznni0aMoV7xrTukl4b+IsIqd2Zo24eEvkfAiEA4PDxVeGd4q8tp51LOgQwpGfHjh4xdf0g68n1BcGgzOU="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "dyladan",
+        "email": "dyladan@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.41.1_1690209173374_0.8578689723542288"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.41.2": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.41.2",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts' --exclude 'test/browser/**/*.ts'",
+        "test:browser": "karma start --single-run",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.10",
+        "@opentelemetry/api": "1.4.1",
+        "@types/mocha": "10.0.1",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.16",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "7.1.4",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "4.46.0",
+        "webpack-cli": "4.10.0",
+        "webpack-merge": "5.9.0"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.15.2",
+        "@opentelemetry/otlp-exporter-base": "0.41.2",
+        "@opentelemetry/otlp-proto-exporter-base": "0.41.2",
+        "@opentelemetry/otlp-transformer": "0.41.2",
+        "@opentelemetry/resources": "1.15.2",
+        "@opentelemetry/sdk-trace-base": "1.15.2"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "48fb15862e801b742059a3e39dbcc8ef4c10b2e2",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.41.2",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/7.1.4/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-IGZga9IIckqYE3IpRE9FO9G5umabObIrChlXUHYpMJtDgx797dsb3qXCvLeuAwB+HoB8NsEZstlzmLnoa6/HmA==",
+        "shasum": "8e8f823d5264e34dc7c8b400f9d03871c7bfcbc5",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.41.2.tgz",
+        "fileCount": 66,
+        "unpackedSize": 90497,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCRTuspY6dEaYfAN2vf3mUSUv6zKEP27wBySAe9Ix8NSwIgCgeQACG5Ghi8NWCUNmlelyBMxs9WUUpU63c2L57uJn4="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.41.2_1691500894294_0.720445146293601"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.42.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.42.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts' --exclude 'test/browser/**/*.ts'",
+        "test:browser": "karma start --single-run",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.17",
+        "@opentelemetry/api": "1.5.0",
+        "@types/mocha": "10.0.1",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.16",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "7.1.5",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "4.46.0",
+        "webpack-cli": "4.10.0",
+        "webpack-merge": "5.9.0"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.16.0",
+        "@opentelemetry/otlp-exporter-base": "0.42.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.42.0",
+        "@opentelemetry/otlp-transformer": "0.42.0",
+        "@opentelemetry/resources": "1.16.0",
+        "@opentelemetry/sdk-trace-base": "1.16.0"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "5fcd8cf136e2235903dde3df9ba03ced594f0e95",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.42.0",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/7.1.5/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-xL85kJQTo8n5D4nuW9yyIYai7fBiU6KQgg85ruCA7fG7Idx1uXpoh2ABBCuyW0B14gZkErc9iM2F7lJeYJQf4w==",
+        "shasum": "cab31f6e76dcd7200f311d8c901f55713ce59fea",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.42.0.tgz",
+        "fileCount": 66,
+        "unpackedSize": 90497,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCIRL7aFUSS6rF9twGo8wFsfy5Fw5/OA1z97Fv6YP6KqgIgH/K3LCTl8d4Nn2pJ81/yJsBOvxEbGPl3QuKiO6MHmeM="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.42.0_1694434488807_0.10567183382671619"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.43.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.43.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts' --exclude 'test/browser/**/*.ts'",
+        "test:browser": "karma start --single-run",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.17",
+        "@opentelemetry/api": "1.6.0",
+        "@types/mocha": "10.0.1",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.16",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "7.1.5",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "4.46.0",
+        "webpack-cli": "4.10.0",
+        "webpack-merge": "5.9.0"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.17.0",
+        "@opentelemetry/otlp-exporter-base": "0.43.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.43.0",
+        "@opentelemetry/otlp-transformer": "0.43.0",
+        "@opentelemetry/resources": "1.17.0",
+        "@opentelemetry/sdk-trace-base": "1.17.0"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "faf939c77591f709afbc23fadbe629c9d3607ef6",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.43.0",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/7.1.5/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-a7gnB0MZ8/+BHH5Lt8UaKPv5yMAGvqj/7TceF4dvaFBOshjBZPrG628creAaKBIpuUwrpUtDRoTb1dbEMeO9tA==",
+        "shasum": "749296749cc46f2adb08f42a476bf2e5e3475f94",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.43.0.tgz",
+        "fileCount": 66,
+        "unpackedSize": 90497,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCSCmuol63AyZrZEb+G3C1+j77CYuQXBdmH2vt12bz3kgIhAOyIGjK4bvHk0oVtiKSQpc8T6v+OKjBHvG3biDhteiw1"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.43.0_1694524358054_0.47827422086480986"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.44.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.44.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts' --exclude 'test/browser/**/*.ts'",
+        "test:browser": "karma start --single-run",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.20",
+        "@opentelemetry/api": "1.6.0",
+        "@types/mocha": "10.0.2",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.18",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "7.1.5",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "4.46.0",
+        "webpack-cli": "4.10.0",
+        "webpack-merge": "5.9.0"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.17.1",
+        "@opentelemetry/otlp-exporter-base": "0.44.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.44.0",
+        "@opentelemetry/otlp-transformer": "0.44.0",
+        "@opentelemetry/resources": "1.17.1",
+        "@opentelemetry/sdk-trace-base": "1.17.1"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "f8e187b473274cc2011e7385992f07d319d667dc",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.44.0",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "lerna/7.1.5/node@v18.12.1+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-yVW0FXxiLaQOyE3MGr6BtK7ml0DaJH4Qx3yvQYUd/hsJUSZBhYYw2TRaMsaW7XMpe1AvU81qt0l8uLYmcmcLJA==",
+        "shasum": "5726749e76def507475ec47cfb67a2099d3a2ae7",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.44.0.tgz",
+        "fileCount": 66,
+        "unpackedSize": 90497,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCuZwAkOP2V7KeZGUWc+X+f9jem6tNPhE+b/RCU0hAp1AIgaSW9XJbi5Tm6PfzbB2zc5qUxxKUXrahm9x8tU52rbFw="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.44.0_1696947502540_0.7991770855744602"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.45.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.45.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts' --exclude 'test/browser/**/*.ts'",
+        "test:browser": "karma start --single-run",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.20",
+        "@opentelemetry/api": "1.7.0",
+        "@types/mocha": "10.0.3",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.20",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "6.6.2",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "4.46.0",
+        "webpack-cli": "4.10.0",
+        "webpack-merge": "5.9.0"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.18.0",
+        "@opentelemetry/otlp-exporter-base": "0.45.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.45.0",
+        "@opentelemetry/otlp-transformer": "0.45.0",
+        "@opentelemetry/resources": "1.18.0",
+        "@opentelemetry/sdk-trace-base": "1.18.0"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "73b446688f10fd8dc4cf403a085f0a39070df7b4",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.45.0",
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "lerna/6.6.2/node@v18.18.2+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-t66KZrgoUwBCzAA9v0wJ3GJN8xSZ4TlhetFGhh2fVRwLcIWmp1FGCzm5KKgjgRyAZQIJjWUJ2tBNFyDVFShvcw==",
+        "shasum": "035d627628573e28d0d9210cbb79523a2c91af68",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.45.0.tgz",
+        "fileCount": 66,
+        "unpackedSize": 90497,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAW+1MNnF6StdbVnDv3ufZULaJKyCLts2WfCyzfJwDQGAiEA0SYU7/jqdO9pfyP16ZLgJhEihyHYYQh12iFJZgd7QbM="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.45.0_1699353890221_0.44809424154867106"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.45.1": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.45.1",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts' --exclude 'test/browser/**/*.ts'",
+        "test:browser": "karma start --single-run",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.22.20",
+        "@opentelemetry/api": "1.7.0",
+        "@types/mocha": "10.0.3",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.20",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "6.6.2",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "4.46.0",
+        "webpack-cli": "4.10.0",
+        "webpack-merge": "5.9.0"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.18.1",
+        "@opentelemetry/otlp-exporter-base": "0.45.1",
+        "@opentelemetry/otlp-proto-exporter-base": "0.45.1",
+        "@opentelemetry/otlp-transformer": "0.45.1",
+        "@opentelemetry/resources": "1.18.1",
+        "@opentelemetry/sdk-trace-base": "1.18.1"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "f665499096189390e691cf1a772e677fa67812d7",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.45.1",
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "lerna/6.6.2/node@v18.18.2+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-8QI6QARxNP4y9RUpuQxXjw2HyRNyeuD9CWEhS5ON44Mt+XP7YbOZR3GLx2Ml2JZ8uzB5dd2EGlMgaMuZe36D5Q==",
+        "shasum": "57f786815ae0b5884459195e2044f58c6ba57e7b",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.45.1.tgz",
+        "fileCount": 66,
+        "unpackedSize": 90497,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCMCDqX/NFAGWQJWPwOFJEOvLO8qQz5l80MCiBiyk0hoQIhAOv1H4M3+5o3ayrVWpgAMoGMYpCp/KTtZ+qVlE5Tq5gV"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.45.1_1699466953904_0.397945967209403"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.46.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.46.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts' --exclude 'test/browser/**/*.ts'",
+        "test:browser": "karma start --single-run",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.23.6",
+        "@opentelemetry/api": "1.7.0",
+        "@types/mocha": "10.0.6",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.20",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "6.6.2",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "5.89.0",
+        "webpack-cli": "5.1.4",
+        "webpack-merge": "5.10.0"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.19.0",
+        "@opentelemetry/otlp-exporter-base": "0.46.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.46.0",
+        "@opentelemetry/otlp-transformer": "0.46.0",
+        "@opentelemetry/resources": "1.19.0",
+        "@opentelemetry/sdk-trace-base": "1.19.0"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "d3c311aec24137084dc820805a2597e120335672",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.46.0",
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "lerna/6.6.2/node@v18.18.2+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-A7PftDM57w1TLiirrhi8ceAnCpYkpUBObELdn239IyYF67zwngImGfBLf5Yo3TTAOA2Oj1TL76L8zWVL8W+Suw==",
+        "shasum": "09ca057f9b44cc683752b4a534e6aa6fd88fa19d",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.46.0.tgz",
+        "fileCount": 66,
+        "unpackedSize": 90496,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGrFZ2Y7cZu3zlkLIGE/Wty4aewSkHtPBM1D5/xgqr2SAiEA0Wd2d8c/eBhkeanPnNkzNjq5+0iNc0gtcVrPxnORLd0="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.46.0_1702557335189_0.5195260739840932"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.47.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.47.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts' --exclude 'test/browser/**/*.ts'",
+        "test:browser": "karma start --single-run",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.23.6",
+        "@opentelemetry/api": "1.7.0",
+        "@types/mocha": "10.0.6",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.20",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "6.6.2",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "5.89.0",
+        "webpack-cli": "5.1.4",
+        "webpack-merge": "5.10.0"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.20.0",
+        "@opentelemetry/otlp-exporter-base": "0.47.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.47.0",
+        "@opentelemetry/otlp-transformer": "0.47.0",
+        "@opentelemetry/resources": "1.20.0",
+        "@opentelemetry/sdk-trace-base": "1.20.0"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "57008533aba7ccd51ea80f38ff4f29404d47eb9c",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.47.0",
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "lerna/6.6.2/node@v18.19.0+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-0gzOFQr//nh/BtlmYl2I5jhxsfvYkdHr7lluLS5I9M/dCxaZqZHeY7sZgop+g5WbTRAyK63q5BwrpyjbxdXnMg==",
+        "shasum": "d696d6859cda333873f24f780c6b87721df37c53",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.47.0.tgz",
+        "fileCount": 66,
+        "unpackedSize": 90725,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAIr7xd6D0iqGOps3oAk5LM44+/4/z0E4PXeYbdUVvJxAiBBuGTKAHlahEGPge20D1A8oftYeddhiICMCRgoNV2jYQ=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.47.0_1705313751603_0.9241311775417169"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.48.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.48.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts' --exclude 'test/browser/**/*.ts'",
+        "test:browser": "karma start --single-run",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.23.6",
+        "@babel/preset-env": "7.22.20",
+        "@opentelemetry/api": "1.7.0",
+        "@types/mocha": "10.0.6",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.20",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "6.6.2",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "5.89.0",
+        "webpack-cli": "5.1.4",
+        "webpack-merge": "5.10.0"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.21.0",
+        "@opentelemetry/otlp-exporter-base": "0.48.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.48.0",
+        "@opentelemetry/otlp-transformer": "0.48.0",
+        "@opentelemetry/resources": "1.21.0",
+        "@opentelemetry/sdk-trace-base": "1.21.0"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "828f2ed730e4d26d71f92e220f96b60a552a673a",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.48.0",
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "lerna/6.6.2/node@v18.19.0+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-hVXr/8DYlAKAzQYMsCf3ZsGweS6NTK3IHIEqmLokJZYcvJQBEEazeAdISfrL/utWnapg1Qnpw8u+W6SpxNzmTw==",
+        "shasum": "56bdf54f576ba28791a0a7e8837312f5ccb40526",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.48.0.tgz",
+        "fileCount": 66,
+        "unpackedSize": 90761,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICrklSIAjvMZgCgXMFIedxJJDPPsbRyAv8jU85pX2QwCAiAruD7pa8t37vRVKE0LmN9hVi9Tqqwy7GPZ40L0d9M7Ig=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.48.0_1706249472646_0.4543123771934725"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.49.0": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.49.0",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts' --exclude 'test/browser/**/*.ts'",
+        "test:browser": "karma start --single-run",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.23.6",
+        "@babel/preset-env": "7.22.20",
+        "@opentelemetry/api": "1.8.0",
+        "@types/mocha": "10.0.6",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.20",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "6.6.2",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "5.89.0",
+        "webpack-cli": "5.1.4",
+        "webpack-merge": "5.10.0"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.22.0",
+        "@opentelemetry/otlp-exporter-base": "0.49.0",
+        "@opentelemetry/otlp-proto-exporter-base": "0.49.0",
+        "@opentelemetry/otlp-transformer": "0.49.0",
+        "@opentelemetry/resources": "1.22.0",
+        "@opentelemetry/sdk-trace-base": "1.22.0"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "7be35c7845e206b27b682e8ce1cee850b09cec04",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.49.0",
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "lerna/6.6.2/node@v18.19.0+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-qStEIIZSv9fuCri91D2Qct7MOihpcb8PfOnwF8LhjUWJZz7AKzTNMyAPYuqsEKUbSc0dB/7xIPaWdeF7p2mDnw==",
+        "shasum": "41cdd8fd56113fd587cf6c68398efbd69a774bc4",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.49.0.tgz",
+        "fileCount": 66,
+        "unpackedSize": 90761,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCuVuH/WuTahl5E6PnaRWaB/OkQqeSby0RNA62nrMbWSwIgepVR7dtGPjaVvjGe9xXidKYnCYiZcEnfP2oIVy0kySo="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.49.0_1709198299561_0.45221348069893486"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.49.1": {
+      "name": "@opentelemetry/exporter-trace-otlp-proto",
+      "version": "0.49.1",
+      "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+      "main": "build/src/index.js",
+      "module": "build/esm/index.js",
+      "esnext": "build/esnext/index.js",
+      "types": "build/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+      },
+      "browser": {
+        "./src/platform/index.ts": "./src/platform/browser/index.ts",
+        "./build/esm/platform/index.js": "./build/esm/platform/browser/index.js",
+        "./build/esnext/platform/index.js": "./build/esnext/platform/browser/index.js",
+        "./build/src/platform/index.js": "./build/src/platform/browser/index.js"
+      },
+      "scripts": {
+        "prepublishOnly": "npm run compile",
+        "compile": "tsc --build tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "clean": "tsc --build --clean tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tdd": "npm run test -- --watch-extensions ts --watch",
+        "test": "nyc ts-mocha -p tsconfig.json 'test/**/*.test.ts' --exclude 'test/browser/**/*.ts'",
+        "test:browser": "karma start --single-run",
+        "version": "node ../../../scripts/version-update.js",
+        "watch": "tsc --build --watch tsconfig.json tsconfig.esm.json tsconfig.esnext.json",
+        "precompile": "cross-var lerna run version --scope $npm_package_name --include-dependencies",
+        "prewatch": "npm run precompile",
+        "peer-api-check": "node ../../../scripts/peer-api-check.js",
+        "codecov": "nyc report --reporter=json && codecov -f coverage/*.json -p ../../../"
+      },
+      "keywords": [
+        "opentelemetry",
+        "nodejs",
+        "protobuf",
+        "tracing",
+        "profiling",
+        "metrics",
+        "stats"
+      ],
+      "author": {
+        "name": "OpenTelemetry Authors"
+      },
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=14"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "devDependencies": {
+        "@babel/core": "7.23.6",
+        "@babel/preset-env": "7.22.20",
+        "@opentelemetry/api": "1.8.0",
+        "@types/mocha": "10.0.6",
+        "@types/node": "18.6.5",
+        "@types/sinon": "10.0.20",
+        "babel-plugin-istanbul": "6.1.1",
+        "codecov": "3.8.3",
+        "cpx": "1.5.0",
+        "cross-var": "1.1.0",
+        "karma": "6.4.2",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.2.1",
+        "karma-mocha": "2.0.1",
+        "karma-spec-reporter": "0.0.36",
+        "karma-webpack": "4.0.2",
+        "lerna": "6.6.2",
+        "mocha": "10.2.0",
+        "nyc": "15.1.0",
+        "sinon": "15.1.2",
+        "ts-loader": "8.4.0",
+        "ts-mocha": "10.0.0",
+        "typescript": "4.4.4",
+        "webpack": "5.89.0",
+        "webpack-cli": "5.1.4",
+        "webpack-merge": "5.10.0"
+      },
+      "peerDependencies": {
+        "@opentelemetry/api": "^1.0.0"
+      },
+      "dependencies": {
+        "@opentelemetry/core": "1.22.0",
+        "@opentelemetry/otlp-exporter-base": "0.49.1",
+        "@opentelemetry/otlp-proto-exporter-base": "0.49.1",
+        "@opentelemetry/otlp-transformer": "0.49.1",
+        "@opentelemetry/resources": "1.22.0",
+        "@opentelemetry/sdk-trace-base": "1.22.0"
+      },
+      "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+      "sideEffects": false,
+      "gitHead": "3920b158d08daa776280bde68a79e44bafa4e8ea",
+      "bugs": {
+        "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+      },
+      "_id": "@opentelemetry/exporter-trace-otlp-proto@0.49.1",
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "lerna/6.6.2/node@v18.19.0+x64 (linux)",
+      "dist": {
+        "integrity": "sha512-n8ON/c9pdMyYAfSFWKkgsPwjYoxnki+6Olzo+klKfW7KqLWoyEkryNkbcMIYnGGNXwdkMIrjoaP0VxXB26Oxcg==",
+        "shasum": "4d262423eb47a9877aca88e8f90cf49dbfeb6733",
+        "tarball": "https://registry.npmjs.org/@opentelemetry/exporter-trace-otlp-proto/-/exporter-trace-otlp-proto-0.49.1.tgz",
+        "fileCount": 66,
+        "unpackedSize": 90761,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCzsd+AhcKcFXHyOU4ayF4mEGKk8zgRbbyDHytQU0+v9QIgAc41107I8p1eaqEW/rWwX2VlcwIXDkNyc+Z37RmRlIQ="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pichlermarc",
+        "email": "marc.pichler@dynatrace.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "pichlermarc",
+          "email": "marc.pichler@dynatrace.com"
+        },
+        {
+          "name": "bogdandrutu",
+          "email": "bogdandrutu@gmail.com"
+        },
+        {
+          "name": "dyladan",
+          "email": "dyladan@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/exporter-trace-otlp-proto_0.49.1_1709214973693_0.9437694469043725"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2021-11-11T15:07:40.253Z",
+    "0.27.0": "2021-11-11T15:07:40.592Z",
+    "modified": "2024-02-29T13:56:14.255Z",
+    "0.28.0": "2022-04-22T14:57:07.192Z",
+    "0.29.0": "2022-05-27T19:41:27.597Z",
+    "0.29.1": "2022-06-01T18:13:04.166Z",
+    "0.29.2": "2022-06-06T20:26:20.060Z",
+    "0.30.0": "2022-07-06T20:15:41.405Z",
+    "0.31.0": "2022-07-26T20:52:22.977Z",
+    "0.32.0": "2022-08-24T17:44:38.098Z",
+    "0.33.0": "2022-09-16T12:15:00.564Z",
+    "0.34.0": "2022-11-09T19:45:37.032Z",
+    "0.35.0": "2023-01-11T21:46:32.796Z",
+    "0.35.1": "2023-01-30T15:30:22.398Z",
+    "0.36.0": "2023-03-13T15:54:09.289Z",
+    "0.36.1": "2023-03-20T16:10:38.435Z",
+    "0.37.0": "2023-03-30T15:30:58.672Z",
+    "0.38.0": "2023-04-13T18:14:08.190Z",
+    "0.39.0": "2023-05-11T13:30:10.886Z",
+    "0.39.1": "2023-05-12T13:12:58.688Z",
+    "0.40.0": "2023-06-06T06:00:58.184Z",
+    "0.41.0": "2023-07-06T11:27:11.638Z",
+    "0.41.1": "2023-07-24T14:32:53.525Z",
+    "0.41.2": "2023-08-08T13:21:34.533Z",
+    "0.42.0": "2023-09-11T12:14:48.991Z",
+    "0.43.0": "2023-09-12T13:12:38.295Z",
+    "0.44.0": "2023-10-10T14:18:22.700Z",
+    "0.45.0": "2023-11-07T10:44:50.448Z",
+    "0.45.1": "2023-11-08T18:09:14.174Z",
+    "0.46.0": "2023-12-14T12:35:35.353Z",
+    "0.47.0": "2024-01-15T10:15:51.760Z",
+    "0.48.0": "2024-01-26T06:11:12.837Z",
+    "0.49.0": "2024-02-29T09:18:19.701Z",
+    "0.49.1": "2024-02-29T13:56:13.837Z"
+  },
+  "maintainers": [
+    {
+      "name": "pichlermarc",
+      "email": "marc.pichler@dynatrace.com"
+    },
+    {
+      "name": "bogdandrutu",
+      "email": "bogdandrutu@gmail.com"
+    },
+    {
+      "name": "dyladan",
+      "email": "dyladan@gmail.com"
+    }
+  ],
+  "description": "OpenTelemetry Collector Exporter allows user to send collected traces to the OpenTelemetry Collector using protobuf over HTTP",
+  "homepage": "https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/exporter-trace-otlp-proto",
+  "keywords": [
+    "opentelemetry",
+    "nodejs",
+    "protobuf",
+    "tracing",
+    "profiling",
+    "metrics",
+    "stats"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/open-telemetry/opentelemetry-js.git"
+  },
+  "author": {
+    "name": "OpenTelemetry Authors"
+  },
+  "bugs": {
+    "url": "https://github.com/open-telemetry/opentelemetry-js/issues"
+  },
+  "license": "Apache-2.0",
+  "readme": "# OpenTelemetry Collector Exporter for node with protobuf\n\n[![NPM Published Version][npm-img]][npm-url]\n[![Apache License][license-image]][license-image]\n\n**Note: This is an experimental package under active development. New releases may include breaking changes.**\n\nThis module provides a trace-exporter for OTLP (http/protobuf) using protocol version `v0.20.0`.\n\n## Installation\n\n```bash\nnpm install --save @opentelemetry/exporter-trace-otlp-proto\n```\n\n## Service Name\n\nThe OpenTelemetry Collector Exporter does not have a service name configuration.\nIn order to set the service name, use the `service.name` resource attribute as prescribed in the [OpenTelemetry Resource Semantic Conventions][semconv-resource-service-name].\nTo see documentation and sample code for the metric exporter, see the [exporter-metrics-otlp-proto package][metrics-exporter-url]\n\n## Traces in Node - PROTO over http\n\n```js\nconst { BasicTracerProvider, SimpleSpanProcessor } = require('@opentelemetry/sdk-trace-base');\nconst { OTLPTraceExporter } =  require('@opentelemetry/exporter-trace-otlp-proto');\n\nconst collectorOptions = {\n  url: '<opentelemetry-collector-url>', // url is optional and can be omitted - default is http://localhost:4318/v1/traces\n  headers: {\n    foo: 'bar'\n  }, //an optional object containing custom headers to be sent with each request will only work with http\n};\n\nconst provider = new BasicTracerProvider();\nconst exporter = new OTLPTraceExporter(collectorOptions);\nprovider.addSpanProcessor(new SimpleSpanProcessor(exporter));\n\nprovider.register();\n\n```\n\n## Exporter Timeout Configuration\n\nThe OTLPTraceExporter has a timeout configuration option which is the maximum time, in milliseconds, the OTLP exporter will wait for each batch export. The default value is 10000ms.\n\nTo override the default timeout duration, use the following options:\n\n+ Set with environment variables:\n\n  | Environment variable | Description |\n  |----------------------|-------------|\n  | OTEL_EXPORTER_OTLP_TRACES_TIMEOUT | The maximum waiting time, in milliseconds, allowed to send each OTLP trace batch. Default is 10000. |\n  | OTEL_EXPORTER_OTLP_TIMEOUT | The maximum waiting time, in milliseconds, allowed to send each OTLP trace and metric batch. Default is 10000. |\n\n  > `OTEL_EXPORTER_OTLP_TRACES_TIMEOUT` takes precedence and overrides `OTEL_EXPORTER_OTLP_TIMEOUT`.\n\n+ Provide `timeoutMillis` to OTLPTraceExporter with `collectorOptions`:\n\n  ```js\n  const collectorOptions = {\n    timeoutMillis: 15000,\n    url: '<opentelemetry-collector-url>', // url is optional and can be omitted - default is http://localhost:4318/v1/traces\n    headers: {\n      foo: 'bar'\n    }, //an optional object containing custom headers to be sent with each request will only work with http\n  };\n\n  const exporter = new OTLPTraceExporter(collectorOptions);\n  ```\n\n  > Providing `timeoutMillis` with `collectorOptions` takes precedence and overrides timeout set with environment variables.\n\n## OTLP Exporter Retry\n\nOTLP requires that transient errors be handled with a [retry strategy](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/exporter.md#retry).\n\nThis retry policy has the following configuration, which there is currently no way to customize.\n\n+ `DEFAULT_EXPORT_MAX_ATTEMPTS`: The maximum number of attempts, including the original request. Defaults to 5.\n+ `DEFAULT_EXPORT_INITIAL_BACKOFF`: The initial backoff duration. Defaults to 1 second.\n+ `DEFAULT_EXPORT_MAX_BACKOFF`: The maximum backoff duration. Defaults to 5 seconds.\n+ `DEFAULT_EXPORT_BACKOFF_MULTIPLIER`: The backoff multiplier. Defaults to 1.5.\n\nThis retry policy first checks if the response has a `'Retry-After'` header. If there is a `'Retry-After'` header, the exporter will wait the amount specified in the `'Retry-After'` header before retrying. If there is no `'Retry-After'` header, the exporter will use an exponential backoff with jitter retry strategy.\n\n  > The exporter will retry exporting within the [exporter timeout configuration](#Exporter-Timeout-Configuration) time.\n\n## Running opentelemetry-collector locally to see the traces\n\n1. Go to examples/otlp-exporter-node\n2. run `npm run docker:start`\n3. Open page at `http://localhost:9411/zipkin/` to observe the traces\n\n## Useful links\n\n+ For more information on OpenTelemetry, visit: <https://opentelemetry.io/>\n+ For more about OpenTelemetry JavaScript: <https://github.com/open-telemetry/opentelemetry-js>\n+ For help or feedback on this project, join us in [GitHub Discussions][discussions-url]\n\n## License\n\nApache 2.0 - See [LICENSE][license-url] for more information.\n\n[discussions-url]: https://github.com/open-telemetry/opentelemetry-js/discussions\n[license-url]: https://github.com/open-telemetry/opentelemetry-js/blob/main/LICENSE\n[license-image]: https://img.shields.io/badge/license-Apache_2.0-green.svg?style=flat\n[npm-url]: https://www.npmjs.com/package/@opentelemetry/exporter-trace-otlp-proto\n[npm-img]: https://badge.fury.io/js/%40opentelemetry%2Fexporter-trace-otlp-proto.svg\n[opentelemetry-collector-url]: https://github.com/open-telemetry/opentelemetry-collector\n[semconv-resource-service-name]: https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md#service\n[metrics-exporter-url]: https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-exporter-metrics-otlp-proto\n",
+  "readmeFilename": "README.md"
+}
