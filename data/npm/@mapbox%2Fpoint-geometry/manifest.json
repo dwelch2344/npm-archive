@@ -1,0 +1,219 @@
+{
+  "_id": "@mapbox/point-geometry",
+  "_rev": "241-608b4f1b323b6c90c1f53bc80d77a5c9",
+  "name": "@mapbox/point-geometry",
+  "description": "a point geometry with transforms",
+  "dist-tags": {
+    "latest": "0.1.0"
+  },
+  "versions": {
+    "0.1.0": {
+      "name": "@mapbox/point-geometry",
+      "version": "0.1.0",
+      "description": "a point geometry with transforms",
+      "main": "index.js",
+      "scripts": {
+        "test": "tape test.js",
+        "doc": "dox -r < index.js | doxme --readme > README.md",
+        "cov": "istanbul cover test.js && coveralls < ./coverage/lcov.info"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/mapbox/point-geometry.git"
+      },
+      "keywords": [
+        "point",
+        "geometry",
+        "primitive"
+      ],
+      "author": {
+        "name": "Tom MacWright"
+      },
+      "license": "ISC",
+      "bugs": {
+        "url": "https://github.com/mapbox/point-geometry/issues"
+      },
+      "homepage": "https://github.com/mapbox/point-geometry",
+      "devDependencies": {
+        "coveralls": "~2.10.1",
+        "dox": "^0.6.1",
+        "doxme": "^1.8.2",
+        "istanbul": "~0.2.11",
+        "tape": "~2.13.3"
+      },
+      "gitHead": "168c4666af9167f11d40c4718b05729d98046834",
+      "_id": "@mapbox/point-geometry@0.1.0",
+      "_shasum": "8a83f9335c7860effa2eeeca254332aa0aeed8f2",
+      "_from": ".",
+      "_npmVersion": "2.15.11",
+      "_nodeVersion": "4.8.2",
+      "_npmUser": {
+        "name": "flippmoke",
+        "email": "flippmoke@gmail.com"
+      },
+      "dist": {
+        "shasum": "8a83f9335c7860effa2eeeca254332aa0aeed8f2",
+        "tarball": "https://registry.npmjs.org/@mapbox/point-geometry/-/point-geometry-0.1.0.tgz",
+        "integrity": "sha512-6j56HdLTwWGO0fJPlrZtdU/B13q8Uwmo18Ck2GnGgN9PCFyKTZ3UbXeEdRFh18i9XQ92eH2VdtpJHpBD3aripQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDTnfsnlpj/Y9dPJU4jnPDWj71912PxZKa41VC0CmbipAiBXgz8mtdeoP/VBx6wC8KmSGDp8Mxgdf1LM/EBsnqFpyg=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "flippmoke",
+          "email": "flippmoke@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/point-geometry-0.1.0.tgz_1492794459278_0.23473566002212465"
+      },
+      "directories": {}
+    }
+  },
+  "readme": "# point-geometry\n\n[![build status](https://secure.travis-ci.org/mapbox/point-geometry.png)](http://travis-ci.org/mapbox/point-geometry) [![Coverage Status](https://coveralls.io/repos/mapbox/point-geometry/badge.svg?branch=master)](https://coveralls.io/r/mapbox/point-geometry?branch=master)\n\na point geometry with transforms\n\n\n### `Point(x, y)`\n\nA standalone point geometry with useful accessor, comparison, and\nmodification methods.\n\n\n### Parameters\n\n| parameter | type   | description                                                                            |\n| --------- | ------ | -------------------------------------------------------------------------------------- |\n| `x`       | Number | the x-coordinate. this could be longitude or screen pixels, or any other sort of unit. |\n| `y`       | Number | the y-coordinate. this could be latitude or screen pixels, or any other sort of unit.  |\n\n\n### Example\n\n```js\nvar point = new Point(-77, 38);\n```\n\n\n### `clone`\n\nClone this point, returning a new point that can be modified\nwithout affecting the old one.\n\n\n**Returns** `Point`, the clone\n\n\n### `add(p)`\n\nAdd this point's x & y coordinates to another point,\nyielding a new point.\n\n### Parameters\n\n| parameter | type  | description     |\n| --------- | ----- | --------------- |\n| `p`       | Point | the other point |\n\n\n\n**Returns** `Point`, output point\n\n\n### `sub(p)`\n\nSubtract this point's x & y coordinates to from point,\nyielding a new point.\n\n### Parameters\n\n| parameter | type  | description     |\n| --------- | ----- | --------------- |\n| `p`       | Point | the other point |\n\n\n\n**Returns** `Point`, output point\n\n\n### `multByPoint(p)`\n\nMultiply this point's x & y coordinates by point,\nyielding a new point.\n\n### Parameters\n\n| parameter | type  | description     |\n| --------- | ----- | --------------- |\n| `p`       | Point | the other point |\n\n\n\n**Returns** `Point`, output point\n\n\n### `divByPoint(p)`\n\nDivide this point's x & y coordinates by point,\nyielding a new point.\n\n### Parameters\n\n| parameter | type  | description     |\n| --------- | ----- | --------------- |\n| `p`       | Point | the other point |\n\n\n\n**Returns** `Point`, output point\n\n\n### `mult(k)`\n\nMultiply this point's x & y coordinates by a factor,\nyielding a new point.\n\n### Parameters\n\n| parameter | type  | description |\n| --------- | ----- | ----------- |\n| `k`       | Point | factor      |\n\n\n\n**Returns** `Point`, output point\n\n\n### `div(k)`\n\nDivide this point's x & y coordinates by a factor,\nyielding a new point.\n\n### Parameters\n\n| parameter | type  | description |\n| --------- | ----- | ----------- |\n| `k`       | Point | factor      |\n\n\n\n**Returns** `Point`, output point\n\n\n### `rotate(a)`\n\nRotate this point around the 0, 0 origin by an angle a,\ngiven in radians\n\n### Parameters\n\n| parameter | type   | description                        |\n| --------- | ------ | ---------------------------------- |\n| `a`       | Number | angle to rotate around, in radians |\n\n\n\n**Returns** `Point`, output point\n\n\n### `rotateAround(a, p)`\n\nRotate this point around p point by an angle a,\ngiven in radians\n\n### Parameters\n\n| parameter | type   | description                        |\n| --------- | ------ | ---------------------------------- |\n| `a`       | Number | angle to rotate around, in radians |\n| `p`       | Point  | Point to rotate around             |\n\n\n\n**Returns** `Point`, output point\n\n\n### `matMult(m)`\n\nMultiply this point by a 4x1 transformation matrix\n\n### Parameters\n\n| parameter | type              | description           |\n| --------- | ----------------- | --------------------- |\n| `m`       | Array\\.\\<Number\\> | transformation matrix |\n\n\n\n**Returns** `Point`, output point\n\n\n### `unit`\n\nCalculate this point but as a unit vector from 0, 0, meaning\nthat the distance from the resulting point to the 0, 0\ncoordinate will be equal to 1 and the angle from the resulting\npoint to the 0, 0 coordinate will be the same as before.\n\n\n**Returns** `Point`, unit vector point\n\n\n### `perp`\n\nCompute a perpendicular point, where the new y coordinate\nis the old x coordinate and the new x coordinate is the old y\ncoordinate multiplied by -1\n\n\n**Returns** `Point`, perpendicular point\n\n\n### `round`\n\nReturn a version of this point with the x & y coordinates\nrounded to integers.\n\n\n**Returns** `Point`, rounded point\n\n\n### `mag`\n\nReturn the magitude of this point: this is the Euclidean\ndistance from the 0, 0 coordinate to this point's x and y\ncoordinates.\n\n\n**Returns** `Number`, magnitude\n\n\n### `equals(other)`\n\nJudge whether this point is equal to another point, returning\ntrue or false.\n\n### Parameters\n\n| parameter | type  | description     |\n| --------- | ----- | --------------- |\n| `other`   | Point | the other point |\n\n\n\n**Returns** `boolean`, whether the points are equal\n\n\n### `dist(p)`\n\nCalculate the distance from this point to another point\n\n### Parameters\n\n| parameter | type  | description     |\n| --------- | ----- | --------------- |\n| `p`       | Point | the other point |\n\n\n\n**Returns** `Number`, distance\n\n\n### `distSqr(p)`\n\nCalculate the distance from this point to another point,\nwithout the square root step. Useful if you're comparing\nrelative distances.\n\n### Parameters\n\n| parameter | type  | description     |\n| --------- | ----- | --------------- |\n| `p`       | Point | the other point |\n\n\n\n**Returns** `Number`, distance\n\n\n### `angle`\n\nGet the angle from the 0, 0 coordinate to this point, in radians\ncoordinates.\n\n\n**Returns** `Number`, angle\n\n\n### `angleTo(b)`\n\nGet the angle from this point to another point, in radians\n\n### Parameters\n\n| parameter | type  | description     |\n| --------- | ----- | --------------- |\n| `b`       | Point | the other point |\n\n\n\n**Returns** `Number`, angle\n\n\n### `angleWith(b)`\n\nGet the angle between this point and another point, in radians\n\n### Parameters\n\n| parameter | type  | description     |\n| --------- | ----- | --------------- |\n| `b`       | Point | the other point |\n\n\n\n**Returns** `Number`, angle\n\n\n### `angleWithSep(x, y)`\n\nFind the angle of the two vectors, solving the formula for\nthe cross product a x b = |a||b|sin(θ) for θ.\n\n### Parameters\n\n| parameter | type   | description      |\n| --------- | ------ | ---------------- |\n| `x`       | Number | the x-coordinate |\n| `y`       | Number | the y-coordinate |\n\n\n\n**Returns** `Number`, the angle in radians\n\n\n### `convert(a)`\n\nConstruct a point from an array if necessary, otherwise if the input\nis already a Point, or an unknown type, return it unchanged\n\n### Parameters\n\n| parameter | type                     | description             |\n| --------- | ------------------------ | ----------------------- |\n| `a`       | Array\\.\\<Number\\>\\,Point | any kind of input value |\n\n\n### Example\n\n```js\n// this\nvar point = Point.convert([0, 1]);\n// is equivalent to\nvar point = new Point(0, 1);\n```\n\n\n**Returns** `Point`, constructed point, or passed-through value.\n\n## Installation\n\nRequires [nodejs](http://nodejs.org/).\n\n```sh\n$ npm install point-geometry\n```\n\n## Tests\n\n```sh\n$ npm test\n```\n\n\n",
+  "maintainers": [
+    {
+      "email": "yannick.meeus+npm+production+ci@mapbox.com",
+      "name": "mbx-npm-ci-production"
+    },
+    {
+      "email": "yannick.meeus+npm+staging+ci@mapbox.com",
+      "name": "mbx-npm-ci-staging"
+    },
+    {
+      "email": "yannick.meeus+npm+prod+advanced+actions@mapbox.com",
+      "name": "mbx-npm-advanced-actions-production"
+    },
+    {
+      "email": "yannick.meeus+npm+staging+advanced+actions@mapbox.com",
+      "name": "mbx-npm-advanced-actions-staging"
+    },
+    {
+      "email": "yannick.meeus+npm+prod+09@mapbox.com",
+      "name": "mbx-npm-09-production"
+    },
+    {
+      "email": "yannick.meeus+npm+prod+08@mapbox.com",
+      "name": "mbx-npm-08-production"
+    },
+    {
+      "email": "yannick.meeus+npm+prod+07@mapbox.com",
+      "name": "mbx-npm-07-production"
+    },
+    {
+      "email": "yannick.meeus+npm+prod+06@mapbox.com",
+      "name": "mbx-npm-06-production"
+    },
+    {
+      "email": "yannick.meeus+npm+prod+05@mapbox.com",
+      "name": "mbx-npm-05-production"
+    },
+    {
+      "email": "yannick.meeus+npm+prod+04@mapbox.com",
+      "name": "mbx-npm-04-production"
+    },
+    {
+      "email": "yannick.meeus+npm+prod+03@mapbox.com",
+      "name": "mbx-npm-03-production"
+    },
+    {
+      "email": "yannick.meeus+npm+prod+02@mapbox.com",
+      "name": "mbx-npm-02-production"
+    },
+    {
+      "email": "yannick.meeus+npm+prod+01@mapbox.com",
+      "name": "mbx-npm-01-production"
+    },
+    {
+      "email": "yannick.meeus@mapbox.com",
+      "name": "mbx-npm-02-staging"
+    },
+    {
+      "email": "accounts+npmjs-01@mapbox.com",
+      "name": "mapbox-npm-01"
+    },
+    {
+      "email": "accounts+npmjs-02@mapbox.com",
+      "name": "mapbox-npm-02"
+    },
+    {
+      "email": "accounts+npmjs-07@mapbox.com",
+      "name": "mapbox-npm-07"
+    },
+    {
+      "email": "accounts+npmjs-03@mapbox.com",
+      "name": "mapbox-npm-03"
+    },
+    {
+      "email": "accounts+npmjs-04@mapbox.com",
+      "name": "mapbox-npm-04"
+    },
+    {
+      "email": "accounts+npmjs-09@mapbox.com",
+      "name": "mapbox-npm-09"
+    },
+    {
+      "email": "accounts+npmjs-05@mapbox.com",
+      "name": "mapbox-npm-05"
+    },
+    {
+      "email": "accounts+npmjs-06@mapbox.com",
+      "name": "mapbox-npm-06"
+    },
+    {
+      "email": "accounts+npmjs-08@mapbox.com",
+      "name": "mapbox-npm-08"
+    },
+    {
+      "email": "accounts+npmjs-advanced-actions@mapbox.com",
+      "name": "mapbox-npm-advanced-actions"
+    },
+    {
+      "email": "accounts+npmjs-npm-ci@mapbox.com",
+      "name": "mapbox-npm-ci"
+    },
+    {
+      "email": "accounts+npmjs@mapbox.com",
+      "name": "mapbox-npm"
+    },
+    {
+      "email": "accounts@mapbox.com",
+      "name": "mapbox-admin"
+    },
+    {
+      "email": "accounts+npm-mapbox-machine-user@mapbox.com",
+      "name": "mapbox-machine-user"
+    }
+  ],
+  "time": {
+    "modified": "2023-01-12T12:36:13.735Z",
+    "created": "2017-04-21T17:07:39.943Z",
+    "0.1.0": "2017-04-21T17:07:39.943Z"
+  },
+  "homepage": "https://github.com/mapbox/point-geometry",
+  "keywords": [
+    "point",
+    "geometry",
+    "primitive"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mapbox/point-geometry.git"
+  },
+  "author": {
+    "name": "Tom MacWright"
+  },
+  "bugs": {
+    "url": "https://github.com/mapbox/point-geometry/issues"
+  },
+  "license": "ISC",
+  "readmeFilename": "README.md",
+  "users": {
+    "petabytekr": true
+  }
+}
