@@ -1,0 +1,3569 @@
+{
+  "_id": "@datadog/native-iast-rewriter",
+  "_rev": "20-3d385b6bc52c2fbad2bc59feef2d45cf",
+  "name": "@datadog/native-iast-rewriter",
+  "dist-tags": {
+    "latest": "2.2.3"
+  },
+  "versions": {
+    "0.1.0-beta.0": {
+      "name": "@datadog/native-iast-rewriter",
+      "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+      "version": "0.1.0-beta.0",
+      "description": "Datadog IAST instrumentation addon for NodeJS",
+      "main": "main.js",
+      "types": "index.d.ts",
+      "napi": {
+        "name": "iast-rewriter",
+        "triples": {
+          "defaults": false,
+          "additional": [
+            "x86_64-unknown-linux-gnu",
+            "x86_64-unknown-linux-musl",
+            "x86_64-pc-windows-msvc",
+            "aarch64-apple-darwin",
+            "x86_64-apple-darwin"
+          ]
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+      },
+      "keywords": [
+        "datadog",
+        "iast"
+      ],
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+      },
+      "dependencies": {
+        "node-gyp-build": "^4.5.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/types": "^7.18.10",
+        "@napi-rs/cli": "^2.0.0",
+        "@swc-node/register": "^1.4.2",
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.38.1",
+        "chai": "^4.3.6",
+        "cross-env": "^7.0.3",
+        "dotenv-cli": "^5.0.0",
+        "eslint": "^7.31.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7",
+        "mocha": "^9.1.1",
+        "mocha-it-each": "^1.0.2",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.5.1",
+        "proxyquire": "^2.1.3",
+        "sinon": "^14.0.0",
+        "sinon-chai": "^3.7.0",
+        "sorcery": "^0.10.0",
+        "source-map": "^0.7.3",
+        "tap-junit": "^5.0.1",
+        "tmp": "^0.2.1",
+        "typescript": "^4.8.4"
+      },
+      "engines": {
+        "node": ">= 10"
+      },
+      "scripts": {
+        "artifacts": "napi artifacts",
+        "artifacts:prepare": "node ./scripts/artifacts.mjs",
+        "artifacts:prepublish": "napi prepublish --skip-gh-release",
+        "artifacts:gyp": "node ./scripts/artifacts-gyp.mjs",
+        "build": "napi build --platform --release && npm run artifacts:gyp",
+        "build:debug": "napi build --platform && npm run artifacts:gyp",
+        "build:linux": "napi build --target x86_64-unknown-linux-gnu --platform --release",
+        "build:alpine": "napi build --target x86_64-unknown-linux-musl --platform --release",
+        "build:windows": "napi build --target x86_64-pc-windows-msvc --platform --release",
+        "build:darwin": "napi build --target x86_64-apple-darwin --platform --release",
+        "build:darwinArm": "napi build --target aarch64-apple-darwin --platform --release",
+        "buildAndTest:debug": "npm run build && npm run test:junit",
+        "buildAndTest:linux": "npm run build:linux && npm run test:junit",
+        "buildAndTest:alpine": "npm run build:alpine && npm run test:junit",
+        "buildAndTest:windows": "npm run build:windows && npm run test:junit",
+        "buildAndTest:darwin": "npm run build:darwin && npm run test:junit",
+        "buildAndTest:darwinArm": "npm run build:darwinArm && npm run test:junit",
+        "format": "run-p format:prettier format:rs",
+        "format:prettier": "prettier . -w",
+        "format:rs": "cargo fmt",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "rustfmt": "rustfmt --config imports_granularity=Crate src/*.rs",
+        "prepublishOnly": "run-p artifacts:prepare artifacts:prepublish",
+        "version": "napi version",
+        "test": "cross-env DD_LOCAL_VAR_NAME_HASH=test mocha --file 'test/setup.js'",
+        "test:junit": "cross-env DD_LOCAL_VAR_NAME_HASH=test mocha --file 'test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "prepare": "husky install",
+        "clippy": "cargo clippy --workspace -- -D warnings"
+      },
+      "lint-staged": {
+        "*.@(js|ts|tsx)": [
+          "prettier --write",
+          "eslint -c .eslintrc.json --fix"
+        ],
+        "*.@(yml|yaml)": [
+          "prettier --parser yaml --write"
+        ],
+        "*.md": [
+          "prettier --parser markdown --write"
+        ],
+        "*.json": [
+          "prettier --parser json --write"
+        ],
+        "*.rs": [
+          "rustfmt --config imports_granularity=Crate"
+        ]
+      },
+      "prettier": {
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "arrowParens": "always"
+      },
+      "_id": "@datadog/native-iast-rewriter@0.1.0-beta.0",
+      "_integrity": "sha512-BeVxl9sHAK3fSl4BD4ffBJASvoi2/YwBMBQZWV2ERRt+rSgOqwyqCjXBHMGt7N2rq0Vx1aNm2ybEs1R/qXsK+w==",
+      "_resolved": "/Users/carles.capell/Projects/packages/datadog-native-iast-rewriter-0.1.0-beta.0.tgz",
+      "_from": "file:datadog-native-iast-rewriter-0.1.0-beta.0.tgz",
+      "_nodeVersion": "18.4.0",
+      "_npmVersion": "8.12.1",
+      "dist": {
+        "integrity": "sha512-BeVxl9sHAK3fSl4BD4ffBJASvoi2/YwBMBQZWV2ERRt+rSgOqwyqCjXBHMGt7N2rq0Vx1aNm2ybEs1R/qXsK+w==",
+        "shasum": "8b5e07fd454abac8a60141e54b8e1b12d7c90432",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-rewriter/-/native-iast-rewriter-0.1.0-beta.0.tgz",
+        "fileCount": 16,
+        "unpackedSize": 20970080,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQD3p8lRBDUBkvsAPlmZMU6SooqyeojlboCRpCBCZ1rfhQIhAId+Nhc1uJYxX2xsArAG9YI2JSBy35+xE3IBDSKD+OVR"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjX9ncACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmpjgg/+NVSQEayG4uy3xtaIdACctOOAQaRzLWPR99n/T8mBasDbS8Xf\r\nLDigJpi19Cld+A4bf0m31Z7qpB4pzPe/UhQx0eUPfIiBJc+rU+tZJ96iN0MH\r\nt+2sVANBEs4FTODHVb8OsU8RHlfUZRMv/Dg1iUIlKio4bRdtL4WvU2q1F7zO\r\nsoTX28IHDZsGaUrJqRu/kBx3QuD7pPrIAHoe0ufHdSEADK4X71w3X8m1Xom2\r\ntj9lK8SRq3Xf7y/pFH/W5xODAvqNLoWt/hBRCiEYNsrJkN7cQRqQLM0+/8U2\r\nCgGW3D2qDBMZdNSaZOJ0MTUYSrDL5YNKZlHXntwPHQJ99n59KTmIWE9rtV4W\r\n0Bt5Da97dEqQc6Yi+CvVFPMCf4qC3x6rG6fLURfgjK+KJMToJ/ACaEQ9l5uS\r\ncx9y1KCY84kRghRmktVJF4NvYpgIWmK1fQMXC83xrFKrikZxVBLTr/fJd82V\r\nkx6dbhKC/3hjtiqfWllPL8Vdinke9+dTI7IkWkcKwyiJpLgTCRY7gkKUYAay\r\nlHIvV4fV5EG7ImluQNoVsPXkXmKrA3I6UOp+7bj+QhnDVq67FmnFGZ9GPtj+\r\n+qXsBxgu8wyi4Aax8tkIg3vhbHHBsjVjN+InYU7wz0cjBhEy72ThwuPy7Sc5\r\nq8hk7XdBRd5X3f0buysa2dZrUEbwsU3ytw4=\r\n=uCzZ\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-rewriter_0.1.0-beta.0_1667226075924_0.805520071318867"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.0-beta.1": {
+      "name": "@datadog/native-iast-rewriter",
+      "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+      "version": "0.1.0-beta.1",
+      "description": "Datadog IAST instrumentation addon for NodeJS",
+      "main": "main.js",
+      "types": "index.d.ts",
+      "napi": {
+        "name": "iast-rewriter",
+        "triples": {
+          "defaults": false,
+          "additional": [
+            "x86_64-unknown-linux-gnu",
+            "x86_64-unknown-linux-musl",
+            "x86_64-pc-windows-msvc",
+            "aarch64-apple-darwin",
+            "x86_64-apple-darwin"
+          ]
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+      },
+      "keywords": [
+        "datadog",
+        "iast"
+      ],
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+      },
+      "dependencies": {
+        "node-gyp-build": "^4.5.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/types": "^7.18.10",
+        "@napi-rs/cli": "^2.0.0",
+        "@swc-node/register": "^1.4.2",
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.38.1",
+        "chai": "^4.3.6",
+        "cross-env": "^7.0.3",
+        "dotenv-cli": "^5.0.0",
+        "eslint": "^7.31.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7",
+        "mocha": "^9.1.1",
+        "mocha-it-each": "^1.0.2",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.5.1",
+        "proxyquire": "^2.1.3",
+        "sinon": "^14.0.0",
+        "sinon-chai": "^3.7.0",
+        "sorcery": "^0.10.0",
+        "source-map": "^0.7.3",
+        "tap-junit": "^5.0.1",
+        "tmp": "^0.2.1",
+        "typescript": "^4.8.4"
+      },
+      "engines": {
+        "node": ">= 10"
+      },
+      "scripts": {
+        "artifacts": "napi artifacts",
+        "artifacts:prepare": "node ./scripts/artifacts.mjs",
+        "artifacts:prepublish": "napi prepublish --skip-gh-release",
+        "artifacts:gyp": "node ./scripts/artifacts-gyp.mjs",
+        "build": "napi build --platform --release && npm run artifacts:gyp",
+        "build:debug": "napi build --platform && npm run artifacts:gyp",
+        "build:linux": "napi build --target x86_64-unknown-linux-gnu --platform --release",
+        "build:alpine": "napi build --target x86_64-unknown-linux-musl --platform --release",
+        "build:windows": "napi build --target x86_64-pc-windows-msvc --platform --release",
+        "build:darwin": "napi build --target x86_64-apple-darwin --platform --release",
+        "build:darwinArm": "napi build --target aarch64-apple-darwin --platform --release",
+        "buildAndTest:debug": "npm run build && npm run test:junit",
+        "buildAndTest:linux": "npm run build:linux && npm run test:junit",
+        "buildAndTest:alpine": "npm run build:alpine && npm run test:junit",
+        "buildAndTest:windows": "npm run build:windows && npm run test:junit",
+        "buildAndTest:darwin": "npm run build:darwin && npm run test:junit",
+        "buildAndTest:darwinArm": "npm run build:darwinArm && npm run test:junit",
+        "format": "run-p format:prettier format:rs",
+        "format:prettier": "prettier . -w",
+        "format:rs": "cargo fmt",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "rustfmt": "rustfmt --config imports_granularity=Crate src/*.rs",
+        "prepublishOnly": "run-p artifacts:prepare artifacts:prepublish",
+        "version": "napi version",
+        "test": "cross-env DD_LOCAL_VAR_NAME_HASH=test mocha --file 'test/setup.js'",
+        "test:junit": "cross-env DD_LOCAL_VAR_NAME_HASH=test mocha --file 'test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "prepare": "husky install",
+        "clippy": "cargo clippy --workspace -- -D warnings"
+      },
+      "lint-staged": {
+        "*.@(js|ts|tsx)": [
+          "prettier --write",
+          "eslint -c .eslintrc.json --fix"
+        ],
+        "*.@(yml|yaml)": [
+          "prettier --parser yaml --write"
+        ],
+        "*.md": [
+          "prettier --parser markdown --write"
+        ],
+        "*.json": [
+          "prettier --parser json --write"
+        ],
+        "*.rs": [
+          "rustfmt --config imports_granularity=Crate"
+        ]
+      },
+      "prettier": {
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "arrowParens": "always"
+      },
+      "_resolved": "",
+      "_integrity": "",
+      "_from": "file:datadog-native-iast-rewriter-0.1.0-beta.1.tgz",
+      "_id": "@datadog/native-iast-rewriter@0.1.0-beta.1",
+      "_nodeVersion": "14.19.3",
+      "_npmVersion": "6.14.17",
+      "dist": {
+        "integrity": "sha512-uFP6GanFhF7fbhrrYCj3Re1Iy5z/nftO20C6V/GaqS/un8S0PRyJzW6521V2a9kDOvpT9p5AvSwhU/2oAh3BLA==",
+        "shasum": "504f467f1cde7eea276a3e904ba0816825bf4ac9",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-rewriter/-/native-iast-rewriter-0.1.0-beta.1.tgz",
+        "fileCount": 16,
+        "unpackedSize": 20988332,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDP6L3kdBtCqB7NGdFZesDk34f5+rvaXR56EPoSb5xBkgIhANeZmbl7cZqeBOi+jI5mY6IYkryxDx/vZgvEstEF4/pU"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjY/O5ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoE2w/9E1aiZH2NvDhrcgGju5nnlROZV711BEaCpW2X28IcpYieBCfo\r\nAEH/lxbDXi/jo7Ps/Hbow/JCVTcE4ctfA0tJfPe2imn0TFWTW/XHzHYjyqV7\r\nXT1cc1Q48FegO74k2xh+5+lGN00svvFUibYn2QwprTkJsgY6sZqxAwDojyNl\r\nXE/7KrrjBLJD1CPzwkhP5Hmogkl0r0yMjiVXUlWRXMgfwAB1cFuLMnpu+WMv\r\nBVZ+OJ1UZ/kNIJXaZZMCKtzfD/XokgvzYrX/sL9agjfzz4vPC/mghfw/qKyL\r\nQswhMs1NQwBiuxunvCmLgPC5l7lNLiERufWs66wdz/GmusAFdJzcC2CB2lDU\r\n2YsCgidoy73aY+281oaFTK7zf2kyD4VgIDHv421dciOeL2tHg6d3q31JTGvR\r\nCADtst9aNHF7nNe6yEUfpU+uvDKkEVqo2Oy2wDAAovG5CRFWRSuOiN4NInP8\r\ntzjGntVKe1eBli6HNzLPCtiUoXXNPLRIe9GMoiT2Wam6itZt7j76tDrbZxc8\r\nJgZzvmJRkNW8g+6tWejdbt2siagnBkgWHgBMXQHVW5FqW574k/BjtmUQ7zMH\r\neCzzCDga2+c183bWxtx816ZbPdUo+TxZXvxkXlLA7QIS4n5jj1t6IVZ5aQcv\r\nCZsNS2kDtRMnlduY7ZhZG3POBy6UJFu28K4=\r\n=h5Sg\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-rewriter_0.1.0-beta.1_1667494841467_0.9393397276439748"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.0-beta.2": {
+      "name": "@datadog/native-iast-rewriter",
+      "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+      "version": "0.1.0-beta.2",
+      "description": "Datadog IAST instrumentation addon for NodeJS",
+      "main": "main.js",
+      "types": "index.d.ts",
+      "napi": {
+        "name": "iast-rewriter",
+        "triples": {
+          "defaults": false,
+          "additional": [
+            "x86_64-unknown-linux-gnu",
+            "x86_64-unknown-linux-musl",
+            "x86_64-pc-windows-msvc",
+            "aarch64-apple-darwin",
+            "x86_64-apple-darwin"
+          ]
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+      },
+      "keywords": [
+        "datadog",
+        "iast"
+      ],
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+      },
+      "dependencies": {
+        "node-gyp-build": "^4.5.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/types": "^7.18.10",
+        "@napi-rs/cli": "^2.0.0",
+        "@swc-node/register": "^1.4.2",
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.38.1",
+        "chai": "^4.3.6",
+        "cross-env": "^7.0.3",
+        "dotenv-cli": "^5.0.0",
+        "eslint": "^7.31.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7",
+        "mocha": "^9.1.1",
+        "mocha-it-each": "^1.0.2",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.5.1",
+        "proxyquire": "^2.1.3",
+        "sinon": "^14.0.0",
+        "sinon-chai": "^3.7.0",
+        "sorcery": "^0.10.0",
+        "source-map": "^0.7.3",
+        "tap-junit": "^5.0.1",
+        "tmp": "^0.2.1",
+        "typescript": "^4.8.4"
+      },
+      "engines": {
+        "node": ">= 10"
+      },
+      "scripts": {
+        "artifacts": "napi artifacts",
+        "artifacts:prepare": "node ./scripts/artifacts.mjs",
+        "artifacts:prepublish": "napi prepublish --skip-gh-release",
+        "artifacts:gyp": "node ./scripts/artifacts-gyp.mjs",
+        "build": "napi build --platform --release && npm run artifacts:gyp",
+        "build:debug": "napi build --platform && npm run artifacts:gyp",
+        "build:linux": "napi build --target x86_64-unknown-linux-gnu --platform --release",
+        "build:alpine": "napi build --target x86_64-unknown-linux-musl --platform --release",
+        "build:windows": "napi build --target x86_64-pc-windows-msvc --platform --release",
+        "build:darwin": "napi build --target x86_64-apple-darwin --platform --release",
+        "build:darwinArm": "napi build --target aarch64-apple-darwin --platform --release",
+        "buildAndTest:debug": "npm run build && npm run test:junit",
+        "buildAndTest:linux": "npm run build:linux && npm run test:junit",
+        "buildAndTest:alpine": "npm run build:alpine && npm run test:junit",
+        "buildAndTest:windows": "npm run build:windows && npm run test:junit",
+        "buildAndTest:darwin": "npm run build:darwin && npm run test:junit",
+        "buildAndTest:darwinArm": "npm run build:darwinArm && npm run test:junit",
+        "format": "run-p format:prettier format:rs",
+        "format:prettier": "prettier . -w",
+        "format:rs": "cargo fmt",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "rustfmt": "rustfmt --config imports_granularity=Crate src/*.rs",
+        "prepublishOnly": "run-p artifacts:prepare artifacts:prepublish",
+        "version": "napi version",
+        "test": "cross-env DD_LOCAL_VAR_NAME_HASH=test mocha --file 'test/setup.js'",
+        "test:junit": "cross-env DD_LOCAL_VAR_NAME_HASH=test mocha --file 'test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml",
+        "prepare": "husky install",
+        "clippy": "cargo clippy --workspace -- -D warnings"
+      },
+      "lint-staged": {
+        "*.@(js|ts|tsx)": [
+          "prettier --write",
+          "eslint -c .eslintrc.json --fix"
+        ],
+        "*.@(yml|yaml)": [
+          "prettier --parser yaml --write"
+        ],
+        "*.md": [
+          "prettier --parser markdown --write"
+        ],
+        "*.json": [
+          "prettier --parser json --write"
+        ],
+        "*.rs": [
+          "rustfmt --config imports_granularity=Crate"
+        ]
+      },
+      "prettier": {
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "arrowParens": "always"
+      },
+      "_resolved": "",
+      "_integrity": "",
+      "_from": "file:datadog-native-iast-rewriter-0.1.0-beta.2.tgz",
+      "_id": "@datadog/native-iast-rewriter@0.1.0-beta.2",
+      "_nodeVersion": "14.19.3",
+      "_npmVersion": "6.14.17",
+      "dist": {
+        "integrity": "sha512-0biV5lNuqQC8HmIBYVCQQ/ZBITP/jammXZL6btxkR/uGX/RNu0DrppoPUY6p1vU76Hy6ytNQcz5N9JGXtIvGRg==",
+        "shasum": "0ce8fbc8798d6c78b2f818ddebf7b1ee163aa0fd",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-rewriter/-/native-iast-rewriter-0.1.0-beta.2.tgz",
+        "fileCount": 16,
+        "unpackedSize": 20989360,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDsNAF69lrskgGoD9N7D2os3JmJ6WiSqkL2dkRmDXLaQgIhAOK7gaP4paUcAgkPRPSx0vedzKpoRr+K5DQQvQ0VmknF"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjag6SACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrD/w//QAfY/VkFJ0bKg0+pCozo8bcVC9ixj4M/W2lWcoy2kCJ97H68\r\npJ7W1zWq6rVCQ6IoKVZvk+XhEZlnx9uM6qXMbUlkrlktBFoCNIVtopWvfAvM\r\nzKaoH1JvodJdiwlc+NoIY7y5imBjh0R7Q45QhmWS/bxxj/LpM/4SWi9SfRWk\r\nGjhivTnll6c+rt5BfwWbPDossLTax0LfZUB4HX21JBq8WGYVovyy7FATOCU2\r\nc2QXcJUEetCfabGvdSNVj+hZdC9rufL4NECQkrmk6b4103HJhCHSUt5nxesF\r\nB8IwMP1uf+se2g3tHD+m/3FJptNMgcyQKq8pwYjuiHUAol7fti24nFhnkF7m\r\nyAAE2lshNKOrRu7e3tbvCbkf+dhZ/fNOUVzNAMB8QDm0+O++Cz+pubYIZbnA\r\n4ounm6uitVUv5B2IifOi1l8GfX0oNtIP/zWA5I3D3Q0D7EylYB6whSeDGd3+\r\nKJoHPKQtFrNAw4M3kVCQZkGnbFoDK7pp8cUSjpwhlQyum7+wL49g0XuGZ7FJ\r\nYUsYw60EsWiGHvkZAAgzp6vtTZhof/6llB8tDBV0ycrJ1u14AbdJhQONiXws\r\nQRhQxhPX6aUYYjncLabHwPf0F/By13Cj+QYEhWx1hqBwttvG520kggs71VzZ\r\n+4oCIOEAmm/EKEc7AFtbkQK5xJ9AEc+cACk=\r\n=kYUh\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-rewriter_0.1.0-beta.2_1667894930495_0.7049860776245975"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.0-beta.3": {
+      "name": "@datadog/native-iast-rewriter",
+      "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+      "version": "0.1.0-beta.3",
+      "description": "Datadog IAST instrumentation addon for NodeJS",
+      "main": "main.js",
+      "types": "index.d.ts",
+      "napi": {
+        "name": "iast-rewriter",
+        "triples": {
+          "defaults": false,
+          "additional": [
+            "x86_64-unknown-linux-gnu",
+            "x86_64-unknown-linux-musl",
+            "x86_64-pc-windows-msvc",
+            "aarch64-apple-darwin",
+            "x86_64-apple-darwin"
+          ]
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+      },
+      "keywords": [
+        "datadog",
+        "iast"
+      ],
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+      },
+      "dependencies": {
+        "node-gyp-build": "^4.5.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/types": "^7.18.10",
+        "@napi-rs/cli": "^2.0.0",
+        "@swc-node/register": "^1.4.2",
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.38.1",
+        "chai": "^4.3.6",
+        "cross-env": "^7.0.3",
+        "dotenv-cli": "^5.0.0",
+        "eslint": "^7.31.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7",
+        "mocha": "^9.1.1",
+        "mocha-it-each": "^1.0.2",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.5.1",
+        "proxyquire": "^2.1.3",
+        "sinon": "^14.0.0",
+        "sinon-chai": "^3.7.0",
+        "sorcery": "^0.10.0",
+        "source-map": "^0.7.3",
+        "tap-junit": "^5.0.1",
+        "tmp": "^0.2.1",
+        "typescript": "^4.8.4"
+      },
+      "engines": {
+        "node": ">= 10"
+      },
+      "scripts": {
+        "artifacts": "napi artifacts",
+        "artifacts:prepare": "node ./scripts/artifacts.mjs",
+        "artifacts:prepublish": "napi prepublish --skip-gh-release",
+        "artifacts:gyp": "node ./scripts/artifacts-gyp.mjs",
+        "build": "napi build --platform --release && npm run artifacts:gyp",
+        "build:debug": "napi build --platform && npm run artifacts:gyp",
+        "build:linux": "napi build --target x86_64-unknown-linux-gnu --platform --release",
+        "build:alpine": "napi build --target x86_64-unknown-linux-musl --platform --release",
+        "build:windows": "napi build --target x86_64-pc-windows-msvc --platform --release",
+        "build:darwin": "napi build --target x86_64-apple-darwin --platform --release",
+        "build:darwinArm": "napi build --target aarch64-apple-darwin --platform --release",
+        "buildAndTest:debug": "npm run build && npm run test:junit",
+        "buildAndTest:linux": "npm run build:linux && npm run test:junit",
+        "buildAndTest:alpine": "npm run build:alpine && npm run test:junit",
+        "buildAndTest:windows": "npm run build:windows && npm run test:junit",
+        "buildAndTest:darwin": "npm run build:darwin && npm run test:junit",
+        "buildAndTest:darwinArm": "npm run build:darwinArm && npm run test:junit",
+        "format": "run-p format:prettier format:rs",
+        "format:prettier": "prettier . -w",
+        "format:rs": "cargo fmt",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "rustfmt": "rustfmt --config imports_granularity=Crate src/*.rs",
+        "prepublishOnly": "run-p artifacts:prepare artifacts:prepublish",
+        "version": "napi version",
+        "test": "cross-env DD_LOCAL_VAR_NAME_HASH=test mocha --file 'test/setup.js' test/**/*.spec.js",
+        "test:junit": "cross-env DD_LOCAL_VAR_NAME_HASH=test mocha --file 'test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml test/**/*.spec.js",
+        "test:integration": "cross-env DD_LOCAL_VAR_NAME_HASH=test mocha --file 'integration-test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit-integration.xml integration-test/**/*.spec.js",
+        "prepare": "husky install",
+        "clippy": "cargo clippy --workspace -- -D warnings"
+      },
+      "lint-staged": {
+        "*.@(js|ts|tsx)": [
+          "prettier --write",
+          "eslint -c .eslintrc.json --fix"
+        ],
+        "*.@(yml|yaml)": [
+          "prettier --parser yaml --write"
+        ],
+        "*.md": [
+          "prettier --parser markdown --write"
+        ],
+        "*.json": [
+          "prettier --parser json --write"
+        ],
+        "*.rs": [
+          "rustfmt --config imports_granularity=Crate"
+        ]
+      },
+      "prettier": {
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "arrowParens": "always"
+      },
+      "_resolved": "",
+      "_integrity": "",
+      "_from": "file:datadog-native-iast-rewriter-0.1.0-beta.3.tgz",
+      "_id": "@datadog/native-iast-rewriter@0.1.0-beta.3",
+      "_nodeVersion": "14.19.3",
+      "_npmVersion": "6.14.17",
+      "dist": {
+        "integrity": "sha512-Fw2Xu9iPAIL0FQ4vblgaXTi7ziyScXQhfpHAZrJ1+aGmjSx5LS6hO0nmlxjVPBfR7YjlRl+FrF0ZspLaL+BZpA==",
+        "shasum": "a75fe7f9177dc8a0e47fcc74a9b74bac346fdb9f",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-rewriter/-/native-iast-rewriter-0.1.0-beta.3.tgz",
+        "fileCount": 16,
+        "unpackedSize": 20990417,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBcIetB3sWmy9F3hJGRLUCXHCIzVAJeLJuGSGZSLDJwlAiEAuEbStNwa1ElMnFT7eOG5wwOqMmH+/hvrZJ0sWEzXP84="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjao2HACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqyARAAjdFxiQJdxhRiX5cp3l9e0N9BDi0W45dqDprMZkYy91GYBITj\r\niFHAdl+9JF1kjCXBVMk+p5MD4hUWwJU1hOAvVZ1VnLzRme6BrOdHoo37bADN\r\nSgZ3k3u82JiO6FepKnfW4YBsNerwjPdeehqjuDKPW1sLYSlglTyGvFhRDVGU\r\nU8A4EvwTyEk7du2cG23GWwhld/EPwff3yRfUM4qq5upZ65X1CRcNEUUmzvBr\r\nm4tE7ASYS+R84E57jeNzxIQXVMNWGmRqvSVs4ELQQ6gqfI6wo0dGAcSxPTBX\r\nXMZTRlufLtMuVNPm1+51MIBNUzL7pWQWGvwJIL94g/lDR2XHNPtIbWY3YtHc\r\nxK7XPdwOseiaWHdjJP8DAE8n1V+EPib6mimf6w9aJLyY9ttGhcH2bwGj0Glw\r\ntMoLgJHTXUVewCNX/8IAAkQKB0auKpSrfaEji613zkU3Dx29DQcuGOKC8RVl\r\n7XrD+JEsxPnKiHKs8j+CPDPC8W7GJsH8cR1qvsTv/gRFirfFDsOnD5/1WSgw\r\n4LHvnNZX1RLxhscWAWwsac8eB7mIIEECSOQRbonbLILc2Ze63UBPpKL8qBZs\r\nl6dmZM5EdyddXB6oj50mqyjccSienU5WYKnoKte5RJYCf6m7q11A5xO3PxKT\r\nluvNUR+BJ2rX+JknNzEexvVlumu1FnXxdwo=\r\n=f4f3\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-rewriter_0.1.0-beta.3_1667927431230_0.9161248119278"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.0-beta.4-wasm": {
+      "name": "@datadog/native-iast-rewriter",
+      "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+      "version": "0.1.0-beta.4-wasm",
+      "description": "Datadog IAST instrumentation addon for NodeJS",
+      "main": "main.js",
+      "types": "index.d.ts",
+      "napi": {
+        "name": "iast-rewriter",
+        "triples": {
+          "defaults": false,
+          "additional": [
+            "x86_64-unknown-linux-gnu",
+            "x86_64-unknown-linux-musl",
+            "x86_64-pc-windows-msvc",
+            "aarch64-apple-darwin",
+            "x86_64-apple-darwin"
+          ]
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+      },
+      "keywords": [
+        "datadog",
+        "iast"
+      ],
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+      },
+      "dependencies": {
+        "node-gyp-build": "^4.5.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/parser": "^7.20.3",
+        "@babel/types": "^7.18.10",
+        "@napi-rs/cli": "^2.0.0",
+        "@swc-node/register": "^1.4.2",
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.38.1",
+        "ast-types": "^0.15.2",
+        "chai": "^4.3.6",
+        "cross-env": "^7.0.3",
+        "dotenv-cli": "^5.0.0",
+        "eslint": "^7.31.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7",
+        "mocha": "^9.1.1",
+        "mocha-it-each": "^1.0.2",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.5.1",
+        "proxyquire": "^2.1.3",
+        "recast": "^0.21.5",
+        "sinon": "^14.0.0",
+        "sinon-chai": "^3.7.0",
+        "sorcery": "^0.10.0",
+        "source-map": "^0.7.3",
+        "tap-junit": "^5.0.1",
+        "tmp": "^0.2.1",
+        "typescript": "^4.8.4"
+      },
+      "engines": {
+        "node": ">= 10"
+      },
+      "scripts": {
+        "artifacts": "napi artifacts",
+        "artifacts:prepare": "node ./scripts/artifacts.mjs",
+        "artifacts:prepublish": "napi prepublish --skip-gh-release",
+        "artifacts:gyp": "node ./scripts/artifacts-gyp.mjs",
+        "build": "wasm-pack build --scope datadog --out-dir wasm --out-name wasm_iast_rewriter --target nodejs --features \"wasm\"",
+        "build:napi": "napi build --platform --release && npm run artifacts:gyp",
+        "build:napi:debug": "napi build --platform && npm run artifacts:gyp",
+        "build:napi:linux": "napi build --target x86_64-unknown-linux-gnu --platform --release",
+        "build:napi:alpine": "napi build --target x86_64-unknown-linux-musl --platform --release",
+        "build:napi:windows": "napi build --target x86_64-pc-windows-msvc --platform --release",
+        "build:napi:darwin": "napi build --target x86_64-apple-darwin --platform --release",
+        "build:napi:darwinArm": "napi build --target aarch64-apple-darwin --platform --release",
+        "format": "run-p format:prettier format:rs",
+        "format:prettier": "prettier . -w",
+        "format:rs": "cargo fmt",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "rustfmt": "rustfmt --config imports_granularity=Crate src/*.rs",
+        "prepublishOnly": "run-p artifacts:prepare artifacts:prepublish",
+        "version": "napi version",
+        "test": "mocha --file 'test/setup.js' test/**/*.spec.js",
+        "test:junit": "mocha --file 'test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml test/**/*.spec.js",
+        "test:integration": "mocha --file 'integration-test/setup.js' integration-test/**/*.spec.js",
+        "test:integration:ci": "mocha --file 'integration-test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit-integration.xml integration-test/**/*.spec.js",
+        "test:native": "cross-env NATIVE_REWRITER=true mocha --file 'test/setup.js' test/**/*.spec.js",
+        "prepare": "husky install",
+        "clippy": "cargo clippy --workspace -- -D warnings"
+      },
+      "lint-staged": {
+        "*.@(js|ts|tsx)": [
+          "prettier --write",
+          "eslint -c .eslintrc.json --fix"
+        ],
+        "*.@(yml|yaml)": [
+          "prettier --parser yaml --write"
+        ],
+        "*.md": [
+          "prettier --parser markdown --write"
+        ],
+        "*.json": [
+          "prettier --parser json --write"
+        ],
+        "*.rs": [
+          "rustfmt --config imports_granularity=Crate"
+        ]
+      },
+      "prettier": {
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "arrowParens": "always"
+      },
+      "_resolved": "",
+      "_integrity": "",
+      "_from": "file:datadog-native-iast-rewriter-0.1.0-beta.4-wasm.tgz",
+      "_id": "@datadog/native-iast-rewriter@0.1.0-beta.4-wasm",
+      "_nodeVersion": "14.19.3",
+      "_npmVersion": "6.14.17",
+      "dist": {
+        "integrity": "sha512-7mhIP83HlWm3nxuEDBAnl3ZA2pKF0vUAfUVzfsMpDzNaP3IEb3KtJHPSoRjc5Ktfo9ruhxY1ia00GRLc7wNJWA==",
+        "shasum": "ffa96c7a7d02d0ebb7954ae6bc19f897cd5237c2",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-rewriter/-/native-iast-rewriter-0.1.0-beta.4-wasm.tgz",
+        "fileCount": 15,
+        "unpackedSize": 1984315,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCID7vkxpiZOAdMYybtUr+39zLsp1wLMEm5H5CkBJNJWFMAiEA3uCkFU55x01T0T9yy/zA0W77meMlUhJLmbixSMtWFtY="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjdle7ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoAGQ//dzEKrnQf9B6u/ULU7Ksoodi0dJipKXqINnc/Kqvs0WcwHDt4\r\ntaKE/cp3BBYmVDcMwlR+VHGjtI0m9SNoJG4E6WI4AO5a6cUJVv9ZmUaDsdPD\r\nHgDOLOH7H2igS++4hZg/5TKzEWPRsY7AbygfnsKQ1ny8IkrJ7VVvMhK2BQVJ\r\nS1mTOMrZo7Sew22XuejBCMCqJoendc8c7FEmrL0FnhY8Jq1gBx6UGUUf4ui2\r\n92GnLSQkNsxSF2s1syuGm8pF86wWmdYarsTA5kZ1cl3woZvDCblj3ey5VETi\r\noKJ6hvYHwYR42DPErA3zEDCa+/e4sRsHZIUFyGHF+gaWh3Qybn10gLPXj1o1\r\ncu9Var99h6WsmureVUe3lcgKRwm2nkuVPegU9tUlaJwIdcEI2Y+PDukOh7BG\r\nPbfyboZ5225/jni//0Onw9HoqVNsFexOkQSVlifZED5k+KUEW9GCg+b/YTcL\r\nuqSgh5D+BjyP03VZYzRCj9Aa+Oghcn2DW3UVAuRVhzAzxEdzUsYsgpkincP9\r\nqOPrYlRfI4JQ7iYIncNJNLOrl9VLx3qE3v0dQb+SB+boAGPfXdpc2eHMnD7l\r\n/AmRODOKWLQGfZfVItGeGShj9kEYNCe5ztSjSSGMfSZ0iFXjOIox4ycjLj0Q\r\nbbCvlgpts0nvHTMtwGZ+uZzjEWjN9DxRAdc=\r\n=Ml70\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-rewriter_0.1.0-beta.4-wasm_1668700091007_0.43166966279946206"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.0": {
+      "name": "@datadog/native-iast-rewriter",
+      "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+      "version": "1.0.0",
+      "description": "Datadog IAST instrumentation addon for NodeJS",
+      "main": "main.js",
+      "types": "index.d.ts",
+      "napi": {
+        "name": "iast-rewriter",
+        "triples": {
+          "defaults": false,
+          "additional": [
+            "x86_64-unknown-linux-gnu",
+            "x86_64-unknown-linux-musl",
+            "x86_64-pc-windows-msvc",
+            "aarch64-apple-darwin",
+            "x86_64-apple-darwin"
+          ]
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+      },
+      "keywords": [
+        "datadog",
+        "iast"
+      ],
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+      },
+      "dependencies": {
+        "node-gyp-build": "^4.5.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/parser": "^7.20.3",
+        "@babel/types": "^7.18.10",
+        "@napi-rs/cli": "^2.0.0",
+        "@swc-node/register": "^1.4.2",
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.38.1",
+        "ast-types": "^0.15.2",
+        "chai": "^4.3.6",
+        "cross-env": "^7.0.3",
+        "dotenv-cli": "^5.0.0",
+        "eslint": "^7.31.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7",
+        "mocha": "^9.1.1",
+        "mocha-it-each": "^1.0.2",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.5.1",
+        "proxyquire": "^2.1.3",
+        "recast": "^0.21.5",
+        "sinon": "^14.0.0",
+        "sinon-chai": "^3.7.0",
+        "sorcery": "^0.10.0",
+        "source-map": "^0.7.3",
+        "tap-junit": "^5.0.1",
+        "tmp": "^0.2.1",
+        "typescript": "^4.8.4"
+      },
+      "engines": {
+        "node": ">= 10"
+      },
+      "scripts": {
+        "artifacts": "napi artifacts",
+        "artifacts:prepare": "node ./scripts/artifacts.mjs",
+        "artifacts:prepublish": "napi prepublish --skip-gh-release",
+        "artifacts:gyp": "node ./scripts/artifacts-gyp.mjs",
+        "build": "wasm-pack build --scope datadog --out-dir wasm --out-name wasm_iast_rewriter --target nodejs --features \"wasm\"",
+        "build:napi": "napi build --platform --release && npm run artifacts:gyp",
+        "build:napi:debug": "napi build --platform && npm run artifacts:gyp",
+        "build:napi:linux": "napi build --target x86_64-unknown-linux-gnu --platform --release",
+        "build:napi:alpine": "napi build --target x86_64-unknown-linux-musl --platform --release",
+        "build:napi:windows": "napi build --target x86_64-pc-windows-msvc --platform --release",
+        "build:napi:darwin": "napi build --target x86_64-apple-darwin --platform --release",
+        "build:napi:darwinArm": "napi build --target aarch64-apple-darwin --platform --release",
+        "format": "run-p format:prettier format:rs",
+        "format:prettier": "prettier . -w",
+        "format:rs": "cargo fmt",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "rustfmt": "rustfmt --config imports_granularity=Crate src/*.rs",
+        "prepublishOnly": "run-p artifacts:prepare artifacts:prepublish",
+        "version": "napi version",
+        "test": "mocha --file 'test/setup.js' test/**/*.spec.js",
+        "test:junit": "mocha --file 'test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml test/**/*.spec.js",
+        "test:integration": "mocha --file 'integration-test/setup.js' integration-test/**/*.spec.js",
+        "test:integration:ci": "mocha --file 'integration-test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit-integration.xml integration-test/**/*.spec.js",
+        "prepare": "husky install",
+        "clippy": "cargo clippy --workspace -- -D warnings"
+      },
+      "lint-staged": {
+        "*.@(js|ts|tsx)": [
+          "prettier --write",
+          "eslint -c .eslintrc.json --fix"
+        ],
+        "*.@(yml|yaml)": [
+          "prettier --parser yaml --write"
+        ],
+        "*.md": [
+          "prettier --parser markdown --write"
+        ],
+        "*.json": [
+          "prettier --parser json --write"
+        ],
+        "*.rs": [
+          "rustfmt --config imports_granularity=Crate"
+        ]
+      },
+      "prettier": {
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "arrowParens": "always"
+      },
+      "_resolved": "",
+      "_integrity": "",
+      "_from": "file:datadog-native-iast-rewriter-1.0.0.tgz",
+      "_id": "@datadog/native-iast-rewriter@1.0.0",
+      "_nodeVersion": "12.22.12",
+      "_npmVersion": "6.14.16",
+      "dist": {
+        "integrity": "sha512-DGN4cQd30mUaAB349gKeoDTt7acviBERnNYlyk8G+PlobuomTSEohJri5Jo4X+/5oRJPJngGX2VBq7YwMHiing==",
+        "shasum": "02bf338055cdcd3c5b3e8d528afe6d967985cf11",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-rewriter/-/native-iast-rewriter-1.0.0.tgz",
+        "fileCount": 15,
+        "unpackedSize": 1982488,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDJHM0uP2JE17HQmiPpHB17Gbj4fECbmvAY21XntOd/VAIgOAeYQ05yWtj7ejqzKz3n0U14eBE8RKiMQameNq0dgbI="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJje65KACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmru2Q//dO9CTsrUUApqX6+dcb8KvbIE2zk+8VhuO2qL3SFT9c0T7Ph3\r\niQmSYc38U4gz5e0yBcjUaW0YJk16oS/Z8ww74rxPA2g8s200Y28trx6pB1xU\r\nAodJWo+VIaR0iHQg5bNFr1CZfGklJSa1Riqp/iYVPA86mgfR002yEblqdIP7\r\n6AVl33+qYDPIqtgzXquOw/SQYAqoahbuS5AmxKcH30Jhxxaba62DFZjlVXE8\r\nxjuyWquSv116Y0bW0cA1+JOHTtdv+W96FogKhnsFw18YHwNcnsLHfkuEUdOV\r\nqI08uJx4BSw1MXC9V6uJIhT5M0HgdhxgyXBUO8ptmXNQ0bWYDQMmUpiWTsfv\r\n3I/GJfmDwdBzrNo2EcnznlLrLROthO94epoeXRf4JgazvlBEWO+rVwo6hg2Z\r\nJP9NQbYpI04lrmj+ENNIu+qHJz6U0QgSa/r2AGw0PulOyL9U4ZGr2UQKly4L\r\npFaTODV7fEaCOCX/mxpa/gMATyX4v7Nr+UPI6+w2RNwSyJNW6oMhkrjBbyqH\r\nq39BKch/jTmxnpvG3QtYYhdyq8/koDdC9KZWJ1Bk2sjGXNegOeMiV1kxAf9Y\r\nz47l8WHkVV+680LhFPpn1mGcRQSQZVPEkk1oHCU6aFoWninFLnsy+PD3eERh\r\nJcosooNXmk85IYCnTwIzyMGsiL6lOc8SBPg=\r\n=I5SF\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-rewriter_1.0.0_1669049929910_0.7231200744584476"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.1.0": {
+      "name": "@datadog/native-iast-rewriter",
+      "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+      "version": "1.1.0",
+      "description": "Datadog IAST instrumentation addon for NodeJS",
+      "main": "main.js",
+      "types": "index.d.ts",
+      "napi": {
+        "name": "iast-rewriter",
+        "triples": {
+          "defaults": false,
+          "additional": [
+            "x86_64-unknown-linux-gnu",
+            "x86_64-unknown-linux-musl",
+            "x86_64-pc-windows-msvc",
+            "aarch64-apple-darwin",
+            "x86_64-apple-darwin"
+          ]
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+      },
+      "keywords": [
+        "datadog",
+        "iast"
+      ],
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+      },
+      "dependencies": {
+        "node-gyp-build": "^4.5.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/parser": "^7.20.3",
+        "@babel/types": "^7.18.10",
+        "@napi-rs/cli": "^2.0.0",
+        "@swc-node/register": "^1.4.2",
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.38.1",
+        "ast-types": "^0.15.2",
+        "chai": "^4.3.6",
+        "cross-env": "^7.0.3",
+        "dotenv-cli": "^5.0.0",
+        "eslint": "^7.31.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7",
+        "mocha": "^9.1.1",
+        "mocha-it-each": "^1.0.2",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.5.1",
+        "proxyquire": "^2.1.3",
+        "recast": "^0.21.5",
+        "sinon": "^14.0.0",
+        "sinon-chai": "^3.7.0",
+        "sorcery": "^0.10.0",
+        "source-map": "^0.7.3",
+        "tap-junit": "^5.0.1",
+        "tmp": "^0.2.1",
+        "typescript": "^4.8.4"
+      },
+      "engines": {
+        "node": ">= 10"
+      },
+      "scripts": {
+        "artifacts": "napi artifacts",
+        "artifacts:prepare": "node ./scripts/artifacts.mjs",
+        "artifacts:prepublish": "napi prepublish --skip-gh-release",
+        "artifacts:gyp": "node ./scripts/artifacts-gyp.mjs",
+        "build": "wasm-pack build --scope datadog --out-dir wasm --out-name wasm_iast_rewriter --target nodejs",
+        "build:napi": "napi build --platform --release --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:debug": "napi build --platform --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:linux": "napi build --target x86_64-unknown-linux-gnu --platform --release --features \"napi\"",
+        "build:napi:alpine": "napi build --target x86_64-unknown-linux-musl --platform --release --features \"napi\"",
+        "build:napi:windows": "napi build --target x86_64-pc-windows-msvc --platform --release --features \"napi\"",
+        "build:napi:darwin": "napi build --target x86_64-apple-darwin --platform --release --features \"napi\"",
+        "build:napi:darwinArm": "napi build --target aarch64-apple-darwin --platform --release --features \"napi\"",
+        "format": "run-p format:prettier format:rs",
+        "format:prettier": "prettier . -w",
+        "format:rs": "cargo fmt",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "rustfmt": "rustfmt --config imports_granularity=Crate src/*.rs",
+        "prepublishOnly": "run-p artifacts:prepare artifacts:prepublish",
+        "version": "napi version",
+        "test": "mocha --file 'test/setup.js' test/**/*.spec.js",
+        "test:junit": "mocha --file 'test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml test/**/*.spec.js",
+        "test:integration": "mocha --file 'integration-test/setup.js' integration-test/**/*.spec.js",
+        "test:integration:ci": "mocha --file 'integration-test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit-integration.xml integration-test/**/*.spec.js",
+        "prepare": "husky install",
+        "clippy": "cargo clippy --workspace -- -D warnings"
+      },
+      "lint-staged": {
+        "*.@(js|ts|tsx)": [
+          "prettier --write",
+          "eslint -c .eslintrc.json --fix"
+        ],
+        "*.@(yml|yaml)": [
+          "prettier --parser yaml --write"
+        ],
+        "*.md": [
+          "prettier --parser markdown --write"
+        ],
+        "*.json": [
+          "prettier --parser json --write"
+        ],
+        "*.rs": [
+          "rustfmt --config imports_granularity=Crate"
+        ]
+      },
+      "prettier": {
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "arrowParens": "always"
+      },
+      "_resolved": "",
+      "_integrity": "",
+      "_from": "file:datadog-native-iast-rewriter-1.1.0.tgz",
+      "_id": "@datadog/native-iast-rewriter@1.1.0",
+      "_nodeVersion": "14.19.3",
+      "_npmVersion": "6.14.17",
+      "dist": {
+        "integrity": "sha512-rQpm4tjIAzKmQjVY3jIqKesTQJVRiqGiCl5GXIlWanpYCF1OOfgBglLXseH+zXASULnvjiFgKxkNVAXay6dIoQ==",
+        "shasum": "8ee175bb38b44b006bf5183ffb17b1c93505c064",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-rewriter/-/native-iast-rewriter-1.1.0.tgz",
+        "fileCount": 15,
+        "unpackedSize": 2070633,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAeupF68EcrQ6uvzluhjAlex0RL8Ab1tDSBsEYfAKyCDAiEAiBneDwgHG/XmdOkp4Obla4wgFc4OK/P7/233/+/PfBg="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjgKojACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmppEA/9FERtQwn9k1DzIfhku3TcjJPXdzBrRDbtVNy4PQ0hw4AG3FWs\r\nK3+jlKOzZ8fcx1CNs/Z7tLFjeghCV6nZ4AW60a99VldilF6Y9gFgEHg5lNd/\r\n9VxtIxPzRAGtAsPLswHqmuLH1YX49LShR4KQhXgKPCUACjoew4s7aC83iTYN\r\nVMkl2ruyYNesBrqrlF70s4HhBV5n+JKpKdAp6YMhFGBjHi4cr5az5WJKm4U7\r\niylXh+4cx7WEqLaC9HlD5IArE0AIj/tCqwoNRIOTRRoZ3bgr2oDTBO7bbKTs\r\n0THgS5t9vz7B6S5CZfTlrOcrTBDw0wCEO6hAcMDWDTY1c3rrNkw5qfiz1U6b\r\nIjCoQhhiPxn8NUwkhlgQBPl3HqrJU+GR3hkYGdPlPss9A5kwgDZk/0vrP5O/\r\nc+lWSf3RfCLvvkKpWyarrhtYXwW/1H9l9pga77dY6KcojMcSL1dInMwSS0x2\r\nJ2kM85cag6RSLcrAYhGB/+0Q8h8JAS57FYTvHhzwhrhhPy+Xvj56I4Usp6pW\r\nPa67Wn5tWI1gvEb5SkMWrsyRVdDsAjC38MeZoWuvFowM0rhCvpvv9qQA9nLB\r\ni6xn6HHt5qz01Elvy/10U+pnHj26zlKIbIUomDH+ojsD6od+BYZkyrJJP5PE\r\n4GtS1C9BNoFC+19g3MMcJB8FUAH8AtJnZjc=\r\n=CzPw\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-rewriter_1.1.0_1669376546853_0.3804040086647613"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.1.1": {
+      "name": "@datadog/native-iast-rewriter",
+      "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+      "version": "1.1.1",
+      "description": "Datadog IAST instrumentation addon for NodeJS",
+      "main": "main.js",
+      "types": "index.d.ts",
+      "napi": {
+        "name": "iast-rewriter",
+        "triples": {
+          "defaults": false,
+          "additional": [
+            "x86_64-unknown-linux-gnu",
+            "x86_64-unknown-linux-musl",
+            "x86_64-pc-windows-msvc",
+            "aarch64-apple-darwin",
+            "x86_64-apple-darwin"
+          ]
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+      },
+      "keywords": [
+        "datadog",
+        "iast"
+      ],
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+      },
+      "dependencies": {
+        "node-gyp-build": "^4.5.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/parser": "^7.20.3",
+        "@babel/types": "^7.18.10",
+        "@napi-rs/cli": "^2.0.0",
+        "@swc-node/register": "^1.4.2",
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.38.1",
+        "ast-types": "^0.15.2",
+        "chai": "^4.3.6",
+        "cross-env": "^7.0.3",
+        "dotenv-cli": "^5.0.0",
+        "eslint": "^7.31.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7",
+        "mocha": "^9.1.1",
+        "mocha-it-each": "^1.0.2",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.5.1",
+        "proxyquire": "^2.1.3",
+        "recast": "^0.21.5",
+        "sinon": "^14.0.0",
+        "sinon-chai": "^3.7.0",
+        "sorcery": "^0.10.0",
+        "source-map": "^0.7.3",
+        "tap-junit": "^5.0.1",
+        "tmp": "^0.2.1",
+        "typescript": "^4.8.4"
+      },
+      "engines": {
+        "node": ">= 10"
+      },
+      "scripts": {
+        "artifacts": "napi artifacts",
+        "artifacts:prepare": "node ./scripts/artifacts.mjs",
+        "artifacts:prepublish": "napi prepublish --skip-gh-release",
+        "artifacts:gyp": "node ./scripts/artifacts-gyp.mjs",
+        "build": "wasm-pack build --scope datadog --out-dir wasm --out-name wasm_iast_rewriter --target nodejs",
+        "build:napi": "napi build --platform --release --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:debug": "napi build --platform --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:linux": "napi build --target x86_64-unknown-linux-gnu --platform --release --features \"napi\"",
+        "build:napi:alpine": "napi build --target x86_64-unknown-linux-musl --platform --release --features \"napi\"",
+        "build:napi:windows": "napi build --target x86_64-pc-windows-msvc --platform --release --features \"napi\"",
+        "build:napi:darwin": "napi build --target x86_64-apple-darwin --platform --release --features \"napi\"",
+        "build:napi:darwinArm": "napi build --target aarch64-apple-darwin --platform --release --features \"napi\"",
+        "format": "run-p format:prettier format:rs",
+        "format:prettier": "prettier . -w",
+        "format:rs": "cargo fmt",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "rustfmt": "rustfmt --config imports_granularity=Crate src/*.rs",
+        "prepublishOnly": "run-p artifacts:prepare artifacts:prepublish",
+        "version": "napi version",
+        "test": "mocha --file 'test/setup.js' test/**/*.spec.js",
+        "test:junit": "mocha --file 'test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml test/**/*.spec.js",
+        "test:integration": "mocha --file 'integration-test/setup.js' integration-test/**/*.spec.js",
+        "test:integration:ci": "mocha --file 'integration-test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit-integration.xml integration-test/**/*.spec.js",
+        "prepare": "husky install",
+        "clippy": "cargo clippy --workspace -- -D warnings"
+      },
+      "lint-staged": {
+        "*.@(js|ts|tsx)": [
+          "prettier --write",
+          "eslint -c .eslintrc.json --fix"
+        ],
+        "*.@(yml|yaml)": [
+          "prettier --parser yaml --write"
+        ],
+        "*.md": [
+          "prettier --parser markdown --write"
+        ],
+        "*.json": [
+          "prettier --parser json --write"
+        ],
+        "*.rs": [
+          "rustfmt --config imports_granularity=Crate"
+        ]
+      },
+      "prettier": {
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "arrowParens": "always"
+      },
+      "_resolved": "",
+      "_integrity": "",
+      "_from": "file:datadog-native-iast-rewriter-1.1.1.tgz",
+      "_id": "@datadog/native-iast-rewriter@1.1.1",
+      "_nodeVersion": "14.19.3",
+      "_npmVersion": "6.14.17",
+      "dist": {
+        "integrity": "sha512-t7O8hL07yQShPuvDTDZ08hqlxrV9LQVggINocsOcBM29A23v73/JVvs7+oDWzNjU8ruO2uLarCJBDFg+bjun/A==",
+        "shasum": "5d37681bd721e92264a1cd7bd309f4cbfbcf5738",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-rewriter/-/native-iast-rewriter-1.1.1.tgz",
+        "fileCount": 15,
+        "unpackedSize": 2059143,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGBEPPUSAEjlwtiFNArP183LdS4v1MUBOqhoPS1WeUsFAiEA+TP7bxaDA9a0fZ+qWelANufJExh0Clrpk7f8bZtamUs="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjm0VrACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrFFw/9H5eLmuvwXiH0zsj/L59eLCdd7LCklqFCjX1qXHooGWAmTD6n\r\nH1TZcCTQSqbZAd/iNBYfSoHLz9Qsm+DH7cgzqzNrrvf1arFBL6R9RmGtJ2F1\r\niNbLAiUu3q6mH7+2Azy7dVcJE+hNDIh95WZDpLfkAwiKv8zHN3a+WpU2vVdL\r\n6CkRvzJ8q8SswLAt1vuatRIRJXYojxHQUpcKNVOW/Cyz0n7iWJY8vfy9cs3a\r\n1PdDzOgjJ+JFozLCtX35fuFWznTCHH0PQRz67UIB5pYTAKTUFW39alanli6d\r\nazmLc2NARSpdwhsu9sZBEj7TGLnGRSfxSwEc2W0CnbkXLe+XF+Nyown/BmAN\r\nH8i89DsCNtNXjRld8waV7mb38/7QMg0AL1UPjH+ZUwWkLhJwnUCJdugN16D4\r\nn6J60LcdOG73CCRGYshGexr/5e+3oBXtjKNdl/Z8dJltIPHhV1pwX6PU6xCo\r\nDPOLtFhgP0EWU3rejXuClUcMB+4LojYC+qO2udYqZZZQR7RuwW2mvuBRA0wE\r\nWWe/vJg6al79WnZf2RKmPDZz/tCUXPhw2BLh/cPu5OZiQeu2EPJNVGgNZeSr\r\nukNnfksWlY4xmzGmgoKfVuh8/cAdz7SgpK0XCQuMEBrd3yTlDUQYuAkW6G3/\r\nd6cYOFT3NLglJs0ub/l687AHGd+0F24Ut34=\r\n=eleC\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-rewriter_1.1.1_1671120235211_0.5687779787472729"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.1.2": {
+      "name": "@datadog/native-iast-rewriter",
+      "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+      "version": "1.1.2",
+      "description": "Datadog IAST instrumentation addon for NodeJS",
+      "main": "main.js",
+      "types": "index.d.ts",
+      "napi": {
+        "name": "iast-rewriter",
+        "triples": {
+          "defaults": false,
+          "additional": [
+            "x86_64-unknown-linux-gnu",
+            "x86_64-unknown-linux-musl",
+            "x86_64-pc-windows-msvc",
+            "aarch64-apple-darwin",
+            "x86_64-apple-darwin"
+          ]
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+      },
+      "keywords": [
+        "datadog",
+        "iast"
+      ],
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+      },
+      "dependencies": {
+        "node-gyp-build": "^4.5.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/parser": "^7.20.3",
+        "@babel/types": "^7.18.10",
+        "@napi-rs/cli": "^2.0.0",
+        "@swc-node/register": "^1.4.2",
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.38.1",
+        "ast-types": "^0.15.2",
+        "chai": "^4.3.6",
+        "cross-env": "^7.0.3",
+        "dotenv-cli": "^5.0.0",
+        "eslint": "^7.31.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7",
+        "mocha": "^9.1.1",
+        "mocha-it-each": "^1.0.2",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.5.1",
+        "proxyquire": "^2.1.3",
+        "recast": "^0.21.5",
+        "sinon": "^14.0.0",
+        "sinon-chai": "^3.7.0",
+        "sorcery": "^0.10.0",
+        "source-map": "^0.7.3",
+        "tap-junit": "^5.0.1",
+        "tmp": "^0.2.1",
+        "typescript": "^4.8.4"
+      },
+      "engines": {
+        "node": ">= 10"
+      },
+      "scripts": {
+        "artifacts": "napi artifacts",
+        "artifacts:prepare": "node ./scripts/artifacts.mjs",
+        "artifacts:prepublish": "napi prepublish --skip-gh-release",
+        "artifacts:gyp": "node ./scripts/artifacts-gyp.mjs",
+        "build": "wasm-pack build --scope datadog --out-dir wasm --out-name wasm_iast_rewriter --target nodejs",
+        "build:napi": "napi build --platform --release --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:debug": "napi build --platform --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:linux": "napi build --target x86_64-unknown-linux-gnu --platform --release --features \"napi\"",
+        "build:napi:alpine": "napi build --target x86_64-unknown-linux-musl --platform --release --features \"napi\"",
+        "build:napi:windows": "napi build --target x86_64-pc-windows-msvc --platform --release --features \"napi\"",
+        "build:napi:darwin": "napi build --target x86_64-apple-darwin --platform --release --features \"napi\"",
+        "build:napi:darwinArm": "napi build --target aarch64-apple-darwin --platform --release --features \"napi\"",
+        "format": "run-p format:prettier format:rs",
+        "format:prettier": "prettier . -w",
+        "format:rs": "cargo fmt",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "rustfmt": "rustfmt --config imports_granularity=Crate src/*.rs",
+        "prepublishOnly": "run-p artifacts:prepare artifacts:prepublish",
+        "version": "napi version",
+        "test": "mocha --file 'test/setup.js' test/**/*.spec.js",
+        "test:junit": "mocha --file 'test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml test/**/*.spec.js",
+        "test:integration": "mocha --file 'integration-test/setup.js' integration-test/**/*.spec.js",
+        "test:integration:ci": "mocha --file 'integration-test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit-integration.xml integration-test/**/*.spec.js",
+        "prepare": "husky install",
+        "clippy": "cargo clippy --workspace -- -D warnings"
+      },
+      "lint-staged": {
+        "*.@(js|ts|tsx)": [
+          "prettier --write",
+          "eslint -c .eslintrc.json --fix"
+        ],
+        "*.@(yml|yaml)": [
+          "prettier --parser yaml --write"
+        ],
+        "*.md": [
+          "prettier --parser markdown --write"
+        ],
+        "*.json": [
+          "prettier --parser json --write"
+        ],
+        "*.rs": [
+          "rustfmt --config imports_granularity=Crate"
+        ]
+      },
+      "prettier": {
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "arrowParens": "always"
+      },
+      "_resolved": "",
+      "_integrity": "",
+      "_from": "file:datadog-native-iast-rewriter-1.1.2.tgz",
+      "_id": "@datadog/native-iast-rewriter@1.1.2",
+      "_nodeVersion": "14.19.3",
+      "_npmVersion": "6.14.17",
+      "dist": {
+        "integrity": "sha512-pigRfRtAjZjMjqIXyXb98S4aDnuHz/EmqpoxAajFZsNjBLM87YonwSY5zoBdCsOyA46ddKOJRoCQd5ZalpOFMQ==",
+        "shasum": "793cbf92d218ec80d645be0830023656b81018ea",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-rewriter/-/native-iast-rewriter-1.1.2.tgz",
+        "fileCount": 15,
+        "unpackedSize": 2062695,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDQak7tX8KUbAZoTU3zWwV1CzpZsbOHCxuLJueGqZIcHwIhALCWlgaCZU7WaV1TOlocPEzaqbxYdM9ndzpbBbU3dnX1"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjrHXiACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmr+Jg//a9oQ2GL8XnhRwP3VSEs0eNVwXlH0ieOCaVFjdLoSFdTUhwW0\r\nh4cvDuC6rsi2/bLYdJ3szPoPzwtvtj4eZBVTukMb+ikS4RZK5uYJ18ksLS0F\r\n2KNvJDm2yauZHJRMZr1+V9sZ99OON6f8GU14CLNy1TL0cok/vLHDbR/AsLS/\r\nrfURzjgq/V6KnAJtq5y6paoY8eG9bDomvnNHjT70zrlowQJL5H9KUkT6n/xF\r\nKfbI+7unVcHqMob2wfXZ/CZsVEnpGBEZ8i8r1EMIsnt30awSqLA/s9kz4P63\r\nflaOYyOsvKGgiZs28vy01r3hy+YbT8P2n/xpeChfJ6F2z6+ue2h717cZ/J79\r\n1o96m3kzq5cJOpPNAHzcieYaNbhlzMZcw1EQ6Q/sOHrZAA5iXfiumSeOyIcA\r\n7jMz2F/gmujA7QHrdWHYtW9Ul75fy9vOQ5tM725YKmgS2KlmGItUz8o10sKs\r\nDB2wu2G0QlihYnBlC+bhLSAt8z6RfU28AdMlao/iGhO+BlH/X/AoYm3n0y4u\r\neM9UlVg0FjT3wnNcoStQnrDorQiIYIcQhmRdCe/I1Z8w7p3uNq+q9aJ21X+a\r\nSDdtXkwfQCRx1k3XEACnykMpndBtSnouBuVIBNcXK8YI88dSZOaU500ZapnP\r\nDXUqRZPf6BKJ7czS9u1gJyfTT6QfcCHe+oQ=\r\n=b5Db\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-rewriter_1.1.2_1672246754539_0.38585309814167723"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.1": {
+      "name": "@datadog/native-iast-rewriter",
+      "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+      "version": "1.0.1",
+      "description": "Datadog IAST instrumentation addon for NodeJS",
+      "main": "main.js",
+      "types": "index.d.ts",
+      "napi": {
+        "name": "iast-rewriter",
+        "triples": {
+          "defaults": false,
+          "additional": [
+            "x86_64-unknown-linux-gnu",
+            "x86_64-unknown-linux-musl",
+            "x86_64-pc-windows-msvc",
+            "aarch64-apple-darwin",
+            "x86_64-apple-darwin"
+          ]
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+      },
+      "keywords": [
+        "datadog",
+        "iast"
+      ],
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+      },
+      "dependencies": {
+        "node-gyp-build": "^4.5.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/parser": "^7.20.3",
+        "@babel/types": "^7.18.10",
+        "@napi-rs/cli": "^2.0.0",
+        "@swc-node/register": "^1.4.2",
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.38.1",
+        "ast-types": "^0.15.2",
+        "chai": "^4.3.6",
+        "cross-env": "^7.0.3",
+        "dotenv-cli": "^5.0.0",
+        "eslint": "^7.31.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7",
+        "mocha": "^9.1.1",
+        "mocha-it-each": "^1.0.2",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.5.1",
+        "proxyquire": "^2.1.3",
+        "recast": "^0.21.5",
+        "sinon": "^14.0.0",
+        "sinon-chai": "^3.7.0",
+        "sorcery": "^0.10.0",
+        "source-map": "^0.7.3",
+        "tap-junit": "^5.0.1",
+        "tmp": "^0.2.1",
+        "typescript": "^4.8.4"
+      },
+      "engines": {
+        "node": ">= 10"
+      },
+      "scripts": {
+        "artifacts": "napi artifacts",
+        "artifacts:prepare": "node ./scripts/artifacts.mjs",
+        "artifacts:prepublish": "napi prepublish --skip-gh-release",
+        "artifacts:gyp": "node ./scripts/artifacts-gyp.mjs",
+        "build": "wasm-pack build --scope datadog --out-dir wasm --out-name wasm_iast_rewriter --target nodejs --features \"wasm\"",
+        "build:napi": "napi build --platform --release && npm run artifacts:gyp",
+        "build:napi:debug": "napi build --platform && npm run artifacts:gyp",
+        "build:napi:linux": "napi build --target x86_64-unknown-linux-gnu --platform --release",
+        "build:napi:alpine": "napi build --target x86_64-unknown-linux-musl --platform --release",
+        "build:napi:windows": "napi build --target x86_64-pc-windows-msvc --platform --release",
+        "build:napi:darwin": "napi build --target x86_64-apple-darwin --platform --release",
+        "build:napi:darwinArm": "napi build --target aarch64-apple-darwin --platform --release",
+        "format": "run-p format:prettier format:rs",
+        "format:prettier": "prettier . -w",
+        "format:rs": "cargo fmt",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "rustfmt": "rustfmt --config imports_granularity=Crate src/*.rs",
+        "prepublishOnly": "run-p artifacts:prepare artifacts:prepublish",
+        "version": "napi version",
+        "test": "mocha --file 'test/setup.js' test/**/*.spec.js",
+        "test:junit": "mocha --file 'test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml test/**/*.spec.js",
+        "test:integration": "mocha --file 'integration-test/setup.js' integration-test/**/*.spec.js",
+        "test:integration:ci": "mocha --file 'integration-test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit-integration.xml integration-test/**/*.spec.js",
+        "prepare": "husky install",
+        "clippy": "cargo clippy --workspace -- -D warnings"
+      },
+      "lint-staged": {
+        "*.@(js|ts|tsx)": [
+          "prettier --write",
+          "eslint -c .eslintrc.json --fix"
+        ],
+        "*.@(yml|yaml)": [
+          "prettier --parser yaml --write"
+        ],
+        "*.md": [
+          "prettier --parser markdown --write"
+        ],
+        "*.json": [
+          "prettier --parser json --write"
+        ],
+        "*.rs": [
+          "rustfmt --config imports_granularity=Crate"
+        ]
+      },
+      "prettier": {
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "arrowParens": "always"
+      },
+      "_resolved": "",
+      "_integrity": "",
+      "_from": "file:datadog-native-iast-rewriter-1.0.1.tgz",
+      "_id": "@datadog/native-iast-rewriter@1.0.1",
+      "_nodeVersion": "14.19.3",
+      "_npmVersion": "6.14.17",
+      "dist": {
+        "integrity": "sha512-UBN8Ce4OSiBhMQWY8COD4Zn/TkqIuUyYQgA9tasda73njVqcZ3FZqFhPNow1j5r5Ka3a/PCrGdUs9U5uuod0YA==",
+        "shasum": "92262a2995642e93d844d4a62a3a82b53167ce32",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-rewriter/-/native-iast-rewriter-1.0.1.tgz",
+        "fileCount": 15,
+        "unpackedSize": 1986730,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDtNnBcqt8aITMY6h5ikI1XSUdMpVihNIYHk6u1wbA7XgIhAKzhXaQj4R2tA7/iN3wt66Ku0fZfXkOItkoIYv820qD5"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjrNB2ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrCeA/9FeoV8X7FUD12tj07Uf7l0OtUMlgjuBNVgox/CyS+uOIfzzdr\r\nbUjrAtSKEd066NTEPhnhq3+kVMvaSTRwQSxtVQb2XCCe2JVsQ/Gk7DAZU4s1\r\n8wWHl+elln65hPIxhvhgZSEAm+NYOSY9g+mBSsqF06qrYf/GC7genb8UujNc\r\n8qDdb3f3dlBh00is6uWFR9x+6C7dwORJMSVA9JDPgb35w9geeHwgAtQx2k5b\r\npQiO6pU5IcP1UmlMCZg71BCLQFEU6j+qi+LXrDpgpXogbO5gZIwax2kjHxPN\r\noKMGBvIGCOamPd7n3OTMHxEg0uSLBNAZB71cBGKF1oDcEdhjuznKI7GZpTg9\r\n6MJQtEInA6X3CelZlRBWdSv4EYDZFNTxhWL1VmZzfGFpW8wKLVV+CghYVkWX\r\nbOa6FdVMFahna+UwBqbaqSCLqPjj7SbLCVis0m8JCGeiE7RLTf/MD970cP4l\r\nGCciDkxVUREbzM40roXgUGZx6Vq1mR2K84HJ2iycCTpezP1xXmQQUXpn6VMb\r\nucs2aS7a+X7V8HCc3OL43wwam/CUg0aupIen5WtFbaNKmOaH1ivjeuRD3CGE\r\nOTzF4EDwNyzMkrhsLzK321AUP98xvdj3M9JfK5X96Gu2IdqHPKneJoeRFSPA\r\nNVU1X32JSKlaasRUsf6LXOfSTcG10iOfJp8=\r\n=gvOH\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-rewriter_1.0.1_1672269942374_0.14466388680690456"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0": {
+      "name": "@datadog/native-iast-rewriter",
+      "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+      "version": "2.0.0",
+      "description": "Datadog IAST instrumentation addon for NodeJS",
+      "main": "main.js",
+      "types": "index.d.ts",
+      "napi": {
+        "name": "iast-rewriter",
+        "triples": {
+          "defaults": false,
+          "additional": [
+            "x86_64-unknown-linux-gnu",
+            "x86_64-unknown-linux-musl",
+            "x86_64-pc-windows-msvc",
+            "aarch64-apple-darwin",
+            "x86_64-apple-darwin"
+          ]
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+      },
+      "keywords": [
+        "datadog",
+        "iast"
+      ],
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+      },
+      "dependencies": {
+        "node-gyp-build": "^4.5.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/parser": "^7.20.3",
+        "@babel/types": "^7.18.10",
+        "@napi-rs/cli": "^2.0.0",
+        "@swc-node/register": "^1.4.2",
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.38.1",
+        "ast-types": "^0.15.2",
+        "chai": "^4.3.6",
+        "cross-env": "^7.0.3",
+        "dotenv-cli": "^5.0.0",
+        "eslint": "^7.31.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7",
+        "mocha": "^9.1.1",
+        "mocha-it-each": "^1.0.2",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.5.1",
+        "proxyquire": "^2.1.3",
+        "recast": "^0.21.5",
+        "sinon": "^14.0.0",
+        "sinon-chai": "^3.7.0",
+        "sorcery": "^0.10.0",
+        "source-map": "^0.7.3",
+        "tap-junit": "^5.0.1",
+        "tmp": "^0.2.1",
+        "typescript": "^4.8.4"
+      },
+      "engines": {
+        "node": ">= 10"
+      },
+      "scripts": {
+        "artifacts": "napi artifacts",
+        "artifacts:prepare": "node ./scripts/artifacts.mjs",
+        "artifacts:prepublish": "napi prepublish --skip-gh-release",
+        "artifacts:gyp": "node ./scripts/artifacts-gyp.mjs",
+        "build": "wasm-pack build --scope datadog --out-dir wasm --out-name wasm_iast_rewriter --target nodejs",
+        "build:napi": "napi build --platform --release --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:debug": "napi build --platform --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:linux": "napi build --target x86_64-unknown-linux-gnu --platform --release --features \"napi\"",
+        "build:napi:alpine": "napi build --target x86_64-unknown-linux-musl --platform --release --features \"napi\"",
+        "build:napi:windows": "napi build --target x86_64-pc-windows-msvc --platform --release --features \"napi\"",
+        "build:napi:darwin": "napi build --target x86_64-apple-darwin --platform --release --features \"napi\"",
+        "build:napi:darwinArm": "napi build --target aarch64-apple-darwin --platform --release --features \"napi\"",
+        "format": "run-p format:prettier format:rs",
+        "format:prettier": "prettier . -w",
+        "format:rs": "cargo fmt",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "rustfmt": "rustfmt --config imports_granularity=Crate src/*.rs",
+        "prepublishOnly": "run-p artifacts:prepare artifacts:prepublish",
+        "version": "napi version",
+        "test": "mocha --file 'test/setup.js' test/**/*.spec.js",
+        "test:junit": "mocha --file 'test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml test/**/*.spec.js",
+        "test:integration": "mocha --file 'integration-test/setup.js' integration-test/**/*.spec.js",
+        "test:integration:ci": "mocha --file 'integration-test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit-integration.xml integration-test/**/*.spec.js",
+        "prepare": "husky install",
+        "clippy": "cargo clippy --workspace -- -D warnings"
+      },
+      "lint-staged": {
+        "*.@(js|ts|tsx)": [
+          "prettier --write",
+          "eslint -c .eslintrc.json --fix"
+        ],
+        "*.@(yml|yaml)": [
+          "prettier --parser yaml --write"
+        ],
+        "*.md": [
+          "prettier --parser markdown --write"
+        ],
+        "*.json": [
+          "prettier --parser json --write"
+        ],
+        "*.rs": [
+          "rustfmt --config imports_granularity=Crate"
+        ]
+      },
+      "prettier": {
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "arrowParens": "always"
+      },
+      "_resolved": "",
+      "_integrity": "",
+      "_from": "file:/home/igor/Downloads/datadog-native-iast-rewriter-2.0.0.tgz",
+      "_id": "@datadog/native-iast-rewriter@2.0.0",
+      "_nodeVersion": "14.19.3",
+      "_npmVersion": "6.14.17",
+      "dist": {
+        "integrity": "sha512-EMZC+45pA8ASj4FR+R9CPNKl9MuUeQm2R+qwpXhdBkElpy8lJBImytJspjWtxMq1Z7BTdpuZ5Fx0+lq2GV5gmA==",
+        "shasum": "b814cfc2cd5fca0bb327707eddb45cda590b5404",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-rewriter/-/native-iast-rewriter-2.0.0.tgz",
+        "fileCount": 15,
+        "unpackedSize": 2087877,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIH+tye8YkKfJAREW9VWYkT4KII946y7lFi0Ox+l0EpzOAiEAtvCpQnIKpujd6o91iIPLI0Nx6IjMlzu3x3gN+csp4Vk="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj83SJACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpL3xAAiRrYJ+7/Vl+wp/cwQ2RVph5gNp1VeIdvr+sSlSkWRRN3EAk2\r\n03tLQSAqQ/HgZFQbuQ4F+uoQ+lmV6kkeBMsNTZUP80PFHhh7Z2Gu/OvxVv31\r\nIvJu+mMszvUS0H7L9JZdlWZeiMyJp/HOO8S++GMLgTuI4t0iduN1FzsxMme+\r\n1HLltipc4siggk2pfcfnRnDaMC6r5CUuQvqgsl7UWYIMDsnuU4lrDFfXNSMh\r\ni+eF8EaSoEDSruFbl/6T5dIRSv+l+e2rl2QUaolVjfmeOZn0EC6/DQB+B6u7\r\ndn1v1HLnVkvqIBnsnUr7OG61Slyp9B4RnjYX3tTsyESDRhI8vJs6isakGGKP\r\nXDYFCK3MKJUgO8lUo7M6AuzT9A4FfKmVC+IjCT+fQGeDJt7kaBJU/oyZyZMm\r\nu4zeljo84bkfCzqd0AXFgGbB2DJ6H/li3mx9HRoUHgKInVjHaQJoauZCVGX2\r\ndupTc1V6DD8gaBOF2wS61mw7QoGqY/6tSIurci4nLNo9kv2yVobwAzY1pJuL\r\nVcWRlVw0pgzQjT2P/PnGMLBG+uGgYaY0xFfQJU39EyjGbhIDUqZ63Ug/6Fel\r\nSGW8qdMsBoBSs1FTcSlznnHSOnRfbOzkQTcq9cpSbWAlBHTE+HX3xV2NKISH\r\nc1oYV2tS93RbBN9MvJ7VeUaT/du/LNQ2nfA=\r\n=mq5t\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-rewriter_2.0.0_1676899465636_0.36381146343791637"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.1": {
+      "name": "@datadog/native-iast-rewriter",
+      "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+      "version": "2.0.1",
+      "description": "Datadog IAST instrumentation addon for NodeJS",
+      "main": "main.js",
+      "types": "index.d.ts",
+      "napi": {
+        "name": "iast-rewriter",
+        "triples": {
+          "defaults": false,
+          "additional": [
+            "x86_64-unknown-linux-gnu",
+            "x86_64-unknown-linux-musl",
+            "x86_64-pc-windows-msvc",
+            "aarch64-apple-darwin",
+            "x86_64-apple-darwin"
+          ]
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+      },
+      "keywords": [
+        "datadog",
+        "iast"
+      ],
+      "author": "Datadog Inc. <info@datadoghq.com>",
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+      },
+      "dependencies": {
+        "node-gyp-build": "^4.5.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/parser": "^7.20.3",
+        "@babel/types": "^7.18.10",
+        "@napi-rs/cli": "^2.0.0",
+        "@swc-node/register": "^1.4.2",
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.38.1",
+        "ast-types": "^0.15.2",
+        "chai": "^4.3.6",
+        "cross-env": "^7.0.3",
+        "dotenv-cli": "^5.0.0",
+        "eslint": "^7.31.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7",
+        "mocha": "^9.1.1",
+        "mocha-it-each": "^1.0.2",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.5.1",
+        "proxyquire": "^2.1.3",
+        "recast": "^0.21.5",
+        "sinon": "^14.0.0",
+        "sinon-chai": "^3.7.0",
+        "sorcery": "^0.10.0",
+        "source-map": "^0.7.3",
+        "tap-junit": "^5.0.1",
+        "tmp": "^0.2.1",
+        "typescript": "^4.8.4"
+      },
+      "engines": {
+        "node": ">= 10"
+      },
+      "scripts": {
+        "artifacts": "napi artifacts",
+        "artifacts:prepare": "node ./scripts/artifacts.mjs",
+        "artifacts:prepublish": "napi prepublish --skip-gh-release",
+        "artifacts:gyp": "node ./scripts/artifacts-gyp.mjs",
+        "build": "wasm-pack build --scope datadog --out-dir wasm --out-name wasm_iast_rewriter --target nodejs",
+        "build:napi": "napi build --platform --release --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:debug": "napi build --platform --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:linux": "napi build --target x86_64-unknown-linux-gnu --platform --release --features \"napi\"",
+        "build:napi:alpine": "napi build --target x86_64-unknown-linux-musl --platform --release --features \"napi\"",
+        "build:napi:windows": "napi build --target x86_64-pc-windows-msvc --platform --release --features \"napi\"",
+        "build:napi:darwin": "napi build --target x86_64-apple-darwin --platform --release --features \"napi\"",
+        "build:napi:darwinArm": "napi build --target aarch64-apple-darwin --platform --release --features \"napi\"",
+        "format": "run-p format:prettier format:rs",
+        "format:prettier": "prettier . -w",
+        "format:rs": "cargo fmt",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "rustfmt": "rustfmt --config imports_granularity=Crate src/*.rs",
+        "prepublishOnly": "run-p artifacts:prepare artifacts:prepublish",
+        "version": "napi version",
+        "test": "mocha --file 'test/setup.js' test/**/*.spec.js",
+        "test:junit": "mocha --file 'test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml test/**/*.spec.js",
+        "test:integration": "mocha --file 'integration-test/setup.js' integration-test/**/*.spec.js",
+        "test:integration:ci": "mocha --file 'integration-test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit-integration.xml integration-test/**/*.spec.js",
+        "prepare": "husky install",
+        "clippy": "cargo clippy --workspace -- -D warnings"
+      },
+      "lint-staged": {
+        "*.@(js|ts|tsx)": [
+          "prettier --write",
+          "eslint -c .eslintrc.json --fix"
+        ],
+        "*.@(yml|yaml)": [
+          "prettier --parser yaml --write"
+        ],
+        "*.md": [
+          "prettier --parser markdown --write"
+        ],
+        "*.json": [
+          "prettier --parser json --write"
+        ],
+        "*.rs": [
+          "rustfmt --config imports_granularity=Crate"
+        ]
+      },
+      "prettier": {
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "arrowParens": "always"
+      },
+      "_id": "@datadog/native-iast-rewriter@2.0.1",
+      "_integrity": "sha512-Mm+FG3XxEbPrAfJQPOMHts7iZZXRvg9gnGeeFRGkyirmRcQcOpZO4wFe/8K61DUVa5pXpgAJQ2ZkBGYF1O9STg==",
+      "_resolved": "/home/igor/Downloads/datadog-native-iast-rewriter-2.0.1.tgz",
+      "_from": "file:/home/igor/Downloads/datadog-native-iast-rewriter-2.0.1.tgz",
+      "_nodeVersion": "16.13.1",
+      "_npmVersion": "8.1.2",
+      "dist": {
+        "integrity": "sha512-Mm+FG3XxEbPrAfJQPOMHts7iZZXRvg9gnGeeFRGkyirmRcQcOpZO4wFe/8K61DUVa5pXpgAJQ2ZkBGYF1O9STg==",
+        "shasum": "dc4a23796870f2d840053ae879c61547eda6bb89",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-rewriter/-/native-iast-rewriter-2.0.1.tgz",
+        "fileCount": 15,
+        "unpackedSize": 2085509,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBE+0zNbP7CnOxaoU5Av/ozHE6kYbYlAOOcu9ZABTXyiAiAHXdyijaFjlQB6C/BQzXnC5W+6AWrr18kJtxYT+98NaA=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkAFtUACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqjsRAAmexYdG0DnLdMVgxJpcZBZP6KEnSTYrmBDuCTosYczqiGRft+\r\ndA7RZzhBd7xg4boG9Ac4UCgX9h6fBwJDq4fLdPm2uKI7UFAGrBTHbfo2bdZD\r\n1Gq3M3wGPKgCASaBPeufCMiFVPawhvathRJ6GzdDGkCreJwBm3f3d616rfdv\r\nraE2oHn04iJw1gNHwi/93iZavsAmJiWelOsKceijaD60TR2xO/0aZBMBIG+G\r\n7UoU0jIPa57v3mxEzX3ch9x7u4w9bIGX3tz7Dl44enpWaKQLyJfZi5izPC4w\r\nht/fQ7zLcjPFTqQ+Ol1AThT/AlPbzA0j/Jf9w6yri0BeQ7sJmZm+BcNHPBG3\r\nG0oonU8PPjGKm/FnRU2VEjxdY4gr+X12+0Bt2iMGY0ZMoHfOdURdB22cExtQ\r\nK14DPM3ELQbws5LAsUgCFJz3BsAK5NFPAP9ynsmiII9AgqRJa6M2DNb7MsCW\r\naSYivyer8zPG4qvoUfMW6r7l4D84YQJKhvC4t92B+EhOoRm/Ubc6KhgpT6um\r\nQuRcH81OBCk4yyGYa6UoWo6GyXvX3PZtoeWd/FUuqRvODBfFHuOEYoEzu/4Z\r\ney4P4unl2aJTzOsQg2EzFWx4r/0ovbctHCYljb/9CM0iGkzGI43BGxVrAZQr\r\nHUdJqsAoC/8GpuwR7JW3QKJPi/VmjSliaEo=\r\n=477/\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-rewriter_2.0.1_1677744979836_0.5189596663456857"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.2": {
+      "name": "@datadog/native-iast-rewriter",
+      "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+      "version": "2.0.2",
+      "description": "Datadog IAST instrumentation addon for NodeJS",
+      "main": "main.js",
+      "types": "index.d.ts",
+      "napi": {
+        "name": "iast-rewriter",
+        "triples": {
+          "defaults": false,
+          "additional": [
+            "x86_64-unknown-linux-gnu",
+            "x86_64-unknown-linux-musl",
+            "x86_64-pc-windows-msvc",
+            "aarch64-apple-darwin",
+            "x86_64-apple-darwin"
+          ]
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+      },
+      "keywords": [
+        "datadog",
+        "iast"
+      ],
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+      },
+      "dependencies": {
+        "node-gyp-build": "^4.5.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/parser": "^7.20.3",
+        "@babel/types": "^7.18.10",
+        "@napi-rs/cli": "^2.0.0",
+        "@swc-node/register": "^1.4.2",
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.38.1",
+        "ast-types": "^0.15.2",
+        "chai": "^4.3.6",
+        "cross-env": "^7.0.3",
+        "dotenv-cli": "^5.0.0",
+        "eslint": "^7.31.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7",
+        "mocha": "^9.1.1",
+        "mocha-it-each": "^1.0.2",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.5.1",
+        "proxyquire": "^2.1.3",
+        "recast": "^0.21.5",
+        "sinon": "^14.0.0",
+        "sinon-chai": "^3.7.0",
+        "sorcery": "^0.10.0",
+        "source-map": "^0.7.3",
+        "tap-junit": "^5.0.1",
+        "tmp": "^0.2.1",
+        "typescript": "^4.8.4"
+      },
+      "engines": {
+        "node": ">= 10"
+      },
+      "scripts": {
+        "artifacts": "napi artifacts",
+        "artifacts:prepare": "node ./scripts/artifacts.mjs",
+        "artifacts:prepublish": "napi prepublish --skip-gh-release",
+        "artifacts:gyp": "node ./scripts/artifacts-gyp.mjs",
+        "build": "wasm-pack build --scope datadog --out-dir wasm --out-name wasm_iast_rewriter --target nodejs",
+        "build:napi": "napi build --platform --release --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:debug": "napi build --platform --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:linux": "napi build --target x86_64-unknown-linux-gnu --platform --release --features \"napi\"",
+        "build:napi:alpine": "napi build --target x86_64-unknown-linux-musl --platform --release --features \"napi\"",
+        "build:napi:windows": "napi build --target x86_64-pc-windows-msvc --platform --release --features \"napi\"",
+        "build:napi:darwin": "napi build --target x86_64-apple-darwin --platform --release --features \"napi\"",
+        "build:napi:darwinArm": "napi build --target aarch64-apple-darwin --platform --release --features \"napi\"",
+        "format": "run-p format:prettier format:rs",
+        "format:prettier": "prettier . -w",
+        "format:rs": "cargo fmt",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "rustfmt": "rustfmt --config imports_granularity=Crate src/*.rs",
+        "prepublishOnly:napi": "run-p artifacts:prepare artifacts:prepublish",
+        "version": "napi version",
+        "test": "mocha --file 'test/setup.js' test/**/*.spec.js",
+        "test:junit": "mocha --file 'test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml test/**/*.spec.js",
+        "test:integration": "mocha --file 'integration-test/setup.js' integration-test/**/*.spec.js",
+        "test:integration:ci": "mocha --file 'integration-test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit-integration.xml integration-test/**/*.spec.js",
+        "prepare": "husky install",
+        "clippy": "cargo clippy --workspace -- -D warnings"
+      },
+      "lint-staged": {
+        "*.@(js|ts|tsx)": [
+          "prettier --write",
+          "eslint -c .eslintrc.json --fix"
+        ],
+        "*.@(yml|yaml)": [
+          "prettier --parser yaml --write"
+        ],
+        "*.md": [
+          "prettier --parser markdown --write"
+        ],
+        "*.json": [
+          "prettier --parser json --write"
+        ],
+        "*.rs": [
+          "rustfmt --config imports_granularity=Crate"
+        ]
+      },
+      "prettier": {
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "arrowParens": "always"
+      },
+      "_id": "@datadog/native-iast-rewriter@2.0.2",
+      "_integrity": "sha512-r64G1a/TC+Q8WO4Gsb2GfylTFr95Y7gXu720GD2QqHMZSpNnED3La+A+3zZuGV+/VjxYeapWcp7whWFd85iXBQ==",
+      "_resolved": "/home/runner/work/dd-native-iast-rewriter-js/dd-native-iast-rewriter-js/datadog-native-iast-rewriter-2.0.2/datadog-native-iast-rewriter-2.0.2.tgz",
+      "_from": "file:datadog-native-iast-rewriter-2.0.2/datadog-native-iast-rewriter-2.0.2.tgz",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-r64G1a/TC+Q8WO4Gsb2GfylTFr95Y7gXu720GD2QqHMZSpNnED3La+A+3zZuGV+/VjxYeapWcp7whWFd85iXBQ==",
+        "shasum": "9efe346afd43bc75de50a049cce827870de3e689",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-rewriter/-/native-iast-rewriter-2.0.2.tgz",
+        "fileCount": 17,
+        "unpackedSize": 2252346,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAqkRJ0b4TmrUsWdqJvXSuWtZP1SU7gnuKYsHJIHfdVXAiEA+lv0kpecGuhq5d8zltqF7k/orvap0DhOnZkZmjG6GT4="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-rewriter_2.0.2_1686735242001_0.7826103944885223"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.0": {
+      "name": "@datadog/native-iast-rewriter",
+      "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+      "version": "2.1.0",
+      "description": "Datadog IAST instrumentation addon for NodeJS",
+      "main": "main.js",
+      "types": "index.d.ts",
+      "napi": {
+        "name": "iast-rewriter",
+        "triples": {
+          "defaults": false,
+          "additional": [
+            "x86_64-unknown-linux-gnu",
+            "x86_64-unknown-linux-musl",
+            "x86_64-pc-windows-msvc",
+            "aarch64-apple-darwin",
+            "x86_64-apple-darwin"
+          ]
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+      },
+      "keywords": [
+        "datadog",
+        "iast"
+      ],
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+      },
+      "dependencies": {
+        "lru-cache": "^7.14.0",
+        "node-gyp-build": "^4.5.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/parser": "^7.20.3",
+        "@babel/types": "^7.18.10",
+        "@napi-rs/cli": "^2.0.0",
+        "@swc-node/register": "^1.4.2",
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.38.1",
+        "ast-types": "^0.15.2",
+        "chai": "^4.3.6",
+        "cross-env": "^7.0.3",
+        "dotenv-cli": "^5.0.0",
+        "eslint": "^7.31.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7",
+        "mocha": "^9.1.1",
+        "mocha-it-each": "^1.0.2",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.5.1",
+        "proxyquire": "^2.1.3",
+        "recast": "^0.21.5",
+        "sinon": "^14.0.0",
+        "sinon-chai": "^3.7.0",
+        "sorcery": "^0.10.0",
+        "source-map": "^0.7.3",
+        "tap-junit": "^5.0.1",
+        "tmp": "^0.2.1",
+        "typescript": "^4.8.4"
+      },
+      "engines": {
+        "node": ">= 10"
+      },
+      "scripts": {
+        "artifacts": "napi artifacts",
+        "artifacts:prepare": "node ./scripts/artifacts.mjs",
+        "artifacts:prepublish": "napi prepublish --skip-gh-release",
+        "artifacts:gyp": "node ./scripts/artifacts-gyp.mjs",
+        "build": "wasm-pack build --scope datadog --out-dir wasm --out-name wasm_iast_rewriter --target nodejs",
+        "build:napi": "napi build --platform --release --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:debug": "napi build --platform --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:linux": "napi build --target x86_64-unknown-linux-gnu --platform --release --features \"napi\"",
+        "build:napi:alpine": "napi build --target x86_64-unknown-linux-musl --platform --release --features \"napi\"",
+        "build:napi:windows": "napi build --target x86_64-pc-windows-msvc --platform --release --features \"napi\"",
+        "build:napi:darwin": "napi build --target x86_64-apple-darwin --platform --release --features \"napi\"",
+        "build:napi:darwinArm": "napi build --target aarch64-apple-darwin --platform --release --features \"napi\"",
+        "format": "run-p format:prettier format:rs",
+        "format:prettier": "prettier . -w",
+        "format:rs": "cargo fmt",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "rustfmt": "rustfmt --config imports_granularity=Crate src/*.rs",
+        "prepublishOnly:napi": "run-p artifacts:prepare artifacts:prepublish",
+        "version": "napi version",
+        "test": "mocha --file 'test/setup.js' test/**/*.spec.js",
+        "test:junit": "mocha --file 'test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml test/**/*.spec.js",
+        "test:integration": "mocha --file 'integration-test/setup.js' integration-test/**/*.spec.js",
+        "test:integration:ci": "mocha --file 'integration-test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit-integration.xml integration-test/**/*.spec.js",
+        "prepare": "husky install",
+        "clippy": "cargo clippy --workspace -- -D warnings"
+      },
+      "lint-staged": {
+        "*.@(js|ts|tsx)": [
+          "prettier --write",
+          "eslint -c .eslintrc.json --fix"
+        ],
+        "*.@(yml|yaml)": [
+          "prettier --parser yaml --write"
+        ],
+        "*.md": [
+          "prettier --parser markdown --write"
+        ],
+        "*.json": [
+          "prettier --parser json --write"
+        ],
+        "*.rs": [
+          "rustfmt --config imports_granularity=Crate"
+        ]
+      },
+      "prettier": {
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "arrowParens": "always"
+      },
+      "_id": "@datadog/native-iast-rewriter@2.1.0",
+      "_integrity": "sha512-tt1q0LF5uj5k0okH2gZkHk6XSNREzieVZ8/IbrtYZCBdohws+5Gr8BkjBChpzSCsRKa72kWs2IImSFC0f8YXNQ==",
+      "_resolved": "/home/runner/work/dd-native-iast-rewriter-js/dd-native-iast-rewriter-js/datadog-native-iast-rewriter-2.1.0.tgz",
+      "_from": "file:datadog-native-iast-rewriter-2.1.0.tgz",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-tt1q0LF5uj5k0okH2gZkHk6XSNREzieVZ8/IbrtYZCBdohws+5Gr8BkjBChpzSCsRKa72kWs2IImSFC0f8YXNQ==",
+        "shasum": "140b88bc9f816524660dfb42f78352637109a100",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-rewriter/-/native-iast-rewriter-2.1.0.tgz",
+        "fileCount": 17,
+        "unpackedSize": 2196430,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDbfhX9viwbjltuWpK8E5j8m+uRRQGzAqDYEWVyjB/k8QIgEd/OMa2HM/Xq/91SGpDyHTL0KiY8E4eBRgFVt3O1w2Q="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-rewriter_2.1.0_1687941650417_0.6697108552191426"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.1": {
+      "name": "@datadog/native-iast-rewriter",
+      "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+      "version": "2.1.1",
+      "description": "Datadog IAST instrumentation addon for NodeJS",
+      "main": "main.js",
+      "types": "index.d.ts",
+      "napi": {
+        "name": "iast-rewriter",
+        "triples": {
+          "defaults": false,
+          "additional": [
+            "x86_64-unknown-linux-gnu",
+            "x86_64-unknown-linux-musl",
+            "x86_64-pc-windows-msvc",
+            "aarch64-apple-darwin",
+            "x86_64-apple-darwin"
+          ]
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+      },
+      "keywords": [
+        "datadog",
+        "iast"
+      ],
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+      },
+      "dependencies": {
+        "lru-cache": "^7.14.0",
+        "node-gyp-build": "^4.5.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/parser": "^7.20.3",
+        "@babel/types": "^7.18.10",
+        "@napi-rs/cli": "^2.0.0",
+        "@swc-node/register": "^1.4.2",
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.38.1",
+        "ast-types": "^0.15.2",
+        "chai": "^4.3.6",
+        "cross-env": "^7.0.3",
+        "dotenv-cli": "^5.0.0",
+        "eslint": "^7.31.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7",
+        "mocha": "^9.1.1",
+        "mocha-it-each": "^1.0.2",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.5.1",
+        "proxyquire": "^2.1.3",
+        "recast": "^0.21.5",
+        "sinon": "^14.0.0",
+        "sinon-chai": "^3.7.0",
+        "sorcery": "^0.10.0",
+        "source-map": "^0.7.3",
+        "tap-junit": "^5.0.1",
+        "tmp": "^0.2.1",
+        "typescript": "^4.8.4"
+      },
+      "engines": {
+        "node": ">= 10"
+      },
+      "scripts": {
+        "artifacts": "napi artifacts",
+        "artifacts:prepare": "node ./scripts/artifacts.mjs",
+        "artifacts:prepublish": "napi prepublish --skip-gh-release",
+        "artifacts:gyp": "node ./scripts/artifacts-gyp.mjs",
+        "build": "wasm-pack build --scope datadog --out-dir wasm --out-name wasm_iast_rewriter --target nodejs",
+        "build:napi": "napi build --platform --release --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:debug": "napi build --platform --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:linux": "napi build --target x86_64-unknown-linux-gnu --platform --release --features \"napi\"",
+        "build:napi:alpine": "napi build --target x86_64-unknown-linux-musl --platform --release --features \"napi\"",
+        "build:napi:windows": "napi build --target x86_64-pc-windows-msvc --platform --release --features \"napi\"",
+        "build:napi:darwin": "napi build --target x86_64-apple-darwin --platform --release --features \"napi\"",
+        "build:napi:darwinArm": "napi build --target aarch64-apple-darwin --platform --release --features \"napi\"",
+        "format": "run-p format:prettier format:rs",
+        "format:prettier": "prettier . -w",
+        "format:rs": "cargo fmt",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "rustfmt": "rustfmt --config imports_granularity=Crate src/*.rs",
+        "prepublishOnly:napi": "run-p artifacts:prepare artifacts:prepublish",
+        "version": "napi version",
+        "test": "mocha --file 'test/setup.js' test/**/*.spec.js",
+        "test:junit": "mocha --file 'test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml test/**/*.spec.js",
+        "test:integration": "mocha --file 'integration-test/setup.js' integration-test/**/*.spec.js",
+        "test:integration:ci": "mocha --file 'integration-test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit-integration.xml integration-test/**/*.spec.js",
+        "prepare": "husky install",
+        "clippy": "cargo clippy --workspace -- -D warnings"
+      },
+      "lint-staged": {
+        "*.@(js|ts|tsx)": [
+          "prettier --write",
+          "eslint -c .eslintrc.json --fix"
+        ],
+        "*.@(yml|yaml)": [
+          "prettier --parser yaml --write"
+        ],
+        "*.md": [
+          "prettier --parser markdown --write"
+        ],
+        "*.json": [
+          "prettier --parser json --write"
+        ],
+        "*.rs": [
+          "rustfmt --config imports_granularity=Crate"
+        ]
+      },
+      "prettier": {
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "arrowParens": "always"
+      },
+      "_id": "@datadog/native-iast-rewriter@2.1.1",
+      "_integrity": "sha512-lNaAUzG/vidXUR6DX5cHPLjs5T1JRXDjGeMCaCL7j8+yq+9n9/f58oQS24yHMKo2woa5GHD7q4xBuvqagdlnhw==",
+      "_resolved": "/home/runner/work/dd-native-iast-rewriter-js/dd-native-iast-rewriter-js/datadog-native-iast-rewriter-2.1.1.tgz",
+      "_from": "file:datadog-native-iast-rewriter-2.1.1.tgz",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-lNaAUzG/vidXUR6DX5cHPLjs5T1JRXDjGeMCaCL7j8+yq+9n9/f58oQS24yHMKo2woa5GHD7q4xBuvqagdlnhw==",
+        "shasum": "3b27a83abea79d042db53d58474c908e61064a6f",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-rewriter/-/native-iast-rewriter-2.1.1.tgz",
+        "fileCount": 17,
+        "unpackedSize": 2217091,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCuTQvPGEMow5DcnL+hzW/ebudyOjo4qxVMUgpMsl9ZwgIhAP4X87vqzc1w0ZiRDgDqrffZRcPFTka5gVo3ISKbI9fc"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-rewriter_2.1.1_1690365913056_0.32302342436789067"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.2": {
+      "name": "@datadog/native-iast-rewriter",
+      "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+      "version": "2.1.2",
+      "description": "Datadog IAST instrumentation addon for NodeJS",
+      "main": "main.js",
+      "types": "index.d.ts",
+      "napi": {
+        "name": "iast-rewriter",
+        "triples": {
+          "defaults": false,
+          "additional": [
+            "x86_64-unknown-linux-gnu",
+            "x86_64-unknown-linux-musl",
+            "x86_64-pc-windows-msvc",
+            "aarch64-apple-darwin",
+            "x86_64-apple-darwin"
+          ]
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+      },
+      "keywords": [
+        "datadog",
+        "iast"
+      ],
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+      },
+      "dependencies": {
+        "lru-cache": "^7.14.0",
+        "node-gyp-build": "^4.5.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/parser": "^7.20.3",
+        "@babel/types": "^7.18.10",
+        "@napi-rs/cli": "^2.0.0",
+        "@swc-node/register": "^1.4.2",
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.38.1",
+        "ast-types": "^0.15.2",
+        "chai": "^4.3.6",
+        "cross-env": "^7.0.3",
+        "dotenv-cli": "^5.0.0",
+        "eslint": "^7.31.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7",
+        "mocha": "^9.1.1",
+        "mocha-it-each": "^1.0.2",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.5.1",
+        "proxyquire": "^2.1.3",
+        "recast": "^0.21.5",
+        "sinon": "^14.0.0",
+        "sinon-chai": "^3.7.0",
+        "sorcery": "^0.10.0",
+        "source-map": "^0.7.3",
+        "tap-junit": "^5.0.1",
+        "tmp": "^0.2.1",
+        "typescript": "^4.8.4"
+      },
+      "engines": {
+        "node": ">= 10"
+      },
+      "scripts": {
+        "artifacts": "napi artifacts",
+        "artifacts:prepare": "node ./scripts/artifacts.mjs",
+        "artifacts:prepublish": "napi prepublish --skip-gh-release",
+        "artifacts:gyp": "node ./scripts/artifacts-gyp.mjs",
+        "build": "wasm-pack build --scope datadog --out-dir wasm --out-name wasm_iast_rewriter --target nodejs",
+        "build:napi": "napi build --platform --release --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:debug": "napi build --platform --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:linux": "napi build --target x86_64-unknown-linux-gnu --platform --release --features \"napi\"",
+        "build:napi:alpine": "napi build --target x86_64-unknown-linux-musl --platform --release --features \"napi\"",
+        "build:napi:windows": "napi build --target x86_64-pc-windows-msvc --platform --release --features \"napi\"",
+        "build:napi:darwin": "napi build --target x86_64-apple-darwin --platform --release --features \"napi\"",
+        "build:napi:darwinArm": "napi build --target aarch64-apple-darwin --platform --release --features \"napi\"",
+        "format": "run-p format:prettier format:rs",
+        "format:prettier": "prettier . -w",
+        "format:rs": "cargo fmt",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "rustfmt": "rustfmt --config imports_granularity=Crate src/*.rs",
+        "prepublishOnly:napi": "run-p artifacts:prepare artifacts:prepublish",
+        "version": "napi version",
+        "test": "mocha --file 'test/setup.js' test/**/*.spec.js",
+        "test:junit": "mocha --file 'test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml test/**/*.spec.js",
+        "test:integration": "mocha --file 'integration-test/setup.js' integration-test/**/*.spec.js",
+        "test:integration:ci": "mocha --file 'integration-test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit-integration.xml integration-test/**/*.spec.js",
+        "prepare": "husky install",
+        "clippy": "cargo clippy --workspace -- -D warnings"
+      },
+      "lint-staged": {
+        "*.@(js|ts|tsx)": [
+          "prettier --write",
+          "eslint -c .eslintrc.json --fix"
+        ],
+        "*.@(yml|yaml)": [
+          "prettier --parser yaml --write"
+        ],
+        "*.md": [
+          "prettier --parser markdown --write"
+        ],
+        "*.json": [
+          "prettier --parser json --write"
+        ],
+        "*.rs": [
+          "rustfmt --config imports_granularity=Crate"
+        ]
+      },
+      "prettier": {
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "arrowParens": "always"
+      },
+      "_id": "@datadog/native-iast-rewriter@2.1.2",
+      "_integrity": "sha512-0sFp+LuThERFGvuRr6CVwKsoKdBMIOKyZjUv9SD4KAKKdGWki0M3fLqJV2exfFCFIVG/EnqlhbApt51zHGqi6g==",
+      "_resolved": "/home/runner/work/dd-native-iast-rewriter-js/dd-native-iast-rewriter-js/datadog-native-iast-rewriter-2.1.2.tgz",
+      "_from": "file:datadog-native-iast-rewriter-2.1.2.tgz",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-0sFp+LuThERFGvuRr6CVwKsoKdBMIOKyZjUv9SD4KAKKdGWki0M3fLqJV2exfFCFIVG/EnqlhbApt51zHGqi6g==",
+        "shasum": "99329d6b9ace0fb74f13715bc97c2d5228916af4",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-rewriter/-/native-iast-rewriter-2.1.2.tgz",
+        "fileCount": 17,
+        "unpackedSize": 2228077,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIElXcGAJyeo0kA0XX1sCmzyh77opClHFB9E+zb/dDkcgAiASRoOH/DBwegpERzxK4WPYfWsDQJE7KIvQGzF3NR/3Bg=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-rewriter_2.1.2_1692624183000_0.7901347199991327"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.3": {
+      "name": "@datadog/native-iast-rewriter",
+      "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+      "version": "2.1.3",
+      "description": "Datadog IAST instrumentation addon for NodeJS",
+      "main": "main.js",
+      "types": "index.d.ts",
+      "napi": {
+        "name": "iast-rewriter",
+        "triples": {
+          "defaults": false,
+          "additional": [
+            "x86_64-unknown-linux-gnu",
+            "x86_64-unknown-linux-musl",
+            "x86_64-pc-windows-msvc",
+            "aarch64-apple-darwin",
+            "x86_64-apple-darwin"
+          ]
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+      },
+      "keywords": [
+        "datadog",
+        "iast"
+      ],
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+      },
+      "dependencies": {
+        "lru-cache": "^7.14.0",
+        "node-gyp-build": "^4.5.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/parser": "^7.20.3",
+        "@babel/types": "^7.18.10",
+        "@napi-rs/cli": "^2.0.0",
+        "@swc-node/register": "^1.4.2",
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.38.1",
+        "ast-types": "^0.15.2",
+        "chai": "^4.3.6",
+        "cross-env": "^7.0.3",
+        "dotenv-cli": "^5.0.0",
+        "eslint": "^7.31.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7",
+        "mocha": "^9.1.1",
+        "mocha-it-each": "^1.0.2",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.5.1",
+        "proxyquire": "^2.1.3",
+        "recast": "^0.21.5",
+        "sinon": "^14.0.0",
+        "sinon-chai": "^3.7.0",
+        "sorcery": "^0.10.0",
+        "source-map": "^0.7.3",
+        "tap-junit": "^5.0.1",
+        "tmp": "^0.2.1",
+        "typescript": "^4.8.4"
+      },
+      "engines": {
+        "node": ">= 10"
+      },
+      "scripts": {
+        "artifacts": "napi artifacts",
+        "artifacts:prepare": "node ./scripts/artifacts.mjs",
+        "artifacts:prepublish": "napi prepublish --skip-gh-release",
+        "artifacts:gyp": "node ./scripts/artifacts-gyp.mjs",
+        "build": "wasm-pack build --scope datadog --out-dir wasm --out-name wasm_iast_rewriter --target nodejs",
+        "build:napi": "napi build --platform --release --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:debug": "napi build --platform --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:linux": "napi build --target x86_64-unknown-linux-gnu --platform --release --features \"napi\"",
+        "build:napi:alpine": "napi build --target x86_64-unknown-linux-musl --platform --release --features \"napi\"",
+        "build:napi:windows": "napi build --target x86_64-pc-windows-msvc --platform --release --features \"napi\"",
+        "build:napi:darwin": "napi build --target x86_64-apple-darwin --platform --release --features \"napi\"",
+        "build:napi:darwinArm": "napi build --target aarch64-apple-darwin --platform --release --features \"napi\"",
+        "format": "run-p format:prettier format:rs",
+        "format:prettier": "prettier . -w",
+        "format:rs": "cargo fmt",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "rustfmt": "rustfmt --config imports_granularity=Crate src/*.rs",
+        "prepublishOnly:napi": "run-p artifacts:prepare artifacts:prepublish",
+        "version": "napi version",
+        "test": "mocha --file 'test/setup.js' test/**/*.spec.js",
+        "test:junit": "mocha --file 'test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml test/**/*.spec.js",
+        "test:integration": "mocha --file 'integration-test/setup.js' integration-test/**/*.spec.js",
+        "test:integration:ci": "mocha --file 'integration-test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit-integration.xml integration-test/**/*.spec.js",
+        "prepare": "husky install",
+        "clippy": "cargo clippy --workspace -- -D warnings"
+      },
+      "lint-staged": {
+        "*.@(js|ts|tsx)": [
+          "prettier --write",
+          "eslint -c .eslintrc.json --fix"
+        ],
+        "*.@(yml|yaml)": [
+          "prettier --parser yaml --write"
+        ],
+        "*.md": [
+          "prettier --parser markdown --write"
+        ],
+        "*.json": [
+          "prettier --parser json --write"
+        ],
+        "*.rs": [
+          "rustfmt --config imports_granularity=Crate"
+        ]
+      },
+      "prettier": {
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "arrowParens": "always"
+      },
+      "_id": "@datadog/native-iast-rewriter@2.1.3",
+      "_integrity": "sha512-4oxMFz5ZEpOK3pRc9KjquMgkRP6D+oPQVIzOk4dgG8fl2iepHtCa3gna/fQBfdWIiX5a2j65O3R1zNp2ckk8JA==",
+      "_resolved": "/home/runner/work/dd-native-iast-rewriter-js/dd-native-iast-rewriter-js/datadog-native-iast-rewriter-2.1.3.tgz",
+      "_from": "file:datadog-native-iast-rewriter-2.1.3.tgz",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-4oxMFz5ZEpOK3pRc9KjquMgkRP6D+oPQVIzOk4dgG8fl2iepHtCa3gna/fQBfdWIiX5a2j65O3R1zNp2ckk8JA==",
+        "shasum": "1964cd856655b9c4d0e144048af59a2e90910901",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-rewriter/-/native-iast-rewriter-2.1.3.tgz",
+        "fileCount": 17,
+        "unpackedSize": 2230412,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDrdSWB4Ii8LMlfcAfhyf/DvO29yzFKgm6y4fzmvGPbjwIhAKpNEhzNPemJpvXP+dBK0yzwIWLF0ViVjpd811ilY8MI"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-rewriter_2.1.3_1692807384142_0.5710443502900626"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.2.0": {
+      "name": "@datadog/native-iast-rewriter",
+      "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+      "version": "2.2.0",
+      "description": "Datadog IAST instrumentation addon for NodeJS",
+      "main": "main.js",
+      "types": "index.d.ts",
+      "napi": {
+        "name": "iast-rewriter",
+        "triples": {
+          "defaults": false,
+          "additional": [
+            "x86_64-unknown-linux-gnu",
+            "x86_64-unknown-linux-musl",
+            "x86_64-pc-windows-msvc",
+            "aarch64-apple-darwin",
+            "x86_64-apple-darwin"
+          ]
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+      },
+      "keywords": [
+        "datadog",
+        "iast"
+      ],
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+      },
+      "dependencies": {
+        "lru-cache": "^7.14.0",
+        "node-gyp-build": "^4.5.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/parser": "^7.20.3",
+        "@babel/types": "^7.18.10",
+        "@napi-rs/cli": "^2.0.0",
+        "@swc-node/register": "^1.4.2",
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.38.1",
+        "ast-types": "^0.15.2",
+        "chai": "^4.3.6",
+        "cross-env": "^7.0.3",
+        "dotenv-cli": "^5.0.0",
+        "eslint": "^7.31.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7",
+        "mocha": "^9.1.1",
+        "mocha-it-each": "^1.0.2",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.5.1",
+        "proxyquire": "^2.1.3",
+        "recast": "^0.21.5",
+        "sinon": "^14.0.0",
+        "sinon-chai": "^3.7.0",
+        "sorcery": "^0.10.0",
+        "source-map": "^0.7.3",
+        "tap-junit": "^5.0.1",
+        "tmp": "^0.2.1",
+        "typescript": "^4.8.4"
+      },
+      "engines": {
+        "node": ">= 10"
+      },
+      "scripts": {
+        "artifacts": "napi artifacts",
+        "artifacts:prepare": "node ./scripts/artifacts.mjs",
+        "artifacts:prepublish": "napi prepublish --skip-gh-release",
+        "artifacts:gyp": "node ./scripts/artifacts-gyp.mjs",
+        "build": "wasm-pack build --scope datadog --out-dir wasm --out-name wasm_iast_rewriter --target nodejs",
+        "build:napi": "napi build --platform --release --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:debug": "napi build --platform --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:linux": "napi build --target x86_64-unknown-linux-gnu --platform --release --features \"napi\"",
+        "build:napi:alpine": "napi build --target x86_64-unknown-linux-musl --platform --release --features \"napi\"",
+        "build:napi:windows": "napi build --target x86_64-pc-windows-msvc --platform --release --features \"napi\"",
+        "build:napi:darwin": "napi build --target x86_64-apple-darwin --platform --release --features \"napi\"",
+        "build:napi:darwinArm": "napi build --target aarch64-apple-darwin --platform --release --features \"napi\"",
+        "format": "run-p format:prettier format:rs",
+        "format:prettier": "prettier . -w",
+        "format:rs": "cargo fmt",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "rustfmt": "rustfmt --config imports_granularity=Crate src/*.rs",
+        "prepublishOnly:napi": "run-p artifacts:prepare artifacts:prepublish",
+        "version": "napi version",
+        "test": "mocha --file 'test/setup.js' test/**/*.spec.js",
+        "test:junit": "mocha --file 'test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml test/**/*.spec.js",
+        "test:integration": "mocha --file 'integration-test/setup.js' integration-test/**/*.spec.js",
+        "test:integration:ci": "mocha --file 'integration-test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit-integration.xml integration-test/**/*.spec.js",
+        "prepare": "husky install",
+        "clippy": "cargo clippy --workspace -- -D warnings"
+      },
+      "lint-staged": {
+        "*.@(js|ts|tsx)": [
+          "prettier --write",
+          "eslint -c .eslintrc.json --fix"
+        ],
+        "*.@(yml|yaml)": [
+          "prettier --parser yaml --write"
+        ],
+        "*.md": [
+          "prettier --parser markdown --write"
+        ],
+        "*.json": [
+          "prettier --parser json --write"
+        ],
+        "*.rs": [
+          "rustfmt --config imports_granularity=Crate"
+        ]
+      },
+      "prettier": {
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "arrowParens": "always"
+      },
+      "_id": "@datadog/native-iast-rewriter@2.2.0",
+      "_integrity": "sha512-YrCgLGvOQh3EkWYjqZKpelg60idtMcC/jWskZSdr4KxvF61BM9zp5NF6HeUKON6RHCmqDqFS3wyj1NNRMID1VQ==",
+      "_resolved": "/home/runner/work/dd-native-iast-rewriter-js/dd-native-iast-rewriter-js/datadog-native-iast-rewriter-2.2.0.tgz",
+      "_from": "file:datadog-native-iast-rewriter-2.2.0.tgz",
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-YrCgLGvOQh3EkWYjqZKpelg60idtMcC/jWskZSdr4KxvF61BM9zp5NF6HeUKON6RHCmqDqFS3wyj1NNRMID1VQ==",
+        "shasum": "cfcdfaf128450f7d92a840eee8cd030b9746f49c",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-rewriter/-/native-iast-rewriter-2.2.0.tgz",
+        "fileCount": 17,
+        "unpackedSize": 2272389,
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@datadog%2fnative-iast-rewriter@2.2.0",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCkP5znLS9sVDYVeJOAC5zzVr4LWnKb1VX3ijFoYWuFWgIhAI5QOsSTpkynsdtxnNtJsfxD63pFMaXL+ruzvAG/C4TM"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-rewriter_2.2.0_1698077156789_0.03769237387957669"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.2.1": {
+      "name": "@datadog/native-iast-rewriter",
+      "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+      "version": "2.2.1",
+      "description": "Datadog IAST instrumentation addon for NodeJS",
+      "main": "main.js",
+      "types": "index.d.ts",
+      "napi": {
+        "name": "iast-rewriter",
+        "triples": {
+          "defaults": false,
+          "additional": [
+            "x86_64-unknown-linux-gnu",
+            "x86_64-unknown-linux-musl",
+            "x86_64-pc-windows-msvc",
+            "aarch64-apple-darwin",
+            "x86_64-apple-darwin"
+          ]
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+      },
+      "keywords": [
+        "datadog",
+        "iast"
+      ],
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+      },
+      "dependencies": {
+        "lru-cache": "^7.14.0",
+        "node-gyp-build": "^4.5.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/parser": "^7.20.3",
+        "@babel/types": "^7.18.10",
+        "@napi-rs/cli": "^2.0.0",
+        "@swc-node/register": "^1.4.2",
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.38.1",
+        "ast-types": "^0.15.2",
+        "chai": "^4.3.6",
+        "cross-env": "^7.0.3",
+        "dotenv-cli": "^5.0.0",
+        "eslint": "^7.31.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7",
+        "mocha": "^9.1.1",
+        "mocha-it-each": "^1.0.2",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.5.1",
+        "proxyquire": "^2.1.3",
+        "recast": "^0.21.5",
+        "sinon": "^14.0.0",
+        "sinon-chai": "^3.7.0",
+        "sorcery": "^0.10.0",
+        "source-map": "^0.7.3",
+        "tap-junit": "^5.0.1",
+        "tmp": "^0.2.1",
+        "typescript": "^4.8.4"
+      },
+      "engines": {
+        "node": ">= 10"
+      },
+      "scripts": {
+        "artifacts": "napi artifacts",
+        "artifacts:prepare": "node ./scripts/artifacts.mjs",
+        "artifacts:prepublish": "napi prepublish --skip-gh-release",
+        "artifacts:gyp": "node ./scripts/artifacts-gyp.mjs",
+        "build": "wasm-pack build --scope datadog --out-dir wasm --out-name wasm_iast_rewriter --target nodejs",
+        "build:napi": "napi build --platform --release --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:debug": "napi build --platform --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:linux": "napi build --target x86_64-unknown-linux-gnu --platform --release --features \"napi\"",
+        "build:napi:alpine": "napi build --target x86_64-unknown-linux-musl --platform --release --features \"napi\"",
+        "build:napi:windows": "napi build --target x86_64-pc-windows-msvc --platform --release --features \"napi\"",
+        "build:napi:darwin": "napi build --target x86_64-apple-darwin --platform --release --features \"napi\"",
+        "build:napi:darwinArm": "napi build --target aarch64-apple-darwin --platform --release --features \"napi\"",
+        "format": "run-p format:prettier format:rs",
+        "format:prettier": "prettier . -w",
+        "format:rs": "cargo fmt",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "rustfmt": "rustfmt --config imports_granularity=Crate src/*.rs",
+        "prepublishOnly:napi": "run-p artifacts:prepare artifacts:prepublish",
+        "version": "napi version",
+        "test": "mocha --file 'test/setup.js' test/**/*.spec.js",
+        "test:junit": "mocha --file 'test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml test/**/*.spec.js",
+        "test:integration": "mocha --file 'integration-test/setup.js' integration-test/**/*.spec.js",
+        "test:integration:ci": "mocha --file 'integration-test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit-integration.xml integration-test/**/*.spec.js",
+        "prepare": "husky install",
+        "clippy": "cargo clippy --workspace -- -D warnings"
+      },
+      "lint-staged": {
+        "*.@(js|ts|tsx)": [
+          "prettier --write",
+          "eslint -c .eslintrc.json --fix"
+        ],
+        "*.@(yml|yaml)": [
+          "prettier --parser yaml --write"
+        ],
+        "*.md": [
+          "prettier --parser markdown --write"
+        ],
+        "*.json": [
+          "prettier --parser json --write"
+        ],
+        "*.rs": [
+          "rustfmt --config imports_granularity=Crate"
+        ]
+      },
+      "prettier": {
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "arrowParens": "always"
+      },
+      "_id": "@datadog/native-iast-rewriter@2.2.1",
+      "_integrity": "sha512-DyZlE8gNa5AoOFNKGRJU4RYF/Y/tJzv4bIAMuVBbEnMA0xhiIYqpYQG8T3OKkALl3VSEeBMjYwuOR2fCrJ6gzA==",
+      "_resolved": "/home/runner/work/dd-native-iast-rewriter-js/dd-native-iast-rewriter-js/datadog-native-iast-rewriter-2.2.1.tgz",
+      "_from": "file:datadog-native-iast-rewriter-2.2.1.tgz",
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-DyZlE8gNa5AoOFNKGRJU4RYF/Y/tJzv4bIAMuVBbEnMA0xhiIYqpYQG8T3OKkALl3VSEeBMjYwuOR2fCrJ6gzA==",
+        "shasum": "3c74c5a8caa0b876e091e9c5a95256add0d73e1c",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-rewriter/-/native-iast-rewriter-2.2.1.tgz",
+        "fileCount": 17,
+        "unpackedSize": 2270333,
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@datadog%2fnative-iast-rewriter@2.2.1",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCtJ7yHYfrCPe1PgHqnq2AH+05qwwYUjEA8TTDdO8QMQwIhAPpCbnLAvyl9gWKJ8H8/aAHnR7v5hQngMGf/PjUp9PxY"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-rewriter_2.2.1_1698922707726_0.24374145836341632"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.2.2": {
+      "name": "@datadog/native-iast-rewriter",
+      "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+      "version": "2.2.2",
+      "description": "Datadog IAST instrumentation addon for NodeJS",
+      "main": "main.js",
+      "types": "index.d.ts",
+      "napi": {
+        "name": "iast-rewriter",
+        "triples": {
+          "defaults": false,
+          "additional": [
+            "x86_64-unknown-linux-gnu",
+            "x86_64-unknown-linux-musl",
+            "x86_64-pc-windows-msvc",
+            "aarch64-apple-darwin",
+            "x86_64-apple-darwin"
+          ]
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+      },
+      "keywords": [
+        "datadog",
+        "iast"
+      ],
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+      },
+      "dependencies": {
+        "lru-cache": "^7.14.0",
+        "node-gyp-build": "^4.5.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/parser": "^7.20.3",
+        "@babel/types": "^7.18.10",
+        "@napi-rs/cli": "^2.0.0",
+        "@swc-node/register": "^1.4.2",
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.38.1",
+        "ast-types": "^0.15.2",
+        "chai": "^4.3.6",
+        "cross-env": "^7.0.3",
+        "dotenv-cli": "^5.0.0",
+        "eslint": "^7.31.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7",
+        "mocha": "^9.1.1",
+        "mocha-it-each": "^1.0.2",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.5.1",
+        "proxyquire": "^2.1.3",
+        "recast": "^0.21.5",
+        "sinon": "^14.0.0",
+        "sinon-chai": "^3.7.0",
+        "sorcery": "^0.10.0",
+        "source-map": "^0.7.3",
+        "tap-junit": "^5.0.1",
+        "tmp": "^0.2.1",
+        "typescript": "^4.8.4"
+      },
+      "engines": {
+        "node": ">= 10"
+      },
+      "scripts": {
+        "artifacts": "napi artifacts",
+        "artifacts:prepare": "node ./scripts/artifacts.mjs",
+        "artifacts:prepublish": "napi prepublish --skip-gh-release",
+        "artifacts:gyp": "node ./scripts/artifacts-gyp.mjs",
+        "build": "wasm-pack build --scope datadog --out-dir wasm --out-name wasm_iast_rewriter --target nodejs",
+        "build:napi": "napi build --platform --release --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:debug": "napi build --platform --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:linux": "napi build --target x86_64-unknown-linux-gnu --platform --release --features \"napi\"",
+        "build:napi:alpine": "napi build --target x86_64-unknown-linux-musl --platform --release --features \"napi\"",
+        "build:napi:windows": "napi build --target x86_64-pc-windows-msvc --platform --release --features \"napi\"",
+        "build:napi:darwin": "napi build --target x86_64-apple-darwin --platform --release --features \"napi\"",
+        "build:napi:darwinArm": "napi build --target aarch64-apple-darwin --platform --release --features \"napi\"",
+        "format": "run-p format:prettier format:rs",
+        "format:prettier": "prettier . -w",
+        "format:rs": "cargo fmt",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "rustfmt": "rustfmt --config imports_granularity=Crate src/*.rs",
+        "prepublishOnly:napi": "run-p artifacts:prepare artifacts:prepublish",
+        "version": "napi version",
+        "test": "mocha --file 'test/setup.js' test/**/*.spec.js",
+        "test:junit": "mocha --file 'test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml test/**/*.spec.js",
+        "test:integration": "mocha --file 'integration-test/setup.js' integration-test/**/*.spec.js",
+        "test:integration:ci": "mocha --file 'integration-test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit-integration.xml integration-test/**/*.spec.js",
+        "prepare": "husky install",
+        "clippy": "cargo clippy --workspace -- -D warnings"
+      },
+      "lint-staged": {
+        "*.@(js|ts|tsx)": [
+          "prettier --write",
+          "eslint -c .eslintrc.json --fix"
+        ],
+        "*.@(yml|yaml)": [
+          "prettier --parser yaml --write"
+        ],
+        "*.md": [
+          "prettier --parser markdown --write"
+        ],
+        "*.json": [
+          "prettier --parser json --write"
+        ],
+        "*.rs": [
+          "rustfmt --config imports_granularity=Crate"
+        ]
+      },
+      "prettier": {
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "arrowParens": "always"
+      },
+      "_id": "@datadog/native-iast-rewriter@2.2.2",
+      "_integrity": "sha512-13ZBhJpjZ/tiV6rYfyAf/ITye9cyd3x12M/2NKhD4Ivev4N4uKBREAjpArOtzKtPXZ5b6oXwVV4ofT1SHoYyzA==",
+      "_resolved": "/home/runner/work/dd-native-iast-rewriter-js/dd-native-iast-rewriter-js/datadog-native-iast-rewriter-2.2.2.tgz",
+      "_from": "file:datadog-native-iast-rewriter-2.2.2.tgz",
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-13ZBhJpjZ/tiV6rYfyAf/ITye9cyd3x12M/2NKhD4Ivev4N4uKBREAjpArOtzKtPXZ5b6oXwVV4ofT1SHoYyzA==",
+        "shasum": "3f7feaf6be1af4c83ad063065b8ed509bbaf11cb",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-rewriter/-/native-iast-rewriter-2.2.2.tgz",
+        "fileCount": 17,
+        "unpackedSize": 2286196,
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@datadog%2fnative-iast-rewriter@2.2.2",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIByP/O1mSxlRDKsXE23RyopgSGH7fo50mKj/FT/W5xWnAiBoW9HR5clAnYUktUPSMuf8mqQ9lnXlNe/uVizToKgc1g=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-rewriter_2.2.2_1702571582064_0.19637228197865153"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.2.3": {
+      "name": "@datadog/native-iast-rewriter",
+      "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+      "version": "2.2.3",
+      "description": "Datadog IAST instrumentation addon for NodeJS",
+      "main": "main.js",
+      "types": "index.d.ts",
+      "napi": {
+        "name": "iast-rewriter",
+        "triples": {
+          "defaults": false,
+          "additional": [
+            "x86_64-unknown-linux-gnu",
+            "x86_64-unknown-linux-musl",
+            "x86_64-pc-windows-msvc",
+            "aarch64-apple-darwin",
+            "x86_64-apple-darwin"
+          ]
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+      },
+      "keywords": [
+        "datadog",
+        "iast"
+      ],
+      "author": {
+        "name": "Datadog Inc.",
+        "email": "info@datadoghq.com"
+      },
+      "license": "Apache-2.0",
+      "bugs": {
+        "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+      },
+      "dependencies": {
+        "lru-cache": "^7.14.0",
+        "node-gyp-build": "^4.5.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/parser": "^7.20.3",
+        "@babel/types": "^7.18.10",
+        "@napi-rs/cli": "^2.0.0",
+        "@swc-node/register": "^1.4.2",
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.38.1",
+        "ast-types": "^0.15.2",
+        "chai": "^4.3.6",
+        "cross-env": "^7.0.3",
+        "dotenv-cli": "^5.0.0",
+        "eslint": "^7.31.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^5.0.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7",
+        "mocha": "^9.1.1",
+        "mocha-it-each": "^1.0.2",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.5.1",
+        "proxyquire": "^2.1.3",
+        "recast": "^0.21.5",
+        "sinon": "^14.0.0",
+        "sinon-chai": "^3.7.0",
+        "sorcery": "^0.10.0",
+        "source-map": "^0.7.3",
+        "tap-junit": "^5.0.1",
+        "tmp": "^0.2.1",
+        "typescript": "^4.8.4"
+      },
+      "engines": {
+        "node": ">= 10"
+      },
+      "scripts": {
+        "artifacts": "napi artifacts",
+        "artifacts:prepare": "node ./scripts/artifacts.mjs",
+        "artifacts:prepublish": "napi prepublish --skip-gh-release",
+        "artifacts:gyp": "node ./scripts/artifacts-gyp.mjs",
+        "build": "wasm-pack build --scope datadog --out-dir wasm --out-name wasm_iast_rewriter --target nodejs",
+        "build:napi": "napi build --platform --release --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:debug": "napi build --platform --features \"napi\" && npm run artifacts:gyp",
+        "build:napi:linux": "napi build --target x86_64-unknown-linux-gnu --platform --release --features \"napi\"",
+        "build:napi:alpine": "napi build --target x86_64-unknown-linux-musl --platform --release --features \"napi\"",
+        "build:napi:windows": "napi build --target x86_64-pc-windows-msvc --platform --release --features \"napi\"",
+        "build:napi:darwin": "napi build --target x86_64-apple-darwin --platform --release --features \"napi\"",
+        "build:napi:darwinArm": "napi build --target aarch64-apple-darwin --platform --release --features \"napi\"",
+        "format": "run-p format:prettier format:rs",
+        "format:prettier": "prettier . -w",
+        "format:rs": "cargo fmt",
+        "lint": "eslint . -c ./.eslintrc.json",
+        "rustfmt": "rustfmt --config imports_granularity=Crate src/*.rs",
+        "prepublishOnly:napi": "run-p artifacts:prepare artifacts:prepublish",
+        "version": "napi version",
+        "test": "mocha --file 'test/setup.js' test/**/*.spec.js",
+        "test:junit": "mocha --file 'test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit.xml test/**/*.spec.js",
+        "test:integration": "mocha --file 'integration-test/setup.js' integration-test/**/*.spec.js",
+        "test:integration:ci": "mocha --file 'integration-test/setup.js' --reporter mocha-junit-reporter --reporter-options mochaFile=./build/junit-integration.xml integration-test/**/*.spec.js",
+        "prepare": "husky install",
+        "clippy": "cargo clippy --workspace -- -D warnings"
+      },
+      "lint-staged": {
+        "*.@(js|ts|tsx)": [
+          "prettier --write",
+          "eslint -c .eslintrc.json --fix"
+        ],
+        "*.@(yml|yaml)": [
+          "prettier --parser yaml --write"
+        ],
+        "*.md": [
+          "prettier --parser markdown --write"
+        ],
+        "*.json": [
+          "prettier --parser json --write"
+        ],
+        "*.rs": [
+          "rustfmt --config imports_granularity=Crate"
+        ]
+      },
+      "prettier": {
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "arrowParens": "always"
+      },
+      "_id": "@datadog/native-iast-rewriter@2.2.3",
+      "_integrity": "sha512-RCbflf8BJ++h99I7iA4NxTA1lx7YqB+sPQkJNSZKxXyEXtWl9J4XsDV9C/sB9iGbf1PVY77tFvoGm5/WpUV4IA==",
+      "_resolved": "/home/runner/work/dd-native-iast-rewriter-js/dd-native-iast-rewriter-js/datadog-native-iast-rewriter-2.2.3.tgz",
+      "_from": "file:datadog-native-iast-rewriter-2.2.3.tgz",
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-RCbflf8BJ++h99I7iA4NxTA1lx7YqB+sPQkJNSZKxXyEXtWl9J4XsDV9C/sB9iGbf1PVY77tFvoGm5/WpUV4IA==",
+        "shasum": "7d512abdb03dcc238825e8d6c90cebf782686db3",
+        "tarball": "https://registry.npmjs.org/@datadog/native-iast-rewriter/-/native-iast-rewriter-2.2.3.tgz",
+        "fileCount": 17,
+        "unpackedSize": 2191156,
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@datadog%2fnative-iast-rewriter@2.2.3",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDdsZDb+rtLxwoCw6jVtSVGMY+/O/p1WX/rdUonOw1wgAIgFKmziWlXQz1uCLzqFpgTAL2OwbH+7ennxtvCv4W0SnY="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "datadog",
+        "email": "robot-npm-frontend@datadoghq.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "datadog",
+          "email": "robot-npm-frontend@datadoghq.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/native-iast-rewriter_2.2.3_1707127255492_0.4417893953516372"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2022-10-31T14:21:15.833Z",
+    "0.1.0-beta.0": "2022-10-31T14:21:16.240Z",
+    "modified": "2024-02-05T10:00:56.101Z",
+    "0.1.0-beta.1": "2022-11-03T17:00:41.786Z",
+    "0.1.0-beta.2": "2022-11-08T08:08:50.779Z",
+    "0.1.0-beta.3": "2022-11-08T17:10:31.604Z",
+    "0.1.0-beta.4-wasm": "2022-11-17T15:48:11.195Z",
+    "1.0.0": "2022-11-21T16:58:50.124Z",
+    "1.1.0": "2022-11-25T11:42:27.089Z",
+    "1.1.1": "2022-12-15T16:03:55.407Z",
+    "1.1.2": "2022-12-28T16:59:14.727Z",
+    "1.0.1": "2022-12-28T23:25:42.587Z",
+    "2.0.0": "2023-02-20T13:24:25.880Z",
+    "2.0.1": "2023-03-02T08:16:20.106Z",
+    "2.0.2": "2023-06-14T09:34:02.229Z",
+    "2.1.0": "2023-06-28T08:40:50.668Z",
+    "2.1.1": "2023-07-26T10:05:13.368Z",
+    "2.1.2": "2023-08-21T13:23:03.258Z",
+    "2.1.3": "2023-08-23T16:16:24.411Z",
+    "2.2.0": "2023-10-23T16:05:57.010Z",
+    "2.2.1": "2023-11-02T10:58:27.969Z",
+    "2.2.2": "2023-12-14T16:33:02.293Z",
+    "2.2.3": "2024-02-05T10:00:55.673Z"
+  },
+  "maintainers": [
+    {
+      "name": "datadog",
+      "email": "robot-npm-frontend@datadoghq.com"
+    }
+  ],
+  "description": "Datadog IAST instrumentation addon for NodeJS",
+  "homepage": "https://github.com/DataDog/dd-native-iast-rewriter-js/blob/main/README.md",
+  "keywords": [
+    "datadog",
+    "iast"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataDog/dd-native-iast-rewriter-js.git"
+  },
+  "author": {
+    "name": "Datadog Inc.",
+    "email": "info@datadoghq.com"
+  },
+  "bugs": {
+    "url": "https://github.com/DataDog/dd-native-iast-rewriter-js/issues"
+  },
+  "license": "Apache-2.0",
+  "readme": "# dd-native-iast-rewriter-js\n\nNodejs native AST rewriter heavily based on [Speedy Web Compiler o SWC compiler](https://github.com/swc-project/swc) used to instrument Javascript source files.\n\n## Workflow\n\n1. Parse Javascript code to obtain the AST\n2. Replace certain AST expressions -> Currently it is focused in certain operators like `+` and `+=`, template literals and some String methods\n3. Generate the new Javascript code as from the modified AST -> In addition to the Javascript code, the corresponding source map is returned chaining it with the original source map if necessary.\n\n## Usage\n\n```javascript\nconst Rewriter = require('@datadog/native-iast-rewriter')\n\nconst rewriter = new Rewriter(rewriterConfig)\nconst result = rewriter.rewrite(code, filename)\n```\n\n## Configuration options\n\n```javascript\n\nRewriterConfig {\n  // enable/disable sourceMap chaining - false by default\n  chainSourceMap?: boolean\n\n  // enable/disable comments printing - false by default\n  comments?: boolean\n\n  // establishes the prefix for the injected local variables - 6 random characters by default\n  localVarPrefix?: string\n\n  // sets the list of methods or operators to be rewritten\n  csiMethods?: Array<CsiMethod>\n\n  // extracts hardcoded string literals - true by default\n  literals?: boolean\n}\n\nCsiMethod {\n  // name of the String method to rewrite\n  src: string\n\n  // optional name of the replacement method. If not specified a convention shall be used\n  dst?: string\n\n  // indicates if it is an operator like +\n  operator?: boolean\n}\n```\n\n## Example\n\n```javascript\nconst Rewriter = require('@datadog/native-iast-rewriter')\n\nconst rewriterConfig = {\n  csiMethods: [{ src: 'substring' }],\n  localVarPrefix: 'test',\n}\n\nconst rewriter = new Rewriter(rewriterConfig)\n\nconst code = `function sub(a) {\n  return a.substring(1)\n}`\nconst result = rewriter.rewrite(code, filename)\n\nconsole.log(result.content)\n/*\nfunction sub(a) {\n  let __datadog_test_0, __datadog_test_1;\n  return (__datadog_test_0 = a, __datadog_test_1 = __datadog_test_0.substring, _ddiast.stringSubstring(__datadog_test_1.call(__datadog_test_0, 1), __datadog_test_1, __datadog_test_0, 1));\n}\n*/\n```\n\n## Local setup\n\nTo set up the project locally, you should install `cargo` and `wasm-pack`:\n\n```\n$ curl https://sh.rustup.rs -sSf | sh\n\n$ cargo install wasm-pack\n```\n\nand project dependencies:\n\n```\n$ npm install\n```\n\n### Build\n\nBuild the project with\n\n```\n$ npm run build\n```\n\nIt will compile WASM binaries by default\nand then it will be possible to run the tests with\n\n```\n$ npm t\n```\n",
+  "readmeFilename": "README.md"
+}

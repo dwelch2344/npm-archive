@@ -1,0 +1,89 @@
+{
+  "_id": "babel-plugin-named-exports-order",
+  "_rev": "1-11e6606bb3b3751c47c49a4da0c514d2",
+  "name": "babel-plugin-named-exports-order",
+  "dist-tags": {
+    "latest": "0.0.2"
+  },
+  "versions": {
+    "0.0.2": {
+      "name": "babel-plugin-named-exports-order",
+      "version": "0.0.2",
+      "description": "Babel plugin for preserving exports order across transforms",
+      "keywords": [
+        "babel-plugin"
+      ],
+      "main": "index.js",
+      "author": {
+        "name": "Michael Shilman"
+      },
+      "license": "MIT",
+      "devDependencies": {
+        "auto": "^10.32.5",
+        "jest": "^27.4.7"
+      },
+      "scripts": {
+        "test": "jest",
+        "release": "auto shipit"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "gitHead": "dda77ef8d67d0096e3164698b94c4b30a7dde29a",
+      "_id": "babel-plugin-named-exports-order@0.0.2",
+      "_nodeVersion": "14.18.3",
+      "_npmVersion": "6.14.15",
+      "dist": {
+        "integrity": "sha512-OgOYHOLoRK+/mvXU9imKHlG6GkPLYrUCvFXG/CM93R/aNNO8pOOF4aS+S8CCHMDQoNSeiOYEZb/G6RwL95Jktw==",
+        "shasum": "ae14909521cf9606094a2048239d69847540cb09",
+        "tarball": "https://registry.npmjs.org/babel-plugin-named-exports-order/-/babel-plugin-named-exports-order-0.0.2.tgz",
+        "fileCount": 9,
+        "unpackedSize": 8006,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh3/n0CRA9TVsSAnZWagAAG3YQAIdMt93awvviER8DtTn1\n72b2HSkcKV4F8sfsYNqfHDxLX33PmazYRBN5FswPEGirIaAHWIF+jlTzfrQE\ns1gydS2e2tbrp2lgXV5jd72pOQWdTTPWDsDjpcBc9ntWauYJA3uclcUsUQVh\n6UspMYxFTWx8IFYpB33ehxm6u1liiJ+wexopb1uz325jqgv8bJUfIZ75c8mg\nsCMi9DY60DRmjVdBZbk9Gb/MB8+WHW2e87qtAAlpXpkVtI145bpBNY7G+8Te\nFl8EeiZSydtJV6X19HXYLSrZYFcjJF526xvauJnhQVsi4gVsnaf/w0ev4fYv\n/Sc0blaknKaxIOtueI8Dz241tTOgdDzTPo/866xfPxi5xxEFqGES1X/x+LCv\nIH2BTA+Wfp+/KAHMtMP0tC/dPpMFyoPkGzdIqD91mzGzScx608WkX+ROUPKx\nLj/4Lb3onS5cIkP6B8bKWhs29Ux4ZoRHXqbU47D5Yj+PZMQjxK5mcdmE3VZR\nzeG5IpDtxzoA8Rbvv8ekLxTBvrStPHbMuvSQjchgRgsE73bV3H2K9NVa5ro7\nvtsOB5eZ3k7ssQg/jQE7Q4xh93J8Wg0JSv5TWB6VW1Qn6pb0SVDeCzPxTAnR\naSoRESjyPYjnXp1LKke765jIliREL2cO+tsL/6pEC8Ga89jmYzNRV9pakkh9\nAfxz\r\n=Ng2E\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQC4Q0RHtipnrymtLr5Q5/xzN0SFTLRT9jnghsfibyAXAgIhAK4cBO/eEf5WTGevtKTVbhOTD/bZszVGkazuhNBHiu6h"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "shilman",
+        "email": "michael@lab80.co"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shilman",
+          "email": "michael@lab80.co"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-named-exports-order_0.0.2_1642068468658_0.2300649140044091"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2022-01-13T10:07:48.519Z",
+    "0.0.2": "2022-01-13T10:07:48.883Z",
+    "modified": "2022-04-11T16:40:22.924Z"
+  },
+  "maintainers": [
+    {
+      "name": "shilman",
+      "email": "michael@lab80.co"
+    }
+  ],
+  "description": "Babel plugin for preserving exports order across transforms",
+  "keywords": [
+    "babel-plugin"
+  ],
+  "author": {
+    "name": "Michael Shilman"
+  },
+  "license": "MIT",
+  "readme": "# babel-plugin-named-exports-order\n\nThis is a babel plugin that adds an array of strings to any JS file for its named exports.\n\nFor example, the plugin would transform this:\n\n```js\nexport const a = 0;\nexport const b = 1;\n```\n\nTo this:\n\n```js\nexport const a = 0;\nexport const b = 1;\nexport const __namedExportsOrder = ['a', 'b'];\n```\n\nBundlers like Webpack5 are not guaranteed to preserve the original export order, but some tools need it to function properly.\n\nIt was written for [Storybook](https://storybook.js.org), which allows users to order their \"stories\" based on the export order in the file, and has special logic to re-sort the stories based on `__namedExportsOrder` if it's present.\n\n## Usage\n\nInstall with:\n\n```\nyarn add babel-plugin-named-exports-order -D\n```\n\nThen add it to `plugins` in `.babelrc.js`:\n\n```js\nmodule.exports = {\n  plugins: ['babel-plugin-named-exports-order'],\n};\n```\n",
+  "readmeFilename": "README.md"
+}
