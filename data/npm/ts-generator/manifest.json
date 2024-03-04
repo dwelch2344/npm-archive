@@ -1,0 +1,1117 @@
+{
+  "_id": "ts-generator",
+  "_rev": "10-e88b846acb9946ff5e9b29f5ac136f77",
+  "name": "ts-generator",
+  "dist-tags": {
+    "latest": "0.1.1"
+  },
+  "versions": {
+    "0.0.1": {
+      "name": "ts-generator",
+      "description": "The missing piece for fully typesafe Typescript apps",
+      "keywords": [
+        "typescript",
+        "generator",
+        "typings",
+        "types",
+        "typesafe"
+      ],
+      "version": "0.0.1",
+      "bin": {
+        "ts-generator": "dist/cli/run.js"
+      },
+      "main": "./dist/publicApi.js",
+      "license": "MIT",
+      "scripts": {
+        "start": "ts-node ./src/cli/cli.ts ./example/ts-gen.json",
+        "build": "rm -rf ./dist && tsc -p tsconfig.prod.json --outDir ./dist",
+        "prepublish": "yarn test && yarn build",
+        "format": "prettier --list-different '**/*.{ts,json,md, gql}'",
+        "format:fix": "prettier --write '**/*.{ts,json,md,gql}'",
+        "tslint": "tslint -p ./tsconfig.json -e 'node_modules/**/*' -e '**/node_modules/**/*' '**/*.ts'",
+        "tslint:fix": "tslint --fix --format stylish -p ./tsconfig.json -e 'node_modules/**/*' -e '**/node_modules/**/*' '**/*.ts'",
+        "tsc": "tsc --noEmit",
+        "lint": "yarn format && yarn tslint && yarn tsc",
+        "lint:fix": "yarn format:fix && yarn tslint:fix && yarn tsc",
+        "test:mocha": "NODE_ENV=test mocha --require ts-node/register '**/*.spec.ts'",
+        "test:mocha:coverage": "NODE_ENV=test nyc mocha --require ts-node/register --require source-map-support/register '**/*.spec.ts'",
+        "test": "yarn lint && yarn test:mocha",
+        "test:fix": "yarn lint:fix && yarn test:mocha",
+        "test:coverage": "yarn lint && yarn test:mocha:coverage",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls"
+      },
+      "devDependencies": {
+        "@types/chai": "^4.1.2",
+        "@types/glob": "^5.0.35",
+        "@types/mocha": "^5.2.0",
+        "@types/node": "^10.0.3",
+        "@types/prettier": "^1.13.2",
+        "@types/sinon": "^5.0.1",
+        "chai": "^4.1.2",
+        "coveralls": "^3.0.2",
+        "mocha": "^5.2.0",
+        "nyc": "^12.0.2",
+        "sinon": "^6.1.5",
+        "snap-shot-it": "^6.0.1",
+        "source-map-support": "^0.5.8",
+        "ts-node": "^7.0.1",
+        "tslint": "^5.11.0",
+        "typescript": "^3.0.1",
+        "typestrict": "^0.0.9"
+      },
+      "dependencies": {
+        "glob": "^7.1.2",
+        "prettier": "^1.14.2"
+      },
+      "files": [
+        "dist/**",
+        "yarn.loc"
+      ],
+      "gitHead": "6ea1c71d3b4308512d0c01e8580c1d85694497a8",
+      "_id": "ts-generator@0.0.1",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.3.0",
+      "_npmUser": {
+        "name": "krzkaczor",
+        "email": "krzkaczor@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-wx6F8wNIdMOQzP97CIbAzQKBh0cywBEiR9i3tIkQv5YrMoDNObavGELvJxoVTb5L7MQEGbQv8yjpjXfUKtdwAQ==",
+        "shasum": "8ef0ff74ed9d298c7232423271ed3171700dd629",
+        "tarball": "https://registry.npmjs.org/ts-generator/-/ts-generator-0.0.1.tgz",
+        "fileCount": 24,
+        "unpackedSize": 10667,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbdxpyCRA9TVsSAnZWagAAUoIP/0kkz77VWPFlZlqCLYpO\nwyk6Ko2kD2KfMCygxU3eo312YAujFq54ZASYJwwYLjuzgRsLFH2NlnstopKn\nLl+x++vkf0reHEnvRWXHEwWEvcMqjEG2DmovbNJLDxI2wdxCo3JSwuFZTg8l\nD0e2cyKRkH4nY2XjMfi7jdEB4a6hLsRPjve2Og8dHEcKqpr06ixhuRX9lug7\n/wE8DUAhymb5eY/FeRFgSbj7cQoA282rPhmc4HQU0dCj5P4sxk5bo/b4opcK\nZOAWqXqCahqwgWaKSfZNYOhTelpT3nt5YuVQ9c8YGdPxsMwlEAcjauqWoOsM\nsNdrYyyfUQbKn+IAxoEmk9Nv9ru88UxTtl34lCPoMFMrCPHfTyvUwNfjhKLz\ntY3b7axc0FH75PRxYZBf2KDBVih3ZIt3COQgtF/wtNb1RyWA/at1ONCOa9Uh\n1xbpTY+e4KrmwOAamEITBAuFEpvwzwAAY51NUDdSQW++9YNaUjzpeC1k/+K/\n6MrIwB+7VxCsDUK20ZvtlH6GHuq+tIqTCVaGe2VkqUMBZNK6qLBwBJzlp0YI\nZVR+VyuYrHdo4D/JFfCldP6gqgF5h44abTQbgkvcJMWTB4SujfmA3MqcwV9Z\nu39E6cjv6H9nXAZ8vtK6nLcD26k5iqrH0hoJOnSe2cF45qbVV8a4oX28JlAz\nRfhd\r\n=42CO\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEAP2xqgutRVvcUHPgdx6e+N2DGeU5uuy3LPAa+/WP3KAiA2QVvOgC6R0vXTCaKh7cCahia5DFHtpLiDDG9Ely46ww=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "krzkaczor",
+          "email": "krzkaczor@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-generator_0.0.1_1534532209641_0.7980889997497984"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.2": {
+      "name": "ts-generator",
+      "description": "The missing piece for fully typesafe Typescript apps",
+      "keywords": [
+        "typescript",
+        "generator",
+        "typings",
+        "types",
+        "typesafe"
+      ],
+      "version": "0.0.2",
+      "bin": {
+        "ts-generator": "dist/cli/run.js"
+      },
+      "main": "./dist/publicApi.js",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/krzkaczor/ts-generator"
+      },
+      "license": "MIT",
+      "scripts": {
+        "start": "ts-node ./src/cli/cli.ts ./example/ts-gen.json",
+        "build": "rm -rf ./dist && tsc -p tsconfig.prod.json --outDir ./dist",
+        "prepublish": "yarn test && yarn build",
+        "format": "prettier --list-different '**/*.{ts,json,md, gql}'",
+        "format:fix": "prettier --write '**/*.{ts,json,md,gql}'",
+        "tslint": "tslint -p ./tsconfig.json -e 'node_modules/**/*' -e '**/node_modules/**/*' '**/*.ts'",
+        "tslint:fix": "tslint --fix --format stylish -p ./tsconfig.json -e 'node_modules/**/*' -e '**/node_modules/**/*' '**/*.ts'",
+        "tsc": "tsc --noEmit",
+        "lint": "yarn format && yarn tslint && yarn tsc",
+        "lint:fix": "yarn format:fix && yarn tslint:fix && yarn tsc",
+        "check-example": "yarn build && ./example/scripts/test.sh",
+        "test:mocha": "NODE_ENV=test mocha --require ts-node/register --require ./test/setup-chai.ts '**/*.spec.ts'",
+        "test:mocha:coverage": "NODE_ENV=test nyc mocha --require ts-node/register  --require ./test/setup-chai.ts --require source-map-support/register '**/*.spec.ts'",
+        "test": "yarn lint && yarn test:mocha && yarn check-example",
+        "test:fix": "yarn lint:fix && yarn test:mocha && yarn check-example",
+        "test:coverage": "yarn lint && yarn test:mocha:coverage && yarn check-example",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls"
+      },
+      "devDependencies": {
+        "@types/chai": "^4.1.2",
+        "@types/glob": "^5.0.35",
+        "@types/mkdirp": "^0.5.2",
+        "@types/mocha": "^5.2.0",
+        "@types/node": "^10.0.3",
+        "@types/prettier": "^1.13.2",
+        "@types/sinon": "^5.0.2",
+        "@types/sinon-chai": "^3.2.0",
+        "chai": "^4.1.2",
+        "coveralls": "^3.0.2",
+        "mocha": "^5.2.0",
+        "nyc": "^12.0.2",
+        "sinon": "^6.1.5",
+        "sinon-chai": "^3.2.0",
+        "snap-shot-it": "^6.0.1",
+        "source-map-support": "^0.5.8",
+        "ts-node": "^7.0.1",
+        "tslint": "^5.11.0",
+        "typescript": "^3.0.1",
+        "typestrict": "^0.0.9"
+      },
+      "dependencies": {
+        "glob": "^7.1.2",
+        "mkdirp": "^0.5.1",
+        "prettier": "^1.14.2"
+      },
+      "files": [
+        "dist/**",
+        "yarn.loc"
+      ],
+      "_id": "ts-generator@0.0.2",
+      "dist": {
+        "shasum": "3448da01b9f01ae449d997fc4d832ec655c1421f",
+        "tarball": "https://registry.npmjs.org/ts-generator/-/ts-generator-0.0.2.tgz",
+        "integrity": "sha512-ABpwqlw+vAFFosJAt1ZJOGJ3bXXqC0EQjSHVMk54+Qh2l+EKLn7dblLBCcrp1VjXFDFZShmmxoaHnC4FOncRkQ==",
+        "fileCount": 30,
+        "unpackedSize": 14568,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbhUkNCRA9TVsSAnZWagAArjEQAJVBtk0NhaAZ8u6i9z6C\n0V1tnkur0EsOKojIVgJ2KDGRwVuHUhNKRalbIAdQgHvChx5IZEF3muA55vEC\nL/iFN3qsRxfAcXI+lTrKtnBC+5ykDOfHQ5AKoZSMahZQDr6sYyFHa/NDFFnx\nbGXTDfEEvnW7yDClpxGc2yA5D098fuDe8emQGq80m9Hc1KVTIRkTFjxzIxjX\naKW0gH6xYnSgx3K3yB29aC7OwGnyNwzTDN6RtvWVuC1tnAv411aIqFTJ0Tg7\nwiohDaYHuoRoTVkUVnNvBXu/1bFsWy1gUzz9NKXWDFEP92lCTox6Hhg7AWEF\n9MOR7bIRJNnzPIvqkjKZ8I8sWCV/DCXDqRT6l1IMOJMt7o4Nilop+yVNLnYJ\nTYmaRIwNUh19Z8Nl1pUo9c0z3C5sAOPWGqwOCeWTJfR9p5c69SSFm9bbmR0i\nyqf72lZDCz/XKydbX4fAIRp+KEuk2U4RXFTFW73tWeewjFqmZWUgU2Wa/w9m\ntbVSJlJFhooqwL47uOTuG3c4r6uiitidT6x8nd51oXv/BcTnVnfcg5hRWF22\nkf0CZjHMzTtP4CDnx529uLbqPRxBIkzphNSEXPSbM6htJfLshfRMfZGDRYLQ\n0NuUuFiuegfJ+ll/3lLdJQv9vWXTp5VOayaf6tMoETUo/zuDX0rAza+OmHWX\njbjO\r\n=0zqe\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIB+boScukPbFoxpIJWPNMtiWn+Z4UDA7zArQ8b++SdmNAiEAwkM7xDYxpdqVs0LKOAZhZxIz9lLdxHGGXlSxq3PDy+k="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "krzkaczor",
+          "email": "krzkaczor@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "krzkaczor",
+        "email": "krzkaczor@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-generator_0.0.2_1535461645050_0.759514864383074"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.3": {
+      "name": "ts-generator",
+      "description": "The missing piece for fully typesafe Typescript apps",
+      "keywords": [
+        "typescript",
+        "generator",
+        "typings",
+        "types",
+        "typesafe"
+      ],
+      "version": "0.0.3",
+      "bin": {
+        "ts-generator": "dist/cli/run.js"
+      },
+      "main": "./dist/publicApi.js",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/krzkaczor/ts-generator.git"
+      },
+      "license": "MIT",
+      "scripts": {
+        "start": "ts-node ./src/cli/cli.ts ./example/ts-gen.json",
+        "build": "rm -rf ./dist && tsc -p tsconfig.prod.json --outDir ./dist",
+        "prepublish": "yarn test && yarn build",
+        "format": "prettier --list-different '**/*.{ts,json,md, gql}'",
+        "format:fix": "prettier --write '**/*.{ts,json,md,gql}'",
+        "tslint": "tslint -p ./tsconfig.json -e 'node_modules/**/*' -e '**/node_modules/**/*' '**/*.ts'",
+        "tslint:fix": "tslint --fix --format stylish -p ./tsconfig.json -e 'node_modules/**/*' -e '**/node_modules/**/*' '**/*.ts'",
+        "tsc": "tsc --noEmit",
+        "lint": "yarn format && yarn tslint && yarn tsc",
+        "lint:fix": "yarn format:fix && yarn tslint:fix && yarn tsc",
+        "check-example": "yarn build && ./example/scripts/test.sh",
+        "test:mocha": "NODE_ENV=test mocha --require ts-node/register --require ./test/setup-chai.ts '**/*.spec.ts'",
+        "test:mocha:coverage": "NODE_ENV=test nyc mocha --require ts-node/register  --require ./test/setup-chai.ts --require source-map-support/register '**/*.spec.ts'",
+        "test": "yarn lint && yarn test:mocha && yarn check-example",
+        "test:fix": "yarn lint:fix && yarn test:mocha && yarn check-example",
+        "test:coverage": "yarn lint && yarn test:mocha:coverage && yarn check-example",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls"
+      },
+      "devDependencies": {
+        "@types/chai": "^4.1.2",
+        "@types/glob": "^5.0.35",
+        "@types/mocha": "^5.2.0",
+        "@types/node": "^10.0.3",
+        "@types/sinon": "^5.0.2",
+        "@types/sinon-chai": "^3.2.0",
+        "chai": "^4.1.2",
+        "coveralls": "^3.0.2",
+        "mocha": "^5.2.0",
+        "nyc": "^12.0.2",
+        "sinon": "^6.1.5",
+        "sinon-chai": "^3.2.0",
+        "snap-shot-it": "^6.0.1",
+        "source-map-support": "^0.5.8",
+        "ts-node": "^7.0.1",
+        "tslint": "^5.11.0",
+        "typescript": "^3.0.1",
+        "typestrict": "^0.0.9"
+      },
+      "dependencies": {
+        "@types/mkdirp": "^0.5.2",
+        "@types/prettier": "^1.13.2",
+        "glob": "^7.1.2",
+        "mkdirp": "^0.5.1",
+        "prettier": "^1.14.2"
+      },
+      "files": [
+        "dist/**",
+        "yarn.loc"
+      ],
+      "gitHead": "99c9ae2067770cda648045cd56b9e7c61575828d",
+      "bugs": {
+        "url": "https://github.com/krzkaczor/ts-generator/issues"
+      },
+      "homepage": "https://github.com/krzkaczor/ts-generator#readme",
+      "_id": "ts-generator@0.0.3",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "8.11.4",
+      "_npmUser": {
+        "name": "krzkaczor",
+        "email": "krzkaczor@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-KGe41++56z006y3aKklYYnZzIpnucMISK/Db6Wq/U1i7L4z6MjkxtiWShbR7qFviijwSF0ytQICD+E74IKxD9g==",
+        "shasum": "9adc954fd9bb85e44e01f8dbc3e1b0296657b8dd",
+        "tarball": "https://registry.npmjs.org/ts-generator/-/ts-generator-0.0.3.tgz",
+        "fileCount": 26,
+        "unpackedSize": 14568,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbhXMqCRA9TVsSAnZWagAA3sYP/3jQIDtGJ8zfc98uYKQL\npuezHfsYdy5fT7G2MZ6N3fZEdfvH4T0tkDk21BQ1445zDaj5tL0WJLaraRti\nd430lqjg8CL/Gwg9PwvF7tdxmMDRp1X/ItqKMGfs5vADBRMJu8OA+a79yUth\nYt/UZa4d8ijVprCZeIIsTQRXs6X8kFX/Ju9jby48bplfoZw66EXFcnnLETvU\n3gRQP+NXDzjqvxeV4XcoxNt74COESQ5zMPrMuTslnh4A110wzvUE5gn2ijay\nQNwnzgDNNAt8WgjTQR54squR7jovypqTTvRpCsbx3aldWeguoUMpXbIBSffC\nWz0C0SwlHQnAGkj1hz9kOMBjvu9ljJOBajNQrRSMZRm9Fssrzlzhp5JR3dyx\ndKBL5sx0YT3JhFKeSMiCJmJnuu1VdbRDK63ZYfA2UhfEhQ3BZWDlw834mHlu\nTd7BbmxFVvhTpdUq9HSg1dMYe2MHzzZo3dw33FMobSN2UiK75jniFnO+FDeI\nc0nZrlXNExsfmjycnQPvUCSqNv+3Dh4YfHbc1BkXF5xVlzgf76tActkHhDtS\n56/ogmKxAgawwFVGoAhN8p4uOydBxWVssbEZtysFDoHi1JtLzr7PqtpLA7VO\n0jUBC3vhoITQhhM0vlRHLdjS2GKAYbJPXXmF6ptA53lYHPeyYNUAR0u2ktVV\nPItx\r\n=xrUn\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDcW1NLVfo/8ugXqVlBcNESVa+WewEKfw6hQecI3bYeJAIgXs/wGH0WTX2fX+qIIsMcrmkgzsA5E6t3MjyBlHfps6Y="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "krzkaczor",
+          "email": "krzkaczor@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-generator_0.0.3_1535472425837_0.8614347794352952"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.4": {
+      "name": "ts-generator",
+      "description": "The missing piece for fully typesafe Typescript apps",
+      "keywords": [
+        "typescript",
+        "generator",
+        "typings",
+        "types",
+        "typesafe"
+      ],
+      "version": "0.0.4",
+      "bin": {
+        "ts-generator": "dist/cli/run.js"
+      },
+      "main": "./dist/publicApi.js",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/krzkaczor/ts-generator.git"
+      },
+      "license": "MIT",
+      "scripts": {
+        "start": "ts-node ./src/cli/cli.ts ./example/ts-gen.json",
+        "build": "rm -rf ./dist && tsc -p tsconfig.prod.json --outDir ./dist",
+        "prepublishOnly": "yarn test && yarn build",
+        "format": "prettier --list-different '**/*.{ts,json,md, gql}'",
+        "format:fix": "prettier --write '**/*.{ts,json,md,gql}'",
+        "tslint": "tslint -p ./tsconfig.json -e 'node_modules/**/*' -e '**/node_modules/**/*' '**/*.ts'",
+        "tslint:fix": "tslint --fix --format stylish -p ./tsconfig.json -e 'node_modules/**/*' -e '**/node_modules/**/*' '**/*.ts'",
+        "tsc": "tsc --noEmit",
+        "lint": "yarn format && yarn tslint && yarn tsc",
+        "lint:fix": "yarn format:fix && yarn tslint:fix && yarn tsc",
+        "check-example": "yarn build && ./example/scripts/test.sh",
+        "test:mocha": "NODE_ENV=test mocha --require ts-node/register --require ./test/setup-chai.ts '**/*.spec.ts'",
+        "test:mocha:coverage": "NODE_ENV=test nyc mocha --require ts-node/register  --require ./test/setup-chai.ts --require source-map-support/register '**/*.spec.ts'",
+        "test": "yarn lint && yarn test:mocha && yarn check-example",
+        "test:fix": "yarn lint:fix && yarn test:mocha && yarn check-example",
+        "test:coverage": "yarn lint && yarn test:mocha:coverage && yarn check-example",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls"
+      },
+      "devDependencies": {
+        "@types/chai": "^4.1.2",
+        "@types/glob": "^5.0.35",
+        "@types/mocha": "^5.2.0",
+        "@types/node": "^10.0.3",
+        "@types/sinon": "^5.0.2",
+        "@types/sinon-chai": "^3.2.0",
+        "chai": "^4.1.2",
+        "coveralls": "^3.0.2",
+        "mocha": "^5.2.0",
+        "nyc": "^12.0.2",
+        "sinon": "^6.1.5",
+        "sinon-chai": "^3.2.0",
+        "snap-shot-it": "^6.0.1",
+        "source-map-support": "^0.5.8",
+        "ts-node": "^7.0.1",
+        "tslint": "^5.11.0",
+        "typescript": "^3.0.1",
+        "typestrict": "^0.0.9"
+      },
+      "dependencies": {
+        "@types/mkdirp": "^0.5.2",
+        "@types/prettier": "^1.13.2",
+        "chalk": "^2.4.1",
+        "glob": "^7.1.2",
+        "mkdirp": "^0.5.1",
+        "prettier": "^1.14.2"
+      },
+      "gitHead": "3926aef5f5c2d6242b355c10c169e9877070724d",
+      "bugs": {
+        "url": "https://github.com/krzkaczor/ts-generator/issues"
+      },
+      "homepage": "https://github.com/krzkaczor/ts-generator#readme",
+      "_id": "ts-generator@0.0.4",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "8.11.4",
+      "_npmUser": {
+        "name": "krzkaczor",
+        "email": "krzkaczor@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-LMQqpi21u0rFlNNpszDnWvh5lJPlzTg1nY4XmKTIvz3+PGvs+Fe41FUazXd1LgKWBth7rulRvMAO2xpKufOqmQ==",
+        "shasum": "d39347339b6a33dcd046a3a7fbbad3786ee8ccfa",
+        "tarball": "https://registry.npmjs.org/ts-generator/-/ts-generator-0.0.4.tgz",
+        "fileCount": 32,
+        "unpackedSize": 18340,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbhvn+CRA9TVsSAnZWagAA8gAP/jeFiU2Iogcz/lYDlNnn\nqkP4v2FahQln6cfsMfxRuji8rJ6e9LPRGkN7SZRpOxtNJLszlQklHO6SMkcU\nVirPM+ZPWiC59/fQBNeDTZukw+eDOnpMZ//GQ0HKTQ/pw87GjhWwBgShvVeI\n/EV1kY15dChhwVKdIRDIaZWgVNWDLcJPIJ5N2qh3HpqUMXYi2N+iS90sKg+J\ntXyWFpSjyvBwxW2ZMpMUww0NDb208og505o5efkOwXc5RRNR+NpF6UeCgAnQ\nSV4J/iEcPqnUhJuOF/0oJgRCBq5UGqUbJMZmbozzGJu/tI533EPXEnw+T2Wa\niCSInBvtz0+BcUw+UeCNBqJ791v4iNYl0ZEOccOVo8Gp3/bP2PF4passFN3g\nodAlApoy9E5+0cBf5QO2SXqkQf4g7HQ9irqAR2P1GvXVM5f455bUAwbFwYGp\nfDFiW1JrQWDoaH/P4qms9xHOvPqed8m8FKbx3UNwgf2/m2B9Zratb+FqXjmK\nPShqCl5QzHSjciic7rA6KkKiF4mMxS85d+MT8+/W7NBXoivLny0QpnNfAKnm\nVY7N4qs1ogyfAJMrgTlefxZyFDKOeiGTd/TfE2At2zikysI5hfeY1Xjj+fVX\nisviGARviqo/tCbiPGmp3Wfw9F0sURvHtk6/OQO6eALRz0B9c5v4lvqLAMTj\n+vyh\r\n=snVS\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHsDN6HQ9K0d5ohJ70/FL0dZDzS6zG3L7is5OPSqSZXYAiEA+A83YZTVvfos1YfRzoB+nXJ1g0AyJa9njroFfnUvxNg="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "krzkaczor",
+          "email": "krzkaczor@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-generator_0.0.4_1535572477475_0.9701444209258692"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.5": {
+      "name": "ts-generator",
+      "description": "The missing piece for fully typesafe Typescript apps",
+      "keywords": [
+        "typescript",
+        "generator",
+        "typings",
+        "types",
+        "typesafe"
+      ],
+      "version": "0.0.5",
+      "bin": {
+        "ts-generator": "dist/cli/run.js"
+      },
+      "main": "./dist/publicApi.js",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/krzkaczor/ts-generator.git"
+      },
+      "license": "MIT",
+      "scripts": {
+        "start": "ts-node ./src/cli/cli.ts ./example/ts-gen.json",
+        "build": "rm -rf ./dist && tsc -p tsconfig.prod.json --outDir ./dist",
+        "prepublishOnly": "yarn test && yarn build",
+        "format": "prettier --list-different '**/*.{ts,json,md, gql}'",
+        "format:fix": "prettier --write '**/*.{ts,json,md,gql}'",
+        "tslint": "tslint -p ./tsconfig.json -e 'node_modules/**/*' -e '**/node_modules/**/*' '**/*.ts'",
+        "tslint:fix": "tslint --fix --format stylish -p ./tsconfig.json -e 'node_modules/**/*' -e '**/node_modules/**/*' '**/*.ts'",
+        "tsc": "tsc --noEmit",
+        "lint": "yarn format && yarn tslint && yarn tsc",
+        "lint:fix": "yarn format:fix && yarn tslint:fix && yarn tsc",
+        "check-example": "yarn build && ./example/scripts/test.sh",
+        "test:mocha": "NODE_ENV=test mocha --require ts-node/register --require ./test/setup-chai.ts '**/*.spec.ts'",
+        "test:mocha:coverage": "NODE_ENV=test nyc mocha --require ts-node/register  --require ./test/setup-chai.ts --require source-map-support/register '**/*.spec.ts'",
+        "test": "yarn lint && yarn test:mocha && yarn check-example",
+        "test:fix": "yarn lint:fix && yarn test:mocha && yarn check-example",
+        "test:coverage": "yarn lint && yarn test:mocha:coverage && yarn check-example",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls"
+      },
+      "devDependencies": {
+        "@types/chai": "^4.1.2",
+        "@types/glob": "^5.0.35",
+        "@types/mocha": "^5.2.0",
+        "@types/node": "^10.0.3",
+        "@types/sinon": "^5.0.2",
+        "@types/sinon-chai": "^3.2.0",
+        "chai": "^4.1.2",
+        "coveralls": "^3.0.2",
+        "mocha": "^5.2.0",
+        "nyc": "^12.0.2",
+        "sinon": "^6.1.5",
+        "sinon-chai": "^3.2.0",
+        "snap-shot-it": "^6.0.1",
+        "source-map-support": "^0.5.8",
+        "ts-node": "^7.0.1",
+        "tslint": "^5.11.0",
+        "typescript": "^3.0.1",
+        "typestrict": "^0.0.9"
+      },
+      "dependencies": {
+        "@types/mkdirp": "^0.5.2",
+        "@types/prettier": "^1.13.2",
+        "chalk": "^2.4.1",
+        "glob": "^7.1.2",
+        "mkdirp": "^0.5.1",
+        "prettier": "^1.14.2"
+      },
+      "gitHead": "6b1631e80f626cd62c816e84aec6f66dd9dd7447",
+      "bugs": {
+        "url": "https://github.com/krzkaczor/ts-generator/issues"
+      },
+      "homepage": "https://github.com/krzkaczor/ts-generator#readme",
+      "_id": "ts-generator@0.0.5",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "8.11.4",
+      "_npmUser": {
+        "name": "krzkaczor",
+        "email": "krzkaczor@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-Z6AYmWnnkYM5Ir2Zniee1cTWwVcspxV9l5tCtvRmBf9P7P9sG49M2XeyXRB7n+27gxNgE+IK9XUZyaM5G1UBRQ==",
+        "shasum": "9c2fa3ae201352ca672c8ff30873f446704d96fc",
+        "tarball": "https://registry.npmjs.org/ts-generator/-/ts-generator-0.0.5.tgz",
+        "fileCount": 32,
+        "unpackedSize": 18849,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbhxSbCRA9TVsSAnZWagAAFeMP/RQmOm5vWasSWlMbdITB\n4kcBTsIB/od+FHd4aQnANZTEYgvWI4bGBAaiZ2HRYQHUun8rJK6lOoqmj+Tn\nCIG+qtR2Pr364BXc69D6oVcXLQ9E7G12gW+NCMAEqDhqf8s1ZG4SE+EiK7aq\n3H3UjjLX+RKaUQ241evUZCg5+ze1ymgDeP+XMP0/GLZpdWg60lunV8IwMMJT\nvda3g0yOcANEFxmyTL2idhfe/latsBKo/KhN0g7gFPCx2VdIqXN1wfvmd6vT\nt5jlzHY1zW96wqjsGHFLTUKRKf7GiQCpYQMvDalgnQS+qwHEc+RDPvzpt94M\nAf06ohgYpH9HmarYMHqC2cyqN61JrAv4ohZXoKC5AYOMExLT5rUJ0tKizBlO\njFVevQOjbyKr4ekkdlbRbADs+uT6YhgC2Lyo5gqZrvtcsvChuE1UXETnbqRj\nqkd+0P2Ake9e9nw7xBo8T8I2NZyp5s0uSfzoutpJNFP15eBFz9xD7CydOXAT\nqGga5ro2d+VJg5bZjAzU9civ44AZmuONS9nIktrk6ujKKVWoemyifq1WeCPI\nk3uZw8iPqD6wUw9qBiYpy+donL24dVKnhfHo06q/S6CXj0V20qojIx7mE/Ky\nrGu+CNwHp9zEAwYENK18E+02nNg1GbcTTii7NdDIMpE4eWSmaLo+0TZFB53Y\nGS++\r\n=hZQr\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGsJW9dQjSLKEnUW7YNRzH2Max/8uLvDa9/gBcBGyqraAiEAhU59sgMGpNhl6azPtpYUagrHRy30g9fj7ZDPp9a1el8="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "krzkaczor",
+          "email": "krzkaczor@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-generator_0.0.5_1535579290591_0.10013232324158694"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.6": {
+      "name": "ts-generator",
+      "description": "The missing piece for fully typesafe Typescript apps",
+      "keywords": [
+        "typescript",
+        "generator",
+        "typings",
+        "types",
+        "typesafe"
+      ],
+      "version": "0.0.6",
+      "bin": {
+        "ts-generator": "dist/cli/run.js"
+      },
+      "main": "./dist/publicApi.js",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/krzkaczor/ts-generator.git"
+      },
+      "license": "MIT",
+      "scripts": {
+        "start": "ts-node ./src/cli/cli.ts ./example/ts-gen.json",
+        "build": "rm -rf ./dist && tsc -p tsconfig.prod.json --outDir ./dist",
+        "postbuild": "chmod +x ./dist/cli/run.js",
+        "prepublishOnly": "yarn test && yarn build",
+        "format": "prettier --list-different '**/*.{ts,json,md, gql}'",
+        "format:fix": "prettier --write '**/*.{ts,json,md,gql}'",
+        "tslint": "tslint -p ./tsconfig.json -e 'node_modules/**/*' -e '**/node_modules/**/*' '**/*.ts'",
+        "tslint:fix": "tslint --fix --format stylish -p ./tsconfig.json -e 'node_modules/**/*' -e '**/node_modules/**/*' '**/*.ts'",
+        "tsc": "tsc --noEmit",
+        "lint": "yarn format && yarn tslint && yarn tsc",
+        "lint:fix": "yarn format:fix && yarn tslint:fix && yarn tsc",
+        "check-example": "yarn build && ./example/scripts/test.sh",
+        "test:mocha": "NODE_ENV=test mocha --require ts-node/register --require ./test/setup-chai.ts '**/*.spec.ts'",
+        "test:mocha:coverage": "NODE_ENV=test nyc mocha --require ts-node/register  --require ./test/setup-chai.ts --require source-map-support/register '**/*.spec.ts'",
+        "test": "yarn lint && yarn test:mocha && yarn check-example",
+        "test:fix": "yarn lint:fix && yarn test:mocha && yarn check-example",
+        "test:coverage": "yarn lint && yarn test:mocha:coverage && yarn check-example",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls"
+      },
+      "devDependencies": {
+        "@types/chai": "^4.1.2",
+        "@types/glob": "^5.0.35",
+        "@types/mocha": "^5.2.0",
+        "@types/node": "^10.0.3",
+        "@types/resolve": "^0.0.8",
+        "@types/sinon": "^5.0.2",
+        "@types/sinon-chai": "^3.2.0",
+        "chai": "^4.1.2",
+        "coveralls": "^3.0.2",
+        "mocha": "^5.2.0",
+        "nyc": "^12.0.2",
+        "sinon": "^6.1.5",
+        "sinon-chai": "^3.2.0",
+        "snap-shot-it": "^6.0.1",
+        "source-map-support": "^0.5.8",
+        "ts-node": "^7.0.1",
+        "tslint": "^5.11.0",
+        "typescript": "^3.0.1",
+        "typestrict": "^0.0.9"
+      },
+      "dependencies": {
+        "@types/mkdirp": "^0.5.2",
+        "@types/prettier": "^1.13.2",
+        "chalk": "^2.4.1",
+        "glob": "^7.1.2",
+        "mkdirp": "^0.5.1",
+        "prettier": "^1.14.2",
+        "resolve": "^1.8.1"
+      },
+      "gitHead": "e334575f42df4ebf977d29f2eeea745863f5ceb7",
+      "bugs": {
+        "url": "https://github.com/krzkaczor/ts-generator/issues"
+      },
+      "homepage": "https://github.com/krzkaczor/ts-generator#readme",
+      "_id": "ts-generator@0.0.6",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "8.11.4",
+      "_npmUser": {
+        "name": "krzkaczor",
+        "email": "krzkaczor@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-qYlofLQ7yMBpLhXLMoghKmlvLKOiV94ppWR0raPc3r0R5gon2l9tcQq9gRGt+4dYG4ajXnxSPi4I9Qw2JHQ3HQ==",
+        "shasum": "d529582c065f673ae24a7970abec34db574e9f94",
+        "tarball": "https://registry.npmjs.org/ts-generator/-/ts-generator-0.0.6.tgz",
+        "fileCount": 32,
+        "unpackedSize": 19016,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbkt8XCRA9TVsSAnZWagAAFnwP/RBirtdsha64RbxW3IKL\nHbRtGpuJT2a0x5r6a3ZByWU/1YPdETFDhnKsb4kNBZ4eh6zwOin+1dssrJRP\nm6UzEzmKeuQNLPm3G2LipFpvuAINvInFpgNVcN/6LO1s/XSr0wG8ufzaIb2Y\nc9jcf6svwoSu/vJv2kPbkKDTsrNOF7Tj51mmwvjM1k03TK8lm5AyWL2h8sIf\n4pdVPhHz/qlH1elX8zk9uX/0jvFmyfAI2DlqNve2OOJ5l05VRTS3cmYpTErZ\nkmALCsVfRVR3xZ/wM9GQP+8YtXD01h6AeQAqJ08pfqnl0WkP9+A04ts5sXVj\nLnK9wU65lYxMo1z/hdvOg2nU7R81RM1ZNEohGVfaQZTxKmLA7/5Tw0b2m5jS\nqG/ApLgZsnjfmvRy1KuQ5V0zuOr173unYX6U66Jg7wW0r5Lh9LINN72qBpOG\nsZ29rjJ2LjMB52i+sl0smsaXLUvpasr5+3NBtvXMuUjPPOJo9YAhOtoM5I8w\nL5Lx1Bu3Oi6KAABM6hGTjdi58fztWjPAnfiAP2S2CDkmbLYuyhxLN2yTEHys\n8J9aKC06C8ulFN8df1ymKdqRTwwax6wjEbcFNAn7/9I4uxDvarRfxBC43cll\nWAkXn21Fnvl6thNi7mF+SDQgpy2AeIPn2xlk4j7WFrXsKNjuA1zdr2h0O7HM\nayCL\r\n=7img\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDKVmMtgsK1t9wUyRS26FOkeiJoqQvWYWbBSeuYagNg5QIhAOpQDZonGczO8X7MU9T7wqDnBbNlH7mu80yK/8+YhfQm"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "krzkaczor",
+          "email": "krzkaczor@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-generator_0.0.6_1536352023085_0.1543826393880381"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.7": {
+      "name": "ts-generator",
+      "description": "The missing piece for fully typesafe Typescript apps",
+      "keywords": [
+        "typescript",
+        "generator",
+        "typings",
+        "types",
+        "typesafe"
+      ],
+      "version": "0.0.7",
+      "bin": {
+        "ts-generator": "dist/cli/run.js"
+      },
+      "main": "./dist/publicApi.js",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/krzkaczor/ts-generator.git"
+      },
+      "license": "MIT",
+      "scripts": {
+        "start": "ts-node ./src/cli/cli.ts ./example/ts-gen.json",
+        "build": "rm -rf ./dist && tsc -p tsconfig.prod.json --outDir ./dist",
+        "postbuild": "chmod +x ./dist/cli/run.js",
+        "prepublishOnly": "yarn test && yarn build",
+        "format": "prettier --list-different '**/*.{ts,json,md, gql}'",
+        "format:fix": "prettier --write '**/*.{ts,json,md,gql}'",
+        "tslint": "tslint -p ./tsconfig.json -e 'node_modules/**/*' -e '**/node_modules/**/*' '**/*.ts'",
+        "tslint:fix": "tslint --fix --format stylish -p ./tsconfig.json -e 'node_modules/**/*' -e '**/node_modules/**/*' '**/*.ts'",
+        "tsc": "tsc --noEmit",
+        "lint": "yarn format && yarn tslint && yarn tsc",
+        "lint:fix": "yarn format:fix && yarn tslint:fix && yarn tsc",
+        "check-example": "yarn build && ./example/scripts/test.sh",
+        "test:mocha": "NODE_ENV=test mocha --require ts-node/register --require ./test/setup-chai.ts '**/*.spec.ts'",
+        "test:mocha:coverage": "NODE_ENV=test nyc mocha --require ts-node/register  --require ./test/setup-chai.ts --require source-map-support/register '**/*.spec.ts'",
+        "test": "yarn lint && yarn test:mocha && yarn check-example",
+        "test:fix": "yarn lint:fix && yarn test:mocha && yarn check-example",
+        "test:coverage": "yarn lint && yarn test:mocha:coverage && yarn check-example",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls"
+      },
+      "devDependencies": {
+        "@types/chai": "^4.1.2",
+        "@types/glob": "^5.0.35",
+        "@types/mocha": "^5.2.0",
+        "@types/node": "^10.0.3",
+        "@types/resolve": "^0.0.8",
+        "@types/sinon": "^5.0.2",
+        "@types/sinon-chai": "^3.2.0",
+        "chai": "^4.1.2",
+        "coveralls": "^3.0.2",
+        "mocha": "^5.2.0",
+        "nyc": "^12.0.2",
+        "sinon": "^6.1.5",
+        "sinon-chai": "^3.2.0",
+        "snap-shot-it": "^6.0.1",
+        "source-map-support": "^0.5.8",
+        "ts-essentials": "^1.0.0",
+        "ts-node": "^7.0.1",
+        "tslint": "^5.11.0",
+        "typescript": "^3.0.1",
+        "typestrict": "^0.0.9"
+      },
+      "dependencies": {
+        "@types/mkdirp": "^0.5.2",
+        "@types/prettier": "^1.13.2",
+        "chalk": "^2.4.1",
+        "glob": "^7.1.2",
+        "mkdirp": "^0.5.1",
+        "prettier": "^1.14.2",
+        "resolve": "^1.8.1"
+      },
+      "gitHead": "17acaa6571a87e7541c8b9afeadc79fa0c9fa33a",
+      "bugs": {
+        "url": "https://github.com/krzkaczor/ts-generator/issues"
+      },
+      "homepage": "https://github.com/krzkaczor/ts-generator#readme",
+      "_id": "ts-generator@0.0.7",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "8.11.4",
+      "_npmUser": {
+        "name": "krzkaczor",
+        "email": "krzkaczor@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-JEti801kQhRra40XNVfW6u/kfS5BwaoiGEuzRY3ttzHBkKbqIgEPZYOYZj5QDJLwN4oc+tnfB+lyOKtF4Zyy3A==",
+        "shasum": "82440d7a78d2350bd96c003f4fcfa5b2f0700ef6",
+        "tarball": "https://registry.npmjs.org/ts-generator/-/ts-generator-0.0.7.tgz",
+        "fileCount": 30,
+        "unpackedSize": 18412,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbumcrCRA9TVsSAnZWagAA92sP+wQJ3zzeIQNjT+zTecqb\nDpxMnSawsl1HyvUGUC1aGyra7+pghKhhb38YgUg+4ZlMBalqDtt/E5fkJJTo\n9pImqA2e0/+Kp2zLVhKG+0tiCurKqvGPrad92/rYS7oXIuOVVZmlcEE94lxR\nJMSuIM4vhXEAUutYmKLFOT2B42ten888BgPY83eelyHpK4QbkmxnSCbvZKxe\njIVjhSv1uCEEudNE0eql9K/Wpp3pHokKtyZ9ni0N3mQmtPb5SXoijUN+mXET\nxDKIG7/7tE0qMo2pEcYS5cTzZAl9tkH5wsJZuRM9izNbgvIFmC9cVXP1lftc\ncHpmJKbegL9Tzl/UUw9uawIHIR2yPG5NroGkUvvemNtbak9Bym1uEdD/9bmQ\nzOeKsL4+bZLtbbOGNM5zAXSeLdPf04qp6KcADypgJigatrOkRryYI3Vd242c\n1wvvzf8XwpLA8zFGGxsve7uRIY4scHhlm5m940MlPuGQeHdBemrm1mTAEtMm\npriWkJHJyYFw2jqeW+njIJH5MS3eqFGABWvuACcYsS7Z81c+KewMMKePVdHN\ncSco0BHyYu2RxcOWDzoXRFvXrJhB5KETxyQ20J5diuvgu+2b4Ml5D0+Db/bo\noN1I7RsKPmXGEIQ1fMCv9cDOpUURPIoJEX3xVq3S4LZ6HqwEOF+JiddyUPrG\n5ECF\r\n=etFb\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHNBbqyX2aorRdoigzvXl7CDXacAHoXS38DoRI0n4lQeAiEA7B8WS9BIVwbcOd1FRKqokz2jXr4gn9yiOldSsNEjtPM="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "krzkaczor",
+          "email": "krzkaczor@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-generator_0.0.7_1538942762604_0.2542429604942258"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.8": {
+      "name": "ts-generator",
+      "description": "The missing piece for fully typesafe Typescript apps",
+      "keywords": [
+        "typescript",
+        "generator",
+        "typings",
+        "types",
+        "typesafe"
+      ],
+      "version": "0.0.8",
+      "bin": {
+        "ts-generator": "dist/cli/run.js"
+      },
+      "main": "./dist/publicApi.js",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/krzkaczor/ts-generator.git"
+      },
+      "license": "MIT",
+      "scripts": {
+        "start": "ts-node ./src/cli/cli.ts ./example/ts-gen.json",
+        "build": "rm -rf ./dist && tsc -p tsconfig.prod.json --outDir ./dist",
+        "postbuild": "chmod +x ./dist/cli/run.js",
+        "prepublishOnly": "yarn test && yarn build",
+        "format": "prettier --list-different '**/*.{ts,json,md, gql}'",
+        "format:fix": "prettier --write '**/*.{ts,json,md,gql}'",
+        "tslint": "tslint -p ./tsconfig.json -e 'node_modules/**/*' -e '**/node_modules/**/*' '**/*.ts'",
+        "tslint:fix": "tslint --fix --format stylish -p ./tsconfig.json -e 'node_modules/**/*' -e '**/node_modules/**/*' '**/*.ts'",
+        "tsc": "tsc --noEmit",
+        "lint": "yarn format && yarn tslint && yarn tsc",
+        "lint:fix": "yarn format:fix && yarn tslint:fix && yarn tsc",
+        "check-example": "yarn build && ./example/scripts/test.sh",
+        "test:mocha": "NODE_ENV=test mocha --require ts-node/register --require ./test/setup-chai.ts '**/*.spec.ts'",
+        "test:mocha:coverage": "NODE_ENV=test nyc mocha --require ts-node/register  --require ./test/setup-chai.ts --require source-map-support/register '**/*.spec.ts'",
+        "test": "yarn lint && yarn test:mocha && yarn check-example",
+        "test:fix": "yarn lint:fix && yarn test:mocha && yarn check-example",
+        "test:coverage": "yarn lint && yarn test:mocha:coverage && yarn check-example",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls"
+      },
+      "devDependencies": {
+        "@types/chai": "^4.1.2",
+        "@types/glob": "^5.0.35",
+        "@types/mocha": "^5.2.0",
+        "@types/node": "^10.0.3",
+        "@types/sinon": "^5.0.2",
+        "@types/sinon-chai": "^3.2.0",
+        "chai": "^4.1.2",
+        "coveralls": "^3.0.2",
+        "mocha": "^5.2.0",
+        "nyc": "^12.0.2",
+        "sinon": "^6.1.5",
+        "sinon-chai": "^3.2.0",
+        "snap-shot-it": "^6.0.1",
+        "source-map-support": "^0.5.8",
+        "ts-node": "^7.0.1",
+        "tslint": "^5.11.0",
+        "typescript": "^3.0.1",
+        "typestrict": "^0.0.9"
+      },
+      "dependencies": {
+        "@types/mkdirp": "^0.5.2",
+        "@types/prettier": "^1.13.2",
+        "@types/resolve": "^0.0.8",
+        "ts-essentials": "^1.0.0",
+        "chalk": "^2.4.1",
+        "glob": "^7.1.2",
+        "mkdirp": "^0.5.1",
+        "prettier": "^1.14.2",
+        "resolve": "^1.8.1"
+      },
+      "gitHead": "f62cd65fb724c5cac05049992ffa7bf9334f4c7b",
+      "bugs": {
+        "url": "https://github.com/krzkaczor/ts-generator/issues"
+      },
+      "homepage": "https://github.com/krzkaczor/ts-generator#readme",
+      "_id": "ts-generator@0.0.8",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "8.11.4",
+      "_npmUser": {
+        "name": "krzkaczor",
+        "email": "krzkaczor@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-Gi+aZCELpVL7Mqb+GuMgM+n8JZ/arZZib1iD/R9Ok8JDjOCOCrqS9b1lr72ku7J45WeDCFZxyJoRsiQvhokCnw==",
+        "shasum": "7bd48ca064db026d9520bcb682b69efc20971d6a",
+        "tarball": "https://registry.npmjs.org/ts-generator/-/ts-generator-0.0.8.tgz",
+        "fileCount": 30,
+        "unpackedSize": 18412,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbumlBCRA9TVsSAnZWagAAFFgP/RESH8BnNaVFilYk8ESL\ngypFlVWdSmry1kNijSgVwme45HlHZdWXSHbs0USgLCGJ3Oekr6AtEUAGBhrB\nQVH3SnkE+u53dgJ3p6qHvubOy0KtkztENwUOpgDhwIL7ZevXfv/9gBlo+GE9\nJbSI7/Bm+LFk0NXebtdStP/nVIiIV1HCxX19bySk/zemyvszz0iD/6YVQVF+\njn5Zqsaj4CUhMNlHtDtngWAMNTpAmnU731PhIRyBirBoywHHATqVN+dTo/Ad\nFtkUPU3Q6qWXU0VTT25pw6V6Yr3Ov4vuFcVkOrZL295GZmppYk/CqE5UiIQK\nnhhdXgx3PXfPa5m3NaKPxKDNb3/Zum51dbLTZrHYgIuY/c3+z2eTq6exwGRJ\nQ+H7RK0xIAxXNoNroUJ4C3sjuWN4+g3XCmyxzOXZT1QjwZaDWygyvU/NfHFQ\nRIHgg8okxLy5fQBdaWnep9fPEqy3SQ8h2rLBf+Gie7x83OHOggD1uQpr7kDb\nsPSZ6+0zCgaRDS9OEMcEzesU5Xs8xy8CZkSnTIAdm6A79rzn8yFhwrtvzd1g\nKn8HYpiPHkam344EYZxrseNDbSy5VhK1PgcVsqpY51Mr+JUfvKIYd/qKkzWc\nSjz10ilGs8TGLG3ewplEUjR67ht6GdPlTioEea37e6NYeKgy2mENx6zeRGeT\n4rnJ\r\n=O8Qm\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCbCiOIqgjV0Ea6NCTL+tkL5/Wd5eNkkmvIPu0YO3scugIhAORr72uNbNEW2QIhurR4/ecN+uyZJ1yEwpXCiyt8XZIU"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "krzkaczor",
+          "email": "krzkaczor@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-generator_0.0.8_1538943297005_0.6533262102306387"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.0": {
+      "name": "ts-generator",
+      "description": "The missing piece for fully typesafe Typescript apps",
+      "keywords": [
+        "typescript",
+        "generator",
+        "typings",
+        "types",
+        "typesafe"
+      ],
+      "version": "0.1.0",
+      "bin": {
+        "ts-generator": "dist/cli/run.js"
+      },
+      "main": "./dist/publicApi.js",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/krzkaczor/ts-generator.git"
+      },
+      "license": "MIT",
+      "scripts": {
+        "start": "ts-node ./src/cli/cli.ts ./example/ts-gen.json",
+        "build": "rm -rf ./dist && tsc -p tsconfig.prod.json --outDir ./dist",
+        "postbuild": "chmod +x ./dist/cli/run.js",
+        "prepublishOnly": "yarn test && yarn build",
+        "format": "prettier --list-different '**/*.{ts,json,md, gql}'",
+        "format:fix": "prettier --write '**/*.{ts,json,md,gql}'",
+        "tslint": "tslint -p ./tsconfig.json -e 'node_modules/**/*' -e '**/node_modules/**/*' '**/*.ts'",
+        "tslint:fix": "tslint --fix --format stylish -p ./tsconfig.json -e 'node_modules/**/*' -e '**/node_modules/**/*' '**/*.ts'",
+        "tsc": "tsc --noEmit",
+        "lint": "yarn format && yarn tslint && yarn tsc",
+        "lint:fix": "yarn format:fix && yarn tslint:fix && yarn tsc",
+        "check-example": "yarn build && ./example/scripts/test.sh",
+        "test:mocha": "NODE_ENV=test mocha --require ts-node/register --require ./test/setup-chai.ts '**/*.spec.ts'",
+        "test:mocha:coverage": "NODE_ENV=test nyc mocha --require ts-node/register  --require ./test/setup-chai.ts --require source-map-support/register '**/*.spec.ts'",
+        "test": "yarn lint && yarn test:mocha && yarn check-example",
+        "test:fix": "yarn lint:fix && yarn test:mocha && yarn check-example",
+        "test:coverage": "yarn lint && yarn test:mocha:coverage && yarn check-example",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls"
+      },
+      "devDependencies": {
+        "@types/chai": "^4.1.2",
+        "@types/glob": "^5.0.35",
+        "@types/mocha": "^5.2.0",
+        "@types/node": "^10.0.3",
+        "@types/sinon": "^5.0.2",
+        "@types/sinon-chai": "^3.2.0",
+        "chai": "^4.1.2",
+        "coveralls": "^3.0.2",
+        "mocha": "^5.2.0",
+        "nyc": "^12.0.2",
+        "sinon": "^6.1.5",
+        "sinon-chai": "^3.2.0",
+        "snap-shot-it": "^6.0.1",
+        "source-map-support": "^0.5.8",
+        "ts-node": "^7.0.1",
+        "tslint": "^5.11.0",
+        "typescript": "^3.0.1",
+        "typestrict": "^0.0.9"
+      },
+      "dependencies": {
+        "@types/mkdirp": "^0.5.2",
+        "@types/prettier": "^2.1.1",
+        "@types/resolve": "^0.0.8",
+        "chalk": "^2.4.1",
+        "glob": "^7.1.2",
+        "mkdirp": "^0.5.1",
+        "prettier": "^2.1.2",
+        "resolve": "^1.8.1",
+        "ts-essentials": "^1.0.0"
+      },
+      "gitHead": "c728b72b0a658e1e22beed6a0bbcdc2546e0fe93",
+      "bugs": {
+        "url": "https://github.com/krzkaczor/ts-generator/issues"
+      },
+      "homepage": "https://github.com/krzkaczor/ts-generator#readme",
+      "_id": "ts-generator@0.1.0",
+      "_nodeVersion": "10.19.0",
+      "_npmVersion": "6.13.4",
+      "dist": {
+        "integrity": "sha512-57XAR2nweqLSYld/Lt8txz5T8cfydOBlaS0KywcT2OQNm5bqvxtmB0cQtWExpcgk64/TSWylX7f4AYoE2sJsWQ==",
+        "shasum": "ffd4f28da48fd22350ae20e69c1197e6993d11f6",
+        "tarball": "https://registry.npmjs.org/ts-generator/-/ts-generator-0.1.0.tgz",
+        "fileCount": 30,
+        "unpackedSize": 18422,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJff115CRA9TVsSAnZWagAAEjYQAI84Nh7Nb7mBqkv8HPwC\nMSEy1IGgxOYoIV8waoP7S04DbdIAKO/iZNLpEvpJLkddb1Pz649/USLF7bgm\n030Nz21tib2+Xvz8CLFW0ANtEdV3dzia6J8jKeomd23NXHZVS2l6F+33NzIF\n9urDAtr3FL9PbXeTqd+ErsLWiEtOXyFaXdgy/CGyf/bO9bdnLL9F+KGmMQt+\nvr+aYyxLoVeAMTJn0C00NWUSJJ/G6Cc/epcPunpKZ57Op9OIwtnwzH0LY7VM\nwHML/4XNEiogIKyn5dJVVsQbM/Vjmbf0d6DsTmyICHsgD2ACYDb3Lj6fLxBT\n7Z3dP8Dod5QZGCNBbk7FyMvX4FfYIMKpxU9uy0KETdP94pX1HuutIMH6ZFYK\n5yyPq2g0n77YEJ0DpchWxT6Iv5nowB6pYsPpwoPlNlfqCi7E05D2ksgYp4HK\neyL9/cZzuNopX95eZ7TEjPmnOz+nKuSLzGm0XIdad6txEcaitYAHd7DWeqpV\n6whOV2cHSwC350NhSBOWATSKZX4mv/lXRsy4XaLmPWzbldxxV6OJ2ejmH/HI\nvz+lJNwf7He775bl0JgsogUGarBRi6zgiYT26kDIZj+Fky3kYmxwa8gQaSXu\nXmLhZzdCiFPxA6hKtXxzWAhNnPQp2i2/aNx+YyP+38eDRvyhDvsRyhLZitB1\nHim0\r\n=CPQO\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDuuFwPnWH1tSxMzPONv72Ap0qPU0pCtT2vHe4qcvvpUgIgM0VN6/lPQUZoxwSr4UU08wILL77v0sdwf8PeD/vis1I="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "krzkaczor",
+          "email": "chris@kaczor.io"
+        }
+      ],
+      "_npmUser": {
+        "name": "krzkaczor",
+        "email": "chris@kaczor.io"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-generator_0.1.0_1602182520667_0.8889495777713603"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.1": {
+      "name": "ts-generator",
+      "description": "The missing piece for fully typesafe Typescript apps",
+      "keywords": [
+        "typescript",
+        "generator",
+        "typings",
+        "types",
+        "typesafe"
+      ],
+      "version": "0.1.1",
+      "bin": {
+        "ts-generator": "dist/cli/run.js"
+      },
+      "main": "./dist/publicApi.js",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/krzkaczor/ts-generator.git"
+      },
+      "license": "MIT",
+      "scripts": {
+        "start": "ts-node ./src/cli/cli.ts ./example/ts-gen.json",
+        "build": "rm -rf ./dist && tsc -p tsconfig.prod.json --outDir ./dist",
+        "postbuild": "chmod +x ./dist/cli/run.js",
+        "prepublishOnly": "yarn test && yarn build",
+        "format": "prettier --list-different '**/*.{ts,json,md, gql}'",
+        "format:fix": "prettier --write '**/*.{ts,json,md,gql}'",
+        "tslint": "tslint -p ./tsconfig.json -e 'node_modules/**/*' -e '**/node_modules/**/*' '**/*.ts'",
+        "tslint:fix": "tslint --fix --format stylish -p ./tsconfig.json -e 'node_modules/**/*' -e '**/node_modules/**/*' '**/*.ts'",
+        "tsc": "tsc --noEmit",
+        "lint": "yarn format && yarn tslint && yarn tsc",
+        "lint:fix": "yarn format:fix && yarn tslint:fix && yarn tsc",
+        "check-example": "yarn build && ./example/scripts/test.sh",
+        "test:mocha": "NODE_ENV=test mocha --require ts-node/register --require ./test/setup-chai.ts '**/*.spec.ts'",
+        "test:mocha:coverage": "NODE_ENV=test nyc mocha --require ts-node/register  --require ./test/setup-chai.ts --require source-map-support/register '**/*.spec.ts'",
+        "test": "yarn lint && yarn test:mocha && yarn check-example",
+        "test:fix": "yarn lint:fix && yarn test:mocha && yarn check-example",
+        "test:coverage": "yarn lint && yarn test:mocha:coverage && yarn check-example",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls"
+      },
+      "devDependencies": {
+        "@types/chai": "^4.1.2",
+        "@types/glob": "^5.0.35",
+        "@types/mocha": "^5.2.0",
+        "@types/node": "^10.0.3",
+        "@types/sinon": "^5.0.2",
+        "@types/sinon-chai": "^3.2.0",
+        "chai": "^4.1.2",
+        "coveralls": "^3.0.2",
+        "mocha": "^5.2.0",
+        "nyc": "^12.0.2",
+        "sinon": "^6.1.5",
+        "sinon-chai": "^3.2.0",
+        "snap-shot-it": "^6.0.1",
+        "source-map-support": "^0.5.8",
+        "ts-node": "^7.0.1",
+        "tslint": "^5.11.0",
+        "typescript": "^3.0.1",
+        "typestrict": "^0.0.9"
+      },
+      "dependencies": {
+        "@types/mkdirp": "^0.5.2",
+        "@types/prettier": "^2.1.1",
+        "@types/resolve": "^0.0.8",
+        "chalk": "^2.4.1",
+        "glob": "^7.1.2",
+        "mkdirp": "^0.5.1",
+        "prettier": "^2.1.2",
+        "resolve": "^1.8.1",
+        "ts-essentials": "^1.0.0"
+      },
+      "gitHead": "0da72d26917d4b8bdd5b6be1bc041a3c7fe45e15",
+      "bugs": {
+        "url": "https://github.com/krzkaczor/ts-generator/issues"
+      },
+      "homepage": "https://github.com/krzkaczor/ts-generator#readme",
+      "_id": "ts-generator@0.1.1",
+      "_nodeVersion": "10.19.0",
+      "_npmVersion": "6.13.4",
+      "dist": {
+        "integrity": "sha512-N+ahhZxTLYu1HNTQetwWcx3so8hcYbkKBHTr4b4/YgObFTIKkOSSsaa+nal12w8mfrJAyzJfETXawbNjSfP2gQ==",
+        "shasum": "af46f2fb88a6db1f9785977e9590e7bcd79220ab",
+        "tarball": "https://registry.npmjs.org/ts-generator/-/ts-generator-0.1.1.tgz",
+        "fileCount": 30,
+        "unpackedSize": 18487,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfg1foCRA9TVsSAnZWagAAzaQP/2N8r7TJfBwoMW20s3lF\npuRj8ge231ig3nKkLV71kyFfSiYfdQuYatoNg6tl8RvMcyTquV6no5B7lXYC\n1js+aZqp01uLl4FixrIBq0NQzs1550Po9qUOQDPu34tqWFBdt5t73BTU/Ynw\nCOwZX9Sf7FPDDxpxeZyQBMb/ra+YRupJGhquXixI92GZLjKIa0wD2zvNypXd\nP1mSdRfOOTjt1xekZrXkljhB8CWqyctInSMaVF3UV0EMlj52Ga7TWhAg3TkI\nEiLdhz3gIh6ViQepwkXjlxg0XnF+InDw67z7MkCKXMN+A8s1OEnKzV2VvfLa\nhX4w3El1Yacrle1NP5mnsqrVjtMFpKuliaM6zaQy6V+AAgZyoBzYooIHoHHJ\nnFJQ/la2bdmAvj952PewDgZEBuMNLUlCKqcABoZH+s0/CyQBh7SjuHL5M1Yi\nMfLKXXB/+qg0rdYArXWIRvBj+LfEyaS4yMRP9j9eY2LXZ4N6+jyz/LyyFmi5\n857O/hcat45tLM9Hta4bJOjmRf2g54JmxKd8PtZ8CdTVUnS8Hu76TjPO8Q1k\nbQRvaBhPbMxCJulk7lPeATyuG1Zc0AKGzpXX1FKnW8kPHDNmJkIzlEpHSGks\nMibatQkb5sENdbIeH1tcMjQolznmnXCTiTpvnArJWZUwriVwQMhDDJGgve+E\ndvu2\r\n=Z6ZY\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCh/HHdMc67w4hyfL9CL/GxgUOUeS3Cz5bQQHIJ61LH1AIhAO7N+cTzaibrCF739yqSYgUp/CBWEVeGfeZCxbA/fnXW"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "krzkaczor",
+          "email": "chris@kaczor.io"
+        }
+      ],
+      "_npmUser": {
+        "name": "krzkaczor",
+        "email": "chris@kaczor.io"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-generator_0.1.1_1602443239875_0.4847710115801358"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2018-08-17T18:56:49.640Z",
+    "0.0.1": "2018-08-17T18:56:49.717Z",
+    "modified": "2022-05-22T07:13:10.773Z",
+    "0.0.2": "2018-08-28T13:07:25.214Z",
+    "0.0.3": "2018-08-28T16:07:05.896Z",
+    "0.0.4": "2018-08-29T19:54:37.610Z",
+    "0.0.5": "2018-08-29T21:48:10.708Z",
+    "0.0.6": "2018-09-07T20:27:03.296Z",
+    "0.0.7": "2018-10-07T20:06:02.719Z",
+    "0.0.8": "2018-10-07T20:14:57.133Z",
+    "0.1.0": "2020-10-08T18:42:00.764Z",
+    "0.1.1": "2020-10-11T19:07:19.983Z"
+  },
+  "maintainers": [
+    {
+      "name": "krzkaczor",
+      "email": "chris@kaczor.io"
+    }
+  ],
+  "description": "The missing piece for fully typesafe Typescript apps",
+  "keywords": [
+    "typescript",
+    "generator",
+    "typings",
+    "types",
+    "typesafe"
+  ],
+  "license": "MIT",
+  "readme": "# ts-generator\n\nThe missing piece for fully typesafe Typescript apps\n\nGenerate Typescript typings for any kind of files (json, graphql queries, css modules).\n\n[![Coverage Status](https://coveralls.io/repos/github/krzkaczor/ts-generator/badge.svg?branch=master)](https://coveralls.io/github/krzkaczor/ts-gen?branch=master)\n\n## Features:\n\n- plugin based architecture allowing one tool to handle all different \"untyped\" data (css modules, graphql queries,\n  ethereum smartcontracts, json files) — think babel for types\n- unified config for all plugins\n- automatically prettifies output to match code style of the project\n- watch mode\n\n## Example:\n\n- [generate types for simple JSON files](https://github.com/krzkaczor/ts-generator/blob/master/test/integration/ts-gen-plugins/dummy-json/index.ts)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krzkaczor/ts-generator.git"
+  },
+  "homepage": "https://github.com/krzkaczor/ts-generator#readme",
+  "bugs": {
+    "url": "https://github.com/krzkaczor/ts-generator/issues"
+  }
+}

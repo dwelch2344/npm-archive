@@ -1,0 +1,898 @@
+{
+  "_id": "tscpaths",
+  "_rev": "9-38a661513675beff1ca728c27d997a49",
+  "name": "tscpaths",
+  "dist-tags": {
+    "latest": "0.0.9"
+  },
+  "versions": {
+    "0.0.1": {
+      "name": "tscpaths",
+      "version": "0.0.1",
+      "description": "Replace absolute paths to relative paths after typescript compilation",
+      "main": "cjs/index.js",
+      "module": "lib/index.js",
+      "types": "lib/index.d.ts",
+      "bin": {
+        "tscpaths": "cjs/index.js"
+      },
+      "scripts": {
+        "build": "yarn build:esm && yarn build:cjs",
+        "build:esm": "tsc -p ./tsconfig.esm.json",
+        "build:cjs": "tsc -p ./tsconfig.cjs.json",
+        "clear": "rm -rf ./lib ./cjs ./coverage",
+        "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx}\"",
+        "lint": "tslint -c ./tslint.json \"src/**/*\"",
+        "lint:fix": "tslint --fix -c ./tslint.json \"src/**/*\"",
+        "start": "yarn clear && yarn format && yarn lint:fix && yarn test && yarn build",
+        "test": "jest",
+        "test:coverage": "jest --coverage",
+        "test:watch": "jest --watch"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/joonhocho/tscpaths.git"
+      },
+      "keywords": [
+        "typescript",
+        "paths",
+        "alias",
+        "absolute path",
+        "relative path",
+        "compilation",
+        "tsc"
+      ],
+      "author": {
+        "name": "Joon Ho Cho",
+        "email": "joonho1101@gmail.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/joonhocho/tscpaths/issues"
+      },
+      "homepage": "https://github.com/joonhocho/tscpaths#readme",
+      "devDependencies": {
+        "@types/globby": "^8.0.0",
+        "@types/jest": "^23.3.1",
+        "@types/node": "^10.5.4",
+        "jest": "^23.4.2",
+        "prettier": "^1.14.0",
+        "ts-jest": "^23.0.1",
+        "tslint": "^5.11.0",
+        "tslint-config-airbnb": "^5.9.2",
+        "tslint-config-prettier": "^1.14.0",
+        "typescript": "^3.0.1"
+      },
+      "dependencies": {
+        "commander": "^2.17.1",
+        "globby": "^8.0.1"
+      },
+      "licenseText": "MIT License\n\nCopyright (c) 2018 Joon Ho Cho\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "_id": "tscpaths@0.0.1",
+      "dist": {
+        "shasum": "f962da6e463c899686e4b150071649c60da41e90",
+        "tarball": "https://registry.npmjs.org/tscpaths/-/tscpaths-0.0.1.tgz",
+        "integrity": "sha512-nMZMGwwd9BnyNcxC7yXdVHd6PpcgAKUTBlJayqp0NIhsstaK6KX4ACKmig4t7YzrbsKBXL/AdNg5m/Dn0JBvZA==",
+        "fileCount": 20,
+        "unpackedSize": 29646,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbf9e4CRA9TVsSAnZWagAABgoP/1AKCnDsgwWjSUkBXIHD\nYJt/UP+OMDPFJJFeWib1GgucrR6IzO9JD4aSCBpc3lDt7oU/lOS7qYWIAKDk\ntqQYYZadZI5GBfwhCxSXfNPRHb99BVRf2PagfeeTQvqWdv4ej37bmU1U3RLQ\n6WK8JTpQgiyvuLUCOOFaRxjT03/oggFsOjwnLJEKP53vCZI4AcrRp8r4d5Bv\n3Pq5Xshf2ZKGsrCu3EaCVj6+K/gCC2IalO7C0haQ4fIbIw58XVr8KPILvtAg\ntiPtIaPN6Dfr8sjorvoEbg6eJgsAJy3+0HzOYvFkzko5yAlTLUz+eYduimh7\nzn8OCy0dim2ti3bwpHCGyRaoL696jQxLgb5oeXZ5/tCOnexhbH5kq5v7SfFy\nNzYfOAwrdwxetDuY3+Mjdst7ecA66iFPq77BIRm5cepfEUzVKhVMW9asQrKN\n5BMccWY+ziebTUcxBVuWnJZYfyypWT0qn7A/oRCxADt04aX/ipQC+1Q6Wzhj\nCZhNQ63A6kBMPlRpTokPfnUkfsuiw1K2XQyXEzKoHYDb4IskFEDEG4ZyS8gm\nPxMEoQX1iKL1imbm3ZBVbH3Wc1eblVcgTOG9kj0RvfyFGnFKpicS7TOM4ZVM\nV8ybC+Q8m6qkdNxhuskY6Y5xkELr9Ca+6GxANpX9xrPDsXNlLgB6e5i9VpOK\nCi3Z\r\n=F4WJ\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIF+dARTUZc0GfF5i1K355ctNuFE1iE2SkLx12y9uahQXAiEA3SzFDtr8n+nrxccfyGnG5JcJtqioHBRu58n5XpThZxc="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "joonhocho",
+          "email": "joonho1101@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "joonhocho",
+        "email": "joonho1101@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/tscpaths_0.0.1_1535104945937_0.7115668584341479"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.2": {
+      "name": "tscpaths",
+      "version": "0.0.2",
+      "description": "Replace absolute paths to relative paths after typescript compilation",
+      "main": "cjs/index.js",
+      "module": "lib/index.js",
+      "types": "lib/index.d.ts",
+      "bin": {
+        "tscpaths": "cjs/index.js"
+      },
+      "scripts": {
+        "build": "yarn build:esm && yarn build:cjs",
+        "build:esm": "tsc -p ./tsconfig.esm.json",
+        "build:cjs": "tsc -p ./tsconfig.cjs.json",
+        "clear": "rm -rf ./lib ./cjs ./coverage",
+        "format": "prettier --write \"./*.{js,jsx,ts,tsx}\" \"./src/**/*.{js,jsx,ts,tsx}\"",
+        "lint": "tslint -c ./tslint.json \"src/**/*\"",
+        "lint:fix": "tslint --fix -c ./tslint.json \"src/**/*\"",
+        "start": "yarn clear && yarn format && yarn lint:fix && yarn test && yarn build",
+        "test": "jest",
+        "test:coverage": "jest --coverage",
+        "test:watch": "jest --watch"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/joonhocho/tscpaths.git"
+      },
+      "keywords": [
+        "typescript",
+        "paths",
+        "alias",
+        "absolute path",
+        "relative path",
+        "compilation",
+        "tsc"
+      ],
+      "author": {
+        "name": "Joon Ho Cho",
+        "email": "joonho1101@gmail.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/joonhocho/tscpaths/issues"
+      },
+      "homepage": "https://github.com/joonhocho/tscpaths#readme",
+      "devDependencies": {
+        "@types/globby": "^8.0.0",
+        "@types/jest": "^23.3.1",
+        "@types/node": "^10.5.4",
+        "jest": "^23.4.2",
+        "prettier": "^1.14.0",
+        "ts-jest": "^23.0.1",
+        "tslint": "^5.11.0",
+        "tslint-config-airbnb": "^5.9.2",
+        "tslint-config-prettier": "^1.14.0",
+        "typescript": "^3.0.1"
+      },
+      "dependencies": {
+        "commander": "^2.17.1",
+        "globby": "^8.0.1"
+      },
+      "licenseText": "MIT License\n\nCopyright (c) 2018 Joon Ho Cho\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "_id": "tscpaths@0.0.2",
+      "dist": {
+        "shasum": "5071729269c7ee2f7e41125cc6acf7eae1bff5b6",
+        "tarball": "https://registry.npmjs.org/tscpaths/-/tscpaths-0.0.2.tgz",
+        "integrity": "sha512-nDBTVYPHk0yD3mpJ6loJE+b8pfrGb9uF64vOTALu6CoHYnmfo+BVZ+lb3Mo74YtrRxZZ1oJO28n6q/ImllQPhg==",
+        "fileCount": 20,
+        "unpackedSize": 29796,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbg8vcCRA9TVsSAnZWagAASE4P/2Y5NjZCGsovNR20uaYH\nJRDTU4M5XrJnGPP2yo79/z2ihvfXQp0BMasAG1J++IOjTaa/YuFi/PXt5Wkn\n7E9a02zIcf6gZ6ld0G6EsGfb2NbhTm9KzeFGE80UyUJZhKSfl6zYdOhxrE5S\nt8eJAsRmDAzcwH2Yn48BQtJ/h6Qvc5q8jI+x/xhqQHq9xOw3D7K22WVxqp3b\nngAjTJdyjPNwf5C2oU8XJM59WHtEoCRcOmv2l1Oo4WNxl7uiU9ml9wlXRJnU\neKRCJmcdJu0CuFLKA6gnre4NkfzQgJauIXOhP+m9ks3mmU4a74S1vVo25457\n6yQcWjcKE11s29BawS/paaMUr+NWqQAmjPVfvD8BDKFzVzgE4C8YMPNv0/DD\n2I0rsLqshRbwwpTUHztCVbM+fRiKL+DV5yD4gHBa6l4cU2JykL460x5XeogV\nD3Bh4qB4X57jCFShoONdZNeu/BDv9694zZUvbkhYOz5KZl5cIcpQSzpB6NWw\nybzQPdQ5JEoIBCEpGdLboe2tjTfSQjlQ43rAO12fgLNaDAiQT9rNLubh0iqH\nZ43mY3s7JBWg/8oT+DbfFS0pZgRBPqYp5kaGQZaR/sNkDg9Yxo280NlMi4AG\notXTSRPVjqRbQIwiFqg9KkPiLcB7fSdANAJSIiOj6CUqmsYBFOUfWcgm1Bb1\nldO7\r\n=ds/7\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBTCiP2ts65cGQCIJpOOrdJ01iS25Aa7vDGPxP9k/qPzAiBB8kCL5CgDvzAK7S5RMd/O6Pob/P6yN/RDDgbC7MMauw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "joonhocho",
+          "email": "joonho1101@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "joonhocho",
+        "email": "joonho1101@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/tscpaths_0.0.2_1535364059835_0.684629911119637"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.3": {
+      "name": "tscpaths",
+      "version": "0.0.3",
+      "description": "Replace absolute paths to relative paths after typescript compilation",
+      "main": "cjs/index.js",
+      "module": "lib/index.js",
+      "types": "lib/index.d.ts",
+      "bin": {
+        "tscpaths": "cjs/index.js"
+      },
+      "scripts": {
+        "build": "yarn build:esm && yarn build:cjs",
+        "build:esm": "tsc -p ./tsconfig.esm.json",
+        "build:cjs": "tsc -p ./tsconfig.cjs.json",
+        "clear": "rm -rf ./lib ./cjs ./coverage",
+        "format": "prettier --write \"./*.{js,jsx,ts,tsx}\" \"./src/**/*.{js,jsx,ts,tsx}\"",
+        "lint": "tslint -c ./tslint.json \"src/**/*\"",
+        "lint:fix": "tslint --fix -c ./tslint.json \"src/**/*\"",
+        "start": "yarn clear && yarn format && yarn lint:fix && yarn test && yarn build",
+        "test": "jest",
+        "test:coverage": "jest --coverage",
+        "test:watch": "jest --watch"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/joonhocho/tscpaths.git"
+      },
+      "keywords": [
+        "typescript",
+        "paths",
+        "alias",
+        "absolute path",
+        "relative path",
+        "compilation",
+        "tsc"
+      ],
+      "author": {
+        "name": "Joon Ho Cho",
+        "email": "joonho1101@gmail.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/joonhocho/tscpaths/issues"
+      },
+      "homepage": "https://github.com/joonhocho/tscpaths#readme",
+      "devDependencies": {
+        "@types/globby": "^8.0.0",
+        "@types/jest": "^23.3.1",
+        "@types/node": "^10.5.4",
+        "jest": "^23.4.2",
+        "prettier": "^1.14.0",
+        "ts-jest": "^23.0.1",
+        "tslint": "^5.11.0",
+        "tslint-config-airbnb": "^5.9.2",
+        "tslint-config-prettier": "^1.14.0",
+        "typescript": "^3.0.1"
+      },
+      "dependencies": {
+        "commander": "^2.17.1",
+        "globby": "^8.0.1"
+      },
+      "licenseText": "MIT License\n\nCopyright (c) 2018 Joon Ho Cho\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "_id": "tscpaths@0.0.3",
+      "dist": {
+        "shasum": "38079c7a8146a59d0cae44196842d2a4e0e1923b",
+        "tarball": "https://registry.npmjs.org/tscpaths/-/tscpaths-0.0.3.tgz",
+        "integrity": "sha512-eATd0zG09N4J/9Yh55lOE5TPi37xbbUZkgWuq3FP1HM8GcC014RttkW5mxhxVw6lkjuogmPOJC+XK4XBILtpxA==",
+        "fileCount": 20,
+        "unpackedSize": 29796,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbg8xYCRA9TVsSAnZWagAA27MQAINgIRPmgaNLVUAvwpKK\ne+/lkJ+KGNPhfVUjNSgnCTufISsxK4I866DoSYrVzGOfkn/YnYbpGJz75CMJ\nFNmaRORSZ35qVh820ZosAkijTYerIE1BXoah7VSjj6qiQgUTI4lenOT0xyB1\nHtGaJC+jkI83YBGa3KovvGTbXNagXylUp8nlgfkBPhq6DihbiG3QghoLiNFX\n8+2qyc909bEjq6W5xebzT9dM1V0j9uC03Yin2K9L30N9phCOGJVuJ8fRkcGP\n9V7Te46Bke64Wt1i8T2zphAKwiUAc9QUnfGKoby7c0G8+ifU6TE9n2GQXupJ\n8cr+eNcsizzrVCTo2/lbjaXdSSp1to0uGgNVnexjEsgNGPkpGFDsmlE0aLre\ng3TwtPtgKCOzrTW+yqAFq8+KCPiu0fLSiqrtDHfaKiugSewXzwFGG20qd8DI\nvJbD9i5iBCtbHZeS8LpLj1bLA53vTFHT6/azX7XR7h28uiQE6OibfWQN0giz\nHGnwH3yMKe7H1IL95YsW4PT27uc4zxNL2FdJu27dXNSeuuoyW4LncdVYzxzK\nj992Q6uSdIUsuoPxYr46QVHj3ikjcSHX/Wrh2LMB40mjvx9ejAqeFHQ4bsi1\nPBnCyG4Pvpe0UKEWNbkGYGa2tA6y92o146asNuLPq4rQXUsoV5ZeA6xPjDrD\noh9K\r\n=09c3\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDYSmnvR3iEKUPTx3MJklqjKoye1EKeqyK64RMFnfj9CAiEAisMfAVTey4dz6isJHnRbZ8ORD7CrgTbuGY/3J4T3XW0="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "joonhocho",
+          "email": "joonho1101@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "joonhocho",
+        "email": "joonho1101@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/tscpaths_0.0.3_1535364184126_0.7094055156024621"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.4": {
+      "name": "tscpaths",
+      "version": "0.0.4",
+      "description": "Replace absolute paths to relative paths after typescript compilation",
+      "main": "cjs/index.js",
+      "module": "lib/index.js",
+      "types": "lib/index.d.ts",
+      "bin": {
+        "tscpaths": "cjs/index.js"
+      },
+      "scripts": {
+        "build": "yarn build:esm && yarn build:cjs",
+        "build:esm": "tsc -p ./tsconfig.esm.json",
+        "build:cjs": "tsc -p ./tsconfig.cjs.json",
+        "clear": "rm -rf ./lib ./cjs ./coverage",
+        "format": "prettier --write \"./*.{js,jsx,ts,tsx}\" \"./src/**/*.{js,jsx,ts,tsx}\"",
+        "lint": "tslint -c ./tslint.json \"src/**/*\"",
+        "lint:fix": "tslint --fix -c ./tslint.json \"src/**/*\"",
+        "start": "yarn clear && yarn format && yarn lint:fix && yarn test && yarn build",
+        "test": "jest",
+        "test:coverage": "jest --coverage",
+        "test:watch": "jest --watch"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/joonhocho/tscpaths.git"
+      },
+      "keywords": [
+        "typescript",
+        "paths",
+        "alias",
+        "absolute path",
+        "relative path",
+        "compilation",
+        "tsc"
+      ],
+      "author": {
+        "name": "Joon Ho Cho",
+        "email": "joonho1101@gmail.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/joonhocho/tscpaths/issues"
+      },
+      "homepage": "https://github.com/joonhocho/tscpaths#readme",
+      "devDependencies": {
+        "@types/globby": "^8.0.0",
+        "@types/jest": "^23.3.1",
+        "@types/node": "^10.11.3",
+        "jest": "^23.4.2",
+        "prettier": "^1.14.0",
+        "ts-jest": "^23.0.1",
+        "tslint": "^5.11.0",
+        "tslint-config-airbnb": "^5.9.2",
+        "tslint-config-prettier": "^1.14.0",
+        "typescript": "^3.0.1"
+      },
+      "dependencies": {
+        "commander": "^2.17.1",
+        "globby": "^8.0.1"
+      },
+      "licenseText": "MIT License\n\nCopyright (c) 2018 Joon Ho Cho\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "_id": "tscpaths@0.0.4",
+      "dist": {
+        "shasum": "41e6ffee5ed51cea85a1660349be05b87e3c2a36",
+        "tarball": "https://registry.npmjs.org/tscpaths/-/tscpaths-0.0.4.tgz",
+        "integrity": "sha512-doKxz2lQi6mW6meHtE3H93QpKvRZZjEPo5s3EV2JtyrS3Q1oJ/hNHr7elnbKgekrzWowMb3eJwUzuw0TWqzB4w==",
+        "fileCount": 27,
+        "unpackedSize": 37550,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbsVbNCRA9TVsSAnZWagAA7HcP/2VTqBKUH8yDA/h9pjuR\nCkFp00e8AIeEK8oRCojjJrOwsIVAE39VFKD+poOMIRccyQJPhGdGlDCVU6bf\n4un7IHXHKFsTA4Fc0u3RTX+65Co3oTwdtd1Vky+FZ4UjCZbBXW+vfiOi2Vkn\nbZbF0mGFKVIFRrIX5uEV6ej1HxvGdGe4X184jO7YGMVG6DNUfSDriNvPGMsj\nu5aEezZixyU2Fu17jmW7vC4J+gW91k7BWeHUGOkm8lPeXp8Spz6P32AfJivV\nf8+gGmChyolqdv+7ftD+zZbwctwgqcO9cVYwAUIOhjC/tVKZJq/sKKi0wyib\nwSZ+w85ylto3MdPBk31pvWIx6b+swFGlkAuMb0JZhTbeo/FIC9+hzU+i82m0\nZVrtBtXLgPIVMeMDxvogQbaedKCUotYw+UPnn05ChKZvXK11KJztnXeShrmB\nA12xTNeQaB4/Ybzf9T5CG0eoOMey0elEQxyopXOdiKdNdmQbj3w9pTJov5Td\n7BmyFjFvbu+nZufrYeSMFnsnql8hoj2mHRjjtTHlZ/twx4oIRTdvghGS+nnR\ndOIhbcbYh+vmZu8D0Ry+O9fALQCtsqnf6Rm2maUjq3PUpVJy0p/e1pFA1HqH\nAtTY7Hd0xa9u45K3xBu8zb6ri3zDFf3+agtBAGkT5L/PYPAnjcOFUFA+NC/5\nvnYT\r\n=BR3/\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDlt/ZnoYYn9ASQfz7j7uC1e3gANKhG81GtP5azGP+ntAIgVxqd3N2VPyKdGc9/Tqq2JLgyXvUjasThTAnT3LUwy+w="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "joonhocho",
+          "email": "joonho1101@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "joonhocho",
+        "email": "joonho1101@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/tscpaths_0.0.4_1538348749106_0.5173871370396823"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.5": {
+      "name": "tscpaths",
+      "version": "0.0.5",
+      "description": "Replace absolute paths to relative paths after typescript compilation",
+      "main": "cjs/index.js",
+      "module": "lib/index.js",
+      "types": "lib/index.d.ts",
+      "bin": {
+        "tscpaths": "cjs/index.js"
+      },
+      "scripts": {
+        "build": "yarn build:esm && yarn build:cjs",
+        "build:esm": "tsc -p ./tsconfig.esm.json",
+        "build:cjs": "tsc -p ./tsconfig.cjs.json",
+        "clear": "rm -rf ./lib ./cjs ./coverage",
+        "format": "prettier --write \"./*.{js,jsx,ts,tsx}\" \"./src/**/*.{js,jsx,ts,tsx}\"",
+        "lint": "tslint -c ./tslint.json \"src/**/*\"",
+        "lint:fix": "tslint --fix -c ./tslint.json \"src/**/*\"",
+        "start": "yarn clear && yarn format && yarn lint:fix && yarn test && yarn build",
+        "test": "jest",
+        "test:coverage": "jest --coverage",
+        "test:watch": "jest --watch"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/joonhocho/tscpaths.git"
+      },
+      "keywords": [
+        "typescript",
+        "paths",
+        "alias",
+        "absolute path",
+        "relative path",
+        "compilation",
+        "tsc"
+      ],
+      "author": {
+        "name": "Joon Ho Cho",
+        "email": "joonho1101@gmail.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/joonhocho/tscpaths/issues"
+      },
+      "homepage": "https://github.com/joonhocho/tscpaths#readme",
+      "devDependencies": {
+        "@types/globby": "^8.0.0",
+        "@types/jest": "^23.3.1",
+        "@types/node": "^10.11.3",
+        "jest": "^23.4.2",
+        "prettier": "^1.14.0",
+        "ts-jest": "^23.0.1",
+        "tslint": "^5.11.0",
+        "tslint-config-airbnb": "^5.9.2",
+        "tslint-config-prettier": "^1.14.0",
+        "typescript": "^3.0.1"
+      },
+      "dependencies": {
+        "commander": "^2.17.1",
+        "globby": "^8.0.1"
+      },
+      "licenseText": "MIT License\n\nCopyright (c) 2018 Joon Ho Cho\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "_id": "tscpaths@0.0.5",
+      "dist": {
+        "shasum": "c86e940c41713daa3a027443dec12e958c1346df",
+        "tarball": "https://registry.npmjs.org/tscpaths/-/tscpaths-0.0.5.tgz",
+        "integrity": "sha512-KsHZAgAsngsP7IBhqPx/7hvZdS8rJQL5YSGKdhc1Fr0F9/L4+cqMUsyHCFMiCWp2zcQxfVwynYY7XtSa53vZyA==",
+        "fileCount": 27,
+        "unpackedSize": 37801,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbsVefCRA9TVsSAnZWagAA0PcP/ilyL20tR4agtY2EJMKT\nrkuFVxQ5+qp1w/Z17fVzhf/GAgxygtCZyfhD02oTERzTybSUlg4QfkzZugn6\npJQmMxqnbW7WWm0Z+yAfCwOtXLCqNUjGni4a0DHG1SKjx/W4ORuh62mkqSeX\nTY6zNSNM24/zqLrn81GQvFC1F7CK/Cd8BXwnNpn0fwmMycSyDHK7hk4PvtKL\nNPLY9/sgojj4nfJvxLNcueQ6qUEQmLZsKSwMtNmYewEIZICRugjgz2VBSq3f\nY6Hd8mae1+5pvdQgcmlh989pUv919oqeFIJo6iTJJvsiyiaYES/q2RkCLoQ1\nXUuxmlMPFexkTJdzLRk1Cnpbft9JyPzaNmhcg5jfQyYR5ZQTeFg9UWcCAR1I\nUOpdpon50KCFlCRJDQMjdOhK3em8Nkm46tc5cNgqmxDs4Y+ptJhSFy9ewn1w\n556k8WoevyKE+e8yxaoVnsh1Hc1rXqKFmK84TpkbOaUZ8FsArT8KDS+7++34\n2sFJQ6v2gRR4ubY/T7Ac11v/RiRvswlmqfV4IL2xwep3C8OS3WITTYrb3Qxr\njT7MN3mDLkm5KmeP06tAekFb1Hp6egWThGQka9G1qfm1Ykrt0iDy9jPQruOz\n1IRtC5H+D0t2nNayHdu2y2GZ2vZZleWlarCG4+je4ZK3hkoDNSOvGwWGdVBx\nEf3F\r\n=bdxu\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBvUJb9PKKFBsGvhXP5TLdvqXvXFfICGW0g4K6Hg0fJGAiEAjfdjkXB/REpl41VNG+oWNktflQ/X+Vi2F9dhhUmCCdY="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "joonhocho",
+          "email": "joonho1101@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "joonhocho",
+        "email": "joonho1101@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/tscpaths_0.0.5_1538348958407_0.7540728714756815"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.6": {
+      "name": "tscpaths",
+      "version": "0.0.6",
+      "description": "Replace absolute paths to relative paths after typescript compilation",
+      "main": "cjs/index.js",
+      "module": "lib/index.js",
+      "types": "lib/index.d.ts",
+      "bin": {
+        "tscpaths": "cjs/index.js"
+      },
+      "scripts": {
+        "build": "yarn build:esm && yarn build:cjs",
+        "build:esm": "tsc -p ./tsconfig.esm.json",
+        "build:cjs": "tsc -p ./tsconfig.cjs.json",
+        "clear": "rm -rf ./lib ./cjs ./coverage",
+        "format": "prettier --write \"./*.{js,jsx,ts,tsx}\" \"./src/**/*.{js,jsx,ts,tsx}\"",
+        "lint": "tslint -c ./tslint.json \"src/**/*\"",
+        "lint:fix": "tslint --fix -c ./tslint.json \"src/**/*\"",
+        "start": "yarn clear && yarn format && yarn lint:fix && yarn test && yarn build",
+        "test": "jest",
+        "test:coverage": "jest --coverage",
+        "test:watch": "jest --watch"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/joonhocho/tscpaths.git"
+      },
+      "keywords": [
+        "typescript",
+        "paths",
+        "alias",
+        "absolute path",
+        "relative path",
+        "compilation",
+        "tsc"
+      ],
+      "author": {
+        "name": "Joon Ho Cho",
+        "email": "joonho1101@gmail.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/joonhocho/tscpaths/issues"
+      },
+      "homepage": "https://github.com/joonhocho/tscpaths#readme",
+      "devDependencies": {
+        "@types/globby": "^8.0.0",
+        "@types/jest": "^23.3.1",
+        "@types/node": "^10.11.3",
+        "jest": "^23.4.2",
+        "prettier": "^1.14.0",
+        "ts-jest": "^23.0.1",
+        "tslint": "^5.11.0",
+        "tslint-config-airbnb": "^5.9.2",
+        "tslint-config-prettier": "^1.14.0",
+        "typescript": "^3.0.1"
+      },
+      "dependencies": {
+        "commander": "^2.17.1",
+        "globby": "^8.0.1"
+      },
+      "licenseText": "MIT License\n\nCopyright (c) 2018 Joon Ho Cho\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "_id": "tscpaths@0.0.6",
+      "dist": {
+        "shasum": "5eb8a6eb49206401b1243e24cdddcd7aa87031f9",
+        "tarball": "https://registry.npmjs.org/tscpaths/-/tscpaths-0.0.6.tgz",
+        "integrity": "sha512-zoPsJcOxOBHUEX7GjwnXhOLMtfdWyQXZsE7HrzsSQanWjN4Wu3Dvl3wW6U6HYUFSxZQVSOoISiCk+iFOwF94YA==",
+        "fileCount": 28,
+        "unpackedSize": 39389,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbw59zCRA9TVsSAnZWagAA/TAQAIaeSizpy2CN8yLuAbA7\nIO17gfU/Inf3s+IeMj9OSLcBU4JaNy2QZJEyYqpyT0S3Q7lIFdNURSIQP0CP\nhEhkfT4JOUsbFCRbr197SZNolyvcy1pITHWefopYAsDKbOnGhxYrFddkk+4K\n/MyqB3uN82CPiFzhD51pKT6Yo6pfwCNiMzkrnhjS0Nte0eJ7Tcy+ovV8M1JH\nVtoj1Nxehn1MOWAcJA5Be6pJUgQ6GP/F8WHz81xHIU/2vUSiN+topv88gDdu\ncAB2snxiMgRuZMLoli1cXqfd2BwaAwlXCWbXJoKI/MWNb6Jz6HJCu7ymBujQ\nPUO0BLkwgG8JlsXIgwXOZJgHJpLCWu9eXItZaAEdYU6XEGFSf2xqgNUOxs0v\n0Uxdbwivudb/Jd4s53G3uf/kWNzbYsCDCKBDOAdBWbSHmZY6GNJUCp+nNqz6\n+2iy+2GGrj6dQJuBEHzRwpoZPGAM4/12Tiq7NFZTINediEoimnYzjtTCh3+A\n2Tcn2jqnn6rbj4WS1vqLtbtq++E4uvrF1U97NNgSxpwYh5RvoXquaTiqBA3c\nI7KoiUY1Pj3Z64Xy5rYMgHYw9OcMU7AD1n2jeHL7Y8ojemG49Ebis5nifGkS\nZJHSeH7MUjAdLBCYGLheOt0bkfmoCt9pw9F5SFczubld4LWKEpiZniaNqLaw\nOWJ1\r\n=YgDU\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAOl89VjzfC1xD5LVC/VWH/0c15/fo44rDuq36P3UzgCAiEAvfNpSbwdRPxBwEKixh8qamm1Ji9meBlZzYPnr4Q6I/4="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "joonhocho",
+          "email": "joonho1101@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "joonhocho",
+        "email": "joonho1101@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/tscpaths_0.0.6_1539546994517_0.8110788244091574"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.7": {
+      "name": "tscpaths",
+      "version": "0.0.7",
+      "description": "Replace absolute paths to relative paths after typescript compilation",
+      "main": "cjs/index.js",
+      "module": "lib/index.js",
+      "types": "lib/index.d.ts",
+      "bin": {
+        "tscpaths": "cjs/index.js"
+      },
+      "scripts": {
+        "build": "yarn build:esm && yarn build:cjs",
+        "build:esm": "tsc -p ./tsconfig.esm.json",
+        "build:cjs": "tsc -p ./tsconfig.cjs.json",
+        "clear": "rm -rf ./lib ./cjs ./coverage",
+        "format": "prettier --write \"./*.{js,jsx,ts,tsx}\" \"./src/**/*.{js,jsx,ts,tsx}\"",
+        "lint": "tslint -c ./tslint.json \"src/**/*\"",
+        "lint:fix": "tslint --fix -c ./tslint.json \"src/**/*\"",
+        "start": "yarn clear && yarn format && yarn lint:fix && yarn test && yarn build",
+        "test": "jest",
+        "test:coverage": "jest --coverage",
+        "test:watch": "jest --watch"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/joonhocho/tscpaths.git"
+      },
+      "keywords": [
+        "typescript",
+        "paths",
+        "alias",
+        "absolute path",
+        "relative path",
+        "compilation",
+        "tsc"
+      ],
+      "author": {
+        "name": "Joon Ho Cho",
+        "email": "joonho1101@gmail.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/joonhocho/tscpaths/issues"
+      },
+      "homepage": "https://github.com/joonhocho/tscpaths#readme",
+      "devDependencies": {
+        "@types/globby": "^8.0.2",
+        "@types/jest": "^24.0.11",
+        "@types/node": "^11.12.0",
+        "jest": "^24.5.0",
+        "prettier": "^1.16.4",
+        "ts-jest": "^24.0.0",
+        "tslint": "^5.14.0",
+        "tslint-config-airbnb": "^5.11.1",
+        "tslint-config-prettier": "^1.18.0",
+        "typescript": "^3.3.4000"
+      },
+      "dependencies": {
+        "commander": "^2.19.0",
+        "globby": "^8.0.2"
+      },
+      "licenseText": "MIT License\n\nCopyright (c) 2018 Joon Ho Cho\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "_id": "tscpaths@0.0.7",
+      "dist": {
+        "shasum": "9a80a466b6445a166cf1947446f134b62642617e",
+        "integrity": "sha512-OgiF+fc/BV/X59/hbBZpZp1EXX0AxT2qqP6jzT3ZICrph56UXgqxZF+ztIHpsakRP6Jlun74rQqUSP598yu0JQ==",
+        "tarball": "https://registry.npmjs.org/tscpaths/-/tscpaths-0.0.7.tgz",
+        "fileCount": 28,
+        "unpackedSize": 39771,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcm+KgCRA9TVsSAnZWagAA+lEQAID9u6tqgD+fVx/G0kHb\nRY5SD1SJWCQBAsARcVURX7wNvcopaa4a6yh1WRuyRCXTDvVK3dZSm6bwJQQ8\n4HbFzKiGc9vlfLRvP++Zpg/HmOFKuysCTS1lMgM/z3d9WCLDURY31sjbe+oU\nCsr6vNq0SAS0EXCnJv7Xsv8SputTL3d60a1HXMp69nInv1XIBe9ANX9sxExP\n19IeM/FXj5KT7GGkdF7FPcOEatI1LEoreWR5R+hoqcQh+NpFoS0FfX5kCoMD\nTWuQN2hCeRqSryVVzSXlsHc9bVoFRrGjgmrIxd7ZnUQr6cxi4gARunxJvN0g\nRVYlOlJeXgWXhXKh75aASflM8ZwIwqU7PRG9REFWFKxtIOzsqIoPRaeXEwWR\n0lgIw7oc930wUs22uu/Y61/zR6XIgNM0dPwDiOxm/3IhHSnpKGo/eOW84Dm9\nVnRTzoHqeqD+u8JwvXw2sVOgkiZXdcQNfHG3LSfY0evTCdN0rByhm+JJCizw\nfxTgFGn5X7TY2QD7y5NJRKCSSmI8oDiZOkCnpZSQ3YXjFD+ORdrRbr+YlxPk\n+Fr72oinc9gIe9fwRmz97mDwWlWrN8wo5UhnoEoTfSlomEKfP/a5zl8SS4mE\nUNRwcHF1M+1tZJSYt8KrG9w7+gX+CeDE6k7SRe9mk2dZjmsP5uOZKm9CuP5/\nX//B\r\n=LDPi\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCrHychGoTG/ACGHFZki1z/sbMAMXhT8uSQVV2bqF09hAIgGEKXVdWBtvX+NtzR6SiosDrbNVZzGBKZnQvm4PwY6NU="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "joonhocho",
+          "email": "joonho1101@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "joonhocho",
+        "email": "joonho1101@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/tscpaths_0.0.7_1553719967515_0.2568946724628598"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.8": {
+      "name": "tscpaths",
+      "version": "0.0.8",
+      "description": "Replace absolute paths to relative paths after typescript compilation",
+      "main": "cjs/index.js",
+      "module": "lib/index.js",
+      "types": "lib/index.d.ts",
+      "bin": {
+        "tscpaths": "cjs/index.js"
+      },
+      "scripts": {
+        "build": "yarn build:esm && yarn build:cjs",
+        "build:esm": "tsc -p ./tsconfig.esm.json",
+        "build:cjs": "tsc -p ./tsconfig.cjs.json",
+        "clear": "rm -rf ./lib ./cjs ./coverage",
+        "format": "prettier --write \"./*.{js,jsx,ts,tsx}\" \"./src/**/*.{js,jsx,ts,tsx}\"",
+        "lint": "tslint -c ./tslint.json \"src/**/*\"",
+        "lint:fix": "tslint --fix -c ./tslint.json \"src/**/*\"",
+        "start": "yarn clear && yarn format && yarn lint:fix && yarn test && yarn build",
+        "test": "jest",
+        "test:coverage": "jest --coverage",
+        "test:watch": "jest --watch"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/joonhocho/tscpaths.git"
+      },
+      "keywords": [
+        "typescript",
+        "paths",
+        "alias",
+        "absolute path",
+        "relative path",
+        "compilation",
+        "tsc"
+      ],
+      "author": {
+        "name": "Joon Ho Cho",
+        "email": "joonho1101@gmail.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/joonhocho/tscpaths/issues"
+      },
+      "homepage": "https://github.com/joonhocho/tscpaths#readme",
+      "devDependencies": {
+        "@types/jest": "^24.0.12",
+        "@types/node": "^12.0.0",
+        "jest": "^24.8.0",
+        "prettier": "^1.17.0",
+        "ts-jest": "^24.0.2",
+        "tslint": "^5.16.0",
+        "tslint-config-airbnb": "^5.11.1",
+        "tslint-config-prettier": "^1.18.0",
+        "typescript": "^3.4.5"
+      },
+      "dependencies": {
+        "commander": "^2.20.0",
+        "globby": "^9.2.0"
+      },
+      "licenseText": "MIT License\n\nCopyright (c) 2018 Joon Ho Cho\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "_id": "tscpaths@0.0.8",
+      "dist": {
+        "shasum": "18a740b21b813d8032e309001e0e2313d4fe0133",
+        "integrity": "sha512-osqxllAMlfHSKVEeZ57GvvQkZYrXaNx1B2N4HEVeH3UhV6kaO9hOBjEsZvrkuIk02h6yc3bhoQ52a3oL8d5/VA==",
+        "tarball": "https://registry.npmjs.org/tscpaths/-/tscpaths-0.0.8.tgz",
+        "fileCount": 28,
+        "unpackedSize": 41562,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc1CVcCRA9TVsSAnZWagAAU7wP/2NaY+WtXMZokcts6wJg\no8MKokraArJoYyeUegX2QCdcoEU9IPn7OJDslD3vit3xc6nbNw25SI73HW8p\n44zkCmZylNaUWO+2V/JntUxy+qtKRXbKSHv+9y50AJGjwrFfmKYt7Jh22VZY\ncLdjYiknYf762YFjaAF7HiMUOCoPVi6JtNc1sxHZt9A/QVbjxbx+WYnf+ZW0\n5Y1qxNReZEfOPyY1tf2V8YPCzjY6NYUcT59jvdsZoG+tD5TGtbmJMUjuB6Jt\n+w5Kq+OvFvl5fRKll/4E8NGVlqKXOzWpqenPkG4wqBmceurA5KtNfrYsjOlP\nKUgmFjVa+A4XRXmAz7ilsHZYWxv77BcNsN/65/I48GJQtJmE5UHYKATXoVAp\npW8DTAdahxjAwu9HcRTtyOYzXGNfc867SlArDZxUNicDGkHfvDQeerjyrCZd\nJgddQp+/wZBBpg9eZSO4/juPoF/ac/mj/B6B83VOqVPAfIfN5Y2eYQcKQlf+\n/Hf/cYthImvJ6BCR2LKlXqwWuDjXgQzagTXu/hhu1YXdu7DJ+jK3lBHGSeIf\nTSbfwMLnxwIvhABuV2SnT60iEMXz74YFbLvAowXFb2LZCZKjHp4NR8YX8S6N\nHasxR1pXvNpMU0gT2tkrpeiA2saYn/cS/V+IROfCC5pJWZ0n3i44jlwkJKmH\n1IXA\r\n=y+AS\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDrrSRrjBetdA9qf200wC8dpXkjRHdH8rOPcMg4QIDGLAIgL554aTaoqdGpwNQn9NbdcLgZuXTtgAxhvgfLmJ6Nm54="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "joonhocho",
+          "email": "joonho1101@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "joonhocho",
+        "email": "joonho1101@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/tscpaths_0.0.8_1557407067264_0.5114991106512015"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.9": {
+      "name": "tscpaths",
+      "version": "0.0.9",
+      "description": "Replace absolute paths to relative paths after typescript compilation",
+      "main": "cjs/index.js",
+      "module": "lib/index.js",
+      "types": "lib/index.d.ts",
+      "bin": {
+        "tscpaths": "cjs/index.js"
+      },
+      "scripts": {
+        "build": "yarn build:esm && yarn build:cjs",
+        "build:esm": "tsc -p ./tsconfig.esm.json",
+        "build:cjs": "tsc -p ./tsconfig.cjs.json",
+        "clear": "rm -rf ./lib ./cjs ./coverage",
+        "format": "prettier --write \"./*.{js,jsx,ts,tsx}\" \"./src/**/*.{js,jsx,ts,tsx}\"",
+        "lint": "tslint -c ./tslint.json \"src/**/*\"",
+        "lint:fix": "tslint --fix -c ./tslint.json \"src/**/*\"",
+        "start": "yarn clear && yarn format && yarn lint:fix && yarn test && yarn build",
+        "test": "jest",
+        "test:coverage": "jest --coverage",
+        "test:watch": "jest --watch"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/joonhocho/tscpaths.git"
+      },
+      "keywords": [
+        "typescript",
+        "paths",
+        "alias",
+        "absolute path",
+        "relative path",
+        "compilation",
+        "tsc"
+      ],
+      "author": {
+        "name": "Joon Ho Cho",
+        "email": "joonho1101@gmail.com"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/joonhocho/tscpaths/issues"
+      },
+      "homepage": "https://github.com/joonhocho/tscpaths#readme",
+      "devDependencies": {
+        "@types/jest": "^24.0.12",
+        "@types/node": "^12.0.0",
+        "jest": "^24.8.0",
+        "prettier": "^1.17.0",
+        "ts-jest": "^24.0.2",
+        "tslint": "^5.16.0",
+        "tslint-config-airbnb": "^5.11.1",
+        "tslint-config-prettier": "^1.18.0",
+        "typescript": "^3.4.5"
+      },
+      "dependencies": {
+        "commander": "^2.20.0",
+        "globby": "^9.2.0"
+      },
+      "licenseText": "MIT License\n\nCopyright (c) 2018 Joon Ho Cho\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "_id": "tscpaths@0.0.9",
+      "dist": {
+        "shasum": "c77abfde6820920f10c64f83c27753b9505814ab",
+        "integrity": "sha512-tz4qimSJTCjYtHVsoY7pvxLcxhmhgmwzm7fyMEiL3/kPFFVyUuZOwuwcWwjkAsIrSUKJK22A7fNuJUwxzQ+H+w==",
+        "tarball": "https://registry.npmjs.org/tscpaths/-/tscpaths-0.0.9.tgz",
+        "fileCount": 28,
+        "unpackedSize": 41621,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc1CfpCRA9TVsSAnZWagAAgI0QAIL5yMmoXR7t5icwiGF3\niazUoeS/O3UzSjDfOSm1aIl2a17ZhRs0lJTtKeHTqCb72hnvmUAGUocHtDAe\nJXfkSGUe2bBuX5GoJbd2GSi+U2+ve8JocfYY968nZIAAU4nmaZ/umYLUp7ZS\nyP4Q4NFk8Vdv2BSrPLwgIMFXNTKg9mResMLaGZMkkOvqIZwJjRXis+Mc1OGe\n31buEVEFB4v9UXkRmCIiKnctkWWMnDj080pqwcVRFfQC9v5L2AFLZqDrdJin\ncgRvXwes726AsCWCfjl7/RW0f8a0JdiUuusmYx8ysdurq6Xs508jaWlU7Dq+\nRspeQ9cpR3mFaJgw6Nz3z8Hyxm0zZisyUiKgxned6snPA7AJFhk19HGl24mJ\nWPaPwkwWvqhmslg3y4RwJdpjy7hjBHyWy7vIPa5zO9A0R7RdPc5Vms6G319s\n1WXOZUe7vZfm9C/oPFh0raxIFUyiCY7T+Qb3GEiCI051Mx97LHsyxb+62oUE\ndhGM9YjIbWjWqNucB1NBS2XpGp+XdQoFom11EAbmcjamG+b34IJF8VKW03wQ\nqE/KJAnvol07prYwPz37VR1q6Hn4YE7kTEjxq41Zex9cvq1G+NHm1q+bLmXQ\nXsjuLWFHFqzFNo3EVER+Z1GYwzRO1PW5nSOl0l00SfztZctyv8nJLSbZ58xc\nUTj5\r\n=/mpk\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDDGl44I0q7dn3+62nUpYSnmdFJJXOYRRSxRCRYAMrdoQIhAMagB6mljqQ3a4h200AdOr3XkfpFG2PpfL4Q7nGPejg0"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "joonhocho",
+          "email": "joonho1101@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "joonhocho",
+        "email": "joonho1101@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/tscpaths_0.0.9_1557407720117_0.5411858100095761"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2018-08-24T10:02:25.936Z",
+    "0.0.1": "2018-08-24T10:02:25.992Z",
+    "modified": "2022-05-22T08:21:12.382Z",
+    "0.0.2": "2018-08-27T10:00:59.907Z",
+    "0.0.3": "2018-08-27T10:03:04.306Z",
+    "0.0.4": "2018-09-30T23:05:49.199Z",
+    "0.0.5": "2018-09-30T23:09:18.556Z",
+    "0.0.6": "2018-10-14T19:56:34.690Z",
+    "0.0.7": "2019-03-27T20:52:47.667Z",
+    "0.0.8": "2019-05-09T13:04:27.476Z",
+    "0.0.9": "2019-05-09T13:15:20.275Z"
+  },
+  "maintainers": [
+    {
+      "name": "joonhocho",
+      "email": "joonho1101@gmail.com"
+    }
+  ],
+  "description": "Replace absolute paths to relative paths after typescript compilation",
+  "homepage": "https://github.com/joonhocho/tscpaths#readme",
+  "keywords": [
+    "typescript",
+    "paths",
+    "alias",
+    "absolute path",
+    "relative path",
+    "compilation",
+    "tsc"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joonhocho/tscpaths.git"
+  },
+  "author": {
+    "name": "Joon Ho Cho",
+    "email": "joonho1101@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/joonhocho/tscpaths/issues"
+  },
+  "license": "MIT",
+  "readme": "# tscpaths\nReplace absolute paths to relative paths after typescript compilation (tsc) during compile-time.\n\n[![npm version](https://badge.fury.io/js/tscpaths.svg)](https://badge.fury.io/js/tscpaths)\n[![Dependency Status](https://david-dm.org/joonhocho/tscpaths.svg)](https://david-dm.org/joonhocho/tscpaths)\n[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)\n\n## Comparison to [tsconfig-paths](https://github.com/dividab/tsconfig-paths)\n\\+ Compile time (no runtime dependencies)\n\n## Getting Started\nFirst, install tscpaths as devDependency using npm or yarn.\n\n```sh\nnpm install --save-dev tscpaths\n# or\nyarn add -D tscpaths\n```\n\n## Add it to your build scripts in package.json\n```json\n\"scripts\": {\n  \"build\": \"tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./out\",\n}\n```\n\n### Options\n| flag         | description                                        |\n| ------------ | -------------------------------------------------- |\n| -p --project | project configuration file (tsconfig.json)         |\n| -s --src     | source code root directory                         |\n| -o --out     | output directory of transpiled code (tsc --outDir) |\n\nYou need to provide -s (--src) and -o (--out), because it's hard to predict source and output paths based on tsconfig.json.\n\nI've tried a little and failed. :(\n\n`tsc` does some magic to determine source and output paths and I haven't dived too deep to mimic it.\n\nFor now, it's simpler to provide the paths manually.\n\nIf you know how, Pull Requests are welcome!\n\n\n# Disclaimer !!!!!\nThis is not a mature project yet.\n\nIt works for my setup so far.\n\nIt may not work correctly if your setup is too complicated, so please do some testing before pushing it to production!!!\n",
+  "readmeFilename": "README.md"
+}

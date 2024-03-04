@@ -1,0 +1,780 @@
+{
+  "_id": "ember-cli-uglify",
+  "_rev": "21-2b65bc6132e313b30e689362f74b6233",
+  "name": "ember-cli-uglify",
+  "time": {
+    "modified": "2022-06-16T22:44:00.981Z",
+    "created": "2015-01-26T13:57:29.402Z",
+    "0.1.0": "2015-01-26T13:57:29.402Z",
+    "1.0.0": "2015-01-27T15:40:45.609Z",
+    "1.0.1": "2015-01-27T20:46:59.593Z",
+    "1.2.0": "2015-06-16T16:15:40.238Z",
+    "2.0.0-beta.1": "2017-07-10T12:19:08.679Z",
+    "2.0.0-beta.2": "2017-09-08T17:28:48.380Z",
+    "2.0.0": "2017-10-03T17:45:19.649Z",
+    "2.0.2": "2018-02-21T16:39:41.684Z",
+    "2.1.0": "2018-03-28T01:07:33.196Z",
+    "3.0.0": "2019-04-12T20:31:48.975Z"
+  },
+  "maintainers": [
+    {
+      "email": "jesper.karsrud@gmail.com",
+      "name": "jkarsrud"
+    },
+    {
+      "email": "me@rwjblue.com",
+      "name": "rwjblue"
+    },
+    {
+      "email": "stefan.penner@gmail.com",
+      "name": "stefanpenner"
+    },
+    {
+      "email": "tobias.bieniek@gmx.de",
+      "name": "turbo87"
+    }
+  ],
+  "dist-tags": {
+    "latest": "3.0.0",
+    "next": "2.0.0-beta.2"
+  },
+  "description": "JavaScript minification for Ember-CLI",
+  "readme": "\nember-cli-uglify\n==============================================================================\n\n[![npm](https://img.shields.io/npm/v/ember-cli-uglify.svg)](https://www.npmjs.com/package/ember-cli-uglify)\n[![Build Status](https://travis-ci.org/ember-cli/ember-cli-uglify.svg?branch=master)](https://travis-ci.org/ember-cli/ember-cli-uglify)\n[![Build status](https://ci.appveyor.com/api/projects/status/xbx40pk5b4ykawjh/branch/master?svg=true)](https://ci.appveyor.com/project/embercli/ember-cli-uglify/branch/master)\n\n[UglifyJS](https://github.com/mishoo/UglifyJS2) for [Ember.js](http://emberjs.com/).\n\n\nInstallation\n------------------------------------------------------------------------------\n\n```\nember install ember-cli-uglify\n```\n\nUsage\n------------------------------------------------------------------------------\n\nAfter installing `ember-cli-uglify` it will automatically hook into the build\npipeline and minify your JS files in production builds.\n\nIf you want to customize how `ember-cli-uglify` is running UglifyJS under the\nhood you have several configuration options available:\n\n```js\n// ember-cli-build.js\n\nvar app = new EmberApp({\n  'ember-cli-uglify': {\n    enabled: true,\n\n    exclude: ['vendor.js'],\n\n    uglify: {\n      compress: {\n        sequences: 50,\n      },\n      output: {\n        semicolons: true,\n      },\n    },\n  },\n});\n```\n\n\n### Options\n\n- `enabled?: boolean`: Enables/Disables minification (defaults to `true` for\n  production builds, `false` for development builds)\n\n- `exclude?: string[]`: A list of paths or globs to exclude from minification\n\n- `uglify?: UglifyOptions`: A hash of [options](https://github.com/mishoo/UglifyJS2#minify-options)\n  that are passed directly to UglifyJS\n\n\n### Source Maps\n\nSource maps are disabled by default for production builds in Ember CLI. If you\nwant to enable source maps for production builds you can configure that in your\n`ember-cli-build.js` too:\n\n```js\n// ember-cli-build.js\n\nvar app = new EmberApp({\n  sourcemaps: {\n    enabled: true,\n    extensions: ['js'],\n  },\n});\n```\n\n\nLicense\n------------------------------------------------------------------------------\nember-cli-uglify is licensed under the [MIT License](LICENSE.md).\n",
+  "versions": {
+    "1.0.0": {
+      "name": "ember-cli-uglify",
+      "version": "1.0.0",
+      "description": "JavaScript minification for Ember-CLI",
+      "scripts": {
+        "start": "ember server",
+        "build": "ember build",
+        "test": "ember test"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jkarsrud/ember-cli-uglify.git"
+      },
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "author": "",
+      "license": "MIT",
+      "keywords": [
+        "ember-addon"
+      ],
+      "dependencies": {
+        "broccoli-uglify-sourcemap": "^0.2.1"
+      },
+      "gitHead": "36c87c68d129c26047616e3cc25856714bb748c6",
+      "bugs": {
+        "url": "https://github.com/jkarsrud/ember-cli-uglify/issues"
+      },
+      "homepage": "https://github.com/jkarsrud/ember-cli-uglify",
+      "_id": "ember-cli-uglify@1.0.0",
+      "_shasum": "09a285b4316f466f4699a3748c021ec3bb94cecc",
+      "_from": ".",
+      "_npmVersion": "2.1.17",
+      "_nodeVersion": "0.10.35",
+      "_npmUser": {
+        "name": "jkarsrud",
+        "email": "jesper.karsrud@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "jkarsrud",
+          "email": "jesper.karsrud@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "09a285b4316f466f4699a3748c021ec3bb94cecc",
+        "tarball": "https://registry.npmjs.org/ember-cli-uglify/-/ember-cli-uglify-1.0.0.tgz",
+        "integrity": "sha512-ImyNAOnMikefU8ictLqgD+eDLZOfoLjOP+QSe0sblsXKzNoHSMswbufYgXR+SxtOYQ7YLnW067bJWfVxd94y8w==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDCeXPveGWhIy+CJx2kr3BIBl5xzPDsKPqMM5Kgps0hEQIgeIvVLdc+joLx7yTwqsgnJBKqGGHfruuXEjWsvSlC9X8="
+          }
+        ]
+      },
+      "directories": {},
+      "deprecated": "Renamed to ember-cli-terser."
+    },
+    "1.0.1": {
+      "name": "ember-cli-uglify",
+      "version": "1.0.1",
+      "description": "JavaScript minification for Ember-CLI",
+      "scripts": {
+        "start": "ember server",
+        "build": "ember build",
+        "test": "ember test"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jkarsrud/ember-cli-uglify.git"
+      },
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "author": "",
+      "license": "MIT",
+      "keywords": [
+        "ember-addon"
+      ],
+      "ember-addon": {
+        "before": "broccoli-asset-rev"
+      },
+      "dependencies": {
+        "broccoli-uglify-sourcemap": "^0.2.1"
+      },
+      "gitHead": "2b98cf3cdf528951bd06e78a088d1df38257e4ca",
+      "bugs": {
+        "url": "https://github.com/jkarsrud/ember-cli-uglify/issues"
+      },
+      "homepage": "https://github.com/jkarsrud/ember-cli-uglify",
+      "_id": "ember-cli-uglify@1.0.1",
+      "_shasum": "278a7ce0d19aa58a430d9804ebb54f61cfbd0998",
+      "_from": ".",
+      "_npmVersion": "2.1.17",
+      "_nodeVersion": "0.10.35",
+      "_npmUser": {
+        "name": "jkarsrud",
+        "email": "jesper.karsrud@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "jkarsrud",
+          "email": "jesper.karsrud@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "278a7ce0d19aa58a430d9804ebb54f61cfbd0998",
+        "tarball": "https://registry.npmjs.org/ember-cli-uglify/-/ember-cli-uglify-1.0.1.tgz",
+        "integrity": "sha512-MxkaCjYeXFZfVQJ88QuzhadkppZ1eXJ6aKpwa5+upheHXMP334QAnpst1PcqVlbRhScZqMRKaXs4ut2TuzCcIw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQC8jFh4TSPvqAlEn8Npg9gO9hxQ50bfNYLLGVopg3t3RAIhAOAiwzPolv/lXBFBzIBzGqBx+EwVymrOQKlm5uGjSd2e"
+          }
+        ]
+      },
+      "directories": {},
+      "deprecated": "Renamed to ember-cli-terser."
+    },
+    "1.2.0": {
+      "name": "ember-cli-uglify",
+      "version": "1.2.0",
+      "description": "JavaScript minification for Ember-CLI",
+      "scripts": {
+        "start": "ember server",
+        "build": "ember build",
+        "test": "ember test"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ember-cli/ember-cli-uglify.git"
+      },
+      "engines": {
+        "node": ">= 0.10.0"
+      },
+      "author": "",
+      "license": "MIT",
+      "keywords": [
+        "ember-addon"
+      ],
+      "ember-addon": {
+        "before": "broccoli-asset-rev"
+      },
+      "dependencies": {
+        "broccoli-uglify-sourcemap": "^1.0.0"
+      },
+      "gitHead": "d9efa4ea98641a826f8c3eafb684254c7427b7ba",
+      "bugs": {
+        "url": "https://github.com/ember-cli/ember-cli-uglify/issues"
+      },
+      "homepage": "https://github.com/ember-cli/ember-cli-uglify#readme",
+      "_id": "ember-cli-uglify@1.2.0",
+      "_shasum": "3208c32b54bc2783056e8bb0d5cfe9bbaf17ffb2",
+      "_from": ".",
+      "_npmVersion": "2.11.0",
+      "_nodeVersion": "2.2.1",
+      "_npmUser": {
+        "name": "rwjblue",
+        "email": "robert.w.jackson@me.com"
+      },
+      "maintainers": [
+        {
+          "name": "jkarsrud",
+          "email": "jesper.karsrud@gmail.com"
+        },
+        {
+          "name": "rwjblue",
+          "email": "me@rwjblue.com"
+        }
+      ],
+      "dist": {
+        "shasum": "3208c32b54bc2783056e8bb0d5cfe9bbaf17ffb2",
+        "tarball": "https://registry.npmjs.org/ember-cli-uglify/-/ember-cli-uglify-1.2.0.tgz",
+        "integrity": "sha512-AIdvRLjHzVW3Y/FV88dm2gAIMvJplFChlCLkm0nEeZZ1y3/0qBh7eUwqE4VpRYt+KOyU59TP9CmcxpBDJSfvQw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCpno7IdWWr1R4k3UF6VtSpP7F+8FbE4+jswVgV+QKqyAIhAIuZEy19DKOmrcsi5VOjvaoxitXYJB1+LZdXJWdvj2rh"
+          }
+        ]
+      },
+      "directories": {},
+      "deprecated": "Renamed to ember-cli-terser."
+    },
+    "2.0.0-beta.1": {
+      "name": "ember-cli-uglify",
+      "version": "2.0.0-beta.1",
+      "description": "JavaScript minification for Ember-CLI",
+      "keywords": [
+        "ember-addon"
+      ],
+      "homepage": "https://github.com/ember-cli/ember-cli-uglify#readme",
+      "bugs": {
+        "url": "https://github.com/ember-cli/ember-cli-uglify/issues"
+      },
+      "license": "MIT",
+      "author": "",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ember-cli/ember-cli-uglify.git"
+      },
+      "scripts": {
+        "build": "ember build",
+        "start": "ember server",
+        "test": "ember test"
+      },
+      "dependencies": {
+        "broccoli-uglify-sourcemap": "^2.0.0-beta.1",
+        "lodash.defaultsdeep": "^4.6.0"
+      },
+      "engines": {
+        "node": "^4.5 || 6.* || >= 7.*"
+      },
+      "ember-addon": {
+        "before": "broccoli-asset-rev"
+      },
+      "gitHead": "4b4c8f7a5908ec53def9438f42134aaf7fa4b4a5",
+      "_id": "ember-cli-uglify@2.0.0-beta.1",
+      "_npmVersion": "5.1.0",
+      "_nodeVersion": "8.1.2",
+      "_npmUser": {
+        "name": "rwjblue",
+        "email": "me@rwjblue.com"
+      },
+      "dist": {
+        "integrity": "sha512-bwkODcaU0UdglF9dXka/G/VL5OGF7xk+6CLn2iDvtz/UUYuyO9aWibzn0ReJIjoMvYB7fDlMA4GhthNcKnRbVw==",
+        "shasum": "9cb509f7f3f3342271df4a59b41176f0ffbda48a",
+        "tarball": "https://registry.npmjs.org/ember-cli-uglify/-/ember-cli-uglify-2.0.0-beta.1.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCOwuMxCSO+IxoCwrQ5leMZEBOxE3LbRtmpIXrBRenZgAIhAIJEuWkihBIr/4kr6MBeae7MGR91yKDtV3U9KlLHbmfq"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jkarsrud",
+          "email": "jesper.karsrud@gmail.com"
+        },
+        {
+          "name": "rwjblue",
+          "email": "me@rwjblue.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ember-cli-uglify-2.0.0-beta.1.tgz_1499689147797_0.6241934162098914"
+      },
+      "directories": {},
+      "deprecated": "Renamed to ember-cli-terser."
+    },
+    "2.0.0-beta.2": {
+      "name": "ember-cli-uglify",
+      "version": "2.0.0-beta.2",
+      "description": "JavaScript minification for Ember-CLI",
+      "keywords": [
+        "ember-addon"
+      ],
+      "homepage": "https://github.com/ember-cli/ember-cli-uglify#readme",
+      "bugs": {
+        "url": "https://github.com/ember-cli/ember-cli-uglify/issues"
+      },
+      "license": "MIT",
+      "author": "",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ember-cli/ember-cli-uglify.git"
+      },
+      "scripts": {
+        "build": "ember build",
+        "start": "ember server",
+        "test": "ember test"
+      },
+      "dependencies": {
+        "broccoli-uglify-sourcemap": "^2.0.0-beta.1",
+        "lodash.defaultsdeep": "^4.6.0"
+      },
+      "engines": {
+        "node": "^4.5 || 6.* || >= 7.*"
+      },
+      "changelog": {
+        "repo": "ember-cli/ember-cli-uglify",
+        "labels": {
+          "breaking": ":boom: Breaking Change",
+          "enhancement": ":rocket: Enhancement",
+          "bug": ":bug: Bug Fix",
+          "documentation": ":memo: Documentation",
+          "internal": ":house: Internal"
+        }
+      },
+      "ember-addon": {
+        "before": "broccoli-asset-rev"
+      },
+      "gitHead": "b82b75d41c31759eadbf5caf57b06b959ddc4a61",
+      "_id": "ember-cli-uglify@2.0.0-beta.2",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.1.2",
+      "_npmUser": {
+        "name": "rwjblue",
+        "email": "me@rwjblue.com"
+      },
+      "dist": {
+        "integrity": "sha512-Ql+DkZC1+NMFmu+Nl0hXZne7ki47RjFCBjoUY6CJlFZxvcBf/69nEspVDfqOo3BR26Joyeff3Q31gTgpLHndcw==",
+        "shasum": "1512ac46bdeb7a99dad9fa5fddadb9f38c13d21a",
+        "tarball": "https://registry.npmjs.org/ember-cli-uglify/-/ember-cli-uglify-2.0.0-beta.2.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDkPvMZRxN5rV2F6PGPYfkUdi3hcWLcGB5CXN5PxhORVQIhAKJc5bvYp/0HOZXxN9AAV9nbf3W+iHcbeQ3dm/W1xZpq"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jkarsrud",
+          "email": "jesper.karsrud@gmail.com"
+        },
+        {
+          "name": "rwjblue",
+          "email": "me@rwjblue.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ember-cli-uglify-2.0.0-beta.2.tgz_1504891728283_0.8089417128358036"
+      },
+      "directories": {},
+      "deprecated": "Renamed to ember-cli-terser."
+    },
+    "2.0.0": {
+      "name": "ember-cli-uglify",
+      "version": "2.0.0",
+      "description": "JavaScript minification for Ember-CLI",
+      "keywords": [
+        "ember-addon"
+      ],
+      "homepage": "https://github.com/ember-cli/ember-cli-uglify#readme",
+      "bugs": {
+        "url": "https://github.com/ember-cli/ember-cli-uglify/issues"
+      },
+      "license": "MIT",
+      "author": "",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ember-cli/ember-cli-uglify.git"
+      },
+      "scripts": {
+        "build": "ember build",
+        "start": "ember server",
+        "test": "ember test"
+      },
+      "dependencies": {
+        "broccoli-uglify-sourcemap": "^2.0.0",
+        "lodash.defaultsdeep": "^4.6.0"
+      },
+      "engines": {
+        "node": "^4.5 || 6.* || >= 7.*"
+      },
+      "changelog": {
+        "repo": "ember-cli/ember-cli-uglify",
+        "labels": {
+          "breaking": ":boom: Breaking Change",
+          "enhancement": ":rocket: Enhancement",
+          "bug": ":bug: Bug Fix",
+          "documentation": ":memo: Documentation",
+          "internal": ":house: Internal"
+        }
+      },
+      "ember-addon": {
+        "before": "broccoli-asset-rev"
+      },
+      "gitHead": "373aba7eb60576128c288dede84518d703558929",
+      "_id": "ember-cli-uglify@2.0.0",
+      "_shasum": "b096727d7d1718acc9bfe5d1bc81ce26cafdf6ca",
+      "_from": ".",
+      "_npmVersion": "4.6.1",
+      "_nodeVersion": "8.1.3",
+      "_npmUser": {
+        "name": "turbo87",
+        "email": "tobias.bieniek@gmx.de"
+      },
+      "dist": {
+        "shasum": "b096727d7d1718acc9bfe5d1bc81ce26cafdf6ca",
+        "tarball": "https://registry.npmjs.org/ember-cli-uglify/-/ember-cli-uglify-2.0.0.tgz",
+        "integrity": "sha512-Pv3jK7X2cAD6LfhIfIke14Dy6fY4Jzfxz7+I1Ac8Bix4E8AcY/Z1jkPv7MvepS0Qktwi6rhoOL18zITii2/CrQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDufXv4I75paKX0j86Wt+n7eUrpfPCcVah8uAaPSztOQAIgZQh8UKMWUG7d2QmsFidojXm8EyxltMKVBKSE018FTq8="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "tobias.bieniek@gmx.de",
+          "name": "turbo87"
+        },
+        {
+          "email": "jesper.karsrud@gmail.com",
+          "name": "jkarsrud"
+        },
+        {
+          "email": "me@rwjblue.com",
+          "name": "rwjblue"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ember-cli-uglify-2.0.0.tgz_1507052718757_0.19046450103633106"
+      },
+      "directories": {},
+      "deprecated": "Renamed to ember-cli-terser."
+    },
+    "2.0.2": {
+      "name": "ember-cli-uglify",
+      "version": "2.0.2",
+      "description": "JavaScript minification for Ember-CLI",
+      "keywords": [
+        "ember-addon"
+      ],
+      "homepage": "https://github.com/ember-cli/ember-cli-uglify#readme",
+      "bugs": {
+        "url": "https://github.com/ember-cli/ember-cli-uglify/issues"
+      },
+      "license": "MIT",
+      "author": "",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ember-cli/ember-cli-uglify.git"
+      },
+      "scripts": {
+        "build": "ember build",
+        "start": "ember server",
+        "test": "ember test -e production",
+        "test:all": "ember try:each -- ember test -e production"
+      },
+      "dependencies": {
+        "broccoli-uglify-sourcemap": "^2.0.1",
+        "lodash.defaultsdeep": "^4.6.0"
+      },
+      "engines": {
+        "node": "^4.5 || 6.* || >= 7.*"
+      },
+      "changelog": {
+        "repo": "ember-cli/ember-cli-uglify",
+        "labels": {
+          "breaking": ":boom: Breaking Change",
+          "enhancement": ":rocket: Enhancement",
+          "bug": ":bug: Bug Fix",
+          "documentation": ":memo: Documentation",
+          "internal": ":house: Internal"
+        }
+      },
+      "ember-addon": {
+        "before": "broccoli-asset-rev"
+      },
+      "devDependencies": {
+        "ember-cli": "^3.0.0",
+        "ember-cli-babel": "^6.11.0",
+        "ember-cli-htmlbars": "^2.0.3",
+        "ember-cli-qunit": "^4.3.2",
+        "ember-cli-uglfiy": "./",
+        "ember-load-initializers": "^1.0.0",
+        "ember-resolver": "^4.5.0",
+        "ember-source": "^3.0.0",
+        "ember-try": "^0.2.23",
+        "loader.js": "^4.6.0"
+      },
+      "gitHead": "bb9c69b45faee1a4eccc51aad1c5d4722efd64eb",
+      "_id": "ember-cli-uglify@2.0.2",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "8.9.0",
+      "_npmUser": {
+        "name": "stefanpenner",
+        "email": "stefan.penner@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-2+bQoy+WNg1BmED1Yq7OooNRlhwDoYZUYya2jxBxFzCnS7MIYMKRFIdvdLQHZ4XP/wllZXfJqUjf9AAInVxXxg==",
+        "shasum": "12becdaf1a2e6f0cdbd386b1d5f5a2d0540347d3",
+        "tarball": "https://registry.npmjs.org/ember-cli-uglify/-/ember-cli-uglify-2.0.2.tgz",
+        "fileCount": 8,
+        "unpackedSize": 201259,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDQix69SDqfAMBWAdTaCWAFZz/q1Ut5MDYx4Pgi12iWlAiEA8Efo1TwMExD15kdShMKt4IDGwbqFD6QHS850VlhqmcI="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "jesper.karsrud@gmail.com",
+          "name": "jkarsrud"
+        },
+        {
+          "email": "me@rwjblue.com",
+          "name": "rwjblue"
+        },
+        {
+          "email": "stefan.penner@gmail.com",
+          "name": "stefanpenner"
+        },
+        {
+          "email": "tobias.bieniek@gmx.de",
+          "name": "turbo87"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ember-cli-uglify_2.0.2_1519231181607_0.4998052138812201"
+      },
+      "_hasShrinkwrap": false,
+      "deprecated": "Renamed to ember-cli-terser."
+    },
+    "2.1.0": {
+      "name": "ember-cli-uglify",
+      "version": "2.1.0",
+      "description": "JavaScript minification for Ember-CLI",
+      "keywords": [
+        "ember-addon"
+      ],
+      "homepage": "https://github.com/ember-cli/ember-cli-uglify#readme",
+      "bugs": {
+        "url": "https://github.com/ember-cli/ember-cli-uglify/issues"
+      },
+      "license": "MIT",
+      "author": "",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ember-cli/ember-cli-uglify.git"
+      },
+      "scripts": {
+        "build": "ember build",
+        "start": "ember server",
+        "test": "ember test -e production",
+        "test:all": "ember try:each -- ember test -e production"
+      },
+      "dependencies": {
+        "broccoli-uglify-sourcemap": "^2.1.1",
+        "lodash.defaultsdeep": "^4.6.0"
+      },
+      "engines": {
+        "node": "^4.5 || 6.* || >= 7.*"
+      },
+      "changelog": {
+        "repo": "ember-cli/ember-cli-uglify",
+        "labels": {
+          "breaking": ":boom: Breaking Change",
+          "enhancement": ":rocket: Enhancement",
+          "bug": ":bug: Bug Fix",
+          "documentation": ":memo: Documentation",
+          "internal": ":house: Internal"
+        }
+      },
+      "ember-addon": {
+        "before": "broccoli-asset-rev"
+      },
+      "devDependencies": {
+        "ember-cli": "^3.0.0",
+        "ember-cli-babel": "^6.11.0",
+        "ember-cli-htmlbars": "^2.0.3",
+        "ember-cli-qunit": "^4.3.2",
+        "ember-cli-uglfiy": "./",
+        "ember-load-initializers": "^1.0.0",
+        "ember-resolver": "^4.5.0",
+        "ember-source": "^3.0.0",
+        "ember-try": "^0.2.23",
+        "loader.js": "^4.6.0"
+      },
+      "gitHead": "e5f0b2868ddf5418cacb8f7d4e8379efe9ac729e",
+      "_id": "ember-cli-uglify@2.1.0",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "8.9.0",
+      "_npmUser": {
+        "name": "stefanpenner",
+        "email": "stefan.penner@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-lDzdAUfhGx5AMBsgyR54ibENVp/LRQuHNWNaP2SDjkAXDyuYFgW0iXIAfGbxF6+nYaesJ9Tr9AKOfTPlwxZDSg==",
+        "shasum": "4a0641fe4768d7ab7d4807aca9924cc77c544184",
+        "tarball": "https://registry.npmjs.org/ember-cli-uglify/-/ember-cli-uglify-2.1.0.tgz",
+        "fileCount": 8,
+        "unpackedSize": 201389,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIG7lqV+c5ZCvkJ7IFR48tjMG+n7fuvSxn298y7luwwXRAiEApaKKofUquZtpqUK3RoX/edjed2rbOc7gnF566Wy6Mqk="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "jesper.karsrud@gmail.com",
+          "name": "jkarsrud"
+        },
+        {
+          "email": "me@rwjblue.com",
+          "name": "rwjblue"
+        },
+        {
+          "email": "stefan.penner@gmail.com",
+          "name": "stefanpenner"
+        },
+        {
+          "email": "tobias.bieniek@gmx.de",
+          "name": "turbo87"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ember-cli-uglify_2.1.0_1522199253090_0.2388564343265016"
+      },
+      "_hasShrinkwrap": false,
+      "deprecated": "Renamed to ember-cli-terser."
+    },
+    "3.0.0": {
+      "name": "ember-cli-uglify",
+      "version": "3.0.0",
+      "description": "JavaScript minification for Ember-CLI",
+      "keywords": [
+        "ember-addon"
+      ],
+      "homepage": "https://github.com/ember-cli/ember-cli-uglify#readme",
+      "bugs": {
+        "url": "https://github.com/ember-cli/ember-cli-uglify/issues"
+      },
+      "license": "MIT",
+      "author": "",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ember-cli/ember-cli-uglify.git"
+      },
+      "scripts": {
+        "build": "ember build",
+        "start": "ember server",
+        "test": "ember test -e production",
+        "test:all": "ember try:each -- ember test -e production"
+      },
+      "dependencies": {
+        "broccoli-uglify-sourcemap": "^3.1.0",
+        "lodash.defaultsdeep": "^4.6.0"
+      },
+      "engines": {
+        "node": "8.* || >= 10.*"
+      },
+      "changelog": {
+        "repo": "ember-cli/ember-cli-uglify",
+        "labels": {
+          "breaking": ":boom: Breaking Change",
+          "enhancement": ":rocket: Enhancement",
+          "bug": ":bug: Bug Fix",
+          "documentation": ":memo: Documentation",
+          "internal": ":house: Internal"
+        }
+      },
+      "ember-addon": {
+        "before": "broccoli-asset-rev"
+      },
+      "devDependencies": {
+        "ember-cli": "~3.9.0",
+        "ember-cli-babel": "^7.7.3",
+        "ember-cli-htmlbars": "^3.0.1",
+        "ember-cli-qunit": "^4.4.0",
+        "ember-load-initializers": "^2.0.0",
+        "ember-resolver": "^5.1.3",
+        "ember-source": "^3.9.1",
+        "ember-try": "^1.1.0",
+        "loader.js": "^4.7.0"
+      },
+      "_resolved": "",
+      "_integrity": "",
+      "_from": "file:ember-cli-uglify-3.0.0.tgz",
+      "_id": "ember-cli-uglify@3.0.0",
+      "_nodeVersion": "11.10.0",
+      "_npmVersion": "6.7.0",
+      "dist": {
+        "integrity": "sha512-n3QxdBfAgBdb2Cnso82Kt/nxm3ppIjnYWM8uhOEhF1aYxNXfM7AJrc+yiqTCDUR61Db8aCpHfAMvChz3kyme7g==",
+        "shasum": "8819665b2cc5fe70e3ba9fe7a94645209bc42fd6",
+        "tarball": "https://registry.npmjs.org/ember-cli-uglify/-/ember-cli-uglify-3.0.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 10513,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcsPW1CRA9TVsSAnZWagAAOUEP/iSi0gh/3rXMutuabLUl\nTZl4I2eGli1M3NgK7AQko5dZ/1zfXPw9ZFQ+i0svtbG0RfRz37c9b021tV25\nyu15tOI7bjy/5Y9vEmQNu5tOge/yaESWzzYiqNjDpYRlp6zNhXSWXMNTmWg7\nzXQFNEvdYpy/whNtW3Rla5DyxV8zZ4pvsek53XQIe71Az4DzAN/2TrhPeOpN\nBJG4gmS+D+wPwzLv+LGWzh/0O6WflHJgFic8n7AuXXsX4DONZDYGEgz1G+du\nnbgpVCNPtrd2FPz1q9cQMkq3gUrbq4BzN+g0myUDeIxxdnj9sk4zfklE9m7d\nx+Ydp4kkuOyxN8nk8LH0OCjjIDAyCnk3ZqwBLMaK82hQOyUA8CRHd7rmkTVe\nn0piwzbB/6KojXK40cTF6Hl+MOUIXrugYR2Dlu8cwrmTgvhgqxuNQIj19B4i\nZrfIG0XDRdS1O0kiVdEBOJsjB7H6jsd4rlFuIGcyPdPlHQA7UxyUXXpPqiV0\nAy+qhHC/mP4dhpo0t1KrbEbgPIL5KbqHQ4rsNffUXJRDNw15n6ng8+7TtRgA\ngfpnmNTbk5iQf0874+ouFahZ+y12bM9LwBEKG/dO6ygWRkZWXlUtrwuhreVf\nTDBAZL2b4kNEt9M53Jru4cogPMNhAaywGrKW1XDte/+QIiHn0tZn/shbbhK9\n3+9A\r\n=7GFE\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCuVn9zVe3EOCWBmX0lJbQ0622Wn5jEZ5fv4mXvRkwbaAIhAKAeuXNIYeVv/TiK97vSC4tWscayZFqT/7uddroxuysK"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "jesper.karsrud@gmail.com",
+          "name": "jkarsrud"
+        },
+        {
+          "email": "me@rwjblue.com",
+          "name": "rwjblue"
+        },
+        {
+          "email": "stefan.penner@gmail.com",
+          "name": "stefanpenner"
+        },
+        {
+          "email": "tobias.bieniek@gmx.de",
+          "name": "turbo87"
+        }
+      ],
+      "_npmUser": {
+        "name": "turbo87",
+        "email": "tobias.bieniek@gmx.de"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ember-cli-uglify_3.0.0_1555101108863_0.483165257087004"
+      },
+      "_hasShrinkwrap": false,
+      "deprecated": "Renamed to ember-cli-terser."
+    }
+  },
+  "homepage": "https://github.com/ember-cli/ember-cli-uglify#readme",
+  "keywords": [
+    "ember-addon"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ember-cli/ember-cli-uglify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ember-cli/ember-cli-uglify/issues"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}

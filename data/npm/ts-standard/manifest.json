@@ -1,0 +1,2892 @@
+{
+  "_id": "ts-standard",
+  "_rev": "21-7bb567e77e420ebb0045eec4465983e9",
+  "name": "ts-standard",
+  "dist-tags": {
+    "latest": "12.0.2"
+  },
+  "versions": {
+    "1.0.0": {
+      "name": "ts-standard",
+      "description": "Typescript Standard Style based on StandardJS",
+      "version": "1.0.0",
+      "main": "dist/index.js",
+      "scripts": {
+        "test": "mocha -r ts-node/register ./test/**/*.ts",
+        "test-cover": "nyc --reporter=lcov --reporter=text npm test",
+        "test-lint": "eslint ./src/**/*.ts ./test/**/*.ts",
+        "coveralls": "coveralls < coverage/lcov.info",
+        "lint": "bin/cmd.js --fix && tsc --noEmit",
+        "build": "tsc",
+        "watch": "tsc -w"
+      },
+      "bin": {
+        "ts-standard": "./bin/cmd.js"
+      },
+      "bugs": {
+        "url": "https://github.com/toddbluhm/ts-standard/issues"
+      },
+      "engines": {
+        "node": ">=8.0.0"
+      },
+      "author": {
+        "name": "Todd Bluhm"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/toddbluhm/ts-standard",
+      "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^2.0.0",
+        "@typescript-eslint/parser": "^2.0.0",
+        "eslint": "^6.0.0",
+        "eslint-config-standard": "^14.0.0",
+        "eslint-config-standard-with-typescript": "github:toddbluhm/eslint-config-standard-with-typescript#compiled",
+        "eslint-plugin-import": "^2.0.0",
+        "eslint-plugin-node": "^9.0.0",
+        "eslint-plugin-promise": "^4.0.0",
+        "eslint-plugin-standard": "^4.0.0",
+        "pkg-conf": "^3.1.0",
+        "standard-engine": "^12.0.0"
+      },
+      "peerDependencies": {
+        "typescript": ">=3.0.0 <3.6.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^8.0.0",
+        "@commitlint/config-conventional": "^8.0.0",
+        "@commitlint/travis-cli": "^8.0.0",
+        "@types/chai": "^4.0.0",
+        "@types/eslint": "^6.0.0",
+        "@types/minimist": "^1.0.0",
+        "@types/mocha": "^5.0.0",
+        "@types/node": "^12.0.0",
+        "@types/sinon": "^7.0.0",
+        "chai": "^4.0.0",
+        "coveralls": "^3.0.0",
+        "get-stdin": "^7.0.0",
+        "minimist": "^1.0.0",
+        "mocha": "^6.0.0",
+        "nyc": "^14.0.0",
+        "sinon": "^7.0.0",
+        "ts-node": "^8.0.0"
+      },
+      "keywords": [
+        "Typescript Standard Style",
+        "check",
+        "checker",
+        "code",
+        "code checker",
+        "code linter",
+        "code standards",
+        "code style",
+        "enforce",
+        "eslint",
+        "lint",
+        "policy",
+        "quality",
+        "simple",
+        "standard",
+        "standard style",
+        "style",
+        "style checker",
+        "style linter",
+        "verify",
+        "typescript",
+        "standardjs",
+        "tslint"
+      ],
+      "husky": {
+        "hooks": {
+          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+          "pre-commit": "npm run test"
+        }
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.ts"
+        ],
+        "extension": [
+          ".ts"
+        ],
+        "require": [
+          "ts-node/register"
+        ],
+        "reporter": [
+          "text-summary",
+          "html"
+        ],
+        "sourceMap": true,
+        "instrument": true
+      },
+      "ts-standard": {
+        "ignore": [
+          "dist"
+        ]
+      },
+      "gitHead": "46bcaec4e1385306bdbaba6c6487e2b827863bcb",
+      "_id": "ts-standard@1.0.0",
+      "_nodeVersion": "10.15.0",
+      "_npmVersion": "6.9.0",
+      "dist": {
+        "integrity": "sha512-f1HJgOZtxE3gnMyf9FVSZR0orKO2VFK/y7Su6PWCoh3EKGQthlfqvkGDU82WLVu/sqqIwbf/cTNTjQh2FvCHcw==",
+        "shasum": "cee3586e6528b744c651422b10df7604a141c2c9",
+        "tarball": "https://registry.npmjs.org/ts-standard/-/ts-standard-1.0.0.tgz",
+        "fileCount": 16,
+        "unpackedSize": 18592,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdaKHTCRA9TVsSAnZWagAABqcP/3gqIv+545/UVC7h6GPe\nyrq7So7JzV0tKxrcJhLXej/+BjLlwYIi/Omjovxe/MpIqwdOGoJ+dnJFTitD\ngkFtY5LoMP6/MyCqy028KXbOMijzHN+nMtQhYHvBeh+D7RUWUvav0v268NDp\nIdobCllOMomulBxkFaPqL1P6ZcF5pYLQ88OUk0BObPkTisIuA3tLiRBuXBK2\nItMzO2/CptLpwok7tF7rRLOzlXulfTTLUm3SSc2t2EUNLnQCOt4Puys0gLTG\nQ7zZPyPHwmGXApnMO4jc4V8NfShA6AwMymnYBrIuEbGv1IRpCeaK5b/BGdn9\nHFhJPma6EupBmg6nKE2tr9Q1LAyXYhmrijh/M0yNA4tSZOoWD8lJ1xVvfIcw\nYxbFyJfov4/T8dJeh3m4qy6Dl6hL2FCL09dcb/hscxJGJUU9xvJzCr92ExBc\nJTdGGF61nUq/kdM901U7yM5wJS9qlOjmueZDEmrFitDY4/JkV9rAgzFkvLyc\nsBKq0deil/7363gxjVfesYddV68ZT2OGI7tE8rxN49s6dSNxFbpKFEnKCkBe\nqb1lesFq0jkbSpmsqcUSHgPCV+OiVkDK9EEZNtAIUuA1OZq6chZzDUrYcB98\nWCHCni4XXouhPqEtqVD0p/VyhFnoutyOBsEqebbaDsV9K4heTPc9O8spgZGg\nbwyl\r\n=zHMM\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEl7gZbFDzvgyA5fOcKlA3SxC6JQsuJ+e5gk1MKuM2tCAiBFKg4S+S8P84xA0MAQzrJJYlfY3zfxv3NyKfHjovgvZA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "toddbluhm",
+          "email": "toddbluhm@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "toddbluhm",
+        "email": "toddbluhm@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-standard_1.0.0_1567138258527_0.44135007173669827"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.1": {
+      "name": "ts-standard",
+      "description": "Typescript Standard Style based on StandardJS",
+      "version": "1.0.1",
+      "main": "dist/index.js",
+      "scripts": {
+        "test": "mocha -r ts-node/register ./test/**/*.ts",
+        "test-cover": "nyc --reporter=lcov --reporter=text npm test",
+        "coveralls": "coveralls < coverage/lcov.info",
+        "lint": "bin/cmd.js --fix && tsc --noEmit",
+        "build": "tsc",
+        "watch": "tsc -w"
+      },
+      "bin": {
+        "ts-standard": "./bin/cmd.js"
+      },
+      "bugs": {
+        "url": "https://github.com/toddbluhm/ts-standard/issues"
+      },
+      "engines": {
+        "node": ">=8.0.0"
+      },
+      "author": {
+        "name": "Todd Bluhm"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/toddbluhm/ts-standard",
+      "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^2.0.0",
+        "@typescript-eslint/parser": "^2.0.0",
+        "eslint": "^6.0.0",
+        "eslint-config-standard": "^14.0.0",
+        "eslint-config-standard-with-typescript": "^9.0.0",
+        "eslint-plugin-import": "^2.0.0",
+        "eslint-plugin-node": "^9.0.0",
+        "eslint-plugin-promise": "^4.0.0",
+        "eslint-plugin-standard": "^4.0.0",
+        "pkg-conf": "^3.1.0",
+        "standard-engine": "^12.0.0"
+      },
+      "peerDependencies": {
+        "typescript": ">=3.0.0 <3.6.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^8.0.0",
+        "@commitlint/config-conventional": "^8.0.0",
+        "@commitlint/travis-cli": "^8.0.0",
+        "@types/chai": "^4.0.0",
+        "@types/eslint": "^6.0.0",
+        "@types/minimist": "^1.0.0",
+        "@types/mocha": "^5.0.0",
+        "@types/node": "^12.0.0",
+        "@types/sinon": "^7.0.0",
+        "chai": "^4.0.0",
+        "coveralls": "^3.0.0",
+        "get-stdin": "^7.0.0",
+        "minimist": "^1.0.0",
+        "mocha": "^6.0.0",
+        "nyc": "^14.0.0",
+        "sinon": "^7.0.0",
+        "ts-node": "^8.0.0",
+        "typescript": "^3.0.0"
+      },
+      "keywords": [
+        "Typescript Standard Style",
+        "check",
+        "checker",
+        "code",
+        "code checker",
+        "code linter",
+        "code standards",
+        "code style",
+        "enforce",
+        "eslint",
+        "lint",
+        "policy",
+        "quality",
+        "simple",
+        "standard",
+        "standard style",
+        "style",
+        "style checker",
+        "style linter",
+        "verify",
+        "typescript",
+        "standardjs",
+        "tslint"
+      ],
+      "husky": {
+        "hooks": {
+          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+          "pre-commit": "npm run test"
+        }
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.ts"
+        ],
+        "extension": [
+          ".ts"
+        ],
+        "require": [
+          "ts-node/register"
+        ],
+        "reporter": [
+          "text-summary",
+          "html"
+        ],
+        "sourceMap": true,
+        "instrument": true
+      },
+      "ts-standard": {
+        "ignore": [
+          "dist"
+        ]
+      },
+      "gitHead": "759837565b309dc4db5435f9506e30a336cb71bd",
+      "_id": "ts-standard@1.0.1",
+      "_nodeVersion": "10.15.0",
+      "_npmVersion": "6.9.0",
+      "dist": {
+        "integrity": "sha512-OjAxjBPAyjxtx9e2QTe61CjjLj3gbZNiDcm0n2vPMlu048/h4Xrt/e8RgKG4kR1HVm/NKlLye2cuI8rTGVSFrg==",
+        "shasum": "eb15ae22926dd501db01c526f45f4b788855fe87",
+        "tarball": "https://registry.npmjs.org/ts-standard/-/ts-standard-1.0.1.tgz",
+        "fileCount": 16,
+        "unpackedSize": 18629,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdaPwoCRA9TVsSAnZWagAAzgoP/0ubEkrUarqtsOEvxLk9\nRWUQLPNjF1unTpqxGplrjyDLWEPXxzVRVBG2x9gYjsIVdeM3sVZVuvMPKFTO\nrW31FSs3S0aPJJL+/RIhk4imphBsduLZR8cqqdZM2jdJzuoGdfvRB5TSapps\nNNg1hThbbaCmCnYZMKKdOiaejuamUDaVsDQCU3QHbU6DHIVR/W96Q5beJxl3\nFQKr6y4Okj9HHr8HOpCnLhCOom9EvbUrMkHHl6mQ8XWsBTAOOlFw7dQ8KE0d\n9tEBdlGEv7nk6ifEwpv3AN7C8Jolvh1bsCf6MPTUvufKi90kyMkLnk66cW7s\nu6kwoTje0VI5aOfP6yAexWZVmrIZuTjS+LDsigT1LmHDtAz/STM3s0wbjwVW\nCz5odlZdJ3o4M1RQ3waIRfii3yhXico+doYsc2oL4SFlgTdZzbM87AQpVoqr\nBr5hSgo/HPUGEHgMZ3w6wUCqxig+25PQz5xlH6sM5Jv+oJupCTdKOtjQiPxO\nURTiKQ2DJdCmBoqebxA0ql4HgA933N59QOGtD4CjE08jgFLtz0PMOHbIlJSe\npS837KqHP4zYpqABqtPeH2PqMv9epj5Bi55ZQ3DtExXcxMxRW4oQooWWCh2V\nyGoH56kFC618Qmf3h+0XlwDnyrqkB+UtFfbvkPtc4ygl9ZyNp/JAHjt46zcK\ng5hG\r\n=33d8\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHMh2XXtKs6gM9RI/M6jbwCKKNCE9PuwGOduoodOnuMaAiEAzo/9kGpZ0/WwyWv+OdRYB57cnXpTmQS64VILiA4J1mw="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "toddbluhm",
+          "email": "toddbluhm@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "toddbluhm",
+        "email": "toddbluhm@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-standard_1.0.1_1567161383887_0.3566482930118111"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0": {
+      "name": "ts-standard",
+      "description": "Typescript Standard Style based on StandardJS",
+      "version": "2.0.0",
+      "main": "dist/index.js",
+      "scripts": {
+        "test": "mocha -r ts-node/register ./test/**/*.ts",
+        "test-cover": "nyc npm test",
+        "coveralls": "coveralls < coverage/lcov.info",
+        "lint": "bin/cmd.js --fix && tsc --noEmit",
+        "build": "tsc",
+        "watch": "tsc -w"
+      },
+      "bin": {
+        "ts-standard": "./bin/cmd.js"
+      },
+      "bugs": {
+        "url": "https://github.com/toddbluhm/ts-standard/issues"
+      },
+      "engines": {
+        "node": ">=8.0.0"
+      },
+      "author": {
+        "name": "Todd Bluhm"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/toddbluhm/ts-standard",
+      "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^2.6.0",
+        "@typescript-eslint/parser": "^2.6.0",
+        "eslint": "^6.6.0",
+        "eslint-config-standard": "^14.0.0",
+        "eslint-config-standard-with-typescript": "^10.0.0",
+        "eslint-plugin-import": "^2.0.0",
+        "eslint-plugin-node": "^10.0.0",
+        "eslint-plugin-promise": "^4.0.0",
+        "eslint-plugin-standard": "^4.0.0",
+        "pkg-conf": "^3.0.0",
+        "standard-engine": "^12.0.0"
+      },
+      "peerDependencies": {
+        "typescript": ">=3.0.0 <3.6.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^8.0.0",
+        "@commitlint/config-conventional": "^8.0.0",
+        "@commitlint/travis-cli": "^8.0.0",
+        "@types/chai": "^4.0.0",
+        "@types/eslint": "^6.0.0",
+        "@types/minimist": "^1.0.0",
+        "@types/mocha": "^5.0.0",
+        "@types/node": "^12.0.0",
+        "@types/sinon": "^7.0.0",
+        "chai": "^4.0.0",
+        "coveralls": "^3.0.0",
+        "get-stdin": "^7.0.0",
+        "husky": "^3.0.0",
+        "minimist": "^1.0.0",
+        "mocha": "^6.0.0",
+        "nyc": "^14.0.0",
+        "sinon": "^7.0.0",
+        "ts-node": "^8.0.0",
+        "typescript": "^3.6.0"
+      },
+      "keywords": [
+        "Typescript Standard Style",
+        "check",
+        "checker",
+        "code",
+        "code checker",
+        "code linter",
+        "code standards",
+        "code style",
+        "enforce",
+        "eslint",
+        "lint",
+        "policy",
+        "quality",
+        "simple",
+        "standard",
+        "standard style",
+        "style",
+        "style checker",
+        "style linter",
+        "verify",
+        "typescript",
+        "standardjs",
+        "tslint"
+      ],
+      "husky": {
+        "hooks": {
+          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+          "pre-commit": "npm run test"
+        }
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.ts"
+        ],
+        "extension": [
+          ".ts"
+        ],
+        "require": [
+          "ts-node/register"
+        ],
+        "reporter": [
+          "text",
+          "lcov"
+        ],
+        "sourceMap": true,
+        "instrument": true
+      },
+      "ts-standard": {
+        "project": "./tsconfig.eslint.json",
+        "ignore": [
+          "dist"
+        ]
+      },
+      "gitHead": "3b9abbf05ae1b70468d8db88c24f151a34d5c777",
+      "_id": "ts-standard@2.0.0",
+      "_nodeVersion": "10.15.0",
+      "_npmVersion": "6.9.0",
+      "dist": {
+        "integrity": "sha512-qhKL3sUdEnHCS67ZHd7H5gTcasmHLRoifomZxIG9HtoXGQkBHyXfvvT8LFTSOz2uZ5lscDaYBKUfb6ttNArJqQ==",
+        "shasum": "d291a38a95a199f4808d5ef7e52be0e7dcfc5059",
+        "tarball": "https://registry.npmjs.org/ts-standard/-/ts-standard-2.0.0.tgz",
+        "fileCount": 16,
+        "unpackedSize": 19529,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdu8F+CRA9TVsSAnZWagAAw/EP/iAX3uo6/8faAai6Wx2z\nuuZ0Sqgb2rl5HDw+39FeLTzlvPC4qc8tcyhdEtXthdx/8FJGKsOk/G9YZoN1\nTQ7ElmhPQRKumKM4X1fTPSeK9Rglwco41mOHXL8CDHeCwwgguy/8zTvv49Ye\nKqR4Y5SWxIcpXNiKr2epfPB7Oy0YPIVM9HLZCAUjnSsRTAwPTcJEG6bRPxj9\nediPUDLPft2xnpbdQhBZlWLivDDKZrzg0AxUaO3SbuNfkZSV0rvy5jjseNI1\njv8nsWUvqDMURct1awBO282jcUJGvNkx/JAE7dBTON9L7JlBJgAxIAdbGIOO\n8NWCKyVQ7LT0YNXECGB3rYiNPtESZhzKoTJo1lMer74JMSQzgtRR2JI9DhDM\neOceuslpwrXoq8E4emJzPtCAvFI5Z3EEtSZ8YOBdeAdwT9GDnVpmP5aSM3KD\nfOLSAVHAyXmL3t12nnrdwW3Jy8byMmwUrxeXzA9ieOm7LUO9yQxGVpQmwJrV\nkThB7Zeo8jSLk7SfHtZZXvZuhOuro4Tw+Qg0I5+3gLuDWm2GQInNU/tquHUz\nOKN6Ldqld4OJWhvBsPNt6X0rFT2F/dM3Mv61OzKbZyc1LyAFMEb7sK8xM4d1\nbYxd8r0quoT20P4WCsHiQ2L4XZmBVZR6GEXZNAu0BIFx4oCZ1ywdaXt+r9Id\nHhbb\r\n=3Tev\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQD94QqglZ+gmSAjBVPqNjNEYd702q3zOVq4lbRP1ASEeQIhAOMWgV/C3w5RrrNAMj2CdYAKKTDOdK5K3vvYuDXlDAnr"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "toddbluhm",
+          "email": "toddbluhm@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "toddbluhm",
+        "email": "toddbluhm@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-standard_2.0.0_1572585854542_0.03560954893456336"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.0.0": {
+      "name": "ts-standard",
+      "description": "Typescript Standard Style based on StandardJS",
+      "version": "3.0.0",
+      "main": "dist/index.js",
+      "scripts": {
+        "test": "mocha -r ts-node/register ./test/**/*.ts",
+        "test-cover": "nyc npm test",
+        "coveralls": "coveralls < coverage/lcov.info",
+        "lint": "bin/cmd.js --fix && tsc --noEmit",
+        "build": "tsc",
+        "watch": "tsc -w"
+      },
+      "bin": {
+        "ts-standard": "./bin/cmd.js"
+      },
+      "bugs": {
+        "url": "https://github.com/toddbluhm/ts-standard/issues"
+      },
+      "engines": {
+        "node": ">=8.0.0"
+      },
+      "author": {
+        "name": "Todd Bluhm"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/toddbluhm/ts-standard",
+      "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^2.7.0",
+        "@typescript-eslint/parser": "^2.7.0",
+        "eslint": "^6.6.0",
+        "eslint-config-standard": "^14.0.0",
+        "eslint-config-standard-with-typescript": "^11.0.1",
+        "eslint-plugin-import": "^2.0.0",
+        "eslint-plugin-node": "^10.0.0",
+        "eslint-plugin-promise": "^4.0.0",
+        "eslint-plugin-standard": "^4.0.0",
+        "pkg-conf": "^3.0.0",
+        "standard-engine": "^12.0.0"
+      },
+      "peerDependencies": {
+        "typescript": ">=3.0.0 <3.7.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^8.0.0",
+        "@commitlint/config-conventional": "^8.0.0",
+        "@commitlint/travis-cli": "^8.0.0",
+        "@types/chai": "^4.0.0",
+        "@types/eslint": "^6.0.0",
+        "@types/minimist": "^1.0.0",
+        "@types/mocha": "^5.0.0",
+        "@types/node": "^12.0.0",
+        "@types/sinon": "^7.0.0",
+        "chai": "^4.0.0",
+        "coveralls": "^3.0.0",
+        "get-stdin": "^7.0.0",
+        "husky": "^3.0.0",
+        "minimist": "^1.0.0",
+        "mocha": "^6.0.0",
+        "nyc": "^14.0.0",
+        "sinon": "^7.0.0",
+        "ts-node": "^8.0.0",
+        "typescript": "^3.7.0"
+      },
+      "keywords": [
+        "Typescript Standard Style",
+        "check",
+        "checker",
+        "code",
+        "code checker",
+        "code linter",
+        "code standards",
+        "code style",
+        "enforce",
+        "eslint",
+        "lint",
+        "policy",
+        "quality",
+        "simple",
+        "standard",
+        "standard style",
+        "style",
+        "style checker",
+        "style linter",
+        "verify",
+        "typescript",
+        "standardjs",
+        "tslint"
+      ],
+      "husky": {
+        "hooks": {
+          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+          "pre-commit": "npm run test"
+        }
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.ts"
+        ],
+        "extension": [
+          ".ts"
+        ],
+        "require": [
+          "ts-node/register"
+        ],
+        "reporter": [
+          "text",
+          "lcov"
+        ],
+        "sourceMap": true,
+        "instrument": true
+      },
+      "ts-standard": {
+        "project": "./tsconfig.eslint.json",
+        "ignore": [
+          "dist"
+        ]
+      },
+      "gitHead": "dd59e4a99690c866d0017dd68d00c6d4800bcfbb",
+      "_id": "ts-standard@3.0.0",
+      "_npmVersion": "6.4.1",
+      "_nodeVersion": "8.16.0",
+      "_npmUser": {
+        "name": "toddbluhm",
+        "email": "toddbluhm@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-unpcJQiHzq8w/TQ84MpAurjnTgdhJ/23/YH8s1oOk02Se6K/vIyHVgsE4CWChtFDC9eYQqss10ciz5TaJ2ZfGA==",
+        "shasum": "3e611847f084a69209fad313496faa3a77d89f52",
+        "tarball": "https://registry.npmjs.org/ts-standard/-/ts-standard-3.0.0.tgz",
+        "fileCount": 16,
+        "unpackedSize": 19687,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdzu17CRA9TVsSAnZWagAAwFMQAIsqaTkwnjy4TnFoxOUQ\nBDKaaAVgTTmwday4+PK+j9H8fIZ2ipqdMieX1roMH+V/PcNvz4d3JvDWeIWY\ng/dRvnd887aVE/oNnWnQE9SJgQ7ZmGmww/N29i65KBTts8v0mfs6WnzT0V09\nDLOS2j3l7fZiioqMRPRR2nXTR3ebnHpxwfyhP/Mv6mLGZ51IkxzW91fCQuID\nxc+9LFv1UEKc0s6ReUagDchyWcQxgjQZ0ElZashkjlzBm1ivOfvrYfC1Mr+v\n4pwE/HdMgc7sYOKKCKbkylUPBDvNxwE1X/Wf6GzIjr0X1g7CnqV0K8m1A6Ir\nSPdtWfNKtjgQgd8eugBbYPJ7cTf6D1AqG2dnFn/zWlLAu/w61XD3pNDu3+GI\n1IKCwsMc+xyVM2EbMPT/5RKrMVQeKU3NzuUNZdSc3NO0vTmCbGC6dyesxkcd\nDh5x17LH/PR7vpFGuoPuQI31kjtAG6SIYwuStN7RNklGE9rvYiCuB3+wICCQ\n+I5WtyA1hicfkUjIFEDc0cgraZBkYBhvwNvhHZOidMsGhZqVMps6TxLqwe3l\n+ulrzfBJyISTDs6yBG4/QNUxGjWb3JH5OQzdjGuT7y4pMqOUMudfG3LQeso1\nGSQOLr0ZLcOLa4msdRIbZ6rRIf0SG+zDzRozsjjCHDbM0KWUd24j8+p4GH8D\n6OWu\r\n=za0t\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHxgvvxEHuaD3kL+Y+l9Q2wTeAA4RVCh5iyd4dOJkbw4AiAMYSvoCL73CCI3GQna4c8SUJdn9oVl+D3ozhT3lFbtIw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "toddbluhm",
+          "email": "toddbluhm@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-standard_3.0.0_1573842298698_0.40891862660014233"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.1.0": {
+      "name": "ts-standard",
+      "description": "Typescript Standard Style based on StandardJS",
+      "version": "3.1.0",
+      "main": "dist/index.js",
+      "scripts": {
+        "test": "mocha -r ts-node/register ./test/**/*.ts",
+        "test-cover": "nyc npm test",
+        "coveralls": "coveralls < coverage/lcov.info",
+        "lint": "bin/cmd.js --fix && tsc --noEmit",
+        "build": "tsc",
+        "watch": "tsc -w"
+      },
+      "bin": {
+        "ts-standard": "./bin/cmd.js"
+      },
+      "bugs": {
+        "url": "https://github.com/toddbluhm/ts-standard/issues"
+      },
+      "engines": {
+        "node": ">=8.0.0"
+      },
+      "author": {
+        "name": "Todd Bluhm"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/toddbluhm/ts-standard",
+      "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^2.7.0",
+        "eslint": "^6.6.0",
+        "eslint-config-standard": "^14.0.0",
+        "eslint-config-standard-with-typescript": "^11.0.1",
+        "eslint-plugin-import": "^2.0.0",
+        "eslint-plugin-node": "^11.0.0",
+        "eslint-plugin-promise": "^4.0.0",
+        "eslint-plugin-standard": "^4.0.0",
+        "pkg-conf": "^3.0.0",
+        "standard-engine": "^12.0.0"
+      },
+      "peerDependencies": {
+        "typescript": "^3.0.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^8.0.0",
+        "@commitlint/config-conventional": "^8.0.0",
+        "@commitlint/travis-cli": "^8.0.0",
+        "@types/chai": "^4.0.0",
+        "@types/eslint": "^6.0.0",
+        "@types/minimist": "^1.0.0",
+        "@types/mocha": "^5.0.0",
+        "@types/node": "^12.0.0",
+        "@types/sinon": "^7.0.0",
+        "chai": "^4.0.0",
+        "coveralls": "^3.0.0",
+        "get-stdin": "^7.0.0",
+        "husky": "^4.0.0",
+        "minimist": "^1.0.0",
+        "mocha": "^7.0.0",
+        "nyc": "^15.0.0",
+        "sinon": "^8.0.0",
+        "ts-node": "^8.0.0",
+        "typescript": "^3.7.0"
+      },
+      "keywords": [
+        "Typescript Standard Style",
+        "check",
+        "checker",
+        "code",
+        "code checker",
+        "code linter",
+        "code standards",
+        "code style",
+        "enforce",
+        "eslint",
+        "lint",
+        "policy",
+        "quality",
+        "simple",
+        "standard",
+        "standard style",
+        "style",
+        "style checker",
+        "style linter",
+        "verify",
+        "typescript",
+        "standardjs",
+        "tslint"
+      ],
+      "husky": {
+        "hooks": {
+          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+          "pre-commit": "npm run test"
+        }
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.ts"
+        ],
+        "extension": [
+          ".ts"
+        ],
+        "require": [
+          "ts-node/register"
+        ],
+        "reporter": [
+          "text",
+          "lcov"
+        ],
+        "sourceMap": true,
+        "instrument": true
+      },
+      "ts-standard": {
+        "project": "./tsconfig.eslint.json",
+        "ignore": [
+          "dist"
+        ]
+      },
+      "gitHead": "cc6685179d30cd9d220e57c40bd6b9713123e1cd",
+      "_id": "ts-standard@3.1.0",
+      "_nodeVersion": "10.17.0",
+      "_npmVersion": "6.11.3",
+      "dist": {
+        "integrity": "sha512-t6LFHH735IHC45rD2aKqW9tXNRQZ3RbWuL4bHgUkZA5IPJc+J3jGLOQ7QYWomixHCUOwzf+2YgWo3Oj9v4YdlA==",
+        "shasum": "488b5b7c479805de7f033c355fb3b5f9b6a8e596",
+        "tarball": "https://registry.npmjs.org/ts-standard/-/ts-standard-3.1.0.tgz",
+        "fileCount": 16,
+        "unpackedSize": 19842,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeJfUwCRA9TVsSAnZWagAAPKEP/A4PG6ggT3vfFr5Ef8E3\nqi6WSBw6cWbI6r198g5y3RObR6aQlV/4dU7vjGGmp0CZFyMufaOqJlw9ASpN\nVTB0U2f8Bem2gJ/cfTxp68kRGIu3pOEVREh41FABZhUNIPsWPM89WyXlmQ8C\nqj6+qHhRTWgiGz/pK2p7CebJnYvt0oQsG4ltJq6GQDpmLmumptPgb4qKPpLg\nhaPYfgxBA39lrfparOLfVUu7EOlN0Z89QoG3rSLE8nGYtsUvGQFfQ1lh54e6\nmUE9rEBnzWxH1nwMYjLtO0IBS/ec8AODP43kxJph/htCyXPU5zFz7VeWlmhP\nvb4S9orI6t1hjt0UJbiCZDeGLhm8ZezwXG9D0RyxrfDdMFnbsXLgw2dZGNJL\nYJFn5Acm/oEA2KzCjcigBXcKRZUgIG14F+3rMFjmGF5vQamRu9wiBDCtKWJX\noDKjNz36NZCxTRhV9TIkueIoAmBSF0AnGQQB9G91LAHa0EnoLoIuZzOudXb6\nypU/IbhPePts39LGFGHFV2Z2zaAk/ap4bwIsGdSFm3n6TrYWmAC+9nlu5ToI\nIhhfHSXmHHhpbNgyLNhNaKyCAkE3rZ1UJ5FS6l1kOUd2HlQpG1Nsw4BMRcQg\nSFTI09meNNOiTcLnx0QI309iumdXmGRo2NGUsvnoUWMxaIvQWgXvhSdR1K05\nEMf1\r\n=vO4f\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDD0Q/0TmjgB2Fn7KWZYWbLcw9X3t30OBsGqj1cS1fahAiEA5cy+4VsH4u0B9Uj7tyFM9YrC2NDqtH0WS+YLILCJ/OU="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "toddbluhm",
+          "email": "toddbluhm@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "toddbluhm",
+        "email": "toddbluhm@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-standard_3.1.0_1579545904080_0.20776037915953016"
+      },
+      "_hasShrinkwrap": false
+    },
+    "4.0.0": {
+      "name": "ts-standard",
+      "description": "Typescript Standard Style based on StandardJS",
+      "version": "4.0.0",
+      "main": "dist/index.js",
+      "scripts": {
+        "test": "mocha -r ts-node/register ./test/**/*.ts",
+        "test-cover": "nyc npm test",
+        "coveralls": "coveralls < coverage/lcov.info",
+        "lint": "bin/cmd.js --fix && tsc --noEmit",
+        "build": "tsc",
+        "watch": "tsc -w"
+      },
+      "bin": {
+        "ts-standard": "bin/cmd.js"
+      },
+      "bugs": {
+        "url": "https://github.com/toddbluhm/ts-standard/issues"
+      },
+      "engines": {
+        "node": ">=8.0.0"
+      },
+      "author": {
+        "name": "Todd Bluhm"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/toddbluhm/ts-standard",
+      "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^2.7.0",
+        "eslint": "^6.6.0",
+        "eslint-config-standard": "^14.0.0",
+        "eslint-config-standard-with-typescript": "^12.0.1",
+        "eslint-plugin-import": "^2.0.0",
+        "eslint-plugin-node": "^11.0.0",
+        "eslint-plugin-promise": "^4.0.0",
+        "eslint-plugin-standard": "^4.0.0",
+        "pkg-conf": "^3.0.0",
+        "standard-engine": "^12.0.0"
+      },
+      "peerDependencies": {
+        "typescript": "^3.0.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^8.0.0",
+        "@commitlint/config-conventional": "^8.0.0",
+        "@commitlint/travis-cli": "^8.0.0",
+        "@types/chai": "^4.0.0",
+        "@types/eslint": "^6.0.0",
+        "@types/minimist": "^1.0.0",
+        "@types/mocha": "^7.0.0",
+        "@types/node": "^12.0.0",
+        "@types/sinon": "^7.0.0",
+        "chai": "^4.0.0",
+        "coveralls": "^3.0.0",
+        "get-stdin": "^7.0.0",
+        "husky": "^4.0.0",
+        "minimist": "^1.0.0",
+        "mocha": "^7.0.0",
+        "nyc": "^15.0.0",
+        "sinon": "^8.0.0",
+        "ts-node": "^8.0.0",
+        "typescript": "^3.7.0"
+      },
+      "keywords": [
+        "Typescript Standard Style",
+        "check",
+        "checker",
+        "code",
+        "code checker",
+        "code linter",
+        "code standards",
+        "code style",
+        "enforce",
+        "eslint",
+        "lint",
+        "policy",
+        "quality",
+        "simple",
+        "standard",
+        "standard style",
+        "style",
+        "style checker",
+        "style linter",
+        "verify",
+        "typescript",
+        "standardjs",
+        "tslint"
+      ],
+      "husky": {
+        "hooks": {
+          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+          "pre-commit": "npm run test"
+        }
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.ts"
+        ],
+        "extension": [
+          ".ts"
+        ],
+        "require": [
+          "ts-node/register"
+        ],
+        "reporter": [
+          "text",
+          "lcov"
+        ],
+        "sourceMap": true,
+        "instrument": true
+      },
+      "ts-standard": {
+        "project": "./tsconfig.eslint.json",
+        "ignore": [
+          "dist"
+        ]
+      },
+      "greenkeeper": {
+        "ignore": [
+          "@types/node"
+        ]
+      },
+      "gitHead": "a190bbca5bc06e0b0dd91a9447f7c0207cc3d100",
+      "_id": "ts-standard@4.0.0",
+      "_nodeVersion": "12.14.1",
+      "_npmVersion": "6.13.4",
+      "dist": {
+        "integrity": "sha512-5isNnaoxYNOKuNxQFGF7aOUO6aBjHAIKBcnIVKUrzcqfJMYs6SngqOP5oIy3Zs5rNWp7rsKMKnFygqabQz8a8w==",
+        "shasum": "539240f64007e5db72f6d1a8c447d64a01a4a769",
+        "tarball": "https://registry.npmjs.org/ts-standard/-/ts-standard-4.0.0.tgz",
+        "fileCount": 16,
+        "unpackedSize": 20297,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeQII7CRA9TVsSAnZWagAAu3YP/RdG93D98U6tNNxYFG6j\nidiuQbSPsihMPVTphK8wZlvpGbRh+ecPOJ89krXSMkjTgaFGq0tdFp/GVjSW\nKyyZqlVlKrP7ztVELvldAb398w5JK2jdHlQNDUTH5l6uwevj68MP341ehlEY\ns9hPqYTBPPPp+YUzsaBWdbHkI/V2JTZvn8ux+Oh/GcX0mF9YQA89dNaLuSGo\ncqFRk1qJLs8Lq8vFf3P3lXXK9bNupjShqChEVBZGIudFrxKdV6XEzDYIBNx/\n3aWcxEl3u1UAlFkdiC4D4kQMu2qjRj93SVsk9X/uKyn6JPSyoHkta86M5CPv\nmeufxS5hFLvwIvtR7gn/9Me9RCDXIvuHpR0zzMDuO50aN2HJpfWBA8MfsdUf\nlisYkmddLCAcJlOEMorKHd5EloHESlpVEmJgk7eACJTjXXamqmK3eN/IytqJ\nN7NY708fGwPWpNp29JnmyuFeBqDBSLyqlalcrGCG/lVZdtTqFCw9YMtbsxbI\n3J4+Wc68dJ1GzGhAvvYggpjrYRZJdb/sXb4/N4tBpesCdSvVpPizy35Bo5kV\n6zpoALPna/rfzgmQCNfbH1Bpwfajp9CLVzJjUG+eyMoi3BZlxb6iLqBmkvld\nW96CdAfLkwR1ImcFCv3nK2+S/IxKCt4MGGkQgd9mhVU2yDGIL0xQs0Ppq1Dn\nSo1u\r\n=Le99\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHMtwbqApxVwoqgYH94/NMjUQIYvCtmREjHlJNd6U2HLAiAJzUUQzVteBokoblO/uwlkox44mh/Zu1IZpVKhLc7eAQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "toddbluhm",
+          "email": "toddbluhm@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "toddbluhm",
+        "email": "toddbluhm@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-standard_4.0.0_1581285946775_0.8921410786492783"
+      },
+      "_hasShrinkwrap": false
+    },
+    "5.0.0": {
+      "name": "ts-standard",
+      "description": "Typescript Standard Style based on StandardJS",
+      "version": "5.0.0",
+      "main": "dist/index.js",
+      "scripts": {
+        "test": "mocha -r ts-node/register ./test/**/*.ts",
+        "test-cover": "nyc npm test",
+        "coveralls": "coveralls < coverage/lcov.info",
+        "lint": "bin/cmd.js --fix && tsc --noEmit",
+        "build": "tsc",
+        "watch": "tsc -w"
+      },
+      "bin": {
+        "ts-standard": "bin/cmd.js"
+      },
+      "bugs": {
+        "url": "https://github.com/toddbluhm/ts-standard/issues"
+      },
+      "engines": {
+        "node": ">=8.0.0"
+      },
+      "author": {
+        "name": "Todd Bluhm"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/toddbluhm/ts-standard",
+      "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^2.0.0",
+        "eslint": "^6.0.0",
+        "eslint-config-standard": "^14.0.0",
+        "eslint-config-standard-jsx": "^8.0.0",
+        "eslint-config-standard-with-typescript": "^13.0.0",
+        "eslint-plugin-import": "^2.0.0",
+        "eslint-plugin-node": "^11.0.0",
+        "eslint-plugin-promise": "^4.0.0",
+        "eslint-plugin-react": "^7.0.0",
+        "eslint-plugin-standard": "^4.0.0",
+        "pkg-conf": "^3.0.0",
+        "standard-engine": "^12.0.0"
+      },
+      "peerDependencies": {
+        "typescript": "^3.0.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^8.0.0",
+        "@commitlint/config-conventional": "^8.0.0",
+        "@commitlint/travis-cli": "^8.0.0",
+        "@types/chai": "^4.0.0",
+        "@types/eslint": "^6.0.0",
+        "@types/minimist": "^1.0.0",
+        "@types/mocha": "^7.0.0",
+        "@types/node": "^12.0.0",
+        "@types/sinon": "^7.0.0",
+        "chai": "^4.0.0",
+        "coveralls": "^3.0.0",
+        "get-stdin": "^7.0.0",
+        "husky": "^4.0.0",
+        "minimist": "^1.0.0",
+        "mocha": "^7.0.0",
+        "nyc": "^15.0.0",
+        "sinon": "^8.0.0",
+        "ts-node": "^8.0.0",
+        "typescript": "^3.7.0"
+      },
+      "keywords": [
+        "Typescript Standard Style",
+        "check",
+        "checker",
+        "code",
+        "code checker",
+        "code linter",
+        "code standards",
+        "code style",
+        "enforce",
+        "eslint",
+        "lint",
+        "policy",
+        "quality",
+        "simple",
+        "standard",
+        "standard style",
+        "style",
+        "style checker",
+        "style linter",
+        "verify",
+        "typescript",
+        "standardjs",
+        "tslint"
+      ],
+      "husky": {
+        "hooks": {
+          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+          "pre-commit": "npm run test"
+        }
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.ts"
+        ],
+        "extension": [
+          ".ts"
+        ],
+        "require": [
+          "ts-node/register"
+        ],
+        "reporter": [
+          "text",
+          "lcov"
+        ],
+        "sourceMap": true,
+        "instrument": true
+      },
+      "ts-standard": {
+        "project": "./tsconfig.eslint.json",
+        "ignore": [
+          "dist"
+        ]
+      },
+      "greenkeeper": {
+        "ignore": [
+          "@types/node"
+        ]
+      },
+      "gitHead": "d53dc000cbafbbb5e6276d847be420ab8711c444",
+      "_id": "ts-standard@5.0.0",
+      "_nodeVersion": "12.14.1",
+      "_npmVersion": "6.13.4",
+      "dist": {
+        "integrity": "sha512-FutVr7aYnUECBMgD8M1naGWoolMae6SGIXF0M2zRnplWUKn9vCYLm0wgNAYk9/6P8Lq7+YvWP3Yw6QwY3SfnEg==",
+        "shasum": "e27366c479d8442c124b2ecc85ed01545b1c7427",
+        "tarball": "https://registry.npmjs.org/ts-standard/-/ts-standard-5.0.0.tgz",
+        "fileCount": 16,
+        "unpackedSize": 20639,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeSmWPCRA9TVsSAnZWagAAZ3EP/0uyHfA8TtXydi8cYHQ0\nyXJXI9w8J6q2fhI5r71erE2s1GlgPTxF9UWsXGdnACsoG20lFZwdayT+4K2M\nBKNSLoTrH1yikgPyrgl+SJ4ER8BLScPYXtSdSql7KYzxG74+7uaqvmt5TT6n\nZjRp/yIRskVPy7u7Hy3mc0VaVQVEZqmNkYfG06D+t2oQr+YAbxySZtoH3Sh/\n1xLVynhW0otSb/ioNJ+Nvnb7d3YAWcPP0gP5hjaJNVAugIzbczET74S1Wz8c\nwS8fwLP1qhF+24J2tkdtxm4MTov+6ZwWeZFwaArESdpHrNM94ff/7l9gPGKJ\nhXF4EkZVAY+Izu84yNch2oMMid+sP3LyCHIXiVzgZEeJHxktkOJqCGAXlX0U\n4mlJN3X3OejuBt8JMIsErDwpf8aqXBMEr4R2bOOUkIJmsPy2k49mo/+Tw84l\njLOhNNi2+FR9csFiaSXTirnuBV4Cu3e2zPnB6oQ5NFDDBR3ucvf+guUJTgqv\nx/DTQbYyRVLTQ4FBQmylxPA6MqCz7aI3VFtdNNQntVpqpaUEc3aOHFM8nKzp\nZz1/pQG69iHzdCMKcdm/76OQws19DbfUfjANp6ybXPp++ntoW9HOQ8BjTX2h\n+W8Vv2Pn7X4zaXFq1T991pub+7u5q7p9Lq8vnNZ+Ba/an2xh2wZsTljba6Rs\nk/TT\r\n=DZ32\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDlwXM4etMJqazgjJTFM5s8UTPwKZjJyCyIO4aMkW+qYwIhAOlgmPYImRJ15G5AWXm5ZEkZAeTJSxM2RTvxGSsxw7w7"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "toddbluhm",
+          "email": "toddbluhm@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "toddbluhm",
+        "email": "toddbluhm@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-standard_5.0.0_1581933966683_0.6024871091450845"
+      },
+      "_hasShrinkwrap": false
+    },
+    "6.0.0": {
+      "name": "ts-standard",
+      "description": "Typescript Standard Style based on StandardJS",
+      "version": "6.0.0",
+      "main": "dist/index.js",
+      "scripts": {
+        "test": "mocha -r ts-node/register ./test/**/*.ts",
+        "test-cover": "nyc npm test",
+        "coveralls": "coveralls < coverage/lcov.info",
+        "lint": "bin/cmd.js --fix && tsc --noEmit",
+        "build": "tsc",
+        "watch": "tsc -w"
+      },
+      "bin": {
+        "ts-standard": "bin/cmd.js"
+      },
+      "bugs": {
+        "url": "https://github.com/toddbluhm/ts-standard/issues"
+      },
+      "engines": {
+        "node": ">=8.0.0"
+      },
+      "author": {
+        "name": "Todd Bluhm"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/toddbluhm/ts-standard",
+      "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^2.0.0",
+        "eslint": "^6.0.0",
+        "eslint-config-standard": "^14.0.0",
+        "eslint-config-standard-jsx": "^8.0.0",
+        "eslint-config-standard-with-typescript": "^14.0.0",
+        "eslint-plugin-import": "^2.0.0",
+        "eslint-plugin-node": "^11.0.0",
+        "eslint-plugin-promise": "^4.0.0",
+        "eslint-plugin-react": "^7.0.0",
+        "eslint-plugin-standard": "^4.0.0",
+        "pkg-conf": "^3.0.0",
+        "standard-engine": "^12.0.0"
+      },
+      "peerDependencies": {
+        "typescript": "^3.0.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^8.0.0",
+        "@commitlint/config-conventional": "^8.0.0",
+        "@types/chai": "^4.0.0",
+        "@types/eslint": "^6.0.0",
+        "@types/minimist": "^1.0.0",
+        "@types/mocha": "^7.0.0",
+        "@types/node": "^12.0.0",
+        "@types/sinon": "^7.0.0",
+        "chai": "^4.0.0",
+        "coveralls": "^3.0.0",
+        "get-stdin": "^7.0.0",
+        "husky": "^4.0.0",
+        "minimist": "^1.0.0",
+        "mocha": "^7.0.0",
+        "nyc": "^15.0.0",
+        "sinon": "^9.0.0",
+        "ts-node": "^8.0.0",
+        "typescript": "^3.7.0"
+      },
+      "keywords": [
+        "Typescript Standard Style",
+        "check",
+        "checker",
+        "code",
+        "code checker",
+        "code linter",
+        "code standards",
+        "code style",
+        "enforce",
+        "eslint",
+        "lint",
+        "policy",
+        "quality",
+        "simple",
+        "standard",
+        "standard style",
+        "style",
+        "style checker",
+        "style linter",
+        "verify",
+        "typescript",
+        "standardjs",
+        "tslint"
+      ],
+      "husky": {
+        "hooks": {
+          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.ts"
+        ],
+        "extension": [
+          ".ts"
+        ],
+        "require": [
+          "ts-node/register"
+        ],
+        "reporter": [
+          "text",
+          "lcov"
+        ],
+        "sourceMap": true,
+        "instrument": true
+      },
+      "ts-standard": {
+        "project": "./tsconfig.eslint.json",
+        "ignore": [
+          "dist"
+        ]
+      },
+      "greenkeeper": {
+        "ignore": [
+          "@types/node"
+        ],
+        "commitMessages": {
+          "initialBadge": "docs: add greenkeeper badge",
+          "initialDependencies": "chore: update dependencies",
+          "initialBranches": "chore: whitelist greenkeeper branches",
+          "dependencyUpdate": "chore: update dependency ${dependency}",
+          "devDependencyUpdate": "chore: update devDependecy ${dependency}",
+          "dependencyPin": "fix: pin dependency ${dependency}",
+          "devDependencyPin": "fix: pin devDependecy ${dependency}"
+        }
+      },
+      "commitlint": {
+        "extends": [
+          "@commitlint/config-conventional"
+        ]
+      },
+      "gitHead": "6d7b60dd7fe35e8d0f9a26717560e7a6cf5b5595",
+      "_id": "ts-standard@6.0.0",
+      "_nodeVersion": "12.14.1",
+      "_npmVersion": "6.13.4",
+      "dist": {
+        "integrity": "sha512-SqehjyyUGdX5i/nfblOV9hWwxMzsf6PhtKkD8ZeHf3hXbLHYT4Vqe8mgNI6QSIsGO0j8rWnBU7VAF/V9Ap3XQg==",
+        "shasum": "c6504bea3f59f5e8a041acbca27bee3f4b7d5b85",
+        "tarball": "https://registry.npmjs.org/ts-standard/-/ts-standard-6.0.0.tgz",
+        "fileCount": 17,
+        "unpackedSize": 21592,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeV3SeCRA9TVsSAnZWagAA6U4P/i2F9LuqLZTWrNttQ+oX\n7EXdMObch8h6NOFO+PXf7CpOP+Ng9qSAM4215Vw66TWPH8gopwYEK75VMZjP\nGLyRXHcI4b1ZBsskeZFyTZJX/SnHnEBI3Ev6jMPctVTqYp03JiiT7nCCM9EM\nhMFOEZxv/FQ0c2KrpUoiQHqCxlc6n29gHbjuGY52IUSqzQ/z2bTAHGSr3IMi\nlUTwCYve1X8riFRI3DiCnOwYLckJOfuxteLm9QRu6oDHeWA2u8WeNxyEi6wF\n5OD0LjWvsrTyD2Oz98RPGcXQj0f5/BtfX4VMrVHbPkZ0KmxAqnruEpK39Wht\nmZs8nX7iwuiYXsk5ZpwSp+9jbe9isYN/l4kojC0D6XcB1S3/oBWK6gYllTCR\nKgMF3YrUMBFHRRuHvLBczZTRPl3pjFf14l1QtMqBbAJjx1IhVrFypb8TvQLV\n2HAMrMlPy9+lIVZ+EH3aEYhF4qWTly6juHd7puz2q6sWgkAsCvQ6cLwH/+Yr\nuvlbmasKXfWD1i+U9NQEVvAC/GVSI2ZVACP/G/pRf+0hK8x/Ftox/+4bbXg5\niSHL0wUbtcD9RZMEQFalMp0D6aXe6J66zuYosK6rY8OF9JrKU3Bzf/A/VWui\nMXxWrurGihOLNVdQ6845uGYbnMK/6QqpwBMIsf+L5Q5Q9UW6zEuqfSdzWsb4\nSN/z\r\n=yi5h\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDBv0/6y/hxh2gDoRpapTvHC8lEuZHdWX/MybbDsztRzwIgfJ18PX8cFhXXxR/HiE+ZU7WuzmEUR+LG6JjHdb22iO4="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "toddbluhm",
+          "email": "toddbluhm@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "toddbluhm",
+        "email": "toddbluhm@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-standard_6.0.0_1582789790548_0.3667052978861123"
+      },
+      "_hasShrinkwrap": false
+    },
+    "7.0.0": {
+      "name": "ts-standard",
+      "description": "Typescript Standard Style based on StandardJS",
+      "version": "7.0.0",
+      "main": "dist/index.js",
+      "scripts": {
+        "test": "mocha -r ts-node/register ./test/**/*.ts",
+        "test-cover": "nyc npm test",
+        "coveralls": "coveralls < coverage/lcov.info",
+        "lint": "bin/cmd.js --fix && tsc --noEmit",
+        "build": "tsc",
+        "watch": "tsc -w"
+      },
+      "bin": {
+        "ts-standard": "bin/cmd.js"
+      },
+      "bugs": {
+        "url": "https://github.com/toddbluhm/ts-standard/issues"
+      },
+      "engines": {
+        "node": ">=8.0.0"
+      },
+      "author": {
+        "name": "Todd Bluhm"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/toddbluhm/ts-standard",
+      "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^2.0.0",
+        "eslint": "^6.0.0",
+        "eslint-config-standard": "^14.0.0",
+        "eslint-config-standard-jsx": "^8.0.0",
+        "eslint-config-standard-with-typescript": "^15.0.0",
+        "eslint-plugin-import": "^2.0.0",
+        "eslint-plugin-node": "^11.0.0",
+        "eslint-plugin-promise": "^4.0.0",
+        "eslint-plugin-react": "^7.0.0",
+        "eslint-plugin-standard": "^4.0.0",
+        "pkg-conf": "^3.0.0",
+        "standard-engine": "^12.0.0"
+      },
+      "peerDependencies": {
+        "typescript": "^3.0.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^8.0.0",
+        "@commitlint/config-conventional": "^8.0.0",
+        "@types/chai": "^4.0.0",
+        "@types/eslint": "^6.0.0",
+        "@types/minimist": "^1.0.0",
+        "@types/mocha": "^7.0.0",
+        "@types/node": "^12.0.0",
+        "@types/sinon": "^7.0.0",
+        "chai": "^4.0.0",
+        "coveralls": "^3.0.0",
+        "get-stdin": "^7.0.0",
+        "husky": "^4.0.0",
+        "minimist": "^1.0.0",
+        "mocha": "^7.0.0",
+        "nyc": "^15.0.0",
+        "sinon": "^9.0.0",
+        "ts-node": "^8.0.0",
+        "typescript": "^3.7.0"
+      },
+      "keywords": [
+        "Typescript Standard Style",
+        "check",
+        "checker",
+        "code",
+        "code checker",
+        "code linter",
+        "code standards",
+        "code style",
+        "enforce",
+        "eslint",
+        "lint",
+        "policy",
+        "quality",
+        "simple",
+        "standard",
+        "standard style",
+        "style",
+        "style checker",
+        "style linter",
+        "verify",
+        "typescript",
+        "standardjs",
+        "tslint"
+      ],
+      "husky": {
+        "hooks": {
+          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.ts"
+        ],
+        "extension": [
+          ".ts"
+        ],
+        "require": [
+          "ts-node/register"
+        ],
+        "reporter": [
+          "text",
+          "lcov"
+        ],
+        "sourceMap": true,
+        "instrument": true
+      },
+      "ts-standard": {
+        "project": "./tsconfig.eslint.json",
+        "ignore": [
+          "dist"
+        ]
+      },
+      "greenkeeper": {
+        "ignore": [
+          "@types/node"
+        ],
+        "commitMessages": {
+          "initialBadge": "docs: add greenkeeper badge",
+          "initialDependencies": "chore: update dependencies",
+          "initialBranches": "chore: whitelist greenkeeper branches",
+          "dependencyUpdate": "chore: update dependency ${dependency}",
+          "devDependencyUpdate": "chore: update devDependecy ${dependency}",
+          "dependencyPin": "fix: pin dependency ${dependency}",
+          "devDependencyPin": "fix: pin devDependecy ${dependency}"
+        }
+      },
+      "commitlint": {
+        "extends": [
+          "@commitlint/config-conventional"
+        ]
+      },
+      "gitHead": "6b72b39ab47498bec9f991bc0fc1a2d54c8e65cb",
+      "_id": "ts-standard@7.0.0",
+      "_nodeVersion": "12.14.1",
+      "_npmVersion": "6.13.4",
+      "dist": {
+        "integrity": "sha512-dQ7n3HfNFbS7jHwugKUedERnckUj0YNFaxIExo/Z8wuxXqyMejbKlwtdNZii8E7AM7zvxs8NOfptSOjY2DIMlA==",
+        "shasum": "a94ba629fff42a22eb0ab47a44219ff98b35bf84",
+        "tarball": "https://registry.npmjs.org/ts-standard/-/ts-standard-7.0.0.tgz",
+        "fileCount": 16,
+        "unpackedSize": 21482,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJecdO7CRA9TVsSAnZWagAAGT0QAI8BsxNATzPjFj3xRbZG\nN8sFvtNIfKVaCO9xLT7EGo3LMzmLU8ZCNk4UFQHijPPr1VNzJbcg+Q8IeliP\n0fjABUSarSO8CRtXwnywIlzhcTwPa7hEvOp8L2sreqjV3dM7YPeBL0FHTcvF\nV6TrwK6o1O9y75mL4CcghSOQNg3h4xsFl4PfRHwCymTm1elxq0ZusKFAXZtc\nAxdBuf28eK3xfFT/LvehKWYkAnurk9gDbPWZXt5PEmdQw7mOJBxfzn7Cxs/e\nnLfeQNSyVqOgzOYmhpyYExHuplfiQjVJPD5rsBkIyfP3d4Xa2jGoiHGbrtoP\nTYbNl1DFaLf2eGzygHhI9PVaJesJHytZ2BTu+Ej3XZ8Cf4De9pt13wMmLsf9\nij9JfetU9i97BGz7h93o6SefCZKEs8CadWIkDeTP56hX0L2492jdfg9Xrqq8\nF/1rrJKJgwFrN0P4iPB77xe4pc4wxsZ3zzsDo/UsQGpuLvsZqT/PsX75WJVy\nRyYWpqVCZsjbQGRblMBZmR7pbRqThhRdWbUACLcIy9phbDvmMdtm7N6vF1QC\nnpZxLYVnImFf2ti54dqO/3dm/gTh+mIgwwyl3z/5GblKUTI/vYUmZDwY6pLa\na/mJYp9+fPeP03RlyMc7Dg4PKwqqq186WbLFxCZmdL8XxZcY9TIXnGWJiIyv\nyUGl\r\n=g8V4\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAUv14Wn5TM22FRSLdPKY4jdPHFTQC/N6Xmu1cMbbdd3AiEA6LFW3q4OBb+zXuOEWBlFO5C1hjirhDyWj3XCOPyWbOw="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "toddbluhm",
+          "email": "toddbluhm@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "toddbluhm",
+        "email": "toddbluhm@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-standard_7.0.0_1584518074851_0.7331162765027825"
+      },
+      "_hasShrinkwrap": false
+    },
+    "8.0.0": {
+      "name": "ts-standard",
+      "description": "Typescript Standard Style based on StandardJS",
+      "version": "8.0.0",
+      "main": "dist/index.js",
+      "scripts": {
+        "test": "jest",
+        "coverage": "npm test -- --coverage",
+        "coveralls": "coveralls < coverage/lcov.info",
+        "lint": "bin/cmd.js --fix && tsc --noEmit",
+        "build": "tsc",
+        "watch": "tsc -w"
+      },
+      "bin": {
+        "ts-standard": "bin/cmd.js"
+      },
+      "bugs": {
+        "url": "https://github.com/toddbluhm/ts-standard/issues"
+      },
+      "engines": {
+        "node": ">=8.0.0"
+      },
+      "author": {
+        "name": "Todd Bluhm"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/toddbluhm/ts-standard",
+      "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^2.0.0",
+        "eslint": "^6.0.0",
+        "eslint-config-standard": "^14.0.0",
+        "eslint-config-standard-jsx": "^8.0.0",
+        "eslint-config-standard-with-typescript": "^16.0.0",
+        "eslint-plugin-import": "^2.0.0",
+        "eslint-plugin-node": "^11.0.0",
+        "eslint-plugin-promise": "^4.0.0",
+        "eslint-plugin-react": "^7.0.0",
+        "eslint-plugin-standard": "^4.0.0",
+        "pkg-conf": "^3.0.0",
+        "standard-engine": "^12.0.0"
+      },
+      "peerDependencies": {
+        "typescript": "^3.0.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^8.0.0",
+        "@commitlint/config-conventional": "^8.0.0",
+        "@types/eslint": "^6.0.0",
+        "@types/jest": "^25.2.1",
+        "@types/minimist": "^1.0.0",
+        "@types/node": "^12.0.0",
+        "coveralls": "^3.0.0",
+        "get-stdin": "^7.0.0",
+        "husky": "^4.0.0",
+        "jest": "^25.4.0",
+        "minimist": "^1.0.0",
+        "ts-jest": "^25.4.0",
+        "ts-node": "^8.0.0",
+        "typescript": "^3.7.0"
+      },
+      "keywords": [
+        "Typescript Standard Style",
+        "check",
+        "checker",
+        "code",
+        "code checker",
+        "code linter",
+        "code standards",
+        "code style",
+        "enforce",
+        "eslint",
+        "lint",
+        "policy",
+        "quality",
+        "simple",
+        "standard",
+        "standard style",
+        "style",
+        "style checker",
+        "style linter",
+        "verify",
+        "typescript",
+        "standardjs",
+        "tslint"
+      ],
+      "husky": {
+        "hooks": {
+          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+      },
+      "ts-standard": {
+        "project": "./tsconfig.eslint.json",
+        "ignore": [
+          "dist"
+        ],
+        "env": [
+          "node",
+          "jest"
+        ]
+      },
+      "commitlint": {
+        "extends": [
+          "@commitlint/config-conventional"
+        ]
+      },
+      "jest": {
+        "preset": "ts-jest",
+        "testEnvironment": "node",
+        "clearMocks": true,
+        "bail": true,
+        "testPathIgnorePatterns": [
+          "/dist"
+        ],
+        "globals": {
+          "ts-jest": {
+            "diagnostics": false
+          }
+        },
+        "collectCoverageFrom": [
+          "**/*.ts",
+          "!**/*.d.ts",
+          "!**/dist/**",
+          "!**/node_modules/**"
+        ]
+      },
+      "gitHead": "1e939d58dae1cc879226f7e5bf16614b2422de13",
+      "_id": "ts-standard@8.0.0",
+      "_nodeVersion": "12.14.1",
+      "_npmVersion": "6.13.4",
+      "dist": {
+        "integrity": "sha512-Hk2K3lXyYDRu693dmIEksAPqrsK/DHdZWumhpfhwqaFg6bJruKdmhCV9BKJRR77MLwfXqfIuWzUsu7xE+itJcw==",
+        "shasum": "164f76d71ec5e0122a07a06820d9aa94108dcdf9",
+        "tarball": "https://registry.npmjs.org/ts-standard/-/ts-standard-8.0.0.tgz",
+        "fileCount": 24,
+        "unpackedSize": 36504,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJep+5FCRA9TVsSAnZWagAANsgP/Rgo4c4Q0gvomI+2EKlr\nd69Cqw+NqZnSlriGw6G6hPjoyyOxzxXpZZbrphRRhOF7NUjo4p+5vMR3pyde\ny9SuVDIIWiTqi0b4ZTZapLCzdRrALmxh20iQaeENI61HZgpi4+BjV3SlrRUF\n7qpBT8PDJ+0K6MWi+/QfgH9IcTeAk2WB/wVhbPprx/XTjwnOtzDRQT96Rr75\nrJZLDYpGXtXovmQKQdbC0UuCsxq+f1gN/wJ05DUjlVFOTc5lEMYJRD7VKaZr\nF2+MUaZKK4YSBQ9ppDQlJrDOaMke1mG4DnuabrZ5oZ6XFFAgv5I86JmHH+hU\n9P7CySbWg1p8GdI4eHaHTbx8dzfE5AA2o0IN/a5NbcTbk549GSDTLOl6wFI7\nipeIlzV25LbxhBrVS1Oe3tgUMKM5XflPuCC700B2xdClJNLLFuqjfT44lAEQ\nURwMIauJhgLXOyk2mpjmnMCjPnuNUdqB0jSd2OUkgnht/XO3SzzJC6OWAefa\ngQ1vaKXS+yk2Y30NZn8ft53XEfWBUPrk18ESIlyHtNeloPUp1oKCZ+boT7ju\nsyN/eNoO5Xwd2ara2GqRIOq+oK0lh6E9fpWBZQx6M555p/Vh6t/tNdwc1qQ/\nMUrfS3muxVmrF6tTl+mWVouENUgtp4O4z9z00hVuIQuYK8Vf/03MiI5I6upa\nLZcA\r\n=GJEW\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCID9jebSLwbbzietOIn61FhnT3EmcSgvfVxBBalQJfThKAiEAjd8ve2WY43WCinKTVRFKE/8GuY3x92PdkIqytjZ3sOU="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "toddbluhm",
+          "email": "toddbluhm@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "toddbluhm",
+        "email": "toddbluhm@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-standard_8.0.0_1588063812920_0.1994879516585013"
+      },
+      "_hasShrinkwrap": false
+    },
+    "8.0.1": {
+      "name": "ts-standard",
+      "description": "Typescript Standard Style based on StandardJS",
+      "version": "8.0.1",
+      "main": "dist/index.js",
+      "scripts": {
+        "test": "jest",
+        "coverage": "npm test -- --coverage",
+        "coveralls": "coveralls < coverage/lcov.info",
+        "lint": "bin/cmd.js --fix && tsc --noEmit",
+        "build": "tsc",
+        "watch": "tsc -w"
+      },
+      "bin": {
+        "ts-standard": "bin/cmd.js"
+      },
+      "bugs": {
+        "url": "https://github.com/toddbluhm/ts-standard/issues"
+      },
+      "engines": {
+        "node": ">=8.0.0"
+      },
+      "author": {
+        "name": "Todd Bluhm"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/toddbluhm/ts-standard",
+      "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^2.29.0",
+        "eslint": "^6.0.0",
+        "eslint-config-standard": "^14.0.0",
+        "eslint-config-standard-jsx": "^8.0.0",
+        "eslint-config-standard-with-typescript": "^16.0.0",
+        "eslint-plugin-import": "^2.18.0",
+        "eslint-plugin-node": "^11.0.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-react": "^7.0.0",
+        "eslint-plugin-standard": "^4.0.0",
+        "get-stdin": "^7.0.0",
+        "minimist": "^1.0.0",
+        "pkg-conf": "^3.0.0",
+        "standard-engine": "^12.0.0"
+      },
+      "peerDependencies": {
+        "typescript": ">=3.8"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^8.0.0",
+        "@commitlint/config-conventional": "^8.0.0",
+        "@types/eslint": "^6.0.0",
+        "@types/jest": "^25.2.1",
+        "@types/minimist": "^1.0.0",
+        "@types/node": "^12.0.0",
+        "coveralls": "^3.0.0",
+        "husky": "^4.0.0",
+        "jest": "^25.4.0",
+        "ts-jest": "^25.4.0",
+        "ts-node": "^8.0.0",
+        "typescript": "^3.8.3"
+      },
+      "keywords": [
+        "Typescript Standard Style",
+        "check",
+        "checker",
+        "code",
+        "code checker",
+        "code linter",
+        "code standards",
+        "code style",
+        "enforce",
+        "eslint",
+        "lint",
+        "policy",
+        "quality",
+        "simple",
+        "standard",
+        "standard style",
+        "style",
+        "style checker",
+        "style linter",
+        "verify",
+        "typescript",
+        "standardjs",
+        "tslint"
+      ],
+      "husky": {
+        "hooks": {
+          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+      },
+      "ts-standard": {
+        "project": "./tsconfig.eslint.json",
+        "ignore": [
+          "dist"
+        ],
+        "env": [
+          "node",
+          "jest"
+        ]
+      },
+      "commitlint": {
+        "extends": [
+          "@commitlint/config-conventional"
+        ]
+      },
+      "jest": {
+        "preset": "ts-jest",
+        "testEnvironment": "node",
+        "clearMocks": true,
+        "bail": true,
+        "testPathIgnorePatterns": [
+          "/dist"
+        ],
+        "globals": {
+          "ts-jest": {
+            "diagnostics": false
+          }
+        },
+        "collectCoverageFrom": [
+          "**/*.ts",
+          "!**/*.d.ts",
+          "!**/dist/**",
+          "!**/node_modules/**"
+        ]
+      },
+      "gitHead": "669f9e4bd3b90862071ae77b1f07eb954478eea1",
+      "_id": "ts-standard@8.0.1",
+      "_nodeVersion": "12.14.1",
+      "_npmVersion": "6.13.4",
+      "dist": {
+        "integrity": "sha512-nJW4fbd7qbPlGSIrMCxgBt/BHQVYv3xEJXtenw34sFZFBFzinRb8NNqTNR/+0t1AqOtov4g6c6kpPv42bMeqkg==",
+        "shasum": "411e7116b209e568158a9ff300d718b8b8548c79",
+        "tarball": "https://registry.npmjs.org/ts-standard/-/ts-standard-8.0.1.tgz",
+        "fileCount": 24,
+        "unpackedSize": 36975,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJes8aYCRA9TVsSAnZWagAAlvgP/0ADIRpmXKHx7gLb6L2Y\nE3/Z6IBgwWXkdSfaFzK9HK9BlQ2LYl9K5YhUfirBBic5yC8vjfldZoH0MucV\nBjG+ZMOdnxeBJLEZP/UWG58hw9N4cC2LITsQ0GOI/m0+vXA28ysuJIt3fX/c\nu/5++dIh0AOu1ZXGcVVIlUHwyQBH5VV+YrKLouCT13yFdNFe/psrWtucUS1V\nYFT7ReaK3r5oNIzDEkvAXdx6guKfxb0TwmJ+w0eh98f4sNXGS4AYDlg+xW1g\n5HmR843FLWk8vik3A/AiYs2fo7sdS5ddk14Ci9k6xXrWxruYYHWFUHqHpfZC\nCx7fmLmZHOVkI4WE0c+zSzpyNTXXSZUkI4iyO0/Dt+yB665A6tfyjgU5+KHy\nKY/PfOZyIgKSJ1eUFgBjfGXCpEtagMMVSxzaNsIJYCkwg4LuFr76h7q+0jpb\n1ZNPH6LgZkkLj5mSnHkl2sqxrXLjmNkEFnPAeIcr3mT8fc74mkMfc4pQ1ite\nr2FLTuGMUp+mj1+vm2UYcfXojYvb10VxvyW0lSUlS4gYM0093KJJztoSl30p\nxsq9BI1d8qd8YDMYpIL+SB8jQDakAFqirQZn/36fQOQSZvJGBDMhddSolcRF\nDcHlkWoXTR4RMCD8f0Vrcmc2Xg1MYqv6Mgm56BSAimNBiSQRSWlD6Tj4YSdQ\n5VIA\r\n=sP5t\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIENR72BtPk1Grz8ZmoWK1mAOrYYLPtsabg9vN60AKZyKAiBWJLGn1//Bw9eQw3khEUG+F7mpFMWIMAB6gfslhEr51Q=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "toddbluhm",
+          "email": "toddbluhm@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "toddbluhm",
+        "email": "toddbluhm@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-standard_8.0.1_1588840087838_0.4744492855692868"
+      },
+      "_hasShrinkwrap": false
+    },
+    "9.0.0": {
+      "name": "ts-standard",
+      "description": "Typescript Standard Style based on StandardJS",
+      "version": "9.0.0",
+      "main": "dist/index.js",
+      "scripts": {
+        "test": "jest",
+        "coverage": "npm test -- --coverage",
+        "coveralls": "coveralls < coverage/lcov.info",
+        "lint": "prettier --write '**/*.{ts*,js*,yml}' && bin/cmd.js --fix && tsc --noEmit",
+        "build": "tsc",
+        "watch": "tsc -w"
+      },
+      "bin": {
+        "ts-standard": "bin/cmd.js"
+      },
+      "bugs": {
+        "url": "https://github.com/toddbluhm/ts-standard/issues"
+      },
+      "engines": {
+        "node": ">=10.0.0"
+      },
+      "author": {
+        "name": "Todd Bluhm"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/toddbluhm/ts-standard",
+      "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^3.8.0",
+        "eslint": "^7.0.0",
+        "eslint-config-standard": "^14.0.0",
+        "eslint-config-standard-jsx": "^8.0.0",
+        "eslint-config-standard-with-typescript": "^18.0.0",
+        "eslint-plugin-import": "^2.22.0",
+        "eslint-plugin-node": "^11.0.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-react": "^7.0.0",
+        "eslint-plugin-standard": "^4.0.0",
+        "get-stdin": "^8.0.0",
+        "minimist": "^1.0.0",
+        "pkg-conf": "^3.0.0",
+        "standard-engine": "^12.0.0"
+      },
+      "peerDependencies": {
+        "typescript": ">=3.8"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^9.0.0",
+        "@commitlint/config-conventional": "^9.0.0",
+        "@types/eslint": "^7.0.0",
+        "@types/jest": "^26.0.0",
+        "@types/minimist": "^1.0.0",
+        "@types/node": "^14.0.0",
+        "coveralls": "^3.0.0",
+        "husky": "^4.0.0",
+        "jest": "^26.0.0",
+        "prettier": "^2.0.0",
+        "ts-jest": "^26.0.0",
+        "ts-node": "^8.0.0",
+        "typescript": "^3.9.0"
+      },
+      "keywords": [
+        "Typescript Standard Style",
+        "check",
+        "checker",
+        "code",
+        "code checker",
+        "code linter",
+        "code standards",
+        "code style",
+        "enforce",
+        "eslint",
+        "lint",
+        "policy",
+        "quality",
+        "simple",
+        "standard",
+        "standard style",
+        "style",
+        "style checker",
+        "style linter",
+        "verify",
+        "typescript",
+        "standardjs",
+        "tslint"
+      ],
+      "husky": {
+        "hooks": {
+          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+      },
+      "ts-standard": {
+        "project": "./tsconfig.eslint.json",
+        "ignore": [
+          "dist"
+        ],
+        "env": [
+          "node",
+          "jest"
+        ]
+      },
+      "commitlint": {
+        "extends": [
+          "@commitlint/config-conventional"
+        ]
+      },
+      "jest": {
+        "preset": "ts-jest",
+        "testEnvironment": "node",
+        "clearMocks": true,
+        "bail": true,
+        "testPathIgnorePatterns": [
+          "/dist"
+        ],
+        "globals": {
+          "ts-jest": {
+            "diagnostics": false
+          }
+        },
+        "collectCoverageFrom": [
+          "**/*.ts",
+          "!**/*.d.ts",
+          "!**/dist/**",
+          "!**/node_modules/**"
+        ]
+      },
+      "prettier": {
+        "singleQuote": true,
+        "semi": false
+      },
+      "gitHead": "64be4c6baf321ca046a9a99e3c6c92e852b9b820",
+      "_id": "ts-standard@9.0.0",
+      "_nodeVersion": "12.14.1",
+      "_npmVersion": "6.13.4",
+      "dist": {
+        "integrity": "sha512-5qUT2nJdC/vOo1NZtDsWpjr/nkuL1L7ujbJsosJc4CFI5taUM3BrcFOPgs5qxLsog84D4uHhJnfuV41W6tYiHA==",
+        "shasum": "e517971f42b635285dace4e7d8d76654230204bd",
+        "tarball": "https://registry.npmjs.org/ts-standard/-/ts-standard-9.0.0.tgz",
+        "fileCount": 26,
+        "unpackedSize": 39576,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfKRyLCRA9TVsSAnZWagAAeY0P/RLfXJb5cCTM5iCMpJhp\n43OfnhxrwrFNO5KBVfKLB7bmqm5lBXuMpSeweCVfW3wTdrPUDIWfHDFAPrbF\n7F2Cqjy+8kIuwEcS2Ii3hdPaSeojHf0l7ip7aqbeok9P2PqqSpJki0lOPb7S\n6Ve7vraixvP7ci5QwF3esdY7HMzpWp+/7EUEhBEk3FWtRi9FAveojTMzSgyb\nf1cp7MhiU7FsA0Af+OuZ1q9QWXQL5LSiFzg2rlNztYy5tp4iD80O3AaY9asD\nBbnmCkSnzTYLTtd51Bmj6cdbLqhfkw8FiC6WIzxr/gJ81iYbCcQEGlj580+0\nWa1ytbpC3EotJbh+QVqFZL9f6DlwprlOzvYxhVyj3lwJc3XCr8Q9vZactA9F\nnSpgxi1SmY4qWX0K2uYrxW0uRRw8Lx+D3fWq24X9x6H+SuXse44sZXpixnkg\nREFQQTlpu8a4QUChzI1Z9jTbV2kkdSjVdwJKLD8baRoYG0YdAcXK0NIYkk03\neICXo/t2LYMXirImiJ9WW5//gtLsmRzGJ9dJFoezHw/fFEF56aMF0U3ET2qN\nazmS6j8gEmLgniGZlWr6ptcaeXas+bRA7qQq7jrPMbPk9yjRvXCRM0dsKdT0\nphwUHUIZp/39SqCXhprxRNl6lUhP1zlsR5dXqdAqtb9exophanrAgZoCBgb1\nXpoL\r\n=ap/y\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFiS2LeN7Bd4ea2APHDAH4clNWXl380OGvEzf2BaWZeRAiEAklB22o6SxJ90tB05n4/IPXNY2aXLIrxxxLtRVcFFfd0="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "toddbluhm",
+          "email": "toddbluhm@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "toddbluhm",
+        "email": "toddbluhm@gmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-standard_9.0.0_1596529802667_0.6089439282455167"
+      },
+      "_hasShrinkwrap": false
+    },
+    "10.0.0": {
+      "name": "ts-standard",
+      "description": "Typescript Standard Style based on StandardJS",
+      "version": "10.0.0",
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "scripts": {
+        "test": "jest",
+        "coverage": "npm test -- --coverage",
+        "coveralls": "coveralls < coverage/lcov.info",
+        "lint": "prettier --write '**/*.{ts*,js*,yml}' && bin/cmd.js --fix && tsc -p './tsconfig.eslint.json' --noEmit",
+        "build": "tsc",
+        "watch": "tsc -w"
+      },
+      "bin": {
+        "ts-standard": "bin/cmd.js"
+      },
+      "bugs": {
+        "url": "https://github.com/standard/ts-standard/issues"
+      },
+      "engines": {
+        "node": ">=10.0.0"
+      },
+      "author": {
+        "name": "Todd Bluhm"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/standard/ts-standard",
+      "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.8.2",
+        "eslint": "^7.14.0",
+        "eslint-config-standard": "^16.0.2",
+        "eslint-config-standard-jsx": "^10.0.0",
+        "eslint-config-standard-with-typescript": "^19.0.1",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-react": "^7.21.5",
+        "eslint-plugin-standard": "4.1.0",
+        "get-stdin": "^8.0.0",
+        "minimist": "^1.2.5",
+        "pkg-conf": "^3.1.0",
+        "standard-engine": "^14.0.1"
+      },
+      "peerDependencies": {
+        "typescript": ">=3.8"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^11.0.0",
+        "@commitlint/config-conventional": "^11.0.0",
+        "@types/eslint": "^7.2.5",
+        "@types/jest": "^26.0.15",
+        "@types/minimist": "^1.2.1",
+        "@types/node": "^14.14.10",
+        "coveralls": "^3.1.0",
+        "husky": "^4.3.0",
+        "jest": "^26.6.3",
+        "prettier": "^2.2.1",
+        "ts-jest": "^26.4.4",
+        "ts-node": "^9.0.0",
+        "typescript": "^4.1.2"
+      },
+      "keywords": [
+        "Typescript Standard Style",
+        "check",
+        "checker",
+        "code",
+        "code checker",
+        "code linter",
+        "code standards",
+        "code style",
+        "enforce",
+        "eslint",
+        "lint",
+        "policy",
+        "quality",
+        "simple",
+        "standard",
+        "standard style",
+        "style",
+        "style checker",
+        "style linter",
+        "verify",
+        "typescript",
+        "standardjs",
+        "tslint"
+      ],
+      "husky": {
+        "hooks": {
+          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+          "pre-commit": "npm run build && git add ./dist"
+        }
+      },
+      "ts-standard": {
+        "project": "./tsconfig.eslint.json",
+        "ignore": [
+          "dist"
+        ],
+        "env": [
+          "node",
+          "jest"
+        ]
+      },
+      "commitlint": {
+        "extends": [
+          "@commitlint/config-conventional"
+        ]
+      },
+      "jest": {
+        "preset": "ts-jest",
+        "testEnvironment": "node",
+        "clearMocks": true,
+        "bail": true,
+        "testPathIgnorePatterns": [
+          "/dist"
+        ],
+        "globals": {
+          "ts-jest": {
+            "diagnostics": false
+          }
+        },
+        "collectCoverageFrom": [
+          "**/*.ts",
+          "!**/*.d.ts",
+          "!**/dist/**",
+          "!**/node_modules/**"
+        ]
+      },
+      "prettier": {
+        "singleQuote": true,
+        "semi": false,
+        "trailingComma": "none"
+      },
+      "gitHead": "96d47163078c22f6079460af40065351d77ee52d",
+      "_id": "ts-standard@10.0.0",
+      "_nodeVersion": "12.14.1",
+      "_npmVersion": "6.13.4",
+      "dist": {
+        "integrity": "sha512-Svy9HscRHqFV5Q3BwnkE6tv+njyZQSSFyuofhmPdut8jbaIARzaIdtCdPdnyQSvgv5kjO8i4Z0VdOJ4d+ZF6WQ==",
+        "shasum": "8d537ccc3e2ccae644e7fe7aceeb02158754ef1a",
+        "tarball": "https://registry.npmjs.org/ts-standard/-/ts-standard-10.0.0.tgz",
+        "fileCount": 26,
+        "unpackedSize": 42436,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfzdXDCRA9TVsSAnZWagAAJmEP/RUpNmxt6LjbGJJ5V/CG\n35cyW+2Gl7/XjBiEjw56JrXiLfn2wcxAl2SCJvzgaBZ6IdCbwIVr4dtZNI3B\nizP2oSmfvoWgsypKVHI+2yF/rUWNJ+5yKrjeV3fYZA1hKw+BnPBYHZTDNME4\nJYAU5MW1RLbgEVF4GmWSm5eIavlwj+ij7lgOkV23nI2vFBWDUpJh/cvLZFco\nk/gm1bkS0uxKDsCHw2IBqZgKL0D9qkPawP4FWr6tWkM/2cKw//8ft9l1kFPd\nZESDgjLDYlASZFTCkHaCFUslObaGebf5SoK2uSZiaqPk62UTWsViKGMtX8QC\nXiCIKvE8bro3CxprYi6vNgQyJqSmwPVBV/mooT3yDDexYZaNbTdzbygrfJIm\nH7QMwRf6LROnS0CEMyOF3ODEruM65KtvuDpHSLkPcFFVqU4DiulxSfDJiD7M\nKihRf+cCu/q0GHPewJ3GoDF5pNF8L96iyQiyD2vw5aJ6IUmYrWzds/5XSR2O\nw7qsRdCByTgmSYVQwPHp7x/7MysXJ2yzQtKwBmV1gXWTHYE0y2vO0XPBIvG1\n3IGrSxBfDSj28mvU6OM/PnDD0Fplg3gahlbzEKjW30hdMRAjDEc3LF66BuZq\njcPQNt9Hi7IqEnOWvtudBDl5zf46uhhCuvSlp9xFlXbsvQWcWsX0nFt8NxqF\nbQ0s\r\n=9Hee\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDIEoLVHEm+sLvB/dny8zjxND5xd+UZMDHiJDdRIFMAZAiA2couoTS5C1cisXbhZE0EXPUBWEQtF4+JJ85/CF3aMxg=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "toddbluhm",
+        "email": "toddbluhm@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "toddbluhm",
+          "email": "toddbluhm@gmail.com"
+        },
+        {
+          "name": "raynos",
+          "email": "raynos2@gmail.com"
+        },
+        {
+          "name": "watson",
+          "email": "w@tson.dk"
+        },
+        {
+          "name": "jprichardson",
+          "email": "jprichardson@gmail.com"
+        },
+        {
+          "name": "mafintosh",
+          "email": "mathiasbuus@gmail.com"
+        },
+        {
+          "name": "linusu",
+          "email": "linus@folkdatorn.se"
+        },
+        {
+          "name": "flet",
+          "email": "flettre@gmail.com"
+        },
+        {
+          "name": "feross",
+          "email": "feross@feross.org"
+        },
+        {
+          "name": "bret",
+          "email": "bcomnes@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-standard_10.0.0_1607325123291_0.1413080841716261"
+      },
+      "_hasShrinkwrap": false
+    },
+    "11.0.0": {
+      "name": "ts-standard",
+      "description": "Typescript Standard Style based on StandardJS",
+      "version": "11.0.0",
+      "main": "dist/index.js",
+      "types": "dist/index.d.ts",
+      "bin": {
+        "ts-standard": "bin/cmd.js"
+      },
+      "bugs": {
+        "url": "https://github.com/standard/ts-standard/issues"
+      },
+      "engines": {
+        "node": ">=12.0.0"
+      },
+      "author": {
+        "name": "Todd Bluhm"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/standard/ts-standard",
+      "keywords": [
+        "Typescript Standard Style",
+        "check",
+        "checker",
+        "code",
+        "code checker",
+        "code linter",
+        "code standards",
+        "code style",
+        "enforce",
+        "eslint",
+        "lint",
+        "policy",
+        "quality",
+        "simple",
+        "standard",
+        "standard style",
+        "style",
+        "style checker",
+        "style linter",
+        "verify",
+        "typescript",
+        "standardjs",
+        "tslint"
+      ],
+      "ts-standard": {
+        "project": "./tsconfig.eslint.json",
+        "ignore": [
+          "dist"
+        ],
+        "env": [
+          "node",
+          "jest"
+        ]
+      },
+      "commitlint": {
+        "extends": [
+          "@commitlint/config-conventional"
+        ]
+      },
+      "jest": {
+        "preset": "ts-jest",
+        "testEnvironment": "node",
+        "clearMocks": true,
+        "bail": true,
+        "testPathIgnorePatterns": [
+          "/dist"
+        ],
+        "globals": {
+          "ts-jest": {
+            "diagnostics": false
+          }
+        },
+        "collectCoverageFrom": [
+          "**/*.ts",
+          "!**/*.d.ts",
+          "!**/dist/**",
+          "!**/node_modules/**"
+        ]
+      },
+      "prettier": {
+        "singleQuote": true,
+        "semi": false,
+        "trailingComma": "none"
+      },
+      "scripts": {
+        "test": "jest",
+        "coverage": "npm test -- --coverage",
+        "coveralls": "coveralls < coverage/lcov.info",
+        "lint": "prettier --write '**/*.{ts*,js*,yml}' && bin/cmd.js --fix && tsc -p './tsconfig.eslint.json' --noEmit",
+        "build": "tsc",
+        "watch": "tsc -w",
+        "_postinstall": "husky install",
+        "prepublishOnly": "pinst --disable",
+        "postpublish": "pinst --enable"
+      },
+      "peerDependencies": {
+        "typescript": ">=3.8"
+      },
+      "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.26.1",
+        "eslint": "^7.28.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-config-standard-jsx": "^10.0.0",
+        "eslint-config-standard-with-typescript": "^21.0.1",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-react": "^7.24.0",
+        "get-stdin": "^8.0.0",
+        "minimist": "^1.2.5",
+        "pkg-conf": "^3.1.0",
+        "standard-engine": "^14.0.1"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^14.1.0",
+        "@commitlint/config-conventional": "^14.1.0",
+        "@types/eslint": "^7.2.13",
+        "@types/jest": "^27.0.1",
+        "@types/minimist": "^1.2.1",
+        "@types/node": "^16.0.0",
+        "coveralls": "^3.1.0",
+        "husky": "^7.0.0",
+        "jest": "^26.6.3",
+        "pinst": "^2.1.6",
+        "prettier": "^2.3.1",
+        "ts-jest": "^26.5.1",
+        "ts-node": "^10.0.0",
+        "typescript": "^4.3.2"
+      },
+      "gitHead": "5e984a59b2c0843c3c8e9583fdcda6b5c7b3ded3",
+      "_id": "ts-standard@11.0.0",
+      "_nodeVersion": "16.11.1",
+      "_npmVersion": "8.0.0",
+      "dist": {
+        "integrity": "sha512-fe+PCOM6JTMIcG1Smr8BQJztUi3dc/SDJMqezxNAL8pe/0+h0shK0+fNPTuF1hMVMYO+O53Wtp9WQHqj0GJtMw==",
+        "shasum": "2d9908869818f09601af9d57cc224c836d9eb31c",
+        "tarball": "https://registry.npmjs.org/ts-standard/-/ts-standard-11.0.0.tgz",
+        "fileCount": 28,
+        "unpackedSize": 44039,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhlNt1CRA9TVsSAnZWagAAQ+kP/j8qiiaLJPguJvXaAKLa\nyyBnEB6roHb7cge9KxUB0FlZIzD+3fTLzb1U9NSp/oCwOK9RCJgc1ELvvbMz\nq7BE+r+Ls3Lq0Enz6/TULRIcxjHwzwAUXBjZIszAqDLWVWblBNgePh5sLCG+\ntjjAB4jUEb035l2BzbiyveR8vihyu66c7Rlz4j8qcRcVTOInI11PFzVZ2cRh\nrEaeK6NkH6pZLVNF3S3ffpn0jtsC9/thSW8IdThTDJPEid9M94zSi6w/jPaO\nbiK5H9jqJF8rapMzhRKVRVtRXq2XE2XJKeSY4qf+CpZ4ThiHgr0STU1pWr8e\nKcshlVBxRYWDR0PR76JxYbMjdRZODpoa8CINgo21NOrik6r5Fo0ZNBUTBCD/\nFj/O08OSFoIvzWtf3Pz9wIUa5fzyKo+rRKVvp+YfYxHQUhIP4Js4gSl69Trb\nJD24Jd2Sz/XdYP+tlExfPUxaDDLzUiHfZab3h7d8JKzcRcBcLy9SfnYdADUn\njt0iJlA1tQ4Y3ePDfCXSqRifqu0QWoLM3CDaVD1DFItNoPTlskbcIS3IYf9b\nV/jhpzqb1HSd0Og7i9bpHRefWP3sbk1O8cCSY40Dmcx4nztGwRcO2/w29ue7\nSeUosU6ERhiU6yy2a/H0pycjSju0uAGCIcFCnMMPTSORtsTJ9GPw8BGRJDM7\nIVm2\r\n=Ag1+\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCZg8P4EzknNvulXX6rvYyehWkBvD5WOPDC+0fFBUb2CgIgAjn6wJHyBDY29SYvaihkgNBqiPuj/9ptcXDTv94Qc9U="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "linusu",
+        "email": "linus@folkdatorn.se"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "jhiesey",
+          "email": "john@hiesey.com"
+        },
+        {
+          "name": "bret",
+          "email": "bcomnes@gmail.com"
+        },
+        {
+          "name": "feross",
+          "email": "feross@feross.org"
+        },
+        {
+          "name": "flet",
+          "email": "flettre@gmail.com"
+        },
+        {
+          "name": "linusu",
+          "email": "linus@folkdatorn.se"
+        },
+        {
+          "name": "mafintosh",
+          "email": "mathiasbuus@gmail.com"
+        },
+        {
+          "name": "jprichardson",
+          "email": "jprichardson@gmail.com"
+        },
+        {
+          "name": "watson",
+          "email": "w@tson.dk"
+        },
+        {
+          "name": "raynos",
+          "email": "raynos2@gmail.com"
+        },
+        {
+          "name": "toddbluhm",
+          "email": "toddbluhm@gmail.com"
+        },
+        {
+          "name": "voxpelli",
+          "email": "pelle@kodfabrik.se"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-standard_11.0.0_1637145461256_0.06962935438768758"
+      },
+      "_hasShrinkwrap": false
+    },
+    "12.0.0": {
+      "name": "ts-standard",
+      "description": "TypeScript Standard Style based on StandardJS",
+      "version": "12.0.0",
+      "main": "./index.js",
+      "type": "module",
+      "bin": {
+        "ts-standard": "cli.js"
+      },
+      "bugs": {
+        "url": "https://github.com/standard/ts-standard/issues"
+      },
+      "engines": {
+        "node": "^12.22.0 || ^14.17.0 || >=16.0.0"
+      },
+      "author": {
+        "name": "Todd Bluhm"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/standard/ts-standard",
+      "keywords": [
+        "TypeScript Standard Style",
+        "check",
+        "checker",
+        "code",
+        "code checker",
+        "code linter",
+        "code standards",
+        "code style",
+        "enforce",
+        "eslint",
+        "lint",
+        "policy",
+        "quality",
+        "simple",
+        "standard",
+        "standard style",
+        "style",
+        "style checker",
+        "style linter",
+        "verify",
+        "typescript",
+        "standardjs",
+        "tslint"
+      ],
+      "ts-standard": {
+        "ignore": [
+          "test/fixtures/*.ts"
+        ]
+      },
+      "scripts": {
+        "lint:standard": "standard",
+        "lint:ts-standard": "node cli.js",
+        "lint:commit": "commitlint",
+        "test": "tape test/*.js"
+      },
+      "peerDependencies": {
+        "typescript": "*"
+      },
+      "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.0.0",
+        "@typescript-eslint/parser": "^5.0.0",
+        "eslint": "^8.0.1",
+        "eslint-config-standard-jsx": "^11.0.0",
+        "eslint-config-standard-with-typescript": "^23.0.0",
+        "eslint-plugin-import": "^2.25.2",
+        "eslint-plugin-n": "^15.0.0",
+        "eslint-plugin-promise": "^6.0.0",
+        "eslint-plugin-react": "^7.28.0",
+        "minimist": "^1.2.6",
+        "pkg-conf": "^4.0.0",
+        "standard-engine": "^15.0.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^17.0.3",
+        "@commitlint/config-conventional": "^17.0.3",
+        "@types/minimist": "^1.2.2",
+        "@types/node": "^18.0.6",
+        "standard": "^17.0.0",
+        "tape": "^5.5.3"
+      },
+      "gitHead": "c3de7fe08c1803f31ead1cd94b1a09fdc78c2194",
+      "_id": "ts-standard@12.0.0",
+      "_nodeVersion": "16.15.1",
+      "_npmVersion": "8.11.0",
+      "dist": {
+        "integrity": "sha512-njSTqfTE8z3A6ChlHCjwYkp6v1kwpUyuwYE/lD6ErJ4MwQGKmPTHDfuYBq5A8+oYaiWtaiHLsPedqKrZor6e6A==",
+        "shasum": "3c14b50cf97e752181cc4999c9d0cd8c65563a43",
+        "tarball": "https://registry.npmjs.org/ts-standard/-/ts-standard-12.0.0.tgz",
+        "fileCount": 16,
+        "unpackedSize": 21699,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDjNN6GXTTdc8zrvR0Wh+4QF+m6QrOsPJLUzd1LWusaBgIhAMZiW8Tw9WJJMD0JED3EV0B2cXAqz3Y1HBjn9j99LTPN"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjOuDYACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrB/BAAotvxE6Eg5DiLFMbmh0m5S/QxdgbZAxKtUev27rA3tNpITges\r\nqr135+Td1AxJdUWcMu4yNOwXl0bFQTGKY9rO5KApdG/I1Ly6ceznJeH7Ytfl\r\nNP49LTZwXMQVMDo4Jx7CevQRsnwAqnl6fHrZbgvJQwuUkoZQSQO96Z9Fw+5k\r\nXFFuHhEu1BMLnhMRSnI04Zn5gmMdNWZaA+50L+QossqyIf7RxBJYZMKopPeI\r\nS/Qn4uJMqom9oFPmxK+y/x9OjYyQV+U4jfAY/4C50e4EjB4N2fCq4K08HXFq\r\nA9SrBTqIO8aNCbIXKzhRVWzwJqDxxnF2BKYngwRF3UPQQs7UDv+5jJ22Ma2P\r\nEVF4g95rOACSjgTntrWHAhxSudseaGOrcjALxuAMzr4rNzxvRLBCMC7u93vr\r\nalMcA9OIIscuhySEjdb6x6G0h5qAVCSdxT0Kj1nk5qCz+2mK9DSaQb1TTwIB\r\nniXkEE40OWgu5xE2y5LRiwIFnuNaFG92ZCKY+ePNjGi7WqOOQbckZqoLyXxf\r\nyHQrjDnikYIjD4OPVpRj9tB9qAbK0zYwnwHhbYXGSz2brg0QWm1g4O49zYr6\r\ns6OE3Z2SiaETHxGzvmoB49GphBEoWBYnj5yd4W+Slo4oGVXEtKXJf4IjlgNP\r\n0xOv+BCjyRHeEuPdWHkmIrgKg8pbQ7xfwh0=\r\n=JkS5\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "linusu",
+        "email": "linus@folkdatorn.se"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "jhiesey",
+          "email": "john@hiesey.com"
+        },
+        {
+          "name": "bret",
+          "email": "bcomnes@gmail.com"
+        },
+        {
+          "name": "feross",
+          "email": "feross@feross.org"
+        },
+        {
+          "name": "flet",
+          "email": "flettre@gmail.com"
+        },
+        {
+          "name": "linusu",
+          "email": "linus@folkdatorn.se"
+        },
+        {
+          "name": "mafintosh",
+          "email": "mathiasbuus@gmail.com"
+        },
+        {
+          "name": "jprichardson",
+          "email": "jprichardson@gmail.com"
+        },
+        {
+          "name": "watson",
+          "email": "w@tson.dk"
+        },
+        {
+          "name": "raynos",
+          "email": "raynos2@gmail.com"
+        },
+        {
+          "name": "toddbluhm",
+          "email": "toddbluhm@gmail.com"
+        },
+        {
+          "name": "voxpelli",
+          "email": "pelle@kodfabrik.se"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-standard_12.0.0_1664803032305_0.6008731698926533"
+      },
+      "_hasShrinkwrap": false
+    },
+    "12.0.1": {
+      "name": "ts-standard",
+      "description": "TypeScript Standard Style based on StandardJS",
+      "version": "12.0.1",
+      "main": "./index.js",
+      "type": "module",
+      "bin": {
+        "ts-standard": "cli.js"
+      },
+      "bugs": {
+        "url": "https://github.com/standard/ts-standard/issues"
+      },
+      "engines": {
+        "node": "^12.22.0 || ^14.17.0 || >=16.0.0"
+      },
+      "author": {
+        "name": "Todd Bluhm"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/standard/ts-standard",
+      "keywords": [
+        "TypeScript Standard Style",
+        "check",
+        "checker",
+        "code",
+        "code checker",
+        "code linter",
+        "code standards",
+        "code style",
+        "enforce",
+        "eslint",
+        "lint",
+        "policy",
+        "quality",
+        "simple",
+        "standard",
+        "standard style",
+        "style",
+        "style checker",
+        "style linter",
+        "verify",
+        "typescript",
+        "standardjs",
+        "tslint"
+      ],
+      "ts-standard": {
+        "ignore": [
+          "test/fixtures/*.ts"
+        ]
+      },
+      "scripts": {
+        "lint:standard": "standard",
+        "lint:ts-standard": "node cli.js",
+        "lint:commit": "commitlint",
+        "test": "tape test/*.js"
+      },
+      "peerDependencies": {
+        "typescript": "*"
+      },
+      "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.0.0",
+        "@typescript-eslint/parser": "^5.0.0",
+        "eslint": "^8.0.1",
+        "eslint-config-standard-jsx": "^11.0.0",
+        "eslint-config-standard-with-typescript": "^23.0.0",
+        "eslint-plugin-import": "^2.25.2",
+        "eslint-plugin-n": "^15.0.0",
+        "eslint-plugin-promise": "^6.0.0",
+        "eslint-plugin-react": "^7.28.0",
+        "minimist": "^1.2.6",
+        "pkg-conf": "^4.0.0",
+        "standard-engine": "^15.0.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^17.0.3",
+        "@commitlint/config-conventional": "^17.0.3",
+        "@types/minimist": "^1.2.2",
+        "@types/node": "^18.0.6",
+        "standard": "^17.0.0",
+        "tape": "^5.5.3"
+      },
+      "gitHead": "7c5b3d768329b0862a6c77b99547b9ceb50d74b5",
+      "_id": "ts-standard@12.0.1",
+      "_nodeVersion": "16.15.1",
+      "_npmVersion": "8.11.0",
+      "dist": {
+        "integrity": "sha512-Ewk3l0k/SwckuVoMokkKq5W0B6daOlVzk0Yu9Wrcp3m0/CWneVM8NK/EgUZFkx4OHw1F+RpAC7dFyzO2cLNmsw==",
+        "shasum": "1c3968c3daca590923ce6793ba7f595b1e7d24be",
+        "tarball": "https://registry.npmjs.org/ts-standard/-/ts-standard-12.0.1.tgz",
+        "fileCount": 16,
+        "unpackedSize": 22363,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEZ910f9VX4Ox4HpHnlrc4Rds58goHlghNGAgu9L+knSAiEAxIKrtxx8ptAmZqEaEq3fPMdE7jIE8Ge3anQCYmJT6tk="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjPs11ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoAHBAAjjz55Bc5LJo08EpH1ReeFc/LtNf4B+kkFflHXUVxz6ggmDkx\r\nORdCcHL412KqDSWFFeZBfpbZU4t7i8tdX/2+EztyjvkLF/wI2ZJ7NJ2tXgTH\r\nX4TOsHeyNHM8IVvD4/LvMUY9SxfxLQDpuOOYtz0IpJtW0bmlupIhG8NI3iXr\r\nlhrRWtttLn5MFda8wwK23rkNrgY/xBBS2yMuO94xGGKGUkKpdvOzpKkVQypn\r\nMswrH12FJAQPIa5lyejN2L9dIzx8EhZlgOo1kxH6yWGCte62mxP0gWU+eIJm\r\n3A8j2aGZXwU3YAwBaw/+nDG2pNZ3W6TG3ywqnEyxtIp+9I74fxL0GTF86Gsh\r\nf5njvaTbEZkfoXgO67wHpkcBcE2kKtJSuf1/WX446QI1KetAsOruf8ZU2PuN\r\nhxOr6TfypPMD+o4nq0VyQp2EhdymUFcKqI6jNBtu6QR/Mm8f9mbFcCucsBAa\r\n40k22xTVwXmNhLym2IC/THpwU5+Q8eFBWo5GbMiEwsQRAFzqKubz8cF5y2RN\r\nBKoDPAiEqBYg3BAEEA/EG8vkC5oxDUljn4NVGEWAIbu82nQyF9mVYJii5aPO\r\n9TILWaM7S4dRET4yURdGJJnacUgzEi+0hOksDFqI9YmcRzHvmOamhlXEowXN\r\ns6JOp2ym+Y5GD7fiqEeKSnr9YBXhEXF0xAM=\r\n=9h5y\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "linusu",
+        "email": "linus@folkdatorn.se"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "jhiesey",
+          "email": "john@hiesey.com"
+        },
+        {
+          "name": "bret",
+          "email": "bcomnes@gmail.com"
+        },
+        {
+          "name": "feross",
+          "email": "feross@feross.org"
+        },
+        {
+          "name": "flet",
+          "email": "flettre@gmail.com"
+        },
+        {
+          "name": "linusu",
+          "email": "linus@folkdatorn.se"
+        },
+        {
+          "name": "mafintosh",
+          "email": "mathiasbuus@gmail.com"
+        },
+        {
+          "name": "jprichardson",
+          "email": "jprichardson@gmail.com"
+        },
+        {
+          "name": "watson",
+          "email": "w@tson.dk"
+        },
+        {
+          "name": "raynos",
+          "email": "raynos2@gmail.com"
+        },
+        {
+          "name": "toddbluhm",
+          "email": "toddbluhm@gmail.com"
+        },
+        {
+          "name": "voxpelli",
+          "email": "pelle@kodfabrik.se"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-standard_12.0.1_1665060213444_0.19222226462213166"
+      },
+      "_hasShrinkwrap": false
+    },
+    "12.0.2": {
+      "name": "ts-standard",
+      "description": "TypeScript Standard Style based on StandardJS",
+      "version": "12.0.2",
+      "main": "./index.js",
+      "type": "module",
+      "bin": {
+        "ts-standard": "cli.js"
+      },
+      "bugs": {
+        "url": "https://github.com/standard/ts-standard/issues"
+      },
+      "engines": {
+        "node": "^12.22.0 || ^14.17.0 || >=16.0.0"
+      },
+      "author": {
+        "name": "Todd Bluhm"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/standard/ts-standard",
+      "keywords": [
+        "TypeScript Standard Style",
+        "check",
+        "checker",
+        "code",
+        "code checker",
+        "code linter",
+        "code standards",
+        "code style",
+        "enforce",
+        "eslint",
+        "lint",
+        "policy",
+        "quality",
+        "simple",
+        "standard",
+        "standard style",
+        "style",
+        "style checker",
+        "style linter",
+        "verify",
+        "typescript",
+        "standardjs",
+        "tslint"
+      ],
+      "ts-standard": {
+        "ignore": [
+          "test/fixtures/*.ts"
+        ]
+      },
+      "scripts": {
+        "lint:standard": "standard",
+        "lint:ts-standard": "node cli.js",
+        "lint:commit": "commitlint",
+        "test": "tape test/*.js"
+      },
+      "peerDependencies": {
+        "typescript": "*"
+      },
+      "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.0.0",
+        "@typescript-eslint/parser": "^5.0.0",
+        "eslint": "^8.0.1",
+        "eslint-config-standard-jsx": "^11.0.0",
+        "eslint-config-standard-with-typescript": "^23.0.0",
+        "eslint-plugin-import": "^2.25.2",
+        "eslint-plugin-n": "^15.0.0",
+        "eslint-plugin-promise": "^6.0.0",
+        "eslint-plugin-react": "^7.28.0",
+        "minimist": "^1.2.6",
+        "pkg-conf": "^4.0.0",
+        "standard-engine": "^15.0.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^17.0.3",
+        "@commitlint/config-conventional": "^17.0.3",
+        "@types/minimist": "^1.2.2",
+        "@types/node": "^18.0.6",
+        "standard": "^17.0.0",
+        "tape": "^5.5.3"
+      },
+      "gitHead": "716db0f86fb537f34e9afc23d78203286f823b09",
+      "_id": "ts-standard@12.0.2",
+      "_nodeVersion": "16.15.1",
+      "_npmVersion": "8.11.0",
+      "dist": {
+        "integrity": "sha512-XX2wrB9fKKTfBj4yD3ABm9iShzZcS2iWcPK8XzlBvuL20+wMiLgiz/k5tXgZwTaYq5wRhbks1Y9PelhujF/9ag==",
+        "shasum": "883db655106f9bde374348fc81c89e8a30414e1b",
+        "tarball": "https://registry.npmjs.org/ts-standard/-/ts-standard-12.0.2.tgz",
+        "fileCount": 16,
+        "unpackedSize": 23235,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCO2MBqSLHZfQK7vLFfaKciTPnBpiSMoHyq2FC/qZrTDQIhAIDWV9M0D+VEjZOhy0MZrFNnRhlrA5FpH9VuxlBMtB6M"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjoWdaACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqG0RAAheA8Hz9i3HdFt2aD0g5wBbsNL/b3ecVB0+1QH2599Eyo06V2\r\ncVSOkv/EYcNB9hkW7pucokfBo9HLIGcH76TvYssyO+/RGAjyCI78bxW+dzph\r\nB5JudYx684mQ2tMv0FXnQJxJ54awaJSc5A+sR810oKJw8eLBWPC1XI1jnpvq\r\n59MZVkKdo5CxvDKkQLZNJnOht/gvGUPj8GIx/nEDAdTo5IZTWMx5awtcYJRQ\r\nFlcGHFrjQooY7FG2wH8gTA+HpfSfDeVULuh14lzFG6jrTUENpCtiDjgw7HJP\r\n+prKgRc9LHRhRUtWe61uJOlIM1UwxBrmJqzhlzKo1mj8Imm+lh69e3+f3qGj\r\n9hYtRLnX40qtMvlPZrV6+JY0a6JBhWe6a4wpJiM1Kq+OzNlU4+XPcXlQlBup\r\nkS50JKVnyCA9lgn51OcEcVr+jMZKFgU84NTzZtxQyWKKeLNLVB9zD2hhnJ+V\r\nNw4sxVZNS13QnLPOyKe3qMbwwTNrHv0IWVjWxeYBd6DCOpB5xyW4cSwYqm1Y\r\ne/Jiw0zbupPZKSROSefGD5y48T9LGzAfI5+cVwZ7F2uF1RaRNCBrzNJcYRko\r\n5lZKeE7WL4k6nhOvnBt059etDKsUQ1vBoWaYJsBqUdhn5M4jBWcnoLzsKGsQ\r\nhvK00hldu2SZLz1ifjYXax5ZfEGI52AIfIM=\r\n=28G5\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "linusu",
+        "email": "linus@folkdatorn.se"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "jhiesey",
+          "email": "john@hiesey.com"
+        },
+        {
+          "name": "bret",
+          "email": "bcomnes@gmail.com"
+        },
+        {
+          "name": "feross",
+          "email": "feross@feross.org"
+        },
+        {
+          "name": "flet",
+          "email": "flettre@gmail.com"
+        },
+        {
+          "name": "linusu",
+          "email": "linus@folkdatorn.se"
+        },
+        {
+          "name": "mafintosh",
+          "email": "mathiasbuus@gmail.com"
+        },
+        {
+          "name": "jprichardson",
+          "email": "jprichardson@gmail.com"
+        },
+        {
+          "name": "watson",
+          "email": "w@tson.dk"
+        },
+        {
+          "name": "raynos",
+          "email": "raynos2@gmail.com"
+        },
+        {
+          "name": "toddbluhm",
+          "email": "toddbluhm@gmail.com"
+        },
+        {
+          "name": "voxpelli",
+          "email": "pelle@kodfabrik.se"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/ts-standard_12.0.2_1671522138291_0.8769474915974729"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2019-08-30T04:10:58.526Z",
+    "1.0.0": "2019-08-30T04:10:58.718Z",
+    "modified": "2023-07-13T22:46:26.522Z",
+    "1.0.1": "2019-08-30T10:36:24.124Z",
+    "2.0.0": "2019-11-01T05:24:14.689Z",
+    "3.0.0": "2019-11-15T18:24:58.815Z",
+    "3.1.0": "2020-01-20T18:45:04.184Z",
+    "4.0.0": "2020-02-09T22:05:47.117Z",
+    "5.0.0": "2020-02-17T10:06:06.852Z",
+    "6.0.0": "2020-02-27T07:49:50.656Z",
+    "7.0.0": "2020-03-18T07:54:35.114Z",
+    "8.0.0": "2020-04-28T08:50:13.217Z",
+    "8.0.1": "2020-05-07T08:28:08.002Z",
+    "9.0.0": "2020-08-04T08:30:02.846Z",
+    "10.0.0": "2020-12-07T07:12:03.447Z",
+    "11.0.0": "2021-11-17T10:37:41.403Z",
+    "12.0.0": "2022-10-03T13:17:12.482Z",
+    "12.0.1": "2022-10-06T12:43:33.639Z",
+    "12.0.2": "2022-12-20T07:42:18.427Z"
+  },
+  "maintainers": [
+    {
+      "name": "jhiesey",
+      "email": "john@hiesey.com"
+    },
+    {
+      "name": "bret",
+      "email": "bcomnes@gmail.com"
+    },
+    {
+      "name": "feross",
+      "email": "feross@feross.org"
+    },
+    {
+      "name": "flet",
+      "email": "flettre@gmail.com"
+    },
+    {
+      "name": "linusu",
+      "email": "linus@folkdatorn.se"
+    },
+    {
+      "name": "mafintosh",
+      "email": "mathiasbuus@gmail.com"
+    },
+    {
+      "name": "jprichardson",
+      "email": "jprichardson@gmail.com"
+    },
+    {
+      "name": "watson",
+      "email": "w@tson.dk"
+    },
+    {
+      "name": "raynos",
+      "email": "raynos2@gmail.com"
+    },
+    {
+      "name": "toddbluhm",
+      "email": "toddbluhm@gmail.com"
+    },
+    {
+      "name": "voxpelli",
+      "email": "pelle@kodfabrik.se"
+    }
+  ],
+  "description": "TypeScript Standard Style based on StandardJS",
+  "homepage": "https://github.com/standard/ts-standard",
+  "keywords": [
+    "TypeScript Standard Style",
+    "check",
+    "checker",
+    "code",
+    "code checker",
+    "code linter",
+    "code standards",
+    "code style",
+    "enforce",
+    "eslint",
+    "lint",
+    "policy",
+    "quality",
+    "simple",
+    "standard",
+    "standard style",
+    "style",
+    "style checker",
+    "style linter",
+    "verify",
+    "typescript",
+    "standardjs",
+    "tslint"
+  ],
+  "author": {
+    "name": "Todd Bluhm"
+  },
+  "bugs": {
+    "url": "https://github.com/standard/ts-standard/issues"
+  },
+  "license": "MIT",
+  "readme": "[![Tests](https://github.com/standard/ts-standard/workflows/tests/badge.svg?branch=master)](https://github.com/standard/ts-standard/actions?query=workflow%3A%22tests%22)\n[![npm](https://badgen.net/npm/v/ts-standard)](https://www.npmjs.com/package/ts-standard)\n[![npm](https://badgen.net/npm/dm/ts-standard)](https://www.npmjs.com/package/ts-standard)\n[![License](https://badgen.net/github/license/standard/ts-standard)](https://github.com/standard/ts-standard/blob/master/LICENSE)\n[![TS-Standard - TypeScript Standard Style Guide](https://badgen.net/badge/code%20style/ts-standard/blue?icon=typescript)](https://github.com/standard/ts-standard)\n[![Dependabot badge](https://badgen.net/github/dependabot/standard/ts-standard?icon=dependabot)](https://dependabot.com/)\n\n# ts-standard\n\nTypeScript Style Guide, with linter and automatic code fixer based on [StandardJS](https://standardjs.com/)\n\n## 💾 Install\n\n`npm install --save-dev ts-standard`\n\n## ⌨️ Basic Usage\n\n```sh\nts-standard\n```\n\nEnable auto code fixing\n\n```sh\nts-standard --fix\n```\n\nNote: A `tsconfig.json` or similar project file is required. See\n**[TSConfig](https://github.com/standard/ts-standard#-tsconfig-linting-with-type-information)**\nsection below for more details\n\n## 📜 Help\n\n```text\nts-standard - Standard for TypeScript! (https://github.com/standard/ts-standard)\n\nUsage:\n  ts-standard <flags> [FILES...]\n\n  If FILES is omitted, all JavaScript/TypeScript source files (*.js, *.jsx, *.mjs, *.cjs, *.ts, *.tsx)\n  in the current working directory are checked, recursively.\n\n  Certain paths (node_modules/, coverage/, vendor/, *.min.js, and\n  files/folders that begin with '.' like .git/) are automatically ignored.\n\n  Paths in a project's root .gitignore file are also automatically ignored.\n\nFlags:\n      --fix       Automatically fix problems\n  -p, --project   Specify ts-config location (default: ./tsconfig.eslint.json or ./tsconfig.json)\n      --version   Show current version\n  -h, --help      Show usage information\n\nFlags (advanced):\n      --stdin     Read file text from stdin\n      --ext       Specify JavaScript/TypeScript file extensions\n      --global    Declare global variable\n      --plugin    Use custom eslint plugin\n      --env       Use custom eslint environment\n      --parser    Use custom ts/js parser (default: @typescript-eslint/parser)\n\n```\n\n## 🧬 TSConfig: Linting with Type Information\n\nBy default `ts-standard` will search the current working director (cwd) for the following in order\n\n1. `tsconfig.eslint.json`\n2. `tsconfig.json`\n\nYou can also manually configure the location of the `tsconfig` file by either passing the path to\nthe `--project` flag or adding a `ts-standard` configuration property to your `package.json` file.\n\n```json\n{\n  \"ts-standard\": {\n    \"project\": \"path/to/tsconfig.json\"\n  }\n}\n```\n\n## 🗑 Ignoring files and folders\n\nYou can add an `ignore` property to your `package.json` `ts-standard` configuration settings.\n\n```json\n{\n  \"ts-standard\": {\n    \"ignore\": [\n      \"dist\",\n      \"src/**/*.js\"\n    ]\n  }\n}\n```\n\n## 🚫 Please change X rule\n\nThis project has no control over the rules implemented, as such this project cannot change any of the\nrules that have been configured. If you want to discuss the rules, please visit the rules configuration repo\n[`eslint-config-standard-with-typescript`](https://github.com/standard/eslint-config-standard-with-typescript).\n\n## 🧙 Why\n\nThis utility was designed to be the [`standard`](https://github.com/standard/standard) equivalent for typescript.\nUnderneath the hood, this utility uses the same [`standard-engine`](https://github.com/standard/standard-engine)\nand combines that engine with the official\n[`eslint-config-standard-with-typescript`](https://github.com/standard/eslint-config-standard-with-typescript)\nruleset.\n\nYou can also choose to just use [`eslint`](https://github.com/eslint/eslint) with the\n`eslint-config-standard-with-typescript` shareable config instead and achieve the same results as\nthis project. But `ts-standard` saves you from having to manually install all the extra dependencies\nand may reduce configuration overhead.\n\n## 🎉 Special Thanks\n\nSpecial thanks to [`standard`](https://github.com/standard/standard) for inspiration and some shared code and\nto [`eslint-config-standard-with-typescript`](https://github.com/standard/eslint-config-standard-with-typescript) for\ncreating a typescript specific standard.\n\n## 📋 Contributing Guide\n\nI welcome all pull requests. Please make sure you add appropriate test cases for any features\nadded. Before opening a PR please make sure to run the following scripts:\n\n- `npm run lint:standard` checks for code errors and format according to [standard](https://github.com/standard/standard)\n- `npm test` make sure all tests pass\n",
+  "readmeFilename": "README.md",
+  "users": {
+    "flumpus-dev": true
+  }
+}
