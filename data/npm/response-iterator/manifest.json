@@ -1,0 +1,1266 @@
+{
+  "_id": "response-iterator",
+  "_rev": "10-96115fe317f199073cb9d99dd33f76f3",
+  "name": "response-iterator",
+  "dist-tags": {
+    "latest": "0.2.6"
+  },
+  "versions": {
+    "0.1.0": {
+      "name": "response-iterator",
+      "description": "Creates an async iterator for a variety of inputs in the browser and node. Supports fetch, node-fetch, and cross-fetch",
+      "version": "0.1.0",
+      "author": {
+        "name": "Kevin Malakoff",
+        "email": "kmalakoff@gmail.com",
+        "url": "https://github.com/kmalakoff"
+      },
+      "license": "MIT",
+      "main": "dist/cjs/index.js",
+      "module": "dist/esm/index.js",
+      "scripts": {
+        "build": "rimraf dist && cross-env BABEL_ENV=esm rollup -c .config/rollup/esm.mjs && cross-env BABEL_ENV=cjs rollup -c .config/rollup/cjs.mjs && cross-env BABEL_ENV=umd rollup -c .config/rollup/umd.mjs && tsc --declaration --emitDeclarationOnly --outDir dist && node ./.config/module-types.mjs",
+        "deploy": "np",
+        "docs": "rimraf docs && typedoc --includeVersion --entryPointStrategy expand --out docs src/index.ts",
+        "format": "prettier --write .",
+        "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx",
+        "postdeploy": "gh-pages -d docs",
+        "predeploy": "npm run format && npm run lint && depcheck && sortpack",
+        "pretest": "allow-require-me add",
+        "test": "npm run test:node && npm run test:browser",
+        "test:browser": "karma start .config/karma.cjs \"test/**/*.test.*\"",
+        "test:ci": "npm run pretest && nvu engines npm run test:node && npm run test:browser",
+        "test:debug": "mocha --config .config/mocharc.json \"test/**/*.test.*\"",
+        "test:node": "mocha --config .config/mocharc.json \"test/exports/*.test.*\" && rimraf coverage && c8 --config .config/c8rc.json mocha --config .config/mocharc.json \"test/unit/*.test.*\"",
+        "version": "npm run docs && git add docs"
+      },
+      "homepage": "https://github.com/kmalakoff/response-iterator#README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/kmalakoff/response-iterator.git"
+      },
+      "bugs": {
+        "url": "https://github.com/kmalakoff/response-iterator/issues"
+      },
+      "keywords": [
+        "Symbol",
+        "Symbol.asyncIterator",
+        "array",
+        "arrayBuffer",
+        "asyncIterator",
+        "blob",
+        "body",
+        "browser",
+        "cross-fetch",
+        "fetch",
+        "isomorphic-fetch",
+        "iteration",
+        "iterator",
+        "node",
+        "node-fetch",
+        "response",
+        "stream",
+        "typescript"
+      ],
+      "devDependencies": {
+        "@babel/core": "^7.15.8",
+        "@babel/preset-env": "^7.15.8",
+        "@babel/preset-typescript": "^7.15.0",
+        "@rollup/plugin-babel": "^5.3.0",
+        "@rollup/plugin-commonjs": "^21.0.0",
+        "@rollup/plugin-node-resolve": "^13.0.5",
+        "@types/chai": "^4.2.22",
+        "@types/mocha": "^9.0.0",
+        "@typescript-eslint/eslint-plugin": "^4.33.0",
+        "@typescript-eslint/parser": "^4.33.0",
+        "allow-require-me": "^1.0.0",
+        "c8": "^7.10.0",
+        "camelcase": "^6.2.0",
+        "chai": "^4.3.4",
+        "cross-env": "^7.0.3",
+        "cross-fetch": "^3.1.4",
+        "depcheck": "^1.4.2",
+        "eslint": "7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-mocha": "^9.0.0",
+        "gh-pages": "^3.2.3",
+        "isomorphic-fetch": "^3.0.0",
+        "karma": "^6.3.4",
+        "karma-chai": "^0.1.0",
+        "karma-chrome-launcher": "^3.1.0",
+        "karma-mocha": "^2.0.1",
+        "karma-mocha-reporter": "^2.2.5",
+        "karma-sourcemap-loader": "^0.3.8",
+        "karma-webpack": "^5.0.0",
+        "mocha": "^9.1.2",
+        "node-fetch": "^3.0.0",
+        "node-version-use": "^0.2.0",
+        "np": "^7.5.0",
+        "prettier": "^2.4.1",
+        "rimraf": "^3.0.2",
+        "rollup": "^2.58.0",
+        "rollup-plugin-node-externals": "^2.2.0",
+        "rollup-plugin-terser": "^7.0.2",
+        "sortpack": "^2.2.0",
+        "ts-loader": "^9.2.6",
+        "ts-node": "^10.2.1",
+        "typedoc": "^0.22.5",
+        "typedoc-plugin-rename-defaults": "^0.4.0",
+        "typescript": "^4.4.3",
+        "webpack": "^5.58.1"
+      },
+      "type": "module",
+      "engines": {
+        "node": ">=12"
+      },
+      "exports": {
+        ".": {
+          "import": "./dist/esm/index.js",
+          "require": "./dist/cjs/index.js",
+          "types": "./dist/index.d.ts"
+        },
+        "./*": "./*"
+      },
+      "np": {
+        "testScript": "test:ci",
+        "yarn": false
+      },
+      "types": "dist/index.d.ts",
+      "unpkg": "dist/umd/response-iterator.js",
+      "gitHead": "953448a842b25899291b3def0276c68f8041063c",
+      "_id": "response-iterator@0.1.0",
+      "_nodeVersion": "16.10.0",
+      "_npmVersion": "7.24.0",
+      "dist": {
+        "integrity": "sha512-ZhicxIX1JxDcozS4V6+SiRX81ZiVjAKnH9q6KmiENSB0E+HP2Z08GQQHsjLCQCADB6MUTbKxjcDX7OKN+Io1EA==",
+        "shasum": "efdfcba4b4b9c00f5d49b60c402148236c94fb57",
+        "tarball": "https://registry.npmjs.org/response-iterator/-/response-iterator-0.1.0.tgz",
+        "fileCount": 15,
+        "unpackedSize": 30947,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCahYNiIUmXvht7mI21ox0BmwvcBeLLcCXJrvREw8NEiwIhAJRE1DnlV3gvO8CYVa7ZYGasSTn1vlnvBhy9G0CBUEQm"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "kmalakoff",
+        "email": "kmalakoff@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "kmalakoff",
+          "email": "kmalakoff@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/response-iterator_0.1.0_1633830083511_0.40181863441680976"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.1": {
+      "name": "response-iterator",
+      "description": "Creates an async iterator for a variety of inputs in the browser and node. Supports fetch, node-fetch, and cross-fetch",
+      "version": "0.1.1",
+      "author": {
+        "name": "Kevin Malakoff",
+        "email": "kmalakoff@gmail.com",
+        "url": "https://github.com/kmalakoff"
+      },
+      "license": "MIT",
+      "main": "dist/cjs/index.js",
+      "module": "dist/esm/index.js",
+      "scripts": {
+        "build": "rimraf dist && cross-env BABEL_ENV=esm rollup -c .config/rollup/esm.mjs && cross-env BABEL_ENV=cjs rollup -c .config/rollup/cjs.mjs && cross-env BABEL_ENV=umd rollup -c .config/rollup/umd.mjs && tsc --declaration --emitDeclarationOnly --outDir dist && node ./.config/module-types.mjs",
+        "deploy": "np",
+        "docs": "rimraf docs && typedoc --includeVersion --entryPointStrategy expand --out docs src/index.ts",
+        "format": "prettier --write .",
+        "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx",
+        "postdeploy": "gh-pages -d docs",
+        "predeploy": "npm run format && npm run lint && depcheck && sortpack",
+        "pretest": "allow-require-me add",
+        "test": "npm run test:node && npm run test:browser",
+        "test:browser": "karma start .config/karma.cjs \"test/**/*.test.*\"",
+        "test:ci": "npm run pretest && nvu engines npm run test:node && npm run test:browser",
+        "test:debug": "mocha --config .config/mocharc.json \"test/**/*.test.*\"",
+        "test:node": "mocha --config .config/mocharc.json \"test/exports/*.test.*\" && rimraf coverage && c8 --config .config/c8rc.json mocha --config .config/mocharc.json \"test/unit/*.test.*\"",
+        "version": "npm run docs && git add docs"
+      },
+      "homepage": "https://github.com/kmalakoff/response-iterator#README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/kmalakoff/response-iterator.git"
+      },
+      "bugs": {
+        "url": "https://github.com/kmalakoff/response-iterator/issues"
+      },
+      "keywords": [
+        "Symbol",
+        "Symbol.asyncIterator",
+        "array",
+        "arrayBuffer",
+        "asyncIterator",
+        "blob",
+        "body",
+        "browser",
+        "cross-fetch",
+        "fetch",
+        "isomorphic-fetch",
+        "iteration",
+        "iterator",
+        "node",
+        "node-fetch",
+        "response",
+        "stream",
+        "typescript"
+      ],
+      "devDependencies": {
+        "@babel/core": "^7.15.8",
+        "@babel/preset-env": "^7.15.8",
+        "@babel/preset-typescript": "^7.15.0",
+        "@rollup/plugin-babel": "^5.3.0",
+        "@rollup/plugin-commonjs": "^21.0.0",
+        "@rollup/plugin-node-resolve": "^13.0.5",
+        "@types/chai": "^4.2.22",
+        "@types/mocha": "^9.0.0",
+        "@typescript-eslint/eslint-plugin": "^4.33.0",
+        "@typescript-eslint/parser": "^4.33.0",
+        "allow-require-me": "^1.0.0",
+        "c8": "^7.10.0",
+        "camelcase": "^6.2.0",
+        "chai": "^4.3.4",
+        "cross-env": "^7.0.3",
+        "cross-fetch": "^3.1.4",
+        "depcheck": "^1.4.2",
+        "eslint": "7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-mocha": "^9.0.0",
+        "gh-pages": "^3.2.3",
+        "isomorphic-fetch": "^3.0.0",
+        "karma": "^6.3.4",
+        "karma-chai": "^0.1.0",
+        "karma-chrome-launcher": "^3.1.0",
+        "karma-mocha": "^2.0.1",
+        "karma-mocha-reporter": "^2.2.5",
+        "karma-sourcemap-loader": "^0.3.8",
+        "karma-webpack": "^5.0.0",
+        "mocha": "^9.1.2",
+        "node-fetch": "^3.0.0",
+        "node-version-use": "^0.2.0",
+        "np": "^7.5.0",
+        "prettier": "^2.4.1",
+        "rimraf": "^3.0.2",
+        "rollup": "^2.58.0",
+        "rollup-plugin-node-externals": "^2.2.0",
+        "rollup-plugin-terser": "^7.0.2",
+        "sortpack": "^2.2.0",
+        "ts-loader": "^9.2.6",
+        "ts-node": "^10.2.1",
+        "typedoc": "^0.22.5",
+        "typedoc-plugin-rename-defaults": "^0.4.0",
+        "typescript": "^4.4.3",
+        "webpack": "^5.58.1"
+      },
+      "type": "module",
+      "engines": {
+        "node": ">=12"
+      },
+      "exports": {
+        ".": {
+          "import": "./dist/esm/index.js",
+          "require": "./dist/cjs/index.js",
+          "types": "./dist/index.d.ts"
+        },
+        "./*": "./*"
+      },
+      "np": {
+        "testScript": "test:ci",
+        "yarn": false
+      },
+      "types": "dist/index.d.ts",
+      "unpkg": "dist/umd/response-iterator.js",
+      "gitHead": "cc4342871a944f02b11849f11c7f1f4a67730714",
+      "_id": "response-iterator@0.1.1",
+      "_nodeVersion": "16.10.0",
+      "_npmVersion": "7.24.0",
+      "dist": {
+        "integrity": "sha512-/PIiojNtL0+2lOkDG/0Bg7PUhy12vFi9DLTMq6LUhiW0N7rvZhZzNsJDZ9giBtLTe7ebBg7Ar2llvyOAS+A+CA==",
+        "shasum": "599e035d9c17a410fa0184efeb990d66174e020b",
+        "tarball": "https://registry.npmjs.org/response-iterator/-/response-iterator-0.1.1.tgz",
+        "fileCount": 15,
+        "unpackedSize": 29621,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFA6B/nAdxcqnMO3bsUoj7MHLt6T5I+0YmfNpMaKXRRoAiEAvgjwVlCGCSh3Y6qYuFQwidV3+vbkILpbA7E1loP5IPQ="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "kmalakoff",
+        "email": "kmalakoff@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "kmalakoff",
+          "email": "kmalakoff@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/response-iterator_0.1.1_1633849644517_0.36525980493253773"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.0": {
+      "name": "response-iterator",
+      "description": "Creates an async iterator for a variety of inputs in the browser and node. Supports fetch, node-fetch, and cross-fetch",
+      "version": "0.2.0",
+      "author": {
+        "name": "Kevin Malakoff",
+        "email": "kmalakoff@gmail.com",
+        "url": "https://github.com/kmalakoff"
+      },
+      "license": "MIT",
+      "main": "dist/cjs/index.js",
+      "module": "dist/esm/index.js",
+      "scripts": {
+        "build": "rimraf dist && cross-env BABEL_ENV=esm rollup -c .config/rollup/esm.mjs && cross-env BABEL_ENV=cjs rollup -c .config/rollup/cjs.mjs && cross-env BABEL_ENV=umd rollup -c .config/rollup/umd.mjs && tsc --declaration --emitDeclarationOnly --outDir dist && node ./.config/module-types.mjs",
+        "deploy": "np",
+        "docs": "rimraf docs && typedoc --includeVersion --entryPointStrategy expand --out docs src/index.ts",
+        "format": "prettier --write .",
+        "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx",
+        "postdeploy": "gh-pages -d docs",
+        "predeploy": "npm run format && npm run lint && depcheck && sortpack",
+        "pretest": "allow-require-me add",
+        "test": "npm run test:node && npm run test:browser",
+        "test:browser": "karma start .config/karma.cjs \"test/**/*.test.*\"",
+        "test:ci": "npm run pretest && nvu engines npm run test:node && npm run test:browser",
+        "test:debug": "mocha --config .config/mocharc.json \"test/**/*.{test,test-node}.*\"",
+        "test:node": "mocha --config .config/mocharc.json \"test/exports/*.test.*\" && rimraf coverage && c8 --config .config/c8rc.json mocha --config .config/mocharc.json \"test/unit/*.{test,test-node}.*\"",
+        "version": "npm run docs && git add docs"
+      },
+      "homepage": "https://github.com/kmalakoff/response-iterator#README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/kmalakoff/response-iterator.git"
+      },
+      "bugs": {
+        "url": "https://github.com/kmalakoff/response-iterator/issues"
+      },
+      "keywords": [
+        "Symbol",
+        "Symbol.asyncIterator",
+        "array",
+        "arrayBuffer",
+        "asyncIterator",
+        "axios",
+        "blob",
+        "body",
+        "browser",
+        "cross-fetch",
+        "fetch",
+        "got",
+        "isomorphic-fetch",
+        "iteration",
+        "iterator",
+        "node",
+        "node-fetch",
+        "response",
+        "stream",
+        "typescript",
+        "undici"
+      ],
+      "devDependencies": {
+        "@babel/core": "^7.15.8",
+        "@babel/preset-env": "^7.15.8",
+        "@babel/preset-typescript": "^7.15.0",
+        "@rollup/plugin-babel": "^5.3.0",
+        "@rollup/plugin-commonjs": "^21.0.0",
+        "@rollup/plugin-node-resolve": "^13.0.5",
+        "@types/chai": "^4.2.22",
+        "@types/mocha": "^9.0.0",
+        "@typescript-eslint/eslint-plugin": "^4.33.0",
+        "@typescript-eslint/parser": "^4.33.0",
+        "allow-require-me": "^1.0.0",
+        "axios": "^0.22.0",
+        "c8": "^7.10.0",
+        "camelcase": "^6.2.0",
+        "chai": "^4.3.4",
+        "cross-env": "^7.0.3",
+        "cross-fetch": "^3.1.4",
+        "depcheck": "^1.4.2",
+        "eslint": "7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-mocha": "^9.0.0",
+        "gh-pages": "^3.2.3",
+        "got": "^11.8.2",
+        "isomorphic-fetch": "^3.0.0",
+        "karma": "^6.3.4",
+        "karma-chai": "^0.1.0",
+        "karma-chrome-launcher": "^3.1.0",
+        "karma-mocha": "^2.0.1",
+        "karma-mocha-reporter": "^2.2.5",
+        "karma-sourcemap-loader": "^0.3.8",
+        "karma-webpack": "^5.0.0",
+        "mocha": "^9.1.2",
+        "node-fetch": "^3.0.0",
+        "node-version-use": "^0.2.0",
+        "np": "^7.5.0",
+        "prettier": "^2.4.1",
+        "rimraf": "^3.0.2",
+        "rollup": "^2.58.0",
+        "rollup-plugin-node-externals": "^2.2.0",
+        "rollup-plugin-terser": "^7.0.2",
+        "sortpack": "^2.2.0",
+        "ts-loader": "^9.2.6",
+        "ts-node": "^10.2.1",
+        "typedoc": "^0.22.5",
+        "typedoc-plugin-rename-defaults": "^0.4.0",
+        "typescript": "^4.4.3",
+        "undici": "^4.7.1",
+        "webpack": "^5.58.1"
+      },
+      "type": "module",
+      "engines": {
+        "node": ">=12"
+      },
+      "exports": {
+        ".": {
+          "import": "./dist/esm/index.js",
+          "require": "./dist/cjs/index.js",
+          "types": "./dist/index.d.ts"
+        },
+        "./*": "./*"
+      },
+      "np": {
+        "testScript": "test:ci",
+        "yarn": false
+      },
+      "types": "dist/index.d.ts",
+      "unpkg": "dist/umd/response-iterator.js",
+      "gitHead": "78d1c5d9b5e441f4c1363fa92d335a1df0b2feef",
+      "_id": "response-iterator@0.2.0",
+      "_nodeVersion": "16.10.0",
+      "_npmVersion": "7.24.0",
+      "dist": {
+        "integrity": "sha512-EezKXtJpqrsR1EXfKPY8yXB3YKscE3TzOIc0/KCa0nec+E96IXKmyKs5vhpEXWSmGACLrGR0ghd/5x412Yae3Q==",
+        "shasum": "050a60019a7cb7ca20bf51408b00eca4d9111b92",
+        "tarball": "https://registry.npmjs.org/response-iterator/-/response-iterator-0.2.0.tgz",
+        "fileCount": 15,
+        "unpackedSize": 37227,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCsNTAuAFTx2QX8cGc9Jv0UxYkLjIcFYu4HOdikR85TFAIgNJ0ZztYlMp84oypj3UcXcPu19OkjAxFbkvP0ZRsrA2M="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "kmalakoff",
+        "email": "kmalakoff@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "kmalakoff",
+          "email": "kmalakoff@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/response-iterator_0.2.0_1633932597886_0.4855105269192732"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.1": {
+      "name": "response-iterator",
+      "description": "Creates an async iterator for a variety of inputs in the browser and node. Supports fetch, node-fetch, and cross-fetch",
+      "version": "0.2.1",
+      "author": {
+        "name": "Kevin Malakoff",
+        "email": "kmalakoff@gmail.com",
+        "url": "https://github.com/kmalakoff"
+      },
+      "license": "MIT",
+      "main": "dist/cjs/index.js",
+      "module": "dist/esm/index.js",
+      "scripts": {
+        "build": "rimraf dist && cross-env BABEL_ENV=esm rollup -c .config/rollup/esm.mjs && cross-env BABEL_ENV=cjs rollup -c .config/rollup/cjs.mjs && cross-env BABEL_ENV=umd rollup -c .config/rollup/umd.mjs && tsc --declaration --emitDeclarationOnly --outDir dist && node ./.config/module-types.mjs",
+        "deploy": "np",
+        "docs": "rimraf docs && typedoc --includeVersion --entryPointStrategy expand --out docs src/index.ts",
+        "format": "prettier --write .",
+        "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx",
+        "postdeploy": "gh-pages -d docs",
+        "predeploy": "npm run format && npm run lint && depcheck && sortpack",
+        "pretest": "allow-require-me add",
+        "test": "npm run test:node && npm run test:browser",
+        "test:browser": "karma start .config/karma.cjs \"test/**/*.test.*\"",
+        "test:ci": "npm run pretest && nvu engines npm run test:node && npm run test:browser",
+        "test:debug": "mocha --config .config/mocharc.json \"test/**/*.{test,test-node}.*\"",
+        "test:node": "mocha --config .config/mocharc.json \"test/exports/*.test.*\" && rimraf coverage && c8 --config .config/c8rc.json mocha --config .config/mocharc.json \"test/unit/*.{test,test-node}.*\"",
+        "version": "npm run docs && git add docs"
+      },
+      "homepage": "https://github.com/kmalakoff/response-iterator#README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/kmalakoff/response-iterator.git"
+      },
+      "bugs": {
+        "url": "https://github.com/kmalakoff/response-iterator/issues"
+      },
+      "keywords": [
+        "Symbol",
+        "Symbol.asyncIterator",
+        "array",
+        "arrayBuffer",
+        "asyncIterator",
+        "axios",
+        "blob",
+        "body",
+        "browser",
+        "cross-fetch",
+        "fetch",
+        "got",
+        "isomorphic-fetch",
+        "iteration",
+        "iterator",
+        "node",
+        "node-fetch",
+        "response",
+        "stream",
+        "typescript",
+        "undici"
+      ],
+      "devDependencies": {
+        "@babel/core": "^7.15.8",
+        "@babel/preset-env": "^7.15.8",
+        "@babel/preset-typescript": "^7.15.0",
+        "@rollup/plugin-babel": "^5.3.0",
+        "@rollup/plugin-commonjs": "^21.0.0",
+        "@rollup/plugin-node-resolve": "^13.0.5",
+        "@types/chai": "^4.2.22",
+        "@types/mocha": "^9.0.0",
+        "@typescript-eslint/eslint-plugin": "^5.0.0",
+        "@typescript-eslint/parser": "^5.0.0",
+        "allow-require-me": "^1.0.0",
+        "axios": "^0.23.0",
+        "c8": "^7.10.0",
+        "camelcase": "^6.2.0",
+        "chai": "^4.3.4",
+        "cross-env": "^7.0.3",
+        "cross-fetch": "^3.1.4",
+        "depcheck": "^1.4.2",
+        "eslint": "8.0.1",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-mocha": "^9.0.0",
+        "gh-pages": "^3.2.3",
+        "got": "^11.8.2",
+        "isomorphic-fetch": "^3.0.0",
+        "karma": "^6.3.4",
+        "karma-chai": "^0.1.0",
+        "karma-chrome-launcher": "^3.1.0",
+        "karma-mocha": "^2.0.1",
+        "karma-mocha-reporter": "^2.2.5",
+        "karma-sourcemap-loader": "^0.3.8",
+        "karma-webpack": "^5.0.0",
+        "mocha": "^9.1.2",
+        "node-fetch": "^3.0.0",
+        "node-version-use": "^0.2.0",
+        "np": "^7.5.0",
+        "prettier": "^2.4.1",
+        "rimraf": "^3.0.2",
+        "rollup": "^2.58.0",
+        "rollup-plugin-node-externals": "^2.2.0",
+        "rollup-plugin-terser": "^7.0.2",
+        "sortpack": "^2.2.0",
+        "ts-loader": "^9.2.6",
+        "ts-node": "^10.3.0",
+        "typedoc": "^0.22.5",
+        "typedoc-plugin-rename-defaults": "^0.4.0",
+        "typescript": "^4.4.4",
+        "undici": "^4.7.2",
+        "webpack": "^5.58.2"
+      },
+      "type": "module",
+      "engines": {
+        "node": ">=12"
+      },
+      "exports": {
+        ".": {
+          "import": "./dist/esm/index.js",
+          "require": "./dist/cjs/index.js",
+          "types": "./dist/index.d.ts"
+        },
+        "./*": "./*"
+      },
+      "np": {
+        "testScript": "test:ci",
+        "yarn": false
+      },
+      "types": "dist/index.d.ts",
+      "unpkg": "dist/umd/response-iterator.js",
+      "gitHead": "d9e6d400c7a5d2a5095474d05b3b9d1afb207210",
+      "_id": "response-iterator@0.2.1",
+      "_nodeVersion": "16.10.0",
+      "_npmVersion": "7.24.0",
+      "dist": {
+        "integrity": "sha512-yNio1eS8kLPq3nH1wEhA8OQ33T8wICg+IdsCrk+68SLQgyO/NMSjODiNt5zkVg/S3yHu1OVlYtbNV/oIgybJKw==",
+        "shasum": "b87381598b0f91d7368225bf489c6ab3491c6b30",
+        "tarball": "https://registry.npmjs.org/response-iterator/-/response-iterator-0.2.1.tgz",
+        "fileCount": 15,
+        "unpackedSize": 33440,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDRCrO6b1yXvsbFq4+9sfzhfYofq5SKiXCIiJPnKWGvcgIhAPtAOB7gix9lYLwO9EylyCy7U9Bs6NVpaE9GRMOu1KYW"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "kmalakoff",
+        "email": "kmalakoff@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "kmalakoff",
+          "email": "kmalakoff@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/response-iterator_0.2.1_1634187853138_0.08873932861901102"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.2": {
+      "name": "response-iterator",
+      "description": "Creates an async iterator for a variety of inputs in the browser and node. Supports fetch, node-fetch, and cross-fetch",
+      "version": "0.2.2",
+      "author": {
+        "name": "Kevin Malakoff",
+        "email": "kmalakoff@gmail.com",
+        "url": "https://github.com/kmalakoff"
+      },
+      "license": "MIT",
+      "main": "dist/cjs/index.js",
+      "module": "dist/esm/index.js",
+      "scripts": {
+        "build": "tsds build:dist",
+        "deploy": "tsds deploy",
+        "format": "tsds format",
+        "lint": "tsds lint",
+        "test": "tsds test:node && tsds test:node \"test/**/*.test-node.*\" && tsds test:browser",
+        "test:engines": "tsds test:engines"
+      },
+      "homepage": "https://github.com/kmalakoff/response-iterator#README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/kmalakoff/response-iterator.git"
+      },
+      "bugs": {
+        "url": "https://github.com/kmalakoff/response-iterator/issues"
+      },
+      "keywords": [
+        "Symbol",
+        "Symbol.asyncIterator",
+        "array",
+        "arrayBuffer",
+        "asyncIterator",
+        "axios",
+        "blob",
+        "body",
+        "browser",
+        "cross-fetch",
+        "fetch",
+        "got",
+        "isomorphic-fetch",
+        "iteration",
+        "iterator",
+        "node",
+        "node-fetch",
+        "response",
+        "stream",
+        "typescript",
+        "undici"
+      ],
+      "devDependencies": {
+        "@types/axios": "^0.14.0",
+        "@types/node": "^16.11.1",
+        "@types/node-fetch": "^3.0.3",
+        "cross-fetch": "^3.1.4",
+        "got": "^11.8.2",
+        "isomorphic-fetch": "^3.0.0",
+        "readable-stream-2": "npm:readable-stream@3.6.0",
+        "readable-stream-3": "npm:readable-stream@3.6.0",
+        "ts-dev-stack": "^0.1.3",
+        "undici": "^4.7.3"
+      },
+      "type": "module",
+      "engines": {
+        "node": ">=0.8"
+      },
+      "exports": {
+        ".": {
+          "import": "./dist/esm/index.js",
+          "require": "./dist/cjs/index.js",
+          "types": "./dist/esm/index.d.ts"
+        },
+        "./*": "./*"
+      },
+      "types": "dist/esm/index.d.ts",
+      "unpkg": "dist/umd/response-iterator.js",
+      "gitHead": "935984aea945482cd46b8905973eb9833032e976",
+      "_id": "response-iterator@0.2.2",
+      "_nodeVersion": "16.10.0",
+      "_npmVersion": "7.24.0",
+      "dist": {
+        "integrity": "sha512-r6gREj+YgMmPKqfkCDLhYQVaiQpS2ewuAyUKUirQq2mNSWqeFEtx2+sgKPoTiSssGBMmRjNnd7Nr3PDIhYOr2w==",
+        "shasum": "1684e6610186183ef4a638da6a7b2b33748a3b39",
+        "tarball": "https://registry.npmjs.org/response-iterator/-/response-iterator-0.2.2.tgz",
+        "fileCount": 40,
+        "unpackedSize": 65849,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh25wZCRA9TVsSAnZWagAAFY4P/1yR8cSP9V0QvYuYKhOy\nwkIeyr+mSoQqqA1t3AkNpz/s/EaeidODUFWrPnXkHBfmCCuhqlkiClgkscs8\nLCntqWbL9MzoHWKTqHBHup4J9P2jhtej8FJ03Qu7Yez5hC4myvXa/xX6gAkf\nXrXImwcjNeZVMtDkESjmhO43/ICFd4iDQOZ/jIkR2GA3blAeT9LoqqTgkXF+\n0QUVR3wbfKBAJ+qo6wzL4+Smf2Ki8MMWSWx5+FNp7Q9ePAoqerp7UQOKSt3J\nRkMYCqQr2zoPVLbq1PE9Ju0s6FibZc9CpkbLU5GoWqMlys2q4JL9yVI7Pm9c\naXFCYqByZahrLb7shPk0yMDdADPzbfj1wVofCaYvLFr1YJhtmqnaypW+wccU\nm6BckbgLIhcEvQYv9g+d5pUzD/As9DXBO8fB1mdJ8Ojb8Y4Ioep0C28DxC/C\nBIU6JdW/VJAyRMp/cNkOSaAanzVbCcbW6wI8yDKQmA+8eBa/pyZrICRhk5Zi\nSIh/GdEX3np+f1ZYW5mrSISWukrsZ3PnG9ytKtJPboNdtVCzvWjSpqs3WHBj\nmIUVLCeGTLWXhE+rkxBcbX5OUosl6nXqW3L5EfGLQu9A4h62ClagE+6XHFZx\nhbN7L0TjJKYcJohIs273bvwryc/hLyNuJx5CFD0QGaOfgF+3QpEOT7IMOEJ+\n//Y9\r\n=W/DZ\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAMjLt/iN3ctbLGlRGNzXxPP49fUa61XvOXqmJ7ufTNNAiBBbRUmA4jDekxEx19eKQmnkFy1tSgLp9Y8s/A1ODLXSw=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "kmalakoff",
+        "email": "kmalakoff@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "kmalakoff",
+          "email": "kmalakoff@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/response-iterator_0.2.2_1634511949199_0.4797194850249249"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.3": {
+      "name": "response-iterator",
+      "description": "Creates an async iterator for a variety of inputs in the browser and node. Supports fetch, node-fetch, and cross-fetch",
+      "version": "0.2.3",
+      "author": {
+        "name": "Kevin Malakoff",
+        "email": "kmalakoff@gmail.com",
+        "url": "https://github.com/kmalakoff"
+      },
+      "license": "MIT",
+      "main": "dist/cjs/index.js",
+      "module": "dist/esm/index.mjs",
+      "scripts": {
+        "build": "tsds build:dist",
+        "deploy": "tsds deploy",
+        "format": "tsds format",
+        "lint": "tsds lint",
+        "test": "tsds test:node && tsds test:node \"test/**/*.test-node.*\" && tsds test:browser",
+        "test:engines": "tsds test:engines"
+      },
+      "homepage": "https://github.com/kmalakoff/response-iterator#README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/kmalakoff/response-iterator.git"
+      },
+      "bugs": {
+        "url": "https://github.com/kmalakoff/response-iterator/issues"
+      },
+      "keywords": [
+        "Symbol",
+        "Symbol.asyncIterator",
+        "array",
+        "arrayBuffer",
+        "asyncIterator",
+        "axios",
+        "blob",
+        "body",
+        "browser",
+        "cross-fetch",
+        "fetch",
+        "got",
+        "isomorphic-fetch",
+        "iteration",
+        "iterator",
+        "node",
+        "node-fetch",
+        "response",
+        "stream",
+        "typescript",
+        "undici"
+      ],
+      "devDependencies": {
+        "@types/axios": "^0.14.0",
+        "@types/node": "^18.0.0",
+        "@types/node-fetch": "^3.0.3",
+        "cross-fetch": "^3.1.5",
+        "got": "^12.1.0",
+        "isomorphic-fetch": "^3.0.0",
+        "readable-stream-2": "npm:readable-stream@2.3.7",
+        "readable-stream-3": "npm:readable-stream@4.0.0",
+        "ts-dev-stack": "^0.2.1",
+        "undici": "^5.5.1"
+      },
+      "type": "module",
+      "engines": {
+        "node": ">=0.8"
+      },
+      "exports": {
+        ".": {
+          "import": "./dist/esm/index.mjs",
+          "require": "./dist/cjs/index.js",
+          "types": "./dist/esm/index.d.ts"
+        },
+        "./*": "./*"
+      },
+      "types": "dist/esm/index.d.ts",
+      "unpkg": "dist/umd/response-iterator.js",
+      "gitHead": "2b99b97c21e02560de1ef97705f48d36d7efe863",
+      "_id": "response-iterator@0.2.3",
+      "_nodeVersion": "18.3.0",
+      "_npmVersion": "8.11.0",
+      "dist": {
+        "integrity": "sha512-anHRVlqQUOlgAcbUyxVw9BNiuXDgZAd2zsCP9a7+ToyeFDAUT8zRZaobtyEVgwSQ0D/7h6c84xB8oHrdV0AHew==",
+        "shasum": "bc8e269f4a48feb297624b9729d1190406b75af5",
+        "tarball": "https://registry.npmjs.org/response-iterator/-/response-iterator-0.2.3.tgz",
+        "fileCount": 40,
+        "unpackedSize": 66359,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIASXmTYGux0CjHnb6qbVPrC9Uf6GVFVKGgWnDT39T1fQAiA/zXmMreAGzf6OYlXxbxLlDA29zXWE7GuWNBVDXLz/tg=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJis9d5ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmqu/A//TpABNIvCC4lgNpraqpix9O3JqBJC7mA+A7zMnDHgSuoIBiLi\r\na0/fmGHuYLMKaRcn1pKbM33gA2LQVsYp4ZsDaRkPH+6PYYhNyu5u0DRk1API\r\n9GDVn/p3r9bFbagIrvG4Gd6NuyYDxx4yadoS4OyIZQmbLhg5TMmEPAnxbazp\r\n4sYfSV52uIEqEqoMCh328p8mjL9vIrr9cRrhfH0cKRK7gEaIJOjklYl2IMH8\r\nPdwViL9dIRfK2xus6qOdszWbYpFpRqohQz9hnsjDubz+2d9OxuV/H9RbwPMO\r\ny7iftmE3Ao0nYemMc8zFqTBK/DWNv5+4YccRCcEhIwL8C0rjBr6t6431ZSiX\r\nsjivonTyvP6fg34VeH6aui+XVTnjFH0Z4xB7/ZJZngfoYkgMvq9Mc/ZfPvIk\r\nUz5h1siQ+JZbx48t7QMtLEqVIUE6mfjvLJ9mi7TaMiqUdBuX5BAu/vYKPPBi\r\n9OesbfjLF7CXXeFCQN5zzU0RpKFdk4NQYuoKB7It2df6Nd/IXnLNhy09p9+M\r\nGliSbymfbtb13AXSQ9Ekm3SAKuC5+bmn13p3rA9sDftYRsHwymaMJdH9Eyta\r\n9je2WfFM/DlL4Xo9oTPkt4vDEBRQmYYpByNnz8xqScDzwtyU0/aD+q7UvdGD\r\nZx11TIPT5zUqPU+hroBw4tA66rsrIab2o7U=\r\n=GPCX\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "kmalakoff",
+        "email": "kmalakoff@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "kmalakoff",
+          "email": "kmalakoff@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/response-iterator_0.2.3_1655953273020_0.4202620812013371"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.4": {
+      "name": "response-iterator",
+      "description": "Creates an async iterator for a variety of inputs in the browser and node. Supports fetch, node-fetch, and cross-fetch",
+      "version": "0.2.4",
+      "author": {
+        "name": "Kevin Malakoff",
+        "email": "kmalakoff@gmail.com",
+        "url": "https://github.com/kmalakoff"
+      },
+      "license": "MIT",
+      "main": "dist/cjs/index.js",
+      "module": "dist/esm/index.mjs",
+      "scripts": {
+        "build": "tsds build:dist",
+        "deploy": "tsds deploy",
+        "format": "tsds format",
+        "lint": "tsds lint",
+        "test": "tsds test:node && tsds test:node \"test/**/*.test-node.*\" && tsds test:browser",
+        "test:engines": "tsds test:engines"
+      },
+      "homepage": "https://github.com/kmalakoff/response-iterator#README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/kmalakoff/response-iterator.git"
+      },
+      "bugs": {
+        "url": "https://github.com/kmalakoff/response-iterator/issues"
+      },
+      "keywords": [
+        "Symbol",
+        "Symbol.asyncIterator",
+        "array",
+        "arrayBuffer",
+        "asyncIterator",
+        "axios",
+        "blob",
+        "body",
+        "browser",
+        "cross-fetch",
+        "fetch",
+        "got",
+        "isomorphic-fetch",
+        "iteration",
+        "iterator",
+        "node",
+        "node-fetch",
+        "response",
+        "stream",
+        "typescript",
+        "undici"
+      ],
+      "devDependencies": {
+        "@types/axios": "^0.14.0",
+        "@types/node": "^18.0.0",
+        "@types/node-fetch": "^3.0.3",
+        "cross-fetch": "^3.1.5",
+        "got": "^12.1.0",
+        "isomorphic-fetch": "^3.0.0",
+        "readable-stream-2": "npm:readable-stream@2.3.7",
+        "readable-stream-3": "npm:readable-stream@4.0.0",
+        "ts-dev-stack": "^0.3.3",
+        "undici": "^5.5.1"
+      },
+      "type": "module",
+      "engines": {
+        "node": ">=0.8"
+      },
+      "exports": {
+        ".": {
+          "import": "./dist/esm/index.mjs",
+          "require": "./dist/cjs/index.js",
+          "types": "./dist/types/index.d.ts"
+        },
+        "./*": "./*"
+      },
+      "source": "src/index.ts",
+      "types": "dist/types/index.d.ts",
+      "unpkg": "dist/umd/response-iterator.js",
+      "gitHead": "8f8165e9e64f6532ba15766b59e74ea9a9294a4e",
+      "_id": "response-iterator@0.2.4",
+      "_nodeVersion": "18.3.0",
+      "_npmVersion": "8.11.0",
+      "dist": {
+        "integrity": "sha512-lUI7QZ1zF026/JML+I4PltTEpIW8bxVdnug+pX/FB/1/svsVu2nI5EZD9NDostjbhzOea5QKODENo8D9PgXMnQ==",
+        "shasum": "af2a72353c38cd1ac8cb57dc61190cc2d702e937",
+        "tarball": "https://registry.npmjs.org/response-iterator/-/response-iterator-0.2.4.tgz",
+        "fileCount": 35,
+        "unpackedSize": 55144,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDhUllchSRlICAZTLhlHffwjriyoVociKw+R0jOmz8X9AiEAoYOqgiHzBe8ugkk6DGc+TiMsPvRr/d+lTBjWzaswGyc="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiuVwxACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrpkA/+JjXmJl7JNKip25ShTUH4Ka62hKmKfd4zxZjXKOl8h7g63H3X\r\nJPrbiqd6yK+a1t4oSCCY5NlTuIAQmT6heo3XXVm/4C0QPMsjB6WUz1810MFw\r\nrLJuZ0uFIYXUdAWmjHmYxhlEe67YyQA+TTYmrVskOGKbtUfhwL6iu45csEJV\r\nKsYonDwn8j5lzsViWqWpH/LfEfZ6mpI2gUEAUp0zGUZw2fRVgYqb05L7Z4Rh\r\nTB+NO4qGeu9asv9vXy+IrChIj9ZSPaLKlCM/XHDQAR065EQJ40b0DSkHodzK\r\nOblVQNm+7ieEPG7BwQUlQIKtkrx+NtOUb4UD7hg3lSEHdDjIpqS46yGICrAY\r\nY1SG+CuyRYusU9BnXv80KNOoACaj0LNg9Mre0gjyI1vPO2skSu/3Hhdy7aMr\r\nvRaiQIO1UXLv/W7aZF6Sl+JnATesg6lZmk1gNZkC70d9iG+s5reW7TdDXl9g\r\nSMMi4mGiRXd+2aN/M4/QbN2YX4mB5cI9UwfHEFq3GOtQyKf+x4hyW1d2L+8j\r\nSRCA/01c36uEPLPeYhTwo1ZPDsgticFP/J25DZlBH+PoVU58zzxvBTqvb3jU\r\nNLTtBEZwkzDL3SoCMMhhtj4GL3ssFuAHaCVPj+Lfa12VOU53OryZci9r7PA9\r\nMrcwPDy1ZS/KjjiBoyDWwJcVE41WtxaSf34=\r\n=O0jG\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "kmalakoff",
+        "email": "kmalakoff@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "kmalakoff",
+          "email": "kmalakoff@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/response-iterator_0.2.4_1656314929784_0.1548570483378624"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.5": {
+      "name": "response-iterator",
+      "description": "Creates an async iterator for a variety of inputs in the browser and node. Supports fetch, node-fetch, and cross-fetch",
+      "version": "0.2.5",
+      "author": {
+        "name": "Kevin Malakoff",
+        "email": "kmalakoff@gmail.com",
+        "url": "https://github.com/kmalakoff"
+      },
+      "license": "MIT",
+      "main": "dist/cjs/index.js",
+      "module": "dist/esm/index.mjs",
+      "scripts": {
+        "build": "tsds build",
+        "deploy": "tsds deploy",
+        "format": "tsds format",
+        "lint": "tsds lint",
+        "test": "tsds test:node && tsds test:node \"test/**/*.test-node.*\" && tsds test:browser"
+      },
+      "homepage": "https://github.com/kmalakoff/response-iterator#README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/kmalakoff/response-iterator.git"
+      },
+      "bugs": {
+        "url": "https://github.com/kmalakoff/response-iterator/issues"
+      },
+      "keywords": [
+        "Symbol",
+        "Symbol.asyncIterator",
+        "array",
+        "arrayBuffer",
+        "asyncIterator",
+        "axios",
+        "blob",
+        "body",
+        "browser",
+        "cross-fetch",
+        "fetch",
+        "got",
+        "isomorphic-fetch",
+        "iteration",
+        "iterator",
+        "node",
+        "node-fetch",
+        "response",
+        "stream",
+        "typescript",
+        "undici"
+      ],
+      "devDependencies": {
+        "@types/axios": "^0.14.0",
+        "@types/node": "^18.0.0",
+        "@types/node-fetch": "^3.0.3",
+        "cross-fetch": "^3.1.5",
+        "got": "^12.1.0",
+        "isomorphic-fetch": "^3.0.0",
+        "readable-stream-2": "npm:readable-stream@2.3.7",
+        "readable-stream-3": "npm:readable-stream@4.0.0",
+        "ts-dev-stack": "^0.5.1",
+        "undici": "^5.6.0"
+      },
+      "type": "module",
+      "engines": {
+        "node": ">=0.8"
+      },
+      "exports": {
+        ".": {
+          "import": "./dist/esm/index.mjs",
+          "require": "./dist/cjs/index.js",
+          "types": "./dist/types/index.d.ts"
+        },
+        "./*": "./*"
+      },
+      "tsds": {
+        "source": "src/index.ts"
+      },
+      "types": "dist/types/index.d.ts",
+      "unpkg": "dist/umd/response-iterator.js",
+      "gitHead": "5d43faa5e6ee03ed71f62897c34d9c8f690833b7",
+      "_id": "response-iterator@0.2.5",
+      "_nodeVersion": "18.3.0",
+      "_npmVersion": "8.11.0",
+      "dist": {
+        "integrity": "sha512-0I2/+W0A6uQQvKtXBQcc2vxw2U9PYygiGGLeOSy1/88mVe8A3CF4l1g5FjC2BhCRKHpcklfZ1++Ne9YnwNP2VA==",
+        "shasum": "fac0254371ed9fcf0e75da0b7a932e8c62a3c30f",
+        "tarball": "https://registry.npmjs.org/response-iterator/-/response-iterator-0.2.5.tgz",
+        "fileCount": 33,
+        "unpackedSize": 51471,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQD93Ioh4ZMEkgz4gvL6PX4Kd2uigqTGeJnIxPcM752fiwIhAN9R1DXeldo1Rf+8K//4zzq17AV6YNoCk1fHK4a/3srM"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiwSSKACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqF3w/+J0FMWP9a7vP/GRLc2tdzEQTIsHGtK7DcUPT/JcC8puti+30Z\r\nS94VMNQmgiLdIA5RQr7qkE4SChEMrI63M4nNE5DCeUAt3YzzqU2uKwLGf++T\r\n6eI3dwkSwrjolWJNOQ5qSrhPXf2wpR0V1V7hDsfyngck8rzP2NxZeGusoToe\r\nvXxjNmOkn/SAwXBxQ9osEKe6tNb3ZYq3+iJz9wT5pT3ZRN4ITcPVZFCvdUcC\r\n+GHGCgY8JrMfP1zY7zJSVStTeg+anw4OJmLQKmq4TMLOjB+E7VNb/a4Ze0rn\r\nTEEnHT4DGE5RP1JLtb1iio8RQEC2ns992gko26mnWy6iJh6SJ4PK+tYraNQJ\r\npBNofi/4orrpHZUuuD2TiBKauwU2HtFYzmwBlw5oJzngak92f87uD9n6VR8A\r\n084UrsdArvvedzaKwYuoIWXxy37/qY+bYpJq09WJ5LKcJ57w2BKUf59xfLHx\r\ngqoB/0ZXctK81N5SesNKVVi17UnEhY4WZfeDSz0iZ/ItSjwaxj8JKJ04oXkG\r\nOYr9/FLftne5M2yl4xzt2iA76U978XgOWugLzUUTMdNoXfQR+Y8hjS7LuWy4\r\nT20qwle0slhc6/vQDG7P5mFTON+Hh6Q4fxh8ch5xumTsbGn7H03eLoVHLSAV\r\ndo+Rf52vNKp58EZZuMaVeJF8IF/VPQDC9TU=\r\n=V6N5\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "kmalakoff",
+        "email": "kmalakoff@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "kmalakoff",
+          "email": "kmalakoff@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/response-iterator_0.2.5_1656824970083_0.051612846512738564"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.6": {
+      "name": "response-iterator",
+      "description": "Creates an async iterator for a variety of inputs in the browser and node. Supports fetch, node-fetch, and cross-fetch",
+      "version": "0.2.6",
+      "author": {
+        "name": "Kevin Malakoff",
+        "email": "kmalakoff@gmail.com",
+        "url": "https://github.com/kmalakoff"
+      },
+      "license": "MIT",
+      "main": "dist/cjs/index.js",
+      "module": "dist/esm/index.mjs",
+      "scripts": {
+        "build": "tsds build",
+        "deploy": "tsds deploy",
+        "format": "tsds format",
+        "lint": "tsds lint",
+        "test": "tsds test:node && tsds test:node \"test/**/*.test-node.*\" && tsds test:browser"
+      },
+      "homepage": "https://github.com/kmalakoff/response-iterator#README.md",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/kmalakoff/response-iterator.git"
+      },
+      "bugs": {
+        "url": "https://github.com/kmalakoff/response-iterator/issues"
+      },
+      "keywords": [
+        "Symbol",
+        "Symbol.asyncIterator",
+        "array",
+        "arrayBuffer",
+        "asyncIterator",
+        "axios",
+        "blob",
+        "body",
+        "browser",
+        "cross-fetch",
+        "fetch",
+        "got",
+        "isomorphic-fetch",
+        "iteration",
+        "iterator",
+        "node",
+        "node-fetch",
+        "response",
+        "stream",
+        "typescript",
+        "undici"
+      ],
+      "devDependencies": {
+        "@types/axios": "^0.14.0",
+        "@types/node": "^18.0.1",
+        "@types/node-fetch": "^3.0.3",
+        "cross-fetch": "^3.1.5",
+        "got": "^12.1.0",
+        "isomorphic-fetch": "^3.0.0",
+        "readable-stream-2": "npm:readable-stream@2.3.7",
+        "readable-stream-3": "npm:readable-stream@4.0.0",
+        "ts-dev-stack": "^0.6.5",
+        "undici": "^5.6.0"
+      },
+      "type": "module",
+      "engines": {
+        "node": ">=0.8"
+      },
+      "exports": {
+        ".": {
+          "import": "./dist/esm/index.mjs",
+          "require": "./dist/cjs/index.js",
+          "types": "./dist/types/index.d.ts"
+        },
+        "./*": "./*"
+      },
+      "tsds": {
+        "source": "src/index.ts"
+      },
+      "types": "dist/types/index.d.ts",
+      "unpkg": "dist/umd/response-iterator.js",
+      "gitHead": "7a6f257d3e06653d391636107b2393a705073a1e",
+      "_id": "response-iterator@0.2.6",
+      "_nodeVersion": "18.3.0",
+      "_npmVersion": "8.11.0",
+      "dist": {
+        "integrity": "sha512-pVzEEzrsg23Sh053rmDUvLSkGXluZio0qu8VT6ukrYuvtjVfCbDZH9d6PGXb8HZfzdNZt8feXv/jvUzlhRgLnw==",
+        "shasum": "249005fb14d2e4eeb478a3f735a28fd8b4c9f3da",
+        "tarball": "https://registry.npmjs.org/response-iterator/-/response-iterator-0.2.6.tgz",
+        "fileCount": 35,
+        "unpackedSize": 67816,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCUAavMQeIMWk6vD8RRa3PG/KWJ8/mwKklGGFtb8IH5qgIgBKTbfiGIVcSTu5Mhc7yT77YIFIhw3aJwf5ijTfWzLzM="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiweoEACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqUMBAAhGaLyxqTt8EIEeHkkb2D/xc7D7aUqKwPG/bl8h1ELz4KbS1Y\r\nD11Yv3fcNTs+RgnIZMpz2EiBfN6tjL/jHXfy1yIgXZW7yym+fQZNCofIrS8B\r\nbdRt5ejZ8GhaxgwedwC3LdJ6HKrxUc4G9aVeiSKjyxTTd9o5O0ysZuwm9YZB\r\nk29YiebTnuwRiDaupvrlKzj10v7vGvFs8aC+mNtEoXaftNnC+qIe8hXE3I1C\r\nXVFGmAAgYLC+QBj+jlQ5BX/HNDR2b6VDFlB6AoIpck6YueN560E3XmrVYaZa\r\nV23fQIKkS1RaxSk/NwBBnbUY/Jy8ImjH1B8EHHseptpEZe3YuguanfDhxM1k\r\nQSA7bMR9c5wSe+22i6hzZ+o/OY6tFEdv7PQWMnmUVSMQmzmkg2JhjgcFg9hm\r\nweTrXdWYdnp1lc+/OZr672uDecNo/nZ0VpNuAwN6Yor8cIzO1mFxjt3PjMJ6\r\njQVzvCUgecHg4JEhSb96Oj6nrXVI/Rv5DO+DUNCCTya8sAAy9+mtEiiMJzZe\r\nVXR1Xv+v91P/kuWNPZy16nrhhuOlSjBWvSc7ch7aOVrpiz4ixqNXRSQZ7vEI\r\nKqmQqhOhF4YosrbfS30lhBcUCVh6zBkLTtLlUaDrcVuFKFlQW9GDuO8SuHrz\r\nevtOpJmdtPeFtCSZM7YGimJeC2JtnCslf2o=\r\n=rSv7\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "kmalakoff",
+        "email": "kmalakoff@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "kmalakoff",
+          "email": "kmalakoff@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/response-iterator_0.2.6_1656875524185_0.5771189597765132"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2021-10-10T01:41:23.511Z",
+    "0.1.0": "2021-10-10T01:41:23.661Z",
+    "modified": "2022-07-03T19:12:04.534Z",
+    "0.1.1": "2021-10-10T07:07:24.671Z",
+    "0.2.0": "2021-10-11T06:09:57.996Z",
+    "0.2.1": "2021-10-14T05:04:13.299Z",
+    "0.2.2": "2021-10-17T23:05:49.329Z",
+    "0.2.3": "2022-06-23T03:01:13.212Z",
+    "0.2.4": "2022-06-27T07:28:49.950Z",
+    "0.2.5": "2022-07-03T05:09:30.286Z",
+    "0.2.6": "2022-07-03T19:12:04.477Z"
+  },
+  "maintainers": [
+    {
+      "name": "kmalakoff",
+      "email": "kmalakoff@gmail.com"
+    }
+  ],
+  "description": "Creates an async iterator for a variety of inputs in the browser and node. Supports fetch, node-fetch, and cross-fetch",
+  "homepage": "https://github.com/kmalakoff/response-iterator#README.md",
+  "keywords": [
+    "Symbol",
+    "Symbol.asyncIterator",
+    "array",
+    "arrayBuffer",
+    "asyncIterator",
+    "axios",
+    "blob",
+    "body",
+    "browser",
+    "cross-fetch",
+    "fetch",
+    "got",
+    "isomorphic-fetch",
+    "iteration",
+    "iterator",
+    "node",
+    "node-fetch",
+    "response",
+    "stream",
+    "typescript",
+    "undici"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kmalakoff/response-iterator.git"
+  },
+  "author": {
+    "name": "Kevin Malakoff",
+    "email": "kmalakoff@gmail.com",
+    "url": "https://github.com/kmalakoff"
+  },
+  "bugs": {
+    "url": "https://github.com/kmalakoff/response-iterator/issues"
+  },
+  "license": "MIT",
+  "readme": "## response-iterator\n\nCreates an async iterator for a variety of inputs in the browser and node. Supports fetch, node-fetch, cross-fetch, axios, got, undici.\n\n### Example 1\n\n```typescript\n// import \"isomorphic-fetch\"; // node only\nimport responseIterator from 'response-iterator';\n\nconst res = await fetch('https://raw.githubusercontent.com/kmalakoff/response-iterator/master/package.json');\n\nlet data = '';\nfor await (const chunk of responseIterator(res)) {\n  data += chunk;\n}\nconsole.log(JSON.parse(data).name); // \"response-iterator\"\n```\n\n### Example 2\n\n```typescript\nimport crossFetch from 'cross-fetch';\nimport responseIterator from 'response-iterator';\n\nconst res = await crossFetch('https://raw.githubusercontent.com/kmalakoff/response-iterator/master/package.json');\n\nlet data = '';\nfor await (const chunk of responseIterator(res)) {\n  data += chunk;\n}\nconsole.log(JSON.parse(data).name); // \"response-iterator\"\n```\n\n### Documentation\n\n[API Docs](https://kmalakoff.github.io/response-iterator/)\n",
+  "readmeFilename": "README.md"
+}
