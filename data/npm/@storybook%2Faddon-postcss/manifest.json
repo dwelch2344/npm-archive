@@ -1,0 +1,974 @@
+{
+  "_id": "@storybook/addon-postcss",
+  "_rev": "16-8d4d22e9d1765b89948d73e77d229ecd",
+  "name": "@storybook/addon-postcss",
+  "dist-tags": {
+    "latest": "2.0.0",
+    "alpha": "3.0.0-alpha.1"
+  },
+  "versions": {
+    "1.0.0": {
+      "name": "@storybook/addon-postcss",
+      "version": "1.0.0",
+      "description": "Storybook addon used to run the PostCSS preprocessor against your stories.",
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/storybookjs/addon-postcss/issues"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybookjs/addon-postcss.git"
+      },
+      "engines": {
+        "node": ">=10",
+        "yarn": "^1.17.0"
+      },
+      "main": "dist/index.js",
+      "scripts": {
+        "build": "rm -rf dist & tsc",
+        "lint": "yarn lint-code && yarn lint-style -c",
+        "lint-code": "eslint '{example,src}/**/*.{js,ts,tsx}'",
+        "lint-style": "yarn prettier '{example,src}/**/*.{js,ts,tsx,css,html,json,md,mdx,scss,yml}'",
+        "test": "jest --passWithNoTests",
+        "prepublishOnly": "yarn build"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "lint-staged"
+        }
+      },
+      "lint-staged": {
+        "*.{js,ts,tsx}": [
+          "eslint --fix",
+          "prettier --write"
+        ],
+        "*.{css,html,json,md,mdx,scss,yml}": [
+          "prettier --write"
+        ]
+      },
+      "dependencies": {
+        "@storybook/node-logger": "^6.1.14",
+        "css-loader": "^3.6.0",
+        "postcss": "^7.0.35",
+        "postcss-loader": "npm:@phated/postcss-loader@4.2.0-phated.2",
+        "style-loader": "^1.3.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.12.10",
+        "@babel/plugin-transform-runtime": "^7.12.10",
+        "@babel/preset-env": "^7.12.11",
+        "@babel/preset-typescript": "^7.12.7",
+        "@types/webpack": "^4.41.26",
+        "@types/webpack-env": "^1.16.0",
+        "@typescript-eslint/eslint-plugin": "^4.14.0",
+        "@typescript-eslint/parser": "^4.14.0",
+        "babel-eslint": "10.1.0",
+        "babel-plugin-dynamic-import-node": "^2.3.3",
+        "babel-plugin-require-context-hook": "^1.0.0",
+        "eslint": "^7.18.0",
+        "eslint-config-airbnb": "^18.1.0",
+        "eslint-config-prettier": "^7.2.0",
+        "eslint-import-resolver-ts": "^0.4.2",
+        "eslint-plugin-import": "^2.20.1",
+        "eslint-plugin-jest": "^24.1.3",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-react": "^7.19.0",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "husky": "^4.2.3",
+        "jest": "^26.6.3",
+        "lint-staged": "^10.0.8",
+        "prettier": "^2.0.5",
+        "typescript": "^4.1.3",
+        "webpack": "^4"
+      },
+      "peerDependencies": {
+        "webpack": "^4"
+      },
+      "gitHead": "dff2e285709be1ca0899723be87dc52c50ebb82c",
+      "homepage": "https://github.com/storybookjs/addon-postcss#readme",
+      "_id": "@storybook/addon-postcss@1.0.0",
+      "_nodeVersion": "14.15.4",
+      "_npmVersion": "6.14.10",
+      "dist": {
+        "integrity": "sha512-b4PDBvCFGLGvSCfFxK+9F4EEPAYAsz+wPolL1Ucip7IsD3dxrOh9xT0pPf+W6o/tnzRKqh9HUJiNDLl9oEdwPg==",
+        "shasum": "9c000205c665fbeada94620f4d5439c706bd5001",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-postcss/-/addon-postcss-1.0.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 8166,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgCMa4CRA9TVsSAnZWagAAUV8P/2be+KdAITLkzj03UXGt\nazbyO5GUv58sEFh5rQsJ9WX6ote++dsB+48SjGJsoBDnI0S7i+ZizVwAvMka\nUkq3XYz4swJWrvb1t5+hip9DdIax88LU5h2nqm+8NVqq7matjdXSlvdwj+yx\nbtrAiX/E3dudezYeAEyMyfxb/EQKqM4RgzBPxADMPz2TsfAz8uKfQf8WR/5o\nKFYrohWnOLblCfgplOL2qMxnSIR+VMaBDQm2sw03YN9+NnD4TnpI3OSyvLc6\nJxjo8iGY060EaDQIB5On65f5WEk7T5migWAVvKgHMb6dq/2a1tK/SajqjEXV\nanXKushsJjrnmm8afjJYz7q7Q9Q46gxaSACq4u4uLpU1leDFtd5CfxQWe2lu\nahhKlfsn9ZPRxDnc9Fpov1VmAo3oPMXh6cBMlJCtVP6oc1Fso7AX0/56/yM7\nRnlN3Q1/9+JC0ho2IwEtvyDMup5WpY8IAe0fSEiLOfjKNPlcZ1uS2Aa4/zub\n0fBSTsGWAhpmF2TWoVm/5ostKi6lGMrt5jkqCKamjguZrk8ScFY7qkqPEFao\nA7Cabjjgjj+VFZeAu+5yR54ux7IrIkw4QlDCyrjRQ1eO3w9A0Zazfdk1eGRG\nW5Vd5CTpZNJJli6XrPK5hJHqKzm2zf7GzRK0XPxH00b14v/9pEsRiQkF7tR1\nBgdu\r\n=vScy\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGqu99vo96cpiWXRkm9MMSmfJPkzsjxG7Z1dTP75XzTDAiAGqlv5vyNY1BPf/GFF7hXvTur8GbRE2p6pv8IBVqhA5g=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "phated",
+        "email": "blaine.bublitz@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "phated",
+          "email": "blaine.bublitz@gmail.com"
+        },
+        {
+          "name": "ndelangen",
+          "email": "ndelangen@me.com"
+        },
+        {
+          "name": "shilman",
+          "email": "michael@lab80.co"
+        },
+        {
+          "name": "alexandrebodin",
+          "email": "bodin.alex@gmail.com"
+        },
+        {
+          "name": "hypnosphi",
+          "email": "talpa@yandex.ru"
+        },
+        {
+          "name": "danielduan",
+          "email": "dduan@yahoo.com"
+        },
+        {
+          "name": "igor-dv",
+          "email": "davydkin.igor@gmail.com"
+        },
+        {
+          "name": "pksunkara",
+          "email": "pavan.sss1991@gmail.com"
+        },
+        {
+          "name": "tmeasday",
+          "email": "tom@thesnail.org"
+        },
+        {
+          "name": "gongreg",
+          "email": "gytis.vinclovas@gmail.com"
+        },
+        {
+          "name": "domyen",
+          "email": "dom@hichroma.com"
+        },
+        {
+          "name": "usulpro",
+          "email": "regx@usul.su"
+        },
+        {
+          "name": "kylesuss",
+          "email": "susskyle@gmail.com"
+        },
+        {
+          "name": "ghengeveld",
+          "email": "info@ghengeveld.nl"
+        },
+        {
+          "name": "pago",
+          "email": "patrick.gotthardt@trivago.com"
+        },
+        {
+          "name": "dandean",
+          "email": "me@dandean.com"
+        },
+        {
+          "name": "codebyalex",
+          "email": "wilsonc.alexander@gmail.com"
+        },
+        {
+          "name": "mrmckeb",
+          "email": "mrmckeb.npm@outlook.com"
+        },
+        {
+          "name": "dannyhw",
+          "email": "danny.h.williams@hotmail.com"
+        },
+        {
+          "name": "winkervsbecks",
+          "email": "varunvachhar@gmail.com"
+        },
+        {
+          "name": "rvasikarla",
+          "email": "vasikarla.raj@gmail.com"
+        },
+        {
+          "name": "amalik2",
+          "email": "ahnmalik2@gmail.com"
+        },
+        {
+          "name": "lshadler",
+          "email": "lshadler13@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-postcss_1.0.0_1611187895872_0.003310711450847492"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0": {
+      "name": "@storybook/addon-postcss",
+      "version": "2.0.0",
+      "description": "Storybook addon used to run the PostCSS preprocessor against your stories.",
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/storybookjs/addon-postcss/issues"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybookjs/addon-postcss.git"
+      },
+      "engines": {
+        "node": ">=10",
+        "yarn": "^1.17.0"
+      },
+      "main": "dist/index.js",
+      "scripts": {
+        "build": "rm -rf dist & tsc",
+        "lint": "yarn lint-code && yarn lint-style -c",
+        "lint-code": "eslint '{example,src}/**/*.{js,ts,tsx}'",
+        "lint-style": "yarn prettier '{example,src}/**/*.{js,ts,tsx,css,html,json,md,mdx,scss,yml}'",
+        "test": "jest --passWithNoTests",
+        "prepublishOnly": "yarn build"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "lint-staged"
+        }
+      },
+      "lint-staged": {
+        "*.{js,ts,tsx}": [
+          "eslint --fix",
+          "prettier --write"
+        ],
+        "*.{css,html,json,md,mdx,scss,yml}": [
+          "prettier --write"
+        ]
+      },
+      "dependencies": {
+        "@storybook/node-logger": "^6.1.14",
+        "css-loader": "^3.6.0",
+        "postcss": "^7.0.35",
+        "postcss-loader": "^4.2.0",
+        "style-loader": "^1.3.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.12.10",
+        "@babel/plugin-transform-runtime": "^7.12.10",
+        "@babel/preset-env": "^7.12.11",
+        "@babel/preset-typescript": "^7.12.7",
+        "@types/webpack": "^4.41.26",
+        "@types/webpack-env": "^1.16.0",
+        "@typescript-eslint/eslint-plugin": "^4.14.0",
+        "@typescript-eslint/parser": "^4.14.0",
+        "babel-eslint": "10.1.0",
+        "babel-plugin-dynamic-import-node": "^2.3.3",
+        "babel-plugin-require-context-hook": "^1.0.0",
+        "eslint": "^7.18.0",
+        "eslint-config-airbnb": "^18.1.0",
+        "eslint-config-prettier": "^7.2.0",
+        "eslint-import-resolver-ts": "^0.4.2",
+        "eslint-plugin-import": "^2.20.1",
+        "eslint-plugin-jest": "^24.1.3",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-react": "^7.19.0",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "husky": "^4.2.3",
+        "jest": "^26.6.3",
+        "lint-staged": "^10.0.8",
+        "prettier": "^2.0.5",
+        "typescript": "^4.1.3",
+        "webpack": "^4"
+      },
+      "gitHead": "48cc7595166ee83f5daefb5bd7ea9c54dc143f76",
+      "homepage": "https://github.com/storybookjs/addon-postcss#readme",
+      "_id": "@storybook/addon-postcss@2.0.0",
+      "_nodeVersion": "14.15.4",
+      "_npmVersion": "6.14.10",
+      "dist": {
+        "integrity": "sha512-Nt82A7e9zJH4+A+VzLKKswUfru+T6FJTakj4dccP0i8DSn7a0CkzRPrLuZBq8tg4voV6gD74bcDf3gViCVBGtA==",
+        "shasum": "ec61cb9bb2662f408072b35c466c7df801c28498",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-postcss/-/addon-postcss-2.0.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 11244,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh2calCRA9TVsSAnZWagAAnU4P/2eZ/me90Sk7D5iuSnLg\nKCgrhkP7/AcnxnU71lDW+5PasGkhpdfM+BKLtL1IT/OE8dubCnd6Lzs05RE4\nIHj4o1wjnKBqJh8DPbdWMPUvznPcR3FhNezji5+JiDrHxMVxYVble6pVmEtE\ncw7Hg2RbbG2NWRrYkWNX/HFH6G2jua8gJZYoF0z9fWnTzkVX/N9KpaG6X37u\nsp/n4iC6Ytksct/l0uxo4qCCfkXbja8l6cMWy38LxzixNFC279WgSUCNgqzN\nLkYvvWtFbL7S1Ox2amxSoG4nEv3gH2Lh0yHVZPB62/op85adhPGw6IUIWHlR\n5GDmlM9HbuOgX0le2/byQa4J2C5v6pIruEmshVyvf4Ec4iIV2+iEsq5B+/fp\nQOq5fmxpT7q3hFKiWi7RzzfQjtp1AgxeD9PyzCq0oo3yfScwzkYVLXjRTcDC\npQ2Oc17YZ+rfbSyLre4LMtvkZ3eG8cZZooTGmJGDwYSXyKOdZTPwGeNeEpYs\nri16+tFXYLuE+JWnNPgdkihj3qnUTiJ0lD93+kcOKL40TJfMW4oYQSX0xHW9\nmnJuqkht+R043d0XH0wXeQxlLEJAca3Gk1Xoeu0VDWBwdAiJI20WsWeKqqR7\ni3ES+J18RRMUq9XDNptidnZwM7rDFvUjnBlWMx6ZqW9fcDs/CKgHaId1ECDg\n4H09\r\n=rW8Z\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDypiNZbl5xwuqKKZpNYRlFXJxDyusBqJxUmCRWeNNIOgIgY9RykWxEe+xuJz2oiWqHsry947lwYVG12H5a2YAos5k="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "phated",
+        "email": "blaine.bublitz@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "phated",
+          "email": "blaine.bublitz@gmail.com"
+        },
+        {
+          "name": "ndelangen",
+          "email": "ndelangen@me.com"
+        },
+        {
+          "name": "shilman",
+          "email": "michael@lab80.co"
+        },
+        {
+          "name": "alexandrebodin",
+          "email": "bodin.alex@gmail.com"
+        },
+        {
+          "name": "hypnosphi",
+          "email": "talpa@yandex.ru"
+        },
+        {
+          "name": "danielduan",
+          "email": "dduan@yahoo.com"
+        },
+        {
+          "name": "igor-dv",
+          "email": "davydkin.igor@gmail.com"
+        },
+        {
+          "name": "pksunkara",
+          "email": "pavan.sss1991@gmail.com"
+        },
+        {
+          "name": "tmeasday",
+          "email": "tom@thesnail.org"
+        },
+        {
+          "name": "gongreg",
+          "email": "gytis.vinclovas@gmail.com"
+        },
+        {
+          "name": "domyen",
+          "email": "dom@hichroma.com"
+        },
+        {
+          "name": "usulpro",
+          "email": "regx@usul.su"
+        },
+        {
+          "name": "kylesuss",
+          "email": "susskyle@gmail.com"
+        },
+        {
+          "name": "ghengeveld",
+          "email": "info@ghengeveld.nl"
+        },
+        {
+          "name": "pago",
+          "email": "patrick.gotthardt@trivago.com"
+        },
+        {
+          "name": "dandean",
+          "email": "me@dandean.com"
+        },
+        {
+          "name": "codebyalex",
+          "email": "wilsonc.alexander@gmail.com"
+        },
+        {
+          "name": "mrmckeb",
+          "email": "mrmckeb.npm@outlook.com"
+        },
+        {
+          "name": "dannyhw",
+          "email": "danny.h.williams@hotmail.com"
+        },
+        {
+          "name": "winkervsbecks",
+          "email": "varunvachhar@gmail.com"
+        },
+        {
+          "name": "rvasikarla",
+          "email": "vasikarla.raj@gmail.com"
+        },
+        {
+          "name": "amalik2",
+          "email": "ahnmalik2@gmail.com"
+        },
+        {
+          "name": "lshadler",
+          "email": "lshadler13@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-postcss_2.0.0_1611268954250_0.9778071203185481"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.0.0-alpha.0": {
+      "name": "@storybook/addon-postcss",
+      "version": "3.0.0-alpha.0",
+      "description": "Storybook addon used to run the PostCSS preprocessor against your stories.",
+      "bugs": {
+        "url": "https://github.com/storybookjs/addon-postcss/issues"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybookjs/addon-postcss.git"
+      },
+      "license": "MIT",
+      "main": "dist/index.js",
+      "scripts": {
+        "build": "rm -rf dist & tsc",
+        "lint": "yarn lint-code && yarn lint-style -c",
+        "lint-code": "eslint '{example,src}/**/*.{js,ts,tsx}'",
+        "lint-style": "yarn prettier '{example,src}/**/*.{js,ts,tsx,css,html,json,md,mdx,scss,yml}'",
+        "prepublishOnly": "yarn build",
+        "test": "jest --passWithNoTests"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "lint-staged"
+        }
+      },
+      "lint-staged": {
+        "*.{js,ts,tsx}": [
+          "eslint --fix",
+          "prettier --write"
+        ],
+        "*.{css,html,json,md,mdx,scss,yml}": [
+          "prettier --write"
+        ]
+      },
+      "dependencies": {
+        "@storybook/node-logger": "^6.1.14",
+        "css-loader": "^3.6.0",
+        "postcss": "^7.0.35",
+        "postcss-loader": "^4.2.0",
+        "style-loader": "^1.3.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.12.10",
+        "@babel/plugin-transform-runtime": "^7.12.10",
+        "@babel/preset-env": "^7.12.11",
+        "@babel/preset-typescript": "^7.12.7",
+        "@types/webpack-env": "^1.16.0",
+        "@typescript-eslint/eslint-plugin": "^5.30.6",
+        "@typescript-eslint/parser": "^5.30.6",
+        "babel-eslint": "10.1.0",
+        "babel-plugin-dynamic-import-node": "^2.3.3",
+        "babel-plugin-require-context-hook": "^1.0.0",
+        "eslint": "^7",
+        "eslint-config-prettier": "^7.2.0",
+        "eslint-import-resolver-ts": "^0.4.2",
+        "eslint-plugin-import": "^2.20.1",
+        "eslint-plugin-jest": "^25",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "husky": "^4.2.3",
+        "jest": "^26.6.3",
+        "lint-staged": "^10.0.8",
+        "prettier": "^2.0.5",
+        "typescript": "^4.1.3",
+        "webpack": "^5"
+      },
+      "engines": {
+        "node": ">=14",
+        "yarn": "^1.17.0"
+      },
+      "readme": "# Storybook Addon PostCSS\n\nThe Storybook PostCSS addon can be used to run the PostCSS preprocessor against your stories in [Storybook](https://storybook.js.org).\n\n## Getting Started\n\nInstall this addon by adding the `@storybook/addon-postcss` dependency:\n\n```sh\nyarn add -D @storybook/addon-postcss\n```\n\nwithin `.storybook/main.js`:\n\n```js\nmodule.exports = {\n  addons: ['@storybook/addon-postcss'],\n};\n```\n\nand create a PostCSS config in the base of your project, like `postcss.config.js`, that contains:\n\n```js\nmodule.exports = {\n  // Add your installed PostCSS plugins here:\n  plugins: [\n    // require('autoprefixer'),\n    // require('postcss-color-rebeccapurple'),\n  ],\n};\n```\n\n## PostCSS 8+\n\nIf your project requires you to be using PostCSS v8, you can replace the included PostCSS by passing `postcssLoaderOptions` to this addon.\n\nFirst, you'll need to install PostCSS v8 as a dependency of your project:\n\n```sh\nyarn add -D postcss@^8\n```\n\nThen, you'll need to update your addons config. Within `.storybook/main.js`:\n\n```diff\nmodule.exports = {\n  addons: [\n-   '@storybook/addon-postcss',\n+   {\n+     name: '@storybook/addon-postcss',\n+     options: {\n+       postcssLoaderOptions: {\n+         implementation: require('postcss'),\n+       },\n+     },\n+   },\n  ]\n}\n```\n\nWhen running Storybook, you'll see the version of PostCSS being used in the logs. For example:\n\n```sh\ninfo => Using PostCSS preset with postcss@8.2.4\n```\n\n## Loader Options\n\nYou can specify loader options for `style-loader`, `css-loader`, and `postcss-loader` by passing options to this addon as `styleLoaderOptions`, `cssLoaderOptions`, or `postcssLoaderOptions` respectively.\n\nYou can also configure the loader rule by overriding the `rule` option.\n",
+      "readmeFilename": "README.md",
+      "gitHead": "9a0b343d64b1b796c5b3ab0b5000a77096ca7d17",
+      "homepage": "https://github.com/storybookjs/addon-postcss#readme",
+      "_id": "@storybook/addon-postcss@3.0.0-alpha.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "6.14.15",
+      "dist": {
+        "integrity": "sha512-EyXBqF9iPrCZDxVZytLrVHVpmSwQdCdhbnDEjFRZI64nsd086D5DvL+VbjIqXnRxjeAlfDP6Ug2yd6zk0oUbRw==",
+        "shasum": "9272ddb275123975acd4b5de591e2833a4371011",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-postcss/-/addon-postcss-3.0.0-alpha.0.tgz",
+        "fileCount": 8,
+        "unpackedSize": 9912,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIE4QlE64E5b9TZ7PWgqvZGo08vyGvLqDoQodZVlcaBi0AiBC9vr5B5/alxFzzEHTc6TgUjiy4UFzrqkCDbcQCV0UHQ=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJizUiEACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqzaBAAhUe7nhJF/WGFhP5uPNR6iSoEgzw2pqgCea37AOtY2GwMfaUB\r\nZgGJUzV7nLi1Wd3yaUTIYW3ax/ewHrLNeEXJLmYc6Abp1lwrsEaWXrCWtj35\r\nRioPOgOV9+al45sUQvNGukNPiwhFjbGci+N52xWt4kvvkbXTsL5t0ti88VtR\r\norBjgAI8wjzwDzCfyjLpWH8wfMauZEYMbh3pahaWYsCWtSS266436qIQGoBQ\r\n8xowGOjQ+Z0B8KmOoDRpRrwCpqQS0ggcksdkhugyWJtZM2S1ZwN5nqX27KRP\r\nVm1cmMNdNFr4SK2xxgioDsm6HmS8tbDH9Bm4r4QJ1VK05eRsidSLSL7sV9wW\r\nvHA0h0/W3ueH31fj0ijxlsstxkMPslFYo3evswQ1eGKVl/GS216AfxpD46Ks\r\nWZ8kpN+o1328yOC6InclDnMVCenc6C3LwTdGDTz9Lq2dXChfhj99+EaOpn64\r\nTpj6xcWXVmn6wPSgUCAShEt7e9VZvqdaqpA5SyfUv8w89QuKNANMBXmA/h/y\r\ncH/l+06L9vTUMEYe5Vg8zm+LawJDe1D9puhleInwPScknO0mRzn1nNvp9Gpp\r\nKrBsvJtevuF3jSD7IGkIXpueFaxKKNAFxpJkVL/nCP9F+I370mcCLJmvdEWD\r\nkvJAVsM7DwZGdpQwyH72CWF6NcT5h2mIkXE=\r\n=4OcU\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "ndelangen",
+        "email": "ndelangen@me.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "kylegach",
+          "email": "kyle.gach@gmail.com"
+        },
+        {
+          "name": "tooppaaa",
+          "email": "clementdungler@gmail.com"
+        },
+        {
+          "name": "ndelangen",
+          "email": "ndelangen@me.com"
+        },
+        {
+          "name": "shilman",
+          "email": "michael@lab80.co"
+        },
+        {
+          "name": "alexandrebodin",
+          "email": "bodin.alex@gmail.com"
+        },
+        {
+          "name": "hypnosphi",
+          "email": "talpa@yandex.ru"
+        },
+        {
+          "name": "danielduan",
+          "email": "dduan@yahoo.com"
+        },
+        {
+          "name": "igor-dv",
+          "email": "davydkin.igor@gmail.com"
+        },
+        {
+          "name": "pksunkara",
+          "email": "pavan.sss1991@gmail.com"
+        },
+        {
+          "name": "tmeasday",
+          "email": "tom@thesnail.org"
+        },
+        {
+          "name": "gongreg",
+          "email": "gytis.vinclovas@gmail.com"
+        },
+        {
+          "name": "domyen",
+          "email": "dom@hichroma.com"
+        },
+        {
+          "name": "usulpro",
+          "email": "regx@usul.su"
+        },
+        {
+          "name": "kylesuss",
+          "email": "susskyle@gmail.com"
+        },
+        {
+          "name": "ghengeveld",
+          "email": "info@ghengeveld.nl"
+        },
+        {
+          "name": "pago",
+          "email": "patrick.gotthardt@trivago.com"
+        },
+        {
+          "name": "dandean",
+          "email": "me@dandean.com"
+        },
+        {
+          "name": "codebyalex",
+          "email": "wilsonc.alexander@gmail.com"
+        },
+        {
+          "name": "mrmckeb",
+          "email": "mrmckeb.npm@outlook.com"
+        },
+        {
+          "name": "dannyhw",
+          "email": "danny.h.williams@hotmail.com"
+        },
+        {
+          "name": "winkervsbecks",
+          "email": "varunvachhar@gmail.com"
+        },
+        {
+          "name": "rvasikarla",
+          "email": "vasikarla.raj@gmail.com"
+        },
+        {
+          "name": "amalik2",
+          "email": "ahnmalik2@gmail.com"
+        },
+        {
+          "name": "lshadler",
+          "email": "lshadler13@gmail.com"
+        },
+        {
+          "name": "phated",
+          "email": "blaine.bublitz@gmail.com"
+        },
+        {
+          "name": "yannbf",
+          "email": "yannbf@gmail.com"
+        },
+        {
+          "name": "dylanpiercey",
+          "email": "pierceydylan@gmail.com"
+        },
+        {
+          "name": "monkeyworks",
+          "email": "igor.szyporyn@gmail.com"
+        },
+        {
+          "name": "darleendenno",
+          "email": "darleendenno@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-postcss_3.0.0-alpha.0_1657620612024_0.5674481168152765"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.0.0-alpha.1": {
+      "name": "@storybook/addon-postcss",
+      "version": "3.0.0-alpha.1",
+      "description": "Storybook addon used to run the PostCSS preprocessor against your stories.",
+      "bugs": {
+        "url": "https://github.com/storybookjs/addon-postcss/issues"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/storybookjs/addon-postcss.git"
+      },
+      "license": "MIT",
+      "main": "dist/index.js",
+      "scripts": {
+        "build": "rm -rf dist & tsc",
+        "lint": "yarn lint-code && yarn lint-style -c",
+        "lint-code": "eslint '{example,src}/**/*.{js,ts,tsx}'",
+        "lint-style": "yarn prettier '{example,src}/**/*.{js,ts,tsx,css,html,json,md,mdx,scss,yml}' --write",
+        "prepublishOnly": "yarn build",
+        "test": "jest --passWithNoTests"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "lint-staged"
+        }
+      },
+      "lint-staged": {
+        "*.{js,ts,tsx}": [
+          "eslint --fix",
+          "prettier --write"
+        ],
+        "*.{css,html,json,md,mdx,scss,yml}": [
+          "prettier --write"
+        ]
+      },
+      "dependencies": {
+        "@storybook/node-logger": "^6.1.14",
+        "css-loader": "^3.6.0",
+        "postcss": "^7.0.35",
+        "postcss-loader": "^4.2.0",
+        "style-loader": "^1.3.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.12.10",
+        "@babel/plugin-transform-runtime": "^7.12.10",
+        "@babel/preset-env": "^7.12.11",
+        "@babel/preset-typescript": "^7.12.7",
+        "@types/webpack-env": "^1.16.0",
+        "@typescript-eslint/eslint-plugin": "^5.30.6",
+        "@typescript-eslint/parser": "^5.30.6",
+        "babel-eslint": "10.1.0",
+        "babel-plugin-dynamic-import-node": "^2.3.3",
+        "babel-plugin-require-context-hook": "^1.0.0",
+        "eslint": "^7",
+        "eslint-config-prettier": "^7.2.0",
+        "eslint-import-resolver-ts": "^0.4.2",
+        "eslint-plugin-import": "^2.20.1",
+        "eslint-plugin-jest": "^25",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "husky": "^4.2.3",
+        "jest": "^26.6.3",
+        "lint-staged": "^10.0.8",
+        "prettier": "^2.0.5",
+        "typescript": "^4.1.3",
+        "webpack": "^5"
+      },
+      "engines": {
+        "node": ">=14",
+        "yarn": "^1.17.0"
+      },
+      "gitHead": "e01f03784e2ad22cef569378e5f2bb1c6499c130",
+      "homepage": "https://github.com/storybookjs/addon-postcss#readme",
+      "_id": "@storybook/addon-postcss@3.0.0-alpha.1",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "6.14.15",
+      "dist": {
+        "integrity": "sha512-j3DB//h89ctz0Orh1N4AHuzdzYhbL5XhUdh1V5rJ6tPOhHZ57v60tS4owukY4nE5gqM345lbuXK6MjbSZPqZdQ==",
+        "shasum": "aa69bbeeb778fe184f9880da44b0a7883fc86ba3",
+        "tarball": "https://registry.npmjs.org/@storybook/addon-postcss/-/addon-postcss-3.0.0-alpha.1.tgz",
+        "fileCount": 8,
+        "unpackedSize": 9924,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCpzWTTFpx0X8ul9eU0db4cS5j/i8a6742bvtSL7hFEwAIgXjj5Qkf8XPCljOV/d3pnrMHAes3NRLWu+OJ2YaRGkEg="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJi0W7+ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoDiw/6A7KKEpJQWryjNO7BVJt+OD9Q1qrMHNj4Oev4bllZkuIKoYhU\r\nWtjwOQwhJzSILw5I8M0Fe985hk7DKwPA3yKoHb2ljkhp+PVOE/w77ep7/dxl\r\nHJqbTIP5F+9diLS3GUtGUun9znd7liuT1a9LkSmApHXmUMO+2FXLFeEg0N57\r\nHE2m8mP4a1QPncvsis8ZhgT17SQFy1/+Fgi+0OvHEjTfTQOZAYPGSMj28ylS\r\n9XHIrJObUHDRNfiZ7fpKPOYOFiygshIPeMpinTbXwXQy8IHkzA6xJX4DxI3t\r\ntZ5G2oIoaEy6Z++8/VMjGu8tW8/knwB4buCc8AAw/tRSmlRGo7k8CARTCvlh\r\n2+zEERd8ao6XmtGGSMzzpu/msVk3E5OeUb0j5G2nCj8aRiVOEhpP8X5S1VHd\r\nBehwTcXErN1c8frcnMrf3MDgNG5gsBGIhaj17nC83DpltuaONcLb+pyl8iGI\r\nrLToS7pMpaapO7B/oBzE5DAYRaaulASnAKi/mEYqMcc3JmStxwqKHXN29u2d\r\nkcpovy6h7iyA2ghcfo4MiUl56N6CqbJeWbZIzOjMTUFyS6vWJt37D2I0bvWv\r\nvxIQdYkfzYmyvk85F2SI970IJnZIlw9/iHXf8Eic8foPnSMSCO/hDSYIG4Ka\r\nQUmGObgVhWUE13XnBHbOKx2gpTe4HeiUUls=\r\n=3sks\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "ndelangen",
+        "email": "ndelangen@me.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "kylegach",
+          "email": "kyle.gach@gmail.com"
+        },
+        {
+          "name": "tooppaaa",
+          "email": "clementdungler@gmail.com"
+        },
+        {
+          "name": "ndelangen",
+          "email": "ndelangen@me.com"
+        },
+        {
+          "name": "shilman",
+          "email": "michael@lab80.co"
+        },
+        {
+          "name": "alexandrebodin",
+          "email": "bodin.alex@gmail.com"
+        },
+        {
+          "name": "hypnosphi",
+          "email": "talpa@yandex.ru"
+        },
+        {
+          "name": "danielduan",
+          "email": "dduan@yahoo.com"
+        },
+        {
+          "name": "igor-dv",
+          "email": "davydkin.igor@gmail.com"
+        },
+        {
+          "name": "pksunkara",
+          "email": "pavan.sss1991@gmail.com"
+        },
+        {
+          "name": "tmeasday",
+          "email": "tom@thesnail.org"
+        },
+        {
+          "name": "gongreg",
+          "email": "gytis.vinclovas@gmail.com"
+        },
+        {
+          "name": "domyen",
+          "email": "dom@hichroma.com"
+        },
+        {
+          "name": "usulpro",
+          "email": "regx@usul.su"
+        },
+        {
+          "name": "kylesuss",
+          "email": "susskyle@gmail.com"
+        },
+        {
+          "name": "ghengeveld",
+          "email": "info@ghengeveld.nl"
+        },
+        {
+          "name": "pago",
+          "email": "patrick.gotthardt@trivago.com"
+        },
+        {
+          "name": "dandean",
+          "email": "me@dandean.com"
+        },
+        {
+          "name": "codebyalex",
+          "email": "wilsonc.alexander@gmail.com"
+        },
+        {
+          "name": "mrmckeb",
+          "email": "mrmckeb.npm@outlook.com"
+        },
+        {
+          "name": "dannyhw",
+          "email": "danny.h.williams@hotmail.com"
+        },
+        {
+          "name": "winkervsbecks",
+          "email": "varunvachhar@gmail.com"
+        },
+        {
+          "name": "rvasikarla",
+          "email": "vasikarla.raj@gmail.com"
+        },
+        {
+          "name": "amalik2",
+          "email": "ahnmalik2@gmail.com"
+        },
+        {
+          "name": "lshadler",
+          "email": "lshadler13@gmail.com"
+        },
+        {
+          "name": "phated",
+          "email": "blaine.bublitz@gmail.com"
+        },
+        {
+          "name": "yannbf",
+          "email": "yannbf@gmail.com"
+        },
+        {
+          "name": "dylanpiercey",
+          "email": "pierceydylan@gmail.com"
+        },
+        {
+          "name": "monkeyworks",
+          "email": "igor.szyporyn@gmail.com"
+        },
+        {
+          "name": "darleendenno",
+          "email": "darleendenno@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/addon-postcss_3.0.0-alpha.1_1657892606730_0.25593524624716624"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2021-01-21T00:11:35.645Z",
+    "1.0.0": "2021-01-21T00:11:36.002Z",
+    "modified": "2023-11-17T09:00:40.521Z",
+    "2.0.0": "2021-01-21T22:42:34.362Z",
+    "3.0.0-alpha.0": "2022-07-12T10:10:12.190Z",
+    "3.0.0-alpha.1": "2022-07-15T13:43:26.883Z"
+  },
+  "maintainers": [
+    {
+      "email": "jarelfryer@gmail.com",
+      "name": "thafryer"
+    },
+    {
+      "email": "shaunlloydmedia@gmail.com",
+      "name": "shaunlloyd"
+    },
+    {
+      "email": "kyle.gach@gmail.com",
+      "name": "kylegach"
+    },
+    {
+      "email": "ndelangen@me.com",
+      "name": "ndelangen"
+    },
+    {
+      "email": "michael@lab80.co",
+      "name": "shilman"
+    },
+    {
+      "email": "bodin.alex@gmail.com",
+      "name": "alexandrebodin"
+    },
+    {
+      "email": "talpa@yandex.ru",
+      "name": "hypnosphi"
+    },
+    {
+      "email": "dduan@yahoo.com",
+      "name": "danielduan"
+    },
+    {
+      "email": "davydkin.igor@gmail.com",
+      "name": "igor-dv"
+    },
+    {
+      "email": "pavan.sss1991@gmail.com",
+      "name": "pksunkara"
+    },
+    {
+      "email": "tom@thesnail.org",
+      "name": "tmeasday"
+    },
+    {
+      "email": "gytis.vinclovas@gmail.com",
+      "name": "gongreg"
+    },
+    {
+      "email": "dom@hichroma.com",
+      "name": "domyen"
+    },
+    {
+      "email": "regx@usul.su",
+      "name": "usulpro"
+    },
+    {
+      "email": "susskyle@gmail.com",
+      "name": "kylesuss"
+    },
+    {
+      "email": "info@ghengeveld.nl",
+      "name": "ghengeveld"
+    },
+    {
+      "email": "patrick.gotthardt@trivago.com",
+      "name": "pago"
+    },
+    {
+      "email": "me@dandean.com",
+      "name": "dandean"
+    },
+    {
+      "email": "mrmckeb.npm@outlook.com",
+      "name": "mrmckeb"
+    },
+    {
+      "email": "danny.h.williams@hotmail.com",
+      "name": "dannyhw"
+    },
+    {
+      "email": "varunvachhar@gmail.com",
+      "name": "winkervsbecks"
+    },
+    {
+      "email": "ahnmalik2@gmail.com",
+      "name": "amalik2"
+    },
+    {
+      "email": "blaine.bublitz@gmail.com",
+      "name": "phated"
+    },
+    {
+      "email": "yannbf@gmail.com",
+      "name": "yannbf"
+    },
+    {
+      "email": "pierceydylan@gmail.com",
+      "name": "dylanpiercey"
+    },
+    {
+      "email": "darleendenno@gmail.com",
+      "name": "darleendenno"
+    }
+  ],
+  "description": "Storybook addon used to run the PostCSS preprocessor against your stories.",
+  "homepage": "https://github.com/storybookjs/addon-postcss#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/storybookjs/addon-postcss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/storybookjs/addon-postcss/issues"
+  },
+  "license": "MIT",
+  "readme": "# Storybook Addon PostCSS\n\nThe Storybook PostCSS addon can be used to run the PostCSS preprocessor against your stories in [Storybook](https://storybook.js.org).\n\n## Getting Started\n\nInstall this addon by adding the `@storybook/addon-postcss` dependency:\n\n```sh\nyarn add -D @storybook/addon-postcss\n```\n\nwithin `.storybook/main.js`:\n\n```js\nmodule.exports = {\n  addons: ['@storybook/addon-postcss'],\n};\n```\n\nand create a PostCSS config in the base of your project, like `postcss.config.js`, that contains:\n\n```js\nmodule.exports = {\n  // Add your installed PostCSS plugins here:\n  plugins: [\n    // require('autoprefixer'),\n    // require('postcss-color-rebeccapurple'),\n  ],\n};\n```\n\n## PostCSS 8+\n\nIf your project requires you to be using PostCSS v8, you can replace the included PostCSS by passing `postcssLoaderOptions` to this addon.\n\nFirst, you'll need to install PostCSS v8 as a dependency of your project:\n\n```sh\nyarn add -D postcss@^8\n```\n\nThen, you'll need to update your addons config. Within `.storybook/main.js`:\n\n```diff\nmodule.exports = {\n  addons: [\n-   '@storybook/addon-postcss',\n+   {\n+     name: '@storybook/addon-postcss',\n+     options: {\n+       postcssLoaderOptions: {\n+         implementation: require('postcss'),\n+       },\n+     },\n+   },\n  ]\n}\n```\n\nWhen running Storybook, you'll see the version of PostCSS being used in the logs. For example:\n\n```sh\ninfo => Using PostCSS preset with postcss@8.2.4\n```\n\n## Loader Options\n\nYou can specify loader options for `style-loader`, `css-loader`, and `postcss-loader` by passing options to this addon as `styleLoaderOptions`, `cssLoaderOptions`, or `postcssLoaderOptions` respectively.\n\nYou can also configure the loader rule by overriding the `rule` option.\n",
+  "readmeFilename": "README.md"
+}
