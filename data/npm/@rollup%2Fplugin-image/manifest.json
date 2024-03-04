@@ -1,0 +1,1440 @@
+{
+  "_id": "@rollup/plugin-image",
+  "_rev": "12-e1183bef9ca204e7f7f06e6bfb7f194b",
+  "name": "@rollup/plugin-image",
+  "dist-tags": {
+    "latest": "3.0.3"
+  },
+  "versions": {
+    "2.0.0": {
+      "name": "@rollup/plugin-image",
+      "version": "2.0.0",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Import JPG, PNG, GIF, SVG, and WebP files",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rollup/plugins.git"
+      },
+      "author": {
+        "name": "Rich Harris"
+      },
+      "homepage": "https://github.com/rollup/plugins/packages/image/#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "dist/index.js",
+      "engines": {
+        "node": ">= 8.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm run test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm run build && pnpm run lint && pnpm run security",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm run test -- --verbose",
+        "lint": "pnpm run lint:js && pnpm run lint:docs && pnpm run lint:package",
+        "lint:docs": "prettier --single-quote --write *.md",
+        "lint:js": "eslint --fix --cache src test",
+        "lint:package": "prettier --write package.json --plugin=prettier-plugin-package",
+        "prebuild": "del-cli dist",
+        "prepare": "pnpm run build",
+        "prepublishOnly": "pnpm run lint",
+        "pretest": "pnpm run build",
+        "security": "echo 'pnpm needs `npm audit` support'",
+        "test": "ava"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "images",
+        "modules"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0"
+      },
+      "dependencies": {
+        "rollup-pluginutils": "^2.8.2"
+      },
+      "devDependencies": {
+        "rollup": "^1.20.0",
+        "rollup-plugin-buble": "^0.10.0"
+      },
+      "ava": {
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "jsnext:main": "dist/index.es.js",
+      "module": "dist/index.es.js",
+      "_id": "@rollup/plugin-image@2.0.0",
+      "_nodeVersion": "12.3.1",
+      "_npmVersion": "6.11.2",
+      "dist": {
+        "integrity": "sha512-kMWISpMskDtWx8DMt4BnuWVUVaQwT8RgPlSZefP/oUqALtasLYTTWzhM/+epbLLww9y4cGvIwgh7ZCcQ0Zw+Ow==",
+        "shasum": "b84be641ff8dacc069cb264c42c1b8dcd445b54e",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-image/-/plugin-image-2.0.0.tgz",
+        "fileCount": 8,
+        "unpackedSize": 13010,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJd1a6uCRA9TVsSAnZWagAAZCMP/38MvQTo0KUc0zwN9ixa\naU+JgDqF/b1yVTTUAHMnyhgia98mgS4sX54HoM4OnBFkn5sTyKGjd3Qc5so2\nQyDOYFxPqiheYJw3CPzSo/Ko9Wpkjy0WduIrxDjC8Kv5nUpFWB8w3doPWL1q\nkBtRjimp8yDsWs/VlW+cYQJ9LC8w6Om6al5+hlMb4nMSngMh3mX8XUDWJgj+\nMcYc6k+/ek+y2DMOJqnGoDNH900jteRNEpa1VLxkJNoi+ChJhTlmtP0pQGLK\ncFHkmqtUFTlyKxKF1Fy7wn9jMvqMi+kJjqbsk7ca4lLGpoAIJpQYW4jJFqaU\n4hKMayk3lAZ61WbLJaWeH7djstXhIf4kLKE0ksf5eN9hEUP8Q2ayccowYno3\n+xrXdG3iTWq9u43+79xwEcI+K3zDqxVTMe9euUWqFrkM5FLhdiHpb8fZyOOa\nWa736wy6kON5abLKnJIJwl8XogWqQ5laAoiZF/bY/+PbqOHuEzW6J8RsuHZ9\n8+YTgMIMgINw+DTKGhGlHdwmxOz705nCeqDPsS0+w7SKTZoTamD0VuTiBtSQ\nMZ/0bLMybU2K1XS6/r3cO7Yfh6yBM8Fc1LqBV3mqixuKiRYwoJV86AL5KLf9\npjuGdosadB3wjtY8j2WQZ5QykcbakrpYzUK65f2Vg+6OezGhj4lwUkuSxMUG\no+iG\r\n=VVCc\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDhdh7qkfNcD6X/giKGjJWHmouXZguAIBQuGbsE0VewEAiEAjfR1iOEjyFqhezUxq8h0r22Plo+ooJzwB5ll+U+WVOE="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-image_2.0.0_1574284973825_0.513134528062613"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.1": {
+      "name": "@rollup/plugin-image",
+      "version": "2.0.1",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Import JPG, PNG, GIF, SVG, and WebP files",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rollup/plugins.git"
+      },
+      "author": {
+        "name": "Rich Harris"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/image/#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "dist/index.js",
+      "engines": {
+        "node": ">= 8.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm run test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm run build && pnpm run lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm run test -- --verbose",
+        "lint": "pnpm run lint:js && pnpm run lint:docs && pnpm run lint:package",
+        "lint:docs": "prettier --single-quote --write *.md",
+        "lint:js": "eslint --fix --cache src test",
+        "lint:package": "prettier --write package.json --plugin=prettier-plugin-package",
+        "prebuild": "del-cli dist",
+        "prepare": "pnpm run build",
+        "prepublishOnly": "pnpm run lint",
+        "pretest": "pnpm run build",
+        "test": "ava"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "images",
+        "modules"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0"
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^3.0.1"
+      },
+      "devDependencies": {
+        "rollup": "^1.27.14",
+        "rollup-plugin-buble": "^0.10.0"
+      },
+      "ava": {
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "module": "dist/index.es.js",
+      "_id": "@rollup/plugin-image@2.0.1",
+      "_nodeVersion": "12.3.1",
+      "_npmVersion": "6.11.2",
+      "dist": {
+        "integrity": "sha512-nvxtQGDWouAj2l9yK2DdkI6eKodskv3+GS2FGLrno2x4QyE9ro1eYFnnKotohSjAwN9Y28VZMUFhi47mNsC46Q==",
+        "shasum": "3c74b0fea08fff05212b4b3068be02882b11f3e6",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-image/-/plugin-image-2.0.1.tgz",
+        "fileCount": 8,
+        "unpackedSize": 13635,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeFJpFCRA9TVsSAnZWagAApEYQAJcZKOFZ6/4NXRmSKX7c\n/bzJOCRvxyNspPO5eJerpggzxSvcChGZ2Wf6XUPJ4XwISOTzDqNKwc6TjWZy\nkiL4ILH12QolSN2mYW1GNYENIPaiHm2+jIcxegShAuJPO0tXZCFbM41S6KR4\nQDKeoAo9KG0ixfjgpKaLtKl3MT7/7LjgyIiukd1fYoOqsYNAugZT+B4D1dYr\nR+TrAGC33wufml1v0k39v36KTrksuCt2BMyjbrUHx6NYWWyBhIl97EBHhlnr\npD0qljpnBdIZkZGNDS3dNzNqQJq/ieSlZwa1az1mssCv0bEFP2EPBvazCBnU\n+W2fjQI+6hEko1iASE6pXvpQFa2OExb85fAJLX5VM4+NLowbwRxREH49cYHA\ngHD3az48CNu/gv0Ydbl+toMynqL2diZ4B+d5o9ThvdgGzvb1TKeyANDa4xfA\nUW8GC7MAm0nNO9Crn6mQtODr0C2sPB7xTIsAiu0QKVGDOiMhe0BMRR2+L+Vy\nCWWevEjPwbYyQLO5TqJW92RPdn/SgG7IzS0GkdZihHd2uHCRfVkhQClGWGrJ\nqivZO/Gwzc8hkCgrvWhVAmCoF+lZHKhOy4Y5lrDMm1MQ2RJAiqAE3lxXNTNB\nZHRUSTj02O66/p613Kc38bHdEGk9rxkrtKU6L7T/n5hbE5jGtq2QR3+GW9tT\nxNOw\r\n=mf36\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDO1UMQUTJHc3gYvNWfA6FVScFgQ8aHW3YDNwJ7sqngOgIgYMuZYH4hp2dCGDkksAGjRG6curgZy1aLPVL4DH45qug="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        }
+      ],
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-image_2.0.1_1578408516654_0.8882806734919335"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.2": {
+      "name": "@rollup/plugin-image",
+      "version": "2.0.2",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Import JPG, PNG, GIF, SVG, and WebP files",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rollup/plugins.git"
+      },
+      "author": {
+        "name": "Rich Harris"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/image/#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "dist/index.js",
+      "engines": {
+        "node": ">= 8.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm run test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm run build && pnpm run lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm run test -- --verbose",
+        "lint": "pnpm run lint:js && pnpm run lint:docs && pnpm run lint:package",
+        "lint:docs": "prettier --single-quote --write *.md",
+        "lint:js": "eslint --fix --cache src test",
+        "lint:package": "prettier --write package.json --plugin=prettier-plugin-package",
+        "prebuild": "del-cli dist",
+        "prepare": "pnpm run build",
+        "prepublishOnly": "pnpm run lint",
+        "pretest": "pnpm run build",
+        "test": "ava"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "images",
+        "modules"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0"
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^3.0.1"
+      },
+      "devDependencies": {
+        "@rollup/plugin-buble": "^0.21.0",
+        "rollup": "^1.27.14"
+      },
+      "ava": {
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "module": "dist/index.es.js",
+      "_id": "@rollup/plugin-image@2.0.2",
+      "_nodeVersion": "12.3.1",
+      "_npmVersion": "6.11.2",
+      "dist": {
+        "integrity": "sha512-mNsPrtqXByCqaxrP5Xipn3AZw6Cn6Bp6KqEG7+737yFL0aTcQyvXmIZCR1dgP03QgrDkHs/7Y4/N7vZ8NIIL0Q==",
+        "shasum": "ff09c846d8630ab5d42d0fbd1ef83cca4c53cecf",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-image/-/plugin-image-2.0.2.tgz",
+        "fileCount": 8,
+        "unpackedSize": 14002,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeNcDpCRA9TVsSAnZWagAAu5kQAIaVndyhIaQXOPbvWoJa\nXg4FVF4NdFFBSZFs1bJMQa5R7nbuXLbiSfdLkUxmYg7ZzujC+rDG+GSHHhP1\nnrAnAJq0Ko33iX8K+MwHkpN54hnPbgW9K9MAjptdyyeUCfJDQIr9YeYDM9K8\n3OXSpLY4K7iWsv8RA5JGhiFcxSTuFMbI2FIz5MQyC9aCQMbBdMT4BwK3Vvia\nE9Y9QJDP70u5TC+k1nbFUnmfBWJVfQygiKdRl+M8GtPt2LQexqxeY95P0Dp/\noZ6JyCGajIrqenLFXUAeCrexF3hVwpRmcImB+p1mObjWy+4OcbpfXih/xflx\nJCKcXO47FFvEgJUXblqGdBa/lKKBo0bNGcGIlYrwdrUSzEIq8J5zgK+qhxSi\njQdhtkGyII4dm2RrvSQR8eMxYyynyZDNO4o8ofxT1zc1J5F+pFVysb1g4/KM\njxqstlhVxge7519yYcEOIW3Q+z6SV9m+2LyVTD/uXf/xWkknDACJBfmSjqJ0\nrbujmyiBF7GfoBxsuvfgiFIXqikOHYdga1eGjS+1jn9yKd5FSNcFwZL+AgDq\nZn1+lWtFh0a1812IHkT9ucHyJTvRex2WuU2N8T/pKXai15QqUZ5dxrv1UHQb\nQxychZ2w5mAHqofgVd/wDAiCVUfixtAOixgidYmstoGSLBpabLpjt+e27dFc\n+Xjn\r\n=+HiY\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFfeqsDA6egqN3HNzaq15ztbKLyk+DJI09wJ1h2+pXMoAiEA51syuZl34LZOmR//8wL23e9/8OgnQhTYVKaYknXdvIY="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        }
+      ],
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-image_2.0.2_1580581097585_0.31305137402382566"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.4": {
+      "name": "@rollup/plugin-image",
+      "version": "2.0.4",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Import JPG, PNG, GIF, SVG, and WebP files",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rollup/plugins.git"
+      },
+      "author": {
+        "name": "Rich Harris"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/image/#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "dist/index.js",
+      "engines": {
+        "node": ">= 8.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm run test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm run build && pnpm run lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm run test -- --verbose",
+        "lint": "pnpm run lint:js && pnpm run lint:docs && pnpm run lint:package",
+        "lint:docs": "prettier --single-quote --write *.md",
+        "lint:js": "eslint --fix --cache src test",
+        "lint:package": "prettier --write package.json --plugin=prettier-plugin-package",
+        "prebuild": "del-cli dist",
+        "prepare": "pnpm run build",
+        "prepublishOnly": "pnpm run lint",
+        "pretest": "pnpm run build",
+        "test": "ava"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "images",
+        "modules"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0"
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^3.0.4",
+        "mini-svg-data-uri": "^1.1.3"
+      },
+      "devDependencies": {
+        "@rollup/plugin-buble": "^0.21.0",
+        "rollup": "^1.29.0"
+      },
+      "ava": {
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "module": "dist/index.es.js",
+      "_id": "@rollup/plugin-image@2.0.4",
+      "_nodeVersion": "12.3.1",
+      "_npmVersion": "6.11.2",
+      "dist": {
+        "integrity": "sha512-W23bfKBZw/k6MXks0PInxazHhbfiN5u2ySPMHFVPt2jgmACNewlV3kUR6MvpE9YEliETU5ygGetsj5SDTUW4HQ==",
+        "shasum": "a9b22737684986d2299b7803b82bf87af47d41de",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-image/-/plugin-image-2.0.4.tgz",
+        "fileCount": 8,
+        "unpackedSize": 16958,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeOY9pCRA9TVsSAnZWagAAAxUP/0Rjd65bHNXE3+61CofR\nt4+9OrZ3tQXMPELBRMWMQuqnWrROQkZgS8Mx3DMqPoj+J0VZp4haBO48pUDF\nBIq7goewSIW2X038d9uopLQ8Uu1hWX/kBZYNiaQKm0IcDOcavV2d3UOVJb3L\nlnDlR99NE/m/BxBcPdOs/dXabbli4T82vZ9ToZiY0FGerKb/QQbqCGBOyl+c\nF6O0r4IUr6mpDdrIZ5c+iBsp/+b7AGEPF8x/VziDqUX16s1Y1XuqtLlKtHh9\nG32Eute2AwsqyKl09aQO+dbzcBNAPpvQpXWthHz/xffekKLEF6Lxf9Tq1igk\nQVwXq13KmkdcnORRdz7n3Md22dvy2IOpTPgfHUsZNadf/XMQ4ZqtqkftZMAy\nIO58HlhkPkfisY94tEZBUdp95xWlWSjaZjULTv82wA6RhXjxNTVp4t2XzUU4\nIU4rYWbv6zM5mUySxm59hYsxG1E0J/bvdI00rAdt/es/UbOLW7/Q1bDmQhpi\n0DBMMwa5qXocQJr5XeviU3p+FcDa0IhX1JnFeR0K7JlZgFm0fmYLBXAekpqT\nnJCn0zRDY1oWsYdtydzlDoDlgW9onAna+snEAstR7ZY9e9B4SRatgnFwJaG9\net8kZBwiyNy2UXL4cwH+XPjKhEbgITjCgu37akCTM3PDhQdsDgR/eFnwWISK\nlqs4\r\n=jDEy\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDbeXfZcP94CBPquRHKDGXy+VYDrC55QsEjLO+MPXq8BgIhAOoAqUcFoWXPR4z5uiqo/czIhCVi0Ey2B+L3TC0QzJPR"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        }
+      ],
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-image_2.0.4_1580830568885_0.8928451977574909"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.5": {
+      "name": "@rollup/plugin-image",
+      "version": "2.0.5",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Import JPG, PNG, GIF, SVG, and WebP files",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rollup/plugins.git"
+      },
+      "author": {
+        "name": "Rich Harris"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/image/#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "dist/index.js",
+      "engines": {
+        "node": ">= 8.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm run test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm run build && pnpm run lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm run test -- --verbose",
+        "lint": "pnpm run lint:js && pnpm run lint:docs && pnpm run lint:package",
+        "lint:docs": "prettier --single-quote --write *.md",
+        "lint:js": "eslint --fix --cache src test --ext .js,.ts",
+        "lint:package": "prettier --write package.json --plugin=prettier-plugin-package",
+        "prebuild": "del-cli dist",
+        "prepare": "pnpm run build",
+        "prepublishOnly": "pnpm run lint",
+        "pretest": "pnpm run build",
+        "test": "ava"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "images",
+        "modules"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0 || ^2.0.0"
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^3.0.4",
+        "mini-svg-data-uri": "^1.1.3"
+      },
+      "devDependencies": {
+        "@rollup/plugin-buble": "^0.21.0",
+        "rollup": "^2.0.0"
+      },
+      "ava": {
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "module": "dist/index.es.js",
+      "_id": "@rollup/plugin-image@2.0.5",
+      "_nodeVersion": "14.1.0",
+      "_npmVersion": "6.14.4",
+      "dist": {
+        "integrity": "sha512-R+yGLJjLN1won2JlZPZmdlyZGLZwwsW8V/RYu3mTcRq8Aqd9GC2fo4Zi892bFteM5LolfbpxK8Y9QQcAhbBwSQ==",
+        "shasum": "07859a69f5fe592643c2ad3ef59ae8a5c268a7ef",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-image/-/plugin-image-2.0.5.tgz",
+        "fileCount": 8,
+        "unpackedSize": 17073,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeuXqOCRA9TVsSAnZWagAAFBMQAKNySX9zE+kNKDa3IYPA\nkCFvm6a+0GBO31PzsjY1TnqhWlaoexKavKJ6BzdjuYIcexMSZ5QSNrL6Z9Dg\n5MZhifQ5YLq/wZagXnAlpa0tx4v9pvuljDn4iDy7pefIYDD3G8Na7pkRHgyE\nZoSefST1sxS459OTuISK4wO1cDB2CZ9eGLKutDl87ZEi6AaLidjUNruPUGWI\neNbAoiZUm+qR32a1K12Au5mbmsfR7fzZiyN2825YIduI3WCT5H5RdELBZnxB\n6jaxGUPojUZzTEioWIE7XS9RmEdw0Nu5GGj0aKC1HRLTc6X8tsKJux9OD6S0\noTdffdsjovFOHOsPi9hUimlFrqivHCdDd8M5T62DnnW4g5OaCoalhkqbbs0f\nz3VEXv4Sx5kVERzZpt9Z8M1BURqS0cwm3y/r/lTwYMKlDnbQqUHXwUGcVRZr\nXpMO2Ew41oBB9uhCdKzvFiBhE2+22Zovy2ZC6o4rsNRWEOI6gOOOT9hhLlth\nsYczeUVX1as8lIPKulaDyiw00Zy+hY/ljZy3iqJssplAUjobtidMqq62huW+\nLP7yVj8ppyTnl+ePvW81lgJ0aUlkgk0LK2MgvJzJEg4msgZHP65i0CZQpJhJ\nj4t4aDxshLKhrrGnBDPOG19DVHnS8HuPeaTYhRU5jvGCwUNe4nrZLPeLswi/\niMmG\r\n=g9oJ\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDfe6mj35F7FRPkPK9kZnQfmdXiqqpG3sXvhhBnUpTsZgIhAKYfLqupdIS6HnSDQY/Nc49P3SmD/cucBdTXTCKXphBN"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        }
+      ],
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-image_2.0.5_1589213838286_0.5992752515621087"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.6": {
+      "name": "@rollup/plugin-image",
+      "version": "2.0.6",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Import JPG, PNG, GIF, SVG, and WebP files",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rollup/plugins.git"
+      },
+      "author": {
+        "name": "Rich Harris"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/image/#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "dist/index.js",
+      "module": "dist/index.es.js",
+      "engines": {
+        "node": ">= 8.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm run test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm run build && pnpm run lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm run test -- --verbose",
+        "lint": "pnpm run lint:js && pnpm run lint:docs && pnpm run lint:package",
+        "lint:docs": "prettier --single-quote --arrow-parens avoid --trailing-comma none --write *.md",
+        "lint:js": "eslint --fix --cache src test --ext .js,.ts",
+        "lint:package": "prettier --write package.json --plugin=prettier-plugin-package",
+        "prebuild": "del-cli dist",
+        "prepare": "pnpm run build",
+        "prepublishOnly": "pnpm run lint",
+        "pretest": "pnpm run build",
+        "test": "ava"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "images",
+        "modules"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0 || ^2.0.0"
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^3.1.0",
+        "mini-svg-data-uri": "^1.2.3"
+      },
+      "devDependencies": {
+        "@rollup/plugin-buble": "^0.21.3",
+        "rollup": "^2.23.0"
+      },
+      "ava": {
+        "babel": {
+          "compileEnhancements": false
+        },
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "_id": "@rollup/plugin-image@2.0.6",
+      "_nodeVersion": "12.18.1",
+      "_npmVersion": "6.14.5",
+      "dist": {
+        "integrity": "sha512-bB+spXogbPiFjhBS7i8ajUOgOnVwWK3bnJ6VroxKey/q8/EPRkoSh+4O1qPCw97qMIDspF4TlzXVBhZ7nojIPw==",
+        "shasum": "2e6d7a72b25df81aa80c8c0866d45a45c1e6a265",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-image/-/plugin-image-2.0.6.tgz",
+        "fileCount": 8,
+        "unpackedSize": 17406,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJf13fDCRA9TVsSAnZWagAAmPMP/2GnbSTG0Uwl3tzxvPIo\nlijPyNYQlXyWxpZzc4ebcj4q1OvoOknkWwfhLhDlIq89Xa/lYNj4hzb06Job\nRGTa8iteZi13XXNAIsFTkVWs67CEuq7o3+MGI7+qbGMYs/XMW4eZNEL7zppK\nlgbwfz7Ex7pdf2Ttu+eni6YVQZmNrBzR19vTrxlfdDoopBuuEH5PBQ3IqAg4\nhw9JtBy2iRY7d34xTAIqUOfkKhSScoBO63X8OV1+Q+c+vW7dIQaOsEyzyhH5\nG0w1CKQ2glaoSdw0/WbnDit5KM533ux1j792RIJ61TFVcAsdqNgxkcHQxFj7\nDZWucfux1Z1leEslLtestThLRQmQofnxiL3dzwKEcq/BhLPFMX5mt6hbORSe\ncJY+xDjQTxRb3tNUKZV/oXuAfAyFZUOC7BUq+AhkoJvDw7vcbHkaMaUIgIkG\n7YdD6NzgFdesromC8tsY8utvXJXUu+6RHmnnt7XJSjQeTBGO/SGm/MtOVS9O\nTzhd2LcYIuwGZ42HB9cBHzt7+E9wqJ2EQe+6adS9mj1ozH/xeelUiHz9X3H0\nI/SBOqqWcd50p2SWv2oVi2doK+1I3prFXCV2aZCtpfZA/9l4efbZwjwT6qiw\nWxQAav4pqWtjD196Wmy8HhqAh0F/WlPeIZxWpL5/fZg+HMrLPhswOwPMbvoO\niX2x\r\n=Mb/i\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDVbsS8a4YS+XgO1GuiD6oNw6MomV7eDKMVZU2oS5t5fQIhALqiTGeb7DU3J+OjzIUtwHqhE6VTpifvkEyReilKVtcW"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-image_2.0.6_1607956418986_0.6938320019087549"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.0": {
+      "name": "@rollup/plugin-image",
+      "version": "2.1.0",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Import JPG, PNG, GIF, SVG, and WebP files",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/rollup/plugins.git",
+        "directory": "packages/image"
+      },
+      "author": {
+        "name": "Rich Harris"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/image/#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "dist/index.js",
+      "module": "dist/index.es.js",
+      "engines": {
+        "node": ">= 8.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm build && pnpm lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm test -- --verbose",
+        "prebuild": "del-cli dist",
+        "prepare": "if [ ! -d 'dist' ]; then pnpm build; fi",
+        "prerelease": "pnpm build",
+        "pretest": "pnpm build",
+        "release": "pnpm plugin:release --workspace-root -- --pkg $npm_package_name",
+        "test": "ava"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "images",
+        "modules"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0 || ^2.0.0"
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^3.1.0",
+        "mini-svg-data-uri": "^1.2.3"
+      },
+      "devDependencies": {
+        "@rollup/plugin-buble": "^0.21.3",
+        "rollup": "^2.23.0"
+      },
+      "types": "./types/index.d.ts",
+      "ava": {
+        "babel": {
+          "compileEnhancements": false
+        },
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "_id": "@rollup/plugin-image@2.1.0",
+      "_nodeVersion": "14.15.3",
+      "_npmVersion": "6.14.9",
+      "dist": {
+        "integrity": "sha512-IiRhjv65A4Rb/9R+gTP2JdIciumkc8c+3xFoUfw3PUkX77SqqzvJ028AfX856E3ZdExMrqY9C9ZVXN46w6rh9A==",
+        "shasum": "55a477f07af04b1b0caf63f098568a8bf8b1fa8f",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-image/-/plugin-image-2.1.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 16173,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg/wRLCRA9TVsSAnZWagAAq3wP/0UdKCs5F+1K2eARwKiP\n9qsKVjePSPpzw9zIYwDivR4O04Omi91X6SG6P1oCmxqJqTrOW0h4P2Up8y56\noSHaVNxRbVlGhVLT97UyVJ+Q4PvFn+0SZRSUvkbj6LE7Qh4SNvSU2shaQoYD\ntcZnh5KvdCxheyubiWv70OHiaMV9BvP+IrprgsW3Ewg2jILTTF9VYpYcwviw\nBdeu6GtQp02zj7YZJdNhRCdEYDK7hD7Mp3bokJ8JqcmpePD/V5pH+hjm2YfW\nCH41BIaf6HXCMR2IJj04cgRhOXWm4mGhpNkfkQjWhxAVeU81MzFi6g9t//W7\n78RvsqfO/4tpVfaZ1BZmIUm7eYVnvFPIf3CcW9ZFaxHrc8KTsXcdfakTY6Kc\nsp+uT1nVwygLopNiw21UxJqTMO4Vt9rtTo4lzrATeQ91y05fV3KlQ2F6XPjq\nXGGCOTWh/5Z/IaNlIYodV8QwNwx3V/nu3/snO+xk9jyarcHYWrV5D7ACut6A\nFCSZodj4XIN96uzPz7gG49O7OXtxUHTaqImgYIVl4n/DtcZ1Rq4BKCdah8Ok\n937loGomMncr/EFJbGsGe6e8F6/0ldwdyM7hmKHPT2TIoXO8k9RDHjpj+MWU\nc8+Echix4vkqKB+I2uv4w5y9wlN14vzx/HLQtgruYle9Nic6ffVQ9+ipT7O5\n0c2m\r\n=YHD1\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGOUwTqpykLkQnxoQhw0XCyOYeWsnpX+ESRRKxQusXJGAiEAm61VDa98TSHM/tfutaQY8nvTTLN4H8DB7sQ8RmafaVg="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-image_2.1.0_1627325514965_0.9329956294009547"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.1": {
+      "name": "@rollup/plugin-image",
+      "version": "2.1.1",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Import JPG, PNG, GIF, SVG, and WebP files",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/rollup/plugins.git",
+        "directory": "packages/image"
+      },
+      "author": {
+        "name": "Rich Harris"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/image/#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "dist/index.js",
+      "module": "dist/index.es.js",
+      "engines": {
+        "node": ">= 8.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm build && pnpm lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm test -- --verbose",
+        "prebuild": "del-cli dist",
+        "prepare": "if [ ! -d 'dist' ]; then pnpm build; fi",
+        "prerelease": "pnpm build",
+        "pretest": "pnpm build",
+        "release": "pnpm plugin:release --workspace-root -- --pkg $npm_package_name",
+        "test": "ava"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "images",
+        "modules"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0 || ^2.0.0"
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^3.1.0",
+        "mini-svg-data-uri": "^1.2.3"
+      },
+      "devDependencies": {
+        "@rollup/plugin-buble": "^0.21.3",
+        "rollup": "^2.23.0"
+      },
+      "types": "./types/index.d.ts",
+      "ava": {
+        "babel": {
+          "compileEnhancements": false
+        },
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "_id": "@rollup/plugin-image@2.1.1",
+      "_nodeVersion": "14.17.5",
+      "_npmVersion": "6.14.14",
+      "dist": {
+        "integrity": "sha512-AgP4U85zuQJdUopLUCM+hTf45RepgXeTb8EJsleExVy99dIoYpt3ZlDYJdKmAc2KLkNntCDg6BPJvgJU3uGF+g==",
+        "shasum": "898d6b59ac0025d7971ef45640ab330cb0663b0c",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-image/-/plugin-image-2.1.1.tgz",
+        "fileCount": 8,
+        "unpackedSize": 17360,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhJFxtCRA9TVsSAnZWagAAnckQAJ4WKerKxEd6UeXbh2fA\nlj/Tl+vmrM8Ks8Yvfrdvk6Abn63wteaLnXz1t1oNS3EsMgyKW6K/mOnv6skR\ngMGAPCCbKCnLWPoyziwKpZFR/jTQZYezhWW1UBvw9fs+ekxg/a05roIk3CMe\n+/buciDPkLIbOpMWH4x2DixAtyuAKIuS2sqBgUHC/G6hk6Wm1Vnukuy8+EHe\nvr9jlGop3+Ek6MLhU0xuMlyTyx4OcJT9VXSvi1QHCCdwLfL0oFjDy4Y5Udtq\nFQTLkZgEDdffb26ir/PBOwUYj9AV2+RDo09lDcRau3idWAjH3IAjBNKn/aQu\nSHpdvMmYsCr63ciA8xCK6wB1NyEDN7P8LuLT5rlNV2nW09yz+ys2noDQzQZ5\nq9wkGYamtI2uoT/I7RXsL3B4BK4/6O8J41I2CZ5PHKtvnzWbL2OuMJGT+Mal\nuzXnLzOI8RaYay1agntyuEsptr7cfX+E5v/n4fP/2uG9iY3uvryskR3UegEc\nIIvmkomnabdPrODvj27gGu9Ywx5y4GZJZu9D4AzyF8duPRjbHsz0QibjwJIJ\nik+5E660J0zLnsT3Pt+D6sSRX3yjIPT4Fjg9fVvZrv4Dt8eTktk9dey0qydc\neVEnvphrtCuapOm+xnVQDczOUw5BejMtlvOA3rkUZPuztaOoSvnfelPNaD/q\nRTuD\r\n=V7eX\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAtb8HH5kYLtnSYQY5sBZ0k7FbN1X7FWMjN5+y2LL5i/AiBcUapu2gXI6DzrCN/P79jnTJxPQOxLbzDJzkdeL739VA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-image_2.1.1_1629772909362_0.3104777197351527"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.0.0": {
+      "name": "@rollup/plugin-image",
+      "version": "3.0.0",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Import JPG, PNG, GIF, SVG, and WebP files",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/rollup/plugins.git",
+        "directory": "packages/image"
+      },
+      "author": {
+        "name": "Rich Harris"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/image/#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "./dist/cjs/index.js",
+      "module": "./dist/es/index.js",
+      "exports": {
+        "import": "./dist/es/index.js",
+        "types": "./types/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm build && pnpm lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm test -- --verbose",
+        "prebuild": "del-cli dist",
+        "prepare": "if [ ! -d 'dist' ]; then pnpm build; fi",
+        "prerelease": "pnpm build",
+        "pretest": "pnpm build",
+        "release": "pnpm --workspace-root plugin:release --pkg $npm_package_name",
+        "test": "ava"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "images",
+        "modules"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0||^3.0.0"
+      },
+      "peerDependenciesMeta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^4.2.1",
+        "mini-svg-data-uri": "^1.4.4"
+      },
+      "devDependencies": {
+        "@rollup/plugin-buble": "^0.21.3",
+        "rollup": "^3.0.0-7"
+      },
+      "types": "./types/index.d.ts",
+      "ava": {
+        "workerThreads": false,
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "gitHead": "e9f5cefa7bb51393fc1a7e81cb95644c0a8be13b",
+      "_id": "@rollup/plugin-image@3.0.0",
+      "_nodeVersion": "18.10.0",
+      "_npmVersion": "8.19.2",
+      "dist": {
+        "integrity": "sha512-QyAWMoVu8kP7UfMv0CsiQq49+vZLyOIb65+9akDtDfx6oOEFw/3HSOIvOpF5WyPcdm1yW5Qpp+ERHBpxdoMi1A==",
+        "shasum": "d1876a9dabde66b434f3e42b3e6820852e904c2d",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-image/-/plugin-image-3.0.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 9665,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDNInMfnqOnYaSXzaNNLl2bj/RNyxLs1M6UmoqXXRSvbgIhAJziz2QwwTxm3q51/WHhyExRgS8ji074ifndMan4oCR8"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjQlRYACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrNgA/+PbGnNFs0vV6TpJwsHjNQIRKoUhWuw9312C2455zlzdLVyVdd\r\ngqtK0yjSIKWK7lS0HVEpbhSCRv2wWoK2gg3MNc/uo7WsIRkUda/H7zyaVOJQ\r\n09jmzN+48pTS5jA0GjaIjvlQlIIGZ4cA/hZBJ75zQHfLfBPWisq/Cjh5BsQV\r\nzEXRYHZI3NSafuov16Pd7bPWvEwtLoso4vEWBJl/fBNX9fTLhY/STeaHKrbJ\r\n+UzvRb96tmaShyncwi71YjZnxzMrwQqmTwKbvfSpZ6zQYDdRPPyl6xK6wBHL\r\niIAw+hkmUmDtUMpCLS/wHs4eH/ZvnDzUYZ3fkd43ILlMDzAt0v/tojwZveGt\r\nJi4QH00hg0Cizbpp8mBxWEeTtywvaXo9h8KCLyPQzN4z0prD9hnFBh14ovLM\r\nCRm/lo1UnIKKkUv5xTTfaq63GUxgMRgO2VTBi+a5On3VrID+rtRkF4vygA+V\r\nXV2TxsRba/nmMfgXTmfnirAmrtE+H7ojh38DEBVeiRbl+Ce/U0Q47K/4S+IS\r\n6ONn3R6jLJUezZvCFG4tRJG/g5VbjEz0ZgqY/O2CvWAznD90DU4CrK+nAeb7\r\npBV32ZHmXXM8LOmBISL3+zuUnUlRSQpbHbXogaAIrOvQQMPp6riQFwleurro\r\nYJSHAxrOb3gFFjGF8kDl15NXDFKB5RXjqcg=\r\n=EZK3\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-image_3.0.0_1665291352192_0.9354664899340315"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.0.1": {
+      "name": "@rollup/plugin-image",
+      "version": "3.0.1",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Import JPG, PNG, GIF, SVG, and WebP files",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/rollup/plugins.git",
+        "directory": "packages/image"
+      },
+      "author": {
+        "name": "Rich Harris"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/image/#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "./dist/cjs/index.js",
+      "module": "./dist/es/index.js",
+      "exports": {
+        "import": "./dist/es/index.js",
+        "types": "./types/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm build && pnpm lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm test -- --verbose",
+        "prebuild": "del-cli dist",
+        "prepare": "if [ ! -d 'dist' ]; then pnpm build; fi",
+        "prerelease": "pnpm build",
+        "pretest": "pnpm build",
+        "release": "pnpm --workspace-root plugin:release --pkg $npm_package_name",
+        "test": "ava"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "images",
+        "modules"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0||^3.0.0"
+      },
+      "peerDependenciesMeta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^5.0.1",
+        "mini-svg-data-uri": "^1.4.4"
+      },
+      "devDependencies": {
+        "@rollup/plugin-buble": "^1.0.0",
+        "rollup": "^3.2.3"
+      },
+      "types": "./types/index.d.ts",
+      "ava": {
+        "workerThreads": false,
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "gitHead": "0c00c64d05655410927a35cefe5d311239c90d82",
+      "_id": "@rollup/plugin-image@3.0.1",
+      "_nodeVersion": "18.11.0",
+      "_npmVersion": "8.19.2",
+      "dist": {
+        "integrity": "sha512-F50Sko4Xcc576x7HG9f3MvJKKnBfSmqfVFWJkJgyIEkI8YxZxux28lDbuy0+GsAK6BFl9Gn+TRXOUgHHJbFh3w==",
+        "shasum": "2beb720d1ac3e85e73c4dc5b261ae3c43f59bde3",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-image/-/plugin-image-3.0.1.tgz",
+        "fileCount": 6,
+        "unpackedSize": 9662,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEpcDjxDjzJoFcEpXZv5p9pFnHyxg6Ngv5iA0X40wS9HAiEAzKo3oE4IlYDuMtFpUZHzhdEnqTaOAfsbX3e86LaTstY="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjUu5LACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoQbg/+LromjXHPzc2kCWWY/DyGxc0qeoPANlI3CH4v7BtXR7D71YlN\r\nrTNqHN8qNjA3NVRINOgaiykl+to6x/i6hBAcU8ecGSeL5C6sVLJg4POwPe4E\r\nBgN9LNS1tM9uyOnmoP471Qio9ugL2YQ7vnlG28TYdSnKPJG8qfHo1c2Q0Am3\r\nZVFIni7XE8XT2DpIpzLBQd3uusEfa4+OttDDIIVx715nPjVObdGVVDeMmbNa\r\nxMnHGnwPCsgu3le2KwwVYAEwxEr7dH+7s/HbDvMrOLkQmLhnxwelM1PLLE9m\r\nlNCzpM7wfjoKXVLnl+taY9Jw0QzvjM24vNZRvpFQJ2H3r1R7ye4giLXhVZ5g\r\nYNXYr+b7Cj75v0C7q5mhLkIWUTQJCZ/OLCP0o4CH1YVMEfiS092f9RIf95lu\r\nF0p6gjZB6qFLcMmZzDqEjef8BRwT2WtHyga+CXL6xs41b6ugGFdKpjG5+OiW\r\nt6a9yJ//GzBcE1iJ6xlhydMX9/0ZTGaLQC2yu//6+Mi4h6ozvfD1Kh4GFKY/\r\nNWnzXwVGU42oHBDFlFGsbwOBG7Pp5xnXXL0ZPtr/QOM2NkwhYDRUez9wus8J\r\nDhMt3KivHdrx2rf/PNyqKjyB2FvxX6Z0lFwDiADokEdoUF3ElMyGQIMOch8F\r\nL2WS7cfW+ERCspBmkYivwVMCp5m+8cvG+W4=\r\n=fT1p\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-image_3.0.1_1666379339185_0.45606856441742516"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.0.2": {
+      "name": "@rollup/plugin-image",
+      "version": "3.0.2",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Import JPG, PNG, GIF, SVG, and WebP files",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/rollup/plugins.git",
+        "directory": "packages/image"
+      },
+      "author": {
+        "name": "Rich Harris"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/image/#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "./dist/cjs/index.js",
+      "module": "./dist/es/index.js",
+      "exports": {
+        "types": "./types/index.d.ts",
+        "import": "./dist/es/index.js",
+        "default": "./dist/cjs/index.js"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm build && pnpm lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm test -- --verbose",
+        "prebuild": "del-cli dist",
+        "prepare": "if [ ! -d 'dist' ]; then pnpm build; fi",
+        "prerelease": "pnpm build",
+        "pretest": "pnpm build",
+        "release": "pnpm --workspace-root plugin:release --pkg $npm_package_name",
+        "test": "ava"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "images",
+        "modules"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0||^3.0.0"
+      },
+      "peerDependenciesMeta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^5.0.1",
+        "mini-svg-data-uri": "^1.4.4"
+      },
+      "devDependencies": {
+        "@rollup/plugin-buble": "^1.0.0",
+        "rollup": "^3.2.3"
+      },
+      "types": "./types/index.d.ts",
+      "ava": {
+        "workerThreads": false,
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "gitHead": "e3ac6e9420010e259da604ccc1eb291fc52dd8dc",
+      "_id": "@rollup/plugin-image@3.0.2",
+      "_nodeVersion": "18.13.0",
+      "_npmVersion": "8.19.3",
+      "dist": {
+        "integrity": "sha512-eGVrD6lummWH5ENo9LWX3JY62uBb9okUNQ2htXkugrG6WjACrMUVhWvss+0wW3fwJWmFYpoEny3yL4spEdh15g==",
+        "shasum": "8a66389510517495c5d10d392140cdefa43b27c2",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-image/-/plugin-image-3.0.2.tgz",
+        "fileCount": 6,
+        "unpackedSize": 9672,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDGnrxaWtqTekzxI+kjVMPs69ir283nTSFVEq8b9gGt/AiBnR2IZS4DdhUjlOROq2YbJ34zeBqH+3ayotMfg/1Qgig=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjyydjACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqnIBAAk4tK93/PplDdOHsUkHgCPcwHLZgAeka27p39L4V8Ut1BTuAM\r\n3GvqQ9H4VW9yUd6I8tGZwIKw0H/lC0UJgO/R2ZgBBOy0/2a8s3Ik1kTEFbyC\r\nkvtfvhClPmbq+ShjgVyvmzGuAiZYb8J3iWTcz6vpcdRo5LYrw4q182r1hKvH\r\naa1wyDLuA4+eS/sE0p6miUJeoYlC6nuE8FPdgyiXn0eCO5yqHZJbJvmfC+Ci\r\nJ1OAD83e8jwB5alHwvPoK7riDjLuvix1FL1FYwd187bDOmYyHdHtqeCp76Q6\r\nRuXw9/atb4Ns3kWoj87SA5UxvbdLIkjkGYFwvNQpRDJJP4RoVv3t1uX28rbg\r\nm5m4A7zTIsZMxQIR4yfJ8wsBf+MR0/Xu86R6OY6ax0SKAyHsDumHY9JqplMy\r\nJ89/iF0gw4Mq30Eq+/x/qlq1aLqKnfOJp87Klk77LaHYkA7e4b3/h8CtNAa8\r\n0Q6Zm3v8lr283+E9d/g/ks6GleGUPzpnCHLy5izRyR4G5OnRnYq+OQkYShnq\r\ndF2UsclBcmbjfB3wiT4ZS0nqSXFya4hg0lE1m8SodpEW/gdtGbLhdXTJMGh9\r\ngizZ/qZzkHTpuk8LjaG2k6n5lYkXxEsftzxmZ5nbocsElpD7/58OnCxMPagQ\r\n1zqZ+y/upRs8VO1/jBp4uSZQH6XokqCC4IQ=\r\n=J2Zi\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-image_3.0.2_1674258275475_0.829058006073103"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.0.3": {
+      "name": "@rollup/plugin-image",
+      "version": "3.0.3",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Import JPG, PNG, GIF, SVG, and WebP files",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/rollup/plugins.git",
+        "directory": "packages/image"
+      },
+      "author": {
+        "name": "Rich Harris"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/image/#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "./dist/cjs/index.js",
+      "module": "./dist/es/index.js",
+      "exports": {
+        "types": "./types/index.d.ts",
+        "import": "./dist/es/index.js",
+        "default": "./dist/cjs/index.js"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm build && pnpm lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm test -- --verbose",
+        "prebuild": "del-cli dist",
+        "prepare": "if [ ! -d 'dist' ]; then pnpm build; fi",
+        "prerelease": "pnpm build",
+        "pretest": "pnpm build",
+        "release": "pnpm --workspace-root plugin:release --pkg $npm_package_name",
+        "test": "ava"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "images",
+        "modules"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0||^3.0.0||^4.0.0"
+      },
+      "peerDependenciesMeta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^5.0.1",
+        "mini-svg-data-uri": "^1.4.4"
+      },
+      "devDependencies": {
+        "@rollup/plugin-buble": "^1.0.0",
+        "rollup": "^4.0.0-24"
+      },
+      "types": "./types/index.d.ts",
+      "ava": {
+        "workerThreads": false,
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "_id": "@rollup/plugin-image@3.0.3",
+      "gitHead": "8b6a9fb35f371a85e677f166fb01844c0c150eca",
+      "_nodeVersion": "20.8.0",
+      "_npmVersion": "10.1.0",
+      "dist": {
+        "integrity": "sha512-qXWQwsXpvD4trSb8PeFPFajp8JLpRtqqOeNYRUKnEQNHm7e5UP7fuSRcbjQAJ7wDZBbnJvSdY5ujNBQd9B1iFg==",
+        "shasum": "025b557180bae20f2349ff5130ef2114169feaac",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-image/-/plugin-image-3.0.3.tgz",
+        "fileCount": 6,
+        "unpackedSize": 9741,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQD1NurTgh5LB+gqldXssPAA9GjktMz/Vfbavv9Yjx23DgIgRGjpeC9bMYc288ecfMJAcd/8sQMnPJQmg0/GKnvCZOQ="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-image_3.0.3_1696507385397_0.2691804193635403"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2019-11-20T21:22:53.773Z",
+    "2.0.0": "2019-11-20T21:22:53.980Z",
+    "modified": "2023-10-05T12:03:05.746Z",
+    "2.0.1": "2020-01-07T14:48:36.785Z",
+    "2.0.2": "2020-02-01T18:18:17.695Z",
+    "2.0.4": "2020-02-04T15:36:09.154Z",
+    "2.0.5": "2020-05-11T16:17:18.431Z",
+    "2.0.6": "2020-12-14T14:33:39.103Z",
+    "2.1.0": "2021-07-26T18:51:55.202Z",
+    "2.1.1": "2021-08-24T02:41:49.713Z",
+    "3.0.0": "2022-10-09T04:55:52.391Z",
+    "3.0.1": "2022-10-21T19:08:59.380Z",
+    "3.0.2": "2023-01-20T23:44:35.637Z",
+    "3.0.3": "2023-10-05T12:03:05.552Z"
+  },
+  "maintainers": [
+    {
+      "name": "shellscape",
+      "email": "andrew@shellscape.org"
+    },
+    {
+      "name": "rich_harris",
+      "email": "richard.a.harris@gmail.com"
+    },
+    {
+      "name": "guybedford",
+      "email": "guybedford@gmail.com"
+    },
+    {
+      "name": "lukastaegert",
+      "email": "lukas.taegert@tngtech.com"
+    }
+  ],
+  "description": "Import JPG, PNG, GIF, SVG, and WebP files",
+  "homepage": "https://github.com/rollup/plugins/tree/master/packages/image/#readme",
+  "keywords": [
+    "rollup",
+    "plugin",
+    "images",
+    "modules"
+  ],
+  "repository": {
+    "url": "git+https://github.com/rollup/plugins.git",
+    "directory": "packages/image"
+  },
+  "author": {
+    "name": "Rich Harris"
+  },
+  "bugs": {
+    "url": "https://github.com/rollup/plugins/issues"
+  },
+  "license": "MIT",
+  "readme": "[npm]: https://img.shields.io/npm/v/@rollup/plugin-image\n[npm-url]: https://www.npmjs.com/package/@rollup/plugin-image\n[size]: https://packagephobia.now.sh/badge?p=@rollup/plugin-image\n[size-url]: https://packagephobia.now.sh/result?p=@rollup/plugin-image\n\n[![npm][npm]][npm-url]\n[![size][size]][size-url]\n[![libera manifesto](https://img.shields.io/badge/libera-manifesto-lightgrey.svg)](https://liberamanifesto.com)\n\n# @rollup/plugin-image\n\n🍣 A Rollup plugin which imports JPG, PNG, GIF, SVG, and WebP files.\n\nImages are encoded using base64, which means they will be 33% larger than the size on disk. You should therefore only use this for small images where the convenience of having them available on startup (e.g. rendering immediately to a canvas without co-ordinating asynchronous loading of several images) outweighs the cost.\n\n## Requirements\n\nThis plugin requires an [LTS](https://github.com/nodejs/Release) Node version (v14.0.0+) and Rollup v1.20.0+.\n\n## Install\n\nUsing npm:\n\n```console\nnpm install @rollup/plugin-image --save-dev\n```\n\n## Usage\n\nAssuming a `src/index.js` exists and contains code like the following:\n\n```js\nimport logo from './rollup.png';\n\nconsole.log(logo);\n```\n\nCreate a `rollup.config.js` [configuration file](https://www.rollupjs.org/guide/en/#configuration-files) and import the plugin:\n\n```js\nimport image from '@rollup/plugin-image';\n\nexport default {\n  input: 'src/index.js',\n  output: {\n    dir: 'output',\n    format: 'cjs'\n  },\n  plugins: [image()]\n};\n```\n\nThen call `rollup` either via the [CLI](https://www.rollupjs.org/guide/en/#command-line-reference) or the [API](https://www.rollupjs.org/guide/en/#javascript-api).\n\nOnce the bundle is executed, the `console.log` will display the Base64 encoded representation of the image.\n\n## Options\n\n### `dom`\n\nType: `Boolean`<br>\nDefault: `false`\n\nIf `true`, instructs the plugin to generate an ES Module which exports a DOM `Image` which can be used with a browser's DOM. Otherwise, the plugin generates an ES Module which exports a `default const` containing the Base64 representation of the image.\n\nUsing this option set to `true`, the export can be used as such:\n\n```js\nimport logo from './rollup.png';\ndocument.body.appendChild(logo);\n```\n\n### `exclude`\n\nType: `String` | `Array[...String]`<br>\nDefault: `null`\n\nA [picomatch pattern](https://github.com/micromatch/picomatch), or array of patterns, which specifies the files in the build the plugin should _ignore_. By default no files are ignored.\n\n### `include`\n\nType: `String` | `Array[...String]`<br>\nDefault: `null`\n\nA [picomatch pattern](https://github.com/micromatch/picomatch), or array of patterns, which specifies the files in the build the plugin should operate on. By default all files are targeted.\n\n## Meta\n\n[CONTRIBUTING](/.github/CONTRIBUTING.md)\n\n[LICENSE (MIT)](/LICENSE)\n",
+  "readmeFilename": "README.md"
+}
