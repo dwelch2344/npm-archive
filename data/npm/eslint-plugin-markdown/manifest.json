@@ -1,0 +1,2299 @@
+{
+  "_id": "eslint-plugin-markdown",
+  "_rev": "53-dd0f1ae6e7988e0a93899aae48b877a6",
+  "name": "eslint-plugin-markdown",
+  "time": {
+    "modified": "2023-07-28T15:31:38.849Z",
+    "created": "2016-01-12T03:04:57.157Z",
+    "0.1.0": "2016-01-12T03:04:57.157Z",
+    "1.0.0-beta.1": "2016-01-17T21:28:53.879Z",
+    "1.0.0-beta.2": "2016-04-24T22:38:56.828Z",
+    "1.0.0-beta.3": "2016-10-27T02:11:30.963Z",
+    "1.0.0-beta.4": "2017-03-04T21:22:36.092Z",
+    "1.0.0-beta.6": "2017-04-30T01:16:31.882Z",
+    "1.0.0-beta.7": "2017-07-02T20:14:23.303Z",
+    "1.0.0-beta.8": "2018-04-08T21:18:08.600Z",
+    "1.0.0-rc.0": "2018-10-27T20:11:35.953Z",
+    "1.0.0-rc.1": "2018-11-06T02:27:32.748Z",
+    "1.0.0": "2019-01-02T19:24:34.373Z",
+    "1.0.1": "2019-10-22T03:49:00.610Z",
+    "1.0.2": "2020-02-24T16:32:37.806Z",
+    "2.0.0-alpha.0": "2020-04-12T20:25:05.657Z",
+    "2.0.0-rc.0": "2020-08-20T03:57:53.877Z",
+    "2.0.0-rc.1": "2020-12-20T20:47:04.147Z",
+    "2.0.0-rc.2": "2021-01-31T04:09:23.203Z",
+    "2.0.0": "2021-02-14T23:10:49.845Z",
+    "2.0.1": "2021-04-05T04:37:01.470Z",
+    "2.1.0": "2021-04-25T21:13:20.881Z",
+    "2.2.0": "2021-05-26T04:17:31.127Z",
+    "2.2.1": "2021-09-12T01:13:14.522Z",
+    "3.0.0": "2022-07-16T20:34:52.196Z",
+    "3.0.1": "2023-07-28T15:31:38.469Z"
+  },
+  "maintainers": [
+    {
+      "name": "openjsfoundation",
+      "email": "npm@openjsf.org"
+    },
+    {
+      "name": "eslintbot",
+      "email": "nicholas+eslint@nczconsulting.com"
+    },
+    {
+      "name": "nzakas",
+      "email": "nicholas@nczconsulting.com"
+    },
+    {
+      "name": "btmills",
+      "email": "mills.brandont@gmail.com"
+    }
+  ],
+  "dist-tags": {
+    "latest": "3.0.1",
+    "next": "2.0.0-rc.2"
+  },
+  "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+  "readme": "# eslint-plugin-markdown\n\n[![npm Version](https://img.shields.io/npm/v/eslint-plugin-markdown.svg)](https://www.npmjs.com/package/eslint-plugin-markdown)\n[![Downloads](https://img.shields.io/npm/dm/eslint-plugin-markdown.svg)](https://www.npmjs.com/package/eslint-plugin-markdown)\n[![Build Status](https://github.com/eslint/eslint-plugin-markdown/workflows/CI/badge.svg)](https://github.com/eslint/eslint-plugin-markdown/actions)\n\nLint JS, JSX, TypeScript, and more inside Markdown.\n\n<img\n    src=\"screenshot.png\"\n    height=\"142\"\n    width=\"432\"\n    alt=\"A JS code snippet in a Markdown editor has red squiggly underlines. A tooltip explains the problem.\"\n/>\n\n## Usage\n\n### Installing\n\nInstall the plugin alongside ESLint v6 or greater:\n\n```sh\nnpm install --save-dev eslint eslint-plugin-markdown\n```\n\n### Configuring\n\nExtending the `plugin:markdown/recommended` config will enable the Markdown processor on all `.md` files:\n\n```js\n// .eslintrc.js\nmodule.exports = {\n    extends: \"plugin:markdown/recommended\"\n};\n```\n\n#### Advanced Configuration\n\nAdd the plugin to your `.eslintrc` and use the `processor` option in an `overrides` entry to enable the plugin's `markdown/markdown` processor on Markdown files.\nEach fenced code block inside a Markdown document has a virtual filename appended to the Markdown file's path.\nThe virtual filename's extension will match the fenced code block's syntax tag, so for example, <code>```js</code> code blocks in <code>README.md</code> would match <code>README.md/*.js</code>.\n[`overrides` glob patterns](https://eslint.org/docs/user-guide/configuring#configuration-based-on-glob-patterns) for these virtual filenames can customize configuration for code blocks without affecting regular code.\nFor more information on configuring processors, refer to the [ESLint documentation](https://eslint.org/docs/user-guide/configuring#specifying-processor).\n\n```js\n// .eslintrc.js\nmodule.exports = {\n    // 1. Add the plugin.\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            // 2. Enable the Markdown processor for all .md files.\n            files: [\"**/*.md\"],\n            processor: \"markdown/markdown\"\n        },\n        {\n            // 3. Optionally, customize the configuration ESLint uses for ```js\n            // fenced code blocks inside .md files.\n            files: [\"**/*.md/*.js\"],\n            // ...\n            rules: {\n                // ...\n            }\n        }\n    ]\n};\n```\n\n#### Frequently-Disabled Rules\n\nSome rules that catch mistakes in regular code are less helpful in documentation.\nFor example, `no-undef` would flag variables that are declared outside of a code snippet because they aren't relevant to the example.\nThe `plugin:markdown/recommended` config disables these rules in Markdown files:\n\n- [`no-undef`](https://eslint.org/docs/rules/no-undef)\n- [`no-unused-expressions`](https://eslint.org/docs/rules/no-unused-expressions)\n- [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars)\n- [`padded-blocks`](https://eslint.org/docs/rules/padded-blocks)\n\nUse [`overrides` glob patterns](https://eslint.org/docs/user-guide/configuring#configuration-based-on-glob-patterns) to disable more rules just for Markdown code blocks:\n\n```js\nmodule.exports = {\n    // ...\n    overrides: [\n        // ...\n        {\n            // 1. Target ```js code blocks in .md files.\n            files: [\"**/*.md/*.js\"],\n            rules: {\n                // 2. Disable other rules.\n                \"no-console\": \"off\",\n                \"import/no-unresolved\": \"off\"\n            }\n        }\n    ]\n};\n```\n\n#### Strict Mode\n\n`\"use strict\"` directives in every code block would be annoying.\nThe `plugin:markdown/recommended` config enables the [`impliedStrict` parser option](https://eslint.org/docs/user-guide/configuring#specifying-parser-options) and disables the [`strict` rule](https://eslint.org/docs/rules/strict) in Markdown files.\nThis opts into strict mode parsing without repeated `\"use strict\"` directives.\n\n#### Unsatisfiable Rules\n\nMarkdown code blocks are not real files, so ESLint's file-format rules do not apply.\nThe `plugin:markdown/recommended` config disables these rules in Markdown files:\n\n- [`eol-last`](https://eslint.org/docs/rules/eol-last): The Markdown parser trims trailing newlines from code blocks.\n- [`unicode-bom`](https://eslint.org/docs/rules/unicode-bom): Markdown code blocks do not have Unicode Byte Order Marks.\n\n#### Migrating from `eslint-plugin-markdown` v1\n\n`eslint-plugin-markdown` v1 used an older version of ESLint's processor API.\nThe Markdown processor automatically ran on `.md`, `.mkdn`, `.mdown`, and `.markdown` files, and it only extracted fenced code blocks marked with `js`, `javascript`, `jsx`, or `node` syntax.\nConfiguration specifically for fenced code blocks went inside an `overrides` entry with a `files` pattern matching the containing Markdown document's filename that applied to all fenced code blocks inside the file.\n\n```js\n// .eslintrc.js for eslint-plugin-markdown v1\nmodule.exports = {\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            files: [\"**/*.md\"],\n            // In v1, configuration for fenced code blocks went inside an\n            // `overrides` entry with a .md pattern, for example:\n            parserOptions: {\n                ecmaFeatures: {\n                    impliedStrict: true\n                }\n            },\n            rules: {\n                \"no-console\": \"off\"\n            }\n        }\n    ]\n};\n```\n\n[RFC3](https://github.com/eslint/rfcs/blob/master/designs/2018-processors-improvements/README.md) designed a new processor API to remove these limitations, and the new API was [implemented](https://github.com/eslint/eslint/pull/11552) as part of ESLint v6.\n`eslint-plugin-markdown` v2 uses this new API.\n\n```bash\n$ npm install --save-dev eslint@latest eslint-plugin-markdown@latest\n```\n\nAll of the Markdown file extensions that were previously hard-coded are now fully configurable in `.eslintrc.js`.\nUse the new `processor` option to apply the `markdown/markdown` processor on any Markdown documents matching a `files` pattern.\nEach fenced code block inside a Markdown document has a virtual filename appended to the Markdown file's path.\nThe virtual filename's extension will match the fenced code block's syntax tag, so for example, <code>```js</code> code blocks in <code>README.md</code> would match <code>README.md/*.js</code>.\n\n```js\n// eslintrc.js for eslint-plugin-markdown v2\nmodule.exports = {\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            // In v2, explicitly apply eslint-plugin-markdown's `markdown`\n            // processor on any Markdown files you want to lint.\n            files: [\"**/*.md\"],\n            processor: \"markdown/markdown\"\n        },\n        {\n            // In v2, configuration for fenced code blocks is separate from the\n            // containing Markdown file. Each code block has a virtual filename\n            // appended to the Markdown file's path.\n            files: [\"**/*.md/*.js\"],\n            // Configuration for fenced code blocks goes with the override for\n            // the code block's virtual filename, for example:\n            parserOptions: {\n                ecmaFeatures: {\n                    impliedStrict: true\n                }\n            },\n            rules: {\n                \"no-console\": \"off\"\n            }\n        }\n    ]\n};\n```\n\nIf you need to precisely mimic the behavior of v1 with the hard-coded Markdown extensions and fenced code block syntaxes, you can use those as glob patterns in `overrides[].files`:\n\n```js\n// eslintrc.js for v2 mimicking v1 behavior\nmodule.exports = {\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            files: [\"**/*.{md,mkdn,mdown,markdown}\"],\n            processor: \"markdown/markdown\"\n        },\n        {\n            files: [\"**/*.{md,mkdn,mdown,markdown}/*.{js,javascript,jsx,node}\"]\n            // ...\n        }\n    ]\n};\n```\n\n### Running\n\n#### ESLint v7\n\nYou can run ESLint as usual and do not need to use the `--ext` option.\nESLint v7 [automatically lints file extensions specified in `overrides[].files` patterns in config files](https://github.com/eslint/rfcs/blob/0253e3a95511c65d622eaa387eb73f824249b467/designs/2019-additional-lint-targets/README.md).\n\n#### ESLint v6\n\nUse the [`--ext` option](https://eslint.org/docs/user-guide/command-line-interface#ext) to include `.js` and `.md` extensions in ESLint's file search:\n\n```sh\neslint --ext js,md .\n```\n\n### Autofixing\n\nWith this plugin, [ESLint's `--fix` option](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some issues in your Markdown fenced code blocks.\nTo enable this, pass the `--fix` flag when you run ESLint:\n\n```bash\neslint --fix .\n```\n\n## What Gets Linted?\n\nWith this plugin, ESLint will lint [fenced code blocks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks) in your Markdown documents:\n\n````markdown\n```js\n// This gets linted\nvar answer = 6 * 7;\nconsole.log(answer);\n```\n\nHere is some regular Markdown text that will be ignored.\n\n```js\n// This also gets linted\n\n/* eslint quotes: [2, \"double\"] */\n\nfunction hello() {\n    console.log(\"Hello, world!\");\n}\nhello();\n```\n\n```jsx\n// This can be linted too if you add `.jsx` files to `overrides` in ESLint v7\n// or pass `--ext jsx` in ESLint v6.\nvar div = <div className=\"jsx\"></div>;\n```\n````\n\nBlocks that don't specify a syntax are ignored:\n\n````markdown\n```\nThis is plain text and doesn't get linted.\n```\n````\n\nUnless a fenced code block's syntax appears as a file extension in `overrides[].files` in ESLint v7, it will be ignored.\nIf using ESLint v6, you must also include the extension with the `--ext` option.\n\n````markdown\n```python\nprint(\"This doesn't get linted either.\")\n```\n````\n\n## Configuration Comments\n\nThe processor will convert HTML comments immediately preceding a code block into JavaScript block comments and insert them at the beginning of the source code that it passes to ESLint.\nThis permits configuring ESLint via configuration comments while keeping the configuration comments themselves hidden when the markdown is rendered.\nComment bodies are passed through unmodified, so the plugin supports any [configuration comments](http://eslint.org/docs/user-guide/configuring) supported by ESLint itself.\n\nThis example enables the `browser` environment, disables the `no-alert` rule, and configures the `quotes` rule to prefer single quotes:\n\n````markdown\n<!-- eslint-env browser -->\n<!-- eslint-disable no-alert -->\n<!-- eslint quotes: [\"error\", \"single\"] -->\n\n```js\nalert('Hello, world!');\n```\n````\n\nEach code block in a file is linted separately, so configuration comments apply only to the code block that immediately follows.\n\n````markdown\nAssuming `no-alert` is enabled in `.eslintrc`, the first code block will have no error from `no-alert`:\n\n<!-- eslint-env browser -->\n<!-- eslint-disable no-alert -->\n\n```js\nalert(\"Hello, world!\");\n```\n\nBut the next code block will have an error from `no-alert`:\n\n<!-- eslint-env browser -->\n\n```js\nalert(\"Hello, world!\");\n```\n````\n\n### Skipping Blocks\n\nSometimes it can be useful to have code blocks marked with `js` even though they don't contain valid JavaScript syntax, such as commented JSON blobs that need `js` syntax highlighting.\nStandard `eslint-disable` comments only silence rule reporting, but ESLint still reports any syntax errors it finds.\nIn cases where a code block should not even be parsed, insert a non-standard `<!-- eslint-skip -->` comment before the block, and this plugin will hide the following block from ESLint.\nNeither rule nor syntax errors will be reported.\n\n````markdown\nThere are comments in this JSON, so we use `js` syntax for better\nhighlighting. Skip the block to prevent warnings about invalid syntax.\n\n<!-- eslint-skip -->\n\n```js\n{\n    // This code block is hidden from ESLint.\n    \"hello\": \"world\"\n}\n```\n\n```js\nconsole.log(\"This code block is linted normally.\");\n```\n````\n\n## Editor Integrations\n\n### VSCode\n\n[`vscode-eslint`](https://github.com/microsoft/vscode-eslint) has built-in support for the Markdown processor.\n\n### Atom\n\nThe [`linter-eslint`](https://atom.io/packages/linter-eslint) package allows for linting within the [Atom IDE](https://atom.io/).\n\nIn order to see `eslint-plugin-markdown` work its magic within Markdown code blocks in your Atom editor, you can go to `linter-eslint`'s settings and within \"List of scopes to run ESLint on...\", add the cursor scope \"source.gfm\".\n\nHowever, this reports a problem when viewing Markdown which does not have configuration, so you may wish to use the cursor scope \"source.embedded.js\", but note that `eslint-plugin-markdown` configuration comments and skip directives won't work in this context.\n\n## Contributing\n\n```sh\n$ git clone https://github.com/eslint/eslint-plugin-markdown.git\n$ cd eslint-plugin-markdown\n$ npm install\n$ npm test\n```\n\nThis project follows the [ESLint contribution guidelines](http://eslint.org/docs/developer-guide/contributing/).\n",
+  "versions": {
+    "1.0.0-beta.1": {
+      "name": "eslint-plugin-markdown",
+      "version": "1.0.0-beta.1",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "test": "eslint --ext .js --ext .md . && mocha tests"
+      },
+      "main": "index.js",
+      "files": [
+        "lib/*.js",
+        "index.js",
+        "LICENSE",
+        "README.md"
+      ],
+      "devDependencies": {
+        "chai": "^3.0.0",
+        "eslint": "^2.0.0-beta.1",
+        "eslint-config-eslint": "^2.0.0",
+        "mocha": "^2.2.5"
+      },
+      "dependencies": {
+        "object-assign": "^4.0.1",
+        "remark": "^3.2.0"
+      },
+      "gitHead": "a4d25cd5c1d7ef2ac6c94cd8683140a1a963dbde",
+      "_id": "eslint-plugin-markdown@1.0.0-beta.1",
+      "_shasum": "48b0b35f2df1bafa060b8ecc6dafba8181e35ef9",
+      "_from": ".",
+      "_npmVersion": "3.3.12",
+      "_nodeVersion": "5.4.1",
+      "_npmUser": {
+        "name": "btmills",
+        "email": "mills.brandont@gmail.com"
+      },
+      "dist": {
+        "shasum": "48b0b35f2df1bafa060b8ecc6dafba8181e35ef9",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-1.0.0-beta.1.tgz",
+        "integrity": "sha512-e+8YEKvHY+IBJvxqYWETZmcri6PR9KbknXkoxQuk5EOIX07npN5sVkKsszKVh0pk0lYwDIseXbL2dSaCvJmftA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC2jD9pl+2iv2Okvno4HvQqccRQxPORwS8+DwpoV3tOWAIgFR1lhafGC4UkACJT1ZyD6FFkUDb1XrbTeGOxZe5/Dbg="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "btmills",
+          "email": "mills.brandont@gmail.com"
+        }
+      ],
+      "directories": {}
+    },
+    "1.0.0-beta.2": {
+      "name": "eslint-plugin-markdown",
+      "version": "1.0.0-beta.2",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "test": "eslint --ext .js --ext .md . && mocha tests"
+      },
+      "main": "index.js",
+      "files": [
+        "lib/*.js",
+        "index.js",
+        "LICENSE",
+        "README.md"
+      ],
+      "devDependencies": {
+        "chai": "^3.0.0",
+        "eslint": "^2.2.0",
+        "eslint-config-eslint": "^3.0.0",
+        "mocha": "^2.2.5"
+      },
+      "dependencies": {
+        "object-assign": "^4.0.1",
+        "remark": "^4.1.1"
+      },
+      "gitHead": "fa006d51e2b98250dc378b0797f75d7987453e4b",
+      "_id": "eslint-plugin-markdown@1.0.0-beta.2",
+      "_shasum": "c7f1edce2e04ef83071647afc23f04e452ae9732",
+      "_from": ".",
+      "_npmVersion": "3.8.3",
+      "_nodeVersion": "5.10.1",
+      "_npmUser": {
+        "name": "btmills",
+        "email": "mills.brandont@gmail.com"
+      },
+      "dist": {
+        "shasum": "c7f1edce2e04ef83071647afc23f04e452ae9732",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-1.0.0-beta.2.tgz",
+        "integrity": "sha512-uMb9G7GWULgfrycP0vqV1zHspjwP5oCPklWKm8WMpW9kGjwACoCPpBtMRTh01JmKjlxWL4WBOZxlco1GR6Oymg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHSsFvhC8w3l9jKKbwoZ5aeMZOu8Ki84hSPHg1d2CKzAAiArcbcl9CmLiFjDJ8sBIcKsXmavR4/Jp6AJLd+mWuCMgw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "btmills",
+          "email": "mills.brandont@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/eslint-plugin-markdown-1.0.0-beta.2.tgz_1461537534695_0.2570176396984607"
+      },
+      "directories": {}
+    },
+    "1.0.0-beta.3": {
+      "name": "eslint-plugin-markdown",
+      "version": "1.0.0-beta.3",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "test": "eslint --ext .js --ext .md . && mocha tests"
+      },
+      "main": "index.js",
+      "files": [
+        "lib/*.js",
+        "index.js",
+        "LICENSE",
+        "README.md"
+      ],
+      "devDependencies": {
+        "chai": "^3.0.0",
+        "eslint": "^2.2.0",
+        "eslint-config-eslint": "^3.0.0",
+        "mocha": "^2.2.5"
+      },
+      "dependencies": {
+        "object-assign": "^4.0.1",
+        "parse5": "^2.2.2",
+        "remark": "^4.1.1"
+      },
+      "gitHead": "3930bc77549d1d074912b6919700761c03bcb106",
+      "_id": "eslint-plugin-markdown@1.0.0-beta.3",
+      "_shasum": "84762b7507b82f01a0c8694a4de4ca70ef56ae03",
+      "_from": ".",
+      "_npmVersion": "3.10.8",
+      "_nodeVersion": "6.9.1",
+      "_npmUser": {
+        "name": "btmills",
+        "email": "mills.brandont@gmail.com"
+      },
+      "dist": {
+        "shasum": "84762b7507b82f01a0c8694a4de4ca70ef56ae03",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-1.0.0-beta.3.tgz",
+        "integrity": "sha512-DSHuhTg89Kisk8lam3c7mnecx7NEx0DANVhkEtRsl0niQnCkxYRF1zBYPBP+E14oHC5uYkWKK/oqxnqz+BsVgw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGVzQekaGXHdtmwp5WYVWpR89CqCxUGaI0teC+8FhvJJAiEApTIFWC96SSj3Y+7pgZNAGIWcf4JSteosnmM8WZM/k8A="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "btmills",
+          "email": "mills.brandont@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/eslint-plugin-markdown-1.0.0-beta.3.tgz_1477534288688_0.6577547874767333"
+      },
+      "directories": {}
+    },
+    "1.0.0-beta.4": {
+      "name": "eslint-plugin-markdown",
+      "version": "1.0.0-beta.4",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "test": "eslint --ext .js --ext .md . && mocha tests"
+      },
+      "main": "index.js",
+      "files": [
+        "lib/*.js",
+        "index.js",
+        "LICENSE",
+        "README.md"
+      ],
+      "devDependencies": {
+        "chai": "^3.0.0",
+        "eslint": "^2.2.0",
+        "eslint-config-eslint": "^3.0.0",
+        "mocha": "^2.2.5"
+      },
+      "dependencies": {
+        "object-assign": "^4.0.1",
+        "parse5": "^2.2.2",
+        "remark": "^5.0.0"
+      },
+      "gitHead": "c84a63171c85a1ffec9b4fd41b55f29bb2117b21",
+      "_id": "eslint-plugin-markdown@1.0.0-beta.4",
+      "_shasum": "82a19971399e4b1b62f7d4ac6424687c2c07ee7a",
+      "_from": ".",
+      "_npmVersion": "4.1.2",
+      "_nodeVersion": "7.7.1",
+      "_npmUser": {
+        "name": "btmills",
+        "email": "mills.brandont@gmail.com"
+      },
+      "dist": {
+        "shasum": "82a19971399e4b1b62f7d4ac6424687c2c07ee7a",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-1.0.0-beta.4.tgz",
+        "integrity": "sha512-GI/L5wufHhO1sZxbZd/K/92RGg/hZSBpCYWjwPqwFdQfMEkSMvU9iMmUZMDGNJeMLnlosqNPMrogo0LKM2sYKA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIA+151Mf5ha44I54KQjFh2JmjdkZjCUKEeonUAbkwcTeAiBBemWqWo0w/sHQkdejK3+ExbtT3AUWm1RegRcVa7ZjLw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "btmills",
+          "email": "mills.brandont@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/eslint-plugin-markdown-1.0.0-beta.4.tgz_1488662554242_0.9874107467476279"
+      },
+      "directories": {}
+    },
+    "1.0.0-beta.6": {
+      "name": "eslint-plugin-markdown",
+      "version": "1.0.0-beta.6",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "lint": "eslint Makefile.js lib/**/*.js tests/lib/plugin.js",
+        "test": "npm run lint && npm run test-cov",
+        "test-cov": "istanbul cover _mocha -- -c tests/lib/**/*.js",
+        "release": "eslint-release",
+        "ci-release": "eslint-ci-release",
+        "gh-release": "eslint-gh-release",
+        "alpharelease": "eslint-prerelease alpha",
+        "betarelease": "eslint-prerelease beta"
+      },
+      "main": "index.js",
+      "files": [
+        "index.js",
+        "lib/index.js",
+        "lib/processor.js"
+      ],
+      "devDependencies": {
+        "chai": "^3.0.0",
+        "eslint": "^2.2.0",
+        "eslint-config-eslint": "^3.0.0",
+        "eslint-release": "^0.10.2",
+        "istanbul": "^0.4.5",
+        "mocha": "^2.2.5"
+      },
+      "dependencies": {
+        "object-assign": "^4.0.1",
+        "remark-parse": "^3.0.0",
+        "unified": "^6.1.2"
+      },
+      "gitHead": "65e296d71ce5ccd3b598ff1aa4c4ae9fb56442e7",
+      "_id": "eslint-plugin-markdown@1.0.0-beta.6",
+      "_shasum": "d9e62666eea4e76387e85f502df668abdfbd4395",
+      "_from": ".",
+      "_npmVersion": "2.15.8",
+      "_nodeVersion": "4.4.7",
+      "_npmUser": {
+        "name": "eslint",
+        "email": "nicholas+eslint@nczconsulting.com"
+      },
+      "dist": {
+        "shasum": "d9e62666eea4e76387e85f502df668abdfbd4395",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-1.0.0-beta.6.tgz",
+        "integrity": "sha512-ImIWrRJ0cbDOLAZ/UApZHufdc4GscWHNwV3QD6sgRONv5jkfWSlXeoZf0205ruDSi+HIhSU0JYAbx06Abhsbsg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDUjHMSXKCtHVp4G5OitgpuvcYamwoXENH/oGXEg0FeaAIhAOE/UXwz6tONt7e1jtQh+tY4DlFf3Qpbm7LbZCxJjPEm"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "btmills",
+          "email": "mills.brandont@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/eslint-plugin-markdown-1.0.0-beta.6.tgz_1493514990035_0.9429082840215415"
+      },
+      "directories": {}
+    },
+    "1.0.0-beta.7": {
+      "name": "eslint-plugin-markdown",
+      "version": "1.0.0-beta.7",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "lint": "eslint Makefile.js lib/**/*.js tests/lib/plugin.js",
+        "test": "npm run lint && npm run test-cov",
+        "test-cov": "istanbul cover _mocha -- -c tests/lib/**/*.js",
+        "release": "eslint-release",
+        "ci-release": "eslint-ci-release",
+        "gh-release": "eslint-gh-release",
+        "alpharelease": "eslint-prerelease alpha",
+        "betarelease": "eslint-prerelease beta"
+      },
+      "main": "index.js",
+      "files": [
+        "index.js",
+        "lib/index.js",
+        "lib/processor.js"
+      ],
+      "devDependencies": {
+        "chai": "^3.0.0",
+        "eslint": "^2.2.0",
+        "eslint-config-eslint": "^3.0.0",
+        "eslint-release": "^0.10.2",
+        "istanbul": "^0.4.5",
+        "mocha": "^2.2.5"
+      },
+      "dependencies": {
+        "object-assign": "^4.0.1",
+        "remark-parse": "^3.0.0",
+        "unified": "^6.1.2"
+      },
+      "gitHead": "7ed8342c0eb2cf517bb37bde461607f0a11e496d",
+      "_id": "eslint-plugin-markdown@1.0.0-beta.7",
+      "_shasum": "12e73a4127c4a4b79d966f9f475851dd0f78f7e7",
+      "_from": ".",
+      "_npmVersion": "4.5.0",
+      "_nodeVersion": "6.10.3",
+      "_npmUser": {
+        "name": "eslint",
+        "email": "nicholas+eslint@nczconsulting.com"
+      },
+      "dist": {
+        "shasum": "12e73a4127c4a4b79d966f9f475851dd0f78f7e7",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-1.0.0-beta.7.tgz",
+        "integrity": "sha512-eb54lqkqr4UoDEn0qreRJMmaDm60pAbkPGe9QEsu8K4LWA3nNXc4/KcxedWEQ0tV90nykXSp+Bszea2DGGkgQA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGfCEpSooDr3/qneg67PUeWLmKQYuioTnUWO50LXGTrnAiA6uzYtWbA8uDZogHcuna+Etm69Su4fHI1wcBA1vh0Kcg=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "btmills",
+          "email": "mills.brandont@gmail.com"
+        },
+        {
+          "name": "eslint",
+          "email": "nicholas+eslint@nczconsulting.com"
+        },
+        {
+          "name": "gyandeeps",
+          "email": "gyandeeps@gmail.com"
+        },
+        {
+          "name": "ivolodin",
+          "email": "ivolodin@gmail.com"
+        },
+        {
+          "name": "kaicataldo",
+          "email": "kaicataldo@gmail.com"
+        },
+        {
+          "name": "mysticatea",
+          "email": "star.ctor@gmail.com"
+        },
+        {
+          "name": "not-an-aardvark",
+          "email": "notaardvark@gmail.com"
+        },
+        {
+          "name": "nzakas",
+          "email": "nicholas@nczconsulting.com"
+        },
+        {
+          "name": "sharpbites",
+          "email": "alberto.email@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/eslint-plugin-markdown-1.0.0-beta.7.tgz_1499026463164_0.1683483445085585"
+      },
+      "directories": {}
+    },
+    "1.0.0-beta.8": {
+      "name": "eslint-plugin-markdown",
+      "version": "1.0.0-beta.8",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "lint": "eslint Makefile.js lib/**/*.js tests/lib/plugin.js",
+        "test": "npm run lint && npm run test-cov",
+        "test-cov": "istanbul cover _mocha -- -c tests/lib/**/*.js",
+        "release": "eslint-release",
+        "ci-release": "eslint-ci-release",
+        "gh-release": "eslint-gh-release",
+        "alpharelease": "eslint-prerelease alpha",
+        "betarelease": "eslint-prerelease beta"
+      },
+      "main": "index.js",
+      "files": [
+        "index.js",
+        "lib/index.js",
+        "lib/processor.js"
+      ],
+      "devDependencies": {
+        "chai": "^3.0.0",
+        "eslint": "^2.2.0",
+        "eslint-config-eslint": "^3.0.0",
+        "eslint-release": "^0.10.2",
+        "istanbul": "^0.4.5",
+        "mocha": "^2.2.5"
+      },
+      "dependencies": {
+        "object-assign": "^4.0.1",
+        "remark-parse": "^3.0.0",
+        "unified": "^6.1.2"
+      },
+      "readme": "# eslint-plugin-markdown\n\n![Screenshot](screenshot.png)\n\nAn [ESLint](http://eslint.org/) plugin to lint JavaScript in Markdown.\n\nSupported extensions are `.markdown`, `.mdown`, `.mkdn`, and `.md`.\n\n## Usage\n\nInstall the plugin:\n\n```sh\nnpm install --save-dev eslint eslint-plugin-markdown\n```\n\nAdd it to your `.eslintrc`:\n\n```json\n{\n    \"plugins\": [\n        \"markdown\"\n    ]\n}\n```\n\nRun ESLint on `.md` files:\n\n```sh\neslint --ext md .\n```\n\nIt will lint `js`, `javascript`, `jsx`, or `node` [fenced code blocks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks) in your Markdown documents:\n\n    ```js\n    // This gets linted\n    var answer = 6 * 7;\n    console.log(answer);\n    ```\n\n    ```JavaScript\n    // This also gets linted\n\n    /* eslint quotes: [2, \"double\"] */\n\n    function hello() {\n        console.log(\"Hello, world!\");\n    }\n    hello();\n    ```\n\n    ```jsx\n    // This gets linted too\n    var div = <div className=\"jsx\"></div>;\n    ```\n\n    ```node\n    // And this\n    console.log(process.version);\n    ```\n\nBlocks that don't specify either `js`, `javascript`, `jsx`, or `node` syntax are ignored:\n\n    ```\n    This is plain text and doesn't get linted.\n    ```\n\n    ```python\n    print(\"This doesn't get linted either.\")\n    ```\n\n## Configuration Comments\n\nThe processor will convert HTML comments immediately preceding a code block into JavaScript block comments and insert them at the beginning of the source code that it passes to ESLint. This permits configuring ESLint via configuration comments while keeping the configuration comments themselves hidden when the markdown is rendered. Comment bodies are passed through unmodified, so the plugin supports any [configuration comments](http://eslint.org/docs/user-guide/configuring) supported by ESLint itself.\n\nThis example enables the `browser` environment, disables the `no-alert` rule, and configures the `quotes` rule to prefer single quotes:\n\n    <!-- eslint-env browser -->\n    <!-- eslint-disable no-alert -->\n    <!-- eslint quotes: [\"error\", \"single\"] -->\n\n    ```js\n    alert('Hello, world!');\n    ```\n\nEach code block in a file is linted separately, so configuration comments apply only to the code block that immediately follows.\n\n    Assuming `no-alert` is enabled in `.eslintrc`, the first code block will have no error from `no-alert`:\n\n    <!-- eslint-env browser -->\n    <!-- eslint-disable no-alert -->\n\n    ```js\n    alert(\"Hello, world!\");\n    ```\n\n    But the next code block will have an error from `no-alert`:\n\n    <!-- eslint-env browser -->\n\n    ```js\n    alert(\"Hello, world!\");\n    ```\n\n## Skipping Blocks\n\nSometimes it can be useful to have code blocks marked with `js` even though they don't contain valid JavaScript syntax, such as commented JSON blobs that need `js` syntax highlighting. Standard `eslint-disable` comments only silence rule reporting, but ESLint still reports any syntax errors it finds. In cases where a code block should not even be parsed, insert a non-standard `<!-- eslint-skip -->` comment before the block, and this plugin will hide the following block from ESLint. Neither rule nor syntax errors will be reported.\n\n    There are comments in this JSON, so we use `js` syntax for better\n    highlighting. Skip the block to prevent warnings about invalid syntax.\n\n    <!-- eslint-skip -->\n\n    ```js\n    {\n        // This code block is hidden from ESLint.\n        \"hello\": \"world\"\n    }\n    ```\n\n    ```js\n    console.log(\"This code block is linted normally.\");\n    ```\n\n## Unsatisfiable Rules\n\nSince code blocks are not files themselves but embedded inside a Markdown document, some rules do not apply to Markdown code blocks, and messages from these rules are automatically suppressed:\n\n- `eol-last`\n\n## Contributing\n\n```sh\n$ git clone https://github.com/eslint/eslint-plugin-markdown.git\n$ cd eslint-plugin-markdown\n$ npm install\n$ npm test\n```\n\nThis project follows the [ESLint contribution guidelines](http://eslint.org/docs/developer-guide/contributing/).\n",
+      "readmeFilename": "README.md",
+      "gitHead": "9ab617382b0583dd75a0bf968bca1f7459bb77bc",
+      "_id": "eslint-plugin-markdown@1.0.0-beta.8",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "8.9.3",
+      "_npmUser": {
+        "name": "eslint",
+        "email": "nicholas+eslint@nczconsulting.com"
+      },
+      "dist": {
+        "integrity": "sha512-prVwlwGQLaBaVGUhSa68KLvZDKc789ezMqY1kbKaGA7KyLN0OW64yBFjnTRRFdWBGx3SQ+BYAvuK2W4dzy9eoA==",
+        "shasum": "8d10707fdc551dc28ed9e14bd03c18f776e2fb76",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-1.0.0-beta.8.tgz",
+        "fileCount": 7,
+        "unpackedSize": 13082,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIB4vZsjZd5aJgaqOmy/AUjzJFvsyNoBXYO1LfBdTPToOAiBN+HH16xTvTU8W2Zlo/Woaylvw1PQYNOHDsaGHg3zO1A=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "mills.brandont@gmail.com",
+          "name": "btmills"
+        },
+        {
+          "email": "nicholas+eslint@nczconsulting.com",
+          "name": "eslint"
+        },
+        {
+          "email": "ivolodin@gmail.com",
+          "name": "ivolodin"
+        },
+        {
+          "email": "nicholas@nczconsulting.com",
+          "name": "nzakas"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/eslint-plugin-markdown_1.0.0-beta.8_1523222288528_0.8478862937408953"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.0-rc.0": {
+      "name": "eslint-plugin-markdown",
+      "version": "1.0.0-rc.0",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "lint": "eslint Makefile.js lib/**/*.js tests/lib/plugin.js",
+        "test": "npm run lint && npm run test-cov",
+        "test-cov": "istanbul cover _mocha -- -c tests/lib/**/*.js",
+        "generate-release": "eslint-generate-release",
+        "generate-alpharelease": "eslint-generate-prerelease alpha",
+        "generate-betarelease": "eslint-generate-prerelease beta",
+        "generate-rcrelease": "eslint-generate-prerelease rc",
+        "publish-release": "eslint-publish-release"
+      },
+      "main": "index.js",
+      "devDependencies": {
+        "chai": "^3.0.0",
+        "eslint": "^4.19.1",
+        "eslint-config-eslint": "^3.0.0",
+        "eslint-release": "^1.0.0",
+        "istanbul": "^0.4.5",
+        "mocha": "^2.2.5"
+      },
+      "dependencies": {
+        "object-assign": "^4.0.1",
+        "remark-parse": "^5.0.0",
+        "unified": "^6.1.2"
+      },
+      "engines": {
+        "node": "^6.14.0 || ^8.10.0 || >=9.10.0"
+      },
+      "gitHead": "f9258b79d762d5883ca28d670540b1a0b2e28bcd",
+      "_id": "eslint-plugin-markdown@1.0.0-rc.0",
+      "_npmVersion": "6.2.0",
+      "_nodeVersion": "10.9.0",
+      "_npmUser": {
+        "name": "eslint",
+        "email": "nicholas+eslint@nczconsulting.com"
+      },
+      "dist": {
+        "integrity": "sha512-28Ioje4p8QAmpxDL91jR4rU+x6+UEx6IW/b+nVnXuS7CMCuOttQl+8BGSu04bm0+8ibOlNsvt5QXc7D847oOkw==",
+        "shasum": "edbc8b3a801b2d026e1211bb0a7ed5ba3bcf400d",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-1.0.0-rc.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 21744,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb1MZ4CRA9TVsSAnZWagAAujEP/1dRXmiQPRBAWMp3RlKL\nTGWLjdYTBiNvHffnKDrcFTy7ewCjEeHuCXeJ6kSJN3vBTCz4faWeeQHRkGqW\nm31ggcya/x5txBPkxEv/pBxO1/3MG97ZHXRAjqCcH+P0EXSRikTHnpltue26\nARIY5D2fCngOmo+C9X2u6BZCOSUSQOKbKRhgsR3pqAm1lyPlwzXXZidOGshy\nuvZ5lkjTitb8ilmB5k3dakBvIoADmnEOqtCYZEXVUzWKSxOCKAmwfnxUB/IU\ngvjKniZYOFl20HUlSO9ZuTjYTCRmrENXrieBTIFIhQDtpufO+6gEvWs4kjkf\nlLod+K45TtQBGxa8wbLN2dlX6yZvxmGbSmQ3dWgz0+IOa0TGTasyFAf/y+ac\nvcJDwieVUGdmWgGOhoYUAFaiVilGHDkV23q+ZBgP6Ic32naYdJcefvRTFJ1I\nHzcBQ7Oh9NWNQCqEghMFihiA/KYXoloxgrvjtgTJ3LyolIo7U9hakDjQCtVO\nqqv2EYF99/tGgQTIv5j1iNdr/G/XYmOkWP25GzmedmN5RcmJ+c7G013rFjVS\nW+WWPytwwIYcy/zu0pvW7qIMgnjeyj2hFpsfvwRNKF6oUfq5yPs1/8URehbJ\nS23+k+GktvgOqgWFCVf+9pW/NwxG/TTSvzWl9X8ebhKkOl5y8ZNHY9RkL0xo\nFJoK\r\n=TPeZ\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGqZpWZiDo+rM5yU2mrxQGWU7+QxCsrrB1VI6D96ovioAiEAit7tf1iDQpLa+oe2FKfiK1M58qPWVuBijAiIh+uyRFE="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "mills.brandont@gmail.com",
+          "name": "btmills"
+        },
+        {
+          "email": "nicholas+eslint@nczconsulting.com",
+          "name": "eslint"
+        },
+        {
+          "email": "ivolodin@gmail.com",
+          "name": "ivolodin"
+        },
+        {
+          "email": "nicholas@nczconsulting.com",
+          "name": "nzakas"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/eslint-plugin-markdown_1.0.0-rc.0_1540671095764_0.30935400973219296"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.0-rc.1": {
+      "name": "eslint-plugin-markdown",
+      "version": "1.0.0-rc.1",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "lint": "eslint Makefile.js lib/**/*.js tests/lib/plugin.js",
+        "test": "npm run lint && npm run test-cov",
+        "test-cov": "istanbul cover _mocha -- -c tests/lib/**/*.js",
+        "generate-release": "eslint-generate-release",
+        "generate-alpharelease": "eslint-generate-prerelease alpha",
+        "generate-betarelease": "eslint-generate-prerelease beta",
+        "generate-rcrelease": "eslint-generate-prerelease rc",
+        "publish-release": "eslint-publish-release"
+      },
+      "main": "index.js",
+      "devDependencies": {
+        "chai": "^3.0.0",
+        "eslint": "^4.19.1",
+        "eslint-config-eslint": "^3.0.0",
+        "eslint-release": "^1.0.0",
+        "istanbul": "^0.4.5",
+        "mocha": "^2.2.5"
+      },
+      "dependencies": {
+        "object-assign": "^4.0.1",
+        "remark-parse": "^5.0.0",
+        "unified": "^6.1.2"
+      },
+      "engines": {
+        "node": "^6.14.0 || ^8.10.0 || >=9.10.0"
+      },
+      "readme": "# eslint-plugin-markdown\n\n![Screenshot](screenshot.png)\n\nAn [ESLint](http://eslint.org/) plugin to lint JavaScript in Markdown.\n\nSupported extensions are `.markdown`, `.mdown`, `.mkdn`, and `.md`.\n\n## Usage\n\nInstall the plugin:\n\n```sh\nnpm install --save-dev eslint eslint-plugin-markdown\n```\n\nAdd it to your `.eslintrc`:\n\n```json\n{\n    \"plugins\": [\n        \"markdown\"\n    ]\n}\n```\n\nRun ESLint on `.md` files:\n\n```sh\neslint --ext md .\n```\n\nIt will lint `js`, `javascript`, `jsx`, or `node` [fenced code blocks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks) in your Markdown documents:\n\n    ```js\n    // This gets linted\n    var answer = 6 * 7;\n    console.log(answer);\n    ```\n\n    ```JavaScript\n    // This also gets linted\n\n    /* eslint quotes: [2, \"double\"] */\n\n    function hello() {\n        console.log(\"Hello, world!\");\n    }\n    hello();\n    ```\n\n    ```jsx\n    // This gets linted too\n    var div = <div className=\"jsx\"></div>;\n    ```\n\n    ```node\n    // And this\n    console.log(process.version);\n    ```\n\nBlocks that don't specify either `js`, `javascript`, `jsx`, or `node` syntax are ignored:\n\n    ```\n    This is plain text and doesn't get linted.\n    ```\n\n    ```python\n    print(\"This doesn't get linted either.\")\n    ```\n\n## Configuration Comments\n\nThe processor will convert HTML comments immediately preceding a code block into JavaScript block comments and insert them at the beginning of the source code that it passes to ESLint. This permits configuring ESLint via configuration comments while keeping the configuration comments themselves hidden when the markdown is rendered. Comment bodies are passed through unmodified, so the plugin supports any [configuration comments](http://eslint.org/docs/user-guide/configuring) supported by ESLint itself.\n\nThis example enables the `browser` environment, disables the `no-alert` rule, and configures the `quotes` rule to prefer single quotes:\n\n    <!-- eslint-env browser -->\n    <!-- eslint-disable no-alert -->\n    <!-- eslint quotes: [\"error\", \"single\"] -->\n\n    ```js\n    alert('Hello, world!');\n    ```\n\nEach code block in a file is linted separately, so configuration comments apply only to the code block that immediately follows.\n\n    Assuming `no-alert` is enabled in `.eslintrc`, the first code block will have no error from `no-alert`:\n\n    <!-- eslint-env browser -->\n    <!-- eslint-disable no-alert -->\n\n    ```js\n    alert(\"Hello, world!\");\n    ```\n\n    But the next code block will have an error from `no-alert`:\n\n    <!-- eslint-env browser -->\n\n    ```js\n    alert(\"Hello, world!\");\n    ```\n\n## Skipping Blocks\n\nSometimes it can be useful to have code blocks marked with `js` even though they don't contain valid JavaScript syntax, such as commented JSON blobs that need `js` syntax highlighting. Standard `eslint-disable` comments only silence rule reporting, but ESLint still reports any syntax errors it finds. In cases where a code block should not even be parsed, insert a non-standard `<!-- eslint-skip -->` comment before the block, and this plugin will hide the following block from ESLint. Neither rule nor syntax errors will be reported.\n\n    There are comments in this JSON, so we use `js` syntax for better\n    highlighting. Skip the block to prevent warnings about invalid syntax.\n\n    <!-- eslint-skip -->\n\n    ```js\n    {\n        // This code block is hidden from ESLint.\n        \"hello\": \"world\"\n    }\n    ```\n\n    ```js\n    console.log(\"This code block is linted normally.\");\n    ```\n\n## Fix issues automatically\n\nThis plugin can attempt to fix some of the issues automatically using [`fix` ESLint option](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems). This option instructs ESLint to try to fix as many issues as possible. To enable this option you can add `--fix` to your ESLint call, for example:\n\n```bash\neslint --fix --ext md .\n```\n\n## Unsatisfiable Rules\n\nSince code blocks are not files themselves but embedded inside a Markdown document, some rules do not apply to Markdown code blocks, and messages from these rules are automatically suppressed:\n\n- `eol-last`\n- `unicode-bom`\n\n### Strict\n\nThe `strict` rule is technically satisfiable inside of Markdown code blocks, but writing a `\"use strict\"` directive at the top of every code block is tedious and distracting. We recommend using a [glob pattern override](https://eslint.org/docs/user-guide/configuring#configuration-based-on-glob-patterns) for `.md` files to disable `strict` and enable the `impliedStrict` [parser option](https://eslint.org/docs/user-guide/configuring#specifying-parser-options) so the code blocks still parse in strict mode:\n\n```js\n// .eslintrc.json\n{\n    // ...\n    \"overrides\": [{\n        \"files\": [\"**/*.md\"],\n        \"parserOptions\": {\n            \"ecmaFeatures\": {\n                \"impliedStrict\": true\n            }\n        },\n        \"rules\": {\n            \"strict\": \"off\"\n        }\n    }]\n}\n```\n\n## Contributing\n\n```sh\n$ git clone https://github.com/eslint/eslint-plugin-markdown.git\n$ cd eslint-plugin-markdown\n$ npm install\n$ npm test\n```\n\nThis project follows the [ESLint contribution guidelines](http://eslint.org/docs/developer-guide/contributing/).\n",
+      "readmeFilename": "README.md",
+      "gitHead": "4a5fd82a95db057a41a83c1e704828645d5c3fd2",
+      "_id": "eslint-plugin-markdown@1.0.0-rc.1",
+      "_npmVersion": "6.2.0",
+      "_nodeVersion": "10.9.0",
+      "_npmUser": {
+        "name": "eslint",
+        "email": "nicholas+eslint@nczconsulting.com"
+      },
+      "dist": {
+        "integrity": "sha512-9VsN3Eml5SzL1kVKS+xS9AfjkY3oyrElAGGwx04I1l3uopndpzpT3sooD/KbdiZjE3h1iKxYno6NI8+YOvSygQ==",
+        "shasum": "479ec9d33f307b507711ab6ce7c8cd44be82d4cc",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-1.0.0-rc.1.tgz",
+        "fileCount": 7,
+        "unpackedSize": 21871,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb4PwVCRA9TVsSAnZWagAAwZAQAI7YfmVezdPhELhwFrxK\n/VAIB1r1ByQi+5cTXxJJkuiS/I6fOWWhcjVMJZx67wUwO51o55AqQ9+yjoLq\n/d/1+78V6lWyWJ7urkgGG4mLgV52lqWlqNM64Qk89DnfwRYePwekuYaVQeS+\nN8xaz73U/Ja00O+Kn456wPhjCYbD4yO254f/hZN2dG4zV1mbtLmHBFgfVPvE\nWJJo4b4SmLdFizJDNAQgDg7wh5oLOYXr2VjMCJdCHWiugcbM1v9uAc6uZHGs\ntjRe6h/jbbuPZzZRFWat/pkW2ArHG18br/USfjsjQrgYbklOxhZQU2P8wh0U\nzPFa2LZrpAbhfR/z2FBV8OpDGtOoxcNycCDAhN11VpdCnE2BNesixBYLiGAX\nZKZhN/HT0s99RNc0gCyOCiHDipFOwtOvbFxOjAg4lDnZxYezEhMKginD0ivV\nTm+eP5zHQsbxpliGEnjN24vX9+6Ll/UexEynH54z4sE6G+c8IkijWOoHEKu+\nlUT2WiPVKxGlwYd5p355dD/sK/3PtzdUozB5B8eOC6aHKUtvYZVkV2r+jGAf\nYutGrLjGKgsi8ybFhy8xieaRI9PU7XpY3mtLOD0n7M83l4PZFeEGffJfMbyX\nnkd7xiiVBcsykXbxfaaGEKKD5MflhLGCqg6bH44zOS+ynJCCyi7FQfyJNJvt\n/H+0\r\n=3/d3\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDdVsGcgBeWxAFBNUsGrgPowrYJ2lYdIQZW8H4giHVxvAiEAvO6CraPz+LDLD0kLZ6xTHqzhm3CZd+FgbRnaP5SMCXI="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "mills.brandont@gmail.com",
+          "name": "btmills"
+        },
+        {
+          "email": "nicholas+eslint@nczconsulting.com",
+          "name": "eslint"
+        },
+        {
+          "email": "ivolodin@gmail.com",
+          "name": "ivolodin"
+        },
+        {
+          "email": "nicholas@nczconsulting.com",
+          "name": "nzakas"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/eslint-plugin-markdown_1.0.0-rc.1_1541471252625_0.4106390397051771"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.0": {
+      "name": "eslint-plugin-markdown",
+      "version": "1.0.0",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "lint": "eslint Makefile.js lib/**/*.js tests/lib/plugin.js",
+        "test": "npm run lint && npm run test-cov",
+        "test-cov": "istanbul cover _mocha -- -c tests/lib/**/*.js",
+        "generate-release": "eslint-generate-release",
+        "generate-alpharelease": "eslint-generate-prerelease alpha",
+        "generate-betarelease": "eslint-generate-prerelease beta",
+        "generate-rcrelease": "eslint-generate-prerelease rc",
+        "publish-release": "eslint-publish-release"
+      },
+      "main": "index.js",
+      "devDependencies": {
+        "chai": "^3.0.0",
+        "eslint": "^4.19.1",
+        "eslint-config-eslint": "^3.0.0",
+        "eslint-release": "^1.0.0",
+        "istanbul": "^0.4.5",
+        "mocha": "^2.2.5"
+      },
+      "dependencies": {
+        "object-assign": "^4.0.1",
+        "remark-parse": "^5.0.0",
+        "unified": "^6.1.2"
+      },
+      "engines": {
+        "node": "^6.14.0 || ^8.10.0 || >=9.10.0"
+      },
+      "gitHead": "a248c9abe7a3fe7c8c7d81d39440912d05ef8c49",
+      "_id": "eslint-plugin-markdown@1.0.0",
+      "_npmVersion": "6.4.1",
+      "_nodeVersion": "10.14.0",
+      "_npmUser": {
+        "name": "eslint",
+        "email": "nicholas+eslint@nczconsulting.com"
+      },
+      "dist": {
+        "integrity": "sha512-YIrClt3yLgyGov+rInjIoC/05zMxb/c6YXQZkyI9UKuBRFLgCrL37cxthj0JYWiTYtiHq0p8O0Nt0/HrvO48iQ==",
+        "shasum": "2d381b44fcf367f1bb53ae166eccf111cd4e1174",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-1.0.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 23904,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcLQ/yCRA9TVsSAnZWagAA9AcP/RKO/6eXxETQesd2qgFM\n2nX4bVlai+b6ON/2ZSTpLhlw4nQZY5rTacjxd6O1gi1zEzMSYYO7XUMdj2IH\nWOROYSQhPgsf3TruPwVXLW1r4UvpLV3kzW37XmgidQKiUEOuHs4bu934lCQD\nRYkx9yMEUo0tZdphnHMMcujHOc2LaFNCzhMcm45FFeWUGCmAJnKl29LYJFMN\nfj+Md/FBmsuek4cgDMuhhLL8e/e5oaEegpj6INLGmFnaUrPowBM5Ck0szEn0\n2GjUc21f3LwZe2ZeNOX75IZ8WvIDd/o7HX/ZL78XLaCKSJaGS/pmAioNlX+K\n4KXsLlpf1rQ3/5ZQApoNw4T/1D11Z2r92+0Es2DXorlsl0rHsRgagW7ZhI9r\nVc81tRRAR5xwNxV3viY/dG9mB7vb/BJpfdXyJnImoJbMz7ThhuPJZD6mPmcN\nzip5ILT3vqoySeQGaGdI1h4s9ljPhQp8pQAFoX6W01rhuhrxPJo3XoWK2byY\nWqWfcJ9/yTrA0PyIm1hGWL93ghirtpFUu6OxqDqS6vVPt4pEyddwiX1czkuA\nxGU8LjHnkQc+W8+GWqdh3KbD6wS5879z9gLoslMZW6rNHpDMEhq+2CNn7otD\ne8AxYZ5jDzm+F3foUO04H+AWi2zAPe727kZj4sWUw8rvELYTqDFSifzgKkhe\nZ90I\r\n=tXpx\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFsvUi5AnDu8JSoQTUtEIUS37KtdDysmr5UHhmrYbvwyAiEAzZiwBYnEhnCcG405FsdTL1PssBN6J+uuCzrRwYMBphs="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "mills.brandont@gmail.com",
+          "name": "btmills"
+        },
+        {
+          "email": "nicholas+eslint@nczconsulting.com",
+          "name": "eslint"
+        },
+        {
+          "email": "ivolodin@gmail.com",
+          "name": "ivolodin"
+        },
+        {
+          "email": "nicholas@nczconsulting.com",
+          "name": "nzakas"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/eslint-plugin-markdown_1.0.0_1546457074224_0.020145424955396507"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.1": {
+      "name": "eslint-plugin-markdown",
+      "version": "1.0.1",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "lint": "eslint Makefile.js lib/**/*.js tests/lib/plugin.js",
+        "test": "npm run lint && npm run test-cov",
+        "test-cov": "istanbul cover _mocha -- -c tests/lib/**/*.js",
+        "generate-release": "eslint-generate-release",
+        "generate-alpharelease": "eslint-generate-prerelease alpha",
+        "generate-betarelease": "eslint-generate-prerelease beta",
+        "generate-rcrelease": "eslint-generate-prerelease rc",
+        "publish-release": "eslint-publish-release"
+      },
+      "main": "index.js",
+      "devDependencies": {
+        "chai": "^3.0.0",
+        "eslint": "^4.19.1",
+        "eslint-config-eslint": "^5.0.1",
+        "eslint-plugin-node": "^6.0.1",
+        "eslint-release": "^1.0.0",
+        "istanbul": "^0.4.5",
+        "mocha": "^2.2.5"
+      },
+      "dependencies": {
+        "object-assign": "^4.0.1",
+        "remark-parse": "^5.0.0",
+        "unified": "^6.1.2"
+      },
+      "engines": {
+        "node": "^6.14.0 || ^8.10.0 || >=9.10.0"
+      },
+      "gitHead": "2d306bad6416f88ae8d25a5e4a188fc5d719fd41",
+      "_id": "eslint-plugin-markdown@1.0.1",
+      "_npmVersion": "6.4.1",
+      "_nodeVersion": "10.15.2",
+      "_npmUser": {
+        "name": "eslintbot",
+        "email": "nicholas+eslint@nczconsulting.com"
+      },
+      "dist": {
+        "integrity": "sha512-nAUURNHJGPooBMZMP23FmTbh3LTdgoSqeFBv9FA3fYrJ+vDUJxrp6nKiQF4iDNAmnWQnmnrDvV61BmIF4X9QAQ==",
+        "shasum": "9705786310f84dad9cf800bea1eb5c4acafcc13a",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-1.0.1.tgz",
+        "fileCount": 7,
+        "unpackedSize": 25580,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdrnwtCRA9TVsSAnZWagAAWxcP+wY64TR4Pa8keyUjeUXt\nw4/7bKAIDYKN6YxjTVlENE0mRWqLc+aqlYSujPO2ltYhSKDuQjZTJvNgKrx6\nn8XOnJCD9zsOyBOXmWIUgr2hfyb23RfWLvVB8FOiabGVP2Wjj5Ph4IXOGAo1\njU7e1AFXdqKzoW9S4P+8k0DVCz41j8HLbwMRZ8t9cWW02/dvzhnc1ennB4Ds\neJ8+9EOmdsJPYr9WeUu6iXpunigRFZfZGY2KnNpayoWalffOMyM/T96tTlc5\nr+4anpWDgAz76aNSy52KxWhV9/R8vYHKSPkIOxMknMeMvbaOGi03OKqroXRY\nQwAvCK79xJIKtj2awD00fo13ozFX5a9eHvFHetSkzBTmL4yvEEZw0hwgpHX2\nR7usRgjUhShy6P5esSCR95TNlDbl9hBpxFz/d9DCRBbbDWzKuKIIfEnn/UJJ\naND2lJi/1Jh4A2sc+zXCwIE6Tng1AJiWlRIqTWje0Tylr9xWEzB9mBM+qU5G\nZQ0RkY0HQQLtwEo64kX+c20iF04Sj5pRKC1srKCP1++PmIRzQmnwqTvkLL89\nP/RwSTfqEMVinahfDBnOAhKJ5WetGWHFXS5qFrpSVPsERJXn0dyxMU7kRbPQ\nY+bjJNVg41roj1p/uiK8uQknLgWFb94sTFmhlllyarvGaU5+Z6JYXJ+UFref\n0N7L\r\n=nksy\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCdimmvoPjbMV55vZ1ETKodPEW3ltLjkeAqzzd5FxkRswIgGROzC+S2i2XeLm+weArq5LB6mMksoFjyqNeZqTxCQyY="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "mills.brandont@gmail.com",
+          "name": "btmills"
+        },
+        {
+          "email": "nicholas+eslint@nczconsulting.com",
+          "name": "eslint"
+        },
+        {
+          "email": "ivolodin@gmail.com",
+          "name": "ivolodin"
+        },
+        {
+          "email": "nicholas@nczconsulting.com",
+          "name": "nzakas"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/eslint-plugin-markdown_1.0.1_1571716140470_0.8354908565793411"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.2": {
+      "name": "eslint-plugin-markdown",
+      "version": "1.0.2",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "lint": "eslint .",
+        "test": "npm run lint && npm run test-cov",
+        "test-cov": "nyc _mocha -- -c tests/lib/**/*.js",
+        "generate-release": "eslint-generate-release",
+        "generate-alpharelease": "eslint-generate-prerelease alpha",
+        "generate-betarelease": "eslint-generate-prerelease beta",
+        "generate-rcrelease": "eslint-generate-prerelease rc",
+        "publish-release": "eslint-publish-release"
+      },
+      "main": "index.js",
+      "devDependencies": {
+        "chai": "^4.2.0",
+        "eslint": "^5.16.0",
+        "eslint-config-eslint": "^5.0.1",
+        "eslint-plugin-node": "^6.0.1",
+        "eslint-release": "^1.2.0",
+        "mocha": "^6.2.2",
+        "nyc": "^14.1.1"
+      },
+      "dependencies": {
+        "object-assign": "^4.0.1",
+        "remark-parse": "^5.0.0",
+        "unified": "^6.1.2"
+      },
+      "engines": {
+        "node": "^6.14.0 || ^8.10.0 || >=9.10.0"
+      },
+      "gitHead": "66b565b3763c30dcbc193e4bb74aee976860335d",
+      "_id": "eslint-plugin-markdown@1.0.2",
+      "_nodeVersion": "12.16.1",
+      "_npmVersion": "6.13.4",
+      "dist": {
+        "integrity": "sha512-BfvXKsO0K+zvdarNc801jsE/NTLmig4oKhZ1U3aSUgTf2dB/US5+CrfGxMsCK2Ki1vS1R3HPok+uYpufFndhzw==",
+        "shasum": "79274bf17ce3ead48e4a55cbcb6d7ce735754280",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-1.0.2.tgz",
+        "fileCount": 7,
+        "unpackedSize": 26230,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeU/qmCRA9TVsSAnZWagAA2JoP/1nz1RfNzQ+cS4JagvNr\npBXA2bA0571IMeTCik/FPt5OFSzHkG3rXU9JGvgq9BXGdGJTe/KXuSrZNa/q\npQKi0jkqgB7UXn8xfuLOKFGccpd2+1sfult/taNxgh2ngiYVBrnxV+R0SKR2\nsCX7grmuSA6ihk6AmNX3IxChp7u9fqQoOaZTtazWlKnaB4ztLr6UmeKB0n+d\nxR2LBmXGlS3cGrx5Q3/C3bvsGttgONGYJwKpnKJ2K/+OxdybeCNfZ1QCJJ+s\nClLNDWf0iTNHQ2k56P7S14x4KFKn4SFWa8zvl2ob933wljMf2SeFoBgF0C4T\nVLQZ75nVhBpikcPw48m/eWhyOxOUaHE96G/aUWuAPRuC9BAyppOqRHQ2AcIe\nQyN4q6ED90uGhYhbEKuYxBrGyCaRXW8WD2ifdtceRnz9dSWGeTY9ISwUqhDC\nJQw7hvWbdUUEuTqV/AFceIhmDS93VfoT+3PQof0BcOWNAtazqOptHqkJB3D4\nvUdpep32H7lcbNJHBaro7OLpRGC4Zk+PDtvlNQNqoC9s7dJcXaDrqk8G42Gl\nmNsRlrqyiIam6HxbdeN55o4F0/Oli/qn0OH4BblWwRKi7c/qFYyrhlG+EMhy\nRoeEIrMUopPiHjssEk8znrBEJ2ApIR5a1LMPXXkDNlmWMJK7akzDCTtkErKb\nMI/W\r\n=6gDJ\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCcrl2Jkc2noBK3VlQ+g8wm64nt77/y5XsFYEu3E9flaQIhAKQHvxtej3vnPCFY8QFqtU0HhfIrr4mJK5vkyh6pQsgL"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "mills.brandont@gmail.com",
+          "name": "btmills"
+        },
+        {
+          "email": "nicholas+eslint@nczconsulting.com",
+          "name": "eslintbot"
+        },
+        {
+          "email": "nicholas@nczconsulting.com",
+          "name": "nzakas"
+        }
+      ],
+      "_npmUser": {
+        "name": "eslintbot",
+        "email": "nicholas+eslint@nczconsulting.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/eslint-plugin-markdown_1.0.2_1582561957710_0.754056540762803"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0-alpha.0": {
+      "name": "eslint-plugin-markdown",
+      "version": "2.0.0-alpha.0",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "lint": "eslint --ext js,md .",
+        "test": "npm run lint && npm run test-cov",
+        "test-cov": "nyc _mocha -- -c tests/lib/**/*.js",
+        "generate-release": "eslint-generate-release",
+        "generate-alpharelease": "eslint-generate-prerelease alpha",
+        "generate-betarelease": "eslint-generate-prerelease beta",
+        "generate-rcrelease": "eslint-generate-prerelease rc",
+        "publish-release": "eslint-publish-release"
+      },
+      "main": "index.js",
+      "devDependencies": {
+        "chai": "^4.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-eslint": "^6.0.0",
+        "eslint-plugin-jsdoc": "^15.9.5",
+        "eslint-plugin-node": "^9.0.0",
+        "eslint-release": "^1.2.0",
+        "mocha": "^6.2.2",
+        "nyc": "^14.1.1"
+      },
+      "dependencies": {
+        "remark-parse": "^5.0.0",
+        "unified": "^6.1.2"
+      },
+      "peerDependencies": {
+        "eslint": ">=6.0.0"
+      },
+      "engines": {
+        "node": "^8.10.0 || ^10.12.0 || >= 12.0.0"
+      },
+      "readme": "# eslint-plugin-markdown\n\n[![npm Version](https://img.shields.io/npm/v/eslint-plugin-markdown.svg)](https://www.npmjs.com/package/eslint-plugin-markdown)\n[![Build Status](https://img.shields.io/github/workflow/status/eslint/eslint-plugin-markdown/CI/master.svg)](https://github.com/eslint/eslint-plugin-markdown/actions)\n\nLint JS, JSX, TypeScript, and more inside Markdown.\n\n<img\n    src=\"screenshot.png\"\n    height=\"142\"\n    width=\"432\"\n    alt=\"A JS code snippet in a Markdown editor has red squiggly underlines. A tooltip explains the problem.\"\n/>\n\n> 🚧 This documentation is for an unfinished v2 release in progress in the `master` branch. The latest stable documentation is in the [`v1` branch](https://github.com/eslint/eslint-plugin-markdown/tree/v1).\n\n## Usage\n\n### Installing\n\nInstall the plugin alongside ESLint v6 or greater:\n\n```sh\nnpm install --save-dev eslint eslint-plugin-markdown@next\n```\n\n### Configuring\n\nAdd the plugin to your `.eslintrc` and use the `processor` option in an `overrides` entry to enable the plugin's `markdown/markdown` processor on Markdown files.\nEach fenced code block inside a Markdown document has a virtual filename appended to the Markdown file's path.\nThe virtual filename's extension will match the fenced code block's syntax tag, so for example, <code>```js</code> code blocks in <code>README.md</code> would match <code>README.md/*.js</code>.\nFor more information on configuring processors, refer to the [ESLint documentation](https://eslint.org/docs/user-guide/configuring#specifying-processor).\n\n```js\n// .eslintrc.js\nmodule.exports = {\n    // 1. Add the plugin.\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            // 2. Enable the Markdown processor for all .md files.\n            files: [\"**/*.md\"],\n            processor: \"markdown/markdown\"\n        },\n        {\n            // 3. Optionally, customize the configuration ESLint uses for ```js\n            // fenced code blocks inside .md files.\n            files: [\"**/*.md/*.js\"],\n            // ...\n            rules: {\n                // ...\n            }\n        }\n    ]\n};\n```\n\n#### Migrating from `eslint-plugin-markdown` v1\n\n`eslint-plugin-markdown` v1 used an older version of ESLint's processor API.\nThe Markdown processor automatically ran on `.md`, `.mkdn`, `.mdown`, and `.markdown` files, and it only extracted fenced code blocks marked with `js`, `javascript`, `jsx`, or `node` syntax.\nConfiguration specifically for fenced code blocks went inside an `overrides` entry with a `files` pattern matching the containing Markdown document's filename that applied to all fenced code blocks inside the file.\n\n```js\n// .eslintrc.js for eslint-plugin-markdown v1\nmodule.exports = {\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            files: [\"**/*.md\"],\n            // In v1, configuration for fenced code blocks went inside an\n            // `overrides` entry with a .md pattern, for example:\n            parserOptions: {\n                ecmaFeatures: {\n                    impliedStrict: true\n                }\n            },\n            rules: {\n                \"no-console\": \"off\"\n            }\n        }\n    ]\n};\n```\n\n[RFC3](https://github.com/eslint/rfcs/blob/master/designs/2018-processors-improvements/README.md) designed a new processor API to remove these limitations, and the new API was [implemented](https://github.com/eslint/eslint/pull/11552) as part of ESLint v6.\n`eslint-plugin-markdown` v2 uses this new API.\n\n```bash\n$ npm install --save-dev eslint@latest eslint-plugin-markdown@next\n```\n\nAll of the Markdown file extensions that were previously hard-coded are now fully configurable in `.eslintrc.js`.\nUse the new `processor` option to apply the `markdown/markdown` processor on any Markdown documents matching a `files` pattern.\nEach fenced code block inside a Markdown document has a virtual filename appended to the Markdown file's path.\nThe virtual filename's extension will match the fenced code block's syntax tag, so for example, <code>```js</code> code blocks in <code>README.md</code> would match <code>README.md/*.js</code>.\n\n```js\n// eslintrc.js for eslint-plugin-markdown v2\nmodule.exports = {\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            // In v2, explicitly apply eslint-plugin-markdown's `markdown`\n            // processor on any Markdown files you want to lint.\n            files: [\"**/*.md\"],\n            processor: \"markdown/markdown\"\n        },\n        {\n            // In v2, configuration for fenced code blocks is separate from the\n            // containing Markdown file. Each code block has a virtual filename\n            // appended to the Markdown file's path.\n            files: [\"**/*.md/*.js\"],\n            // Configuration for fenced code blocks goes with the override for\n            // the code block's virtual filename, for example:\n            parserOptions: {\n                ecmaFeatures: {\n                    impliedStrict: true\n                }\n            },\n            rules: {\n                \"no-console\": \"off\"\n            }\n        }\n    ]\n};\n```\n\nIf you need to precisely mimic the behavior of v1 with the hard-coded Markdown extensions and fenced code block syntaxes, you can use those as glob patterns in `overrides[].files`:\n\n```js\n// eslintrc.js for v2 mimicking v1 behavior\nmodule.exports = {\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            files: [\"**/*.{md,mkdn,mdown,markdown}\"],\n            processor: \"markdown/markdown\"\n        },\n        {\n            files: [\"**/*.{md,mkdn,mdown,markdown}/*.{js,javascript,jsx,node}\"]\n            // ...\n        }\n    ]\n};\n```\n\n### Running\n\n#### ESLint v7\n\nYou can run ESLint as usual and do not need to use the `--ext` option.\nESLint v7 [automatically lints file extensions specified in `overrides[].files` patterns in config files](https://github.com/eslint/rfcs/blob/0253e3a95511c65d622eaa387eb73f824249b467/designs/2019-additional-lint-targets/README.md).\n\n#### ESLint v6\n\nUse the [`--ext` option](https://eslint.org/docs/user-guide/command-line-interface#ext) to include `.js` and `.md` extensions in ESLint's file search:\n\n```sh\neslint --ext js,md .\n```\n\n### Autofixing\n\nWith this plugin, [ESLint's `--fix` option](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some issues in your Markdown fenced code blocks.\nTo enable this, pass the `--fix` flag when you run ESLint:\n\n```bash\neslint --fix .\n```\n\n## What Gets Linted?\n\nWith this plugin, ESLint will lint [fenced code blocks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks) in your Markdown documents:\n\n````markdown\n```js\n// This gets linted\nvar answer = 6 * 7;\nconsole.log(answer);\n```\n\nHere is some regular Markdown text that will be ignored.\n\n```js\n// This also gets linted\n\n/* eslint quotes: [2, \"double\"] */\n\nfunction hello() {\n    console.log(\"Hello, world!\");\n}\nhello();\n```\n\n```jsx\n// This can be linted too if you add `.jsx` files to `overrides` in ESLint v7\n// or pass `--ext jsx` in ESLint v6.\nvar div = <div className=\"jsx\"></div>;\n```\n````\n\nBlocks that don't specify a syntax are ignored:\n\n````markdown\n```\nThis is plain text and doesn't get linted.\n```\n````\n\nUnless a fenced code block's syntax appears as a file extension in `overrides[].files` in ESLint v7, it will be ignored.\nIf using ESLint v6, you must also include the extension with the `--ext` option.\n\n````markdown\n```python\nprint(\"This doesn't get linted either.\")\n```\n````\n\n## Configuration Comments\n\nThe processor will convert HTML comments immediately preceding a code block into JavaScript block comments and insert them at the beginning of the source code that it passes to ESLint.\nThis permits configuring ESLint via configuration comments while keeping the configuration comments themselves hidden when the markdown is rendered.\nComment bodies are passed through unmodified, so the plugin supports any [configuration comments](http://eslint.org/docs/user-guide/configuring) supported by ESLint itself.\n\nThis example enables the `browser` environment, disables the `no-alert` rule, and configures the `quotes` rule to prefer single quotes:\n\n````markdown\n<!-- eslint-env browser -->\n<!-- eslint-disable no-alert -->\n<!-- eslint quotes: [\"error\", \"single\"] -->\n\n```js\nalert('Hello, world!');\n```\n````\n\nEach code block in a file is linted separately, so configuration comments apply only to the code block that immediately follows.\n\n````markdown\nAssuming `no-alert` is enabled in `.eslintrc`, the first code block will have no error from `no-alert`:\n\n<!-- eslint-env browser -->\n<!-- eslint-disable no-alert -->\n\n```js\nalert(\"Hello, world!\");\n```\n\nBut the next code block will have an error from `no-alert`:\n\n<!-- eslint-env browser -->\n\n```js\nalert(\"Hello, world!\");\n```\n````\n\n### Skipping Blocks\n\nSometimes it can be useful to have code blocks marked with `js` even though they don't contain valid JavaScript syntax, such as commented JSON blobs that need `js` syntax highlighting.\nStandard `eslint-disable` comments only silence rule reporting, but ESLint still reports any syntax errors it finds.\nIn cases where a code block should not even be parsed, insert a non-standard `<!-- eslint-skip -->` comment before the block, and this plugin will hide the following block from ESLint.\nNeither rule nor syntax errors will be reported.\n\n````markdown\nThere are comments in this JSON, so we use `js` syntax for better\nhighlighting. Skip the block to prevent warnings about invalid syntax.\n\n<!-- eslint-skip -->\n\n```js\n{\n    // This code block is hidden from ESLint.\n    \"hello\": \"world\"\n}\n```\n\n```js\nconsole.log(\"This code block is linted normally.\");\n```\n````\n\n## Unsatisfiable Rules\n\nSince code blocks are not files themselves but embedded inside a Markdown document, some rules do not apply to Markdown code blocks, and messages from these rules are automatically suppressed:\n\n- `eol-last`\n- `unicode-bom`\n\n### Project or directory-wide overrides for code snippets\n\nGiven that code snippets often lack full context, and adding full context through configuration comments may be too cumbersome to apply for each snippet, one may wish to instead set defaults for all one's JavaScript snippets in a manner that applies to all Markdown files within your project (or a specific directory).\n\nESLint allows a configuration property `overrides` which has a `files` property which accepts a [glob pattern](https://eslint.org/docs/user-guide/configuring#configuration-based-on-glob-patterns), allowing you to designate files (such as all `md` files) whose rules will be overridden.\n\nThe following example shows the disabling of a few commonly problematic rules for code snippets.\nIt also points to the fact that some rules (e.g., `padded-blocks`) may be more appealing for disabling given that one may wish for documentation to be more liberal in providing padding for readability.\n\n```js\n// .eslintrc.js\nmodule.exports = {\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            files: [\"**/*.md\"],\n            processor: \"markdown/markdown\"\n        },\n        {\n            files: [\"**/*.md/*.js\"],\n            rules: {\n                \"no-undef\": \"off\",\n                \"no-unused-vars\": \"off\",\n                \"no-console\": \"off\",\n                \"padded-blocks\": \"off\"\n            }\n        }\n    ]\n};\n```\n\n### Overriding `strict`\n\nThe `strict` rule is technically satisfiable inside of Markdown code blocks, but writing a `\"use strict\"` directive at the top of every code block is tedious and distracting.\nWe recommend a glob pattern for `.md` files containing `.js` blocks to disable `strict` and enable the `impliedStrict` [parser option](https://eslint.org/docs/user-guide/configuring#specifying-parser-options) so the code blocks still parse in strict mode:\n\n```js\n// .eslintrc.js\nmodule.exports = {\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            files: [\"**/*.md\"],\n            processor: \"markdown/markdown\"\n        },\n        {\n            files: [\"**/*.md/*.js\"],\n            parserOptions: {\n                ecmaFeatures: {\n                    impliedStrict: true\n                }\n            }\n        }\n    ]\n};\n```\n\n## Editor Integrations\n\n### VSCode\n\n[`vscode-eslint`](https://github.com/microsoft/vscode-eslint) has built-in support for the Markdown processor.\n\n### Atom\n\nThe [`linter-eslint`](https://atom.io/packages/linter-eslint) package allows for linting within the [Atom IDE](https://atom.io/).\n\nIn order to see `eslint-plugin-markdown` work its magic within Markdown code blocks in your Atom editor, you can go to `linter-eslint`'s settings and within \"List of scopes to run ESLint on...\", add the cursor scope \"source.gfm\".\n\nHowever, this reports a problem when viewing Markdown which does not have configuration, so you may wish to use the cursor scope \"source.embedded.js\", but note that `eslint-plugin-markdown` configuration comments and skip directives won't work in this context.\n\n## Contributing\n\n```sh\n$ git clone https://github.com/eslint/eslint-plugin-markdown.git\n$ cd eslint-plugin-markdown\n$ npm install\n$ npm test\n```\n\nThis project follows the [ESLint contribution guidelines](http://eslint.org/docs/developer-guide/contributing/).\n",
+      "readmeFilename": "README.md",
+      "gitHead": "2bc93523e006b482a4c57a251c221e7b8711b66b",
+      "_id": "eslint-plugin-markdown@2.0.0-alpha.0",
+      "_nodeVersion": "12.16.1",
+      "_npmVersion": "6.14.4",
+      "dist": {
+        "integrity": "sha512-NIp6WBiGDRWkGuuG1s5biJ55s4E+B5wbfrIlf3m8cLeTFD2ijkxrP1l3LXx0BexnL7XL2Hz5Ce1e2nOazdaTHg==",
+        "shasum": "4316c3dc32e37cefbae6cd6b6676344a2982e5e8",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-2.0.0-alpha.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 34254,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJek3khCRA9TVsSAnZWagAAjbkP/R+Uyjb2GBZR0UGKrQr+\nORkXVVDKSDlW1LauKy0+CIpOUnp8sVX14RGHwlSybLaP0t8ftRZsC/CPiyMd\nm0wrx4vvgvT8bQtQ7lb+jersit2Ty1v86er5YmigJCnWiaTsHqm4aaZWdvqv\nYVMo7Z0cYW9wFpdHvChU8AEgyZObkCnS7bJj2X4xWkLG+1pMnkMffmt7zVB5\naO7sn/bVy14wbote+/WUzuna/BOvMJVMzMVznb6XHorXGjz4LM2/WM55pl8i\n3PUXdRQNVGw5dMntBhGawmZMSjnHflO0GUgFeKXAjRj7ATBl6bOp66r6Uj4E\ngMoShgZpyAGKx9ggp0t0Sb9IwKCvU/4vjMje+3Z/FGSLCDXVhPOOscIzM4tt\noM7lDlQfLf49VNYMZ5bp67K1ldBCsSeEVFcxLihomYZplngkEvEEH94XNr6w\n0R56FnkMdLVRKO4Asc4ncY14XL+A6a/v7WxFWhengyJNo5X6wbydc5XgsRSf\nZ9Vv2HYrqPvnstcdH/BlFNWmHZupnJvYSU0ybFRjD8DuWBk8mk4DK2VyyQPy\nBM2ZvHN504Y8jM/jLUeBkaQuz6IdFn0qDRMOAm7uM2tj4eG0sPCQahPOXRAd\ntm9LQE+exW/JwNDpIOI1GyTKy4JE0j8o2xgEiF1LinMHfy7CJIg7cWAhritg\nAkJ9\r\n=ey3t\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICe0K5Er2j42WADrTq1V8nDaCJkIydB00tVIPx9og/crAiByH2QhGR5cLT5ra6XSu5+WNu8RtiYEtNf14nT3kGCfLQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "mills.brandont@gmail.com",
+          "name": "btmills"
+        },
+        {
+          "email": "nicholas+eslint@nczconsulting.com",
+          "name": "eslintbot"
+        },
+        {
+          "email": "kai@kaicataldo.com",
+          "name": "kaicataldo"
+        },
+        {
+          "email": "nicholas@nczconsulting.com",
+          "name": "nzakas"
+        }
+      ],
+      "_npmUser": {
+        "name": "eslintbot",
+        "email": "nicholas+eslint@nczconsulting.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/eslint-plugin-markdown_2.0.0-alpha.0_1586723105475_0.8644973265448375"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0-rc.0": {
+      "name": "eslint-plugin-markdown",
+      "version": "2.0.0-rc.0",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "install-examples": "for example in examples/*; do (cd \"$example\" && npm install); done",
+        "lint": "eslint --ext js,md .",
+        "test": "npm run lint && npm run test-cov",
+        "test-cov": "nyc _mocha -- -c tests/{examples,lib}/**/*.js",
+        "generate-release": "npm run install-examples && eslint-generate-release",
+        "generate-alpharelease": "npm run install-examples && eslint-generate-prerelease alpha",
+        "generate-betarelease": "npm run install-examples && eslint-generate-prerelease beta",
+        "generate-rcrelease": "npm run install-examples && eslint-generate-prerelease rc",
+        "publish-release": "eslint-publish-release"
+      },
+      "main": "index.js",
+      "devDependencies": {
+        "chai": "^4.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-eslint": "^6.0.0",
+        "eslint-plugin-jsdoc": "^15.9.5",
+        "eslint-plugin-node": "^9.0.0",
+        "eslint-release": "^1.2.0",
+        "mocha": "^6.2.2",
+        "nyc": "^14.1.1"
+      },
+      "dependencies": {
+        "remark-parse": "^5.0.0",
+        "unified": "^6.1.2"
+      },
+      "peerDependencies": {
+        "eslint": ">=6.0.0"
+      },
+      "engines": {
+        "node": "^8.10.0 || ^10.12.0 || >= 12.0.0"
+      },
+      "readme": "# eslint-plugin-markdown\n\n[![npm Version](https://img.shields.io/npm/v/eslint-plugin-markdown.svg)](https://www.npmjs.com/package/eslint-plugin-markdown)\n[![Build Status](https://img.shields.io/github/workflow/status/eslint/eslint-plugin-markdown/CI/master.svg)](https://github.com/eslint/eslint-plugin-markdown/actions)\n\nLint JS, JSX, TypeScript, and more inside Markdown.\n\n<img\n    src=\"screenshot.png\"\n    height=\"142\"\n    width=\"432\"\n    alt=\"A JS code snippet in a Markdown editor has red squiggly underlines. A tooltip explains the problem.\"\n/>\n\n> 🚧 This documentation is for an unfinished v2 release in progress in the `master` branch. The latest stable documentation is in the [`v1` branch](https://github.com/eslint/eslint-plugin-markdown/tree/v1).\n\n## Usage\n\n### Installing\n\nInstall the plugin alongside ESLint v6 or greater:\n\n```sh\nnpm install --save-dev eslint eslint-plugin-markdown@next\n```\n\n### Configuring\n\nExtending the `plugin:markdown/recommended` config will enable the Markdown processor on all `.md` files:\n\n```js\n// .eslintrc.js\nmodule.exports = {\n    extends: \"plugin:markdown/recommended\"\n};\n```\n\n#### Advanced Configuration\n\nAdd the plugin to your `.eslintrc` and use the `processor` option in an `overrides` entry to enable the plugin's `markdown/markdown` processor on Markdown files.\nEach fenced code block inside a Markdown document has a virtual filename appended to the Markdown file's path.\nThe virtual filename's extension will match the fenced code block's syntax tag, so for example, <code>```js</code> code blocks in <code>README.md</code> would match <code>README.md/*.js</code>.\n[`overrides` glob patterns](https://eslint.org/docs/user-guide/configuring#configuration-based-on-glob-patterns) for these virtual filenames can customize configuration for code blocks without affecting regular code.\nFor more information on configuring processors, refer to the [ESLint documentation](https://eslint.org/docs/user-guide/configuring#specifying-processor).\n\n```js\n// .eslintrc.js\nmodule.exports = {\n    // 1. Add the plugin.\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            // 2. Enable the Markdown processor for all .md files.\n            files: [\"**/*.md\"],\n            processor: \"markdown/markdown\"\n        },\n        {\n            // 3. Optionally, customize the configuration ESLint uses for ```js\n            // fenced code blocks inside .md files.\n            files: [\"**/*.md/*.js\"],\n            // ...\n            rules: {\n                // ...\n            }\n        }\n    ]\n};\n```\n\n#### Frequently-Disabled Rules\n\nSome rules that catch mistakes in regular code are less helpful in documentation.\nFor example, `no-undef` would flag variables that are declared outside of a code snippet because they aren't relevant to the example.\nThe `plugin:markdown/recommended` config disables these rules in Markdown files:\n\n- [`no-undef`](https://eslint.org/docs/rules/no-undef)\n- [`no-unused-expressions`](https://eslint.org/docs/rules/no-unused-expressions)\n- [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars)\n- [`padded-blocks`](https://eslint.org/docs/rules/padded-blocks)\n\nUse [`overrides` glob patterns](https://eslint.org/docs/user-guide/configuring#configuration-based-on-glob-patterns) to disable more rules just for Markdown code blocks:\n\n```js\nmodule.exports = {\n    // ...\n    overrides: [\n        // ...\n        {\n            // 1. Target ```js code blocks in .md files.\n            files: [\"**/*.md/*.js\"],\n            rules: {\n                // 2. Disable other rules.\n                \"no-console\": \"off\",\n                \"import/no-unresolved\": \"off\"\n            }\n        }\n    ]\n};\n```\n\n#### Strict Mode\n\n`\"use strict\"` directives in every code block would be annoying.\nThe `plugin:markdown/recommended` config enables the [`impliedStrict` parser option](https://eslint.org/docs/user-guide/configuring#specifying-parser-options) and disables the [`strict` rule](https://eslint.org/docs/rules/strict) in Markdown files.\nThis opts into strict mode parsing without repeated `\"use strict\"` directives.\n\n#### Unsatisfiable Rules\n\nMarkdown code blocks are not real files, so ESLint's file-format rules do not apply.\nThe `plugin:markdown/recommended` config disables these rules in Markdown files:\n\n- [`eol-last`](https://eslint.org/docs/rules/eol-last): The Markdown parser trims trailing newlines from code blocks.\n- [`unicode-bom`](https://eslint.org/docs/rules/unicode-bom): Markdown code blocks do not have Unicode Byte Order Marks.\n\n#### Migrating from `eslint-plugin-markdown` v1\n\n`eslint-plugin-markdown` v1 used an older version of ESLint's processor API.\nThe Markdown processor automatically ran on `.md`, `.mkdn`, `.mdown`, and `.markdown` files, and it only extracted fenced code blocks marked with `js`, `javascript`, `jsx`, or `node` syntax.\nConfiguration specifically for fenced code blocks went inside an `overrides` entry with a `files` pattern matching the containing Markdown document's filename that applied to all fenced code blocks inside the file.\n\n```js\n// .eslintrc.js for eslint-plugin-markdown v1\nmodule.exports = {\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            files: [\"**/*.md\"],\n            // In v1, configuration for fenced code blocks went inside an\n            // `overrides` entry with a .md pattern, for example:\n            parserOptions: {\n                ecmaFeatures: {\n                    impliedStrict: true\n                }\n            },\n            rules: {\n                \"no-console\": \"off\"\n            }\n        }\n    ]\n};\n```\n\n[RFC3](https://github.com/eslint/rfcs/blob/master/designs/2018-processors-improvements/README.md) designed a new processor API to remove these limitations, and the new API was [implemented](https://github.com/eslint/eslint/pull/11552) as part of ESLint v6.\n`eslint-plugin-markdown` v2 uses this new API.\n\n```bash\n$ npm install --save-dev eslint@latest eslint-plugin-markdown@next\n```\n\nAll of the Markdown file extensions that were previously hard-coded are now fully configurable in `.eslintrc.js`.\nUse the new `processor` option to apply the `markdown/markdown` processor on any Markdown documents matching a `files` pattern.\nEach fenced code block inside a Markdown document has a virtual filename appended to the Markdown file's path.\nThe virtual filename's extension will match the fenced code block's syntax tag, so for example, <code>```js</code> code blocks in <code>README.md</code> would match <code>README.md/*.js</code>.\n\n```js\n// eslintrc.js for eslint-plugin-markdown v2\nmodule.exports = {\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            // In v2, explicitly apply eslint-plugin-markdown's `markdown`\n            // processor on any Markdown files you want to lint.\n            files: [\"**/*.md\"],\n            processor: \"markdown/markdown\"\n        },\n        {\n            // In v2, configuration for fenced code blocks is separate from the\n            // containing Markdown file. Each code block has a virtual filename\n            // appended to the Markdown file's path.\n            files: [\"**/*.md/*.js\"],\n            // Configuration for fenced code blocks goes with the override for\n            // the code block's virtual filename, for example:\n            parserOptions: {\n                ecmaFeatures: {\n                    impliedStrict: true\n                }\n            },\n            rules: {\n                \"no-console\": \"off\"\n            }\n        }\n    ]\n};\n```\n\nIf you need to precisely mimic the behavior of v1 with the hard-coded Markdown extensions and fenced code block syntaxes, you can use those as glob patterns in `overrides[].files`:\n\n```js\n// eslintrc.js for v2 mimicking v1 behavior\nmodule.exports = {\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            files: [\"**/*.{md,mkdn,mdown,markdown}\"],\n            processor: \"markdown/markdown\"\n        },\n        {\n            files: [\"**/*.{md,mkdn,mdown,markdown}/*.{js,javascript,jsx,node}\"]\n            // ...\n        }\n    ]\n};\n```\n\n### Running\n\n#### ESLint v7\n\nYou can run ESLint as usual and do not need to use the `--ext` option.\nESLint v7 [automatically lints file extensions specified in `overrides[].files` patterns in config files](https://github.com/eslint/rfcs/blob/0253e3a95511c65d622eaa387eb73f824249b467/designs/2019-additional-lint-targets/README.md).\n\n#### ESLint v6\n\nUse the [`--ext` option](https://eslint.org/docs/user-guide/command-line-interface#ext) to include `.js` and `.md` extensions in ESLint's file search:\n\n```sh\neslint --ext js,md .\n```\n\n### Autofixing\n\nWith this plugin, [ESLint's `--fix` option](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some issues in your Markdown fenced code blocks.\nTo enable this, pass the `--fix` flag when you run ESLint:\n\n```bash\neslint --fix .\n```\n\n## What Gets Linted?\n\nWith this plugin, ESLint will lint [fenced code blocks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks) in your Markdown documents:\n\n````markdown\n```js\n// This gets linted\nvar answer = 6 * 7;\nconsole.log(answer);\n```\n\nHere is some regular Markdown text that will be ignored.\n\n```js\n// This also gets linted\n\n/* eslint quotes: [2, \"double\"] */\n\nfunction hello() {\n    console.log(\"Hello, world!\");\n}\nhello();\n```\n\n```jsx\n// This can be linted too if you add `.jsx` files to `overrides` in ESLint v7\n// or pass `--ext jsx` in ESLint v6.\nvar div = <div className=\"jsx\"></div>;\n```\n````\n\nBlocks that don't specify a syntax are ignored:\n\n````markdown\n```\nThis is plain text and doesn't get linted.\n```\n````\n\nUnless a fenced code block's syntax appears as a file extension in `overrides[].files` in ESLint v7, it will be ignored.\nIf using ESLint v6, you must also include the extension with the `--ext` option.\n\n````markdown\n```python\nprint(\"This doesn't get linted either.\")\n```\n````\n\n## Configuration Comments\n\nThe processor will convert HTML comments immediately preceding a code block into JavaScript block comments and insert them at the beginning of the source code that it passes to ESLint.\nThis permits configuring ESLint via configuration comments while keeping the configuration comments themselves hidden when the markdown is rendered.\nComment bodies are passed through unmodified, so the plugin supports any [configuration comments](http://eslint.org/docs/user-guide/configuring) supported by ESLint itself.\n\nThis example enables the `browser` environment, disables the `no-alert` rule, and configures the `quotes` rule to prefer single quotes:\n\n````markdown\n<!-- eslint-env browser -->\n<!-- eslint-disable no-alert -->\n<!-- eslint quotes: [\"error\", \"single\"] -->\n\n```js\nalert('Hello, world!');\n```\n````\n\nEach code block in a file is linted separately, so configuration comments apply only to the code block that immediately follows.\n\n````markdown\nAssuming `no-alert` is enabled in `.eslintrc`, the first code block will have no error from `no-alert`:\n\n<!-- eslint-env browser -->\n<!-- eslint-disable no-alert -->\n\n```js\nalert(\"Hello, world!\");\n```\n\nBut the next code block will have an error from `no-alert`:\n\n<!-- eslint-env browser -->\n\n```js\nalert(\"Hello, world!\");\n```\n````\n\n### Skipping Blocks\n\nSometimes it can be useful to have code blocks marked with `js` even though they don't contain valid JavaScript syntax, such as commented JSON blobs that need `js` syntax highlighting.\nStandard `eslint-disable` comments only silence rule reporting, but ESLint still reports any syntax errors it finds.\nIn cases where a code block should not even be parsed, insert a non-standard `<!-- eslint-skip -->` comment before the block, and this plugin will hide the following block from ESLint.\nNeither rule nor syntax errors will be reported.\n\n````markdown\nThere are comments in this JSON, so we use `js` syntax for better\nhighlighting. Skip the block to prevent warnings about invalid syntax.\n\n<!-- eslint-skip -->\n\n```js\n{\n    // This code block is hidden from ESLint.\n    \"hello\": \"world\"\n}\n```\n\n```js\nconsole.log(\"This code block is linted normally.\");\n```\n````\n\n## Editor Integrations\n\n### VSCode\n\n[`vscode-eslint`](https://github.com/microsoft/vscode-eslint) has built-in support for the Markdown processor.\n\n### Atom\n\nThe [`linter-eslint`](https://atom.io/packages/linter-eslint) package allows for linting within the [Atom IDE](https://atom.io/).\n\nIn order to see `eslint-plugin-markdown` work its magic within Markdown code blocks in your Atom editor, you can go to `linter-eslint`'s settings and within \"List of scopes to run ESLint on...\", add the cursor scope \"source.gfm\".\n\nHowever, this reports a problem when viewing Markdown which does not have configuration, so you may wish to use the cursor scope \"source.embedded.js\", but note that `eslint-plugin-markdown` configuration comments and skip directives won't work in this context.\n\n## Contributing\n\n```sh\n$ git clone https://github.com/eslint/eslint-plugin-markdown.git\n$ cd eslint-plugin-markdown\n$ npm install\n$ npm test\n```\n\nThis project follows the [ESLint contribution guidelines](http://eslint.org/docs/developer-guide/contributing/).\n",
+      "readmeFilename": "README.md",
+      "gitHead": "2749b4deb8a8f8015721ecb5eb49bec8de2042c4",
+      "_id": "eslint-plugin-markdown@2.0.0-rc.0",
+      "_nodeVersion": "12.18.3",
+      "_npmVersion": "6.14.6",
+      "dist": {
+        "integrity": "sha512-B63Jk8TmHLEhRBtSl5U5w9wi+bPuPLuz+UsFmI6BOelpugOVD8mgGfq4D7isXkR1If1uerqPCNqlaWrMNyioQQ==",
+        "shasum": "5068eeea783ba2702a61483b7893f1cfe9357209",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-2.0.0-rc.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 37440,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfPfTCCRA9TVsSAnZWagAAXeUP/2vZZX2sMHJO0+tfpMdF\nIxK2M9CvP3aMT0DFRPFFLvexX3jaC+QaXfywGCIQ9TlOVqbdnAMT5zLwoVX0\nPrj64SRYL0PgGg+/dsxwTjwxULSFQWI3QyzpENuBEPr63nwT74RrFsGryC3V\nIEewlyYuHtEPWGt7bdNLeQYeat210TrHdZ9v5dJg0yoBCV0yYBdwVTaFM2S4\n75oBGcK29l2lCb1xLgXmNTRxgVenit8tU8Ttn+mL4VJepguoOZBuvwaPkXAZ\nemy4NHoXVyTSaw4zB33DaAG0uHWvMZhF53zwKMtn9LQpfomtpRk6Aogq57QU\nCxUpLfhpzzFtjprfbzq/vgRsGbKYx830oUtfL0XfimcXHEWQhZT8lxU4hQGq\njEOOc9OICjeU3N6Xih0lFu8zjRZD8GUaSkXTiiuOmek5Qy/Xsn2A73Ozi5nz\nYpPWtU7/1QutVsCA4teWWeoSiJ4kvfxiRQSmro3cIw/4z54GTEAWNzr53BBY\n+YOLDZvSbeE5iDb9+3RYWzMpmavQSpWTbcaCVB8+weeDYR6OC3UMWRbhwU5U\n4ByXcvasaPfou3l4pCtR+RPgbohXLYCQ9hi5OqtUKYvu7zwwtqangIjjI9C0\nD4xv0TCDG9MufkO1MK9dM8I7DCJDSBVVji8FfeEsKAc1KbIPQClZl+a2y4f5\nMun3\r\n=AYJf\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEu3q2QSA/omramUVVhcJb+sgGvlhnUdcKFQtTbIwFXdAiEAyxY5Knsd1DG0E9pprh0Oekb+WQkcd02b86xbMGbMkgw="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "mills.brandont@gmail.com",
+          "name": "btmills"
+        },
+        {
+          "email": "nicholas+eslint@nczconsulting.com",
+          "name": "eslintbot"
+        },
+        {
+          "email": "nicholas@nczconsulting.com",
+          "name": "nzakas"
+        }
+      ],
+      "_npmUser": {
+        "name": "eslintbot",
+        "email": "nicholas+eslint@nczconsulting.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/eslint-plugin-markdown_2.0.0-rc.0_1597895873775_0.8543803868537814"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0-rc.1": {
+      "name": "eslint-plugin-markdown",
+      "version": "2.0.0-rc.1",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "lint": "eslint --ext js,md .",
+        "prepare": "node ./npm-prepare.js",
+        "test": "npm run lint && npm run test-cov",
+        "test-cov": "nyc _mocha -- -c tests/{examples,lib}/**/*.js",
+        "generate-release": "eslint-generate-release",
+        "generate-alpharelease": "eslint-generate-prerelease alpha",
+        "generate-betarelease": "eslint-generate-prerelease beta",
+        "generate-rcrelease": "eslint-generate-prerelease rc",
+        "publish-release": "eslint-publish-release"
+      },
+      "main": "index.js",
+      "devDependencies": {
+        "chai": "^4.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-eslint": "^6.0.0",
+        "eslint-plugin-jsdoc": "^15.9.5",
+        "eslint-plugin-node": "^9.0.0",
+        "eslint-release": "^3.1.2",
+        "mocha": "^6.2.2",
+        "nyc": "^14.1.1"
+      },
+      "dependencies": {
+        "remark-parse": "^5.0.0",
+        "unified": "^6.1.2"
+      },
+      "peerDependencies": {
+        "eslint": ">=6.0.0"
+      },
+      "engines": {
+        "node": "^8.10.0 || ^10.12.0 || >= 12.0.0"
+      },
+      "readme": "# eslint-plugin-markdown\n\n[![npm Version](https://img.shields.io/npm/v/eslint-plugin-markdown.svg)](https://www.npmjs.com/package/eslint-plugin-markdown)\n[![Build Status](https://img.shields.io/github/workflow/status/eslint/eslint-plugin-markdown/CI/main.svg)](https://github.com/eslint/eslint-plugin-markdown/actions)\n\nLint JS, JSX, TypeScript, and more inside Markdown.\n\n<img\n    src=\"screenshot.png\"\n    height=\"142\"\n    width=\"432\"\n    alt=\"A JS code snippet in a Markdown editor has red squiggly underlines. A tooltip explains the problem.\"\n/>\n\n> 🚧 This documentation is for an unfinished v2 release in progress in the `main` branch. The latest stable documentation is in the [`v1` branch](https://github.com/eslint/eslint-plugin-markdown/tree/v1).\n\n## Usage\n\n### Installing\n\nInstall the plugin alongside ESLint v6 or greater:\n\n```sh\nnpm install --save-dev eslint eslint-plugin-markdown@next\n```\n\n### Configuring\n\nExtending the `plugin:markdown/recommended` config will enable the Markdown processor on all `.md` files:\n\n```js\n// .eslintrc.js\nmodule.exports = {\n    extends: \"plugin:markdown/recommended\"\n};\n```\n\n#### Advanced Configuration\n\nAdd the plugin to your `.eslintrc` and use the `processor` option in an `overrides` entry to enable the plugin's `markdown/markdown` processor on Markdown files.\nEach fenced code block inside a Markdown document has a virtual filename appended to the Markdown file's path.\nThe virtual filename's extension will match the fenced code block's syntax tag, so for example, <code>```js</code> code blocks in <code>README.md</code> would match <code>README.md/*.js</code>.\n[`overrides` glob patterns](https://eslint.org/docs/user-guide/configuring#configuration-based-on-glob-patterns) for these virtual filenames can customize configuration for code blocks without affecting regular code.\nFor more information on configuring processors, refer to the [ESLint documentation](https://eslint.org/docs/user-guide/configuring#specifying-processor).\n\n```js\n// .eslintrc.js\nmodule.exports = {\n    // 1. Add the plugin.\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            // 2. Enable the Markdown processor for all .md files.\n            files: [\"**/*.md\"],\n            processor: \"markdown/markdown\"\n        },\n        {\n            // 3. Optionally, customize the configuration ESLint uses for ```js\n            // fenced code blocks inside .md files.\n            files: [\"**/*.md/*.js\"],\n            // ...\n            rules: {\n                // ...\n            }\n        }\n    ]\n};\n```\n\n#### Frequently-Disabled Rules\n\nSome rules that catch mistakes in regular code are less helpful in documentation.\nFor example, `no-undef` would flag variables that are declared outside of a code snippet because they aren't relevant to the example.\nThe `plugin:markdown/recommended` config disables these rules in Markdown files:\n\n- [`no-undef`](https://eslint.org/docs/rules/no-undef)\n- [`no-unused-expressions`](https://eslint.org/docs/rules/no-unused-expressions)\n- [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars)\n- [`padded-blocks`](https://eslint.org/docs/rules/padded-blocks)\n\nUse [`overrides` glob patterns](https://eslint.org/docs/user-guide/configuring#configuration-based-on-glob-patterns) to disable more rules just for Markdown code blocks:\n\n```js\nmodule.exports = {\n    // ...\n    overrides: [\n        // ...\n        {\n            // 1. Target ```js code blocks in .md files.\n            files: [\"**/*.md/*.js\"],\n            rules: {\n                // 2. Disable other rules.\n                \"no-console\": \"off\",\n                \"import/no-unresolved\": \"off\"\n            }\n        }\n    ]\n};\n```\n\n#### Strict Mode\n\n`\"use strict\"` directives in every code block would be annoying.\nThe `plugin:markdown/recommended` config enables the [`impliedStrict` parser option](https://eslint.org/docs/user-guide/configuring#specifying-parser-options) and disables the [`strict` rule](https://eslint.org/docs/rules/strict) in Markdown files.\nThis opts into strict mode parsing without repeated `\"use strict\"` directives.\n\n#### Unsatisfiable Rules\n\nMarkdown code blocks are not real files, so ESLint's file-format rules do not apply.\nThe `plugin:markdown/recommended` config disables these rules in Markdown files:\n\n- [`eol-last`](https://eslint.org/docs/rules/eol-last): The Markdown parser trims trailing newlines from code blocks.\n- [`unicode-bom`](https://eslint.org/docs/rules/unicode-bom): Markdown code blocks do not have Unicode Byte Order Marks.\n\n#### Migrating from `eslint-plugin-markdown` v1\n\n`eslint-plugin-markdown` v1 used an older version of ESLint's processor API.\nThe Markdown processor automatically ran on `.md`, `.mkdn`, `.mdown`, and `.markdown` files, and it only extracted fenced code blocks marked with `js`, `javascript`, `jsx`, or `node` syntax.\nConfiguration specifically for fenced code blocks went inside an `overrides` entry with a `files` pattern matching the containing Markdown document's filename that applied to all fenced code blocks inside the file.\n\n```js\n// .eslintrc.js for eslint-plugin-markdown v1\nmodule.exports = {\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            files: [\"**/*.md\"],\n            // In v1, configuration for fenced code blocks went inside an\n            // `overrides` entry with a .md pattern, for example:\n            parserOptions: {\n                ecmaFeatures: {\n                    impliedStrict: true\n                }\n            },\n            rules: {\n                \"no-console\": \"off\"\n            }\n        }\n    ]\n};\n```\n\n[RFC3](https://github.com/eslint/rfcs/blob/master/designs/2018-processors-improvements/README.md) designed a new processor API to remove these limitations, and the new API was [implemented](https://github.com/eslint/eslint/pull/11552) as part of ESLint v6.\n`eslint-plugin-markdown` v2 uses this new API.\n\n```bash\n$ npm install --save-dev eslint@latest eslint-plugin-markdown@next\n```\n\nAll of the Markdown file extensions that were previously hard-coded are now fully configurable in `.eslintrc.js`.\nUse the new `processor` option to apply the `markdown/markdown` processor on any Markdown documents matching a `files` pattern.\nEach fenced code block inside a Markdown document has a virtual filename appended to the Markdown file's path.\nThe virtual filename's extension will match the fenced code block's syntax tag, so for example, <code>```js</code> code blocks in <code>README.md</code> would match <code>README.md/*.js</code>.\n\n```js\n// eslintrc.js for eslint-plugin-markdown v2\nmodule.exports = {\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            // In v2, explicitly apply eslint-plugin-markdown's `markdown`\n            // processor on any Markdown files you want to lint.\n            files: [\"**/*.md\"],\n            processor: \"markdown/markdown\"\n        },\n        {\n            // In v2, configuration for fenced code blocks is separate from the\n            // containing Markdown file. Each code block has a virtual filename\n            // appended to the Markdown file's path.\n            files: [\"**/*.md/*.js\"],\n            // Configuration for fenced code blocks goes with the override for\n            // the code block's virtual filename, for example:\n            parserOptions: {\n                ecmaFeatures: {\n                    impliedStrict: true\n                }\n            },\n            rules: {\n                \"no-console\": \"off\"\n            }\n        }\n    ]\n};\n```\n\nIf you need to precisely mimic the behavior of v1 with the hard-coded Markdown extensions and fenced code block syntaxes, you can use those as glob patterns in `overrides[].files`:\n\n```js\n// eslintrc.js for v2 mimicking v1 behavior\nmodule.exports = {\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            files: [\"**/*.{md,mkdn,mdown,markdown}\"],\n            processor: \"markdown/markdown\"\n        },\n        {\n            files: [\"**/*.{md,mkdn,mdown,markdown}/*.{js,javascript,jsx,node}\"]\n            // ...\n        }\n    ]\n};\n```\n\n### Running\n\n#### ESLint v7\n\nYou can run ESLint as usual and do not need to use the `--ext` option.\nESLint v7 [automatically lints file extensions specified in `overrides[].files` patterns in config files](https://github.com/eslint/rfcs/blob/0253e3a95511c65d622eaa387eb73f824249b467/designs/2019-additional-lint-targets/README.md).\n\n#### ESLint v6\n\nUse the [`--ext` option](https://eslint.org/docs/user-guide/command-line-interface#ext) to include `.js` and `.md` extensions in ESLint's file search:\n\n```sh\neslint --ext js,md .\n```\n\n### Autofixing\n\nWith this plugin, [ESLint's `--fix` option](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some issues in your Markdown fenced code blocks.\nTo enable this, pass the `--fix` flag when you run ESLint:\n\n```bash\neslint --fix .\n```\n\n## What Gets Linted?\n\nWith this plugin, ESLint will lint [fenced code blocks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks) in your Markdown documents:\n\n````markdown\n```js\n// This gets linted\nvar answer = 6 * 7;\nconsole.log(answer);\n```\n\nHere is some regular Markdown text that will be ignored.\n\n```js\n// This also gets linted\n\n/* eslint quotes: [2, \"double\"] */\n\nfunction hello() {\n    console.log(\"Hello, world!\");\n}\nhello();\n```\n\n```jsx\n// This can be linted too if you add `.jsx` files to `overrides` in ESLint v7\n// or pass `--ext jsx` in ESLint v6.\nvar div = <div className=\"jsx\"></div>;\n```\n````\n\nBlocks that don't specify a syntax are ignored:\n\n````markdown\n```\nThis is plain text and doesn't get linted.\n```\n````\n\nUnless a fenced code block's syntax appears as a file extension in `overrides[].files` in ESLint v7, it will be ignored.\nIf using ESLint v6, you must also include the extension with the `--ext` option.\n\n````markdown\n```python\nprint(\"This doesn't get linted either.\")\n```\n````\n\n## Configuration Comments\n\nThe processor will convert HTML comments immediately preceding a code block into JavaScript block comments and insert them at the beginning of the source code that it passes to ESLint.\nThis permits configuring ESLint via configuration comments while keeping the configuration comments themselves hidden when the markdown is rendered.\nComment bodies are passed through unmodified, so the plugin supports any [configuration comments](http://eslint.org/docs/user-guide/configuring) supported by ESLint itself.\n\nThis example enables the `browser` environment, disables the `no-alert` rule, and configures the `quotes` rule to prefer single quotes:\n\n````markdown\n<!-- eslint-env browser -->\n<!-- eslint-disable no-alert -->\n<!-- eslint quotes: [\"error\", \"single\"] -->\n\n```js\nalert('Hello, world!');\n```\n````\n\nEach code block in a file is linted separately, so configuration comments apply only to the code block that immediately follows.\n\n````markdown\nAssuming `no-alert` is enabled in `.eslintrc`, the first code block will have no error from `no-alert`:\n\n<!-- eslint-env browser -->\n<!-- eslint-disable no-alert -->\n\n```js\nalert(\"Hello, world!\");\n```\n\nBut the next code block will have an error from `no-alert`:\n\n<!-- eslint-env browser -->\n\n```js\nalert(\"Hello, world!\");\n```\n````\n\n### Skipping Blocks\n\nSometimes it can be useful to have code blocks marked with `js` even though they don't contain valid JavaScript syntax, such as commented JSON blobs that need `js` syntax highlighting.\nStandard `eslint-disable` comments only silence rule reporting, but ESLint still reports any syntax errors it finds.\nIn cases where a code block should not even be parsed, insert a non-standard `<!-- eslint-skip -->` comment before the block, and this plugin will hide the following block from ESLint.\nNeither rule nor syntax errors will be reported.\n\n````markdown\nThere are comments in this JSON, so we use `js` syntax for better\nhighlighting. Skip the block to prevent warnings about invalid syntax.\n\n<!-- eslint-skip -->\n\n```js\n{\n    // This code block is hidden from ESLint.\n    \"hello\": \"world\"\n}\n```\n\n```js\nconsole.log(\"This code block is linted normally.\");\n```\n````\n\n## Editor Integrations\n\n### VSCode\n\n[`vscode-eslint`](https://github.com/microsoft/vscode-eslint) has built-in support for the Markdown processor.\n\n### Atom\n\nThe [`linter-eslint`](https://atom.io/packages/linter-eslint) package allows for linting within the [Atom IDE](https://atom.io/).\n\nIn order to see `eslint-plugin-markdown` work its magic within Markdown code blocks in your Atom editor, you can go to `linter-eslint`'s settings and within \"List of scopes to run ESLint on...\", add the cursor scope \"source.gfm\".\n\nHowever, this reports a problem when viewing Markdown which does not have configuration, so you may wish to use the cursor scope \"source.embedded.js\", but note that `eslint-plugin-markdown` configuration comments and skip directives won't work in this context.\n\n## Contributing\n\n```sh\n$ git clone https://github.com/eslint/eslint-plugin-markdown.git\n$ cd eslint-plugin-markdown\n$ npm install\n$ npm test\n```\n\nThis project follows the [ESLint contribution guidelines](http://eslint.org/docs/developer-guide/contributing/).\n",
+      "readmeFilename": "README.md",
+      "gitHead": "390d508607aa6a5b1668633799d8e6b34a853d26",
+      "_id": "eslint-plugin-markdown@2.0.0-rc.1",
+      "_nodeVersion": "12.19.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-nR3yM8M7v6vWn1MJ3DCrmU1A2oqRCautjSuCUwev6CiqinUSM8nDP05yeQA6SUIMnP4FjedJpTkhcyyFHkA0/A==",
+        "shasum": "14d25ba567eb3cd0022f4795274f886932a22460",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-2.0.0-rc.1.tgz",
+        "fileCount": 7,
+        "unpackedSize": 38073,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJf37hICRA9TVsSAnZWagAATOEP/j5o9kZ6MD/wYvpKZsjC\nPxe+Nj26O43oJ1CTlqVl+xKiZpNQzh5v4XQWGnQ85YA08ktRNkbdgbUswiBN\ndLClhZEyMbrdXy8m+pey22ZJdsQwbgEWWnG1z47Y4GueDJ3d0U0TIQu6OmPG\n7qIZDZ+LAQpYaSrq7kU5lYexSowxHS+STx+n+lD+EVUsHKgmXT+FAxt4Swj2\nElBuypvvd/7VuX11kBcvrMQYSRY8NxeJj/VlfBGlEe9kJvgGt9Pom5v0N4F2\nrzvo/SLnh79X3oEyDb4ocFwC3nhbZc4D2j0U3pp1nsne2El8m9/fH4tg6DwF\nt/ItojjDN8RwSJYmTxpFnmNGOpfyNEuXcVI4NhxPRJGW5ELASsa0d9EyPjSL\n/WPsU0meYzo0hWP62vWADTPRlKJFGF8eUzH8KrC/wHuwwmxA4er/ce0aZVgt\n0fPzLB0srXiGEjKFydrmPbzmvy6zddmdfgGdWcNL30/Rey2R9DcrLxCN1PMJ\nQqoYZ2ExG7Gs8fc9CMqjIYOA+X+/xZ7/WNECo9gldvSQc0p03NJYi/p8Zvz9\n+zhj+tgPaxZkiHiK0lfqamgyeHaPHTE9Jr7V1hD4FdTKyDOHZWCqYyk9yTIY\nrzetMROQ4aiS49WWAMEa2pYrj7LFK/zoaAm9j4skykMyZj8toAWqNxeUxUpJ\neABz\r\n=zY0v\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCLurcSNJ+2lyDy7j2aqa97R1lSKyahijnuz1HPteWfewIhAP8WEI2jDsO1aJ15/TdI7FUN3vIoV8yYTpO1FsUhNXah"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "eslintbot",
+        "email": "nicholas+eslint@nczconsulting.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "eslintbot",
+          "email": "nicholas+eslint@nczconsulting.com"
+        },
+        {
+          "name": "btmills",
+          "email": "mills.brandont@gmail.com"
+        },
+        {
+          "name": "nzakas",
+          "email": "nicholas@nczconsulting.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/eslint-plugin-markdown_2.0.0-rc.1_1608497224001_0.02536646694693845"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0-rc.2": {
+      "name": "eslint-plugin-markdown",
+      "version": "2.0.0-rc.2",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "lint": "eslint --ext js,md .",
+        "prepare": "node ./npm-prepare.js",
+        "test": "npm run lint && npm run test-cov",
+        "test-cov": "nyc _mocha -- -c tests/{examples,lib}/**/*.js",
+        "generate-release": "eslint-generate-release",
+        "generate-alpharelease": "eslint-generate-prerelease alpha",
+        "generate-betarelease": "eslint-generate-prerelease beta",
+        "generate-rcrelease": "eslint-generate-prerelease rc",
+        "publish-release": "eslint-publish-release"
+      },
+      "main": "index.js",
+      "devDependencies": {
+        "chai": "^4.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-eslint": "^6.0.0",
+        "eslint-plugin-jsdoc": "^15.9.5",
+        "eslint-plugin-node": "^9.0.0",
+        "eslint-release": "^3.1.2",
+        "mocha": "^6.2.2",
+        "nyc": "^14.1.1"
+      },
+      "dependencies": {
+        "remark-parse": "^5.0.0",
+        "unified": "^6.1.2"
+      },
+      "peerDependencies": {
+        "eslint": ">=6.0.0"
+      },
+      "engines": {
+        "node": "^8.10.0 || ^10.12.0 || >= 12.0.0"
+      },
+      "readme": "# eslint-plugin-markdown\n\n[![npm Version](https://img.shields.io/npm/v/eslint-plugin-markdown.svg)](https://www.npmjs.com/package/eslint-plugin-markdown)\n[![Build Status](https://img.shields.io/github/workflow/status/eslint/eslint-plugin-markdown/CI/main.svg)](https://github.com/eslint/eslint-plugin-markdown/actions)\n\nLint JS, JSX, TypeScript, and more inside Markdown.\n\n<img\n    src=\"screenshot.png\"\n    height=\"142\"\n    width=\"432\"\n    alt=\"A JS code snippet in a Markdown editor has red squiggly underlines. A tooltip explains the problem.\"\n/>\n\n> 🚧 This documentation is for an unfinished v2 release in progress in the `main` branch. The latest stable documentation is in the [`v1` branch](https://github.com/eslint/eslint-plugin-markdown/tree/v1).\n\n## Usage\n\n### Installing\n\nInstall the plugin alongside ESLint v6 or greater:\n\n```sh\nnpm install --save-dev eslint eslint-plugin-markdown@next\n```\n\n### Configuring\n\nExtending the `plugin:markdown/recommended` config will enable the Markdown processor on all `.md` files:\n\n```js\n// .eslintrc.js\nmodule.exports = {\n    extends: \"plugin:markdown/recommended\"\n};\n```\n\n#### Advanced Configuration\n\nAdd the plugin to your `.eslintrc` and use the `processor` option in an `overrides` entry to enable the plugin's `markdown/markdown` processor on Markdown files.\nEach fenced code block inside a Markdown document has a virtual filename appended to the Markdown file's path.\nThe virtual filename's extension will match the fenced code block's syntax tag, so for example, <code>```js</code> code blocks in <code>README.md</code> would match <code>README.md/*.js</code>.\n[`overrides` glob patterns](https://eslint.org/docs/user-guide/configuring#configuration-based-on-glob-patterns) for these virtual filenames can customize configuration for code blocks without affecting regular code.\nFor more information on configuring processors, refer to the [ESLint documentation](https://eslint.org/docs/user-guide/configuring#specifying-processor).\n\n```js\n// .eslintrc.js\nmodule.exports = {\n    // 1. Add the plugin.\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            // 2. Enable the Markdown processor for all .md files.\n            files: [\"**/*.md\"],\n            processor: \"markdown/markdown\"\n        },\n        {\n            // 3. Optionally, customize the configuration ESLint uses for ```js\n            // fenced code blocks inside .md files.\n            files: [\"**/*.md/*.js\"],\n            // ...\n            rules: {\n                // ...\n            }\n        }\n    ]\n};\n```\n\n#### Frequently-Disabled Rules\n\nSome rules that catch mistakes in regular code are less helpful in documentation.\nFor example, `no-undef` would flag variables that are declared outside of a code snippet because they aren't relevant to the example.\nThe `plugin:markdown/recommended` config disables these rules in Markdown files:\n\n- [`no-undef`](https://eslint.org/docs/rules/no-undef)\n- [`no-unused-expressions`](https://eslint.org/docs/rules/no-unused-expressions)\n- [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars)\n- [`padded-blocks`](https://eslint.org/docs/rules/padded-blocks)\n\nUse [`overrides` glob patterns](https://eslint.org/docs/user-guide/configuring#configuration-based-on-glob-patterns) to disable more rules just for Markdown code blocks:\n\n```js\nmodule.exports = {\n    // ...\n    overrides: [\n        // ...\n        {\n            // 1. Target ```js code blocks in .md files.\n            files: [\"**/*.md/*.js\"],\n            rules: {\n                // 2. Disable other rules.\n                \"no-console\": \"off\",\n                \"import/no-unresolved\": \"off\"\n            }\n        }\n    ]\n};\n```\n\n#### Strict Mode\n\n`\"use strict\"` directives in every code block would be annoying.\nThe `plugin:markdown/recommended` config enables the [`impliedStrict` parser option](https://eslint.org/docs/user-guide/configuring#specifying-parser-options) and disables the [`strict` rule](https://eslint.org/docs/rules/strict) in Markdown files.\nThis opts into strict mode parsing without repeated `\"use strict\"` directives.\n\n#### Unsatisfiable Rules\n\nMarkdown code blocks are not real files, so ESLint's file-format rules do not apply.\nThe `plugin:markdown/recommended` config disables these rules in Markdown files:\n\n- [`eol-last`](https://eslint.org/docs/rules/eol-last): The Markdown parser trims trailing newlines from code blocks.\n- [`unicode-bom`](https://eslint.org/docs/rules/unicode-bom): Markdown code blocks do not have Unicode Byte Order Marks.\n\n#### Migrating from `eslint-plugin-markdown` v1\n\n`eslint-plugin-markdown` v1 used an older version of ESLint's processor API.\nThe Markdown processor automatically ran on `.md`, `.mkdn`, `.mdown`, and `.markdown` files, and it only extracted fenced code blocks marked with `js`, `javascript`, `jsx`, or `node` syntax.\nConfiguration specifically for fenced code blocks went inside an `overrides` entry with a `files` pattern matching the containing Markdown document's filename that applied to all fenced code blocks inside the file.\n\n```js\n// .eslintrc.js for eslint-plugin-markdown v1\nmodule.exports = {\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            files: [\"**/*.md\"],\n            // In v1, configuration for fenced code blocks went inside an\n            // `overrides` entry with a .md pattern, for example:\n            parserOptions: {\n                ecmaFeatures: {\n                    impliedStrict: true\n                }\n            },\n            rules: {\n                \"no-console\": \"off\"\n            }\n        }\n    ]\n};\n```\n\n[RFC3](https://github.com/eslint/rfcs/blob/master/designs/2018-processors-improvements/README.md) designed a new processor API to remove these limitations, and the new API was [implemented](https://github.com/eslint/eslint/pull/11552) as part of ESLint v6.\n`eslint-plugin-markdown` v2 uses this new API.\n\n```bash\n$ npm install --save-dev eslint@latest eslint-plugin-markdown@next\n```\n\nAll of the Markdown file extensions that were previously hard-coded are now fully configurable in `.eslintrc.js`.\nUse the new `processor` option to apply the `markdown/markdown` processor on any Markdown documents matching a `files` pattern.\nEach fenced code block inside a Markdown document has a virtual filename appended to the Markdown file's path.\nThe virtual filename's extension will match the fenced code block's syntax tag, so for example, <code>```js</code> code blocks in <code>README.md</code> would match <code>README.md/*.js</code>.\n\n```js\n// eslintrc.js for eslint-plugin-markdown v2\nmodule.exports = {\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            // In v2, explicitly apply eslint-plugin-markdown's `markdown`\n            // processor on any Markdown files you want to lint.\n            files: [\"**/*.md\"],\n            processor: \"markdown/markdown\"\n        },\n        {\n            // In v2, configuration for fenced code blocks is separate from the\n            // containing Markdown file. Each code block has a virtual filename\n            // appended to the Markdown file's path.\n            files: [\"**/*.md/*.js\"],\n            // Configuration for fenced code blocks goes with the override for\n            // the code block's virtual filename, for example:\n            parserOptions: {\n                ecmaFeatures: {\n                    impliedStrict: true\n                }\n            },\n            rules: {\n                \"no-console\": \"off\"\n            }\n        }\n    ]\n};\n```\n\nIf you need to precisely mimic the behavior of v1 with the hard-coded Markdown extensions and fenced code block syntaxes, you can use those as glob patterns in `overrides[].files`:\n\n```js\n// eslintrc.js for v2 mimicking v1 behavior\nmodule.exports = {\n    plugins: [\"markdown\"],\n    overrides: [\n        {\n            files: [\"**/*.{md,mkdn,mdown,markdown}\"],\n            processor: \"markdown/markdown\"\n        },\n        {\n            files: [\"**/*.{md,mkdn,mdown,markdown}/*.{js,javascript,jsx,node}\"]\n            // ...\n        }\n    ]\n};\n```\n\n### Running\n\n#### ESLint v7\n\nYou can run ESLint as usual and do not need to use the `--ext` option.\nESLint v7 [automatically lints file extensions specified in `overrides[].files` patterns in config files](https://github.com/eslint/rfcs/blob/0253e3a95511c65d622eaa387eb73f824249b467/designs/2019-additional-lint-targets/README.md).\n\n#### ESLint v6\n\nUse the [`--ext` option](https://eslint.org/docs/user-guide/command-line-interface#ext) to include `.js` and `.md` extensions in ESLint's file search:\n\n```sh\neslint --ext js,md .\n```\n\n### Autofixing\n\nWith this plugin, [ESLint's `--fix` option](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some issues in your Markdown fenced code blocks.\nTo enable this, pass the `--fix` flag when you run ESLint:\n\n```bash\neslint --fix .\n```\n\n## What Gets Linted?\n\nWith this plugin, ESLint will lint [fenced code blocks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks) in your Markdown documents:\n\n````markdown\n```js\n// This gets linted\nvar answer = 6 * 7;\nconsole.log(answer);\n```\n\nHere is some regular Markdown text that will be ignored.\n\n```js\n// This also gets linted\n\n/* eslint quotes: [2, \"double\"] */\n\nfunction hello() {\n    console.log(\"Hello, world!\");\n}\nhello();\n```\n\n```jsx\n// This can be linted too if you add `.jsx` files to `overrides` in ESLint v7\n// or pass `--ext jsx` in ESLint v6.\nvar div = <div className=\"jsx\"></div>;\n```\n````\n\nBlocks that don't specify a syntax are ignored:\n\n````markdown\n```\nThis is plain text and doesn't get linted.\n```\n````\n\nUnless a fenced code block's syntax appears as a file extension in `overrides[].files` in ESLint v7, it will be ignored.\nIf using ESLint v6, you must also include the extension with the `--ext` option.\n\n````markdown\n```python\nprint(\"This doesn't get linted either.\")\n```\n````\n\n## Configuration Comments\n\nThe processor will convert HTML comments immediately preceding a code block into JavaScript block comments and insert them at the beginning of the source code that it passes to ESLint.\nThis permits configuring ESLint via configuration comments while keeping the configuration comments themselves hidden when the markdown is rendered.\nComment bodies are passed through unmodified, so the plugin supports any [configuration comments](http://eslint.org/docs/user-guide/configuring) supported by ESLint itself.\n\nThis example enables the `browser` environment, disables the `no-alert` rule, and configures the `quotes` rule to prefer single quotes:\n\n````markdown\n<!-- eslint-env browser -->\n<!-- eslint-disable no-alert -->\n<!-- eslint quotes: [\"error\", \"single\"] -->\n\n```js\nalert('Hello, world!');\n```\n````\n\nEach code block in a file is linted separately, so configuration comments apply only to the code block that immediately follows.\n\n````markdown\nAssuming `no-alert` is enabled in `.eslintrc`, the first code block will have no error from `no-alert`:\n\n<!-- eslint-env browser -->\n<!-- eslint-disable no-alert -->\n\n```js\nalert(\"Hello, world!\");\n```\n\nBut the next code block will have an error from `no-alert`:\n\n<!-- eslint-env browser -->\n\n```js\nalert(\"Hello, world!\");\n```\n````\n\n### Skipping Blocks\n\nSometimes it can be useful to have code blocks marked with `js` even though they don't contain valid JavaScript syntax, such as commented JSON blobs that need `js` syntax highlighting.\nStandard `eslint-disable` comments only silence rule reporting, but ESLint still reports any syntax errors it finds.\nIn cases where a code block should not even be parsed, insert a non-standard `<!-- eslint-skip -->` comment before the block, and this plugin will hide the following block from ESLint.\nNeither rule nor syntax errors will be reported.\n\n````markdown\nThere are comments in this JSON, so we use `js` syntax for better\nhighlighting. Skip the block to prevent warnings about invalid syntax.\n\n<!-- eslint-skip -->\n\n```js\n{\n    // This code block is hidden from ESLint.\n    \"hello\": \"world\"\n}\n```\n\n```js\nconsole.log(\"This code block is linted normally.\");\n```\n````\n\n## Editor Integrations\n\n### VSCode\n\n[`vscode-eslint`](https://github.com/microsoft/vscode-eslint) has built-in support for the Markdown processor.\n\n### Atom\n\nThe [`linter-eslint`](https://atom.io/packages/linter-eslint) package allows for linting within the [Atom IDE](https://atom.io/).\n\nIn order to see `eslint-plugin-markdown` work its magic within Markdown code blocks in your Atom editor, you can go to `linter-eslint`'s settings and within \"List of scopes to run ESLint on...\", add the cursor scope \"source.gfm\".\n\nHowever, this reports a problem when viewing Markdown which does not have configuration, so you may wish to use the cursor scope \"source.embedded.js\", but note that `eslint-plugin-markdown` configuration comments and skip directives won't work in this context.\n\n## Contributing\n\n```sh\n$ git clone https://github.com/eslint/eslint-plugin-markdown.git\n$ cd eslint-plugin-markdown\n$ npm install\n$ npm test\n```\n\nThis project follows the [ESLint contribution guidelines](http://eslint.org/docs/developer-guide/contributing/).\n",
+      "readmeFilename": "README.md",
+      "gitHead": "140adf42a9e103c5fdce5338b737fa0a7c47d38c",
+      "_id": "eslint-plugin-markdown@2.0.0-rc.2",
+      "_nodeVersion": "12.19.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-wAxyQrvO86besEKriqGteceBxRtm1IEBn+Ci5i2hwchU1PYLnLxO73NroY74JpbzinER0zDOeZQeqwiuGTmdsA==",
+        "shasum": "0826da576df004f9823453fc8e66bd8cab8477d3",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-2.0.0-rc.2.tgz",
+        "fileCount": 7,
+        "unpackedSize": 38391,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgFi1zCRA9TVsSAnZWagAAcgoQAI98dO4l6McFzAWjGhqF\nRN7NPotdA2L8WuOoj9l/b2z5lhrSwcXa/3Dx5lody5Ar0616FMl6yIxXwDBE\nB7+07ncBSWt66FNT7V2wGyZWs78OzEFR9xMuqHXN5uaZ1ackVCrUGH8Zpaq7\nB4wVMHslT6NCb/e52R35ZdLP3GRkSIlN99iEgx6z+CYtrb1DMrPLxY7ruKRx\nVIbVfxljq1sPYYC+iAaolwoaIUdq53gowctxPgS6tKXFuP1f0imPC6jrxTmN\no+gz57J03nAehfUEkmwji2btB8XqUFFsm6eDUnMOYsFMFiejCZ259R+nO3Vs\nQNgj2h62uBg4U95WegXHKW9khwbTKonePZMOFIzPqNuogM+suWwptzWZ0kDB\nkufhhePwMRmi7iF2Ce43ikHwO8r4rTMJUwazmaGo1vV/s8Xj3cm9IjWiwl69\nxHk+wK8qYu7phJ+PMDhkf6FJbn6eLHda5zBNgAJpDgmR1+4UnsyzUPoYtxE7\nXTCx4u8jfV5arucdBHmvRAPdpiU2Y6k1PAZwLDQOiFnLoLoH4VsyhRDE2FE5\nJ7loTtZUn8fw7+fRwfUA9DGtS7bN+26UkNa0of3GDvFZlM3WVuwc9wvN7Fap\ngd7jL4ZcctSwa92UGIPmgPY4Lh5EtI1DkM/cK9P2kYl4JwDu2civNpJs9YTb\n7gEM\r\n=RszZ\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQC/TBr37CPeB5A4M3N6IcVHbwQmeW7zPZJjKAj5vAfuLAIhAPoke5IUOSP5CLVPIZsKiNeav89RzolHtGwD6vkCJDmT"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "eslintbot",
+        "email": "nicholas+eslint@nczconsulting.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "eslintbot",
+          "email": "nicholas+eslint@nczconsulting.com"
+        },
+        {
+          "name": "btmills",
+          "email": "mills.brandont@gmail.com"
+        },
+        {
+          "name": "nzakas",
+          "email": "nicholas@nczconsulting.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/eslint-plugin-markdown_2.0.0-rc.2_1612066163036_0.8796640180618469"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0": {
+      "name": "eslint-plugin-markdown",
+      "version": "2.0.0",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "lint": "eslint --ext js,md .",
+        "prepare": "node ./npm-prepare.js",
+        "test": "npm run lint && npm run test-cov",
+        "test-cov": "nyc _mocha -- -c tests/{examples,lib}/**/*.js",
+        "generate-release": "eslint-generate-release",
+        "generate-alpharelease": "eslint-generate-prerelease alpha",
+        "generate-betarelease": "eslint-generate-prerelease beta",
+        "generate-rcrelease": "eslint-generate-prerelease rc",
+        "publish-release": "eslint-publish-release"
+      },
+      "main": "index.js",
+      "devDependencies": {
+        "chai": "^4.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-eslint": "^6.0.0",
+        "eslint-plugin-jsdoc": "^15.9.5",
+        "eslint-plugin-node": "^9.0.0",
+        "eslint-release": "^3.1.2",
+        "mocha": "^6.2.2",
+        "nyc": "^14.1.1"
+      },
+      "dependencies": {
+        "remark-parse": "^5.0.0",
+        "unified": "^6.1.2"
+      },
+      "peerDependencies": {
+        "eslint": ">=6.0.0"
+      },
+      "engines": {
+        "node": "^8.10.0 || ^10.12.0 || >= 12.0.0"
+      },
+      "gitHead": "610cffd93d29cc10bf9f2b51daeecb1b42338a34",
+      "_id": "eslint-plugin-markdown@2.0.0",
+      "_nodeVersion": "12.19.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-zt10JoexHeJFMTE5egDcetAJ34bn5k/92s0wAuRZfhDAyI0ryEj+O91JL2CbBExajie6BE5L63y47dN1Sbp6mQ==",
+        "shasum": "cd650beda2b599cd9e4535ea369266b5d0e49d23",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-2.0.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 43710,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgKa36CRA9TVsSAnZWagAARnQP/1ckzz5uJwemmGOrsBDU\nWf1wkBb9KqUN3pSMCF04HvLCyo1cx3Bc6U/fSLGWtputAj6PlkKPudbvFEnJ\nZLYT0zMfoe98zhZtSJK4vJ+qsRG9dKizJOgu1FFRzR0ndWXeNThAmmpTycl5\n/7GEyCGRp159BHEf46tPblZCNF/IPnpCupQ5UwJMQBFsjonGUSqKqAJd7Vx1\nGCtL0P0CpiXIHhw8OEK4k72/yiAB8PaXqhkZPfjR4gdLdYggfXqR1PCJt30R\n9HbB8br50DkgIgFZU9iY5CsK52yrjbRP1PJaNjzc3gsoeZZcB9V8IG4u6Iz2\npJCAW6OHNjFyzjhQr9gIj+BgLrO4ZFCM2/bamsSmOm93/9l73Nq/4fEjlhTC\nc3aATmCc8kArSQNfKu8RpZdzIg60hpYIsGmPgNBwxVYTUCUBYkNSfdmcE0iZ\nyiHYiZxRg9bj3c0gn8IPQTe+bofn56c3QX23sEU1/GlR6MFNnml+v0Ko5t1R\ntG/NciNhgGm1D+DrscWwO5xmPLM9sG+6+69gy6w2+VkgNNmiSycad/dC075b\nPd8txhDag2Z2QbQk6LKHP2aF3gkad47F8tUN8892LOof7O2F9UHJaFSljqj/\nisaCD2dlmNU5/blbszfz5LgBtSdQKTUdqIlHZhQ4b7tJMo9+AICpG8R+FlGs\nbEls\r\n=sKgE\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBKsX/w2icTi3uCX5/x2ZvM3S/GpDUrQQyX+aoc4GLTuAiBVNnprg0c1suO65op7TaQLQ50oSSSX95jTSoEORe0prA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "eslintbot",
+        "email": "nicholas+eslint@nczconsulting.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "eslintbot",
+          "email": "nicholas+eslint@nczconsulting.com"
+        },
+        {
+          "name": "btmills",
+          "email": "mills.brandont@gmail.com"
+        },
+        {
+          "name": "nzakas",
+          "email": "nicholas@nczconsulting.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/eslint-plugin-markdown_2.0.0_1613344249702_0.9721936906657029"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.1": {
+      "name": "eslint-plugin-markdown",
+      "version": "2.0.1",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "lint": "eslint --ext js,md .",
+        "prepare": "node ./npm-prepare.js",
+        "test": "npm run lint && npm run test-cov",
+        "test-cov": "nyc _mocha -- -c tests/{examples,lib}/**/*.js",
+        "generate-release": "eslint-generate-release",
+        "generate-alpharelease": "eslint-generate-prerelease alpha",
+        "generate-betarelease": "eslint-generate-prerelease beta",
+        "generate-rcrelease": "eslint-generate-prerelease rc",
+        "publish-release": "eslint-publish-release"
+      },
+      "main": "index.js",
+      "devDependencies": {
+        "chai": "^4.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-eslint": "^6.0.0",
+        "eslint-plugin-jsdoc": "^15.9.5",
+        "eslint-plugin-node": "^9.0.0",
+        "eslint-release": "^3.1.2",
+        "mocha": "^6.2.2",
+        "nyc": "^14.1.1"
+      },
+      "dependencies": {
+        "remark-parse": "^5.0.0",
+        "unified": "^6.1.2"
+      },
+      "peerDependencies": {
+        "eslint": ">=6.0.0"
+      },
+      "engines": {
+        "node": "^8.10.0 || ^10.12.0 || >= 12.0.0"
+      },
+      "gitHead": "b1d267584f8bffabac1b460f5359dad089b22098",
+      "_id": "eslint-plugin-markdown@2.0.1",
+      "_nodeVersion": "12.19.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-w05C86QOtESVqK1klvH8vKVc1gUfPqRWD/PDIsuiaW5kUb7/UQAaajQMGg/BZloTV4N+IfywhJ5uMQIR5vzAkQ==",
+        "shasum": "10567fd38c564462482e944a250ee6d0806826c4",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-2.0.1.tgz",
+        "fileCount": 7,
+        "unpackedSize": 45740,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgapPtCRA9TVsSAnZWagAAOkcP/jtND+Wxit6+y+KHoK9u\nY/a8y7zgSKHaF1mmrSGvdbO8gM2R4Lv283JaFtSc8VWBNuSjdrfYLp16JWjH\nCsYHq5GlGxlHuYOQ+W7LhI3OUXg4STMLUTu11P6w5aAkhttChlSa1ggya3Hf\nt0lpf8f7puIXbHkDkWra3LIlyuZrM7Stqyuw8eUMm7W4lx2c09cRgZwgxXal\ncxvP1aGiJk4WnsuVGXHP7kS+RU9xfcjEtTm55Sobxpyph3t+di8bYXUh/eKg\noABGZtPwsMjVkPJ1XvW+NDztazqxD5N/c/+JoD9wdJLlDQ2QFHB70puoa7Pu\nRuGyfCwyoLdKJRfZHRniI8eSodwFafAp14JzlPJUXNIRXIUUbOpf3lIresuZ\nw7DmGlsoJZY8hpFkAerPgYviVnG75Py0tCfgCfSIxspHLZ+b+xTUX+AzrPmg\nDiW3HUaRmoAzS+tMT48dXOoXTtJkobEYSNitbfwSsZ2XdvWbDSeMGvKh2rPl\nwcT2Ip0yUH0fvqiVn6DwCnYcnAySLsajoOcYVJCLVDY4yNodCial1aLiTuWZ\n4nEJXW1KrZHIJx/pyNfJHiigS34F7mp2ThQfDa8ujKZk3zAxYvK2nbpthATR\n9o4ZtzIc0fzih2wjaNNUNk7WG+bC1DqRBgL+y2cRI+jx1O19US+mZYE007mH\nqYfT\r\n=owCW\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHW/SkQpuWhq+zI/f6j1kLHWqewmWRm3pjLbCHApGmZsAiBINrpVK6HtylyDsZIhjQcr3kwuGqA+3RwShjbYWFRrwQ=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "eslintbot",
+        "email": "nicholas+eslint@nczconsulting.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "eslintbot",
+          "email": "nicholas+eslint@nczconsulting.com"
+        },
+        {
+          "name": "btmills",
+          "email": "mills.brandont@gmail.com"
+        },
+        {
+          "name": "nzakas",
+          "email": "nicholas@nczconsulting.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/eslint-plugin-markdown_2.0.1_1617597421307_0.7580368063268141"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.0": {
+      "name": "eslint-plugin-markdown",
+      "version": "2.1.0",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "lint": "eslint --ext js,md .",
+        "prepare": "node ./npm-prepare.js",
+        "test": "npm run lint && npm run test-cov",
+        "test-cov": "nyc _mocha -- -c tests/{examples,lib}/**/*.js",
+        "generate-release": "eslint-generate-release",
+        "generate-alpharelease": "eslint-generate-prerelease alpha",
+        "generate-betarelease": "eslint-generate-prerelease beta",
+        "generate-rcrelease": "eslint-generate-prerelease rc",
+        "publish-release": "eslint-publish-release"
+      },
+      "main": "index.js",
+      "devDependencies": {
+        "chai": "^4.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-eslint": "^6.0.0",
+        "eslint-plugin-jsdoc": "^15.9.5",
+        "eslint-plugin-node": "^9.0.0",
+        "eslint-release": "^3.1.2",
+        "mocha": "^6.2.2",
+        "nyc": "^14.1.1"
+      },
+      "dependencies": {
+        "remark-parse": "^7.0.0",
+        "unified": "^6.1.2"
+      },
+      "peerDependencies": {
+        "eslint": ">=6.0.0"
+      },
+      "engines": {
+        "node": "^8.10.0 || ^10.12.0 || >= 12.0.0"
+      },
+      "gitHead": "58729d5de22dbbafe52d7b8f8f0d84f2e17770e4",
+      "_id": "eslint-plugin-markdown@2.1.0",
+      "_nodeVersion": "12.19.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-Rqw7tosArdlzXcR/xJGW3Er9gRiF7iE+QEMEm7hZZ/feZjUf8xCaGQJgB1nzs9yVhJnUeiAcj5TXLLfKMbp3DQ==",
+        "shasum": "1fee34a058e299bd51f3393553bf7f92f3fa167c",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-2.1.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 45959,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJghdtxCRA9TVsSAnZWagAAydYP/iku8Eqg4Dcy4iSFV9OP\ngikWDfJeOAnW86xQ5QBJMHpafGm7lCyosTMFUwuxKo8PSThzD4AvF88Sic3m\nhAi/78FKmYNGD4IHJIrGMmugf5RIsa7WEiZDtNUAn07YvvWmxTHMm1qZ52M0\n683DOLoRvyMgILJyKU59+mRBl7ScQX90Z+4SsdInvswWYaeCBn1V1Rk7FrMb\nZBLQtMjaxOSY8D9n61eob6olz7p2dEhZ9XbS+MRoLqcXPFvYzX3Y2wBQF6lV\nMaH/5zDto1aSD/CwBeilgqi5ylYuAUwlDFBs/hJ+PrKXRxFbzC8QuO1GR1OB\ncS/rJjAOuemn87Zff2wL2NYOk3b5TeSaJ6YhQTqhxbytgIlLFhznKPf9hGOR\nqgERS6otQCZTNEdqS0k7Yi9c+xonUWnt84/5ikmBl0rYFjUTGybvqzAuoFPj\nWMUgdV48s/c+6yqClWhrQepzG10MbjHAsGKQrIGFGsCufo/Qh5BvmHg+9ZUN\nysynw1I8SxR9l9r/7uR3NwcJjKcgWgF/NpJ+ZY5M4QHhCyuIpI4NM0bJgx5i\nxggMRpW19gXtT+9vk2+27F7ne/H68eiFxhGeoUAwr8cjehkMArWaKdq3CZ/h\ncICsmcwjS34A/dIrqxxZMgiviaNbb4BuBU/WtbSdYTzi2aiHBkdChGQ0z2+f\nPwca\r\n=KI8E\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHaQfJ68aK2ohI91VfB9o8gOcaDDPdKKvOirUyf8o+D6AiEA4/Mzs2r8uv0TTyZmPenKUCfc5qjL7i5VWQYF8W1GBGo="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "eslintbot",
+        "email": "nicholas+eslint@nczconsulting.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "eslintbot",
+          "email": "nicholas+eslint@nczconsulting.com"
+        },
+        {
+          "name": "btmills",
+          "email": "mills.brandont@gmail.com"
+        },
+        {
+          "name": "nzakas",
+          "email": "nicholas@nczconsulting.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/eslint-plugin-markdown_2.1.0_1619385200772_0.4567739808945397"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.2.0": {
+      "name": "eslint-plugin-markdown",
+      "version": "2.2.0",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "lint": "eslint --ext js,md .",
+        "prepare": "node ./npm-prepare.js",
+        "test": "npm run lint && npm run test-cov",
+        "test-cov": "nyc _mocha -- -c tests/{examples,lib}/**/*.js",
+        "generate-release": "eslint-generate-release",
+        "generate-alpharelease": "eslint-generate-prerelease alpha",
+        "generate-betarelease": "eslint-generate-prerelease beta",
+        "generate-rcrelease": "eslint-generate-prerelease rc",
+        "publish-release": "eslint-publish-release"
+      },
+      "main": "index.js",
+      "devDependencies": {
+        "chai": "^4.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-eslint": "^6.0.0",
+        "eslint-plugin-jsdoc": "^15.9.5",
+        "eslint-plugin-node": "^9.0.0",
+        "eslint-release": "^3.1.2",
+        "mocha": "^6.2.2",
+        "nyc": "^14.1.1"
+      },
+      "dependencies": {
+        "mdast-util-from-markdown": "^0.8.5"
+      },
+      "peerDependencies": {
+        "eslint": ">=6.0.0"
+      },
+      "engines": {
+        "node": "^8.10.0 || ^10.12.0 || >= 12.0.0"
+      },
+      "gitHead": "89ea8380e298f913124e1581c493fa3bde1ff479",
+      "_id": "eslint-plugin-markdown@2.2.0",
+      "_nodeVersion": "12.19.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-Ctuc7aP1tU92qnFwVO1wDLEzf1jqMxwRkcSTw7gjbvnEqfh5CKUcTXM0sxg8CB2KDXrqpTuMZPgJ1XE9Olr7KA==",
+        "shasum": "9c30bd51538a815e87e96646c69f11466b4c165f",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-2.2.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 46419,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgrcvbCRA9TVsSAnZWagAAwzsP/3FZeveOlgGHLEYawrU/\nexMi1gccLN8BMhCEVhVUBoCpyX2KSPpz3O1PCHLEIa7q3aAnzDaHMFa8EyVW\nlQALXN8B7wDCk+a142nc1f3+jLZ7oUnwZdEN9zpkzI8Qd1MWbABXlGExLrA5\nthQ4TzYqqg8rT0J0+Y32NBTWt5F31B8ONcHDdz/df5EPYmvllJnucPSPhACJ\n/cB9fKr+RorijuJd5J3/y+0MIasiCq4tw118QWSQp5XNqdGp34nsxGHJgUzy\nV10++T3WeTEqRvnO8sGMcNa8roeZs77zKe/a4iekzb30U7h3RMMu+a0ebUH4\n5PpsDX3tg/jd3/KjUCwiL94oJm7nQX7paqfPqosmexlzvRy6fGTmRb6NV5yv\na4AsNwxKDyFHT3KrRDGG6g5YIucBsf0GiUOTC8WeDgXd2L+axWMBEIgQ2o07\n+HNst5Spqt6shTnPgv3Y+qYr7MrLWl4rikE5bBESZUDp7pnIyNvQErNMeL54\nFtD2esnZ3TGXIpABsBaaTxqtr7rQmh5EYxrFvVYlNRAhLsFP61SBlKGiDhBX\nBmlr5XFna1c7P1fkqFtc8/DzCLqbM+nelvj4B0mU4pth0C6G0G20GX+Tu7tU\nRSeGGgFcOjumfNFfAZ2EDLKbvszUH9VGGDQbnye2/ez3qvMcRUPCzRrT07rI\nlJ9A\r\n=o2Yr\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBsfO3WleU3xsV2KanCeeD+aiX7Z4kOOhK9VHGrUHwBlAiEAwmq/LaGQkelUCpuR3Toj504GO6ikKKVZk6P7+LflFiY="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "eslintbot",
+        "email": "nicholas+eslint@nczconsulting.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "eslintbot",
+          "email": "nicholas+eslint@nczconsulting.com"
+        },
+        {
+          "name": "btmills",
+          "email": "mills.brandont@gmail.com"
+        },
+        {
+          "name": "nzakas",
+          "email": "nicholas@nczconsulting.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/eslint-plugin-markdown_2.2.0_1622002650941_0.13209521763312693"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.2.1": {
+      "name": "eslint-plugin-markdown",
+      "version": "2.2.1",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "lint": "eslint --ext js,md .",
+        "prepare": "node ./npm-prepare.js",
+        "test": "npm run lint && npm run test-cov",
+        "test-cov": "nyc _mocha -- -c tests/{examples,lib}/**/*.js",
+        "generate-release": "eslint-generate-release",
+        "generate-alpharelease": "eslint-generate-prerelease alpha",
+        "generate-betarelease": "eslint-generate-prerelease beta",
+        "generate-rcrelease": "eslint-generate-prerelease rc",
+        "publish-release": "eslint-publish-release"
+      },
+      "main": "index.js",
+      "devDependencies": {
+        "chai": "^4.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-eslint": "^6.0.0",
+        "eslint-plugin-jsdoc": "^15.9.5",
+        "eslint-plugin-node": "^9.0.0",
+        "eslint-release": "^3.1.2",
+        "mocha": "^6.2.2",
+        "nyc": "^14.1.1"
+      },
+      "dependencies": {
+        "mdast-util-from-markdown": "^0.8.5"
+      },
+      "peerDependencies": {
+        "eslint": ">=6.0.0"
+      },
+      "engines": {
+        "node": "^8.10.0 || ^10.12.0 || >= 12.0.0"
+      },
+      "gitHead": "f57487c273c1fdfc304e9e1129086afda4dd048d",
+      "_id": "eslint-plugin-markdown@2.2.1",
+      "_nodeVersion": "16.6.1",
+      "_npmVersion": "7.20.3",
+      "dist": {
+        "integrity": "sha512-FgWp4iyYvTFxPwfbxofTvXxgzPsDuSKHQy2S+a8Ve6savbujey+lgrFFbXQA0HPygISpRYWYBjooPzhYSF81iA==",
+        "shasum": "76b8a970099fbffc6cc1ffcad9772b96911c027a",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-2.2.1.tgz",
+        "fileCount": 6,
+        "unpackedSize": 31673,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhPVQqCRA9TVsSAnZWagAAUIYP/A6V9tGhTeUTmG/mgIEw\nYBc6D6Je4cGKkozhUct+NrQBlV00HzBg/BRm9X+ktuaVuKtyb+qe7hqR8YOW\nZ+E6Y9JXjbcil2RuQnBkZcg9vUOzcpDurSa7ef9PTU6sCcHy9nFoc61Tzzos\n1/JGcdi3QTcA9GnuJUVoT21UFOWOoeotePDC+iQuzvBq2mXeNFGcfAp1rZl7\n/OALcNfGBLZlJuchWae/RTQqjh5Vj5W46C3ol4H8pSkZTw0x8VwLsRoPcxNj\nT0S3YTNlFpMQgrCIMeKIBR8jS6UqEG0e/i7Y/mIOWgVWsdyx1/2NjtYTtcGy\nJRma11ooLxeuuXk4AJ0gRBtt6WjutH1Tx+FZY7t1M2gCheFgkNOIdXMfuRMY\nmBf+K0F9ORT9bkmyoqhCpn8EgJKOfD+W15eCYmSKbsasyoitCcQaj7UhNq70\nTjKeFlGEcF3BYhvblLH07mYSab4aCpb45nHXeaJi0TbARCo7AC5HCnpqs6rv\nHd5+zpLUWZOAY6RFWO+XnVdY3KCaNRQ7BJfvYTX+K/FjLEemSo7oO16+GVVe\nX/6aWqQxms73/yqnxdlJwvFZr1GvPGe+PcbhztrEEcCiNZEcwM6Ue67daCp3\nIXDAfI+/vu9Trc6XvKVURXYteM6d3lgC7PWCo3HVcFioW8fVNdT1lkK84Z1t\nouix\r\n=kX4E\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIARHRiGz2dy+jgtPI12kpxOOGq/v77JBkqEE3GG7FlsrAiAv7VIOJmb9qAs8rHGrtLyMmM7TkSl4Yklu5O1o7fyPfg=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "eslintbot",
+        "email": "nicholas+eslint@nczconsulting.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "openjsfoundation",
+          "email": "npm@openjsf.org"
+        },
+        {
+          "name": "eslintbot",
+          "email": "nicholas+eslint@nczconsulting.com"
+        },
+        {
+          "name": "nzakas",
+          "email": "nicholas@nczconsulting.com"
+        },
+        {
+          "name": "btmills",
+          "email": "mills.brandont@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/eslint-plugin-markdown_2.2.1_1631409194290_0.6009410131365347"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.0.0": {
+      "name": "eslint-plugin-markdown",
+      "version": "3.0.0",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "lint": "eslint --ext js,md .",
+        "prepare": "node ./npm-prepare.js",
+        "test": "npm run lint && npm run test-cov",
+        "test-cov": "nyc _mocha -- -c tests/{examples,lib}/**/*.js",
+        "generate-release": "eslint-generate-release",
+        "generate-alpharelease": "eslint-generate-prerelease alpha",
+        "generate-betarelease": "eslint-generate-prerelease beta",
+        "generate-rcrelease": "eslint-generate-prerelease rc",
+        "publish-release": "eslint-publish-release"
+      },
+      "main": "index.js",
+      "devDependencies": {
+        "chai": "^4.2.0",
+        "eslint": "^7.32.0",
+        "eslint-config-eslint": "^7.0.0",
+        "eslint-plugin-jsdoc": "^37.0.3",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-release": "^3.1.2",
+        "mocha": "^6.2.2",
+        "nyc": "^14.1.1"
+      },
+      "dependencies": {
+        "mdast-util-from-markdown": "^0.8.5"
+      },
+      "peerDependencies": {
+        "eslint": "^6.0.0 || ^7.0.0 || ^8.0.0"
+      },
+      "engines": {
+        "node": "^12.22.0 || ^14.17.0 || >=16.0.0"
+      },
+      "gitHead": "e2012721e0e412ae1000c5641312aa6999346992",
+      "_id": "eslint-plugin-markdown@3.0.0",
+      "_nodeVersion": "16.13.1",
+      "_npmVersion": "8.1.2",
+      "dist": {
+        "integrity": "sha512-hRs5RUJGbeHDLfS7ELanT0e29Ocyssf/7kBM+p7KluY5AwngGkDf8Oyu4658/NZSGTTq05FZeWbkxXtbVyHPwg==",
+        "shasum": "69a63ab3445076a3c2eb6fce6f5114785b19d318",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-3.0.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 31805,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBbia449bMXzA7fDmGXSkcSk6RhNY7a6phqW54M2TgjTAiA2LlTHkXEDyYxt2h71jHt9I3CRnyNP1jZT4oEisREbTw=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJi0yDsACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmovIg/8CjCea8UxOwxe64bQoXJpe5sOYWbHA/TnAn980OGi40tHEetV\r\ner9z+DRsFiHFwrniKSi8ozlQVux++x6TbcpWJl0U+cq5hpyh7YaIfZEviu5s\r\n01mi30X0vnZvNlYw8VlXSZeqiC9Z+VYdlz6EwCyJNHpdTB50OJJDTYDtM0Zj\r\nHISxKX9yL8jo1tNAB372L7YQBJJ1rsTJCrwwhwM5Fs7M6Kpi02oOH86Sl/+p\r\nZdv0ckNY50iVq1FXx1AN409MX8jAhxVLxpd8nM8TX2rHNym2svf6nCwZ736Z\r\nTP895uFLtpk5z7xEkUQjDtzR8byFw5AFFwu1dV6V65Sst+JiHdZNOhSD9zNu\r\nkKePBTJG3zDQxFiNd4dlOBhF0H05Dxj2460CQecQI5TxafQ9bDCao4gA1yUh\r\nfYmI3pcs2GRbY/iYGld+2TlaJBnNTRfjoQbywSTzWBcI4o/1r1NqHBx7ZJg3\r\n1FbAksnKsvGyh+L8kZRon/GEOSCl/e2oNjoEIoIxBPgbCk2voAilaXtAeI8H\r\nJ4o74fbmHBJt3NzjP9nQnh7am2kR9P2zGuqpQYiG2RFnAayet0k3fG5DV2a+\r\nzpvcsDWiDsRlOM2tPkJ/3797Obs7aw4rj/sTas/Gqmhccym3MyBkHQP+g/f2\r\n2n4XbxHkz6/xGWb9rp44EgEnbJG818mbgV8=\r\n=QVnF\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "eslintbot",
+        "email": "nicholas+eslint@nczconsulting.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "openjsfoundation",
+          "email": "npm@openjsf.org"
+        },
+        {
+          "name": "eslintbot",
+          "email": "nicholas+eslint@nczconsulting.com"
+        },
+        {
+          "name": "nzakas",
+          "email": "nicholas@nczconsulting.com"
+        },
+        {
+          "name": "btmills",
+          "email": "mills.brandont@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/eslint-plugin-markdown_3.0.0_1658003692036_0.3540011824203406"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.0.1": {
+      "name": "eslint-plugin-markdown",
+      "version": "3.0.1",
+      "description": "An ESLint plugin to lint JavaScript in Markdown code fences.",
+      "license": "MIT",
+      "author": {
+        "name": "Brandon Mills",
+        "url": "https://github.com/btmills"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+      },
+      "bugs": {
+        "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+      },
+      "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+      "keywords": [
+        "eslint",
+        "eslintplugin",
+        "markdown",
+        "lint",
+        "linter"
+      ],
+      "scripts": {
+        "lint": "eslint --ext js,md .",
+        "prepare": "node ./npm-prepare.js",
+        "test": "npm run lint && npm run test-cov",
+        "test-cov": "nyc _mocha -- -c tests/{examples,lib}/**/*.js",
+        "generate-release": "eslint-generate-release",
+        "generate-alpharelease": "eslint-generate-prerelease alpha",
+        "generate-betarelease": "eslint-generate-prerelease beta",
+        "generate-rcrelease": "eslint-generate-prerelease rc",
+        "publish-release": "eslint-publish-release"
+      },
+      "main": "index.js",
+      "devDependencies": {
+        "chai": "^4.2.0",
+        "eslint": "^7.32.0",
+        "eslint-config-eslint": "^7.0.0",
+        "eslint-plugin-jsdoc": "^37.0.3",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-release": "^3.1.2",
+        "mocha": "^6.2.2",
+        "nyc": "^14.1.1"
+      },
+      "dependencies": {
+        "mdast-util-from-markdown": "^0.8.5"
+      },
+      "peerDependencies": {
+        "eslint": "^6.0.0 || ^7.0.0 || ^8.0.0"
+      },
+      "engines": {
+        "node": "^12.22.0 || ^14.17.0 || >=16.0.0"
+      },
+      "gitHead": "e5899493efe0d802a7bc00073a4948a149ae2830",
+      "_id": "eslint-plugin-markdown@3.0.1",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-8rqoc148DWdGdmYF6WSQFT3uQ6PO7zXYgeBpHAOAakX/zpq+NvFYbDA/H7PYzHajwtmaOzAwfxyl++x0g1/N9A==",
+        "shasum": "fc6765bdb5f82a75e2438d7fac619602f2abc38c",
+        "tarball": "https://registry.npmjs.org/eslint-plugin-markdown/-/eslint-plugin-markdown-3.0.1.tgz",
+        "fileCount": 6,
+        "unpackedSize": 31805,
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/eslint-plugin-markdown@3.0.1",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v0.2"
+          }
+        },
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCaVQxVx00XYk3rBWKb6/opP1HSmIdWLbmAtOsOcLU7SwIhAMObOu7NCLz24U7AKBd/liLZiJGLAG+m9Ju0ePgzVrJo"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "eslintbot",
+        "email": "nicholas+eslint@nczconsulting.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "openjsfoundation",
+          "email": "npm@openjsf.org"
+        },
+        {
+          "name": "eslintbot",
+          "email": "nicholas+eslint@nczconsulting.com"
+        },
+        {
+          "name": "nzakas",
+          "email": "nicholas@nczconsulting.com"
+        },
+        {
+          "name": "btmills",
+          "email": "mills.brandont@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/eslint-plugin-markdown_3.0.1_1690558298291_0.5110554932483713"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "homepage": "https://github.com/eslint/eslint-plugin-markdown#readme",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "markdown",
+    "lint",
+    "linter"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eslint/eslint-plugin-markdown.git"
+  },
+  "author": {
+    "name": "Brandon Mills",
+    "url": "https://github.com/btmills"
+  },
+  "bugs": {
+    "url": "https://github.com/eslint/eslint-plugin-markdown/issues"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "users": {
+    "paazmaya": true,
+    "xueboren": true,
+    "flumpus-dev": true
+  }
+}
