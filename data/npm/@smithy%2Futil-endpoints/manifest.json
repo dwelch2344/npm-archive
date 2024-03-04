@@ -1,0 +1,1409 @@
+{
+  "_id": "@smithy/util-endpoints",
+  "_rev": "12-7e167dd07ad252aaf4bde0a081806997",
+  "name": "@smithy/util-endpoints",
+  "dist-tags": {
+    "latest": "1.1.4"
+  },
+  "versions": {
+    "1.0.1": {
+      "name": "@smithy/util-endpoints",
+      "version": "1.0.1",
+      "description": "Utilities to help with endpoint resolution.",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "keywords": [
+        "endpoint"
+      ],
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/node-config-provider": "^2.1.3",
+        "@smithy/types": "^2.4.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "types": "./dist-types/index.d.ts",
+      "engines": {
+        "node": ">= 14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "types/*": [
+            "types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/master/packages/util-endpoints",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-endpoints"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-endpoints@1.0.1",
+      "gitHead": "e094b9a82e82b0f162376d964e4894b4f7d637f9",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-GOQq6yXXEaj990zLII4XUxXB1TE5uGVzzSedT51SVbBau8tX6Bwe8uLCB0wFI/CXLF9toze5ceZE+9KgaO24yA==",
+        "shasum": "6623b3458f86d4d7358b87eb63c78f17ab40d610",
+        "tarball": "https://registry.npmjs.org/@smithy/util-endpoints/-/util-endpoints-1.0.1.tgz",
+        "fileCount": 175,
+        "unpackedSize": 80761,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFUNtJ4gaDZQAY7RvkzE4sjbTyibBrlFiWROpGNTo2NsAiEAlew75g1OXz4ylRp+lu5Ai2u5RW78BFbmOLopE4s/6Gw="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-endpoints_1.0.1_1698180172391_0.869245428898179"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.2": {
+      "name": "@smithy/util-endpoints",
+      "version": "1.0.2",
+      "description": "Utilities to help with endpoint resolution.",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "keywords": [
+        "endpoint"
+      ],
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/node-config-provider": "^2.1.3",
+        "@smithy/types": "^2.4.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "types": "./dist-types/index.d.ts",
+      "engines": {
+        "node": ">= 14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "types/*": [
+            "types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/master/packages/util-endpoints",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-endpoints"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-endpoints@1.0.2",
+      "gitHead": "2aee062999dbd37557792fe226c20516c21cdcca",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-QEdq+sP68IJHAMVB2ugKVVZEWeKQtZLuf+akHzc8eTVElsZ2ZdVLWC6Cp+uKjJ/t4yOj1qu6ZzyxJQEQ8jdEjg==",
+        "shasum": "8be5b840c19661e3830ca10973f775b331bd94cd",
+        "tarball": "https://registry.npmjs.org/@smithy/util-endpoints/-/util-endpoints-1.0.2.tgz",
+        "fileCount": 175,
+        "unpackedSize": 79604,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAfIIUM7VlDWSGfS/4UvElMSzepAcr0OqtHB4qW9tQZEAiBT89eipyn/wGprd/rKaLUhTyVDaF253gy9G4HRKVjikw=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-endpoints_1.0.2_1698252214276_0.590467790356596"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.3": {
+      "name": "@smithy/util-endpoints",
+      "version": "1.0.3",
+      "description": "Utilities to help with endpoint resolution.",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "keywords": [
+        "endpoint"
+      ],
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/node-config-provider": "^2.1.4",
+        "@smithy/types": "^2.4.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "types": "./dist-types/index.d.ts",
+      "engines": {
+        "node": ">= 14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "types/*": [
+            "types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/master/packages/util-endpoints",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-endpoints"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-endpoints@1.0.3",
+      "gitHead": "f50fda18cec2969a31743950a10f27a881e1e7b1",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-rMYXLMdAMVbJAEHhNlCSJsAxo3NG3lcPja7WmesjAbNrMSyYZ6FnHHTy8kzRhddn4eAtLvPBSO6LiBB21gCoHQ==",
+        "shasum": "804147a2b2549220098c93d9e56b1e4c5211a908",
+        "tarball": "https://registry.npmjs.org/@smithy/util-endpoints/-/util-endpoints-1.0.3.tgz",
+        "fileCount": 175,
+        "unpackedSize": 79604,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIA/mJWQq4q3SIyGnhs5rMmLGL1Cw/6SHnUJ6KQMYQtgDAiACTSE2l+QQzIdmQZNLxX2SzKGAKLRCFGAOFNe67Fbi1A=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-endpoints_1.0.3_1699568034650_0.5686412834422148"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.4": {
+      "name": "@smithy/util-endpoints",
+      "version": "1.0.4",
+      "description": "Utilities to help with endpoint resolution.",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "keywords": [
+        "endpoint"
+      ],
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/node-config-provider": "^2.1.5",
+        "@smithy/types": "^2.5.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "types": "./dist-types/index.d.ts",
+      "engines": {
+        "node": ">= 14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "types/*": [
+            "types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/master/packages/util-endpoints",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-endpoints"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-endpoints@1.0.4",
+      "gitHead": "d1ff70d0d4fe18c3cb0198d6351312ed14932b46",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-FPry8j1xye5yzrdnf4xKUXVnkQErxdN7bUIaqC0OFoGsv2NfD9b2UUMuZSSt+pr9a8XWAqj0HoyVNUfPiZ/PvQ==",
+        "shasum": "2b18aa7175e956e839be7aad5c5f0e0f6016d10d",
+        "tarball": "https://registry.npmjs.org/@smithy/util-endpoints/-/util-endpoints-1.0.4.tgz",
+        "fileCount": 175,
+        "unpackedSize": 79604,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAwqW9FJm80HDDDFE/k0l6zKfYo5dHIyee0aT7Br4jRNAiEAlDX3FTAIgHYgMOM9mzcHIox4GU+5L40WD7OW40zfJ08="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-endpoints_1.0.4_1699917757093_0.35329955722143613"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.5": {
+      "name": "@smithy/util-endpoints",
+      "version": "1.0.5",
+      "description": "Utilities to help with endpoint resolution.",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "keywords": [
+        "endpoint"
+      ],
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/node-config-provider": "^2.1.6",
+        "@smithy/types": "^2.6.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "types": "./dist-types/index.d.ts",
+      "engines": {
+        "node": ">= 14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "types/*": [
+            "types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/master/packages/util-endpoints",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-endpoints"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-endpoints@1.0.5",
+      "gitHead": "f802828bb1ef76990d5277e82c336b9750e4bc65",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-K7qNuCOD5K/90MjHvHm9kJldrfm40UxWYQxNEShMFxV/lCCCRIg8R4uu1PFAxRvPxNpIdcrh1uK6I1ISjDXZJw==",
+        "shasum": "9e6ffdc9ac9d597869209e3b83784a13f277956e",
+        "tarball": "https://registry.npmjs.org/@smithy/util-endpoints/-/util-endpoints-1.0.5.tgz",
+        "fileCount": 175,
+        "unpackedSize": 79604,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDxPHWQ9cukpzM9cmZboNEuEhPCmqC3qMa7+k0VPzuZJAIhAJyPYDNFkp5cs5wmV3xVjIWDqjgxQkUFeVy9krhMOFCK"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-endpoints_1.0.5_1700596009733_0.4052499138685026"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.6": {
+      "name": "@smithy/util-endpoints",
+      "version": "1.0.6",
+      "description": "Utilities to help with endpoint resolution.",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "keywords": [
+        "endpoint"
+      ],
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/node-config-provider": "^2.1.7",
+        "@smithy/types": "^2.7.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "types": "./dist-types/index.d.ts",
+      "engines": {
+        "node": ">= 14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "types/*": [
+            "types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/master/packages/util-endpoints",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-endpoints"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-endpoints@1.0.6",
+      "gitHead": "912961cb22a3310273fdf24806f294ccf23814c1",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-90vy1Q0Z4pNcXUX9TrG50Y5zi0k8ONYTHZ/7KDliHOWUtdGH2a61cVMq/zIvt0Qlunsk8vshk4+DZLMEwIm92Q==",
+        "shasum": "e8eff172b4fa4174c68dac45c57ddb5ea6a65566",
+        "tarball": "https://registry.npmjs.org/@smithy/util-endpoints/-/util-endpoints-1.0.6.tgz",
+        "fileCount": 175,
+        "unpackedSize": 79614,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCVMRE2yfR6o/iEqs1Iyf6P5SOwWWPtNtT1MQ/dYtKHQQIhAL2W9ebWMDV8TuijO5NNynJ9DiZkt+yaEpw+Ui9+RT+Q"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-endpoints_1.0.6_1701792611547_0.012576980041285157"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.7": {
+      "name": "@smithy/util-endpoints",
+      "version": "1.0.7",
+      "description": "Utilities to help with endpoint resolution.",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "keywords": [
+        "endpoint"
+      ],
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/node-config-provider": "^2.1.8",
+        "@smithy/types": "^2.7.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "types": "./dist-types/index.d.ts",
+      "engines": {
+        "node": ">= 14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "types/*": [
+            "types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/master/packages/util-endpoints",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-endpoints"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-endpoints@1.0.7",
+      "gitHead": "c794e2f15ec8a549d2366b10a3cddf1f3aab7d4e",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-Q2gEind3jxoLk6hdKWyESMU7LnXz8aamVwM+VeVjOYzYT1PalGlY/ETa48hv2YpV4+YV604y93YngyzzzQ4IIA==",
+        "shasum": "5a258ac7838dea085660060b515cd2d19f19a4bc",
+        "tarball": "https://registry.npmjs.org/@smithy/util-endpoints/-/util-endpoints-1.0.7.tgz",
+        "fileCount": 175,
+        "unpackedSize": 79614,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIG6uP/ndQlB1ADOOP7zeSpGzXl/awkJcD0IJEevreNfIAiAyFY8XaPcJBZgaKS1k9j9Ud3+ec7OsWAsNYtWuIsGkSQ=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-endpoints_1.0.7_1701903738407_0.7063545058059524"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.8": {
+      "name": "@smithy/util-endpoints",
+      "version": "1.0.8",
+      "description": "Utilities to help with endpoint resolution.",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "keywords": [
+        "endpoint"
+      ],
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/node-config-provider": "^2.1.9",
+        "@smithy/types": "^2.8.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "types": "./dist-types/index.d.ts",
+      "engines": {
+        "node": ">= 14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "types/*": [
+            "types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/master/packages/util-endpoints",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-endpoints"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-endpoints@1.0.8",
+      "gitHead": "e3b13dda0891091282c27cd65cc72b87826753b6",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-l8zVuyZZ61IzZBYp5NWvsAhbaAjYkt0xg9R4xUASkg5SEeTT2meHOJwJHctKMFUXe4QZbn9fR2MaBYjP2119+w==",
+        "shasum": "10ec9b228e96fc67b42ed06dabdab118a5869532",
+        "tarball": "https://registry.npmjs.org/@smithy/util-endpoints/-/util-endpoints-1.0.8.tgz",
+        "fileCount": 175,
+        "unpackedSize": 79614,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDDQYjOtJ3W0iBSvBFnZZ7Gxf5I0YGKqMk7/3yOwXUaXgIhAKa57k+3cBQcjXE6+J95uV7LAG1+tXwq/YqcKe9qrFLu"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-endpoints_1.0.8_1704222051788_0.0012528931958468714"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.1.0": {
+      "name": "@smithy/util-endpoints",
+      "version": "1.1.0",
+      "description": "Utilities to help with endpoint resolution.",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline util-endpoints",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "keywords": [
+        "endpoint"
+      ],
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/node-config-provider": "^2.2.0",
+        "@smithy/types": "^2.9.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "types": "./dist-types/index.d.ts",
+      "engines": {
+        "node": ">= 14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "types/*": [
+            "types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/master/packages/util-endpoints",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-endpoints"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-endpoints@1.1.0",
+      "gitHead": "1d85e7dea4cfe19aaf555a26b7504e739acb9124",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-gKzfdj5pyEOg1fVOsZVpVPRWAXbWqt9JgZdwU4cjKlJ57Fuccfk0ui5twh1TYvuJWtR2Tw3GwUmUuBM3qRWJJg==",
+        "shasum": "fd6382893711875d58e43ce467e6e7b53e83b21b",
+        "tarball": "https://registry.npmjs.org/@smithy/util-endpoints/-/util-endpoints-1.1.0.tgz",
+        "fileCount": 175,
+        "unpackedSize": 72102,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCCQjPJ/ypZ9K01yhlgLwins6QTO1axMl0y+yUQGWDblQIgHX61AmD5WCPGTN0pvrhUNy/Vtjci1yMSIi4mzA0zMDU="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-endpoints_1.1.0_1705530407755_0.08241639843047888"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.1.1": {
+      "name": "@smithy/util-endpoints",
+      "version": "1.1.1",
+      "description": "Utilities to help with endpoint resolution.",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline util-endpoints",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "keywords": [
+        "endpoint"
+      ],
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/node-config-provider": "^2.2.1",
+        "@smithy/types": "^2.9.1",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "types": "./dist-types/index.d.ts",
+      "engines": {
+        "node": ">= 14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "types/*": [
+            "types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/master/packages/util-endpoints",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-endpoints"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-endpoints@1.1.1",
+      "gitHead": "3769699491dcc1bd5ace2973f2efdf6d85b37cf4",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-sI4d9rjoaekSGEtq3xSb2nMjHMx8QXcz2cexnVyRWsy4yQ9z3kbDpX+7fN0jnbdOp0b3KSTZJZ2Yb92JWSanLw==",
+        "shasum": "45426dba6fb42282a0ad955600b2b3ba050d118f",
+        "tarball": "https://registry.npmjs.org/@smithy/util-endpoints/-/util-endpoints-1.1.1.tgz",
+        "fileCount": 175,
+        "unpackedSize": 72104,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDL7xEYZYyzg+F4d8DmfurfJgvIF2jSHSCJ8JeEg4T6JgIgJOaR5VNr7tkUCw34ecG8fwP+XdfDKswOzwDF2gk3qb8="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-endpoints_1.1.1_1705685494917_0.07796612267288894"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.1.2": {
+      "name": "@smithy/util-endpoints",
+      "version": "1.1.2",
+      "description": "Utilities to help with endpoint resolution.",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline util-endpoints",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "keywords": [
+        "endpoint"
+      ],
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/node-config-provider": "^2.2.2",
+        "@smithy/types": "^2.10.0",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "types": "./dist-types/index.d.ts",
+      "engines": {
+        "node": ">= 14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "types/*": [
+            "types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/master/packages/util-endpoints",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-endpoints"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-endpoints@1.1.2",
+      "gitHead": "7baf4b118b55683e97208f262c5083184d99b095",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.1",
+      "_npmVersion": "10.2.4",
+      "dist": {
+        "integrity": "sha512-2/REfdcJ20y9iF+9kSBRBsaoGzjT5dZ3E6/TA45GHJuJAb/vZTj76VLTcrl2iN3fWXiDK1B8RxchaLGbr7RxxA==",
+        "shasum": "92f743ac8c2c3a99b1558a1c956864b565aa23e7",
+        "tarball": "https://registry.npmjs.org/@smithy/util-endpoints/-/util-endpoints-1.1.2.tgz",
+        "fileCount": 175,
+        "unpackedSize": 72105,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDkPx7Lar8UyBg9bACs3yWW0/ZkiQkxXGxeuwNGd5bjFAIgOMCHclG6y4mujbNXZQdD2N7gKQpqPPTYQWxuuOBjEkk="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-endpoints_1.1.2_1708636537409_0.3228729823289591"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.1.3": {
+      "name": "@smithy/util-endpoints",
+      "version": "1.1.3",
+      "description": "Utilities to help with endpoint resolution.",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline util-endpoints",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "keywords": [
+        "endpoint"
+      ],
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/node-config-provider": "^2.2.3",
+        "@smithy/types": "^2.10.1",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "types": "./dist-types/index.d.ts",
+      "engines": {
+        "node": ">= 14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "types/*": [
+            "types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/master/packages/util-endpoints",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-endpoints"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-endpoints@1.1.3",
+      "gitHead": "3357fda448ea8cee3f7bfa7caeda2768a9751f8f",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.1",
+      "_npmVersion": "10.2.4",
+      "dist": {
+        "integrity": "sha512-89LfHuyUEVjPo3e42U8P6TeWEkP1KDNs519xWKPEpoPFdIPrg77+0TrmIQWTCLgj7Dbvj5FbRbt+v+6sN5up3g==",
+        "shasum": "24a811f7f3f3ef217fb9f8297b2abe4e7242d3ff",
+        "tarball": "https://registry.npmjs.org/@smithy/util-endpoints/-/util-endpoints-1.1.3.tgz",
+        "fileCount": 175,
+        "unpackedSize": 72105,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC38TRqEsctXPAafKYYS7jn1gMCBgmoDFv6nBm+X/tETQIgB2la+8TTqOGYIuiHCDGvZcj6s6kRMPLVbOlRwRA9ZLI="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-endpoints_1.1.3_1709057595882_0.5920615492437311"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.1.4": {
+      "name": "@smithy/util-endpoints",
+      "version": "1.1.4",
+      "description": "Utilities to help with endpoint resolution.",
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline util-endpoints",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "test": "yarn g:jest",
+        "test:integration": "yarn g:jest --config jest.config.integ.js"
+      },
+      "keywords": [
+        "endpoint"
+      ],
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/node-config-provider": "^2.2.4",
+        "@smithy/types": "^2.10.1",
+        "tslib": "^2.5.0"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "types": "./dist-types/index.d.ts",
+      "engines": {
+        "node": ">= 14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "types/*": [
+            "types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/master/packages/util-endpoints",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/util-endpoints"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/util-endpoints@1.1.4",
+      "gitHead": "beea4499bec986f091cdea47e5f8d7c69a3b6000",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.1",
+      "_npmVersion": "10.2.4",
+      "dist": {
+        "integrity": "sha512-/qAeHmK5l4yQ4/bCIJ9p49wDe9rwWtOzhPHblu386fwPNT3pxmodgcs9jDCV52yK9b4rB8o9Sj31P/7Vzka1cg==",
+        "shasum": "4a75de883ac59d042ae5426c9a7d8e274d047980",
+        "tarball": "https://registry.npmjs.org/@smithy/util-endpoints/-/util-endpoints-1.1.4.tgz",
+        "fileCount": 175,
+        "unpackedSize": 72105,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQD6+/YRkIWPOnB/7wNvfuNpt/euKnVT9MZvqKudT/uSwQIgVo4+RjgeBsz7fBCVOdfhfnRiPAifH2ID3vj1cbOZeW4="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/util-endpoints_1.1.4_1709079421385_0.8096597308558409"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2023-10-24T20:42:52.263Z",
+    "1.0.1": "2023-10-24T20:42:52.612Z",
+    "modified": "2024-02-28T00:17:02.296Z",
+    "1.0.2": "2023-10-25T16:43:34.507Z",
+    "1.0.3": "2023-11-09T22:13:54.857Z",
+    "1.0.4": "2023-11-13T23:22:37.290Z",
+    "1.0.5": "2023-11-21T19:46:49.965Z",
+    "1.0.6": "2023-12-05T16:10:11.768Z",
+    "1.0.7": "2023-12-06T23:02:18.629Z",
+    "1.0.8": "2024-01-02T19:00:52.002Z",
+    "1.1.0": "2024-01-17T22:26:47.912Z",
+    "1.1.1": "2024-01-19T17:31:35.100Z",
+    "1.1.2": "2024-02-22T21:15:37.783Z",
+    "1.1.3": "2024-02-27T18:13:16.130Z",
+    "1.1.4": "2024-02-28T00:17:01.695Z"
+  },
+  "maintainers": [
+    {
+      "name": "smithy-team",
+      "email": "aws-smithy-team+npm@amazon.com"
+    },
+    {
+      "name": "trivikr-aws",
+      "email": "trivikr@amazon.com"
+    }
+  ],
+  "description": "Utilities to help with endpoint resolution.",
+  "homepage": "https://github.com/awslabs/smithy-typescript/tree/master/packages/util-endpoints",
+  "keywords": [
+    "endpoint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awslabs/smithy-typescript.git",
+    "directory": "packages/util-endpoints"
+  },
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "bugs": {
+    "url": "https://github.com/awslabs/smithy-typescript/issues"
+  },
+  "license": "Apache-2.0",
+  "readme": "# @smithy/util-endpoints\n\n[![NPM version](https://img.shields.io/npm/v/@smithy/util-endpoints/latest.svg)](https://www.npmjs.com/package/@smithy/util-endpoints)\n[![NPM downloads](https://img.shields.io/npm/dm/@smithy/util-endpoints.svg)](https://www.npmjs.com/package/@smithy/util-endpoints)\n\n> An internal package\n\n## Usage\n\nYou probably shouldn't, at least directly.\n",
+  "readmeFilename": "README.md"
+}
