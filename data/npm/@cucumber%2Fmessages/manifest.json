@@ -1,0 +1,4350 @@
+{
+  "_id": "@cucumber/messages",
+  "_rev": "48-c0a12f2267a3cdaa4137e0637e3d2512",
+  "name": "@cucumber/messages",
+  "dist-tags": {
+    "latest": "24.0.1"
+  },
+  "versions": {
+    "9.0.0": {
+      "name": "@cucumber/messages",
+      "version": "9.0.0",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/cucumber-messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "tslint src/**/*.ts test/**/*.ts --exclude src/cucumber-messages.d.ts --exclude dist/src/cucumber-messages.d.ts",
+        "lint-fix": "tslint --fix src/**/*.ts test/**/*.ts --exclude src/cucumber-messages.d.ts --exclude dist/src/cucumber-messages.d.ts",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --target static-module --wrap commonjs messages.proto --out src/cucumber-messages.js",
+        "pbts": "pbts src/cucumber-messages.js > src/cucumber-messages.d.ts",
+        "build": "tsc && npm run pbjs && npm run pbts && copyfiles src/cucumber-messages.js src/cucumber-messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^3.4.6",
+        "protobufjs": "^6.8.8",
+        "uuid": "^3.3.3"
+      },
+      "devDependencies": {
+        "@types/mocha": "^5.2.7",
+        "@types/node": "^13.1.5",
+        "copyfiles": "^2.1.1",
+        "mocha": "^7.0.0",
+        "nyc": "^15.0.0",
+        "prettier": "^1.19.1",
+        "ts-node": "^8.5.4",
+        "tslint": "^5.20.1",
+        "tslint-config-prettier": "^1.18.0",
+        "tslint-plugin-prettier": "^2.1.0",
+        "typescript": "^3.7.4"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/cucumber-messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/cucumber-messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@9.0.0",
+      "_npmVersion": "6.4.1",
+      "_nodeVersion": "10.14.2",
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "dist": {
+        "integrity": "sha512-/QTy5Lix5azC8ivvjeEU/Xg1orAqzkSFgGpZfxMpOCbvvVaQGe8BQNYeBOnF79gTlL5i6zB8EkShVwaJN79SRg==",
+        "shasum": "ac98ad12064f5b7b34dd1972753dc978d785a635",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-9.0.0.tgz",
+        "fileCount": 66,
+        "unpackedSize": 1474068,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeF5YSCRA9TVsSAnZWagAAoTEP/3YampcAtkBg5nNyoviu\nxRysU0I8MamZGIGNLQmaI3DrqwrIxTvIk3wwIdJ+ei7V+WAYA6jb13Je8nv4\nWGXKMKw4EQ7mqPMGRXhvt7rX/hNJ8MauKhh3BlCzII/ZasAIO372dEgM05dj\n9eTI+KCsVayVUxX9FBDTCwqWhm49hUsULv0iwq5hTW6EiJ7GRhxyjM9hUDX+\nsIYSs0O8TawoT+Gxudq5rotUnljlz7qA8c4NCfA+aFn6oqXoTz7FaU8RekpM\nNnHpi3wMpPrzY1E542wMWoF8BSvlXriLdNt3X6goHlBHkq2Plw4Iftg4DxHY\nQcJn2Pn+tWhAA8ZQIzaPlOAz2ZzmcI6fbRQtUeCWyeJXSvWq3F0+VCJ0DGCN\nNyIPNw9PNDYgdGg9VhYiIIA7pO6HYCYCt/n/ysa83x0v7OW31aSB0+P1B3Ky\nrTooleCpINEw7eKLNSTnz8+bu5HKLR5pS5Lh0JGLhCuQ2nHJbajKsqX8/ygW\neMjNYDph/3jEPeXOxjd7i+ePWi7nKFi/lFkQ1IJgSgpArbkbuviv0qQD0TZI\nQl9pvP1S50rWz6ENxdfybn21Mr1TQtJNahUTggJ3+5Zy1QDgu48nlMXo4mVa\nWyMguQuuAnAljrL9VbmY+zWW/Bgzkuk6LpRoOXvz64uy7AHnTFFMk5BLSNHJ\nQYCt\r\n=L0CQ\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCO86lP3p+YfJHxtpB+DZY1+YfRZEkRlLefWfxIFLi3bgIhAKZSWIKqrO81dcmJhmNMCQ7IjjsQR5GjtaULylS7lM4S"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        },
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_9.0.0_1578604049608_0.2708541150741879"
+      },
+      "_hasShrinkwrap": false
+    },
+    "9.0.1": {
+      "name": "@cucumber/messages",
+      "version": "9.0.1",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/cucumber-messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "tslint src/**/*.ts test/**/*.ts --exclude src/cucumber-messages.d.ts --exclude dist/src/cucumber-messages.d.ts",
+        "lint-fix": "tslint --fix src/**/*.ts test/**/*.ts --exclude src/cucumber-messages.d.ts --exclude dist/src/cucumber-messages.d.ts",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --target static-module --wrap commonjs messages.proto --out src/cucumber-messages.js",
+        "pbts": "pbts src/cucumber-messages.js > src/cucumber-messages.d.ts",
+        "build": "tsc && npm run pbjs && npm run pbts && copyfiles src/cucumber-messages.js src/cucumber-messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^3.4.6",
+        "protobufjs": "^6.8.8",
+        "uuid": "^3.3.3"
+      },
+      "devDependencies": {
+        "@types/mocha": "^5.2.7",
+        "@types/node": "^13.1.5",
+        "copyfiles": "^2.1.1",
+        "mocha": "^7.0.0",
+        "nyc": "^15.0.0",
+        "prettier": "^1.19.1",
+        "ts-node": "^8.5.4",
+        "tslint": "^5.20.1",
+        "tslint-config-prettier": "^1.18.0",
+        "tslint-plugin-prettier": "^2.1.0",
+        "typescript": "^3.7.4"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/cucumber-messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/cucumber-messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@9.0.1",
+      "_npmVersion": "6.4.1",
+      "_nodeVersion": "10.14.2",
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "dist": {
+        "integrity": "sha512-a1lnxPyoM4net4+UPNE9592hrBCgP5Lykzq5ch4bNPZVkBWlkarp3tEXua/zDbHG2/l6RrbsC9FeltyNiczvcw==",
+        "shasum": "67db4df70fda53849bbae9c2779162f0c633adde",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-9.0.1.tgz",
+        "fileCount": 66,
+        "unpackedSize": 1474084,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeF5riCRA9TVsSAnZWagAAi7oP/2cLg5ve+L1Klgut3iYb\ndqe4cZq7/TsVxkGHmrnDOSkQKQOZTp1zfOnB8JMh3fldWpdHS302P+Int810\nqToiqL9bR2HhAi2vUKFCw0EfEqX90P3I2OHHg0CEIUsvlqUFAuNcRG05jtBa\nn+H6YYhwPf57Pfy7SnR4qf6E+8Miiip7UJlzr4D+TCoKA20PvmixNuaXmnOL\nRXJay73JW/S+73tK/QQGTu/n5pt//UAYPJI22U9wrj0VyWIQV+ogm7+5S26O\nmTE//loszXvq0RDDM+j5HAgXaI5KpA3FWA6gmIlExawofAwQkmymdeUl4hut\nd5Mlxf1JSVaGjY3SvvbgvjSh/WPTnwuMcBqByYt4trNKh6akn0WpnlO50l1L\nNBWZFtu7npfgftVdBaOmf3b7OoJlmyc11MfdHT4ZCVbK8s7/qg1BmdlHRUUi\nPtR9fPkOywXS/MWQTLxKFWNOXgFLjs2nQvYbY/0deank2ZE+wqFQmOxOVOAt\nxJeBg3/Z7MlGHg0bVUkuFFP7UIaA+YwDZG7gsGpGe8WM5yPWTLcAjV8qhC0S\nbNonRQpmtVywMTJYXQ/uvceIoqMXM/3OckMVICIsIkdM/2l5DqX9ErwDodRi\naa0JtwJVy48HKrxaMIvhiolaCosWpF1CC5nLGuK0ksWolm/VwOnVickpr0vc\n7pT0\r\n=bVhV\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBmluehtTAxa48k0ScG6VCVCcfm83Un12E99RpGZLYHVAiEAreA/ZFSEbpBxUXhbb/lIRXrJ4YfEtuayxk1yCoMREgI="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_9.0.1_1578605281780_0.6379275018957631"
+      },
+      "_hasShrinkwrap": false
+    },
+    "9.0.2": {
+      "name": "@cucumber/messages",
+      "version": "9.0.2",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/cucumber-messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "tslint src/**/*.ts test/**/*.ts --exclude src/cucumber-messages.d.ts --exclude dist/src/cucumber-messages.d.ts",
+        "lint-fix": "tslint --fix src/**/*.ts test/**/*.ts --exclude src/cucumber-messages.d.ts --exclude dist/src/cucumber-messages.d.ts",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --target static-module --wrap commonjs messages.proto --out src/cucumber-messages.js",
+        "pbts": "pbts src/cucumber-messages.js > src/cucumber-messages.d.ts",
+        "build": "tsc && npm run pbjs && npm run pbts && copyfiles src/cucumber-messages.js src/cucumber-messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^3.4.6",
+        "protobufjs": "^6.8.8",
+        "uuid": "^3.3.3"
+      },
+      "devDependencies": {
+        "@types/mocha": "^5.2.7",
+        "@types/node": "^13.1.6",
+        "copyfiles": "^2.1.1",
+        "mocha": "^7.0.0",
+        "nyc": "^15.0.0",
+        "prettier": "^1.19.1",
+        "ts-node": "^8.5.4",
+        "tslint": "^5.20.1",
+        "tslint-config-prettier": "^1.18.0",
+        "tslint-plugin-prettier": "^2.1.0",
+        "typescript": "^3.7.4"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/cucumber-messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/cucumber-messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@9.0.2",
+      "_npmVersion": "6.4.1",
+      "_nodeVersion": "10.14.2",
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "dist": {
+        "integrity": "sha512-wkViHuof9NnCAFTuic3EJ25ICepzRvz4/xL9S75zHfihd1lipb/BaNtR8vnAyiupDmcFjWs4HL6eUzqDpYp5ww==",
+        "shasum": "2a9b973104f3e2b5c221884f9eb7c8856b989483",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-9.0.2.tgz",
+        "fileCount": 66,
+        "unpackedSize": 1474084,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeGEKQCRA9TVsSAnZWagAAwJAP/1eeMxEY0GDNOv/lFHK/\nlABv6eAm9v4bUJ9Azd76WiRrZTRPYdSUrJoSjZ3Sf7tsm3OVJHLCM052xdJw\nUw52RNwHK7FPVdSU4JwXHS4LfedbRkZ27942Fxc6LAwi2Q3QyB/qfkHmYmZl\n/A8mb3bA+/XmMD7YZIswqYVwqEj3cKJPQ85YEEiLIg+37mNntj7qb+0XiBkM\nr6AvaKqx+jGer9kN6mBogdV/qz0ScrZ08wHcmW6JLuELALmOvc1nvMl47L3p\nS4tuOgSnmP0o1hxv7tB9RrvYAsXDlTDIfSoI4x7PM74cLxJZ1p9bWZuJfgB/\nDK3RQ4Wu8+1sga3hdMEx0YBUgx+4izygfEugLWnSXrjgRf2LFSRxk7FbGFfU\nm8XGdETfdd1EfcpOnTQHFnRiFwfWoQE2lmujUNsIOLbLfFAp3x0LqZFLPEyQ\n5cP/ffO5V8LKiVEyXtefD+IrvZS4GsNcZwgaCl96Nv4ADwt+EL35TjADxyjJ\nhVeAgUwrRuHcIi7Gn1ExRs5P1Ipz3LtrBbI3wi7SYBHeJxoKz6BvLT3Sa/S3\nFm4hwEqi2JMCnQ+HJswWIyP6kpoR/BuSY2Sxc6f9otg8kLnpz3pLfl+JfSWq\ngni4qfYIYVNhlXiAUkj2jO++sfRHlxQ0e7ev1mCkuhwxs3K1q7kFx6pUiKBg\nlX5K\r\n=XvKd\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCrjV8UcpKVzIGN7MNph4QL2gqG4VVS0o0h0uBjWbhiLwIhAJE3u5MIxzXELvV5lYYQsZtGkuHMVVxXUFc6dufph0PW"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_9.0.2_1578648207609_0.7991452085631494"
+      },
+      "_hasShrinkwrap": false
+    },
+    "9.0.3": {
+      "name": "@cucumber/messages",
+      "version": "9.0.3",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/cucumber-messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "tslint src/**/*.ts test/**/*.ts --exclude src/cucumber-messages.d.ts --exclude dist/src/cucumber-messages.d.ts",
+        "lint-fix": "tslint --fix src/**/*.ts test/**/*.ts --exclude src/cucumber-messages.d.ts --exclude dist/src/cucumber-messages.d.ts",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --target static-module --wrap commonjs messages.proto --out src/cucumber-messages.js",
+        "pbts": "pbts src/cucumber-messages.js > src/cucumber-messages.d.ts",
+        "build": "tsc && npm run pbjs && npm run pbts && copyfiles src/cucumber-messages.js src/cucumber-messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^3.4.6",
+        "protobufjs": "^6.8.8",
+        "uuid": "^3.3.3"
+      },
+      "devDependencies": {
+        "@types/mocha": "^5.2.7",
+        "@types/node": "^13.1.6",
+        "copyfiles": "^2.1.1",
+        "mocha": "^7.0.0",
+        "nyc": "^15.0.0",
+        "prettier": "^1.19.1",
+        "ts-node": "^8.6.0",
+        "tslint": "^5.20.1",
+        "tslint-config-prettier": "^1.18.0",
+        "tslint-plugin-prettier": "^2.1.0",
+        "typescript": "^3.7.4"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/cucumber-messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/cucumber-messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@9.0.3",
+      "_npmVersion": "6.4.1",
+      "_nodeVersion": "10.14.2",
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "dist": {
+        "integrity": "sha512-bO6x77AqZ3tQj2ogV/sbJxVKY+6zJNRdyiv7mJkv55RQF2+1/EfDdPMWC6f5xxh0L1oBLzXCHl5gdslw6YzomA==",
+        "shasum": "1d2daa5896c6879a932d1f806e9738635fef1339",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-9.0.3.tgz",
+        "fileCount": 66,
+        "unpackedSize": 1474099,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeGFoYCRA9TVsSAnZWagAAsMYP/jbGVWVHxo8qxBm5KJNS\nK197xNipJRv3EPikWLaWSUrtuZqJEkh+oEs/2Nj/uAK06S1SwTfcwh3hZHTW\nXHuYdf16vX6vFTGgQJMFOrh0lHlnmhLr9zxB7scUqEkq2qPdGwx9t4/3/DzI\nAU1g/zRCFjf/pG3/wxAlH8E8aS/2B91iLOQRyksr7o+ytBa7Sv+sDaZwNSTw\nYC+cGMWS0lHfhKAn/HgJ9cunqHo05oKNbpw6P4LqVZT+47cMJdnBaCCIhQ/N\n0eYLZ202a6U3aQhjQK6pICplogYlG21iztuFqOg7tUho1wBIFJPqf2jHXjPJ\nmC3m37M0CsJ+Zfy8RSbeqhfa2UsrKtx9+CA6BVqmNilUJodJxYTX/qjdOSHQ\njJAwJKGhbcdsspi/YuliGbd46VZIJ4nRxEUTlogkIDIdOQ53qiN9Z7irJPaC\nKSSXiYWHry+4/cXTXfgJBH2PnKD8l17CyVjL49v6P0nfjXh+Sr6cJL5ee2nI\n55xKItQUOMgY9+p4a2vVEzL/4piuxg0Gpm5cuY77AYxABUp7vWkbbOX5DMWB\nSrbZw4boNvesUESpS3mDm8eNNScOLTRhmE3lNvG0MR/lHhNijmQebYKqLKUf\nO/Z96Hgl2p0jsZRzIpZ0CtSJ2fYQbzOPBlo4hXnhTrc1mAlipne+ZTzJmtsS\nVOi/\r\n=JosI\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCZCd6TPD5CDyYQV+HkqIKrpsmmSatif8T+py8ewIPtYAIgTPRIXT7Em8fHQfkHCeGw7qLflOB+qoiRUbC92+b1iug="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_9.0.3_1578654232240_0.950434930061874"
+      },
+      "_hasShrinkwrap": false
+    },
+    "10.0.1": {
+      "name": "@cucumber/messages",
+      "version": "10.0.1",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "eslint --ext ts --max-warnings 0 src test",
+        "lint-fix": "eslint --ext ts --max-warnings 0 --fix src test",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "build": "tsc && make src/messages.js && make src/messages.d.ts && copyfiles src/messages.js src/messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^3.4.7",
+        "protobufjs": "^6.8.8",
+        "uuid": "^3.4.0"
+      },
+      "devDependencies": {
+        "@types/mocha": "^7.0.1",
+        "@types/node": "^13.7.1",
+        "@typescript-eslint/eslint-plugin": "^2.19.2",
+        "@typescript-eslint/parser": "^2.19.2",
+        "copyfiles": "^2.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.10.0",
+        "eslint-plugin-node": "^11.0.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "eslint-plugin-react": "^7.18.3",
+        "mocha": "^7.0.1",
+        "nyc": "^15.0.0",
+        "prettier": "^1.19.1",
+        "ts-node": "^8.6.2",
+        "typescript": "^3.7.5"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@10.0.1",
+      "_nodeVersion": "10.14.2",
+      "_npmVersion": "6.13.6",
+      "dist": {
+        "integrity": "sha512-4SrwzPd85ZT1uH1D0tS7b47p4eZEfQHBbzxB5B+0LZE3hOXRDhcTGWFf6JcO9OUFakXyLBd0MH81mnS8N2O31g==",
+        "shasum": "a9c915fdc67b2204307bf73b79a5277f51233578",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-10.0.1.tgz",
+        "fileCount": 66,
+        "unpackedSize": 1495882,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeRXjDCRA9TVsSAnZWagAAsKkP/R1lVHaqGGcef9CDlGhW\nfqfYaUMlnx5UIfGjXGvp1n55XqxuN2tfs1hDhbau//vj4diOOxHSEV79hfRc\nELd8sMn9+/uMYrj9eJYda6HnBwZtWM6YzB+kTUrctirqR8U0oCwzMFz+qby6\nexkuQZtvxUQzsNiWJ94CuD0M1nqRMepd15wAOr2+PLjOLbEGnpRbSwNOZi5S\nRSC+e039rMkc5jAUQAeYO6hHnmskIEjwOQhOmigZ4XHGCY8D4Z6CdM3puA5P\n9h3Z7xX3n9RbHIqC1lIX6yu3AypEyxepAQ0az4YmV/zTj6tcC1o1fvOIdl2G\nWv+ZLa9p/2rfCtJbBp7CATkk/k3wM5/tZ6FBC3ZSftJEjNzBZrFeU3o5BLPs\nHN89/JX099wZIkKD4shNqHIch0z83X2iKIgrUO9s5tk5ht/xKqamie7VMR8C\niz1TG3IJ6KOJS9473RVW+2XRYrrvs07lEDbP85offmOcwoYrLUNilETn6jZe\nn32afqUVuWfN8m3DFtoGTn7IsQaAXRda9C9D1OnZCoGwpTSZnJRZiqWkGMGJ\nXXJTzhxxPgx1/AEhrpymXP36UVriWiTbhychfkdkfIQvDo6fzIzkNCgn1UtJ\nSCsj7LfFLaNZ4wZfEapJbeZoOM/ly31+mPBGZK69YraM4/fy+16n0CFJBnL1\n3TgZ\r\n=hlRE\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQClCfFuPzZGMvgtcGybePHwBvtmU7qtfNSQ44hqTt/8hAIhAIN3QkpwmOGKafX6gMVft7NVZZICGVVZR+YrQjGlpzof"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_10.0.1_1581611203405_0.024888854216070344"
+      },
+      "_hasShrinkwrap": false
+    },
+    "10.0.2": {
+      "name": "@cucumber/messages",
+      "version": "10.0.2",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "eslint --ext ts --max-warnings 0 src test",
+        "lint-fix": "eslint --ext ts --max-warnings 0 --fix src test",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "build": "tsc && make src/messages.js && make src/messages.d.ts && copyfiles src/messages.js src/messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^7.0.0",
+        "protobufjs": "^6.8.8",
+        "uuid": "^7.0.1"
+      },
+      "devDependencies": {
+        "@types/mocha": "^7.0.1",
+        "@types/node": "^13.7.7",
+        "@typescript-eslint/eslint-plugin": "^2.21.0",
+        "@typescript-eslint/parser": "^2.21.0",
+        "copyfiles": "^2.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.10.0",
+        "eslint-plugin-node": "^11.0.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "eslint-plugin-react": "^7.18.3",
+        "mocha": "^7.1.0",
+        "nyc": "^15.0.0",
+        "prettier": "^1.19.1",
+        "ts-node": "^8.6.2",
+        "typescript": "^3.8.3"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@10.0.2",
+      "_nodeVersion": "10.14.2",
+      "_npmVersion": "6.14.1",
+      "dist": {
+        "integrity": "sha512-727HX4bcxDtkEO6+6QAc8+DpgkxS0OFlicqCODdkWg71/1XiMmSZcH9daeKscwobFmTyKF56yfFWVGIXLuxVKQ==",
+        "shasum": "0f6112dc206b4b216777b6695dae1ea2bd2bf71a",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-10.0.2.tgz",
+        "fileCount": 66,
+        "unpackedSize": 1498704,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeYNGpCRA9TVsSAnZWagAAEUEP/1+u8yFAXoVLbeamZQL4\nPB89UB44+OzzcCWyFAaS1VLvE0Xo8QvMOmma2rNVopIhDU6Dv4iJANHH3DRT\nI8WPPbvEl6lOK9qVKIlf39xtJFTiXziq/DMoNeTtp1JWz9tIXv4TTBOryBJE\nBa0jF5pd8DTYWyIjelU9wUcoGVYVBkJIimFGNlnNm1ivdR7IyW1ulQpEg/Us\nXzUkGbYxPv1BtdkJ6t3KB6AprVmMXIortltH5yegS1/ps8YH+jyfvWZvKL/E\ngccPBUoclGGhnrO07S6t40UZXLBYEKuWNLvgtNwFDQypOBSevf3B8cfXmmKZ\nGQF2FzE9pLBD7BunwpUn6hV7jb8qM72K7uekRZUw5NTRmnQ0p3FLl81rlGXU\nIACKB6S+T5IpWgDNrXePj9RSWIHgzKQGQD0XiFuILuKymnAqfTm/zhVIL9iD\nh7JKzTqgUcaR6ZAG6cMSywLPuUshPY1pc6D3x2vGA0hdbs/ypRRfRISFA/UF\nuO6MxI84nHA1pO1BdeLua4kMkfCLDVumPIwld2zcImZfPuvq08bK1kXp1MOn\nZ+mY9kOoBvjfJOf2OuDi0KotMBfhoVMNwVtBqL7ilkSdSV5M3bZKe7XdmqA5\nPqYY2kfIWuf6XRS4CvjlUHnenXV1JI4Mr/ZIIBJTB2DuM7xcinaFme/UAubw\nT1LV\r\n=X6/c\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIA64MQM8qGJnnaxr1ruk9Qjc+Rr7PlySyVbvTPWEvYwoAiEAk8sdFv9TV835iYC1pNcVfnWjkJ6xj4HVQQjEG4Kbxuc="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_10.0.2_1583403432691_0.5611787552739824"
+      },
+      "_hasShrinkwrap": false
+    },
+    "11.0.1": {
+      "name": "@cucumber/messages",
+      "version": "11.0.1",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "eslint --ext ts --max-warnings 0 src test",
+        "lint-fix": "eslint --ext ts --max-warnings 0 --fix src test",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "build": "tsc && make src/messages.js && make src/messages.d.ts && copyfiles src/messages.js src/messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^7.0.2",
+        "protobufjs": "^6.8.9",
+        "uuid": "^7.0.2"
+      },
+      "devDependencies": {
+        "@types/mocha": "^7.0.2",
+        "@types/node": "^13.9.5",
+        "@typescript-eslint/eslint-plugin": "^2.25.0",
+        "@typescript-eslint/parser": "^2.25.0",
+        "copyfiles": "^2.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.10.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "eslint-plugin-react": "^7.19.0",
+        "mocha": "^7.1.1",
+        "nyc": "^15.0.0",
+        "prettier": "^2.0.2",
+        "ts-node": "^8.8.1",
+        "typescript": "^3.8.3"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@11.0.1",
+      "_nodeVersion": "10.14.2",
+      "_npmVersion": "6.14.2",
+      "dist": {
+        "integrity": "sha512-6PS14FWmS1LUXWlHiCvPqp7g54Hv5th6zQ/DOhRAZ7Tz1w2Ac4+MJSeuRvo73KZPE8R99E7dDZP1TrpXw9qTMQ==",
+        "shasum": "c4de18c05c7ee24f6983bba736616ce773936487",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-11.0.1.tgz",
+        "fileCount": 66,
+        "unpackedSize": 1498615,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJegkFbCRA9TVsSAnZWagAAFtkQAI+AtxpX2YILFnw1HtpN\nEbBXpkAVz7Deg8DEzBKR3gBLERb6lkGBdyT0Vhqmq1yTk0OROlMB5WqEveND\noUkc3Yyvoftmq5uns34YNwKwa//jLxNoTadZvE2nuaF5bW/u1Rsd/FTfPRqQ\ncpXDY0xiFurENF2ZX1DP4EiLnlJ+gW9+1xqnvFiyJOGeXr6LXZdcYCPptDr9\nvdM3ESmTOSV3ObmJ76vFy1O9gf0D8XBfZRlQzGYjAwxXoHbOMTfp31Px1C3w\n8wrqo5IAa6DCXgBkhUEzDZgJBaA1Nu9JFea4JjDm/B+PrFd42cbJMj0bZkh8\nwKO/xpI+eCnhhxmKCceGit06refMdSlBY1LPNHOcKFZQ2odiQeSdeGxCY6W9\nh+Db3J4Fr1J+6VwLz8Dlz+OVKmPpoEprR7qs5l1NZCzzXFn+nq4/b4JICO4U\ngNXGTTm02pfeSU3c+UkUOIGS4iDmCNGX7ocT+2I0U0IM8EEhvQf1R/95sB//\nmHZGNOyZiiTgS7TWCTnoeKPXx/hHL8ButCFKORvU8iun+/OWhXuLesDiaxq9\ngUUm9R7j+w/0H5IY5jxFiX5Zd3ychAyTkauPEBQA0PgUFRzq3MiDnj7isLXW\n5ckcJWtIAYK3ARd0MxSanPt46IERtV/SALJ+izb2cRG7KLlExoazmk+b/56C\nggD/\r\n=6Zz9\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDk1m/tOZp/gPqUEgGwp0hidf6BD+D0QgkPWDqWZW9inwIhAOvYFTRFsOGAGMfhaFURwMlnndej11zczQuDqo8tPpR2"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_11.0.1_1585594715499_0.07025061020196333"
+      },
+      "_hasShrinkwrap": false
+    },
+    "11.1.0": {
+      "name": "@cucumber/messages",
+      "version": "11.1.0",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "eslint --ext ts --max-warnings 0 src test",
+        "lint-fix": "eslint --ext ts --max-warnings 0 --fix src test",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "build": "tsc && make src/messages.js && make src/messages.d.ts && copyfiles src/messages.js src/messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^7.0.2",
+        "protobufjs": "^6.8.9",
+        "uuid": "^7.0.2"
+      },
+      "devDependencies": {
+        "@types/mocha": "^7.0.2",
+        "@types/node": "^13.9.6",
+        "@typescript-eslint/eslint-plugin": "^2.26.0",
+        "@typescript-eslint/parser": "^2.26.0",
+        "copyfiles": "^2.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.10.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "eslint-plugin-react": "^7.19.0",
+        "mocha": "^7.1.1",
+        "nyc": "^15.0.0",
+        "prettier": "^2.0.2",
+        "ts-node": "^8.8.1",
+        "typescript": "^3.8.3"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@11.1.0",
+      "_nodeVersion": "10.14.2",
+      "_npmVersion": "6.14.2",
+      "dist": {
+        "integrity": "sha512-olHWJX/CzYPoY2ozgbKjiyEjyszlsi4fnUo1M90cYnlNArL+ZQMml+axLYXZ2NVlxgmtbyzLTNiBKuj8acT/sA==",
+        "shasum": "84c4c65e2455332fe246962d71b5e4d1217f5862",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-11.1.0.tgz",
+        "fileCount": 66,
+        "unpackedSize": 1498615,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJegoJaCRA9TVsSAnZWagAAuhoQAIFAYv1oAx9RLtl8kBk/\nSR9DiplYzJOKJdGjSw3oMQiGNdi5KgJyDe6tTW0qz5i2vFwaOuvKGj6Up0T6\n+u0Cp8aqMLNAf5EaTErmJmYQtG7vc2ytCWWm+xaA4B2Y5PGUxXD6eq3VkzCA\nf70Ka7TBYed3rnMI5+N0ufvLBOv53raeuZvFQ6OP9k6Ml4qJdEWi9bjudqBg\n33N9Os4iZSVhl2xFnsSX6EShz+HT60VggNppR1I6ARDipWxQ3+vHvZ/S9pmb\nT3MDZf8Fl8Wo8tj76u3ktw78vKScCbmSc/OoTp4PrXkU04p1cDZ8QfVKUixa\nhTbLHzmq6WjF33UZ3ajSUKB85N1qbxpRKJw+Ueq5mTydxrKkae4yjcijq9u+\npwV7J6H0p93zzGUl2p6FNy86gFPDRIsmVtKcoM5gGDUUYFYlmx2//Hz9OSQR\nuhsVMT7NRRLSoM/aHNZ5MobXuNRM4QQW36wvXA1bzJNmDK00bY4LWBT4MNks\nOfRp0tXp0wikxzGxVImIqFjUVXbJCEAwoyy+94wfRlQ+qIa1/+j1TId97dxw\ngZgaqlcTa0NyWxsppKGNL9r9JN1prXfzml2ohQ9v/UVqFm5A+kHw27xbarFz\nxQUOmKKawIrt+UBYErEV78PEuIH1T+sXWo8t/WTqVLVxpwJAApGz606HxBbe\nQhvO\r\n=TVjM\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAU9CuTXhAWRrTMbzt63Xso2725xT2cqnyrOPQn7zNFVAiBeeitW9PgWt+RG5/wAIS5RNChnxo2gInQR1+HTFFyJeQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_11.1.0_1585611354267_0.4650417183663891"
+      },
+      "_hasShrinkwrap": false
+    },
+    "11.1.1": {
+      "name": "@cucumber/messages",
+      "version": "11.1.1",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "eslint --ext ts --max-warnings 0 src test",
+        "lint-fix": "eslint --ext ts --max-warnings 0 --fix src test",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "build": "tsc && make src/messages.js && make src/messages.d.ts && copyfiles src/messages.js src/messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^7.0.2",
+        "protobufjs": "^6.8.9",
+        "uuid": "^7.0.2"
+      },
+      "devDependencies": {
+        "@types/mocha": "^7.0.2",
+        "@types/node": "^13.9.7",
+        "@typescript-eslint/eslint-plugin": "^2.26.0",
+        "@typescript-eslint/parser": "^2.26.0",
+        "copyfiles": "^2.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.10.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "eslint-plugin-react": "^7.19.0",
+        "mocha": "^7.1.1",
+        "nyc": "^15.0.0",
+        "prettier": "^2.0.2",
+        "ts-node": "^8.8.1",
+        "typescript": "^3.8.3"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@11.1.1",
+      "_nodeVersion": "10.14.2",
+      "_npmVersion": "6.14.2",
+      "dist": {
+        "integrity": "sha512-KgBKTGQtl0tuOL9VwGq9OqbsHhVw1YRa6RgYu4d5M6ybQ8MqUqn053yWnr0s8J1c5VADVz8rkJ+FM1DbFGzTaA==",
+        "shasum": "3b9351f7e363aaa93d8d50fee85f87f68293d2e5",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-11.1.1.tgz",
+        "fileCount": 66,
+        "unpackedSize": 1502971,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJegoZLCRA9TVsSAnZWagAA0wUP/0M5ByeOUtvoAxZ914lM\nFjlaaBE5wkhM40XmyYQYMHiTGvxNTXjpwI2fHyxWdOzl6EmcWOjqcG3ccXEr\nDV2cpW18TDzKvzN4ygrzBx88b61+bcWxfR/p0RXX9fZuT1hQnGCLG1ZRbGkI\nW1TsxjsiLg1E7r5Z4gOKKsUp7HO77Q17lxKmzoKuNScuScPdpCGW9z+qR5Rx\n1YEd3KIBRwmuY5KqOPHF8i1X1ruofRg2dgjfQGuU3SGUzTVNaJbpShv8rpXI\nqeNsuu+7Q23I0nxy1yImBy3woZcYDYG5gTd9vDNZePx9F9cLh+vBugP2TQha\nnYWX9WXNu6QWVHvVZOqH0Rdu90/xe0IlslcfmZmjPlv5fA26SE2pBa0mmbpK\n/RLT80zFvq0vnTCtcUi+rFnUKxWxPAndPCEvr8p/XsDYc/Ndh5RPvAOMgQXk\n/gWui8689/gqtpPKqXTvbzvyftF9uvllI/y4gqaJuw3OWO9EpilPOj3kp1CJ\nIjeJdMatwY6rNR4tEiewVDc9301dfTrP6nBmkS5T/trdY9m6yP/5lcJH4Pc4\nqKsZnjFzjFiPtQc0qIn2EbLf1N8lWGPrR0u6VQtOmcuKPXNeSW1BXp7mggJx\nmmmP2cvvWDg/TVMd/mNtSxNgSyQ08bTrYGcw4szIvz05Sk1pl2eegxeJNFms\n6ulY\r\n=XVWD\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDhSSuaogEGMEijU7aCicvgoTUcDKd9FXRKMzuxqpnr9QIgSV1/9nLtljT8drOoMu/ubS/3ooWi5txIfOCljSdqdWA="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_11.1.1_1585612363286_0.023263476964604513"
+      },
+      "_hasShrinkwrap": false
+    },
+    "12.0.0": {
+      "name": "@cucumber/messages",
+      "version": "12.0.0",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "eslint --ext ts --max-warnings 0 src test",
+        "lint-fix": "eslint --ext ts --max-warnings 0 --fix src test",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "build": "tsc && make src/messages.js && make src/messages.d.ts && copyfiles src/messages.js src/messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^7.0.2",
+        "protobufjs": "^6.8.9",
+        "uuid": "^7.0.3"
+      },
+      "devDependencies": {
+        "@types/mocha": "^7.0.2",
+        "@types/node": "^13.11.1",
+        "@typescript-eslint/eslint-plugin": "^2.28.0",
+        "@typescript-eslint/parser": "^2.28.0",
+        "copyfiles": "^2.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.10.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.1.3",
+        "eslint-plugin-react": "^7.19.0",
+        "mocha": "^7.1.1",
+        "nyc": "^15.0.1",
+        "prettier": "^2.0.4",
+        "ts-node": "^8.8.2",
+        "typescript": "^3.8.3"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@12.0.0",
+      "_nodeVersion": "10.14.2",
+      "_npmVersion": "6.14.4",
+      "dist": {
+        "integrity": "sha512-4ytqElno7VX75JSF374VtDP00J+ubHbSL9azBsDsskx+GEZEKhyBYl5j31ecDt9PkWn8jGTFX0CF+m/HJFkzXg==",
+        "shasum": "6c8d3a9c815682b9319e4a8841ca271f92c36df1",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-12.0.0.tgz",
+        "fileCount": 66,
+        "unpackedSize": 1140985,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeldYzCRA9TVsSAnZWagAA3IQP/1MShdXvweYDDHCKLQf6\nvYgzlZlqGid6BcnYvmV4jowY4NkgLYqkWQ05/gx+2QszQndHJeAZgLAlLKUQ\nNVG/pGnKl1lAWbnf3OPhwJrzBfkg+vZ0vmYPStt+2G+Q79vtp746plLyM2rE\nav/LN4OJcYAKWnNMhUA3ifTaIk7dnUS+5Im6HD/6TXpg/N+cEUPMzA3LDice\nrrdgKxEG6pOw5riemDdTh1vXxBXE/jeIkQBv9a/tx1fYEYLiDlVAumvpknFg\nuq3Bete5HmRr8QCeCTlMVcPFUQ6QXa9N8ZNPW+PMEnbwDjvcA0UX4qf8e0zn\nOEwW4GxpHcsUJFTkskNXAyD83tarMfrzb3f0rXD4XyE/3REOP0YIjlM32kgZ\ne45vxPNMizr1ZvUcCTcvepX9PwglIElhOaTxgACtfgGqVl6qx8QeRh0cRSFA\n/1Uu4uUABn2Gel2cwx/8tNU4vX/afPnbtUgeclncIzND60L5Xo+iPZMVCBlD\nE8MNJlsLFileBRWRalkT6rbx469kkqyEE/557+lfXpMX9inoTDAIKK1lN7PW\niPw0R635SMaSM+Z6DBguM1bMyWj7KRB59ZThnIGqhl0kyQk4SmK+wekWp3d1\n+bDr2isXV1lqiJikhl1gU/rbVrFm2OcF6TGVMfZQTUe48zgDDDH3rgyFtxsE\nNINW\r\n=imeH\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAEFSqdAqXcrGoPIE2UH7w4XagHw1M8lBfrYZicJv8qiAiEAhk1jGVmXQNO51HX/wdd4D/c0NVhVGSaNA02CPBNnZmI="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_12.0.0_1586878003003_0.21817455348306591"
+      },
+      "_hasShrinkwrap": false
+    },
+    "12.1.0": {
+      "name": "@cucumber/messages",
+      "version": "12.1.0",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "eslint --ext ts --max-warnings 0 src test",
+        "lint-fix": "eslint --ext ts --max-warnings 0 --fix src test",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "build": "tsc && make src/messages.js && make src/messages.d.ts && copyfiles src/messages.js src/messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^7.0.2",
+        "protobufjs": "^6.9.0",
+        "uuid": "^7.0.3"
+      },
+      "devDependencies": {
+        "@types/mocha": "^7.0.2",
+        "@types/node": "^13.13.1",
+        "@typescript-eslint/eslint-plugin": "^2.29.0",
+        "@typescript-eslint/parser": "^2.29.0",
+        "copyfiles": "^2.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.10.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.1.3",
+        "eslint-plugin-react": "^7.19.0",
+        "mocha": "^7.1.1",
+        "nyc": "^15.0.1",
+        "prettier": "^2.0.4",
+        "ts-node": "^8.9.0",
+        "typescript": "^3.8.3"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@12.1.0",
+      "_nodeVersion": "10.14.2",
+      "_npmVersion": "6.14.4",
+      "dist": {
+        "integrity": "sha512-xgB/bacyyNuakjQLDeIPyVfjfH4wlEze4sziTEYQan7hEaPpaMge/ARIGDYHAPrDkm4Cx+aMzW/bZgKa+U1i0Q==",
+        "shasum": "d5ed15a543b6cf5233eee44bd27ebb83b872fba7",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-12.1.0.tgz",
+        "fileCount": 71,
+        "unpackedSize": 1163400,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJensynCRA9TVsSAnZWagAAJFYQAIvC51VRDefLzDSHX5/C\nT/BeDjP0FopOPWeHLgS7/1CxE9rdUvaomoG9fUtFlLrvm668KUmuRrdsLpzU\nCsBSg6SpqjFnezLPuKS7VMp1rhF8D2STnmg+D7haw7AwQRjkJaBVVc3as9Ae\nOpA1b/ACfzrg173eRCPdKd4RSfoR48gGumOsJTQdovNyRGjDIeMbJcNbka+w\ne84piUn7/PfyA4YbJRSd1Wt73RYCUKXTN7f7h0sA26Cbw89CJmxFb6JszWqN\nv8++eXh6TcI8QHSs75EZX0jP+/TnGPDjmjX1e+Klxqmh1NrQ6DvtD5uBNHL4\n35nFoQQD1vtQf6tIP+OIdjbpRPEMA8N/yirZ8YspgIfxkOImTO4W/rvz0n+/\nwTzMCQwQVuX1KIAt0nLqEYMiSk2zdmuVeA3/OtKWsyTeMDmALWHDI4l2gmA9\nfbIXKIQKJlbosK+3iXt5qxoa6oRI1ksLsWgJrPTUdhjDyYb/L7wDh5ztafIM\nBC+JyIh2t4ZH23io0hMEFVDkK2J5/4uAKcJDkgPX1c5/cb1pMnwyjMTSkL45\nn8b5io+ukr8JhXG0JVSmemRUjuFrNy/1Tyi4+hBeL28IFAhvAkxiASxZxd1T\n4rdoGC6bZpNoCUIWCxid0eazgEldqvuW1p4sJJTRrCENSEUM3axKZpWnHV/z\nm36Z\r\n=AAY6\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDAby+jnjwQ3/1Ca2wpCj2c8cn6W9kPCHRxTT1EbmiCYQIgFBV91KTlTG6qJaoft/bGL1G7/jgZOightY8dpc7TrcM="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_12.1.0_1587465382900_0.2620510784837111"
+      },
+      "_hasShrinkwrap": false
+    },
+    "12.1.1": {
+      "name": "@cucumber/messages",
+      "version": "12.1.1",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "eslint --ext ts --max-warnings 0 src test",
+        "lint-fix": "eslint --ext ts --max-warnings 0 --fix src test",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "build": "tsc && make src/messages.js && make src/messages.d.ts && copyfiles src/messages.js src/messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^7.0.2",
+        "protobufjs": "^6.9.0",
+        "uuid": "^7.0.3"
+      },
+      "devDependencies": {
+        "@types/mocha": "^7.0.2",
+        "@types/node": "^13.13.1",
+        "@typescript-eslint/eslint-plugin": "^2.29.0",
+        "@typescript-eslint/parser": "^2.29.0",
+        "copyfiles": "^2.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.10.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.1.3",
+        "eslint-plugin-react": "^7.19.0",
+        "mocha": "^7.1.1",
+        "nyc": "^15.0.1",
+        "prettier": "^2.0.4",
+        "ts-node": "^8.9.0",
+        "typescript": "^3.8.3"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@12.1.1",
+      "_nodeVersion": "10.14.2",
+      "_npmVersion": "6.14.4",
+      "dist": {
+        "integrity": "sha512-PbhaxCjLCUWNbWjF6n6zeFrBgNCMJINbJkq2V5TYFzTXSHN1ka4W/ZX0FupcHfP+eXhZe9QHW2nX+eyTRUYCpA==",
+        "shasum": "a7153731932495ba9312032483aa2effe39312f9",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-12.1.1.tgz",
+        "fileCount": 71,
+        "unpackedSize": 1163400,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJenuHKCRA9TVsSAnZWagAAOxUQAJrTtMd7zqzJckNAQRbD\n5IJ7mn75Nxhc2k3Jf/EapXLm0OF+XRGWwBWXBAa1fU0J1AmKmDLDH5W6w2yK\neUjAmtv6phw0WcrNdU3b/e5lLCZYtocPaueDtnj9dgqvyFq54aj8UutaX7zu\nml400FRSq0dxLJlzZTvpFA2wafAzMVqnDtzkvLFKtAOdhf4QzBNgYQmxRp8n\nu84s59/UkHYQg9SvJlyOOewStPFfew1nEAbJn0eLu5tCAitNrspLczyeJqzC\naERtVU0gvdXCiRBOEOi6qDysNBC+GXJjSooinOMby+bKzHVGGLxXHiZrAxN8\n9VEqjsm8J+x0E6c0bynzKtM0uAchwt4bBOgifmgigIVPz9fVSFkSDqrPlCaD\n8jKooYNFxR78XTi1D39QrpASLQFxrh5BH7NgTe+ao4/jaIO8WDMcFvh4YpUj\ncV8G+k2gR+OZfFd2Zrzga3rnIx08STuKH3vn371oRW/6dCqDP5Pffgwr4LgU\ndidElPN0T+UpteRNkyCJVme3QfwvegCnA2O2SJowvR2SZpIR2M1t36UwbEQh\n0/wZIhWjbWobims68D6p5YvKfwLe62ue1LcpqxO9qcsBDpttid6KDS5BcaQe\n+VG9xhgxzbKgVwhPiEWfUce2tIXzDGv3oXAbDK/pqpVu4QAXX6h8YvrdjbVD\nvBg2\r\n=QZU8\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDOevYkuvb69Y5+XMMu5krmqgxEC26A39vWb8lrkY/18gIgZvJvOz6TPwpYbRIRET+tscPQrOTWCfFSjEWSWRfBgP8="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_12.1.1_1587470794116_0.6951887408824837"
+      },
+      "_hasShrinkwrap": false
+    },
+    "12.2.0": {
+      "name": "@cucumber/messages",
+      "version": "12.2.0",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "eslint --ext ts --max-warnings 0 src test",
+        "lint-fix": "eslint --ext ts --max-warnings 0 --fix src test",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "build": "tsc && make src/messages.js && make src/messages.d.ts && copyfiles src/messages.js src/messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^8.0.0",
+        "protobufjs": "^6.9.0",
+        "uuid": "^8.2.0"
+      },
+      "devDependencies": {
+        "@types/mocha": "^7.0.2",
+        "@types/node": "^14.0.14",
+        "@typescript-eslint/eslint-plugin": "^3.4.0",
+        "@typescript-eslint/parser": "^3.4.0",
+        "copyfiles": "^2.3.0",
+        "eslint": "^7.3.1",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-react": "^7.20.0",
+        "json-schema": "^0.2.5",
+        "mocha": "^8.0.1",
+        "nyc": "^15.1.0",
+        "prettier": "^2.0.5",
+        "ts-node": "^8.10.2",
+        "typescript": "^3.9.5"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@12.2.0",
+      "_nodeVersion": "12.16.2",
+      "_npmVersion": "6.14.5",
+      "dist": {
+        "integrity": "sha512-g5tJJHVqoHJr3DIc4LHCZEJiTSdjmuEHhsI9yFxkQBYsOjUvERQEBdl3He6a30zbQFxp2gTOOy0rrV/zpAijFw==",
+        "shasum": "a33e06f2fe7d5336a33b19ba8a521411c24625ce",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-12.2.0.tgz",
+        "fileCount": 71,
+        "unpackedSize": 1203544,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJe98K3CRA9TVsSAnZWagAAzDwP/jwBD5s5Fvc4OjKqA8sV\nmP7uIv8FO8JUSgfVgAuxW/cNp++cCprYAmOXEs6PopHwyFPgwknu6XyCjCm2\n6t1ClA0q+nEn4xy006Jigf6l98y4qzMq2vX5Pr+Mn1C1lRgLMsvzG+GC3b6A\nSUBwGfTjOWirXfCu8Uwy8x7sW+dLliVYoXJ73H2kDu/6tMaCwu3BQlp9ixxH\nEFz341SOMgej0dKv1/9xCxfZdC1fqGGceRdTBsWTu+FzETxaE9UvTtSc+jYE\nSe32YHeBAyue0uAIdH5ZIPPptfyndYBG4Md5JvFJPYYW/rT1uRZ8sbIvBbM3\nmOYez4eh5N087/9TxIm9IajEraD07lLfGcUb25VJjD56dlq29v3Qed1F/6xG\ndfHFb1vDIs/SjDI1vFPcTCXrcZiWQqK1EH82FVGMZAM5MVVzSgBE2DeHJPZQ\noWjLYdND1qtO/T/XwQsinZk1RZt/Yb40FgERo2ajoLaXLhUs3OaaS/RJtuub\nMIIME+GxTTId8tRtZgheSxr4/D8efuJHW8bMbWj1GVclCSAj9Y9I8gwcsNMJ\nTowJtJ1sQ71kylEC+tFtmaHsX6Z7PjpqlbKbHxErfs/E870DDScmDBHOcrqS\nufwrCsEvFI6tZL67GaaNL8oYkdMq4e9opazVwSHuEMT9jA2iX62b64+BxGdm\nk0zB\r\n=Ug14\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAHJ559k7iS3yHNUO/Dy9k4AIvQ3kC5oOJ0i2MzfcanqAiEA5kafNGcwX71der+tbplSaSjyOgEiPoOwHEabLLw1VmM="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_12.2.0_1593295542486_0.6469288989574979"
+      },
+      "_hasShrinkwrap": false
+    },
+    "12.3.1": {
+      "name": "@cucumber/messages",
+      "version": "12.3.1",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "eslint --ext ts --max-warnings 0 src test",
+        "lint-fix": "eslint --ext ts --max-warnings 0 --fix src test",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "build": "tsc && make src/messages.js && make src/messages.d.ts && copyfiles src/messages.js src/messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^8.0.0",
+        "protobufjs": "^6.10.1",
+        "uuid": "^8.3.0"
+      },
+      "devDependencies": {
+        "@types/mocha": "^8.0.0",
+        "@types/node": "^14.0.27",
+        "@typescript-eslint/eslint-plugin": "^3.7.1",
+        "@typescript-eslint/parser": "^3.7.1",
+        "copyfiles": "^2.3.0",
+        "eslint": "^7.5.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-react": "^7.20.5",
+        "json-schema": "^0.2.5",
+        "mocha": "^8.0.1",
+        "nyc": "^15.1.0",
+        "prettier": "^2.0.5",
+        "ts-node": "^8.10.2",
+        "typescript": "^3.9.7"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@12.3.1",
+      "_nodeVersion": "12.16.2",
+      "_npmVersion": "6.14.5",
+      "dist": {
+        "integrity": "sha512-sp4Oe/X0KZBZmbiHUqvOysvUZoq0VMNZ9HwcU4ft577Kgzd+/keFk5Kb6f7IzCQOEo7iTaGX8Bp9MdCfR3KFIQ==",
+        "shasum": "4d171b78dd3cb4e67cda639149023c0a70e6b241",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-12.3.1.tgz",
+        "fileCount": 71,
+        "unpackedSize": 1245671,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfISG3CRA9TVsSAnZWagAA8s4P/R+mfqwXKV/D74RE5Scd\nKVGA7wcpROzcrUhJ+22upn79kXqsYXnYycyB2CwmFfNbtGZVoa2lTShhkwY9\n4eLQ10/W+dM9LrXtWiwMK8wFXPUxgcVBVtNjov7PqO5UULxMHimz7LBJsWQu\nDycDiQ/vs1MYc/Nh++DEhbfk0KIM95cZoxyY5RMBrslkJKpDHOrg4kbiT8RD\nFvRVnx1zAt7wacWzMJHX/PERIWP6yKm2QZzkEaTRx2L8o2/OSTmUbxyhDIcG\nY5D/Ix32NXP4qeTtP9c/eGsap/xpMjnhHvTNdj43l7OWd8MdWS8vYMPUdqm9\nyWWav2/5zOtlbN6n2MiNbIb7boiYsV5vN+r4F5tQDN5GeZCvrWR0b+A8gK7h\ns/SApsplyDHf7bvqD+98LbKSoVN1zs6kCFhWxXJDzFqviy2rtG80YDInFhpO\n36drIhT03PsrYCq94K2AbTpz8dLgZRupeICsUageJmWsapglcVGG7JiY3QG+\n2kWlWb51gJ8Io+TUi0bXxLwzcBetMF+QXmNTNmkhc3nhwMSa6XqFs5pZGFpG\nVYHkHD/6onwZLTvx5XvexQniQc94Iwl56PGRRuAyKLrYibP1gMIcYws1He9S\nSMdzfj50EurlLvS05EgfljanoBIcVKxXspeEd1WFbFHmhvlTwf7j3lSqLCZC\npGRE\r\n=KGJR\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDtSPRJ2gLLCRIYJG/DP9BeS0K374wxbS/xgEf2KTnitQIhAIaYz6Pc+5saIGvLhtKGkLa4X4SoixEgG4cc/h1vcRry"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_12.3.1_1596006838836_0.6700210499450456"
+      },
+      "_hasShrinkwrap": false
+    },
+    "12.3.2": {
+      "name": "@cucumber/messages",
+      "version": "12.3.2",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "eslint --ext ts --max-warnings 0 src test",
+        "lint-fix": "eslint --ext ts --max-warnings 0 --fix src test",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "build": "tsc && make src/messages.js && make src/messages.d.ts && copyfiles src/messages.js src/messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^8.0.0",
+        "protobufjs": "^6.10.1",
+        "uuid": "^8.3.0"
+      },
+      "devDependencies": {
+        "@types/mocha": "^8.0.0",
+        "@types/node": "^14.0.27",
+        "@typescript-eslint/eslint-plugin": "^3.7.1",
+        "@typescript-eslint/parser": "^3.7.1",
+        "copyfiles": "^2.3.0",
+        "eslint": "^7.5.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-react": "^7.20.5",
+        "json-schema": "^0.2.5",
+        "mocha": "^8.0.1",
+        "nyc": "^15.1.0",
+        "prettier": "^2.0.5",
+        "ts-node": "^8.10.2",
+        "typescript": "^3.9.7"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@12.3.2",
+      "_nodeVersion": "12.16.2",
+      "_npmVersion": "6.14.5",
+      "dist": {
+        "integrity": "sha512-p+R5xRbUN8UukovLVJ0LF2rKmFzjXx3uOes36Pl6fAScYu7DiZu7Bn8YS54bCVg5zTayRT5xfTb1jsISjVWSTg==",
+        "shasum": "96da259e413355b039a29e6dcfa83457b5ea4818",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-12.3.2.tgz",
+        "fileCount": 71,
+        "unpackedSize": 1245671,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfIV6XCRA9TVsSAnZWagAAtVwP/0f+CMMA0+MCD9q8E/xo\nV38bskMuqmbIhWWK5mWN/FO6+FtWMNLZPS0bKJAtmacL0xjgvv13RoCYnI+U\nhbO8uniQvP8+sPbOUbfmbaPDuiYwiJLzxz1z2d1u2jv6QaeJggNamHVD2xN6\njoa9ZLcKWlOtp7reSgHGPHWXm8EyEAKnVph7xb7dFeRSESgn+PDsui7Dvw4j\nedK16vgpiaEymtj7kTIqZA72ZTbkyICarUQ4hQAuJ9qjfcJnaUa3towLwEpt\nUeHS4yPsMiWlG/ur4iSqXC8XEujv6nZjRmhomlWwuGpxlAdyRz8jRU321bUh\nhQ5xkoN7dBWv2rzKbgI/pJQGdubXa6IGrIHWaz7dsE5u8dh2STOGvn+8uX5r\nxowA7MNEOC6Kkye2GBv2kazIaafX1IdcEvdPkklj7LnnNu2o08EmecXFmYr2\nnPOCtK+6ZGoA+iyQgSBvoRCqFvmy2lV3QSt007kxXg5ur4lA1BUOJUYJV5xu\n/4Dmn60n6uN0Gt4lsTEtzw3CswBd/7VYlPfloBevzQwXFp1Zt3Z+bj42DgR7\nfWHxedispbRL1RR/6ivLkhmzEN1wHA0A/nF8qm4IedsMjcxhEN6poKOINlDH\nveXIsHLFrWZe2UkZS+Yl1F2w2qE3dlho43TKvSYQVAiapjzfdsTdYm5KjRQ4\nAv+5\r\n=SGQB\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIA7H1Z4NIe8Y9zKKGx+bp6UadgtQc+ScBJrmeF+5Q3ERAiEAoTDMkCewcdU07rkUrKrTVfQFsI5JCoWqd9Ys1ywlqrg="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_12.3.2_1596022422764_0.8287051331412736"
+      },
+      "_hasShrinkwrap": false
+    },
+    "12.4.0": {
+      "name": "@cucumber/messages",
+      "version": "12.4.0",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "eslint --ext ts --max-warnings 0 src test",
+        "lint-fix": "eslint --ext ts --max-warnings 0 --fix src test",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "build": "tsc && make src/messages.js && make src/messages.d.ts && copyfiles src/messages.js src/messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^8.0.0",
+        "protobufjs": "^6.10.1",
+        "uuid": "^8.3.0"
+      },
+      "devDependencies": {
+        "@types/mocha": "^8.0.0",
+        "@types/node": "^14.0.27",
+        "@typescript-eslint/eslint-plugin": "^3.7.1",
+        "@typescript-eslint/parser": "^3.7.1",
+        "copyfiles": "^2.3.0",
+        "eslint": "^7.5.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-react": "^7.20.5",
+        "json-schema": "^0.2.5",
+        "mocha": "^8.1.0",
+        "nyc": "^15.1.0",
+        "prettier": "^2.0.5",
+        "ts-node": "^8.10.2",
+        "typescript": "^3.9.7"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@12.4.0",
+      "_nodeVersion": "12.16.2",
+      "_npmVersion": "6.14.5",
+      "dist": {
+        "integrity": "sha512-07rtLF/UXJQsu18jXyDjbOl88MMiwmWC5QsiyfBfIbrCo/96GAGXrA/a6shK7LYCofRx9viMCXm8MSy9tS+Iew==",
+        "shasum": "79403e107c7d2a5086074936e63d97c6fbc01a6c",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-12.4.0.tgz",
+        "fileCount": 71,
+        "unpackedSize": 1247188,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfI/YvCRA9TVsSAnZWagAAemoQAICP81vMQMAH/YZQpkEV\ncm/HY+759ITsvG4Fm6P5Uwq7Mn+l+uyN9UmKPlrauXf+tv0wokdaR4FiPmg7\nWjG2HrL31VmFQ9ioAVXS6ez6BPcpBM+YQausxjCA2bZPpCXN6xU7ZsvA98Jw\nLVjj81eWxcV082BXULUqkquU0OsNKUE2Jez6NwIuHI0BD6QgIlLqRcUjH+MG\ntMgqNPcx8fEzZL7U8t5H4XHSjfiVXyINvybviQHzmF+GVujQOFMrIkJERSMS\ndGNlw1DEZzUZBnEHJV9nsVFFD1InrDczGQHQFXf9uKd/osmKULf5MXgM/XFj\nH1ehr1iDT1ME/nWfRRiuSGySNLeVBgXelTwBpVBy72zFWB3WnMQurJXTHm5S\nL9zfNShWT95lM7vz8nXvQFdfxfSWng4fEjED0b4V90i/mZ0ZuwCkXxJKjYp/\n6zON1txn0SlViZOVyf/BQv02eq7/9FZb0XsLh3n/4jbvWL9fbARdYnDfnGXa\nbkqz7f6NMqIv/9Q5zI/bca/+wAIcPsttf7BwOX8DlnVWm+peP61GRBF5/Fgj\nXZzvzLIytSclBbgVLuh/ESsrWrQdjOvMOL9K3wC5Ye4Qgaydc2biStgUMIyo\nnaLObsQh63nuv9YIHu3ezE86S2xRANtnBqrw2C/Tf6dYT8lGYJHL9Q0tXWHx\nI+mT\r\n=TZfk\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEqXax53TX58fAeyoefClh05qxiua3VuTpCk8mdj99syAiEAhXYUbpbaKtooazkOVhyUrSOoF9H4Z0NRrhxXR+GLw5s="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_12.4.0_1596192303124_0.4189950240425431"
+      },
+      "_hasShrinkwrap": false
+    },
+    "13.0.0": {
+      "name": "@cucumber/messages",
+      "version": "13.0.0",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "eslint --ext ts --max-warnings 0 src test",
+        "lint-fix": "eslint --ext ts --max-warnings 0 --fix src test",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "build": "tsc && make src/messages.js && make src/messages.d.ts && copyfiles src/messages.js src/messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^8.0.1",
+        "protobufjs": "^6.10.1",
+        "uuid": "^8.3.0"
+      },
+      "devDependencies": {
+        "@types/mocha": "^8.0.1",
+        "@types/node": "^14.0.27",
+        "@typescript-eslint/eslint-plugin": "^3.8.0",
+        "@typescript-eslint/parser": "^3.8.0",
+        "copyfiles": "^2.3.0",
+        "eslint": "^7.6.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-react": "^7.20.5",
+        "json-schema": "^0.2.5",
+        "mocha": "^8.1.1",
+        "nyc": "^15.1.0",
+        "prettier": "^2.0.5",
+        "ts-node": "^8.10.2",
+        "typescript": "^3.9.7"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@13.0.0",
+      "_nodeVersion": "12.16.2",
+      "_npmVersion": "6.14.7",
+      "dist": {
+        "integrity": "sha512-Oa1SMDv/Z85kD9jhKHJAEJ/I8AsuuEnZ+9GOH3VR28RKawc/OwlvU5N8cv3dRh4dN6kp8kI7dnSElnnJLjI53Q==",
+        "shasum": "09a76245e4554944b6e667b391b1ba5d0a41b125",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-13.0.0.tgz",
+        "fileCount": 71,
+        "unpackedSize": 1251405,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfLbNVCRA9TVsSAnZWagAAAOQQAIKyg/kp7pksvJzoRoEN\nXGsBNLqR8kMMeRB3/iFWoie3UegLoGLxNC3trduojUKFtTb8n/dULfse8TbT\n+MRxHiEr5GroBI6NzMEF9DHo4BLh3+4xgMCoMnKBMwortM8UvL7S+RFlP4UV\nbpyAyz8UYcrvVhkeZLe/u7lAaunJEvSfXBvtZCbxCxP1g2taJHyXAh22+qRN\nCgNyAjjWSqDb5ZndPhhD/QOwJFLYP0IFI9h/Fhr8TXJxQjKVWov55oSlVX76\nQNEhNXno8dPm73hIWrfJWlWOr7WGSFyQm/0IqUTYfdCHS0imSfSUldBOgLsw\nSsCd9hUrd+/fZ0sFkivskBApPipO32iOypbOJh08CW9WD2TGZSBV3vP4Lj27\njyQGATHhR7xLZiX+zd6bjgJBF/OjQKt5RxaTOCmWeJn7F4RFBcopjNErQsjf\naHwjzVJWMOg1p1oRf70lTwaIAiGkeLyQzuAPOjVEQCXm6MLNmRZZZyXChS3R\n/xu7+oC6QazoshHFXb8ADPxwVtXW1xqg288+Jjlyzt5WXHLZaMOqcBacMSxk\ndbsqlyEK6YGUVAcMtzesvXa4subT/sxYa3dsfh74gb5BoQbEGk8L1O04r5I3\nao5EvJ2o3pyqA3dDi/GM0a46BFrB2mLIyBVKnnuUA45skAWnt/jCkRX+mU9e\nX+Ym\r\n=7NMQ\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEUQ5R/xkk/NPm0WZYHelkbF2nQEoqoQREUjIJ1sOrlMAiEAvLfPs7Rw0jpzroVtJXyeS2axBH8LrnbhEt5rYkRXqr8="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_13.0.0_1596830549016_0.7754606484629469"
+      },
+      "_hasShrinkwrap": false
+    },
+    "13.0.1": {
+      "name": "@cucumber/messages",
+      "version": "13.0.1",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "eslint --ext ts --max-warnings 0 src test",
+        "lint-fix": "eslint --ext ts --max-warnings 0 --fix src test",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "build": "tsc && make src/messages.js && make src/messages.d.ts && copyfiles src/messages.js src/messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^8.0.1",
+        "protobufjs": "^6.10.1",
+        "uuid": "^8.3.0"
+      },
+      "devDependencies": {
+        "@types/mocha": "^8.0.1",
+        "@types/node": "^14.0.27",
+        "@typescript-eslint/eslint-plugin": "^3.8.0",
+        "@typescript-eslint/parser": "^3.8.0",
+        "copyfiles": "^2.3.0",
+        "eslint": "^7.6.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-react": "^7.20.5",
+        "json-schema": "^0.2.5",
+        "mocha": "^8.1.1",
+        "nyc": "^15.1.0",
+        "prettier": "^2.0.5",
+        "ts-node": "^8.10.2",
+        "typescript": "^3.9.7"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@13.0.1",
+      "_nodeVersion": "12.16.2",
+      "_npmVersion": "6.14.7",
+      "dist": {
+        "integrity": "sha512-9UJWrbQG8KlQvXYwfSTvIe67aB5ZWh77xmNlgbrT1jfEsMTGI9yQpYRmYDJ2IpBqEeSxftarN6I+zEdChQatNA==",
+        "shasum": "49bde82ba47b5db782105f4b878e085709d68a6d",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-13.0.1.tgz",
+        "fileCount": 71,
+        "unpackedSize": 1251405,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfLb4YCRA9TVsSAnZWagAAuvMP/00h4uskcBPWtjaCX7zG\nXDZIXonaXzu+dOTp/HLPfpmbD1wsdRprzu0c9MqFnGSoYElGwJxgnv2exBAS\nv3HRK6gMjj8mUykk+vrOOOMz/C71mq4w46YocufVlnjKmnplBGONKI5uhhbH\nmt+EY7TmyxW4z+jLlNzs91IQQFXKuh+pOOVPf/oTTDAJL/6pT87WW+vlF7IH\ns90e6BAO4Rs9ulu/bFJ0VFyBzYlmXnEHeb7xlsoTznG56TJ98Y1QRbPm7ugJ\ndvG1pZOLI3JESvhWMBAsumqTd9JlEIKU3NRbmT+o9LkY6EgDxiabBO806awj\nj1lZH5aE3VeZmj5ew9CnFxSt2tgYxJU8tvQXEZTAN5LNxMmH8Atmr3R+rNgx\n2zi6nHyF8puy0HqXt7UBLgocOpJtxEoDx2yt2I5MLX00SYd+GlZo+LNuDt29\n7ZzxLoHakeRi4mQvpvNg4OG8WI9b2C+qHfi2wmkHCDCvpTnfYkxIzvpLL+VR\nYTtWiGuHCnuNHWJVSa6uiuwF2yZ9m7gdMdd01rhs9+lwbtx7gcHg6M543hc5\nhbvIzWga8tngUqU8D3LNC3XAhsYUWKXP+AbBc2NYQPbEQAmkGn+8Fc1i/cWQ\nDhnE+hPLqgvNYG2tSW1s50Os9/iu7B102IocU97326U3EBMZADl37kJl6Dqr\noUfj\r\n=VFa7\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAJRJg3PnvGfQpg+syZYy1kB0/t3pG6l3JmGQL3pKiFgAiBVCOvw4l/qIYtQkTIjV3Irent335mYiw0w8/TZkrOW3w=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_13.0.1_1596833304036_0.906213628953437"
+      },
+      "_hasShrinkwrap": false
+    },
+    "13.1.0": {
+      "name": "@cucumber/messages",
+      "version": "13.1.0",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "eslint --ext ts --max-warnings 0 src test",
+        "lint-fix": "eslint --ext ts --max-warnings 0 --fix src test",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "build": "tsc && make src/messages.js && make src/messages.d.ts && copyfiles src/messages.js src/messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^8.3.0",
+        "protobufjs": "^6.10.1",
+        "uuid": "^8.3.0"
+      },
+      "devDependencies": {
+        "@types/mocha": "^8.0.3",
+        "@types/node": "^14.10.1",
+        "@typescript-eslint/eslint-plugin": "^4.1.0",
+        "@typescript-eslint/parser": "^4.1.0",
+        "copyfiles": "^2.3.0",
+        "eslint": "^7.9.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-react": "^7.20.6",
+        "json-schema": "^0.2.5",
+        "mocha": "^8.1.3",
+        "nyc": "^15.1.0",
+        "prettier": "^2.1.1",
+        "ts-node": "^9.0.0",
+        "typescript": "^4.0.2"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@13.1.0",
+      "_nodeVersion": "12.16.2",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-C/ViAh7T0mYhldS9TEvpK/VLWEhdYhzDkDN4m6x71OzRDtzbXba6/qnqo8+cJ+g8w8oihLh2fjvbDPWmf2P8aA==",
+        "shasum": "24f19ea28ebe04b8979e97ae4a45d9e3c0dc1d17",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-13.1.0.tgz",
+        "fileCount": 71,
+        "unpackedSize": 1260287,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfX3lYCRA9TVsSAnZWagAAs0QP/RBR5ZawZ9UvduMpHcH3\nt52cULmCBdtihYM8YOoJDJNF6t3llNFJDgJcDN29U47m0gj/Bg4z0oALn8ns\ngGe54pHKzj44cB3U9DBY4Iqr6361yI86HU5iDq0emnXwQbUA8NvtvDsdZhnc\nlBgzqMmv9FjzSf4rrppzimVPk20GTblbuVFLHomCzCweRzFXCFKlOAzsy+bC\nakpi2l0UbG/OHnw/AjfcrYljg1ng36iceVahviCVh7MLajXH/J/Tosatki9d\nlyrE+0c5pTsQU56FzTR9ilfjFS+pj9TrQ3a4BViisM0h/3gcrZCs8PD81s1o\nlQ8Z1YgqasMSDlpuezcT0oboIkJfixp0LCgJdljEVl7VioxKk5zW8Z7qE9OI\nb05/I7FT/jSm8QsqBKzQHGJaX6/Pk8Vvr0qOnmqrVXd4Qpdlg1qbamHViNn6\nxENqF7eD2L4j1XpqAO5mNg0UedHnzJyHLdAWTMAN3Rv17Mhg8y7hGB7KNy/u\nfG1fZ6KuwpYAP021Byxk9a77+2weFNMoo5/oXrC5mn47nJKkVk4lAbA38+oM\nD8D/1ZoYQLrYd6cF53/dFIWq3RJt0CgatDgVFFlX45wU5/NCnWV2h1gHlXVC\nVcn8byZpW3HH87Z9odS8rvKsov9Z1MJz8TT6F5rvUzils9A9uPMLA3ZsqWgu\nShnE\r\n=8xFE\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICAkKl8BbBK4wDe1rpskhmc4n8P/Dj2ipm5cwGcBHKm4AiAvht4Ie66BbjdFUVDl+97OfeHsXlW+rCiS3UzxCrN6uw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        },
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_13.1.0_1600092503625_0.0636267088497493"
+      },
+      "_hasShrinkwrap": false
+    },
+    "13.2.0": {
+      "name": "@cucumber/messages",
+      "version": "13.2.0",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "eslint --ext ts --max-warnings 0 src test",
+        "lint-fix": "eslint --ext ts --max-warnings 0 --fix src test",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "build": "tsc && make src/messages.js && make src/messages.d.ts && copyfiles src/messages.js src/messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^8.3.0",
+        "protobufjs": "^6.10.1",
+        "uuid": "^8.3.1"
+      },
+      "devDependencies": {
+        "@types/mocha": "^8.0.4",
+        "@types/node": "^14.14.7",
+        "@typescript-eslint/eslint-plugin": "^4.7.0",
+        "@typescript-eslint/parser": "^4.7.0",
+        "copyfiles": "^2.4.0",
+        "core-js": "^3.7.0",
+        "eslint": "^7.13.0",
+        "eslint-config-prettier": "^6.15.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-react": "^7.21.5",
+        "mocha": "^8.2.1",
+        "nyc": "^15.1.0",
+        "prettier": "^2.1.2",
+        "ts-node": "^9.0.0",
+        "typescript": "^4.0.5"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@13.2.0",
+      "_nodeVersion": "12.16.2",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-El/YfIdO685gdYAG3FvNNuJfvSh6n6w14CZjdxzNQ4BrlQdr6e6HvgdzdR0/iEs7/v39xmOwp/a9GxfnuCJJfA==",
+        "shasum": "986abf572f0f23b69d4709ece0a3cb7f81eb807c",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-13.2.0.tgz",
+        "fileCount": 71,
+        "unpackedSize": 1260281,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfrShqCRA9TVsSAnZWagAAiIUP/R1eEN+C6nt+v8NQjYMp\nmvQ/17IMMZeVnR18ZAFb1CmagUAh3PhT0aG0j2buxJnJdpsLgn4pidp0j5ON\nfzSvkY0fUCG23fQXcTlXAELjj4b7x7BVOR0C/pgOtYk4P01RoXwMaUKLxfFY\nBukbPElYgGuWR8ShPqzkuXYLdIWZcS54837DuaA1dZ2i2jvo0O/vmPejCgwF\nlNiZlKsonGLAFuq47WtGlbVXSWs7S59o1SJTDtKYKAazlJCU63A6asiD+R7s\nM80dZhVlXMJ8IvUfX6lLdllw8YBL7s25lc4gCx4Sm4k3KDhzb3aj9nj/EG6D\nFOriF7nYwK/deFaCCzB/mOVHtSok2uy+ayqLbmfnSC1uU/cFTpGRpnZtZPY/\nxSDht2meVwhVurlOU0NjJ3otYAmsn70kjQkPSqqsJNFJxVAGw1NJVEseryle\nGORqYwaxy42KPMEQQ4v1ynfknvfj0zaZAa4WjgI22XDi0o7ACwReoziGFX24\nx3RbENZlGM8gKPZ9R4RKZ9C0IAcgH56XcrU5g0v5pLHacbZWNykj8z+xT3gj\n/JHtxieVGyX4+8mixeo1Xgn/ywfeVI2FJebw06nXmMaJiWgVnzBcliIPqLHt\nx+gBpWefY5tyhWwuKnd9YjWuSm1nSPVtpVeBjlkzpftfQdd5xy1KQwXrUG7I\n+3H3\r\n=xH0C\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDlsGhgz5HIQ5tQ94zbrhxIJH3wdWCu/R0jy3g3eLmt2QIhAL5MWlgY2sQOZzWcixB3pPJqUQwCG5GsCFGQSslbRpEm"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        },
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_13.2.0_1605183593849_0.3398693661530041"
+      },
+      "_hasShrinkwrap": false
+    },
+    "13.2.1": {
+      "name": "@cucumber/messages",
+      "version": "13.2.1",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "eslint --ext ts --max-warnings 0 src test",
+        "lint-fix": "eslint --ext ts --max-warnings 0 --fix src test",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "build": "tsc && make src/messages.js && make src/messages.d.ts && copyfiles src/messages.js src/messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^8.3.0",
+        "protobufjs": "^6.10.2",
+        "uuid": "^8.3.1"
+      },
+      "devDependencies": {
+        "@types/mocha": "^8.0.4",
+        "@types/node": "^14.14.8",
+        "@typescript-eslint/eslint-plugin": "^4.8.1",
+        "@typescript-eslint/parser": "^4.8.1",
+        "copyfiles": "^2.4.0",
+        "core-js": "^3.7.0",
+        "eslint": "^7.13.0",
+        "eslint-config-prettier": "^6.15.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-react": "^7.21.5",
+        "mocha": "^8.2.1",
+        "nyc": "^15.1.0",
+        "prettier": "^2.1.2",
+        "ts-node": "^9.0.0",
+        "typescript": "^4.0.5"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@13.2.1",
+      "_nodeVersion": "12.16.2",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-2cu6P1JsEcH0/RlMx302KOK9rkKDHYS1H+6/VhQ6L+yrVW458wOU3CiVgurLn3heCDdJH8r4L87pkSwt0rxiGQ==",
+        "shasum": "e43300d8abe7bbb56d98422e3eb6661bfa8603af",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-13.2.1.tgz",
+        "fileCount": 71,
+        "unpackedSize": 1263279,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJftn8qCRA9TVsSAnZWagAAs1AQAJ6mTPd8Eo2RijD737Fj\nUlsZyUp3FMJZ5Sf9WXI3XNVcntTUBb27/9DAuFnXPHP+cQpjmZiuNoNJU6N5\nqRo/hXIm7ltc14Is/0pb6uNHE4XedmIyjOCFlMKaschBiUy8QYCxcZjeZuu4\ns2g4cbvEmWRcYMItMw0j2AwvoecXGA+vo/zLILmSwHNUG1H24A95z75m0Mkz\nQzVdHuSRhC4oLrm0caG+EQcEdSHL7xhmCqp7ZKbKgn+E33+s0DZFtthXi7iB\nPjVRpgGlY8i/Lp0t8W6uR7Y6kDR6ho90HH/bYiKgNlxtJWFKLzimNrBA6kZP\nHPnMKdt7BQSbZl6/0/0ZwBv04igv1YMT5ZbqSdBB3xhUO0O6hwCGBIBD5ujV\nEcuJ8fHo7is4jaTFWBCuR5TGo4SjOgMcszAz7BXXBZd/FHh4dbiZb6NFLJ0B\nGAo66og9yrJVpu3FCCfOxyc+qQGvLePer+r4/D9f3KXo3gHq2HIGPBhe5h6u\nvRnFI5Qh9FCePlzlJKGiCwOXjuTza3kNlhoikG5Rs2tSjNTQSosmew9L5IhK\nknKlnzqvo9d6BfQ+35hI5qs4pbhKMEBfGDllQB4hYXY1R9WziJBEhgD0VA3U\nanlCdkgGdsdnQovu32jC0agS+YyT9Llf9Gq0rXpezmLfC5V9FSI+yjLXOxXv\nlKbf\r\n=YmaK\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDvjJkP6MGMs0Gbrb6jOSEVewTpO2xDE1f3TRjiK2dciAIhAN78gvBkRZKN1pWTlfVVJsFU0m3XnN+YVtJXjyPBw68S"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        },
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_13.2.1_1605795625795_0.47909922874509303"
+      },
+      "_hasShrinkwrap": false
+    },
+    "14.0.0": {
+      "name": "@cucumber/messages",
+      "version": "14.0.0",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "eslint --ext ts --max-warnings 0 src test",
+        "lint-fix": "eslint --ext ts --max-warnings 0 --fix src test",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --force-number --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "build": "tsc && make src/messages.js && make src/messages.d.ts && copyfiles src/messages.js src/messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^8.3.0",
+        "protobufjs": "^6.10.2",
+        "uuid": "^8.3.2"
+      },
+      "devDependencies": {
+        "@types/mocha": "^8.2.0",
+        "@types/node": "^14.14.25",
+        "@typescript-eslint/eslint-plugin": "^4.14.2",
+        "@typescript-eslint/parser": "^4.14.2",
+        "copyfiles": "^2.4.1",
+        "core-js": "^3.8.3",
+        "eslint": "^7.19.0",
+        "eslint-config-prettier": "^7.2.0",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.3.1",
+        "eslint-plugin-react": "^7.22.0",
+        "mocha": "^8.2.1",
+        "nyc": "^15.1.0",
+        "prettier": "^2.2.1",
+        "ts-node": "^9.1.1",
+        "typescript": "^4.1.3"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@14.0.0",
+      "_nodeVersion": "12.16.2",
+      "_npmVersion": "6.14.10",
+      "dist": {
+        "integrity": "sha512-YPVQKRMuzQnYbpjccnX7Z4X9l84Rt/40wdr0tbU4NHj9n9cJ3UH78mj8o+ZmYxoXk8HEbdvNc+1+AUCg+VgacA==",
+        "shasum": "edd5c9638e48e3027718e4d2094b29ce5a4ee11b",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-14.0.0.tgz",
+        "fileCount": 79,
+        "unpackedSize": 1266077,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgHYYUCRA9TVsSAnZWagAAePsP/0ZuCfUdV8Nd1mUsdywf\nuiOHs83B9VRKoepOCl8/6ptogrRUSv1lfjcXIupMahVOHiWRe7sGRK1i+vj1\nTJggFU84lc2XBJ3CRPFhGyfY2O8nggz+CQ1u863grji5QzaN5B8hOowQt6ie\nqvNacYTz4gWsq0ZgrAP3g+AUu16MPTV9wHqapqgFT5JnDiJQP7sb5rZN1M2A\n4x8op1y8KkZM/ZwhRri/xA+TyTVqyRAVoY9jK5Rrfql6h3mB3UHOSfQjei28\nZENSk8HN7rtpjKB1rhIxySRe4KOcZ7s3Ox+JzmIqPQFJuOkhwjAi4qPWWbln\nzU++WN4ThKTcRHSLf0dZpbRluZJBmLxfJoUPOD0iWBckmYLrrCbO0Ox6p3ei\nR1Q9Vv0s/ZAFPDfykWvh0SHOtHPKVNKqW0Vb0i6kTTmNDh3lw1D3f5RomyHY\nYpzvCFnjMzpbedFwqH9Jz+/z0Bq0ZZTNuWKdDMXFf4+jJuWgO0YZhonCO6vf\nR00ucrtQPwDZrLu3MmjHoE5iJTMN3eRCBuRdiVHUBZi95QWCdcDQ3fLgml6l\nHKctZQU9v/H0ywhGKTdeAi+ImX8Mkk3R6orFQiE4u0BOVFvrpcF1yTGn5JaV\nc7QtHLEj0psXiqab8Zo1dnm6B7ts9DrhHTG5dccxt9geMDDv92xkQZA5VTTL\nXrdW\r\n=V3Qy\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAPoxkrzzhHNFl3suhOnCdDbw44Blg7Fm0AfHBQ8b4VmAiEA8dOwCFwbKZkH/P8zZYCoBFBFT/8gD3wbwDwecL0aZXw="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_14.0.0_1612547603934_0.8831470660112162"
+      },
+      "_hasShrinkwrap": false
+    },
+    "14.0.1": {
+      "name": "@cucumber/messages",
+      "version": "14.0.1",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "eslint --ext ts --max-warnings 0 src test",
+        "lint-fix": "eslint --ext ts --max-warnings 0 --fix src test",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --force-number --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "build": "tsc && make src/messages.js && make src/messages.d.ts && copyfiles src/messages.js src/messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^8.3.0",
+        "protobufjs": "^6.10.2",
+        "uuid": "^8.3.2"
+      },
+      "devDependencies": {
+        "@types/mocha": "^8.2.0",
+        "@types/node": "^14.14.25",
+        "@typescript-eslint/eslint-plugin": "^4.14.2",
+        "@typescript-eslint/parser": "^4.14.2",
+        "copyfiles": "^2.4.1",
+        "core-js": "^3.8.3",
+        "eslint": "^7.19.0",
+        "eslint-config-prettier": "^7.2.0",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.3.1",
+        "eslint-plugin-react": "^7.22.0",
+        "mocha": "^8.2.1",
+        "nyc": "^15.1.0",
+        "prettier": "^2.2.1",
+        "ts-node": "^9.1.1",
+        "typescript": "^4.1.3"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@14.0.1",
+      "_nodeVersion": "12.16.2",
+      "_npmVersion": "6.14.10",
+      "dist": {
+        "integrity": "sha512-uCD/yP7P5em0KP1r59x6JayAxH7n8QXU9FbC3H8XMosZuM9z4PVLeU5pdJRkkCLFXqjpAZ3LJw65hlYDrBujEQ==",
+        "shasum": "cb2abaa64bd9b4a3ddf0913ff17cafe5b901051c",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-14.0.1.tgz",
+        "fileCount": 79,
+        "unpackedSize": 1265688,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgISluCRA9TVsSAnZWagAANrEP/iDxye3EZOcJxhnVSYSt\nnzW+NTwFme5tghWkFTNTIwViIZc2lgPJYWmDQyTrIPnAYRgLnE9j0jfO9Eig\nHuQJVUZgyLsmryhNrIRnNCah4gknJ3fIIV6+Y13EqXRZFpPAXCXazP2L7dDv\ntUndo5JbTFH9JChatB8cNUkLfwkhMw7l6AE0af3iUAp9uDlnGuY5l+uu2zjT\ncs8ypynjlX8UMao+dDCpz8WOsePML/WsUxk87N2hSGYPdNhO+EM3gnocCBiR\nBmN2uPzOJBKJD4zSvZkgiEJte2EgdoSbih78XSngxep4aISi2vC/xgHkxTX4\nduYq0+WlC+eFFxJNS+jUPLt/k6t5MnE8sYyA63awkrGX3iSIkXAUMXyYDNfO\n6ANx2aXuOkYuW8h/jV+hoUqRiN27lOnYsth/BwG5eQbiAPq+L4ySd1pdf5Nf\nFjwW6KQUd85GnanXOmoaCDFYtNqSjgihdwW6WItGmi7Fyg4z47lrpVfj4BDi\nYVxVKXkzwsv+MEbiW11JpIvv0Ei2nvHyNiRGMRUBwqu3eN0W8bmIpD0l4BZS\n+gMjqmRRZxZ7c0msreeUO6oJfNfXYSxE5fR7Z33qk01fwr3luoZuxHKbA7yO\ncKQirWlFjZ1GvqMHyMPmav0R/glKALsJrJ9T8cw3c1IoiFrMX47Lvv3jW2eI\n28Ca\r\n=ulm3\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBuE2322ah7cX6L9em7XXJcfjonnpS5b0lkWIYnt+8KRAiEA2wVKtou85QXOEbp42kMO32KdtUDoklVqAq708EJ3wf4="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_14.0.1_1612786029962_0.4890048946989354"
+      },
+      "_hasShrinkwrap": false
+    },
+    "14.1.1": {
+      "name": "@cucumber/messages",
+      "version": "14.1.1",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "prepare": "npm run pbjs && npm run pbts && copyfiles src/messages.js src/messages.d.ts dist",
+        "test": "mocha",
+        "pbjs": "pbjs --force-number --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "prepublishOnly": "tsc --build tsconfig.build.json && copyfiles src/messages.js src/messages.d.ts dist"
+      },
+      "dependencies": {
+        "@types/uuid": "^8.3.0",
+        "protobufjs": "^6.10.2",
+        "uuid": "^8.3.2"
+      },
+      "devDependencies": {
+        "@types/mocha": "^8.2.2",
+        "@types/node": "^14.14.35",
+        "copyfiles": "^2.4.1",
+        "mocha": "^8.3.2",
+        "ts-node": "^9.1.1",
+        "typescript": "^4.2.3"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@14.1.1",
+      "_nodeVersion": "12.16.2",
+      "_npmVersion": "7.6.1",
+      "dist": {
+        "integrity": "sha512-hmMwPbReHIwXuoT6ZolZzjA/uu3Hm9gQ9qpsrHf5Ro1fQW67M8yh1jENHhI3hLPqqUGOiRtWNZY4urILQDaNgw==",
+        "shasum": "1fbb2117f84e63de9ec548b67d2b3d7c7d74ec67",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-14.1.1.tgz",
+        "fileCount": 42,
+        "unpackedSize": 1417078,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgWM5SCRA9TVsSAnZWagAA8DAP/2ttMYtxhBSxQ68YUbnV\nEK60xLzzVBlb4PWr14sp8sixp8rTYWLgwocAJVrasmMmRNNS2uWRF1cGkGw8\npF1ZIgzK7g18hCW0g1RFMlbuNh0TTURDxw3yczIii+a79TE4sKlxXsDeyiF9\nuKGhO8SLYU1SxtskcWo7UL10XFQyJHM+StH9m6HnedpXjmd+7ncHeOVbb1h7\nd3rkeQiVXZRFo1331X27vBZIS31IYI6UwAFAKEIUpaZxFY2ReECX2PL16Y3N\nnoEWG0gbDVNMTQV+JrAjguQ3cL3AJtfgjZFRr7D7emNf3l4Np4jPQoZ8xLun\n62twJLNw/bWvWYaMm/nvBMPjKnpwZUkYDZaTD9Ib225Qlwtaesu53BUOLZ48\nZL2vKOBulLh/Ib6i1rH5ydKb/Hd6QaMdtMkaT+F7+BLyjTm9oQlV2FJ9a2Fn\ndj2IBV5Ccddp19UlJRg+rQmR0zcfW5ozG7x9pgkcOe+oPDnUDxmjjFCFfCmR\nDkcqT63nRJjEOOpVmYLv5tZ3OCScxu4TKz/YCigIYO7oXnM1LlmFpBbWJvgc\nay2KHSWRn/ZiGR2p96VDdVllgr6r4E37o4xuH8NJeKSpmjq3qkZnbE8ce6R5\nkqN0Itph+Vnw46Kmqz/7gi/m+Ycfk+yx7c613L8FGY2gBA8llkcmccdBia8m\nSCiM\r\n=5gE9\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHC1GY63Wcd5gAlxeDE3h/xZdy7PPucInlHswMf3SK+3AiEA9a/6Jo7VF0MWZZZANJAk2FaGXHVozshpBZdyJmbYUaY="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_14.1.1_1616432721944_0.33683428661989856"
+      },
+      "_hasShrinkwrap": false
+    },
+    "14.1.2": {
+      "name": "@cucumber/messages",
+      "version": "14.1.2",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "test": "mocha",
+        "lint": "eslint --ext ts --max-warnings 0 src test",
+        "lint-fix": "eslint --ext ts --max-warnings 0 --fix src test",
+        "coverage": "nyc --reporter=html --reporter=text mocha",
+        "pbjs": "pbjs --force-number --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "build": "tsc && make src/messages.js && make src/messages.d.ts && copyfiles src/messages.js src/messages.d.ts dist",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "^8.3.0",
+        "protobufjs": "^6.10.2",
+        "uuid": "^8.3.2"
+      },
+      "devDependencies": {
+        "@types/mocha": "^8.2.2",
+        "@types/node": "^14.14.35",
+        "@typescript-eslint/eslint-plugin": "^4.19.0",
+        "@typescript-eslint/parser": "^4.19.0",
+        "copyfiles": "^2.4.1",
+        "core-js": "^3.9.1",
+        "eslint": "^7.22.0",
+        "eslint-config-prettier": "^8.1.0",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.3.1",
+        "eslint-plugin-react": "^7.23.0",
+        "mocha": "^8.3.2",
+        "nyc": "^15.1.0",
+        "prettier": "^2.2.1",
+        "ts-node": "^9.1.1",
+        "typescript": "^4.2.3"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@14.1.2",
+      "_nodeVersion": "12.16.2",
+      "_npmVersion": "7.6.1",
+      "dist": {
+        "integrity": "sha512-QV8sA7QwHuDGwTrFOCu2xMUvW9bLkBmMMRKId7s4swpQj9WyL8uFMsQ452W6wWTKNdIfKhRU3Ykptr87SKfg7w==",
+        "shasum": "592790f8c95448646073435af3e294a45df7c1e0",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-14.1.2.tgz",
+        "fileCount": 79,
+        "unpackedSize": 1266312,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgWbc/CRA9TVsSAnZWagAAzv4P/R6SMVLw4eOEUIlZOrJE\nF4pPFpOXHlSJD7Fsy5qE4m0zDILsfBnCJctWH89aI2PuFJor4jEsiqzSA0Mv\npo3FARY//sbzcdIDBiSgKYVv9LB/UAGJQ/3/nvbSF3VmEQXmda9FFiQF3Wyg\nHTcXTSGmtCU+GM3wUMYE8Y8AAhBCHUtmnjuYN001TgJJSQlWvi1cCIK0w4be\nq/+5LZ7zy9K7J4aLR32EE5VTm5pB/8zTM4erbXs6Yx+6sGXneKvB6iU6xlyv\nl1M5XFQrrF7auzWeyWpQEOXJxQ1IW/nn4imU4N6jmFG33fxwFIThY9h+M1af\n3bP7vVG67830vqi19vUHpV/7D9YKp9O1RZLDM7WTqXa7/UA5dUxRREPNwhfm\nJzFQJp3fhqnuRvlNA/iLhpBq/rwEqTRa+cAYKvKeDo1BWVDsk65sAr+6A55k\nyFdusPsxZl8IRk7GCtcGu81OLeyj5RU/nm+1TVGbRrhMyRrMrD58+HKu2xpG\nem6QQblgo3c+bLleE/bzSn1TpTEaz+kEyblhI5olbbyt1tueJ5DOJrToo5Px\nExC/87yDEFgfRGEdAwplHwb9S0pORyF9S07L5TIYysMRtYrVCpis2VwmyAUm\nfKNfP4x2wA8PspddRJ/NmZ2qhZgpuG3ozHyVIxfiV+tujNJUSvAl7Nix+1wr\nODah\r\n=BM9/\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHv9RVdRX6i70xhNLbtpPffVQxmin39RamIpzlj4yKpOAiEAljMJIdNI8UL3ccO02MSDBv2iI5j3V0odh4CVdgprVak="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_14.1.2_1616492351262_0.1901295316297742"
+      },
+      "_hasShrinkwrap": false
+    },
+    "15.0.0": {
+      "name": "@cucumber/messages",
+      "version": "15.0.0",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "prepare": "npm run pbjs && npm run pbts && copyfiles src/messages.js src/messages.d.ts dist",
+        "test": "mocha",
+        "pbjs": "pbjs --force-number --target static-module --wrap commonjs messages.proto --out src/messages.js",
+        "pbts": "pbts src/messages.js > src/messages.d.ts",
+        "prepublishOnly": "tsc --build tsconfig.build.json && copyfiles src/messages.js src/messages.d.ts dist"
+      },
+      "dependencies": {
+        "@types/uuid": "^8.3.0",
+        "protobufjs": "^6.10.2",
+        "uuid": "^8.3.2"
+      },
+      "devDependencies": {
+        "@types/mocha": "^8.2.2",
+        "@types/node": "^14.14.35",
+        "copyfiles": "^2.4.1",
+        "mocha": "^8.3.2",
+        "ts-node": "^9.1.1",
+        "typescript": "^4.2.3"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@15.0.0",
+      "_nodeVersion": "12.16.2",
+      "_npmVersion": "7.6.1",
+      "dist": {
+        "integrity": "sha512-LtxzSCRmYZTAKO6ucAcMflz0u90l2fev539OG+EioJ26F14KmmtxZwGabfjTxLf8NgyKeWsO8TGI2G3z4Kjr+A==",
+        "shasum": "58e6541a6c21c4f0d3d4a82c24bbbfe72a6ff94c",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-15.0.0.tgz",
+        "fileCount": 42,
+        "unpackedSize": 1417078,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgWclSCRA9TVsSAnZWagAAMAkP/Azgi0lfmrkEzpasEQAJ\nmhJK6fyb+OGhMXFFrqKf+s8Aiis5ByiULnJDNEpBn8s0KMytjeIsFsXpziuM\nP4lLNw1pBjXz6O+7Pi759jy/32oVm4XxS7t/k0Jjykb1G4FWS+OawUsqtPon\nyH9LxVVnTt9KwL1YSlqrhP4OQ0/FuMOKwDdNfSXuAklsagnoROqd10lFIkEN\nk+nrbYMAIvOfcZDPpcukW+VKIyF6BzPWNzk6pXq3D4WithiVjAousyGDJPRv\n+h8W8KmiJUxTKfCfSqe57wQrxOGlkS5gTmms384yScKzVSghkvf1iXPR2CuO\nJh/CHIYWAYux6guC7YJh7q7A/Lpzgt7XeR9ujmhSSVdPJjYD9omwSfyv/gbW\nsr/k11/rDC84UoRhqlsUWN1hW2UM110V87fZz3fVLHFof+Fb6RAlcABqJZ3j\n3rPAg5dj2AQB3JnbnegPfyjfCJJCJ70zudP1UoIBC5SjP5kQsJH/6vvMOCLf\nmggjSJY12LIFnnsLYgRg1/muTl0lrvtNdJ0eamuXvpgq/iI9VbO1LTYyOaEp\nA3g9IXz3Orj6J0DBiQlK6PJ7Ttc95Q+iA8PXlKWc9MyaFiPzk0MSSkqtBAyw\nN2v6FvBpgBEUwtJXAD4ByoZDAJ1WNfXEQ3AWGi2hjpUW8KgS3lz0G2nkbUXW\nUbOf\r\n=PhZy\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAjG7p+qTpe7ayrP5dlgqErk5uIrdJo3grLSKGfL8IDKAiEA76mGLMeyxItBIYnWnhMzcTlimFCaH0ctyWZjktzLd+A="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_15.0.0_1616496978155_0.07938380796660938"
+      },
+      "_hasShrinkwrap": false
+    },
+    "16.0.0": {
+      "name": "@cucumber/messages",
+      "version": "16.0.0",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "prepare": "make src/messages.ts",
+        "test": "mocha",
+        "prepublishOnly": "tsc --build tsconfig.build.json"
+      },
+      "dependencies": {
+        "@types/uuid": "8.3.0",
+        "uuid": "8.3.2",
+        "class-transformer": "0.4.0",
+        "reflect-metadata": "0.1.13"
+      },
+      "devDependencies": {
+        "@types/mocha": "8.2.2",
+        "@types/node": "15.3.0",
+        "copyfiles": "2.4.1",
+        "mocha": "8.4.0",
+        "ts-node": "9.1.1",
+        "typescript": "4.2.4"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@16.0.0",
+      "_nodeVersion": "12.16.2",
+      "_npmVersion": "7.12.0",
+      "dist": {
+        "integrity": "sha512-sGYLfsR1uOZsDIjMJr89SUEvLJJgJ3uMr/9NzPBKbrL5pgoyz7xWRUj9sgk1U4+qXSflJC2C9QVTdrRedlk+Lw==",
+        "shasum": "41c57380362b41fd507e2a3bd2a65e82021a2a8f",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-16.0.0.tgz",
+        "fileCount": 59,
+        "unpackedSize": 340308,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgoATdCRA9TVsSAnZWagAAWKsP/jEze4GODlVuXwF419LI\nBRfT7B9AZ6EBWyDEZ31M1vqYvqLfySFuEPfFqC0swwlccmz7pwfYo2hygiUc\nxpctWzX0MopQuaS4sHogy/waTa4x59bSK53LvD8I1Bj4Xi6S3Pem3jfKKFUs\nf/ChyxlkNjCsBAR5x00nCY0w7PG7aoSVW9mpe6atSCz1MAL+GcwXOFGva/iq\n+CsyVgp3CM4ipZ90nmlYAf+14F+Jn3On7njDAMVhDq5bdEHaQfRQYl+dz3kn\nHzg5DApcUfJKgi5qaCKBfoPVwC5vY1C4oRq1IiHQmocBrdAH5ixSroga8Fbx\nV9tMkKfMCHOkEPtPzhe9q56luwYrglaYYFXRl9x0GzJoZKSd43XcBChdkRNn\n09kqYuH8zQE97OxF8Zrj90qOvvnO57rOFYEYhSg835whOQ0BRRx0pQu6J+1Q\nzcFFet0MwVrZUUmkYZiWx/yx6q2n06whDMOm/qXc7gV9uu8G9gp6K/5Q/XLt\ngFuoYqnvo/ZxlSG1cO1mtDbq2HPTuCAWt21Sg9bN2bkM8SF8qham5w5erXWv\n0js/3Behv/s1H7s3EBvkCL1+57/jwfdzm9KLXOOvKU37tc8Cir5Q3kYjjOQw\ntrsd3h7LX408KhrOKnFGJBypTqqIfJmzNfLa8cxID4xJixGgh0/lo8skDaIi\nxqeu\r\n=cP4+\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHDlC9Z9E1ocZ4GwtjdnRoN4tIeqKqbOT1VRLighsQS0AiBtF/qA2kLBCXOKgp6/aRTz4rAWeuPmqtm/mFLZ6rdUQQ=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_16.0.0_1621099740945_0.35266809155784373"
+      },
+      "_hasShrinkwrap": false
+    },
+    "16.0.1": {
+      "name": "@cucumber/messages",
+      "version": "16.0.1",
+      "description": "Protocol Buffer messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "prepare": "make src/messages.ts",
+        "test": "mocha",
+        "prepublishOnly": "tsc --build tsconfig.build.json"
+      },
+      "dependencies": {
+        "@types/uuid": "8.3.0",
+        "uuid": "8.3.2",
+        "class-transformer": "0.4.0",
+        "reflect-metadata": "0.1.13"
+      },
+      "devDependencies": {
+        "@types/mocha": "8.2.2",
+        "@types/node": "15.6.0",
+        "copyfiles": "2.4.1",
+        "mocha": "8.4.0",
+        "ts-node": "10.0.0",
+        "typescript": "4.2.4"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@16.0.1",
+      "_nodeVersion": "12.16.2",
+      "_npmVersion": "7.13.0",
+      "dist": {
+        "integrity": "sha512-80JcaAfQragFqR1rMhRwiqWL9HcR6Z4LDD2mfF0Lxg/lFkCNvmWa9Jl10NUNfFXYD555NKPzP/8xFo55abw8TQ==",
+        "shasum": "8a9f9bb6ad0430d8ddd044dd49cb45ef37ee67b7",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-16.0.1.tgz",
+        "fileCount": 59,
+        "unpackedSize": 340092,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgq8UoCRA9TVsSAnZWagAA52MP/0GWvtD77nta1ry53XoL\nvnn/qgz9h0aEEBaoCxezG95gpR+lv9g4czcRFMV7+ZdftwMExkdBPe+F7QAn\nd5HlfeLoOYrT011lJPP6Bq2tBh3PTSIKK8YWexx3eKL73+IlPoVucJHJb78M\nSB4gRXXkSWjaVEq9CESRiqAdr0sUCWbIRtP3JjwW3RhlmlwPFxWgEFxd0VuW\nl5swQvP03BKQd6ETg8z+TOJRhLHPh1iIaIOjKF9raJgogy+lTp4SFJuAefWI\nMYI+KdeFIQbXK/j5OrQetK7ulahnIhOCu85RnHmg6YL+W2ajjGQro7F12eGb\ncP1sP53GZcTQ8PuUQa+wedHHxvuyiIqlZaOmSzIhGBKyT6SLn2RbPp0cbNfx\nbHlRV1BILxNZx1YhB/X/ZTt2GacLQQ2CILrxAXnbCC7J7hErEEgc2DW51/tg\nPVTXxX1LdU85vynyXIYK6zQLZPNYWFORu8eHqv69AfO1XffjUbtchf12KG50\nyCuKHUcqpmH8/aQufErNCRl2e5SosdPrylqwYbD2+FDDEZc7jC99mVTjoeWw\nKLUKmSVup0qr3mDxCV/5yOiUlbNQva9lAwvdyW3e6iCbZcOqgal0i1VOw5I6\nfLjUMKHDIdhI3S/l9CbU9MaR2Y9N28JKzarR2zHTvpthuf7iy7+wWo5IEWcc\nrZoL\r\n=nQ+l\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIA/VeHHnPsxnRqR5cpmS2sCaIxOeV0L8Q8Q7sc9/JR/fAiEA/KNBLPFIXq5IJ2oE+Tgz6dxUYwS0LuZHBZWIA7aG/XY="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_16.0.1_1621869863651_0.5242805861777837"
+      },
+      "_hasShrinkwrap": false
+    },
+    "17.0.0": {
+      "name": "@cucumber/messages",
+      "version": "17.0.0",
+      "description": "JSON schema-based messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "prepare": "make src/messages.ts",
+        "test": "mocha",
+        "prepublishOnly": "tsc --build tsconfig.build.json"
+      },
+      "dependencies": {
+        "@types/uuid": "8.3.1",
+        "uuid": "8.3.2",
+        "class-transformer": "0.4.0",
+        "reflect-metadata": "0.1.13"
+      },
+      "devDependencies": {
+        "@types/mocha": "8.2.3",
+        "@types/node": "14.17.5",
+        "copyfiles": "2.4.1",
+        "mocha": "9.0.2",
+        "ts-node": "10.0.0",
+        "typescript": "4.3.5"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@17.0.0",
+      "_nodeVersion": "12.22.1",
+      "_npmVersion": "7.17.0",
+      "dist": {
+        "integrity": "sha512-qe+9Wr6JaQgFL35r/NbHlOYvBcNRIQ8BpLGAG8tUYq97pCybkEfkBvQRkEbw9vAeMSLxyvwAhmelTfnrjLTYJg==",
+        "shasum": "3aa61ddaaf479ab39f73827ce20da990b470b37b",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-17.0.0.tgz",
+        "fileCount": 59,
+        "unpackedSize": 135620,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg5uuCCRA9TVsSAnZWagAAI5IQAIjnS4JME4yx4kAJD2f0\ndyT5+nuQ5aCK7a3wBVJ2+lA8SOBQZL7IQLRLa6mNQwrNBLf8PM0HusDLQLck\n3TnwW8u0lJyqgvUVgNU6GDyH1eeHVCwPIUA0Uu89KQ64Xx0UfD3ouaIX+971\nghzhAK3BE8/qx9YWBJUyCDJFi67Q2ptSu4STdhYnICaydkLhqKYxokmycHyS\nTA7ZO8NdrVlYsNHg4gZoX7ItcC/CtxnhkHPVt0Kqv7PPjV49Qie/OltYIk6q\nlXSzPZvsE+cMVV0Q468VlUjSIrgUinGrfproG/arRszUvPRu2AMFjiVqe9yC\nXAcZuz+hMAuQm2gxzwqzsr3I0pAk3jqnKkqigxeuM2eZsM7hCYwLvCJ6YhlY\nZ/6eReL4CRpClR6WJU+s6PFBD10IqZqyCnNokW4hD3Z8IJce3sJDIfwNuY8M\nA24Lnc1aa0O1m2/HOz6L45WpcRd5levRS7Qcit7KMYYXqRXTLlCuek3QpaEx\nscXuX6f/XhQVeckXNoNf4QlwixaDUerg1PKjIXha8H1AUQy3e9dnDoWfbyIx\n9SeMofSxpBc8KFQZCX9UkujJPKeNXYUDkhga+ghQXqorSFWBPAj9xHkIB901\nWAKV2ZX4ut+Uivq+3GJAR8ejBbusx+Yorv3VPPYIc/xrZ9NqiaMA6fg8DNQq\n7KTm\r\n=qton\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDMAot2IADbvn9ig8mKnXqsE6iJeY0JBlkeE3JBqb4qQwIgcOg7IqPU5iVywFbaZdt5/juxE6HpWMggz7W6Mr7gBpg="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_17.0.0_1625746306285_0.5145049600656966"
+      },
+      "_hasShrinkwrap": false
+    },
+    "17.0.1": {
+      "name": "@cucumber/messages",
+      "version": "17.0.1",
+      "description": "JSON schema-based messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "prepare": "make src/messages.ts",
+        "test": "mocha",
+        "prepublishOnly": "tsc --build tsconfig.build.json"
+      },
+      "dependencies": {
+        "@types/uuid": "8.3.1",
+        "uuid": "8.3.2",
+        "class-transformer": "0.4.0",
+        "reflect-metadata": "0.1.13"
+      },
+      "devDependencies": {
+        "@types/mocha": "8.2.3",
+        "@types/node": "14.17.5",
+        "copyfiles": "2.4.1",
+        "mocha": "9.0.2",
+        "ts-node": "10.1.0",
+        "typescript": "4.3.5"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@17.0.1",
+      "_nodeVersion": "12.22.1",
+      "_npmVersion": "7.17.0",
+      "dist": {
+        "integrity": "sha512-cr07vBdiUnGgG3p2bUYhKswTwmk6yY62Fu/+Azvnd/eHar266+SkEs1UyO342ZXK56IyBtEE7T0X3Zn3V74q8A==",
+        "shasum": "664dbac9584f73733c1fd1684d050415fc1d69d2",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-17.0.1.tgz",
+        "fileCount": 59,
+        "unpackedSize": 135609,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg9YvaCRA9TVsSAnZWagAA16AP/39fgkwQCuBIoR0eqVqO\n6oUxGqEwfSiMuegsL4cQxNIvB0lgUiDA3CqHcl4d80FwblkHwP12f5RytsF+\nOb5tXXgCDkua9fvRUHzYE8s4JTQH4ptLMTP72QeXHVKRgzzY6pAydK1F0aME\ngdf25M+2l9kaVWaUsUmUZq80z670IMptJG/XYBNnjFZ7QJRFyKnzLtGffVL0\nL9JAMvp/tQOCodSeXKOxFbXoupmJBRrqLdY9ARD8LPQx2YD73pQ1UF2BquD7\n6QcwTSCJVlj6v80snwCm9GT2I/rjldl+RrG07QnCquJgVyWTZmWJxQRZX0TY\nCa3XYcERlSr2j6skZEWfO/+YFXqAJnWJzhCdKRzLhVJseoImveZau2VciHm6\n2B/zehyxa1N7uQVtXucuK8IYsQmOZcRpzs8XfAh5VliSDQ0Lrodw1sf7lejc\nmuwOu5BoOPmSf34gyRWv0VZ5CbxwOFjlt17Ylwy1bvYm3K0Ks+0cpfUwFlJ4\nf9ICb4upxIFX0bBGtXiiVaRskDT6EWI6nPZQbMDoZJS5n8NabJCuHEX2vvWB\nAPBo3Mu/jSKbMFsh9CC+fKMQbBYQcI2cqsB1gpV4SP3vpMyttsv+bHBIn1yp\nFTnWE5LDtv7ekSkqSNMtScPTfzH6bA7JXyN2lj+6bYaB2G3yquJ+ppTdaCWb\njNOw\r\n=RyQd\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCwBz47fL7fjMuB0y6qNtQAH1bSZO7xnDsDm4JeAVLP4QIga6Fy7eHwgzSO0/Fms+7iy8DgwAdX+XCmdfeZP2RFk3s="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_17.0.1_1626704857992_0.23440481502147148"
+      },
+      "_hasShrinkwrap": false
+    },
+    "17.1.0": {
+      "name": "@cucumber/messages",
+      "version": "17.1.0",
+      "description": "JSON schema-based messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "prepare": "make src/messages.ts",
+        "test": "mocha",
+        "prepublishOnly": "tsc --build tsconfig.build.json"
+      },
+      "dependencies": {
+        "@types/uuid": "8.3.1",
+        "uuid": "8.3.2",
+        "class-transformer": "0.4.0",
+        "reflect-metadata": "0.1.13"
+      },
+      "devDependencies": {
+        "@types/mocha": "9.0.0",
+        "@types/node": "14.17.14",
+        "copyfiles": "2.4.1",
+        "mocha": "9.1.1",
+        "ts-node": "10.2.1",
+        "typescript": "4.4.2"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@17.1.0",
+      "_nodeVersion": "14.17.3",
+      "_npmVersion": "7.20.6",
+      "dist": {
+        "integrity": "sha512-OA1uQDX16PjOpeTmMvAiCSjJbomgHYJ4HTVuekF4M8Ykh6mK+5oKn6uZaJTZ/xblEDKGqCfHalrg9yg8/nW41g==",
+        "shasum": "bcc7386eed3e1c8bbae490a2140e3ceb68a154d7",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-17.1.0.tgz",
+        "fileCount": 59,
+        "unpackedSize": 136465,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhL+jqCRA9TVsSAnZWagAA0gwP/j/Znz7ISb0KoVZO7Aph\nuAnmgc1bd7Ir/FpRe++q24hgH2YezAInu/SJofm3aj4raryf5a0mXD86R1nY\n+rVqKa2EaxZ6+q+E4IgRdO+cJh3OgYAxdF73my9dE/ebKEl5wXSYnTixja+R\nnc/yIPNkwIQq6hVlFJMOjezk95G+vIqhkJZ2XFS5iSlqc+cPwCMnunaK3Sqc\n6/IsgpHDWOltRZyJ3eE+WInwSkynPOa9i971PT1FxSkhJr2diYlBfsHVpLWp\ndSd4k982zS3KStFafQAPVO7ip13E8mFq35eeL5xZd30OJ+nJjrwBmFsBn4P2\nm+Av1VrZHk73Hm0/LoYf9SFU92y5G6NhlipTPcxmptuPe6aszxl2KNwqyqx9\na8+RRV19ejltkwSMuiqOtSlENCAwWNd4E7EeWnRTdawfe7Y7ne/8e1IMlCs7\nMyUvNaqDaw7ce/ZwjkvGoXpUIlr9KOFbLRLhwsNay/S3ObP7o3yzwyqe+tW0\nPUGMPSDnsuWOm+LWOwxlV3SIo6/ZqxU/+w+vOd2vuCge2YVOl0FTVVS+xB2R\ndxyzz1EwQOssynRtH3lsnwvfaGeAefTGhatpDsDGDtcfw79vxnoCF9fcQQSq\nRL/PPBEq45B0L7IsQrvbcjt3vVQXofoRmgYekDmB4EIkqS08WX8MhbkbjQug\nsz+7\r\n=fGM6\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICyTbhMMcZOzXyzMBsD37GJwRAjllKk4YEky9gL7A5GsAiBMV9mzt4gQQymsMq4GzIYE8wfmBO6ROcZegx+aOFFAjQ=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_17.1.0_1630529770438_0.9039537887911642"
+      },
+      "_hasShrinkwrap": false
+    },
+    "17.1.1": {
+      "name": "@cucumber/messages",
+      "version": "17.1.1",
+      "description": "JSON schema-based messages for Cucumber's inter-process communication",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "prepare": "make src/messages.ts",
+        "test": "mocha",
+        "prepublishOnly": "tsc --build tsconfig.build.json"
+      },
+      "dependencies": {
+        "@types/uuid": "8.3.1",
+        "uuid": "8.3.2",
+        "class-transformer": "0.4.0",
+        "reflect-metadata": "0.1.13"
+      },
+      "devDependencies": {
+        "@types/mocha": "9.0.0",
+        "@types/node": "14.17.17",
+        "copyfiles": "2.4.1",
+        "mocha": "9.1.1",
+        "ts-node": "10.2.1",
+        "typescript": "4.4.3"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@17.1.1",
+      "_nodeVersion": "14.17.3",
+      "_npmVersion": "7.20.6",
+      "dist": {
+        "integrity": "sha512-KQMn2Ag+1g1CXp/zKQ7LLqmuHjuQwuXw0N2u5SrDk8r72zPt36SxmDSJK7w6HiFTI+3p5ZuzwLi4S5jop3Tx4g==",
+        "shasum": "1f40b020af1983f47e37a0847a9fe648b6ec8d1f",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-17.1.1.tgz",
+        "fileCount": 59,
+        "unpackedSize": 136502,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhzefZCRA9TVsSAnZWagAAspAP/iaK8hWoIkntEfrxJklj\nQ9HI0qFbvuCbz/WZYl6wmS77pQ9Gp/cjbAfPC6c7cLy69UiqDry1h/Qb/Bpp\nMXTLw/efPlr0CxXUte9b7ZmskBdA59NPRrqIpWL9BLF3DI1MXkgZ1F/2jbL0\nSFrwnznIrPFZgsd/JikvrskdBF/VP81LG0GGosv2zJWllsMKfJkdY8rNyi+3\nUJY9t3LmVnBj4GKmNl3EVV59l72QNdjD7xbi1N4SxRJ8GJgGAh5HARy8rrFK\nXELb2RWhDhuSwuBPTVsxe6OGVDqbVcCAFhfrMW0sVLhS8b2hb9fAYxB5mBLe\nGTFW0nnXyDiuwvbO+wA1+NLJX/itDkOIk0ggQvkKBX9dqSReSFD+zTaxN5OP\npFvUpzPz7xTLdKh8V5yFzHA5+KeRqZA81cxhMrWRF9aJy/LT/wB7ssafluAO\nIIAhOKuOywqWFlRG61RSFvE7Iz/+QcMb7belBB5Kiay5kHbPRHu597ybX6CI\nJoVOiembFJwT2KgYjW6H70pCVO0Iui5hikHVIP2T+8I3672D1hkWuQEhZxaO\n8WRB6jByVtC/PLIR7Gr8aSsEGmtcF+8xU8lWt21CWQxbdI7LGrszGW6uvJZ7\nJMypgmsnoz7hVDwUXt5CFnRRUntOhsSH8mWpPgFv4FEbQ+sbf/HvKDlQOUZd\nRaN3\r\n=bcC7\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCF9gHk1tmZFBbQcSQDI3+F3T81/y2kWpLEc4fti5AaxwIgZFde9R5FQX+3sadyD+0Rrxw2D5T8HxymatcbO2+L7tk="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_17.1.1_1631892158770_0.7219356117565952"
+      },
+      "_hasShrinkwrap": false
+    },
+    "18.0.0": {
+      "name": "@cucumber/messages",
+      "version": "18.0.0",
+      "description": "JSON schema-based messages for Cucumber's inter-process communication",
+      "type": "module",
+      "main": "dist/cjs/src/index.js",
+      "types": "dist/cjs/src/index.d.ts",
+      "module": "dist/esm/src/index.js",
+      "exports": {
+        ".": {
+          "import": "./dist/esm/src/index.js",
+          "require": "./dist/cjs/src/index.js"
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build:cjs": "tsc --build tsconfig.build-cjs.json",
+        "build:esm": "tsc --build tsconfig.build-esm.json",
+        "build": "npm run build:cjs && npm run build:esm",
+        "postbuild:cjs": "cp package.cjs.json dist/cjs/package.json",
+        "prepare": "make src/messages.ts",
+        "test": "mocha && npm run test:cjs",
+        "test:cjs": "npm run build:cjs && mocha --no-config dist/cjs/test",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "8.3.4",
+        "class-transformer": "0.5.1",
+        "reflect-metadata": "0.1.13",
+        "uuid": "8.3.2"
+      },
+      "devDependencies": {
+        "@types/mocha": "9.1.0",
+        "@types/node": "16.11.26",
+        "copyfiles": "2.4.1",
+        "mocha": "9.2.2",
+        "ts-node": "10.7.0",
+        "typescript": "4.6.2"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "gitHead": "b494201768029c7d97f633987d6a25a4fae4bc5c",
+      "_id": "@cucumber/messages@18.0.0",
+      "_nodeVersion": "14.17.3",
+      "_npmVersion": "8.4.0",
+      "dist": {
+        "integrity": "sha512-1HmQwrscW0PNABwYB/pOgJms2e6DNZLvBNne3n2cllgxoVDzFgKiO94PIvpBZUaqMcj7FLhHaOyCnYZgK8vDFQ==",
+        "shasum": "e53a9bf360025e38c34e94d7199a88346f3baa98",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-18.0.0.tgz",
+        "fileCount": 86,
+        "unpackedSize": 202523,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiPGj9ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpmSQ//ew1s/lpjaIT2fn9v93uZXtIntRvxtvOmeFm3ry2bz71kre3r\r\nEGkG3KX/sf21agMBldiONDx1ziJ7SmBIkgo8GWf/l1XM+Y1oQNj2eXB7713q\r\nd5Zn8+dA8aJx39GeaCzI8bT31Kda51CIh1OGb79F6XgBdZvci31qeC5q9TnI\r\n6qj1a1uBz7cpS0i/JExD/nhn3HGe+fi6Vr1i9MMvQYFo97xOUpoc+coDA6a8\r\nJdk3uowr/zojbULaxm+UzuttqLHyOasT47+7yFsY/wSJQ5vUZh78lSYBs+0+\r\n0+tlFDUWyI3Yz8wrBfsKQB4jUJO4a5ka8AhoT/QWXWg1j1Yc8JMMwKwZ30pp\r\nB4sHbzZXujMbwqUBcHYZjQc4oh3Abn6G/BO8flUhaA/7zrl5w6kbKo19NR6W\r\nsDwNpZOGl02224WJ1Gu5o+jOwkxkJrwfbgYhDgbe1f8oeCF0Gf5Tv0WmVIFH\r\nUQJw0oDSn8vdV6GPVEPQBL7B4Q0OymdLRpHgKPWhdcxIK16RgLYbceC4tCdC\r\nG86gTBiSdoWxEPD6HfSdgD7iyzJjgrpY5tVNvRAGcXtAhEZKAoFGrRcmefm9\r\n6N9qWAw1xkRsalSUHPBs3rg/fIob4F/Am3JtQ6xjWeECb6Jh/PoYWoBX4i9W\r\n/QuNG+0DwcubgqPQ03OEvuADpVPxkK9aUOg=\r\n=iaHb\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEHwa7fpZu0gWVH8l9LOsJ9zczfAAsmccdviuWQQ2tWmAiEA6WEybLIoHKnDgRoWbBTaAcZ7go2ilEz9R8rsskoBqyI="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_18.0.0_1648126204855_0.0626364008666167"
+      },
+      "_hasShrinkwrap": false
+    },
+    "19.0.0": {
+      "name": "@cucumber/messages",
+      "version": "19.0.0",
+      "description": "JSON schema-based messages for Cucumber's inter-process communication",
+      "type": "module",
+      "main": "dist/cjs/src/index.js",
+      "types": "dist/cjs/src/index.d.ts",
+      "module": "dist/esm/src/index.js",
+      "exports": {
+        ".": {
+          "import": "./dist/esm/src/index.js",
+          "require": "./dist/cjs/src/index.js"
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build:cjs": "tsc --build tsconfig.build-cjs.json",
+        "build:esm": "tsc --build tsconfig.build-esm.json",
+        "build": "npm run build:cjs && npm run build:esm",
+        "postbuild:cjs": "cp package.cjs.json dist/cjs/package.json",
+        "prepare": "make src/messages.ts",
+        "test": "mocha && npm run test:cjs",
+        "test:cjs": "npm run build:cjs && mocha --no-config dist/cjs/test",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "8.3.4",
+        "class-transformer": "0.5.1",
+        "reflect-metadata": "0.1.13",
+        "uuid": "8.3.2"
+      },
+      "devDependencies": {
+        "@types/mocha": "9.1.1",
+        "@types/node": "16.11.36",
+        "copyfiles": "2.4.1",
+        "mocha": "10.0.0",
+        "ts-node": "10.8.0",
+        "typescript": "4.7.2"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "gitHead": "f5286654ab71c910660eec0a4f970894025e260d",
+      "_id": "@cucumber/messages@19.0.0",
+      "_nodeVersion": "14.17.3",
+      "_npmVersion": "8.11.0",
+      "dist": {
+        "integrity": "sha512-5kf5jTQZf3qI4vr7r/zs2UNg8e/v5wW698IAT+4htMQqBxZT5L0WSgbjz+2vXypHFwcEVIEfiwBaKG5ShthwFg==",
+        "shasum": "3deac940b5f8ef2afc7ccc9a555a97b647a48de6",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-19.0.0.tgz",
+        "fileCount": 86,
+        "unpackedSize": 214110,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCOKS293/v2OoCsdmhLvyiyHLHg87lVpUmFCj/DsCkZSwIhAOpRb0tKtfQH1rfSvQqUbag6oFpISz3RsPW/7Maapqp8"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJilcp/ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpMDxAAkdhfme3CVcbKKx9z+s4b9FMy59TfZIwGX+AXYsTc2+RomcWg\r\nmG3h3nhfahlnUxmXzvAh5Wr62OngWWA5SKTzDPVMYLJych1seZBOWmC7DU1g\r\nvf4RhAcuKlZPfYqWI+gDsEayfD8igP3t5wzVqa+4dkR0sjtUf9JvxI8mA2Gb\r\nrpcatL/NnopIyEP8doqFvJ39WBgpqLB0w1E/SGNuTsMqu6wamd773DrqL45v\r\n9jTV9R5YqSNbm2eZXsHyh1VBAralPmwaazETUWVLmTAHQHu7rQvDOC+0cvax\r\nsmApPtRSmExeB+yQ7xKOZwmqD87oi/tFW5c4sSi9QLRUJeXse55xrijw55B0\r\nnAyBusab+GHVR5/Jn/J2SC85Q7Eu/axKiRHrOY2muIDGZMphlahwURUTjf67\r\njoKjbLWLAVKlutRWF3z+jcYiLb7kqhxVy4xOHWSHx19kPGWkFB2Am1TMpOkJ\r\nc9C48cSnd/+Hp9Ug0XLp9xGiCrkXlNpv51Fc5s5PbnlhL4p2/7qJ4+dY11xG\r\nPbTRHdoGZT9lvJj+/U8WhEg87ZBugRtmUgGcSopRojoGZ5Dd2ttew3Py3txb\r\nwYOFQt+p1QDFS5582x7q3ih7soz2qgPollk79QYDv6KCyZn3cL1OIO5b6Fae\r\nVepVuDKPQGBDH7hqp/wCPmqronvzAUQ7MVI=\r\n=tmWE\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_19.0.0_1653983871665_0.7006088429499324"
+      },
+      "_hasShrinkwrap": false
+    },
+    "19.1.0": {
+      "name": "@cucumber/messages",
+      "version": "19.1.0",
+      "description": "JSON schema-based messages for Cucumber's inter-process communication",
+      "type": "module",
+      "main": "dist/cjs/src/index.js",
+      "types": "dist/cjs/src/index.d.ts",
+      "module": "dist/esm/src/index.js",
+      "exports": {
+        ".": {
+          "import": "./dist/esm/src/index.js",
+          "require": "./dist/cjs/src/index.js"
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build:cjs": "tsc --build tsconfig.build-cjs.json",
+        "build:esm": "tsc --build tsconfig.build-esm.json",
+        "build": "npm run build:cjs && npm run build:esm",
+        "postbuild:cjs": "cp package.cjs.json dist/cjs/package.json",
+        "prepare": "make src/messages.ts",
+        "test": "mocha && npm run test:cjs",
+        "test:cjs": "npm run build:cjs && mocha --no-config dist/cjs/test",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "8.3.4",
+        "class-transformer": "0.5.1",
+        "reflect-metadata": "0.1.13",
+        "uuid": "8.3.2"
+      },
+      "devDependencies": {
+        "@types/mocha": "9.1.1",
+        "@types/node": "16.11.41",
+        "copyfiles": "2.4.1",
+        "mocha": "10.0.0",
+        "ts-node": "10.8.1",
+        "typescript": "4.7.4"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "gitHead": "5053f7b6df461ee37bb10ed1e2558d30ba4c1f1f",
+      "_id": "@cucumber/messages@19.1.0",
+      "_nodeVersion": "14.17.3",
+      "_npmVersion": "8.11.0",
+      "dist": {
+        "integrity": "sha512-88asZvEKoedckl0KZ1PZFPng9TahoQdOAX1TzoXicYu67zlN480wFxC63qwqZOB8BBJYqKVWnwiwVJoiFhbhnQ==",
+        "shasum": "d4aa4b1435787738586852a198045d89899d6664",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-19.1.0.tgz",
+        "fileCount": 86,
+        "unpackedSize": 214110,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDDeQiRKBObH2k+kaCMeTwUm9OqdgFih+gLoSv1TsIoFgIhANZziUrQN67bY2vVZvE3JiSKy+7u/OrloAHK/DUT6+BO"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJisL5LACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmr9RhAAm/O5CpgVX3+0th9qXFFEX+hijK+Cz/tB8gsaxMhdboYfRBbu\r\nr0oIJJzM4tOYnb4t+Az2MzOlOUcdoZwQgyU6vTtR090r/wagpkwqE2KAOBXI\r\n/56GP2dakFp9BCmXrT4ZOMQ5WmAIgAe+8+qN1pfpn3HPah9VPWputp6emEBA\r\nAIOG08hjhRn0EhiAvBes71QPe5kMOtJT6dkFysNrzsNB/ikEv+SyUXzH3PiA\r\nivYQVjI92Mss0Y6dHjF+wzcVTWjsQKXk085uLO8KjYTIUsnlf3+HV7bAHr/o\r\n0aoc/PQBwvKjjkCZhLH14w6nI6GGZBODFVZIl3E7j40BGObP4Qja0v3WCQcD\r\nhqEIZF2iBLosQ5p7F8VeCl7qSQ44mu96boefHe6tysHQXV11becfHh+igCTO\r\n2/9MSzJgPbvoFhezhi2XFqg7dYF3YesDigpOgyD0MmJ1mVclNMFN+zLV9Xmp\r\nxFRbss31U23+67Ci14whXt+oOoSAuO6MBjnXO5wxPNQJzEHdf2Jugs+RQu/+\r\nChi2fjFGyEZ0hJmF3Pqxm/qZxO4tHzH8sv2GMvgcS3SKV6450uQOyIKPL2um\r\nuf7AXxXomwp1B2g2gZcmy5VRETI5eTUhGbfDgD3nVycBDd09TFe99Mmk1QaK\r\nCuzdp2DtiNVBwYQW3YVLBCpFvY3KWWF/15E=\r\n=o604\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_19.1.0_1655750219509_0.43457363121545023"
+      },
+      "_hasShrinkwrap": false
+    },
+    "19.1.1": {
+      "name": "@cucumber/messages",
+      "version": "19.1.1",
+      "description": "JSON schema-based messages for Cucumber's inter-process communication",
+      "type": "module",
+      "main": "dist/cjs/src/index.js",
+      "types": "dist/cjs/src/index.d.ts",
+      "module": "dist/esm/src/index.js",
+      "exports": {
+        ".": {
+          "import": "./dist/esm/src/index.js",
+          "require": "./dist/cjs/src/index.js"
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build:cjs": "tsc --build tsconfig.build-cjs.json",
+        "build:esm": "tsc --build tsconfig.build-esm.json",
+        "build": "npm run build:cjs && npm run build:esm",
+        "postbuild:cjs": "cp package.cjs.json dist/cjs/package.json",
+        "prepare": "make src/messages.ts",
+        "test": "mocha && npm run test:cjs",
+        "test:cjs": "npm run build:cjs && mocha --no-config dist/cjs/test",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "8.3.4",
+        "class-transformer": "0.5.1",
+        "reflect-metadata": "0.1.13",
+        "uuid": "8.3.2"
+      },
+      "devDependencies": {
+        "@types/mocha": "9.1.1",
+        "@types/node": "16.11.41",
+        "copyfiles": "2.4.1",
+        "mocha": "10.0.0",
+        "ts-node": "10.8.1",
+        "typescript": "4.7.4"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "gitHead": "4e6a455bd4fbc120e24e717acf89d72746154205",
+      "_id": "@cucumber/messages@19.1.1",
+      "_nodeVersion": "14.17.3",
+      "_npmVersion": "8.11.0",
+      "dist": {
+        "integrity": "sha512-Hx5tESq7lGD0KTHrsdhKW+n1WVZIWHFyHj1Tj785QyJy3Dicm7v5xH5ibWqj7KEFPpj/VmbmoW0laR+Lo2wt9w==",
+        "shasum": "3837372bab1dc88df3e834b577d699600015b4f7",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-19.1.1.tgz",
+        "fileCount": 87,
+        "unpackedSize": 214124,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCCi9AP6Opzyhp3j1SEYkfBdXY55zrfWtS0NpafW+QWqAIgdivH7VLocGta2nBgBzyJ3hSUQRKlEoYgpWq+WUdu6i8="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJisqnVACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmri3g/9HfqTWVdimdYLoOtVZNjIA0FDR6knZ2Hi0W/DiQ1IjWvTCH9O\r\nTmasTKSqVjiymIYXTkNaTurr6cUtR+SH07eBYKolDmzGW1GBCcvCIwYSox33\r\nhZItph+OKCchhKeqlPZqAqkhqCksEv8gU6igtvQmtri6ttgLZTfUCS7UpNab\r\nbh8iM2OGmi9L3PR3E+5eOrH28buVugXgqMqDgKy295j7qEqGGMEk63axV9AF\r\np0V8vAAO+4jYlzYGT+/29nHsQBcYDYfTh8+x6Db4r6lV6vi/3dQJ9o+C9H0Y\r\nnHSFC1dqxIDvzVyYILtux3GOs/q580pCY4VxJEoVOucZeUH2avHOzLLRHzD1\r\nfFAJj8WzK9+f/YoF/YdjmwYXjLPcpnUjq2nW+QUd18pmXxbaT3u4dhPRVMCs\r\nNz7a5jBLdHIt1ss+Wgqybl1rf4qkjg+wFR5xnvssSkxnS0F2iwTlzNEULJrN\r\nMBXPkq4xj7K5TCKysOxy2QPG0Gxd4UfmsCU76WkJGN1d09KKoRPGtMGgS2Mt\r\nqnvI1WNoh64iqujOJZfpMGCZK/m4xL+8jePhFOHG/GjHRAW//0e4dqdv+H6S\r\n7c1aFFfbhFLvpBRFgWOOVvKuIBd+y9PgZ2aZv6UPc/Bf3792/Mxdlr2hISm2\r\n8a8E2TwybdCFBhzqGIBgFe4fGhkZUVHHaHY=\r\n=SNLB\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_19.1.1_1655876053761_0.8567012262549338"
+      },
+      "_hasShrinkwrap": false
+    },
+    "19.1.2": {
+      "name": "@cucumber/messages",
+      "version": "19.1.2",
+      "description": "JSON schema-based messages for Cucumber's inter-process communication",
+      "type": "module",
+      "main": "dist/cjs/src/index.js",
+      "types": "dist/cjs/src/index.d.ts",
+      "module": "dist/esm/src/index.js",
+      "exports": {
+        ".": {
+          "import": "./dist/esm/src/index.js",
+          "require": "./dist/cjs/src/index.js"
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build:cjs": "tsc --build tsconfig.build-cjs.json",
+        "build:esm": "tsc --build tsconfig.build-esm.json",
+        "build": "npm run build:cjs && npm run build:esm",
+        "postbuild:cjs": "cp package.cjs.json dist/cjs/package.json",
+        "prepare": "make src/messages.ts",
+        "test": "mocha && npm run test:cjs",
+        "test:cjs": "npm run build:cjs && mocha --no-config dist/cjs/test",
+        "prepublishOnly": "npm run build"
+      },
+      "dependencies": {
+        "@types/uuid": "8.3.4",
+        "class-transformer": "0.5.1",
+        "reflect-metadata": "0.1.13",
+        "uuid": "8.3.2"
+      },
+      "devDependencies": {
+        "@types/mocha": "9.1.1",
+        "@types/node": "16.11.41",
+        "copyfiles": "2.4.1",
+        "mocha": "10.0.0",
+        "ts-node": "10.8.1",
+        "typescript": "4.7.4"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "gitHead": "cd3fd8980e1cabbd807f243333b7328ea1722cdd",
+      "_id": "@cucumber/messages@19.1.2",
+      "_nodeVersion": "14.17.3",
+      "_npmVersion": "8.11.0",
+      "dist": {
+        "integrity": "sha512-vhWkNmQco+7tk/DWqpN0/R9KTNvsKsXVfZ7IsJs+dEeWmTuRztklHq8lJalwMSQBl71+2/KqGHzOO4BMTC9wIQ==",
+        "shasum": "cc846c191b124deb352dd1992bd49a82f30b0add",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-19.1.2.tgz",
+        "fileCount": 108,
+        "unpackedSize": 254162,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICvhuy9xaf7n2uOIKepWSphQZfU+k5wMjlh9zbPpE0HMAiEAyhw20t6aIK7nPsujiIXSN3MdsOwWQPWGp8n9zkvJMY4="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJisryVACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqC8BAAo1Xi23i3yef0ING93n6mK9XfsxRJHxX8MDRavwYnujg1ow2N\r\n1DNnl80roDT124omwG20CtA57+GafGdYPJHesy3SsG4dJKfMH4hVoV54TWYG\r\nEbfkAg57V++FwDOXjoaKrzNKfx1e9FHLc/HsRsCj2y5ieFaTMvhm5S6M9MAX\r\ndsn934nbaUOXuK7RX6bXSyaYeG7vWVY2LcVWSCEZafphaaBVgLWocivPJ0Hb\r\n2YprZ4oV3puxGjMNx26va+ABzKqmEovLjNeY3qZfgPH8bDc2M+X9d05ULCc5\r\nCGwwfT6I/ugegcORHDdWWh97v2pjAqIZyBFtkvK9WEy7sxMcyHLAT8rthBbZ\r\nzhggF1t2iNSEVq1BzylVvLjUGpb9XKQZpM0yYTJhwbyDUIoFsQB9QRue31Zk\r\nGqjnqSfm07rxZSJqshk7Hu7DMGoePyLwFd7B2Y79oQpgEQ+BTBz/rhw0txM9\r\n/89ZIV4NvOaNDUR7os7xsECIUXtsk3Oe5igNt+nq1VUROZrIiyTWsOioD3/v\r\nnBE/6Vngg7nRTo5ap1og1V4qfJIbhHaxedOLWiaMtA3gAZaNDpvsW/4Z95+g\r\naMx+E6gVXwlk69iVwoDWI2ad8PCB69gkZDBayOkzk8jYLmi3MoVCnxP+fnQW\r\nAdR2UVwYSMdH1C0bwThmfV8hUGiUHXtABnQ=\r\n=Rh/8\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_19.1.2_1655880853337_0.5917749639055034"
+      },
+      "_hasShrinkwrap": false
+    },
+    "19.1.3": {
+      "name": "@cucumber/messages",
+      "version": "19.1.3",
+      "description": "JSON schema-based messages for Cucumber's inter-process communication",
+      "type": "module",
+      "main": "dist/cjs/src/index.js",
+      "types": "dist/cjs/src/index.d.ts",
+      "module": "dist/esm/src/index.js",
+      "exports": {
+        ".": {
+          "import": "./dist/esm/src/index.js",
+          "require": "./dist/cjs/src/index.js"
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build": "npm run build:cjs && npm run build:esm",
+        "build:cjs": "tsc --build tsconfig.build-cjs.json",
+        "build:esm": "tsc --build tsconfig.build-esm.json",
+        "postbuild:cjs": "cp package.cjs.json dist/cjs/package.json",
+        "copy-schemas": "shx rm -rf ./schema/*.json && shx cp ../jsonschema/*.json ./schema",
+        "prepare": "make generate",
+        "test": "mocha && npm run test:cjs",
+        "test:cjs": "npm run build:cjs && mocha --no-config dist/cjs/test",
+        "version": "shx echo \"// This file is automatically generated using npm scripts\" > src/version.ts && echo \"export const version = '${npm_package_version}'\" >> src/version.ts",
+        "prepublishOnly": "npm run build && npm run copy-schemas"
+      },
+      "dependencies": {
+        "@types/uuid": "8.3.4",
+        "class-transformer": "0.5.1",
+        "reflect-metadata": "0.1.13",
+        "uuid": "8.3.2"
+      },
+      "devDependencies": {
+        "@types/mocha": "9.1.1",
+        "@types/node": "16.11.59",
+        "copyfiles": "2.4.1",
+        "mocha": "10.0.0",
+        "shx": "^0.3.4",
+        "ts-node": "10.9.1",
+        "typescript": "4.8.3"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "gitHead": "105020bc886bb41cc07455517b8559ca8f459088",
+      "_id": "@cucumber/messages@19.1.3",
+      "_nodeVersion": "16.17.0",
+      "_npmVersion": "8.15.0",
+      "dist": {
+        "integrity": "sha512-kPbAP+F8rjybdqJEK4+5D25vW9YhbhAbbyB5Qt/q8LueW50FgFnjBJba4WFizhKnVo3fs/3MgWF2DupLDQDefg==",
+        "shasum": "c7627bd3cb924a079788a1498f8f8dd4faaa5a08",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-19.1.3.tgz",
+        "fileCount": 108,
+        "unpackedSize": 244789,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDWhrmX6VyJ6CsWNfawMTXAZGjQ3DNhIn9fQzpap1QixQIgLAv25tOIH6kMzkmyg+20obKX0V98JrPYvH57V3yq7Ac="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjKhaWACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmq4rxAAngfxAYgYESq9kZuumU5+h3BJ+52xmzZq2P2dM6tvwxSfX9tc\r\nfMsnDg2C4PQGimtPqob56ewy2SNtcMCmu6PdPFb7W3e9v3og9FEQ20cy3KOw\r\nbypP9zuMspfqglkKhEyWWqfHfl/lClboT/M+Nlh8ZykMwF0YiJWyZY0vejC9\r\nYUd0priTb3+YJEC6uzFEf/lwPatueaCW21DY+QdJfh9LwlZ8+hJkAXZoYSli\r\nv+9FEIDiZRvLBWMzCbt4R4VmQ7qTB/5yr9V5n+hen+XrZVboFgmRQJoV8PSz\r\nEDMWEFbh3Rb8KBqGsneV7G+jnygPTEyqjgsxYGEVymJ9DHzv4tqT8OQqpq3H\r\nQbjZEU/x16XT4+2AHzYE+Yn6Wz3he/LvDw89wtWOr7g2SNwWnlQUflnvMrtD\r\nq15S5xD1tv/8vRbDtcC6WPUdnhVEjVAUFcZlwCSQp7wzHKySmOPUpWUcEnVt\r\n7BJ7okI6WMb0vu+T+k+FtwHRPozkW7tDVJcVKacMPRsZ8a0QCP5dewt6V0FA\r\nqO0VlLXgFagWXV2jO7YRfYpogH7d9pMYE3ySUlJgxAkEpeyMSjfcQMXEqa1e\r\ntY7ll3QIWOX6312d5HQT9zXbxT8DtHApM13gmfCv/N88jVGM8OjyvDBeYvDR\r\nJiBROwgw9qRaIToLN0O8XEQjhv3KGJ/PADs=\r\n=jUNm\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_19.1.3_1663702678351_0.10789354622895542"
+      },
+      "_hasShrinkwrap": false
+    },
+    "19.1.4": {
+      "name": "@cucumber/messages",
+      "version": "19.1.4",
+      "description": "JSON schema-based messages for Cucumber's inter-process communication",
+      "type": "module",
+      "main": "dist/cjs/src/index.js",
+      "types": "dist/cjs/src/index.d.ts",
+      "module": "dist/esm/src/index.js",
+      "exports": {
+        ".": {
+          "import": "./dist/esm/src/index.js",
+          "require": "./dist/cjs/src/index.js"
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build": "npm run build:cjs && npm run build:esm",
+        "build:cjs": "tsc --build tsconfig.build-cjs.json",
+        "build:esm": "tsc --build tsconfig.build-esm.json",
+        "postbuild:cjs": "cp package.cjs.json dist/cjs/package.json",
+        "copy-schemas": "shx rm -rf ./schema/*.json && shx cp ../jsonschema/*.json ./schema",
+        "prepare": "make generate",
+        "test": "mocha && npm run test:cjs",
+        "test:cjs": "npm run build:cjs && mocha --no-config dist/cjs/test",
+        "version": "shx echo \"// This file is automatically generated using npm scripts\" > src/version.ts && echo \"export const version = '${npm_package_version}'\" >> src/version.ts",
+        "prepublishOnly": "npm run build && npm run copy-schemas"
+      },
+      "dependencies": {
+        "@types/uuid": "8.3.4",
+        "class-transformer": "0.5.1",
+        "reflect-metadata": "0.1.13",
+        "uuid": "9.0.0"
+      },
+      "devDependencies": {
+        "@types/mocha": "9.1.1",
+        "@types/node": "16.11.59",
+        "copyfiles": "2.4.1",
+        "mocha": "10.0.0",
+        "shx": "^0.3.4",
+        "ts-node": "10.9.1",
+        "typescript": "4.8.3"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "gitHead": "95800ec7f94e65a573d6245e27879dbc91bc2ec3",
+      "_id": "@cucumber/messages@19.1.4",
+      "_nodeVersion": "16.17.0",
+      "_npmVersion": "8.15.0",
+      "dist": {
+        "integrity": "sha512-Pksl0pnDz2l1+L5Ug85NlG6LWrrklN9qkMxN5Mv+1XZ3T6u580dnE6mVaxjJRdcOq4tR17Pc0RqIDZMyVY1FlA==",
+        "shasum": "5cefc47cac3004c0bc38d42933042ec248bb747c",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-19.1.4.tgz",
+        "fileCount": 108,
+        "unpackedSize": 244789,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIA2zjiI0Jvf6UtmXCFn5wN/+fzcnw5Zp3laxksKZuYtGAiEAiDVX5RfadCHZs2lb54EcUpCQT4UwejTm3ktHBOz1IR0="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjLJHFACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmo/axAAo3JcWYqRosBbWw6ru0+I69vs8UXll8CbOl60mMrCt4Br3iYS\r\nKzXDsC43qH3uOMu9RBACToSjvWZndYFXVsIg23cDj3lmYgk/COC5Q0fU+nAH\r\nRXMJJ9rzCDpRJ2OZT5hHfzupbfArvxkimnU3fEojXTQMCnV/bAp0zoncxcLt\r\nW93y6IJ+x44wZrBB00bHrt5GtZqawJQGP693Np1MnGk0b3QyQDyauYHq4ED9\r\nEzGFywWgnau186m97zQKnPVSBaFREIIdKvNpJe1XwCeifwdpuziIXMvnl/r5\r\ngQWh34zJhSCKvXLXdeYBJe5oVc+bCinHbQcTKir5sPdEC9ucR0QRvVycV9pR\r\nYcnl6ds3I/v6wv4JYcvc7TUezTvtlr74wdkxsNW3gQ4ILekRixORpC6q75SN\r\nNux/E7B59tvwal9+Snrpv07Dq8ZorCQjgtIAvcP8Y42YQLygzGqHhcIdnr3M\r\n+koVDFLMaXeZOpXGRe+QkAtoW219Loz39LAG8jH7CKEsjWYd45w6BuHRekNs\r\nzh+XSqZ/mjgAwQ9z8HgjIyY/aPkMLmmQ0wxq4CV7n+CzYB/g+CY4R5E9hD25\r\ni0yjVV6S+wmSaOgBEWjDdEhufPAHci++zwuheW1/6/w6Vo/XFO2FGxT9nHe8\r\n5ELr3EdVpo8FTKU7ADr12Y0zyJKR6riqdcI=\r\n=6Awh\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_19.1.4_1663865284841_0.5987719422789792"
+      },
+      "_hasShrinkwrap": false
+    },
+    "20.0.0": {
+      "name": "@cucumber/messages",
+      "version": "20.0.0",
+      "description": "JSON schema-based messages for Cucumber's inter-process communication",
+      "type": "module",
+      "main": "dist/cjs/src/index.js",
+      "types": "dist/cjs/src/index.d.ts",
+      "module": "dist/esm/src/index.js",
+      "exports": {
+        ".": {
+          "import": "./dist/esm/src/index.js",
+          "require": "./dist/cjs/src/index.js"
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build": "npm run build:cjs && npm run build:esm",
+        "build:cjs": "tsc --build tsconfig.build-cjs.json",
+        "build:esm": "tsc --build tsconfig.build-esm.json",
+        "postbuild:cjs": "cp package.cjs.json dist/cjs/package.json",
+        "copy-schemas": "shx rm -rf ./schema/*.json && shx cp ../jsonschema/*.json ./schema",
+        "prepare": "make generate",
+        "test": "mocha && npm run test:cjs",
+        "test:cjs": "npm run build:cjs && mocha --no-config dist/cjs/test",
+        "version": "shx echo \"// This file is automatically generated using npm scripts\" > src/version.ts && echo \"export const version = '${npm_package_version}'\" >> src/version.ts",
+        "prepublishOnly": "npm run build && npm run copy-schemas"
+      },
+      "dependencies": {
+        "@types/uuid": "8.3.4",
+        "class-transformer": "0.5.1",
+        "reflect-metadata": "0.1.13",
+        "uuid": "9.0.0"
+      },
+      "devDependencies": {
+        "@types/mocha": "10.0.0",
+        "@types/node": "18.11.9",
+        "copyfiles": "2.4.1",
+        "mocha": "10.1.0",
+        "shx": "^0.3.4",
+        "ts-node": "10.9.1",
+        "typescript": "4.8.4"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "gitHead": "255bd7e3837b0237d1346273b4785acf16d435ce",
+      "_id": "@cucumber/messages@20.0.0",
+      "_nodeVersion": "16.18.0",
+      "_npmVersion": "8.19.2",
+      "dist": {
+        "integrity": "sha512-JFrFwuhxsbig0afaViNhuzoQyC+GQzlI7m+rX+lSiDGV13K3sJzMmHjkbCiNOgoRlKAMwIGR9TRMH0xj9/My0w==",
+        "shasum": "494d30bd2880b04dcb3a958f8c0ec5638b7b3596",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-20.0.0.tgz",
+        "fileCount": 108,
+        "unpackedSize": 246808,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHx0CLb+T2gh6Fe4yO6A0H+W+EmwP+q68fLcM/A/qvjNAiBdBDbbo6o49zrY9/YXC4kRBc0d1N/cR+cc8aiBcTcx1w=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjclI5ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoqiQ/+L6FhsJ4Z0xDr5n40DnT2//+cL3g+WBRkPvt38cMxX/Gc3PIY\r\nVId24a8OuuEKkNzSnEHK3VQ7yLlBf3H7IITI7Tv/XLvxxbzv1L30ejZf2BM/\r\nqrc/fAs3bCmRnDl5bwPze+kLQ8cCRlGqkHwdlBoJlcSobQ2oL8HQlZP5b6Fm\r\nPjOGrjkQ37x8kmKdd9gupAyF8vXzd/GgQrUBWf8+dvGIzLvo54r5Dv/HdIKD\r\nuyRe6uplso1OAUhzT3wi/quKixD5FngN6AWEGU+OI+1Hgja/8u2M0Dnpn05q\r\noqcserSbYCrSM0+eUK4gX0n8oT8fUz6m/M6PwNDmFObS4t7u1ruYwu7/NPLA\r\n8NOybrYzyD71/zzVgg3h9coGyFyARtbtOHjml+Eqtw6efPOPetW5q1sy+Oxs\r\nicpTzQ3/8K8bCLufUT6B27MLcdRr7VRWUIslin58m1CsNSg4RRTOyKkf7VRf\r\nS6AYW4r+4/dyQ0lrku0VnUTZcrjUsQGb4MR9CPQTl2f1A/VCKUwWl56QyFlC\r\nyGTI0vVQUSmyP9KdC97qIeIvS5Ghk19OzjW1/fQm1X5fbkQOzpNnGegBNb7P\r\nVirIeCxyX43azUcXSq865InFKyxSAf2wd+ETn8BHWIlWLM61ntgMlu755fj2\r\nBG3NLc/Mq4LTpEp+WEzRTeztNuMrEqFm/Fo=\r\n=PaLw\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_20.0.0_1668436537632_0.8010984597964075"
+      },
+      "_hasShrinkwrap": false
+    },
+    "21.0.0": {
+      "name": "@cucumber/messages",
+      "version": "21.0.0",
+      "description": "JSON schema-based messages for Cucumber's inter-process communication",
+      "type": "module",
+      "main": "dist/cjs/src/index.js",
+      "types": "dist/cjs/src/index.d.ts",
+      "module": "dist/esm/src/index.js",
+      "exports": {
+        ".": {
+          "import": "./dist/esm/src/index.js",
+          "require": "./dist/cjs/src/index.js"
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build": "npm run build:cjs && npm run build:esm",
+        "build:cjs": "tsc --build tsconfig.build-cjs.json",
+        "build:esm": "tsc --build tsconfig.build-esm.json",
+        "postbuild:cjs": "cp package.cjs.json dist/cjs/package.json",
+        "copy-schemas": "shx rm -rf ./schema/*.json && shx cp ../jsonschema/*.json ./schema",
+        "prepare": "make generate",
+        "test": "mocha && npm run test:cjs",
+        "test:cjs": "npm run build:cjs && mocha --no-config dist/cjs/test",
+        "version": "shx echo \"// This file is automatically generated using npm scripts\" > src/version.ts && echo \"export const version = '${npm_package_version}'\" >> src/version.ts",
+        "prepublishOnly": "npm run build && npm run copy-schemas"
+      },
+      "dependencies": {
+        "@types/uuid": "8.3.4",
+        "class-transformer": "0.5.1",
+        "reflect-metadata": "0.1.13",
+        "uuid": "9.0.0"
+      },
+      "devDependencies": {
+        "@types/mocha": "10.0.1",
+        "@types/node": "18.11.16",
+        "copyfiles": "2.4.1",
+        "mocha": "10.2.0",
+        "shx": "^0.3.4",
+        "ts-node": "10.9.1",
+        "typescript": "4.9.4"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "gitHead": "e15156404925628a94a27fba2e416fe9ac2f9ca4",
+      "_id": "@cucumber/messages@21.0.0",
+      "_nodeVersion": "16.18.1",
+      "_npmVersion": "8.19.2",
+      "dist": {
+        "integrity": "sha512-riglVBP45dGoQ1n38/wXZDxQuJ0KkpvTpIq68Ui5EaV06HDdJpVXVzujr8s67K2NDRRKfnf556aFdrh0Mo0cUQ==",
+        "shasum": "6908ce46b4c70bb178ab5d9586691d32e8a2744e",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-21.0.0.tgz",
+        "fileCount": 109,
+        "unpackedSize": 249021,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDiQfXCURogr/rYsFcJMQVmIJM3P+VXh2j9IaWdVl63aAiB5Nt78q2qCOaieI0nXOT7HDAw+vzjhoCUkafyGHYwJsQ=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjna/oACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpooQ/7BHpVlQKH9cpouoZ5ls202iQf2O2NS/G2zxbRUj2cSTdiFYbB\r\nl4OXWEPHzoGkMVu+1cLC1Iay5ASv8eSHkxJ8f6OTd05wrteu+yrmsVFpHYMG\r\nHwEiR1LZ9LmSYtjpjwipX4v5olcpbBYnI/d/xuBwbi0a6DVsCFjkLPQR+oq+\r\nS5r1tncQZQQ+Ta0lNOfSJ+w2X8R0+9yim3xHInkTJVStD44R8d7B8xFBqMDm\r\nNhnh0D/Ftb/myBohRHf7yqWVWpaBducmgnlHSyniSr8dKdg3x/KbhSK/+YzE\r\nAiwgZQRSRH6+VVM3da49mPr2FH0eHBeXlgXPdXaSamjrk3no9ptE5cTLi4zY\r\n/TfIjpzqKAfIFMn3oGf74NhG6szBeBCjSCTyL91QnbebuRLxtuprfkuRaG+X\r\nFogx0ddMZyG5az6Ff1VGnggnLTK+zWYIs4JdR/RyzKY4q99g12JKCnEPEI6l\r\nfc5nNmiBzljIeAAlnKhHapIA4CLbhIxUzq05KB+DRFj5QFy6pC51LVwsBbps\r\npsL0UiZyrZlEcKXfnrXT8E/RDtW4cWIcX5Sa3VuGdkuHJFKhj1h/tBkauPAS\r\nI3rw0CrnreKY8zomn7dyoSQhOp3q0b2Qv7v2Zmia6n/aJYRAuCfihmUMPmxe\r\nbgfgeTiikfru0P7W/QvRltYLc5cb8J9fZjM=\r\n=nvMT\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_21.0.0_1671278568375_0.830296735515555"
+      },
+      "_hasShrinkwrap": false
+    },
+    "21.0.1": {
+      "name": "@cucumber/messages",
+      "version": "21.0.1",
+      "description": "JSON schema-based messages for Cucumber's inter-process communication",
+      "type": "module",
+      "main": "dist/cjs/src/index.js",
+      "types": "dist/cjs/src/index.d.ts",
+      "module": "dist/esm/src/index.js",
+      "exports": {
+        ".": {
+          "import": "./dist/esm/src/index.js",
+          "require": "./dist/cjs/src/index.js"
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build": "npm run build:cjs && npm run build:esm",
+        "build:cjs": "tsc --build tsconfig.build-cjs.json",
+        "build:esm": "tsc --build tsconfig.build-esm.json",
+        "postbuild:cjs": "cp package.cjs.json dist/cjs/package.json",
+        "copy-schemas": "shx rm -rf ./schema/*.json && shx cp ../jsonschema/*.json ./schema",
+        "prepare": "make generate",
+        "test": "mocha && npm run test:cjs",
+        "test:cjs": "npm run build:cjs && mocha --no-config dist/cjs/test",
+        "version": "shx echo \"// This file is automatically generated using npm scripts\" > src/version.ts && echo \"export const version = '${npm_package_version}'\" >> src/version.ts",
+        "prepublishOnly": "npm run build && npm run copy-schemas"
+      },
+      "dependencies": {
+        "@types/uuid": "8.3.4",
+        "class-transformer": "0.5.1",
+        "reflect-metadata": "0.1.13",
+        "uuid": "9.0.0"
+      },
+      "devDependencies": {
+        "@types/mocha": "10.0.1",
+        "@types/node": "18.11.16",
+        "copyfiles": "2.4.1",
+        "mocha": "10.2.0",
+        "shx": "^0.3.4",
+        "ts-node": "10.9.1",
+        "typescript": "4.9.4"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "gitHead": "f221b8e821ee56f0f3fcec1e2b2cb2d8df60545d",
+      "_id": "@cucumber/messages@21.0.1",
+      "_nodeVersion": "16.18.1",
+      "_npmVersion": "8.19.2",
+      "dist": {
+        "integrity": "sha512-pGR7iURM4SF9Qp1IIpNiVQ77J9kfxMkPOEbyy+zRmGABnWWCsqMpJdfHeh9Mb3VskemVw85++e15JT0PYdcR3g==",
+        "shasum": "1468cef60d6da4d4f540a70ab1265f6540f44f51",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-21.0.1.tgz",
+        "fileCount": 109,
+        "unpackedSize": 249011,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBsLyFPGqRZiDfSLBRQlZSQCd9VNmsAQ3k2N4jxEw2kYAiB1lKhR5/IthoamGMrF5l+1g8CucDDTuulkZiZk+hIeEA=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjndBIACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmqj4xAAj5yYZZ9Mry3PKH7pXAAfrP2MgeZtRW6ViZlZferIJzMOIxHj\r\nkCZ5Z9fwuC2ACWD7oX2Ilf5IsXb/LzS+YICeCIt9wEzr5d3+hlWKudCHiZWJ\r\n4ZF1WmwnIys41dz6K1gfsiNadBqd4uI4utMwhyekopiaPM0HnJCwB2gYyIrf\r\nKon5VT7biKO60+3XWRbK7W+07+cxCG2E5N5u6/komxme7G/DjdRA8aW/TvZi\r\nWxwjqzMNTJn3t/Ts7wFiRyLFrAbfefvAGrbEt2M4erONAUVkPC0T9+cNPgSa\r\n7/AfRuc7sG8WMMbZY9ByQC5+R1fQQViXkbwkcnZquE51prOJeDas4Bc/775i\r\nAitK2k1YMFoSMMJJffr7hncOy4wYd+3W5ZC3BKNPm1nKcmmgJHarpzm+CwEr\r\novsDMNpOgqSW8gB3TJoz0xHuFRh42AMeRoq/vYYqoWqvc+/v8ACcTelS0b2S\r\nv5VcIYuB6q6fwCJC3wPdgQQGrI4/XhgS5RnQ3b7bhrIImff9OBgurqpz2v5/\r\n+QYA5Ok3Eto6cBvm/IfSJH0Zow8QSCf/tyZfxhpWT06xpIGbZmbcu5KWpzjc\r\nA9mDjiSloVZUIJID1GszF7Qu7hK5PoMvfmpSkOWQojk7ec8VXckHYOWHiz/h\r\n6q9exWg7n8q+cM7xUEgP7RKZxd5dqm/FlpU=\r\n=V7i5\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_21.0.1_1671286856681_0.2905817436740785"
+      },
+      "_hasShrinkwrap": false
+    },
+    "22.0.0": {
+      "name": "@cucumber/messages",
+      "version": "22.0.0",
+      "description": "JSON schema-based messages for Cucumber's inter-process communication",
+      "type": "module",
+      "main": "dist/cjs/src/index.js",
+      "types": "dist/cjs/src/index.d.ts",
+      "module": "dist/esm/src/index.js",
+      "exports": {
+        ".": {
+          "import": "./dist/esm/src/index.js",
+          "require": "./dist/cjs/src/index.js"
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build": "npm run build:cjs && npm run build:esm",
+        "build:cjs": "tsc --build tsconfig.build-cjs.json",
+        "build:esm": "tsc --build tsconfig.build-esm.json",
+        "postbuild:cjs": "cp package.cjs.json dist/cjs/package.json",
+        "copy-schemas": "shx rm -rf ./schema/*.json && shx cp ../jsonschema/*.json ./schema",
+        "prepare": "make generate",
+        "test": "mocha && npm run test:cjs",
+        "test:cjs": "npm run build:cjs && mocha --no-config dist/cjs/test",
+        "version": "shx echo \"// This file is automatically generated using npm scripts\" > src/version.ts && echo \"export const version = '${npm_package_version}'\" >> src/version.ts",
+        "prepublishOnly": "npm run build && npm run copy-schemas"
+      },
+      "dependencies": {
+        "@types/uuid": "9.0.1",
+        "class-transformer": "0.5.1",
+        "reflect-metadata": "0.1.13",
+        "uuid": "9.0.0"
+      },
+      "devDependencies": {
+        "@types/mocha": "10.0.1",
+        "@types/node": "18.15.11",
+        "copyfiles": "2.4.1",
+        "mocha": "10.2.0",
+        "shx": "^0.3.4",
+        "ts-node": "10.9.1",
+        "typescript": "5.0.3"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "gitHead": "8f05704654ec059da96ed16e103ebddef0de96f1",
+      "_id": "@cucumber/messages@22.0.0",
+      "_nodeVersion": "16.20.0",
+      "_npmVersion": "8.19.4",
+      "dist": {
+        "integrity": "sha512-EuaUtYte9ilkxcKmfqGF9pJsHRUU0jwie5ukuZ/1NPTuHS1LxHPsGEODK17RPRbZHOFhqybNzG2rHAwThxEymg==",
+        "shasum": "2d86974ebd73046f66d217334c2245365c7990d4",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-22.0.0.tgz",
+        "fileCount": 109,
+        "unpackedSize": 249384,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHOyPV0l3vOS4rP9v2ic6n5yabMogMDa7DCzJQvCL2L1AiBFyWVVAvKRsSPlRvt5HDP75TVy33b782LeKPHaqeIj4A=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkLyjeACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrteA//Uj1CAVrEfPJcpS3AkcT8f9VW7KK91pFZSB96Lb01eWloIcJA\r\nrmjGMGeMfr1vzeGB7sUTIKTiIxKMvorI7JOWuDME/ck7SZzwT4TlvJC0+Yh6\r\n7IzEjgXmXi0kBTDKQgFa+JacD8cBgr0lihfVn6fERPbb8wlQOZQci/pYDLcX\r\n79FSUxn+W6sMfb8+zsvIhmvRPsRV58yJDa+mgQZnoY7FqI54TjsVBPf4BpGE\r\nJzIVOE878S12ZIyQfREKbNTOYPLp8hVjz4p9R454OqESI41UFHjUoxYMaEtq\r\n5EubrUDLNQr1VXaqfuAOCqEHSVgjwhriVqbWUckY9juLArJ+DUudAGzik64w\r\n0MXQlL6jHTP/zilQqVk8YHHuHWnyNCgDyKYXrJavDkUOwlJbZfg7EWGuAkRI\r\n+tAOuYxWjItYce2viKWa5f8+6bnpWQQKRCTGCXJN5FLgjHaFv8yBhDygjZ/y\r\nJ+0FQt97994kzowt4wwiheX4i5EUEVIb0Dd7vy+oEBJfBv4o2lruAkQkbmVV\r\nU801iU2oOXPLb76McKUvefsfi3x3eUxG+UWiJVlrW8CZ+Ptb4jUxE7ZYHdDo\r\ntxnKvWg9jBGs+N+otSs2I0EiF7oa+piNoh+dveeE+oLqx+JOKvB74f7mX5qA\r\nRlYo+l/fzg3wfeYWgIk+y4BJqNGc6R9zDJI=\r\n=0sEm\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_22.0.0_1680812254068_0.9787808324106171"
+      },
+      "_hasShrinkwrap": false
+    },
+    "23.0.0": {
+      "name": "@cucumber/messages",
+      "version": "23.0.0",
+      "description": "JSON schema-based messages for Cucumber's inter-process communication",
+      "type": "module",
+      "main": "dist/cjs/src/index.js",
+      "types": "dist/cjs/src/index.d.ts",
+      "module": "dist/esm/src/index.js",
+      "exports": {
+        ".": {
+          "import": "./dist/esm/src/index.js",
+          "require": "./dist/cjs/src/index.js"
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build": "npm run build:cjs && npm run build:esm",
+        "build:cjs": "tsc --build tsconfig.build-cjs.json",
+        "build:esm": "tsc --build tsconfig.build-esm.json",
+        "postbuild:cjs": "cp package.cjs.json dist/cjs/package.json",
+        "copy-schemas": "shx rm -rf ./schema/*.json && shx cp ../jsonschema/*.json ./schema",
+        "prepare": "make generate",
+        "test": "mocha && npm run test:cjs",
+        "test:cjs": "npm run build:cjs && mocha --no-config dist/cjs/test",
+        "version": "shx echo \"// This file is automatically generated using npm scripts\" > src/version.ts && echo \"export const version = '${npm_package_version}'\" >> src/version.ts",
+        "prepublishOnly": "npm run build && npm run copy-schemas"
+      },
+      "dependencies": {
+        "@types/uuid": "9.0.6",
+        "class-transformer": "0.5.1",
+        "reflect-metadata": "0.1.13",
+        "uuid": "9.0.1"
+      },
+      "devDependencies": {
+        "@types/mocha": "10.0.3",
+        "@types/node": "18.18.8",
+        "copyfiles": "2.4.1",
+        "mocha": "10.2.0",
+        "shx": "^0.3.4",
+        "ts-node": "10.9.1",
+        "typescript": "5.2.2"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@23.0.0",
+      "gitHead": "19d056d04251ca45627e7897740498ff78e903b4",
+      "_nodeVersion": "20.9.0",
+      "_npmVersion": "10.1.0",
+      "dist": {
+        "integrity": "sha512-2ZWKNnikNMBnle3P3cgy+fgzhABrY4oBbiWp9wcI8ANdT4LlYRN6jQ6j/9CQGTDGRfkyRtr/5VkYq7q24XCsuA==",
+        "shasum": "fbdf05a9feb07627d0d18fe7767a567de6fbaf1a",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-23.0.0.tgz",
+        "fileCount": 109,
+        "unpackedSize": 260784,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHN/V7eNo1x98yKkzr2BLQ9/DplKhdXybycQRGwvuH3JAiEA5UsT5w+pmSjAlamaxdVxuXnv11HU1kQ6VHZb/KZc6ps="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_23.0.0_1698851115832_0.8955904826884244"
+      },
+      "_hasShrinkwrap": false
+    },
+    "24.0.0": {
+      "name": "@cucumber/messages",
+      "version": "24.0.0",
+      "description": "JSON schema-based messages for Cucumber's inter-process communication",
+      "type": "module",
+      "main": "dist/cjs/src/index.js",
+      "types": "dist/cjs/src/index.d.ts",
+      "module": "dist/esm/src/index.js",
+      "exports": {
+        ".": {
+          "import": "./dist/esm/src/index.js",
+          "require": "./dist/cjs/src/index.js"
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build": "npm run build:cjs && npm run build:esm",
+        "build:cjs": "tsc --build tsconfig.build-cjs.json",
+        "build:esm": "tsc --build tsconfig.build-esm.json",
+        "postbuild:cjs": "cp package.cjs.json dist/cjs/package.json",
+        "copy-schemas": "shx rm -rf ./schema/*.json && shx cp ../jsonschema/*.json ./schema",
+        "prepare": "make generate",
+        "test": "mocha && npm run test:cjs",
+        "test:cjs": "npm run build:cjs && mocha --no-config dist/cjs/test",
+        "version": "shx echo \"// This file is automatically generated using npm scripts\" > src/version.ts && echo \"export const version = '${npm_package_version}'\" >> src/version.ts",
+        "prepublishOnly": "npm run build && npm run copy-schemas"
+      },
+      "dependencies": {
+        "@types/uuid": "9.0.7",
+        "class-transformer": "0.5.1",
+        "reflect-metadata": "0.1.13",
+        "uuid": "9.0.1"
+      },
+      "devDependencies": {
+        "@types/mocha": "10.0.6",
+        "@types/node": "18.18.13",
+        "copyfiles": "2.4.1",
+        "mocha": "10.2.0",
+        "shx": "^0.3.4",
+        "ts-node": "10.9.1",
+        "typescript": "5.3.2"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@24.0.0",
+      "gitHead": "9f9e917dd7a9270f561d244ffb28caad8ca6ec53",
+      "_nodeVersion": "20.9.0",
+      "_npmVersion": "10.1.0",
+      "dist": {
+        "integrity": "sha512-WQalT7z1j7QBZC3BiTpJjuy5i0ZyAY364gIwiqkkim0PmPHuII02TnXgYWl32ATf8tM9+RoojQVgcy5nP0vYgw==",
+        "shasum": "6fffaacdbcdaf71f9744ca1bb889f8a16294e69b",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-24.0.0.tgz",
+        "fileCount": 108,
+        "unpackedSize": 260018,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIB7Aib2uq0nDMQGVyNQE5FC5cgEZZd/K1PKS3amjl57KAiAq7FGHZOyk9X1ATFtO3x6dHLA9FNIedz+iC52VJZ/uGg=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_24.0.0_1700821355304_0.5400566911677016"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.0.0": {
+      "name": "@cucumber/messages",
+      "version": "0.0.0",
+      "description": "JSON schema-based messages for Cucumber's inter-process communication",
+      "type": "module",
+      "main": "dist/cjs/src/index.js",
+      "types": "dist/cjs/src/index.d.ts",
+      "module": "dist/esm/src/index.js",
+      "exports": {
+        ".": {
+          "import": "./dist/esm/src/index.js",
+          "require": "./dist/cjs/src/index.js"
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages-javascript.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build": "npm run build:cjs && npm run build:esm",
+        "build:cjs": "tsc --build tsconfig.build-cjs.json",
+        "build:esm": "tsc --build tsconfig.build-esm.json",
+        "postbuild:cjs": "cp package.cjs.json dist/cjs/package.json",
+        "copy-schemas": "shx rm -rf ./schema/*.json && shx cp ../jsonschema/*.json ./schema",
+        "prepare": "make generate",
+        "test": "mocha && npm run test:cjs",
+        "test:cjs": "npm run build:cjs && mocha --no-config dist/cjs/test",
+        "version": "shx echo \"// This file is automatically generated using npm scripts\" > src/version.ts && echo \"export const version = '${npm_package_version}'\" >> src/version.ts",
+        "prepublishOnly": "npm run build && npm run copy-schemas"
+      },
+      "dependencies": {
+        "@types/uuid": "9.0.7",
+        "class-transformer": "0.5.1",
+        "reflect-metadata": "0.1.13",
+        "uuid": "9.0.1"
+      },
+      "devDependencies": {
+        "@types/mocha": "10.0.6",
+        "@types/node": "18.18.13",
+        "copyfiles": "2.4.1",
+        "mocha": "10.2.0",
+        "shx": "^0.3.4",
+        "ts-node": "10.9.1",
+        "typescript": "5.3.2"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages-javascript/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages-javascript#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@0.0.0",
+      "gitHead": "6315b0cc1c8b7770f6a1bb0b07e900cbea52cf65",
+      "_nodeVersion": "20.9.0",
+      "_npmVersion": "10.1.0",
+      "dist": {
+        "integrity": "sha512-hLR3vu4gKc0CKIA7n1sGQ2po+8KbcCO1QW/2QH9x2OlQV0ICyv/+LVrFOC6LX098Hgi7OzMPUUmW/9SDU4rCBA==",
+        "shasum": "06eb3eabfa5c41611012db35c7752cfa6e245afa",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-0.0.0.tgz",
+        "fileCount": 108,
+        "unpackedSize": 260013,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC1Fc/LAAJCs++AklRsVnjSKRf8FOpcb/DZY3FmIZxHcgIgGpLc3QpqFX9/hcfmwxGicQyrSA05f0iUVOmilDeeOFM="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_0.0.0_1700926837578_0.5995545729032044"
+      },
+      "_hasShrinkwrap": false
+    },
+    "24.0.1": {
+      "name": "@cucumber/messages",
+      "version": "24.0.1",
+      "description": "JSON schema-based messages for Cucumber's inter-process communication",
+      "type": "module",
+      "main": "dist/cjs/src/index.js",
+      "types": "dist/cjs/src/index.d.ts",
+      "module": "dist/esm/src/index.js",
+      "exports": {
+        ".": {
+          "import": "./dist/esm/src/index.js",
+          "require": "./dist/cjs/src/index.js"
+        }
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/cucumber/messages.git"
+      },
+      "author": {
+        "name": "Cucumber Limited",
+        "email": "cukes@googlegroups.com"
+      },
+      "license": "MIT",
+      "scripts": {
+        "build": "npm run build:cjs && npm run build:esm",
+        "build:cjs": "tsc --build tsconfig.build-cjs.json",
+        "build:esm": "tsc --build tsconfig.build-esm.json",
+        "postbuild:cjs": "cp package.cjs.json dist/cjs/package.json",
+        "copy-schemas": "shx rm -rf ./schema/*.json && shx cp ../jsonschema/*.json ./schema",
+        "prepare": "make generate",
+        "test": "mocha && npm run test:cjs",
+        "test:cjs": "npm run build:cjs && mocha --no-config dist/cjs/test",
+        "version": "shx echo \"// This file is automatically generated using npm scripts\" > src/version.ts && echo \"export const version = '${npm_package_version}'\" >> src/version.ts",
+        "prepublishOnly": "npm run build && npm run copy-schemas"
+      },
+      "dependencies": {
+        "@types/uuid": "9.0.7",
+        "class-transformer": "0.5.1",
+        "reflect-metadata": "0.2.1",
+        "uuid": "9.0.1"
+      },
+      "devDependencies": {
+        "@types/mocha": "10.0.6",
+        "@types/node": "20.10.5",
+        "copyfiles": "2.4.1",
+        "mocha": "10.2.0",
+        "shx": "^0.3.4",
+        "ts-node": "10.9.2",
+        "typescript": "5.3.3"
+      },
+      "bugs": {
+        "url": "https://github.com/cucumber/messages/issues"
+      },
+      "homepage": "https://github.com/cucumber/messages#readme",
+      "directories": {
+        "test": "test"
+      },
+      "keywords": [],
+      "_id": "@cucumber/messages@24.0.1",
+      "gitHead": "30ecba04a90613d0f1fa50c9ab0c2bb1fc25d22d",
+      "_nodeVersion": "20.10.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-dKfNkvgc6stSQIyeHk7p/221iqEZe1BP+e/Js8XKtSmc0sS8khKMvbSBwYVeonn/67/vYKiAyo6Eo0SzXd5Plw==",
+        "shasum": "b13646c41d6d64f9af1c1a79acbc0160d796ed9c",
+        "tarball": "https://registry.npmjs.org/@cucumber/messages/-/messages-24.0.1.tgz",
+        "fileCount": 108,
+        "unpackedSize": 257627,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCAGxWZugWC4YemL+oLczjcKYwSngbIBdET8SyeQBpr/AIhANTkL6EL3PVmCpLgzMkWyPASjEL90e9JzKnimTHoQLLy"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "cukebot",
+        "email": "cukebot@cucumber.io"
+      },
+      "maintainers": [
+        {
+          "name": "aslakhellesoy",
+          "email": "aslak.hellesoy@gmail.com"
+        },
+        {
+          "name": "cukebot",
+          "email": "cukebot@cucumber.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/messages_24.0.1_1703179259122_0.3060169249445639"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2020-01-09T21:07:29.392Z",
+    "9.0.0": "2020-01-09T21:07:29.792Z",
+    "modified": "2023-12-21T17:20:59.694Z",
+    "9.0.1": "2020-01-09T21:28:01.905Z",
+    "9.0.2": "2020-01-10T09:23:27.759Z",
+    "9.0.3": "2020-01-10T11:03:52.415Z",
+    "10.0.1": "2020-02-13T16:26:43.503Z",
+    "10.0.2": "2020-03-05T10:17:12.834Z",
+    "11.0.1": "2020-03-30T18:58:35.641Z",
+    "11.1.0": "2020-03-30T23:35:54.396Z",
+    "11.1.1": "2020-03-30T23:52:43.479Z",
+    "12.0.0": "2020-04-14T15:26:43.288Z",
+    "12.1.0": "2020-04-21T10:36:23.156Z",
+    "12.1.1": "2020-04-21T12:06:34.357Z",
+    "12.2.0": "2020-06-27T22:05:42.700Z",
+    "12.3.1": "2020-07-29T07:13:59.051Z",
+    "12.3.2": "2020-07-29T11:33:43.082Z",
+    "12.4.0": "2020-07-31T10:45:03.427Z",
+    "13.0.0": "2020-08-07T20:02:29.323Z",
+    "13.0.1": "2020-08-07T20:48:24.183Z",
+    "13.1.0": "2020-09-14T14:08:23.759Z",
+    "13.2.0": "2020-11-12T12:19:53.988Z",
+    "13.2.1": "2020-11-19T14:20:26.000Z",
+    "14.0.0": "2021-02-05T17:53:24.075Z",
+    "14.0.1": "2021-02-08T12:07:10.141Z",
+    "14.1.1": "2021-03-22T17:05:22.099Z",
+    "14.1.2": "2021-03-23T09:39:11.485Z",
+    "15.0.0": "2021-03-23T10:56:18.331Z",
+    "16.0.0": "2021-05-15T17:29:01.160Z",
+    "16.0.1": "2021-05-24T15:24:23.778Z",
+    "17.0.0": "2021-07-08T12:11:46.410Z",
+    "17.0.1": "2021-07-19T14:27:38.151Z",
+    "17.1.0": "2021-09-01T20:56:10.595Z",
+    "17.1.1": "2021-09-17T15:22:38.953Z",
+    "18.0.0": "2022-03-24T12:50:05.053Z",
+    "19.0.0": "2022-05-31T07:57:51.832Z",
+    "19.1.0": "2022-06-20T18:36:59.745Z",
+    "19.1.1": "2022-06-22T05:34:13.921Z",
+    "19.1.2": "2022-06-22T06:54:13.535Z",
+    "19.1.3": "2022-09-20T19:37:58.601Z",
+    "19.1.4": "2022-09-22T16:48:05.094Z",
+    "20.0.0": "2022-11-14T14:35:37.804Z",
+    "21.0.0": "2022-12-17T12:02:48.611Z",
+    "21.0.1": "2022-12-17T14:20:56.843Z",
+    "22.0.0": "2023-04-06T20:17:34.278Z",
+    "23.0.0": "2023-11-01T15:05:16.031Z",
+    "24.0.0": "2023-11-24T10:22:35.544Z",
+    "0.0.0": "2023-11-25T15:40:37.738Z",
+    "24.0.1": "2023-12-21T17:20:59.425Z"
+  },
+  "maintainers": [
+    {
+      "name": "aslakhellesoy",
+      "email": "aslak.hellesoy@gmail.com"
+    },
+    {
+      "name": "cukebot",
+      "email": "cukebot@cucumber.io"
+    }
+  ],
+  "description": "JSON schema-based messages for Cucumber's inter-process communication",
+  "homepage": "https://github.com/cucumber/messages#readme",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cucumber/messages.git"
+  },
+  "author": {
+    "name": "Cucumber Limited",
+    "email": "cukes@googlegroups.com"
+  },
+  "bugs": {
+    "url": "https://github.com/cucumber/messages/issues"
+  },
+  "license": "MIT",
+  "readme": "# Cucumber Messages for JavaScript (JSON schema)\n\n",
+  "readmeFilename": "README.md"
+}
