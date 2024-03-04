@@ -1,0 +1,2008 @@
+{
+  "_id": "webpack-command",
+  "_rev": "13-0452857278df09db5ccb0b9c7a01ea1c",
+  "name": "webpack-command",
+  "dist-tags": {
+    "latest": "0.5.1"
+  },
+  "versions": {
+    "0.0.0": {
+      "name": "webpack-command",
+      "version": "0.0.0",
+      "description": "A lightweight, modular webpack CLI",
+      "main": "index.js",
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/webpack-contrib/webpack-command.git"
+      },
+      "author": {
+        "name": "Andrew Powell",
+        "email": "andrew@shellscape.org"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/webpack-contrib/webpack-command/issues"
+      },
+      "homepage": "https://github.com/webpack-contrib/webpack-command#readme",
+      "_id": "webpack-command@0.0.0",
+      "_npmVersion": "5.8.0",
+      "_nodeVersion": "9.2.0",
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "dist": {
+        "integrity": "sha512-Dbv320u1Fi+k+orSMIYNe73MemSzeTFCgP1wuBsOgVTCUzX7ZwA5f0QziJXA0RvKqJ3KqCUw7T5g/s4em+YMtg==",
+        "shasum": "905ec5129484e56fa217c09044ea13e6592f4013",
+        "tarball": "https://registry.npmjs.org/webpack-command/-/webpack-command-0.0.0.tgz",
+        "fileCount": 1,
+        "unpackedSize": 559,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa4WE7CRA9TVsSAnZWagAAWc0P/RNZImUXTHsf+TwEXOpL\nwyeFEEig6sM/hRc7TQpKTyPuG0I68bKkSTIXg8DnLLXSGyUzcGvCtxiHH6KW\nGSlR6dfa4Q2Y5WDTTkf8rK1Iba1EVLLfXa5o57P6Teqtn3O3f9hYcGaOoZG4\nLa9FzCymOccIvLdINL9FQ0PtSz1dVBW/Ii23qKmgE+rq3YDFxQx9RQAmb5LH\n73SNeCLofvtyH+FoqciOadulQjUCtGKjQj0PwTjW1qXosg+rQ12aZGVFXI1f\nya1OmgufnZy9/fSgbSC19rTLc5Wgi5Co71LpRuTuFuOkBB+t178AWYxWD1UI\nSBm8fugH7dkM3J2it5BfolAjteNnVYtfm+uCqq7Y/TeIDl0Mvjii7+BFUqMi\nZ0l2hXw042342t5/jgFo0G+bK0Bcgnf7v3uPd36F9w3b+7VBfG5Q2NjEfyO0\nuMgZMrbhBlqp6ixRVLz2zxF3snImMNwh9Jxfi5rjyTh/WkyTAdpq3Ud4sSw5\nfTkBNe61nCyElBXZ7619Pvik46KI+ZrZUZzON9EX6gDcy3iSTVlGhyUOoytj\nS5eZFca8eMwp1gQACsCT7uINHvrAW9YtiOrHWNMuDwj2by1IpBBWSOImH+GD\nDn0MQdq64wi+CoohJ+DyJKqIrvoQ1FLiWw3OqwAHP2HM3joC1ZV69H72gRbk\n7eQW\r\n=OewT\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFcE8ZaV9PNZSZDvSibzD2DqzURqWShWwrwZYN+xTCyBAiAPG4pbeGmzSKGosfZxv7Dv5UUAe6QiDTrzEst/s0WLgg=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/webpack-command_0.0.0_1524719930996_0.31557581545850844"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.0": {
+      "name": "webpack-command",
+      "version": "0.1.0",
+      "description": "🐕 A lightweight, modular, and opinionated webpack CLI",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/webpack-contrib/webpack-command.git"
+      },
+      "author": {
+        "name": "Andrew Powell",
+        "email": "andrew@shellscape.org"
+      },
+      "homepage": "https://github.com/webpack-contrib/webpack-command",
+      "bugs": {
+        "url": "https://github.com/webpack-contrib/webpack-command/issues"
+      },
+      "bin": {
+        "webpack": "lib/cli.js"
+      },
+      "main": "lib/index.js",
+      "engines": {
+        "node": ">= 6.9.0 <7.0.0 || >= 8.9.0"
+      },
+      "scripts": {
+        "commitlint": "commitlint",
+        "commitmsg": "commitlint -e $GIT_PARAMS",
+        "lint": "eslint --cache lib test",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "lint-staged": "lint-staged",
+        "prepublishOnly": "mkdir -p data && cp -r lib/commands/defaults.json data/commands.json",
+        "release": "standard-version",
+        "release:ci": "conventional-github-releaser -p angular",
+        "release:validate": "commitlint --from=$(git describe --tags --abbrev=0) --to=$(git rev-parse HEAD)",
+        "security": "nsp check",
+        "test": "npm run prepublishOnly && mocha test/test.js --check-leaks --exit",
+        "test:coverage": "mkdir -p coverage && nyc --silent npm test && npm run test:coverage:report",
+        "test:coverage:report": "nyc report --reporter=lcov --reporter=text-lcov --reporter=json --reporter=clover > coverage/lcov.info",
+        "ci:lint": "npm run lint && npm run security",
+        "ci:test": "npm run test -- --runInBand",
+        "ci:coverage": "npm run test:coverage -- --runInBand",
+        "defaults": "webpack-defaults"
+      },
+      "files": [
+        "data/",
+        "lib/"
+      ],
+      "peerDependencies": {
+        "enhanced-resolve": "^4.0.0",
+        "loader-utils": "^1.1.0",
+        "webpack": "^4.4.0"
+      },
+      "dependencies": {
+        "@webpack-contrib/config-loader": "^0.2.1",
+        "@webpack-contrib/schema-utils": "^1.0.0-beta.0",
+        "camelcase": "^5.0.0",
+        "chalk": "^2.3.2",
+        "debug": "^3.1.0",
+        "decamelize": "^2.0.0",
+        "import-local": "^1.0.0",
+        "isobject": "^3.0.1",
+        "loader-utils": "^1.1.0",
+        "lodash": "^4.17.5",
+        "log-symbols": "^2.2.0",
+        "loud-rejection": "^1.6.0",
+        "meant": "^1.0.1",
+        "meow": "^4.0.0",
+        "merge-options": "^1.0.0",
+        "object.values": "^1.0.4",
+        "opn": "^5.3.0",
+        "plur": "^3.0.0",
+        "pretty-bytes": "^4.0.2",
+        "strip-ansi": "^4.0.0",
+        "text-table": "^0.2.0",
+        "titleize": "^1.0.1",
+        "update-notifier": "^2.3.0",
+        "v8-compile-cache": "^1.1.0",
+        "webpack-log": "^1.1.2",
+        "wordwrap": "^1.0.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^6.1.3",
+        "@commitlint/config-conventional": "^6.1.3",
+        "@webpack-contrib/eslint-config-webpack": "^2.0.4",
+        "babel-cli": "^6.26.0",
+        "babel-jest": "^22.4.3",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "camelcase-keys": "^4.2.0",
+        "codecov": "^3.0.0",
+        "conventional-github-releaser": "^2.0.2",
+        "crc": "^3.5.0",
+        "cross-env": "^5.1.4",
+        "decamelize-keys": "^1.1.0",
+        "del": "^3.0.0",
+        "del-cli": "^1.1.0",
+        "eslint": "^4.5.0",
+        "eslint-config-webpack": "^1.2.5",
+        "eslint-plugin-import": "^2.8.0",
+        "eslint-plugin-prettier": "^2.6.0",
+        "execa": "^0.10.0",
+        "expect": "^22.4.3",
+        "html-webpack-plugin": "^3.2.0",
+        "husky": "^0.14.3",
+        "istanbul": "^0.4.5",
+        "jest-serializer-path": "^0.1.14",
+        "jest-snapshot": "^22.4.3",
+        "lint-staged": "^7.0.4",
+        "memory-fs": "^0.4.1",
+        "minimist": "^1.2.0",
+        "minimist-options": "^3.0.2",
+        "mocha": "^5.1.1",
+        "nsp": "^3.2.1",
+        "nyc": "^11.4.1",
+        "pre-commit": "^1.2.2",
+        "prettier": "^1.11.1",
+        "standard-version": "^4.3.0",
+        "stylelint-webpack-plugin": "^0.10.4",
+        "webpack": "^4.6.0",
+        "webpack-defaults": "^2.3.0"
+      },
+      "keywords": [
+        "webpack"
+      ],
+      "pre-commit": "lint-staged",
+      "lint-staged": {
+        "*.js": [
+          "eslint --fix",
+          "git add"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "lib/**/*.js"
+        ]
+      },
+      "gitHead": "1e9586b9d55a1bb4a8105fb2b3d4a9c52ace08af",
+      "_id": "webpack-command@0.1.0",
+      "_npmVersion": "5.8.0",
+      "_nodeVersion": "9.2.0",
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "dist": {
+        "integrity": "sha512-xv3ozb8tA7v12kqi4inJnx4BkWaOmck/FA6P6qwPoq6o3VJnn9rosAcJ0miHehNubWKt9Qnt/z5TtWYBZvENJw==",
+        "shasum": "82b117cab8a083cc7aadc6863cb5bee8e93d6824",
+        "tarball": "https://registry.npmjs.org/webpack-command/-/webpack-command-0.1.0.tgz",
+        "fileCount": 30,
+        "unpackedSize": 66950,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa5eJjCRA9TVsSAnZWagAANyYP/R2g9tOSyfGWtbVy+ii2\nfyXD7vC8ShkZIbZbxPS5Q0TywRWMPZnNkuJ3rlj1+N0wqLJWUUaiEzuYk+aQ\n3FBTY+Gg+R575NaDF8vpqnkX02dn46/eR2Mi/uq3DvTphvv8p/iRVu4AbBJC\nKlwTsO9Otbfi3mpV+aHciDv2FH8QJZSfduoH2enF2I5c5bS598B9gfv8Hs4N\ncL+OrXJsQlia/55JfJXhgtYOsg6nHr02KbSaYxCPvs99CjmWGCMwivaa+a2B\nsIggkM/BYkjcSGjV/xrMP/FG11ciPwafLmV5hAUKVawj69nd391zHDSf0qOC\nnW8a49uHHn/my8Kw7hvR6ivjO/FhkaPfsIo76bUDTHxV7JPo/wXZlU18/0Fd\nyB/WuL+As/4JuNgCv/7KH62us6nav5n1cmYvvvAip281qg2u5LXWHNhL2b/0\n6Trzee3KVXrXQBN/dngRyc6Ih0WoN/SmHP80XXu6ip3z3egVay3OdOGaiBBQ\nPs2ThTpfgsXlBcRSEXVw3OPvMsO/V4D1esQyfirkG3xP1XK0lrgilvKusq4E\nBJiI8nqUU/PPvGaoXtb8sqoSuSPzrZbvZw4gOyWgRjrBr3iD/i1QX3W0bCpA\ncohT94by1H1sl9GDlSXoPyZxBU+6pOPm7BfoC3VOJJiM6YDxKrk/UBOQYxds\nhq1I\r\n=47zI\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICWAUbwTPonXcepT6KZHFtQTiP+F0tcqoQ/l3pmC76x5AiBt1QVt99UHqKlKwsjgK/sRjFX146hq6cZffUXfKd14Iw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "wiens.joshua@gmail.com",
+          "name": "d3viant0ne"
+        },
+        {
+          "email": "andrew@shellscape.org",
+          "name": "shellscape"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/webpack-command_0.1.0_1525015137485_0.6426067746424917"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.1": {
+      "name": "webpack-command",
+      "version": "0.1.1",
+      "description": "🐕 A lightweight, modular, and opinionated webpack CLI",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/webpack-contrib/webpack-command.git"
+      },
+      "author": {
+        "name": "Andrew Powell",
+        "email": "andrew@shellscape.org"
+      },
+      "homepage": "https://github.com/webpack-contrib/webpack-command",
+      "bugs": {
+        "url": "https://github.com/webpack-contrib/webpack-command/issues"
+      },
+      "bin": {
+        "webpack": "lib/cli.js"
+      },
+      "main": "lib/index.js",
+      "engines": {
+        "node": ">= 6.9.0 <7.0.0 || >= 8.9.0"
+      },
+      "scripts": {
+        "commitlint": "commitlint",
+        "commitmsg": "commitlint -e $GIT_PARAMS",
+        "lint": "eslint --cache lib test",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "lint-staged": "lint-staged",
+        "prepublishOnly": "mkdir -p data && cp -r lib/commands/defaults.json data/commands.json",
+        "release": "standard-version",
+        "release:ci": "conventional-github-releaser -p angular",
+        "release:validate": "commitlint --from=$(git describe --tags --abbrev=0) --to=$(git rev-parse HEAD)",
+        "security": "nsp check",
+        "test": "npm run prepublishOnly && mocha test/test.js --check-leaks --exit",
+        "test:coverage": "mkdir -p coverage && nyc --silent npm test && npm run test:coverage:report",
+        "test:coverage:report": "nyc report --reporter=lcov --reporter=text-lcov --reporter=json --reporter=clover > coverage/lcov.info",
+        "ci:lint": "npm run lint && npm run security",
+        "ci:test": "npm run test -- --runInBand",
+        "ci:coverage": "npm run test:coverage -- --runInBand",
+        "defaults": "webpack-defaults"
+      },
+      "files": [
+        "data/",
+        "lib/"
+      ],
+      "peerDependencies": {
+        "webpack": "^4.4.0"
+      },
+      "dependencies": {
+        "@webpack-contrib/config-loader": "^0.2.1",
+        "@webpack-contrib/schema-utils": "^1.0.0-beta.0",
+        "camelcase": "^5.0.0",
+        "chalk": "^2.3.2",
+        "debug": "^3.1.0",
+        "decamelize": "^2.0.0",
+        "enhanced-resolve": "^4.0.0",
+        "import-local": "^1.0.0",
+        "isobject": "^3.0.1",
+        "loader-utils": "^1.1.0",
+        "lodash": "^4.17.5",
+        "log-symbols": "^2.2.0",
+        "loud-rejection": "^1.6.0",
+        "meant": "^1.0.1",
+        "meow": "^4.0.0",
+        "merge-options": "^1.0.0",
+        "object.values": "^1.0.4",
+        "opn": "^5.3.0",
+        "plur": "^3.0.0",
+        "pretty-bytes": "^4.0.2",
+        "strip-ansi": "^4.0.0",
+        "text-table": "^0.2.0",
+        "titleize": "^1.0.1",
+        "update-notifier": "^2.3.0",
+        "v8-compile-cache": "^1.1.0",
+        "webpack-log": "^1.1.2",
+        "wordwrap": "^1.0.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^6.1.3",
+        "@commitlint/config-conventional": "^6.1.3",
+        "@webpack-contrib/eslint-config-webpack": "^2.0.4",
+        "babel-cli": "^6.26.0",
+        "babel-jest": "^22.4.3",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "camelcase-keys": "^4.2.0",
+        "codecov": "^3.0.0",
+        "conventional-github-releaser": "^2.0.2",
+        "crc": "^3.5.0",
+        "cross-env": "^5.1.4",
+        "decamelize-keys": "^1.1.0",
+        "del": "^3.0.0",
+        "del-cli": "^1.1.0",
+        "eslint": "^4.5.0",
+        "eslint-config-webpack": "^1.2.5",
+        "eslint-plugin-import": "^2.8.0",
+        "eslint-plugin-prettier": "^2.6.0",
+        "execa": "^0.10.0",
+        "expect": "^22.4.3",
+        "html-webpack-plugin": "^3.2.0",
+        "husky": "^0.14.3",
+        "istanbul": "^0.4.5",
+        "jest-serializer-path": "^0.1.14",
+        "jest-snapshot": "^22.4.3",
+        "lint-staged": "^7.0.4",
+        "memory-fs": "^0.4.1",
+        "minimist": "^1.2.0",
+        "minimist-options": "^3.0.2",
+        "mocha": "^5.1.1",
+        "nsp": "^3.2.1",
+        "nyc": "^11.4.1",
+        "pre-commit": "^1.2.2",
+        "prettier": "^1.11.1",
+        "standard-version": "^4.3.0",
+        "stylelint-webpack-plugin": "^0.10.4",
+        "webpack": "^4.6.0",
+        "webpack-defaults": "^2.3.0"
+      },
+      "keywords": [
+        "webpack"
+      ],
+      "pre-commit": "lint-staged",
+      "lint-staged": {
+        "*.js": [
+          "eslint --fix",
+          "git add"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "lib/**/*.js"
+        ]
+      },
+      "gitHead": "9207b0ff09cb6054c014587e94804bfa861f47f4",
+      "_id": "webpack-command@0.1.1",
+      "_npmVersion": "5.8.0",
+      "_nodeVersion": "9.2.0",
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "dist": {
+        "integrity": "sha512-VcAVftxBDUPvr+qcfjxxKeV28JyeeWDWri+NwhwJ1jUQ1aCWdTxXYvwQd6Nx3cVegcndNBCKVqI9VzndCLeYlw==",
+        "shasum": "0451670001a8ada881f925c057db9a47762b0a3a",
+        "tarball": "https://registry.npmjs.org/webpack-command/-/webpack-command-0.1.1.tgz",
+        "fileCount": 30,
+        "unpackedSize": 67542,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa63RkCRA9TVsSAnZWagAAPVwQAJdCvq9WQqmV/L2kFsrU\nR5M05TLEupOGbGe0emxXNodSdqJVWUbxZ3KNZqREkzwgLt5cj9xcm8vNll5t\niTysaUgS1MHZlRjUF/2ZQI+2BbSQ8sY/zL0MCRXuFkwqKT7TrpIVN3V6lv/X\nSwLDBFTR4bYePJd3lOU35yOuJtspDdUKy9PGv1fQhEY9BEHGOB1UGfhtojyA\nDaW1saa57XdCRskbPKa2hxwg82kGMd4b0IyCdXbEx8XQLILwuYX0FZzcJRQW\nvXEm3Gd93xCy6LXAhoVYa2sShrkRnPpgmeDeX9JX54GbuvilPbhA2wouVrbE\nkhEJmFBazbXEpbR+aTjf9rw/lVG9oITYztJyNUksHvHelc75EiWHmRKaUW0g\n4yAyu2jcgRPcf+xPfuWdBkeku+e5A6WNiZj90EmO2ni6VZuEGj2nRuDiCRpA\nIlNedINK6qlow+FtsAKEGULWiTQP5tw5AcwgdAnx/YNkDf7lDFni7cU3Q7Fp\nJCtwyc1LJretEFTmxJTa+RYQxo8GHLd41KYDmc02Et4LvHMytpxJ7lsxKr+e\nv6z5uPLMO1SuBBJ3HVvJyB7+heSVqwVJHEDChLRQ5otBmAlbQKXpWoFZ3Q+v\nkoLr4t0v4xEuMBKMFVLBGOIrvQ6XcwRDTsxHkK3bm49A5ivPUSWj6ql//COr\n096n\r\n=CFyT\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC54A7jPDF8iUTbZgs69i3CReeKx9PECBjNwXNvQZmoDAIgZhUUItioJ4tiwOXZKeY/090/UCHIuQPHVM55zQrwEhk="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "wiens.joshua@gmail.com",
+          "name": "d3viant0ne"
+        },
+        {
+          "email": "andrew@shellscape.org",
+          "name": "shellscape"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/webpack-command_0.1.1_1525380194564_0.6261803084910085"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.0": {
+      "name": "webpack-command",
+      "version": "0.2.0",
+      "description": "🐕 A lightweight, modular, and opinionated webpack CLI",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/webpack-contrib/webpack-command.git"
+      },
+      "author": {
+        "name": "Andrew Powell",
+        "email": "andrew@shellscape.org"
+      },
+      "homepage": "https://github.com/webpack-contrib/webpack-command",
+      "bugs": {
+        "url": "https://github.com/webpack-contrib/webpack-command/issues"
+      },
+      "bin": {
+        "webpack": "lib/cli.js"
+      },
+      "main": "lib/index.js",
+      "engines": {
+        "node": ">= 6.9.0 <7.0.0 || >= 8.9.0"
+      },
+      "scripts": {
+        "commitlint": "commitlint",
+        "commitmsg": "commitlint -e $GIT_PARAMS",
+        "lint": "eslint --cache lib test",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "lint-staged": "lint-staged",
+        "prepublishOnly": "mkdir -p data && cp -r lib/commands/defaults.json data/commands.json",
+        "release": "standard-version",
+        "release:ci": "conventional-github-releaser -p angular",
+        "release:validate": "commitlint --from=$(git describe --tags --abbrev=0) --to=$(git rev-parse HEAD)",
+        "security": "nsp check",
+        "test": "npm run prepublishOnly && mocha test/test.js --check-leaks --exit",
+        "test:coverage": "mkdir -p coverage && nyc --silent npm test && npm run test:coverage:report",
+        "test:coverage:report": "nyc report --reporter=lcov --reporter=text-lcov --reporter=json --reporter=clover > coverage/lcov.info",
+        "ci:lint": "npm run lint && npm run security",
+        "ci:test": "npm run test -- --runInBand",
+        "ci:coverage": "npm run test:coverage -- --runInBand",
+        "defaults": "webpack-defaults"
+      },
+      "files": [
+        "data/",
+        "lib/"
+      ],
+      "peerDependencies": {
+        "webpack": "^4.4.0"
+      },
+      "dependencies": {
+        "@webpack-contrib/config-loader": "^1.0.0",
+        "@webpack-contrib/schema-utils": "^1.0.0-beta.0",
+        "camelcase": "^5.0.0",
+        "chalk": "^2.3.2",
+        "debug": "^3.1.0",
+        "decamelize": "^2.0.0",
+        "enhanced-resolve": "^4.0.0",
+        "import-local": "^1.0.0",
+        "isobject": "^3.0.1",
+        "loader-utils": "^1.1.0",
+        "log-symbols": "^2.2.0",
+        "loud-rejection": "^1.6.0",
+        "meant": "^1.0.1",
+        "meow": "^5.0.0",
+        "merge-options": "^1.0.0",
+        "object.values": "^1.0.4",
+        "opn": "^5.3.0",
+        "ora": "^2.1.0",
+        "plur": "^3.0.0",
+        "pretty-bytes": "^5.0.0",
+        "strip-ansi": "^4.0.0",
+        "text-table": "^0.2.0",
+        "titleize": "^1.0.1",
+        "update-notifier": "^2.3.0",
+        "v8-compile-cache": "^2.0.0",
+        "webpack-log": "^1.1.2",
+        "wordwrap": "^1.0.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^6.1.3",
+        "@commitlint/config-conventional": "^6.1.3",
+        "@webpack-contrib/eslint-config-webpack": "^2.0.4",
+        "babel-cli": "^6.26.0",
+        "babel-jest": "^22.4.3",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "camelcase-keys": "^4.2.0",
+        "codecov": "^3.0.0",
+        "conventional-github-releaser": "^2.0.2",
+        "crc": "^3.5.0",
+        "cross-env": "^5.1.4",
+        "decamelize-keys": "^1.1.0",
+        "del": "^3.0.0",
+        "del-cli": "^1.1.0",
+        "eslint": "^4.5.0",
+        "eslint-config-webpack": "^1.2.5",
+        "eslint-plugin-import": "^2.8.0",
+        "eslint-plugin-prettier": "^2.6.0",
+        "execa": "^0.10.0",
+        "expect": "^22.4.3",
+        "html-webpack-plugin": "^3.2.0",
+        "husky": "^0.14.3",
+        "istanbul": "^0.4.5",
+        "jest-serializer-path": "^0.1.14",
+        "jest-snapshot": "^22.4.3",
+        "lint-staged": "^7.0.4",
+        "memory-fs": "^0.4.1",
+        "minimist": "^1.2.0",
+        "minimist-options": "^3.0.2",
+        "mocha": "^5.1.1",
+        "nsp": "^3.2.1",
+        "nyc": "^11.4.1",
+        "pre-commit": "^1.2.2",
+        "prettier": "^1.11.1",
+        "standard-version": "^4.3.0",
+        "stylelint-webpack-plugin": "^0.10.4",
+        "webpack": "^4.6.0",
+        "webpack-defaults": "^2.3.0"
+      },
+      "keywords": [
+        "webpack"
+      ],
+      "pre-commit": "lint-staged",
+      "lint-staged": {
+        "*.js": [
+          "eslint --fix",
+          "git add"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "lib/**/*.js"
+        ]
+      },
+      "gitHead": "338d4bc71b6c69b8cf8dc140aa7476396da10aa2",
+      "_id": "webpack-command@0.2.0",
+      "_npmVersion": "5.8.0",
+      "_nodeVersion": "9.2.0",
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "dist": {
+        "integrity": "sha512-cRhJBRBSFOOXZI9b0Odtipao4KiHf1maQ+tTOZJ9sD6J/V2pnodbuW+mpW0HrfQV7QGUwnnXNjFPUvD4KawQnQ==",
+        "shasum": "4db26637a8b9d9236a5cba5eb739b5dd60fbc099",
+        "tarball": "https://registry.npmjs.org/webpack-command/-/webpack-command-0.2.0.tgz",
+        "fileCount": 31,
+        "unpackedSize": 72707,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa8u6gCRA9TVsSAnZWagAANw0P/iTraOJMBCO/dpno/zJI\nAjQtyhw0tbnLCmot7bvMVwKQHTPq6AMqUOMTTJQWHpOuQ819pmrjuEwMOq5u\nTH+IC0J12F+09htSHwiCbqSAQXCgbpeVsWrcFF58wRpBy8DdmL8ldoeNeCpK\nD3n5ecUf7Z6VpgCD+EawCEJW2tqX4Ysxb5H1FOuYgtDexPT97ZxBmd1VeXwJ\nPQgW8mZ/j9OmaKx7Uxz/C5GzZmsrqATo7Kv15sqh63E4/1RA96gnCmCw7BXO\nMu62i9e9k+jkRBXYlNzFt5UIcOkJo6E62Vi18f7oaP8/GJUTsOwA9u6W5rKn\nai+NDAOVyMLsHE/WZUoc26GSk0ofJ85HLFBc98nKKRUGW4T4DvV/J1A37qhk\nzkug9fIe1vxJjv+F61HE4tAgznnlm/qhy0QsT3tPEr9O7EbCFdiNmNmtoyiC\n+pcKimWse4xwqlpyto64GEBYWs4afgi3Czb7FN16K1FAV2Q95zHsncD3zcie\ng8kGfrqWwvgngX31zHm8F/1OpMD/4C/M6zUt0f3nmfEoePg3aEBfQFUUdwAr\nwIlbqo1m6BzYxSeUg2whW9zuwTfAcbTRciUrJAWmkks1eJj38seJtyJlP1sA\nw3MuH0GCOnmDP5k923/lkCkRjwxexJTgPIDjMyNEUz17YYJCzHpbcWaDH+4K\n0MVh\r\n=+zbX\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQD4jDFRO9b5W0lmZTRIJEK6RBHnhGv/r1qU+46nd+FJDgIhAOY2fBhkGYVaUrg7vcslIUE9NVQ0EQmoqbWVgfD9FLEh"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "wiens.joshua@gmail.com",
+          "name": "d3viant0ne"
+        },
+        {
+          "email": "andrew@shellscape.org",
+          "name": "shellscape"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/webpack-command_0.2.0_1525870238650_0.9179643759525609"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.1": {
+      "name": "webpack-command",
+      "version": "0.2.1",
+      "description": "🐕 A lightweight, modular, and opinionated webpack CLI",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/webpack-contrib/webpack-command.git"
+      },
+      "author": {
+        "name": "Andrew Powell",
+        "email": "andrew@shellscape.org"
+      },
+      "homepage": "https://github.com/webpack-contrib/webpack-command",
+      "bugs": {
+        "url": "https://github.com/webpack-contrib/webpack-command/issues"
+      },
+      "bin": {
+        "webpack": "lib/cli.js"
+      },
+      "main": "lib/index.js",
+      "engines": {
+        "node": ">= 6.9.0 <7.0.0 || >= 8.9.0"
+      },
+      "scripts": {
+        "commitlint": "commitlint",
+        "commitmsg": "commitlint -e $GIT_PARAMS",
+        "lint": "eslint --cache lib test",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "lint-staged": "lint-staged",
+        "prepublishOnly": "mkdir -p data && cp -r lib/commands/defaults.json data/commands.json",
+        "release": "standard-version",
+        "release:ci": "conventional-github-releaser -p angular",
+        "release:validate": "commitlint --from=$(git describe --tags --abbrev=0) --to=$(git rev-parse HEAD)",
+        "security": "nsp check",
+        "test": "npm run prepublishOnly && mocha test/test.js --check-leaks --exit",
+        "test:coverage": "mkdir -p coverage && nyc --silent npm test && npm run test:coverage:report",
+        "test:coverage:report": "nyc report --reporter=lcov --reporter=text-lcov --reporter=json --reporter=clover > coverage/lcov.info",
+        "ci:lint": "npm run lint && npm run security",
+        "ci:test": "npm run test -- --runInBand",
+        "ci:coverage": "npm run test:coverage -- --runInBand",
+        "defaults": "webpack-defaults"
+      },
+      "files": [
+        "data/",
+        "lib/"
+      ],
+      "peerDependencies": {
+        "webpack": "^4.4.0"
+      },
+      "dependencies": {
+        "@webpack-contrib/config-loader": "^1.0.0",
+        "@webpack-contrib/schema-utils": "^1.0.0-beta.0",
+        "camelcase": "^5.0.0",
+        "chalk": "^2.3.2",
+        "debug": "^3.1.0",
+        "decamelize": "^2.0.0",
+        "enhanced-resolve": "^4.0.0",
+        "import-local": "^1.0.0",
+        "isobject": "^3.0.1",
+        "loader-utils": "^1.1.0",
+        "log-symbols": "^2.2.0",
+        "loud-rejection": "^1.6.0",
+        "meant": "^1.0.1",
+        "meow": "^5.0.0",
+        "merge-options": "^1.0.0",
+        "object.values": "^1.0.4",
+        "opn": "^5.3.0",
+        "ora": "^2.1.0",
+        "plur": "^3.0.0",
+        "pretty-bytes": "^5.0.0",
+        "strip-ansi": "^4.0.0",
+        "text-table": "^0.2.0",
+        "titleize": "^1.0.1",
+        "update-notifier": "^2.3.0",
+        "v8-compile-cache": "^2.0.0",
+        "webpack-log": "^1.1.2",
+        "wordwrap": "^1.0.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^6.1.3",
+        "@commitlint/config-conventional": "^6.1.3",
+        "@webpack-contrib/eslint-config-webpack": "^2.0.4",
+        "babel-cli": "^6.26.0",
+        "babel-jest": "^22.4.3",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "camelcase-keys": "^4.2.0",
+        "codecov": "^3.0.0",
+        "conventional-github-releaser": "^2.0.2",
+        "crc": "^3.5.0",
+        "cross-env": "^5.1.4",
+        "decamelize-keys": "^1.1.0",
+        "del": "^3.0.0",
+        "del-cli": "^1.1.0",
+        "eslint": "^4.5.0",
+        "eslint-config-webpack": "^1.2.5",
+        "eslint-plugin-import": "^2.8.0",
+        "eslint-plugin-prettier": "^2.6.0",
+        "execa": "^0.10.0",
+        "expect": "^22.4.3",
+        "html-webpack-plugin": "^3.2.0",
+        "husky": "^0.14.3",
+        "istanbul": "^0.4.5",
+        "jest-serializer-path": "^0.1.14",
+        "jest-snapshot": "^22.4.3",
+        "lint-staged": "^7.0.4",
+        "memory-fs": "^0.4.1",
+        "minimist": "^1.2.0",
+        "minimist-options": "^3.0.2",
+        "mocha": "^5.1.1",
+        "nsp": "^3.2.1",
+        "nyc": "^11.4.1",
+        "pre-commit": "^1.2.2",
+        "prettier": "^1.11.1",
+        "standard-version": "^4.3.0",
+        "stylelint-webpack-plugin": "^0.10.4",
+        "webpack": "^4.6.0",
+        "webpack-defaults": "^2.3.0"
+      },
+      "keywords": [
+        "webpack"
+      ],
+      "pre-commit": "lint-staged",
+      "lint-staged": {
+        "*.js": [
+          "eslint --fix",
+          "git add"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "lib/**/*.js"
+        ]
+      },
+      "gitHead": "63c94a347cc67f3d14b6e99d9416a0c6866751b8",
+      "_id": "webpack-command@0.2.1",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "10.1.0",
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "dist": {
+        "integrity": "sha512-SLNUVd+kYS7IOwAN8z60xNiqn8pzFgtcVjkHY3qEzhZUiUCjiR8VD0c/bj43DDruekpT3ll/xVff4tHkX72hDg==",
+        "shasum": "67b741026807813947dfc0154fba9db27e3b42eb",
+        "tarball": "https://registry.npmjs.org/webpack-command/-/webpack-command-0.2.1.tgz",
+        "fileCount": 31,
+        "unpackedSize": 72407,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbGVnkCRA9TVsSAnZWagAAzn4P/3ixwMlIqPseIFEbpYEO\n43SSCaBekdNrBe7uUZi6OdFzgGMbo2CjIOookNbK5bb+B4PTiDKwBSSScgXg\nFDhX9/ZGPNY6CTJ3MMZdZgNYrulfQK5/ScBATt+jvkmtKCLdeU96w9/wl2pX\nII/CdLJy/Q5oL5Dqd3Er1wLpU5mq7s/OwDqrSGGOV6D0yyESNI/j1exkKol7\nfZ1HEoED7t0lJTBJQfCXz+9g/uKgKpw5nfieBf6SJzaNDLqIn/veZr+eGKBJ\nD484kYKb78fiamKShRztQkIEAHizs/bvdoj+AmugAyP3qzSogsMpIyWY0nds\nCIIi4Kv88yOOEep5OE1513Fc9gN/lTRLI86BQoPk525yAXIPWOKYtt9NNwh6\n5ai/G13dVoKABWZvvUzMzwpAAbpcuPRZvdP0EJyij5Zmc3fWGzPW38mTUQrC\nEYJrL40lN187tdZVsOd2h0raNGtUUt7Ve7FtSOvZV6bb8op4lS3WLjTkIprT\nozIPlYl0ZYWyNkHGCeftIf9RL2bW+oj7tYhf1k5YdQyDzmJoUloDoSYjQzBV\nIWRkgwCKZPHfQh+xngSUCoCfr74fidZ2B5jR5KG8kvuhavULk09PoghrJIjI\npLNkibbTHho9PtM4uMR5bW8wAHDWLzwHQnVmDGl/iixSx1bTQAoII4Id/VBo\n1fNo\r\n=ZHua\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBYWu6gTP7HwVyxH+3tJH6xkttMPkb6atfKfbMeeXUN/AiBsIre9ztKTNIqT5GbJEOsDYvvcVToyqA3JgJaKIf6p9A=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "wiens.joshua@gmail.com",
+          "name": "d3viant0ne"
+        },
+        {
+          "email": "andrew@shellscape.org",
+          "name": "shellscape"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/webpack-command_0.2.1_1528388067126_0.9778106925916714"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.3.0": {
+      "name": "webpack-command",
+      "version": "0.3.0",
+      "description": "A superior CLI experience for webpack. Lightweight, modular, and opinionated.",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/webpack-contrib/webpack-command.git"
+      },
+      "author": {
+        "name": "Andrew Powell",
+        "email": "andrew@shellscape.org"
+      },
+      "homepage": "https://github.com/webpack-contrib/webpack-command",
+      "bugs": {
+        "url": "https://github.com/webpack-contrib/webpack-command/issues"
+      },
+      "bin": {
+        "webpack": "lib/cli.js",
+        "webpack-command": "lib/cli.js",
+        "wp": "lib/cli.js"
+      },
+      "main": "lib/index.js",
+      "engines": {
+        "node": ">= 6.9.0 <7.0.0 || >= 8.9.0"
+      },
+      "scripts": {
+        "commitlint": "commitlint",
+        "commitmsg": "commitlint -e $GIT_PARAMS",
+        "lint": "eslint --cache lib test",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "lint-staged": "lint-staged",
+        "prepublishOnly": "mkdir -p data && cp -r lib/commands/defaults.json data/commands.json",
+        "release": "standard-version",
+        "release:ci": "conventional-github-releaser -p angular",
+        "release:validate": "commitlint --from=$(git describe --tags --abbrev=0) --to=$(git rev-parse HEAD)",
+        "security": "nsp check",
+        "test": "npm run prepublishOnly && mocha test/test.js --exit --timeout=5000",
+        "test:coverage": "mkdir -p coverage && nyc --silent npm test && npm run test:coverage:report",
+        "test:coverage:report": "nyc report --reporter=lcov --reporter=text-lcov --reporter=json --reporter=clover > coverage/lcov.info",
+        "ci:lint": "npm run lint && npm run security",
+        "ci:test": "npm run test -- --runInBand",
+        "ci:coverage": "npm run test:coverage -- --runInBand",
+        "defaults": "webpack-defaults"
+      },
+      "files": [
+        "data/",
+        "lib/"
+      ],
+      "peerDependencies": {
+        "webpack": "^4.4.0"
+      },
+      "dependencies": {
+        "@webpack-contrib/config-loader": "^1.0.0",
+        "@webpack-contrib/schema-utils": "^1.0.0-beta.0",
+        "camelcase": "^5.0.0",
+        "chalk": "^2.3.2",
+        "debug": "^3.1.0",
+        "decamelize": "^2.0.0",
+        "enhanced-resolve": "^4.0.0",
+        "import-local": "^1.0.0",
+        "isobject": "^3.0.1",
+        "loader-utils": "^1.1.0",
+        "log-symbols": "^2.2.0",
+        "loud-rejection": "^1.6.0",
+        "meant": "^1.0.1",
+        "meow": "^5.0.0",
+        "merge-options": "^1.0.0",
+        "object.values": "^1.0.4",
+        "opn": "^5.3.0",
+        "ora": "^2.1.0",
+        "plur": "^3.0.0",
+        "pretty-bytes": "^5.0.0",
+        "strip-ansi": "^4.0.0",
+        "text-table": "^0.2.0",
+        "titleize": "^1.0.1",
+        "update-notifier": "^2.3.0",
+        "v8-compile-cache": "^2.0.0",
+        "webpack-log": "^1.1.2",
+        "wordwrap": "^1.0.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^6.1.3",
+        "@commitlint/config-conventional": "^6.1.3",
+        "@webpack-contrib/eslint-config-webpack": "^2.0.4",
+        "babel-cli": "^6.26.0",
+        "babel-jest": "^23.0.1",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "camelcase-keys": "^4.2.0",
+        "codecov": "^3.0.0",
+        "conventional-github-releaser": "^2.0.2",
+        "crc": "^3.5.0",
+        "cross-env": "^5.1.4",
+        "decamelize-keys": "^1.1.0",
+        "del": "^3.0.0",
+        "del-cli": "^1.1.0",
+        "eslint": "^4.19.1",
+        "eslint-config-webpack": "^1.2.5",
+        "eslint-plugin-import": "^2.8.0",
+        "eslint-plugin-prettier": "^2.6.0",
+        "execa": "^0.10.0",
+        "expect": "^23.1.0",
+        "html-webpack-plugin": "^3.2.0",
+        "husky": "^0.14.3",
+        "istanbul": "^0.4.5",
+        "jest-serializer-path": "^0.1.14",
+        "jest-snapshot": "^23.0.1",
+        "lint-staged": "^7.0.4",
+        "memory-fs": "^0.4.1",
+        "minimist": "^1.2.0",
+        "minimist-options": "^3.0.2",
+        "mocha": "^5.1.1",
+        "nsp": "^3.2.1",
+        "nyc": "^12.0.2",
+        "pre-commit": "^1.2.2",
+        "prettier": "^1.11.1",
+        "standard-version": "^4.3.0",
+        "stylelint-webpack-plugin": "^0.10.4",
+        "webpack": "^4.6.0",
+        "webpack-defaults": "^2.3.0"
+      },
+      "keywords": [
+        "webpack"
+      ],
+      "pre-commit": "lint-staged",
+      "lint-staged": {
+        "*.js": [
+          "eslint --fix",
+          "git add"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "lib/**/*.js"
+        ]
+      },
+      "gitHead": "11e7799c81c0af9d3356243d83acb75c6a5af8e2",
+      "_id": "webpack-command@0.3.0",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "10.1.0",
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "dist": {
+        "integrity": "sha512-O9+so5/y4RJvQ0rtnUi2XnG7dqLLz6sIINHniU/LAzFQE4NiXZx91jHHARGSxYSQC3Is4Cxi5lzitrMJCuImgg==",
+        "shasum": "33d6181919d4d532b569897802019cf4e502f741",
+        "tarball": "https://registry.npmjs.org/webpack-command/-/webpack-command-0.3.0.tgz",
+        "fileCount": 32,
+        "unpackedSize": 75234,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbMPzdCRA9TVsSAnZWagAAuGEQAIiZl0tPDNjH5WvBFqpB\nTDl5oAE4y5I5bOz+0l+FKm2scCtA61fqc4hjOUUxxy1a87E57bZnn7PgKf86\nqZBCBrWhgj/WqTMLSRtqlpwD73dwMYxdU0naxUh1z5WYrUk/ihOJH9/XEbB8\nMNC0Qsxmm1HHs2rAVH0K0+f7tXv2H08DNf/uoFcdmvrqhfUYfVEwJ+uD1Q0b\nAtaf5klcbv6f0I/TOzcgT/5vgxpUkC0oGObbzn+ni/QzN9Kjxveoexch94TW\nnnkPnpPXwnZQw8yPRAPNjwxRZckdmCoL/9xKJBH+5rRnOYAm8V3SJ8563cep\nTKS6Hp8yTjNxRFOg1UMbSaS0zEO7oKMRAFzXpV1IvNg7u09pbSDwyaGRXNJj\nw0FR9c7Y79O3dKwjkXl/6LWPGG7lWFXZ0ovr9p/UvbXOYVK8WJWn7JCQ4w55\n/vXeuzRXmfekqtjU2So/TbLlY0pbdQOthK0t6aHSeI5gZpxtm8qBr6ScgX2W\nBjsQRlD0+AgY91Lb4b4mFpVMa0DWmYvquRWxH67C3c/5tm6QiEKOGrWdLpaB\nTWlKLkO5SITCi7M4CaJIkuilLZjs5+7fiqd6TNlqJnoMDw2RPQ9QnjsNWJ+v\nS888PtHJuoqF4+KJUJ5+nKtnb1LrC7v3g9IJByJA0IoZp+qkN6MHviurLtbK\nVx4u\r\n=0lec\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDP5mGbAf/3Z6zVE0AtIIrPCLraoC3/yF44ZMR1evVwoAIhAOKiiLuhRAsl5/eyOiDsjQ5VpyoDndsZsjF1Km1izw53"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "wiens.joshua@gmail.com",
+          "name": "d3viant0ne"
+        },
+        {
+          "email": "andrew@shellscape.org",
+          "name": "shellscape"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/webpack-command_0.3.0_1529937117915_0.8552110070435865"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.3.1": {
+      "name": "webpack-command",
+      "version": "0.3.1",
+      "description": "A superior CLI experience for webpack. Lightweight, modular, and opinionated.",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/webpack-contrib/webpack-command.git"
+      },
+      "author": {
+        "name": "Andrew Powell",
+        "email": "andrew@shellscape.org"
+      },
+      "homepage": "https://github.com/webpack-contrib/webpack-command",
+      "bugs": {
+        "url": "https://github.com/webpack-contrib/webpack-command/issues"
+      },
+      "bin": {
+        "webpack": "lib/cli.js",
+        "webpack-command": "lib/cli.js",
+        "wp": "lib/cli.js"
+      },
+      "main": "lib/index.js",
+      "engines": {
+        "node": ">= 6.9.0 <7.0.0 || >= 8.9.0"
+      },
+      "scripts": {
+        "commitlint": "commitlint",
+        "commitmsg": "commitlint -e $GIT_PARAMS",
+        "lint": "eslint --cache lib test",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "lint-staged": "lint-staged",
+        "prepublishOnly": "mkdir -p data && cp -r lib/commands/defaults.json data/commands.json",
+        "release": "standard-version",
+        "release:ci": "conventional-github-releaser -p angular",
+        "release:validate": "commitlint --from=$(git describe --tags --abbrev=0) --to=$(git rev-parse HEAD)",
+        "security": "nsp check",
+        "test": "npm run prepublishOnly && mocha test/test.js --exit --timeout=5000",
+        "test:coverage": "mkdir -p coverage && nyc --silent npm test && npm run test:coverage:report",
+        "test:coverage:report": "nyc report --reporter=lcov --reporter=text-lcov --reporter=json --reporter=clover > coverage/lcov.info",
+        "ci:lint": "npm run lint && npm run security",
+        "ci:test": "npm run test -- --runInBand",
+        "ci:coverage": "npm run test:coverage -- --runInBand",
+        "defaults": "webpack-defaults"
+      },
+      "files": [
+        "data/",
+        "lib/"
+      ],
+      "peerDependencies": {
+        "webpack": "^4.4.0"
+      },
+      "dependencies": {
+        "@webpack-contrib/config-loader": "^1.0.0",
+        "@webpack-contrib/schema-utils": "^1.0.0-beta.0",
+        "camelcase": "^5.0.0",
+        "chalk": "^2.3.2",
+        "debug": "^3.1.0",
+        "decamelize": "^2.0.0",
+        "enhanced-resolve": "^4.0.0",
+        "import-local": "^1.0.0",
+        "isobject": "^3.0.1",
+        "loader-utils": "^1.1.0",
+        "log-symbols": "^2.2.0",
+        "loud-rejection": "^1.6.0",
+        "meant": "^1.0.1",
+        "meow": "^5.0.0",
+        "merge-options": "^1.0.0",
+        "object.values": "^1.0.4",
+        "opn": "^5.3.0",
+        "ora": "^2.1.0",
+        "plur": "^3.0.0",
+        "pretty-bytes": "^5.0.0",
+        "strip-ansi": "^4.0.0",
+        "text-table": "^0.2.0",
+        "titleize": "^1.0.1",
+        "update-notifier": "^2.3.0",
+        "v8-compile-cache": "^2.0.0",
+        "webpack-log": "^1.1.2",
+        "wordwrap": "^1.0.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^6.1.3",
+        "@commitlint/config-conventional": "^6.1.3",
+        "@webpack-contrib/eslint-config-webpack": "^2.0.4",
+        "babel-cli": "^6.26.0",
+        "babel-jest": "^23.0.1",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "camelcase-keys": "^4.2.0",
+        "codecov": "^3.0.0",
+        "conventional-github-releaser": "^2.0.2",
+        "crc": "^3.5.0",
+        "cross-env": "^5.1.4",
+        "decamelize-keys": "^1.1.0",
+        "del": "^3.0.0",
+        "del-cli": "^1.1.0",
+        "eslint": "^4.19.1",
+        "eslint-config-webpack": "^1.2.5",
+        "eslint-plugin-import": "^2.8.0",
+        "eslint-plugin-prettier": "^2.6.0",
+        "execa": "^0.10.0",
+        "expect": "^23.1.0",
+        "html-webpack-plugin": "^3.2.0",
+        "husky": "^0.14.3",
+        "istanbul": "^0.4.5",
+        "jest-serializer-path": "^0.1.14",
+        "jest-snapshot": "^23.0.1",
+        "lint-staged": "^7.0.4",
+        "memory-fs": "^0.4.1",
+        "minimist": "^1.2.0",
+        "minimist-options": "^3.0.2",
+        "mocha": "^5.1.1",
+        "nsp": "^3.2.1",
+        "nyc": "^12.0.2",
+        "pre-commit": "^1.2.2",
+        "prettier": "^1.11.1",
+        "standard-version": "^4.3.0",
+        "stylelint-webpack-plugin": "^0.10.4",
+        "webpack": "^4.6.0",
+        "webpack-defaults": "^2.3.0"
+      },
+      "keywords": [
+        "webpack"
+      ],
+      "pre-commit": "lint-staged",
+      "lint-staged": {
+        "*.js": [
+          "eslint --fix",
+          "git add"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "lib/**/*.js"
+        ]
+      },
+      "gitHead": "8c430d81cdcd0d7bfb909407dff014aa881cc592",
+      "_id": "webpack-command@0.3.1",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "10.1.0",
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "dist": {
+        "integrity": "sha512-SZwsqaR29mb1WckonvL0jhPbzImkgr8hohIy/1M0KhhYku9deyu94OcpEe+ihoxRcDhj9m4BWik1ajQbgPditg==",
+        "shasum": "e1917d48e3285da6c1d8e5c0a432cab031c3970f",
+        "tarball": "https://registry.npmjs.org/webpack-command/-/webpack-command-0.3.1.tgz",
+        "fileCount": 32,
+        "unpackedSize": 75236,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbM62wCRA9TVsSAnZWagAAex4P/0QVdCzbE1dha9fwTyYt\npLjJKlFTzVXnNCju8xNL8gLdK1yWOLxugbmRLFcV32fR4HOrC98uEsJIn8sy\nOYBcD6to8Nj7cUadAe96iFCiGOP5VJr5VF918o21nwxV4Sq95gX2/krQ8HDP\nhpcK9ankjbhN+A2HL/ij6aLsJ4jFfLRJWUv8piCXb4XXmeZ4xEcDO2020iFG\nNKhxp/K2NI68Q+d980ZmkmotrBiyMk44IwkWQHG9sWnU22zbcBl1bWszqSkM\nHyswcWweA2kmeqJUP0E9bkq8pDyfCN192cID5vjbJE+C3L4sgkLh6yrg4bjM\nK4uaWsDyl3aQGH6mDIiuvTfHWQXFO0sql0MdwiRo0ok8n/IzsmVjK+E8NrPK\n1nLtgBhle6pPPkhiCjrar1RID6tHeQcVnSGLtlQYSKuzcDHypYMzsweDDExV\nEyRUpx3GlAzkx41hNybKha3J1qRn77a3XVsTmK5mEqtgX8JQq/Uek27NIhHI\nXIS53KbAeFImj3FLM2jjAm1FD14AXcsFmhUEOMGV44tAVEUZ9RwaC4E3jNku\nv/xyQtF62LBCHDcyf0qJ2pooWE2N4mcE+/Z8Wj1J4XagbYYXzzjwfDdhXTkx\nkhz91ZkwA0KV7CndV5bxr046u5G51tfFYOyaArmvaNWE+blAE/KenyWKPYIx\nTcz5\r\n=Mpfi\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICXUY5TBuBrXg6XNQjkpzTM8tyz+5k9mCqfFliboQBLnAiBhaFg5nWVhF1tZMt2Aeb/AyiO8VRrtGGEKAQwyRAlvlQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "wiens.joshua@gmail.com",
+          "name": "d3viant0ne"
+        },
+        {
+          "email": "andrew@shellscape.org",
+          "name": "shellscape"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/webpack-command_0.3.1_1530113455879_0.4906053577752396"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.4.0": {
+      "name": "webpack-command",
+      "version": "0.4.0",
+      "description": "A superior CLI experience for webpack. Lightweight, modular, and opinionated.",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/webpack-contrib/webpack-command.git"
+      },
+      "author": {
+        "name": "Andrew Powell",
+        "email": "andrew@shellscape.org"
+      },
+      "homepage": "https://github.com/webpack-contrib/webpack-command",
+      "bugs": {
+        "url": "https://github.com/webpack-contrib/webpack-command/issues"
+      },
+      "bin": {
+        "webpack": "lib/cli.js",
+        "webpack-command": "lib/cli.js",
+        "wp": "lib/cli.js"
+      },
+      "main": "lib/index.js",
+      "engines": {
+        "node": ">= 6.9.0 <7.0.0 || >= 8.9.0"
+      },
+      "scripts": {
+        "commitlint": "commitlint",
+        "commitmsg": "commitlint -e $GIT_PARAMS",
+        "lint": "eslint --cache lib test",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "lint-staged": "lint-staged",
+        "prepublishOnly": "mkdir -p data && cp -r lib/commands/defaults.json data/commands.json",
+        "release": "standard-version",
+        "release:ci": "conventional-github-releaser -p angular",
+        "release:validate": "commitlint --from=$(git describe --tags --abbrev=0) --to=$(git rev-parse HEAD)",
+        "security": "nsp check",
+        "test": "npm run prepublishOnly && mocha test/test.js --exit --timeout=5000",
+        "test:coverage": "mkdir -p coverage && nyc --silent npm test && npm run test:coverage:report",
+        "test:coverage:report": "nyc report --reporter=lcov --reporter=text-lcov --reporter=json --reporter=clover > coverage/lcov.info",
+        "ci:lint": "npm run lint && npm run security",
+        "ci:test": "npm run test -- --runInBand",
+        "ci:coverage": "npm run test:coverage -- --runInBand",
+        "defaults": "webpack-defaults"
+      },
+      "files": [
+        "data/",
+        "lib/"
+      ],
+      "peerDependencies": {
+        "webpack": "^4.4.0"
+      },
+      "dependencies": {
+        "@webpack-contrib/config-loader": "^1.2.0",
+        "@webpack-contrib/schema-utils": "^1.0.0-beta.0",
+        "camelcase": "^5.0.0",
+        "chalk": "^2.3.2",
+        "debug": "^3.1.0",
+        "decamelize": "^2.0.0",
+        "enhanced-resolve": "^4.0.0",
+        "import-local": "^1.0.0",
+        "isobject": "^3.0.1",
+        "loader-utils": "^1.1.0",
+        "log-symbols": "^2.2.0",
+        "loud-rejection": "^1.6.0",
+        "meant": "^1.0.1",
+        "meow": "^5.0.0",
+        "merge-options": "^1.0.0",
+        "object.values": "^1.0.4",
+        "opn": "^5.3.0",
+        "ora": "^2.1.0",
+        "plur": "^3.0.0",
+        "pretty-bytes": "^5.0.0",
+        "strip-ansi": "^4.0.0",
+        "text-table": "^0.2.0",
+        "titleize": "^1.0.1",
+        "update-notifier": "^2.3.0",
+        "v8-compile-cache": "^2.0.0",
+        "webpack-log": "^1.1.2",
+        "wordwrap": "^1.0.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^6.1.3",
+        "@commitlint/config-conventional": "^6.1.3",
+        "@webpack-contrib/eslint-config-webpack": "^2.0.4",
+        "babel-cli": "^6.26.0",
+        "babel-jest": "^23.0.1",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "camelcase-keys": "^4.2.0",
+        "codecov": "^3.0.0",
+        "conventional-github-releaser": "^2.0.2",
+        "crc": "^3.5.0",
+        "cross-env": "^5.1.4",
+        "decamelize-keys": "^1.1.0",
+        "del": "^3.0.0",
+        "del-cli": "^1.1.0",
+        "eslint": "^4.19.1",
+        "eslint-config-webpack": "^1.2.5",
+        "eslint-plugin-import": "^2.8.0",
+        "eslint-plugin-prettier": "^2.6.0",
+        "execa": "^0.10.0",
+        "expect": "^23.1.0",
+        "html-webpack-plugin": "^3.2.0",
+        "husky": "^0.14.3",
+        "istanbul": "^0.4.5",
+        "jest-serializer-path": "^0.1.14",
+        "jest-snapshot": "^23.0.1",
+        "lint-staged": "^7.0.4",
+        "memory-fs": "^0.4.1",
+        "minimist": "^1.2.0",
+        "minimist-options": "^3.0.2",
+        "mocha": "^5.1.1",
+        "nsp": "^3.2.1",
+        "nyc": "^12.0.2",
+        "pre-commit": "^1.2.2",
+        "prettier": "^1.11.1",
+        "standard-version": "^4.3.0",
+        "stylelint-webpack-plugin": "^0.10.4",
+        "webpack": "^4.6.0",
+        "webpack-defaults": "^2.3.0"
+      },
+      "keywords": [
+        "webpack"
+      ],
+      "pre-commit": "lint-staged",
+      "lint-staged": {
+        "*.js": [
+          "eslint --fix",
+          "git add"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "lib/**/*.js"
+        ]
+      },
+      "gitHead": "8ad9799daf3a3c20590e03abf3f0ba1fa844a365",
+      "_id": "webpack-command@0.4.0",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "10.1.0",
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "dist": {
+        "integrity": "sha512-8PbWIOBoFnlQpPudIQTjvB36BRFD17yaFB+2vbrt9om0GnEuMrqf4ZvbRniHXD/IKENwcKeN7sd0wTseJ+lS3w==",
+        "shasum": "31d30b3ba3ef8f339e2c84d89d18c06fa0550363",
+        "tarball": "https://registry.npmjs.org/webpack-command/-/webpack-command-0.4.0.tgz",
+        "fileCount": 32,
+        "unpackedSize": 76262,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbOqCnCRA9TVsSAnZWagAA5/QP/R9+RX+ZZNCXC7DzLEFT\nEVX9oNv2tJe6KYQBEuOpNxOwoVlWaxtN8Bbd2ubYuMedeHeXKZ3Vp7mljHe7\nFedb+420LdLasdL8+bwqipXe9jS5vQBPmuzkcwjYSGd2nRgSU09sbmKoZCPt\nlgp6t7kREuLGpYeo0GnIuGO1EFJhVs4z6swQJFwUhXZZk74DQEaF6nHm5s2n\npie1BfjLllVkhOLkq69DMdfVtBDQiVhJvbl4umIzSFqJRuT6lXsmNolS66wh\n2eSyMUru3Lrd+u+B0QeZrRoWta0MpazgAW/jOhxF1lK9d5Jnn2kvtoQ4qR59\nht5JQEhsmQQ2tId3uiRQDwddaKIsb/VozOwAHYEo6iiNBfHS6TupFtxMNWqa\nVpG/psAxcLgl7lFD26OoqUEmQDdjq5Cy02sZ/1++3w4WFu/K4yIvaKqaP2s6\nuucIT6L0fPe/sQ1FnmCek5PB+b9USoveuGmciT6FO4jF42kGU0dmnmTO+/y0\nQIzjDy0eEXuWmNy524auEgwgjuGqX5XxlaIelbS4shSpzKWp8fWj0hYdZn+w\n7rbxxwedtHNyaQiyQVKrfDApgsa+3lf2rSRw0MptIobk7opa+AZpZ+TcX6gU\nv0dZKPpJGep1mLu3v/SY3H26XrHpXeJFIlHvY1eYfOBeL7Wjl8MZzLx/u8Bl\naUdj\r\n=Mt9z\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCBYGzDs5qzSxzsDT7ece9gPmG5uXIpuiu/SMgFr6dXHgIgR4Ira+SxmcK4UfQQSojAZqInXa80dPtsjUdtI9DIaac="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "wiens.joshua@gmail.com",
+          "name": "d3viant0ne"
+        },
+        {
+          "email": "andrew@shellscape.org",
+          "name": "shellscape"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/webpack-command_0.4.0_1530568871287_0.28588956800452436"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.4.1": {
+      "name": "webpack-command",
+      "version": "0.4.1",
+      "description": "A superior CLI experience for webpack. Lightweight, modular, and opinionated.",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/webpack-contrib/webpack-command.git"
+      },
+      "author": {
+        "name": "Andrew Powell",
+        "email": "andrew@shellscape.org"
+      },
+      "homepage": "https://github.com/webpack-contrib/webpack-command",
+      "bugs": {
+        "url": "https://github.com/webpack-contrib/webpack-command/issues"
+      },
+      "bin": {
+        "webpack": "lib/cli.js",
+        "webpack-command": "lib/cli.js",
+        "wp": "lib/cli.js"
+      },
+      "main": "lib/index.js",
+      "engines": {
+        "node": ">= 6.9.0 <7.0.0 || >= 8.9.0"
+      },
+      "scripts": {
+        "commitlint": "commitlint",
+        "commitmsg": "commitlint -e $GIT_PARAMS",
+        "lint": "eslint --cache lib test",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "lint-staged": "lint-staged",
+        "prepublishOnly": "mkdir -p data && cp -r lib/commands/defaults.json data/commands.json",
+        "release": "standard-version",
+        "release:ci": "conventional-github-releaser -p angular",
+        "release:validate": "commitlint --from=$(git describe --tags --abbrev=0) --to=$(git rev-parse HEAD)",
+        "security": "nsp check",
+        "test": "npm run prepublishOnly && mocha test/test.js --exit --timeout=5000",
+        "test:coverage": "mkdir -p coverage && nyc --silent npm test && npm run test:coverage:report",
+        "test:coverage:report": "nyc report --reporter=lcov --reporter=text-lcov --reporter=json --reporter=clover > coverage/lcov.info",
+        "ci:lint": "npm run lint && npm run security",
+        "ci:test": "npm run test -- --runInBand",
+        "ci:coverage": "npm run test:coverage -- --runInBand",
+        "defaults": "webpack-defaults"
+      },
+      "files": [
+        "data/",
+        "lib/"
+      ],
+      "peerDependencies": {
+        "webpack": "^4.4.0"
+      },
+      "dependencies": {
+        "@webpack-contrib/config-loader": "^1.2.0",
+        "@webpack-contrib/schema-utils": "^1.0.0-beta.0",
+        "camelcase": "^5.0.0",
+        "chalk": "^2.3.2",
+        "debug": "^3.1.0",
+        "decamelize": "^2.0.0",
+        "enhanced-resolve": "^4.0.0",
+        "import-local": "^1.0.0",
+        "isobject": "^3.0.1",
+        "loader-utils": "^1.1.0",
+        "log-symbols": "^2.2.0",
+        "loud-rejection": "^1.6.0",
+        "meant": "^1.0.1",
+        "meow": "^5.0.0",
+        "merge-options": "^1.0.0",
+        "object.values": "^1.0.4",
+        "opn": "^5.3.0",
+        "ora": "^2.1.0",
+        "plur": "^3.0.0",
+        "pretty-bytes": "^5.0.0",
+        "strip-ansi": "^4.0.0",
+        "text-table": "^0.2.0",
+        "titleize": "^1.0.1",
+        "update-notifier": "^2.3.0",
+        "v8-compile-cache": "^2.0.0",
+        "webpack-log": "^1.1.2",
+        "wordwrap": "^1.0.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^6.1.3",
+        "@commitlint/config-conventional": "^6.1.3",
+        "@webpack-contrib/eslint-config-webpack": "^2.0.4",
+        "babel-cli": "^6.26.0",
+        "babel-jest": "^23.0.1",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "camelcase-keys": "^4.2.0",
+        "codecov": "^3.0.0",
+        "conventional-github-releaser": "^2.0.2",
+        "crc": "^3.5.0",
+        "cross-env": "^5.1.4",
+        "decamelize-keys": "^1.1.0",
+        "del": "^3.0.0",
+        "del-cli": "^1.1.0",
+        "eslint": "^4.19.1",
+        "eslint-config-webpack": "^1.2.5",
+        "eslint-plugin-import": "^2.8.0",
+        "eslint-plugin-prettier": "^2.6.0",
+        "execa": "^0.10.0",
+        "expect": "^23.1.0",
+        "html-webpack-plugin": "^3.2.0",
+        "husky": "^0.14.3",
+        "istanbul": "^0.4.5",
+        "jest-serializer-path": "^0.1.14",
+        "jest-snapshot": "^23.0.1",
+        "lint-staged": "^7.0.4",
+        "memory-fs": "^0.4.1",
+        "minimist": "^1.2.0",
+        "minimist-options": "^3.0.2",
+        "mocha": "^5.1.1",
+        "nsp": "^3.2.1",
+        "nyc": "^12.0.2",
+        "pre-commit": "^1.2.2",
+        "prettier": "^1.11.1",
+        "standard-version": "^4.3.0",
+        "stylelint-webpack-plugin": "^0.10.4",
+        "webpack": "^4.6.0",
+        "webpack-defaults": "^2.3.0"
+      },
+      "keywords": [
+        "webpack"
+      ],
+      "pre-commit": "lint-staged",
+      "lint-staged": {
+        "*.js": [
+          "eslint --fix",
+          "git add"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "lib/**/*.js"
+        ]
+      },
+      "gitHead": "01048bbbebc06f998d6101a087e7f69f15561df7",
+      "_id": "webpack-command@0.4.1",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "10.1.0",
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "dist": {
+        "integrity": "sha512-4u23PTUcjLJCcPqs53ugjFIp2c3I6rGZgYYwgD7LPPU745MzbS3tLXuOpKdgFNN+qDdWtzfLKZhMTQyf7jklcg==",
+        "shasum": "3f88aae87c28292ed0a97293615a2e962a1c66f4",
+        "tarball": "https://registry.npmjs.org/webpack-command/-/webpack-command-0.4.1.tgz",
+        "fileCount": 32,
+        "unpackedSize": 77947,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbP4eqCRA9TVsSAnZWagAAUAUQAJ78NErYuBSnb/iV+ojC\nyzEYiWR55dYzJvpZvjf4WVlcEOsdUoNP9ifulkAfEZC6GOjyLWvYesKcmLtZ\nt+PU+gVRxHJxz+qLQRbLOnQXnwKTWl05baHjGhGyBp7b071EuKVCSCHLIWBg\n/BL3DrJh5rEtyavSJ5WBW3RAVbcO/urq2tCVOYvsSEZ/ZYCZ+FXba0zZlN97\niHPArT4skdAGwEsuTQKJZPKcdP42xp+JyEqzncofFWL88OoAzlEnUUpu95PT\njg5nXDRbP/6cYc+yUo00o/SBwlXrHxbJVril2862INeZ4tr0ihvwfufTUK48\n283cfgtfrgEJDDxhf511cWg5+uylt7/uXZv53dsG7amo/SvP0cidWDKLLlW/\nRiFUTXFI3e0acg3ESm+QAtxKJUomCMsZiIEU8E5V6M98A56AmR+RnKAFuxZM\nu3vlNo4apyRoCTOtMJVT49j0CqEb/4Z0KHiqpR+R+FslW1Zk+ZHZi+cyN1jY\nmZBNTRltT2fami2wwTtxgAqf65ZuPw0xytcUM9bOsSzEYiU4mSAdR9R2TW0w\nrKP/JJEWDyzkDva1aBIECiLu7HSidB3RMjNaOx2T9ZnezNejd/EJ2G0X7BsQ\nBBWXw2TUdlCSLGvNJ24/mON+dSonaFI4eH5IfM6doi0jnjiEamX0XttAhnQN\nbgME\r\n=cQSG\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAnWcpcLcBx8Cx88kc0Blvc/aMVz0387lxKPABqjO1rwAiBNlxmltq1ml8+uMZVvGKz/2RQNghDOxhqX1wx1vpPZpw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "wiens.joshua@gmail.com",
+          "name": "d3viant0ne"
+        },
+        {
+          "email": "andrew@shellscape.org",
+          "name": "shellscape"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/webpack-command_0.4.1_1530890154226_0.23859962778081245"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.4.2": {
+      "name": "webpack-command",
+      "version": "0.4.2",
+      "description": "A superior CLI experience for webpack.",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/shellscape/webpack-command.git"
+      },
+      "author": {
+        "name": "Andrew Powell",
+        "email": "andrew@shellscape.org"
+      },
+      "homepage": "https://github.com/shellscape/webpack-command",
+      "bugs": {
+        "url": "https://github.com/shellscape/webpack-command/issues"
+      },
+      "bin": {
+        "webpack": "lib/cli.js",
+        "webpack-command": "lib/cli.js",
+        "wp": "lib/cli.js"
+      },
+      "main": "lib/index.js",
+      "engines": {
+        "node": ">= 6.9.0 <7.0.0 || >= 8.9.0"
+      },
+      "scripts": {
+        "commitlint": "commitlint",
+        "commitmsg": "commitlint -e $GIT_PARAMS",
+        "lint": "eslint --cache lib test",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "lint-staged": "lint-staged",
+        "prepublishOnly": "mkdir -p data && cp -r lib/commands/defaults.json data/commands.json",
+        "release": "standard-version",
+        "release:ci": "conventional-github-releaser -p angular",
+        "release:validate": "commitlint --from=$(git describe --tags --abbrev=0) --to=$(git rev-parse HEAD)",
+        "security": "nsp check",
+        "test": "npm run prepublishOnly && mocha test/test.js --exit --timeout=5000",
+        "test:coverage": "mkdir -p coverage && nyc --silent npm test && npm run test:coverage:report",
+        "test:coverage:report": "nyc report --reporter=lcov --reporter=text-lcov --reporter=json --reporter=clover > coverage/lcov.info",
+        "ci:lint": "npm run lint && npm run security",
+        "ci:test": "npm run test -- --runInBand",
+        "ci:coverage": "npm run test:coverage -- --runInBand",
+        "defaults": "webpack-defaults"
+      },
+      "peerDependencies": {
+        "webpack": "^4.4.0"
+      },
+      "dependencies": {
+        "@webpack-contrib/config-loader": "^1.2.0",
+        "@webpack-contrib/schema-utils": "^1.0.0-beta.0",
+        "camelcase": "^5.0.0",
+        "chalk": "^2.3.2",
+        "debug": "^3.1.0",
+        "decamelize": "^2.0.0",
+        "enhanced-resolve": "^4.0.0",
+        "import-local": "^1.0.0",
+        "isobject": "^3.0.1",
+        "loader-utils": "^1.1.0",
+        "log-symbols": "^2.2.0",
+        "loud-rejection": "^1.6.0",
+        "meant": "^1.0.1",
+        "meow": "^5.0.0",
+        "merge-options": "^1.0.0",
+        "object.values": "^1.0.4",
+        "opn": "^5.3.0",
+        "ora": "^2.1.0",
+        "plur": "^3.0.0",
+        "pretty-bytes": "^5.0.0",
+        "strip-ansi": "^4.0.0",
+        "text-table": "^0.2.0",
+        "titleize": "^1.0.1",
+        "update-notifier": "^2.3.0",
+        "v8-compile-cache": "^2.0.0",
+        "webpack-log": "^1.1.2",
+        "wordwrap": "^1.0.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^6.1.3",
+        "@commitlint/config-conventional": "^6.1.3",
+        "@webpack-contrib/eslint-config-webpack": "^2.0.4",
+        "babel-cli": "^6.26.0",
+        "babel-jest": "^23.0.1",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "camelcase-keys": "^4.2.0",
+        "codecov": "^3.0.0",
+        "conventional-github-releaser": "^2.0.2",
+        "crc": "^3.5.0",
+        "cross-env": "^5.1.4",
+        "decamelize-keys": "^1.1.0",
+        "del": "^3.0.0",
+        "del-cli": "^1.1.0",
+        "eslint": "^4.19.1",
+        "eslint-config-webpack": "^1.2.5",
+        "eslint-plugin-import": "^2.8.0",
+        "eslint-plugin-prettier": "^2.6.0",
+        "execa": "^0.10.0",
+        "expect": "^23.1.0",
+        "html-webpack-plugin": "^3.2.0",
+        "husky": "^0.14.3",
+        "istanbul": "^0.4.5",
+        "jest-serializer-path": "^0.1.14",
+        "jest-snapshot": "^23.0.1",
+        "lint-staged": "^7.0.4",
+        "memory-fs": "^0.4.1",
+        "minimist": "^1.2.0",
+        "minimist-options": "^3.0.2",
+        "mocha": "^5.1.1",
+        "nsp": "^3.2.1",
+        "nyc": "^12.0.2",
+        "pre-commit": "^1.2.2",
+        "prettier": "^1.11.1",
+        "standard-version": "^4.3.0",
+        "stylelint-webpack-plugin": "^0.10.4",
+        "webpack": "^4.23.1",
+        "webpack-defaults": "^2.3.0"
+      },
+      "keywords": [
+        "webpack"
+      ],
+      "pre-commit": "lint-staged",
+      "lint-staged": {
+        "*.js": [
+          "eslint --fix",
+          "git add"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "lib/**/*.js"
+        ]
+      },
+      "gitHead": "feda7e0280645ee72bc9ba1d354dc96d09022e52",
+      "_id": "webpack-command@0.4.2",
+      "_npmVersion": "6.4.1",
+      "_nodeVersion": "10.11.0",
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "dist": {
+        "integrity": "sha512-2JZRlV+eT2nsw0DGDS/F4ndv0e/QVkyYj4/1fagp9DbjRagQ02zuVzELp/QF5mrCESKKvnXiBQoaBJUOjAMp8w==",
+        "shasum": "f6b4fdec004692e12413b33a9a251eb665edb020",
+        "tarball": "https://registry.npmjs.org/webpack-command/-/webpack-command-0.4.2.tgz",
+        "fileCount": 32,
+        "unpackedSize": 78082,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb2ybaCRA9TVsSAnZWagAATRYP/jdWTQyvc+TxwCr+yuEc\nDsZjWiSFqqwL09mAF9n/cj9J5eZFfjcly+6KhdZeBwn7zWAxttRn6Zzmh0zK\nEUKkEJ3vazg8Xg6jL1tJjXT/j1GZuP3eeZNxmeCcA1guqvdvo7QhhbQQ4oVp\nTKwgAyNw//0WejXLLPsZXAwqv2bLLct8wdYUs/5E8kRkJ3tQz4F9QYuNBv0D\nEDTbDCnFXixsFqtVmoU0nACx02Jrz4JV75dDLLAG53mYPdoh0Ik1HmPDN9L2\nN4ruHNxO/rinMd4H092xnXn3EOdEcyfjF/B3xGBhtnXYqZsAwoRY6zHVK8bD\nvvU7suptxHqyTtxEr2BH08sWIQ+M8NAbRP3ZTnBLVA0kK8HIoUu3oYgLfPXB\n77ITuKp3s/YT1nP3xAr3A2PgtxxhhVgCu2m2+UYgHeVP0gVn/Mgndlc3Bji+\nMKLhZLX2N9MV4cwQB36BsroL+QMUK70XNuMgQXlFCEqlQCrPon2t/Cr+AyRD\nrC28sqtOayLzebh0ugwsADIuSWho1UmN6K2QmxLu8hWNKepeNuIKYaovXsgT\n46gRIt+M39NSKkCZJfroUfG0ORUSNg6fIP7Vt3tAOxd30gUSImW4QLwQYvVv\nPt47eXKem2faRQgpkNMes8vWWi5U6fVwqasYEattAAFwROIN2/bioHACHelW\njS3q\r\n=QP1D\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIE/550LjkyWC0E6MF2Y+SuUVGSVWHPai7kGkgqLe1niPAiABrFmwNodVFP2Qp2Gx1QkZdVCSFwWFNjNdxhWyvUhOpA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "wiens.joshua@gmail.com",
+          "name": "d3viant0ne"
+        },
+        {
+          "email": "andrew@shellscape.org",
+          "name": "shellscape"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/webpack-command_0.4.2_1541088986062_0.073482212457324"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.5.0": {
+      "name": "webpack-command",
+      "version": "0.5.0",
+      "description": "A superior CLI experience for webpack.",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/shellscape/webpack-command.git"
+      },
+      "author": {
+        "name": "Andrew Powell",
+        "email": "andrew@shellscape.org"
+      },
+      "homepage": "https://github.com/shellscape/webpack-command",
+      "bugs": {
+        "url": "https://github.com/shellscape/webpack-command/issues"
+      },
+      "bin": {
+        "webpack": "lib/cli.js",
+        "webpack-command": "lib/cli.js",
+        "wp": "lib/cli.js"
+      },
+      "main": "lib/index.js",
+      "engines": {
+        "node": ">= 8.9.0"
+      },
+      "scripts": {
+        "commitlint": "commitlint",
+        "commitmsg": "commitlint -e $GIT_PARAMS",
+        "lint": "eslint --cache lib test",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "lint-staged": "lint-staged",
+        "prepublishOnly": "mkdir -p data && cp -r lib/commands/defaults.json data/commands.json",
+        "security": "npm audit",
+        "test": "npm run prepublishOnly && mocha test/test.js --exit --timeout=5000",
+        "test:coverage": "mkdir -p coverage && nyc --silent npm test && npm run test:coverage:report",
+        "test:coverage:report": "nyc report --reporter=lcov --reporter=text-lcov --reporter=json --reporter=clover > coverage/lcov.info",
+        "ci:lint": "npm run lint && npm run security",
+        "ci:test": "npm run test -- --runInBand",
+        "ci:coverage": "npm run test:coverage -- --runInBand"
+      },
+      "peerDependencies": {
+        "webpack": "^4.4.0"
+      },
+      "dependencies": {
+        "@webpack-contrib/config-loader": "^1.2.0",
+        "@webpack-contrib/schema-utils": "^1.0.0-beta.0",
+        "camelcase": "^5.0.0",
+        "chalk": "^2.3.2",
+        "debug": "^4.1.1",
+        "decamelize": "^3.2.0",
+        "enhanced-resolve": "^4.0.0",
+        "import-local": "^3.0.2",
+        "isobject": "^4.0.0",
+        "loader-utils": "^1.1.0",
+        "log-symbols": "^3.0.0",
+        "loud-rejection": "^2.1.0",
+        "meant": "^1.0.1",
+        "meow": "^5.0.0",
+        "merge-options": "^1.0.0",
+        "object.values": "^1.0.4",
+        "opn": "^6.0.0",
+        "ora": "^3.4.0",
+        "plur": "^3.0.0",
+        "pretty-bytes": "^5.0.0",
+        "strip-ansi": "^5.2.0",
+        "text-table": "^0.2.0",
+        "titleize": "^2.1.0",
+        "update-notifier": "^3.0.1",
+        "v8-compile-cache": "^2.0.0",
+        "webpack-log": "^3.0.1",
+        "wordwrap": "^1.0.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^8.1.0",
+        "@commitlint/config-conventional": "^8.1.0",
+        "babel-jest": "^24.9.0",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "camelcase-keys": "^6.0.1",
+        "codecov": "^3.0.0",
+        "crc": "^3.5.0",
+        "cross-env": "^5.1.4",
+        "decamelize-keys": "^1.1.0",
+        "del": "^5.0.0",
+        "del-cli": "^2.0.0",
+        "eslint": "^6.2.1",
+        "eslint-config-shellscape": "^2.0.2",
+        "execa": "^0.10.0",
+        "expect": "^24.9.0",
+        "html-webpack-plugin": "^3.2.0",
+        "husky": "^3.0.4",
+        "jest-serializer-path": "^0.1.14",
+        "jest-snapshot": "^23.0.1",
+        "lint-staged": "^9.2.3",
+        "memory-fs": "^0.4.1",
+        "minimist": "^1.2.0",
+        "minimist-options": "^4.0.1",
+        "mocha": "^6.2.0",
+        "nyc": "^14.1.1",
+        "pre-commit": "^1.2.2",
+        "prettier": "^1.11.1",
+        "standard-version": "^7.0.0",
+        "stylelint-webpack-plugin": "^0.10.4",
+        "uglifyjs-webpack-plugin": "^2.2.0",
+        "webpack": "^4.23.1"
+      },
+      "keywords": [
+        "webpack"
+      ],
+      "pre-commit": "lint-staged",
+      "lint-staged": {
+        "*.js": [
+          "eslint --fix",
+          "git add"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "lib/**/*.js"
+        ]
+      },
+      "gitHead": "fa43dcbdcbd2d264cb980033623c55a485371e89",
+      "_id": "webpack-command@0.5.0",
+      "_nodeVersion": "12.3.1",
+      "_npmVersion": "6.9.0",
+      "dist": {
+        "integrity": "sha512-w3f/ugph5bFKYzCPXE0sngzJTWoUKaEGuWIzr+jMjY57MM19tEUJ7ukBqKS3ff8mOQri/z9rSQnC84lbJ/PKng==",
+        "shasum": "abda6444894055737837ddd6981c49ec47226802",
+        "tarball": "https://registry.npmjs.org/webpack-command/-/webpack-command-0.5.0.tgz",
+        "fileCount": 32,
+        "unpackedSize": 76846,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdXIEjCRA9TVsSAnZWagAA8ksP/j4RL9mKfCQqp4t1LAGU\n3Chy+S+oxGJID+oyk86BB9juEtimZrQ53nr2leOiN0DT3Ph7pCvt7+x3dRZr\n1/MUUisGMyBH5MceIxIQuMkF9q/HdkBA7fSLoRVT4Nt6xuw/0tn+Nx1xSLYW\n1zPvo81Vs3AUmLxW+AVPtsff/fAVGMXqXp6eiSia6aR5HZnnO918X+lDqfiI\nYfN9w+LwFIQPOSQTLMwW9sRH36sTq5//aP0Ml7UxnxZidRgFCuc53SxI/Lww\n846WrAIQ6tLJ5dVNMp/CyHjVznb+HxkUaWoygDyqBvH44hGnTg1jN3QgrahW\nHuxU9nB0/q/j0R19U8CdoKpXx1gGe5MutLrQZxmBWbct7qOp7KmBT/fgBpMM\novvuWcFb/FKMwM0Rg6DZBlipsBtw/O8Y2ODshaSnAfzQP6HGiWf+IDlIVvWa\nNuiTlkaM/tIVycdaGgMAzvucMhjBeBu7LhtjGyjPadF6h6/eFwkwaVqrfzDu\nelXh8dx4g/2Q07LuhEXl5RpzEmmkOSbjzVt2Q4JQ04nlBlN7ShC0EI9bsWwP\n0XfCMe3RV8a3ynV36kyo/uOpuR6kTeTKFizBBPinFk/VOSIEhmrJLkpj7WEi\nwwDk5O2k6ZvI5EbmFPB12l40MlIiKzspgukBvnUy6d4v3rFg4L2lFdDpaTyr\nguEq\r\n=uW9B\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGWkLVwIz8ykvspQDwuTZTwvMRV8ssyrmHbHW1WoJ1EzAiEAlGobmquQfEUxudf+Mdu4F1vGI/UED9jWhpQ+mIwPU4w="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "wiens.joshua@gmail.com",
+          "name": "d3viant0ne"
+        },
+        {
+          "email": "andrew@shellscape.org",
+          "name": "shellscape"
+        }
+      ],
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/webpack-command_0.5.0_1566343458819_0.4576397984936118"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.5.1": {
+      "name": "webpack-command",
+      "version": "0.5.1",
+      "description": "A superior CLI experience for webpack.",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/shellscape/webpack-command.git"
+      },
+      "author": {
+        "name": "Andrew Powell",
+        "email": "andrew@shellscape.org"
+      },
+      "homepage": "https://github.com/shellscape/webpack-command",
+      "bugs": {
+        "url": "https://github.com/shellscape/webpack-command/issues"
+      },
+      "bin": {
+        "webpack": "lib/cli.js",
+        "webpack-command": "lib/cli.js",
+        "wp": "lib/cli.js"
+      },
+      "main": "lib/index.js",
+      "engines": {
+        "node": ">= 8.9.0"
+      },
+      "scripts": {
+        "commitlint": "commitlint",
+        "commitmsg": "commitlint -e $GIT_PARAMS",
+        "lint": "eslint --cache lib test",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "lint-staged": "lint-staged",
+        "prepublishOnly": "mkdir -p data && cp -r lib/commands/defaults.json data/commands.json",
+        "security": "npm audit",
+        "test": "npm run prepublishOnly && mocha test/test.js --exit --timeout=5000",
+        "test:coverage": "mkdir -p coverage && nyc --silent npm test && npm run test:coverage:report",
+        "test:coverage:report": "nyc report --reporter=lcov --reporter=text-lcov --reporter=json --reporter=clover > coverage/lcov.info",
+        "ci:lint": "npm run lint && npm run security",
+        "ci:test": "npm run test -- --runInBand",
+        "ci:coverage": "npm run test:coverage -- --runInBand"
+      },
+      "peerDependencies": {
+        "webpack": "^4.4.0"
+      },
+      "dependencies": {
+        "@webpack-contrib/config-loader": "^1.2.0",
+        "@webpack-contrib/schema-utils": "^1.0.0-beta.0",
+        "camelcase": "^5.0.0",
+        "chalk": "^2.3.2",
+        "debug": "^4.1.1",
+        "decamelize": "^3.2.0",
+        "enhanced-resolve": "^4.0.0",
+        "import-local": "^3.0.2",
+        "isobject": "^4.0.0",
+        "loader-utils": "^1.1.0",
+        "log-symbols": "^3.0.0",
+        "loud-rejection": "^2.1.0",
+        "meant": "^1.0.1",
+        "meow": "^5.0.0",
+        "merge-options": "^1.0.0",
+        "object.values": "^1.0.4",
+        "opn": "^6.0.0",
+        "ora": "^3.4.0",
+        "plur": "^3.0.0",
+        "pretty-bytes": "^5.0.0",
+        "strip-ansi": "^5.2.0",
+        "text-table": "^0.2.0",
+        "titleize": "^2.1.0",
+        "update-notifier": "^3.0.1",
+        "v8-compile-cache": "^2.0.0",
+        "webpack-log": "^3.0.1",
+        "wordwrap": "^1.0.0"
+      },
+      "devDependencies": {
+        "@commitlint/cli": "^8.1.0",
+        "@commitlint/config-conventional": "^8.1.0",
+        "babel-jest": "^24.9.0",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "camelcase-keys": "^6.0.1",
+        "codecov": "^3.0.0",
+        "crc": "^3.5.0",
+        "cross-env": "^5.1.4",
+        "decamelize-keys": "^1.1.0",
+        "del": "^5.0.0",
+        "del-cli": "^2.0.0",
+        "eslint": "^6.2.1",
+        "eslint-config-shellscape": "^2.0.2",
+        "execa": "^0.10.0",
+        "expect": "^24.9.0",
+        "html-webpack-plugin": "^3.2.0",
+        "husky": "^3.0.4",
+        "jest-serializer-path": "^0.1.14",
+        "jest-snapshot": "^23.0.1",
+        "lint-staged": "^9.2.3",
+        "memory-fs": "^0.4.1",
+        "minimist": "^1.2.5",
+        "minimist-options": "^4.0.1",
+        "mocha": "^6.2.0",
+        "nyc": "^14.1.1",
+        "pre-commit": "^1.2.2",
+        "prettier": "^1.11.1",
+        "standard-version": "^7.0.0",
+        "stylelint-webpack-plugin": "^0.10.4",
+        "uglifyjs-webpack-plugin": "^2.2.0",
+        "webpack": "^4.23.1"
+      },
+      "keywords": [
+        "webpack"
+      ],
+      "pre-commit": "lint-staged",
+      "lint-staged": {
+        "*.js": [
+          "eslint --fix",
+          "git add"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "lib/**/*.js"
+        ]
+      },
+      "gitHead": "d03ffac646fb8f350dd71fd17cc353058bfc7d71",
+      "_id": "webpack-command@0.5.1",
+      "_nodeVersion": "14.15.3",
+      "_npmVersion": "6.14.9",
+      "dist": {
+        "integrity": "sha512-JFFBk2zsqs35JF4M26Fmvf5NwcjH3dVIKXrUGMwKCS5iCXRsMFI/kKqgTxNrVIo2YZEv7qtSPxscYupTu/qycQ==",
+        "shasum": "20a756821cdfc97cec4f79343cc2dd33d5674b46",
+        "tarball": "https://registry.npmjs.org/webpack-command/-/webpack-command-0.5.1.tgz",
+        "fileCount": 32,
+        "unpackedSize": 76846,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgZc3qCRA9TVsSAnZWagAA2CkP/AnDkYKVEBVklFwey84m\nRgstp5Ox0mryTeNlASePOCL77Px7j1B3wv2FwDQXvZQk0HCKCbHomNu4eKCO\necLreHXIzb1RCn9R7ZB0jQsmQCrmUNi1GnyxN5eg1AusuijfgfT8TtFgzcJ2\nm2IMmDX1UnnfWHE9DFQudYmE/ab2Y6saZ287fKiD7Xm+KoAS4xqXUuvIrjDq\nyR2R8Sb8dQl4iyPBM/T7DQc1P+Lo+H3aNOXoYHpALUFHs45kjPR3lMT9AJLV\nuXnlVaLp/Deps2vt5ZK97zipt3vtnK+CqGOSf+Id7m6Ntp7vDV7EjYYFTAgD\nvZ2XSr9OX2nMmBm0/8SJhfyP3R3byjGYR5r40vDFK9a+LZRssOs4iWB0uWlR\ncReN6BKo2F3Wa+aseaemVFinTL1+rCiDnjMLv0JyiPunS0CZ+ea9xoYJnsZZ\niGtVxwoOOEx+YS3zwHsnT1lqVzTXHXqyYt/Uuyuj3Y23zhxKMIZ7IpfG/MU9\naNx2P6+0majRcGlDspoAGvVyle/LtdxgBfuCoaNpLLLXlWwG5++XRBuEC2v9\nVT5UbYQZtRhwKcpAfXOM/EFxNaajARzxtx0wZpvVSywxbDRVAUBFbLc4KDCL\nXNW5pHTmMcrLr9EsqZnhy8KD0f9/jYpB6UZGu7BhwGCjrHekm7gnN6nrcw/D\niu74\r\n=eGOz\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEzKCKt2eIMS7Z1SCKDKCxW8qK34l5IfhNSXz6RxpY2uAiEAptLdUpp3wqULGmVZAg0qJgMZcEQ/14s4CZuTIzmk1hY="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/webpack-command_0.5.1_1617284585993_0.6786978675827084"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2018-04-26T05:18:50.996Z",
+    "0.0.0": "2018-04-26T05:18:51.141Z",
+    "modified": "2022-05-24T06:38:10.318Z",
+    "0.1.0": "2018-04-29T15:18:57.972Z",
+    "0.1.1": "2018-05-03T20:43:14.649Z",
+    "0.2.0": "2018-05-09T12:50:38.814Z",
+    "0.2.1": "2018-06-07T16:14:27.270Z",
+    "0.3.0": "2018-06-25T14:31:57.972Z",
+    "0.3.1": "2018-06-27T15:30:55.999Z",
+    "0.4.0": "2018-07-02T22:01:11.368Z",
+    "0.4.1": "2018-07-06T15:15:54.289Z",
+    "0.4.2": "2018-11-01T16:16:26.181Z",
+    "0.5.0": "2019-08-20T23:24:18.987Z",
+    "0.5.1": "2021-04-01T13:43:06.196Z"
+  },
+  "maintainers": [
+    {
+      "name": "shellscape",
+      "email": "andrew@shellscape.org"
+    }
+  ],
+  "description": "A superior CLI experience for webpack.",
+  "homepage": "https://github.com/shellscape/webpack-command",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shellscape/webpack-command.git"
+  },
+  "author": {
+    "name": "Andrew Powell",
+    "email": "andrew@shellscape.org"
+  },
+  "bugs": {
+    "url": "https://github.com/shellscape/webpack-command/issues"
+  },
+  "license": "MIT",
+  "readme": "\n[![npm][npm]][npm-url]\n[![node][node]][node-url]\n[![deps][deps]][deps-url]\n[![tests][tests]][tests-url]\n[![coverage][cover]][cover-url]\n[![chat][chat]][chat-url]\n[![size][size]][size-url]\n\n# webpack-command\n\nFor a truly fast, teensy, squeaky clean Webpack CLI - try [webpack-nano](https://www.npmjs.com/package/webpack-nano).\n\n> Note: webpack-command is now being maintained on [this fork](https://github.com/shellscape/webpack-command), and will be open to Pull Requests and Issues for users that prefer this CLI. The webpack-contrib org has chosen to drop support for this module and is no longer actively maintaining it.\n\nA superior CLI experience for webpack. Modular and opinionated.\n\nFor users coming from `webpack-cli`, please read about\n[the differences](#differences-with-webpack-cli) between this module and\n`webpack-cli`.\n\n## Requirements\n\nThis module requires a minimum of Node v6.14.0 and Webpack v4.0.0.\n\n`webpack-command` and `webpack-cli` cannot be installed at the same time, as\nthey both export a bin file named `webpack`. When trying `webpack-command`,\nplease `npm uninstall webpack-cli` first.\n\n## Benefits\n\n`webpack-command` has many advantages over other CLI experiences for `webpack`.\nThese include:\n\n- [Extendable Webpack Configurations](#extendable-webpack-configurations). A\nconfiguration file can extend the properties and collections from base\nconfigurations, and are filtered intelligently.\n- Custom Reporters 🤯\n- A beautiful default user experience with output driven by\n[`webpack-stylish`](https://www.npmjs.com/package/webpack-stylish)\n- Support for `webpack` configuration in any language or compiler that provides\na `require` hook\n- Support for `webpack` configuration in `JSON`, `YAML`, or `JavaScript`\n- Validation of commands, entries, and flags before further execution\n- Extensible third-party commands. Include only what you need!\n- A full test suite with 220 tests and 95% coverage (so close to 100% 💪)\n- A ~~93%~~ 24% smaller package cost versus `webpack-cli` (it used to be 93%,\n  they got wise after _webpack-command_ was released)\n- Highly focused on the User Experience and detail\n\nAnd last but not least, Did-You-Mean suggestions for flags:\n\n<img width=\"427\" src=\"https://raw.githubusercontent.com/shellscape/webpack-command/master/assets/did-you-mean.png\" alt=\"did you mean\">\n\n## Getting Started\n\nTo begin, you'll need to install `webpack-command`:\n\n```console\n$ npm install webpack-command --save-dev\n```\n\n## CLI\n\nThe primary binary for webpack-command is `wp` (because who doesn't like to save\nkeystrokes!?) Although, you may also use the `webpack` binary as per usual if\nyour setup installs this module _after_ webpack, and the two don't conflict.\n\n```console\n$ wp --help\n\n  A superior CLI experience for webpack. Lightweight, modular, and opinionated.\n\n  Usage\n    $ webpack [<config>, ...options]\n    $ webpack <entry-file> [...<entry-file>] <output-file>\n    $ webpack <command> [...options]\n\n  Options\n    --context                     The root directory for resolving entry point and stats\n    --debug                       Switch loaders to debug mode\n    --devtool                     Enable devtool for better debugging experience.\n                                  e.g. --devtool eval-cheap-module-source-map\n    --entry                       The entry point\n    --help                        Show usage information and the options listed here\n    --log-level                   Limit all process console messages to a specific level and above\n                                  Levels: trace, debug, info, warn, error, silent\n    --log-time                    Instruct the logger for webpack-serve and dependencies to display a timestamp\n    --progress                    Instructs webpack to track and display build progress\n    --reporter                    Specifies the reporter to use for generating console output for a build\n    --require                     Preload one or more modules before loading the webpack configuration\n                                  Typically used for language-specific require hooks\n    --run-dev                     An alias for --debug --devtool eval-cheap-module-source-map --output-pathinfo\n    --run-prod                    An alias for --optimize-minimize --define process.env.NODE_ENV=\"production\"\n    --version                     Display the webpack-command version\n    --watch                       Watch the filesystem for changes\n\n  Advanced\n    --bail                        Abort the compilation on first error\n    --cache                       Enable in memory caching\n    --define                      Define any free var in the bundle\n    --hot                         Enables Hot Module Replacement\n    --plugin                      Load this plugin\n    --prefetch                    Prefetch this request\n                                  e.g. --prefetch ./file.js\n    --profile                     Profile the compilation and include information in stats\n    --provide                     Provide these modules as free vars in all modules\n                                  e.g. --provide.jQuery jquery\n    --records-input-path          Path to the records file (reading)\n    --records-output-path         Path to the records file (writing)\n    --records-path                Path to the records file\n    --target                      The targeted execution environment\n    --watch-aggregate-timeout     Timeout for gathering changes while watching\n    --watch-poll                  The polling interval for watching (also enable polling)\n    --watch-stdin                 Exit the process when stdin is closed\n\n  Configuration File\n    --config                      Path to the config file\n    --config-name                 Name of the config to use\n    --config-register             Deprecated. Please use --require.\n    --mode                        Specifies the build mode to use; development or production\n\n  Modules\n    --module-bind                 Bind an extension to a loader\n    --module-bind-post            Bind an extension to a postLoader\n    --module-bind-pre             Bind an extension to a preLoader\n\n  Optimization\n    --optimize-max-chunks         Try to keep the chunk count below a limit\n    --optimize-min-chunk-size     Try to keep the chunk size above a limit\n    --optimize-minimize           Minimize javascript and switches loaders to minimizing\n\n  Output\n    --output                      The output path and file for compilation assets\n    --output-chunk-filename       The output filename for additional chunks\n    --output-filename             The output filename of the bundle\n    --output-jsonp-function       The name of the JSONP function used for chunk loading\n    --output-library              Expose the exports of the entry point as library\n    --output-library-target       The type for exposing the exports of the entry point as library\n    --output-path                 The output path for compilation assets\n    --output-pathinfo             Include a comment with the request for every dependency (require, import, etc.)\n    --output-public-path          The public path for the assets\n    --output-source-map-filename  The output filename for the SourceMap\n\n  Resolver\n    --resolve-alias               Setup a module alias for resolving\n                                  e.g. --resolve-alias.jquery jquery.plugin\n    --resolve-extensions          Setup extensions that should be used to resolve modules\n                                  e.g. .es6,.js\n    --resolve-loader-alias        Setup a loader alias for resolving\n\n\n    For further documentation, visit https://webpack.js.org/api/cli\n\n  Commands\n    help\n    teach\n\n    Type `webpack help <command>` for more information\n```\n\nAs a convenience for alternative package managers, the `webpack-command` binary\nis also installed with this package.\n\n## Extendable Webpack Configurations\n\nThis module supports extending webpack configuration files with\n[ESLint-style](https://eslint.org/docs/user-guide/configuring#extending-configuration-files)\n`extends` functionality. This feature allows users to create a \"base\" config and\nin essence, \"inherit\" from that base config in a separate config. A bare-bones\nexample:\n\n```js\n// base.config.js\nmodule.exports = {\n  name: 'base',\n  mode: 'development',\n  plugins: [...]\n}\n```\n\n```js\n// webpack.config.js\nmodule.exports = {\n  extends: path.join(..., 'base-config.js'),\n  name: 'dev'\n```\n\nThe resulting configuration object would resemble:\n\n```js\n{\n  name: 'dev',\n  mode: 'development',\n  plugins: [...]\n}\n```\n\n[Read More about Extending Configuration Files](https://github.com/shellscape/config-loader/blob/master/docs/EXTENDS.md)\n\n## Commands\n\n`webpack-command` allows users to extend the `webpack` CLI experience by\nincluding a few helpful built-in commands, and providing a means to develop\nthird-party commands.\n\n### Built-In Commands\n\n- [Help Command](docs/HelpCommand.md)\n- [Teach Command](docs/TeachCommand.md)\n\n## Flags\n\nFor more documentation on flags, please see the\n[`webpack-cli` documentation](https://webpack.js.org/api/cli/).\n\n## Differences With `webpack-cli`\n\nWhile this project aims for parity with `webpack-cli` in nearly all aspects,\nthere are some notable differences. Included in those differences is the note\nthat this module includes the bare minimum of commands to provide a `webpack`\nCLI. Commands like `init`, `migrate`, and `update` are relegated to separate,\nuser-installed modules.\n\nThat said, the following differences should also be noted:\n\n### The `--env` Flag is Nuked\n\n[Environment Variables](https://en.wikipedia.org/wiki/Environment_variable) have\nbeen around a very, very long time. `webpack-cli` chose to introduce a feature\nthat let users specify environment variables via a flag. This module does not\ninclude that feature. Instead, users should make use of environment variables\nthe traditional, standard way:\n\n`$ NEAT_VAR=woo webpack ...`\n\nAnd access the values via `process.env`. Alternatively, if users are in need of\ncross-platform environment variables, a tool such as\n[`cross-env`](https://www.npmjs.com/package/cross-env) should be leveraged.\n\n### Key=Value Pairs\n\nCertain flags passed in `webpack-cli` allow for a key-value pair for\npairing an alias with the alias value. e.g. `--entry name=file`. This module\nadopts a CLI-standard approach by using the syntax `--flag.key value` instead,\nand does not support the `key=value` syntax.\n\n### Entries\n\nSpecifying entries by either flag (`--flag`) or input (`webpack <file>`) require\nthat the file or directory specified exist.\n\nEntries passed with a comma-separated value `--entry file,file2` are deprecated\nand should be migrated to use the CLI-standard `--entry file --entry file2`\nsyntax.\n\nEntries passed by flag in `webpack-cli` using `--entry name=file` should be\nmigrated to use the `--entry.name file` syntax.\n\n### Resolve Alias\n\nResolve aliases passed by flag in `webpack-cli` using\n`--resolve-alias alias=value` should be migrated to use the `--resolve-alias.{alias} {value}`\nsyntax.\n\n### Resolve Loader Alias\n\nResolve aliases passed by flag in `webpack-cli` using\n`--resolve-loader-alias alias=value` should be migrated to use the\n`--resolve-loader-alias.alias value` syntax.\n\n## Reporters\n\n`webpack-command` supports custom, user-defined reporters which allow users\nfull control over how build data is presented. By default, it ships with two\navailable reporters:\n\n#### `basic`\n\nDisplays the default `webpack` output, the same you'll see\nusing `webpack-cli`.\n\n#### `stylish`\n\nThe **default** reporter and displays beautiful output using the same code\nthat drives [`webpack-stylish`](https://www.npmjs.com/package/webpack-stylish).\n\nBuilding your own reporter is as easy as inheriting from the `Reporter` class\nlocated at `lib/reporters/Reporter.js`.\n\n## Configuration Languages and Compilers\n\n`webpack-command` allows users to leverage any language that provides a require\nhook. To leverage this feature, define your configs as such for the following\nlanguages/compilers:\n\n- Babel ES6 Modules: `webpack.config.js` or `webpack.config.es6`, and use\n`--require babel-register`\n- Flow: `webpack.config.js` or `webpack.config.flow`, and use\n`--require flow-remove-types/register`\n- TypeScript: `webpack.config.ts`, and use `--require ts-node/register`\n\nOther hooks may work for additional language or compiler support.\n\n_Note: Compilers are not part of, nor built-into this module. To use a specific\ncompiler, you must install it first._\n\n## Gotchas\n\nAny entry files specified will overwrite entries in a `webpack.config.js` file\nas of [this Pull Request](https://github.com/webpack/webpack-cli/pull/358) in\n`webpack-cli`.\n\n## Contributing\n\nPlease take a moment to read our contributing guidelines if you haven't yet done so.\n\n#### [CONTRIBUTING](./.github/CONTRIBUTING.md)\n\n## License\n\n#### [MIT](./LICENSE)\n\n[npm]: https://img.shields.io/npm/v/webpack-command.svg\n[npm-url]: https://npmjs.com/package/webpack-command\n\n[node]: https://img.shields.io/node/v/webpack-command.svg\n[node-url]: https://nodejs.org\n\n[deps]: https://david-dm.org/shellscape/webpack-command.svg\n[deps-url]: https://david-dm.org/shellscape/webpack-command\n\n[tests]: \thttps://img.shields.io/circleci/project/github/shellscape/webpack-command.svg\n[tests-url]: https://circleci.com/gh/shellscape/webpack-command\n\n[cover]: https://codecov.io/gh/shellscape/webpack-command/branch/master/graph/badge.svg\n[cover-url]: https://codecov.io/gh/shellscape/webpack-command\n\n[chat]: https://img.shields.io/badge/gitter-webpack%2Fwebpack-brightgreen.svg\n[chat-url]: https://gitter.im/webpack/webpack\n\n[size]: https://packagephobia.now.sh/badge?p=webpack-command\n[size-url]: https://packagephobia.now.sh/result?p=webpack-command",
+  "readmeFilename": "README.md",
+  "keywords": [
+    "webpack"
+  ]
+}

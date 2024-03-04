@@ -1,0 +1,1412 @@
+{
+  "_id": "gulp-nsp",
+  "_rev": "41-139f77910b58964113189e245bae0660",
+  "name": "gulp-nsp",
+  "time": {
+    "modified": "2022-06-18T17:37:57.352Z",
+    "created": "2015-02-27T16:04:56.461Z",
+    "0.0.1": "2015-02-27T16:04:56.461Z",
+    "0.0.2": "2015-02-27T16:06:49.749Z",
+    "0.0.3": "2015-02-27T16:17:15.990Z",
+    "0.0.4": "2015-02-27T16:21:02.438Z",
+    "0.4.0": "2015-03-09T00:17:15.924Z",
+    "0.4.2": "2015-03-09T01:10:53.813Z",
+    "0.4.3": "2015-03-23T13:33:35.442Z",
+    "0.4.5": "2015-04-19T16:26:12.969Z",
+    "2.0.0": "2015-10-31T16:36:29.490Z",
+    "2.0.1": "2015-11-02T20:36:41.921Z",
+    "2.1.0": "2015-11-03T01:14:25.901Z",
+    "2.2.0": "2015-12-07T17:47:18.349Z",
+    "2.2.1": "2015-12-07T17:48:46.558Z",
+    "2.3.0": "2016-01-08T17:06:25.678Z",
+    "2.3.1": "2016-03-11T18:48:20.585Z",
+    "2.4.0": "2016-03-30T20:21:42.955Z",
+    "2.4.1": "2016-05-06T17:35:55.870Z",
+    "2.4.2": "2016-07-13T21:43:44.748Z",
+    "3.0.0": "2018-02-15T20:47:47.502Z",
+    "3.0.1": "2018-02-15T21:35:19.689Z"
+  },
+  "maintainers": [
+    {
+      "email": "ops@andyet.net",
+      "name": "andyet-ops"
+    },
+    {
+      "email": "quitlahok@gmail.com",
+      "name": "nlf"
+    },
+    {
+      "email": "baldwin@andyet.net",
+      "name": "adam_baldwin"
+    },
+    {
+      "email": "joeycozza@gmail.com",
+      "name": "joeycozza"
+    }
+  ],
+  "dist-tags": {
+    "latest": "3.0.1"
+  },
+  "description": "A gulp module that runs Node Security check",
+  "readme": "# gulp-nsp\n\n# Installation\n\nTo install the gulp-nsp module into your project simply run\n\n```bash\nnpm install gulp-nsp --save\n```\n\n# Usage\n\nThen in your gulpfile, add the following task.\n\n```javascript\nvar gulpNSP = require('gulp-nsp');\n\n//To check your project\ngulp.task('nsp', function (cb) {\n  gulpNSP({package: __dirname + '/package.json'}, cb);\n});\n```\n\n```javascript\n//If you're using a shrinkwrap file, pass both the shrinkwrap and the package.json\ngulp.task('nsp', function (cb) {\n  gulpNSP({\n    shrinkwrap: __dirname + '/npm-shrinkwrap.json',\n    package: __dirname + '/package.json'\n  }, cb);\n});\n```\n\n## Options\n\n### stopOnError\nIf you don't want to stop your gulp flow if some vulnerabilities have been found use the stopOnError option:\n\n```javascript\ngulp.task('nsp', function (cb) {\n  gulpNSP({\n    package: __dirname + '/package.json',\n    stopOnError: false\n  }, cb);\n});\n```\n\n### output\nIf you want to use an alternative output reporter provided by nsp use the output option.\n\n```javascript\ngulp.task('nsp', function (cb) {\n  gulpNSP({\n    package: __dirname + '/package.json',\n    reporter: 'summary'\n  }, cb);\n});\n```\n\n### proxy\nIf you want to use a proxy you can configure it via this option.\n\n\n```javascript\ngulp.task('nsp', function (cb) {\n  gulpNSP({\n    package: __dirname + '/package.json',\n    proxy: 'http://127.0.0.1:8080'\n  }, cb);\n});\n```\n\n### Exceptions\nThe Node Security CLI supports adding exceptions. These are advisories that you have evaluated and personally deemed unimportant for your project. Instructions are available on the [nsp cli repository](https://github.com/nodesecurity/nsp#exceptions).\n\n## License\n\n    Copyright (c) 2016 by ^Lift Security\n\n    Licensed under the Apache License, Version 2.0 (the \"License\");\n    you may not use this file except in compliance with the License.\n    You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n    Unless required by applicable law or agreed to in writing, software\n    distributed under the License is distributed on an \"AS IS\" BASIS,\n    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\n    See the License for the specific language governing permissions and\n    limitations under the License.\n\nNote: the above text describes the license for the code located in this repository *only*. Usage of this tool or the API this tool accesses implies acceptance of our [terms of service](https://nodesecurity.io/tos).\n\n",
+  "versions": {
+    "0.4.0": {
+      "name": "gulp-nsp",
+      "version": "0.4.0",
+      "description": "A gulp plugin that runs the Node Security Project audit for you",
+      "main": "index.js",
+      "scripts": {
+        "codestyle": "jscs index.js test/*.js",
+        "lint": "jshint .",
+        "test": "mocha"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/nodesecurity/gulp-nsp"
+      },
+      "precommit": [
+        "codestyle",
+        "lint",
+        "test"
+      ],
+      "keywords": [
+        "gulp",
+        "nsp",
+        "security",
+        "plugin",
+        "gulpplugin"
+      ],
+      "author": {
+        "name": "Joey Cozza"
+      },
+      "contributors": [
+        {
+          "name": "David Dias",
+          "email": "daviddias.p@gmail.com"
+        },
+        {
+          "name": "Alexis Mineaud",
+          "email": "alexis.mineaud@gmail.com"
+        }
+      ],
+      "license": "ISC",
+      "dependencies": {
+        "async": "^0.9.0",
+        "chalk": "^1.0.0",
+        "nsp-audit-package": "^0.2.0",
+        "nsp-audit-shrinkwrap": "^1.0.3",
+        "text-table": "^0.2.0"
+      },
+      "devDependencies": {
+        "chai": "^2.1.0",
+        "gulp-util": "^3.0.4",
+        "jscs": "^1.11.3",
+        "jshint": "^2.6.3",
+        "mocha": "^2.1.0",
+        "precommit-hook": "^1.0.7"
+      },
+      "gitHead": "7d2f4b691eba837165b034dd54f1b8631e62bea5",
+      "bugs": {
+        "url": "https://github.com/nodesecurity/gulp-nsp/issues"
+      },
+      "homepage": "https://github.com/nodesecurity/gulp-nsp",
+      "_id": "gulp-nsp@0.4.0",
+      "_shasum": "915d4a41bb7115a94e495e29706ac2ef6e8df94e",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "joeycozza",
+        "email": "joeycozza@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "joeycozza",
+          "email": "joeycozza@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "915d4a41bb7115a94e495e29706ac2ef6e8df94e",
+        "tarball": "https://registry.npmjs.org/gulp-nsp/-/gulp-nsp-0.4.0.tgz",
+        "integrity": "sha512-+6jTSNq5CMFoidKEGqB+9AHDZD/T7xil7ksDQYFWY+I0RAWpN2CVlh+ncKKxch3kQyPFklNeUWv8X3rkJA/h6w==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCXoG8FGUEch+aKvf1hVHco9YJoMfqI15Pa7b27p/kf+gIgOCJAxHLjOXhpzy6lc0HstxRftqPP3NnW1I4hSz4h3mw="
+          }
+        ]
+      },
+      "deprecated": "new api version released, version 2.0.0 or greater required",
+      "directories": {}
+    },
+    "0.4.2": {
+      "name": "gulp-nsp",
+      "version": "0.4.2",
+      "description": "A gulp plugin that runs the Node Security Project audit for you",
+      "main": "index.js",
+      "scripts": {
+        "codestyle": "jscs index.js test/*.js",
+        "lint": "jshint .",
+        "test": "mocha"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/nodesecurity/gulp-nsp"
+      },
+      "precommit": [
+        "codestyle",
+        "lint",
+        "test"
+      ],
+      "keywords": [
+        "gulp",
+        "nsp",
+        "security",
+        "plugin",
+        "gulpplugin"
+      ],
+      "author": {
+        "name": "Joey Cozza"
+      },
+      "contributors": [
+        {
+          "name": "David Dias",
+          "email": "daviddias.p@gmail.com"
+        },
+        {
+          "name": "Alexis Mineaud",
+          "email": "alexis.mineaud@gmail.com"
+        }
+      ],
+      "license": "ISC",
+      "dependencies": {
+        "async": "^0.9.0",
+        "chalk": "^1.0.0",
+        "nsp-audit-package": "^0.2.0",
+        "nsp-audit-shrinkwrap": "^1.0.3",
+        "text-table": "^0.2.0"
+      },
+      "devDependencies": {
+        "chai": "^2.1.0",
+        "gulp-util": "^3.0.4",
+        "jscs": "^1.11.3",
+        "jshint": "^2.6.3",
+        "mocha": "^2.1.0",
+        "precommit-hook": "^1.0.7"
+      },
+      "gitHead": "cf74e4d3077de7dedcdfe6774a3c69ccad99714e",
+      "bugs": {
+        "url": "https://github.com/nodesecurity/gulp-nsp/issues"
+      },
+      "homepage": "https://github.com/nodesecurity/gulp-nsp",
+      "_id": "gulp-nsp@0.4.2",
+      "_shasum": "520a80f0a127546ce746903c9ab842b963f2b3d3",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "joeycozza",
+        "email": "joeycozza@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "joeycozza",
+          "email": "joeycozza@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "520a80f0a127546ce746903c9ab842b963f2b3d3",
+        "tarball": "https://registry.npmjs.org/gulp-nsp/-/gulp-nsp-0.4.2.tgz",
+        "integrity": "sha512-tWEDSOcWwx0uw2du8AK33lREMFiLxkiC/5C5RGKTI3uXceceRWKlRswrRy4cfwNZWm0BT/8NAOhDwRRLERpj4g==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHR12kKogVSrNxcYE++bNm8Z412UkRCAYDal8xMcqjCXAiAIDWxS25K+DhoCsu4jaLQoWYvUSGPO1y+HMOflg/5cFQ=="
+          }
+        ]
+      },
+      "deprecated": "new api version released, version 2.0.0 or greater required",
+      "directories": {}
+    },
+    "0.4.3": {
+      "name": "gulp-nsp",
+      "version": "0.4.3",
+      "description": "A gulp plugin that runs the Node Security Project audit for you",
+      "main": "index.js",
+      "scripts": {
+        "codestyle": "jscs index.js test/*.js",
+        "lint": "jshint .",
+        "test": "mocha"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/nodesecurity/gulp-nsp"
+      },
+      "precommit": [
+        "codestyle",
+        "lint",
+        "test"
+      ],
+      "keywords": [
+        "gulp",
+        "nsp",
+        "security",
+        "plugin",
+        "gulpplugin"
+      ],
+      "author": {
+        "name": "Joey Cozza"
+      },
+      "contributors": [
+        {
+          "name": "David Dias",
+          "email": "daviddias.p@gmail.com"
+        },
+        {
+          "name": "Alexis Mineaud",
+          "email": "alexis.mineaud@gmail.com"
+        }
+      ],
+      "license": "ISC",
+      "dependencies": {
+        "async": "^0.9.0",
+        "chalk": "^1.0.0",
+        "gulp-util": "^3.0.4",
+        "nsp-audit-package": "^0.2.0",
+        "nsp-audit-shrinkwrap": "^1.0.3",
+        "text-table": "^0.2.0"
+      },
+      "devDependencies": {
+        "chai": "^2.1.0",
+        "jscs": "^1.11.3",
+        "jshint": "^2.6.3",
+        "mocha": "^2.1.0",
+        "precommit-hook": "^1.0.7"
+      },
+      "gitHead": "287922b0eecb7184bea78f08ef1b497c6f4ef4f0",
+      "bugs": {
+        "url": "https://github.com/nodesecurity/gulp-nsp/issues"
+      },
+      "homepage": "https://github.com/nodesecurity/gulp-nsp",
+      "_id": "gulp-nsp@0.4.3",
+      "_shasum": "f1c9241b49822e04abeae3aa68d9c47808d0a825",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "joeycozza",
+        "email": "joeycozza@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "joeycozza",
+          "email": "joeycozza@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "f1c9241b49822e04abeae3aa68d9c47808d0a825",
+        "tarball": "https://registry.npmjs.org/gulp-nsp/-/gulp-nsp-0.4.3.tgz",
+        "integrity": "sha512-Hq9YFck6tO+42TLVkneaIcqBaGXMB7iza2ShoS10G5Eo6dpGkiZ2lotK5BnIp/B3kDssXZHfU5GcjeSujdf/wQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICbpUVlpk/cbc4rSXgZopyfGW5D3apLi32+DhR+RKVHvAiBLL/sGVaYR1r0l1UcbVkEdqD3WTMAvc9U1EsxC/IcA4Q=="
+          }
+        ]
+      },
+      "deprecated": "new api version released, version 2.0.0 or greater required",
+      "directories": {}
+    },
+    "0.4.5": {
+      "name": "gulp-nsp",
+      "version": "0.4.5",
+      "description": "A gulp plugin that runs the Node Security Project audit for you",
+      "main": "index.js",
+      "scripts": {
+        "codestyle": "jscs index.js test/*.js",
+        "lint": "jshint .",
+        "test": "mocha"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/nodesecurity/gulp-nsp"
+      },
+      "precommit": [
+        "codestyle",
+        "lint",
+        "test"
+      ],
+      "keywords": [
+        "gulp",
+        "nsp",
+        "security",
+        "plugin",
+        "gulpplugin"
+      ],
+      "author": {
+        "name": "Joey Cozza"
+      },
+      "contributors": [
+        {
+          "name": "David Dias",
+          "email": "daviddias.p@gmail.com"
+        },
+        {
+          "name": "Alexis Mineaud",
+          "email": "alexis.mineaud@gmail.com"
+        }
+      ],
+      "license": "ISC",
+      "dependencies": {
+        "async": "^0.9.0",
+        "chalk": "^1.0.0",
+        "gulp-util": "^3.0.4",
+        "nsp-audit-package": "^0.2.0",
+        "nsp-audit-shrinkwrap": "^1.0.3",
+        "text-table": "^0.2.0"
+      },
+      "devDependencies": {
+        "chai": "^2.1.0",
+        "jscs": "^1.11.3",
+        "jshint": "^2.6.3",
+        "mocha": "^2.1.0",
+        "precommit-hook": "^1.0.7"
+      },
+      "gitHead": "79969d719e8407c272f13ecf963dd13b8a93dbcd",
+      "bugs": {
+        "url": "https://github.com/nodesecurity/gulp-nsp/issues"
+      },
+      "homepage": "https://github.com/nodesecurity/gulp-nsp",
+      "_id": "gulp-nsp@0.4.5",
+      "_shasum": "cb70780d0ac1c77667e380f6b382d6aed9c6c3f6",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "joeycozza",
+        "email": "joeycozza@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "joeycozza",
+          "email": "joeycozza@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "cb70780d0ac1c77667e380f6b382d6aed9c6c3f6",
+        "tarball": "https://registry.npmjs.org/gulp-nsp/-/gulp-nsp-0.4.5.tgz",
+        "integrity": "sha512-HZC9NENl3exEA1xnlMPyxB+Ok/h8AOJbItHB1yrSEi2LanfHPQhlGwRud21bmqrf/P9b9wUhhaBDDWKrAgnN1Q==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQC85rP9cmbemftiPiLbLQIjlAia3hsx3mn2LRXS0yoZ0wIhALnRPDIoisLLbmsqnD6uRwGdbeAJUD59vX5u92tb9hUu"
+          }
+        ]
+      },
+      "deprecated": "new api version released, version 2.0.0 or greater required",
+      "directories": {}
+    },
+    "2.0.0": {
+      "name": "gulp-nsp",
+      "version": "2.0.0",
+      "description": "A gulp plugin that runs Node Security check",
+      "main": "index.js",
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "shrinkwrap": "npm shrinkwrap && shrinkydink"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/nodesecurity/gulp-nsp.git"
+      },
+      "keywords": [
+        "security",
+        "gulp",
+        "gulpplugin",
+        "requiresafe",
+        "nodesecurity"
+      ],
+      "author": {
+        "name": "^Lift Security"
+      },
+      "bugs": {
+        "url": "https://github.com/nodesecurity/gulp-nsp/issues"
+      },
+      "homepage": "https://github.com/nodesecurity/gulp-nsp#readme",
+      "dependencies": {
+        "chalk": "^1.1.1",
+        "cli-table": "^0.3.1",
+        "nsp": "^2.0.0"
+      },
+      "devDependencies": {
+        "code": "^1.5.0",
+        "eslint": "^1.7.3",
+        "eslint-config-requiresafe": "1.0.0",
+        "gulp": "^3.9.0",
+        "gulp-util": "^3.0.6",
+        "lab": "^6.2.0",
+        "shrinkydink": "^1.0.0"
+      },
+      "license": "Apache-2.0",
+      "gitHead": "53bf96ee4c6edfd5248920bfe71f0cd0d872dd1b",
+      "_id": "gulp-nsp@2.0.0",
+      "_shasum": "7ae8e70ffc89e30e75cc710ab43baba34242a9c4",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "adam_baldwin",
+        "email": "baldwin@andyet.net"
+      },
+      "maintainers": [
+        {
+          "name": "adam_baldwin",
+          "email": "baldwin@andyet.net"
+        },
+        {
+          "name": "joeycozza",
+          "email": "joeycozza@gmail.com"
+        },
+        {
+          "name": "nlf",
+          "email": "quitlahok@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "7ae8e70ffc89e30e75cc710ab43baba34242a9c4",
+        "tarball": "https://registry.npmjs.org/gulp-nsp/-/gulp-nsp-2.0.0.tgz",
+        "integrity": "sha512-jGNM3uVq71oYowW38JN2SFQb/D8vIynHCD7mJfrRiRgJ02hIpGqjeom0agYOYaliSqCg5VkRWeOQG39HECL7Mw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCJMjnTKAlA/P01dU5V7EzDEFHNMU2NFh1jpEK709fKgAIhAKdglKAnR3sE4ok2INmCagwSDkMlnjcX1UHvl/QTGJ1X"
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "2.0.1": {
+      "name": "gulp-nsp",
+      "version": "2.0.1",
+      "description": "A gulp plugin that runs Node Security check",
+      "main": "index.js",
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "shrinkwrap": "npm shrinkwrap && shrinkydink"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/nodesecurity/gulp-nsp.git"
+      },
+      "keywords": [
+        "security",
+        "gulp",
+        "gulpplugin",
+        "requiresafe",
+        "nodesecurity"
+      ],
+      "author": {
+        "name": "^Lift Security"
+      },
+      "bugs": {
+        "url": "https://github.com/nodesecurity/gulp-nsp/issues"
+      },
+      "homepage": "https://github.com/nodesecurity/gulp-nsp#readme",
+      "dependencies": {
+        "chalk": "^1.1.1",
+        "cli-table": "^0.3.1",
+        "gulp-util": "^3.0.6",
+        "nsp": "^2.0.0"
+      },
+      "devDependencies": {
+        "code": "^1.5.0",
+        "eslint": "^1.7.3",
+        "eslint-config-requiresafe": "1.0.0",
+        "gulp": "^3.9.0",
+        "lab": "^6.2.0",
+        "shrinkydink": "^1.0.0"
+      },
+      "license": "Apache-2.0",
+      "gitHead": "0cc6f4bfa893381232094308db55abc71de7648f",
+      "_id": "gulp-nsp@2.0.1",
+      "_shasum": "5840066eb40ccdddf3dbfc02b61f043bc7bd0242",
+      "_from": ".",
+      "_npmVersion": "3.3.10",
+      "_nodeVersion": "4.2.1",
+      "_npmUser": {
+        "name": "adam_baldwin",
+        "email": "baldwin@andyet.net"
+      },
+      "dist": {
+        "shasum": "5840066eb40ccdddf3dbfc02b61f043bc7bd0242",
+        "tarball": "https://registry.npmjs.org/gulp-nsp/-/gulp-nsp-2.0.1.tgz",
+        "integrity": "sha512-yY8MJX0Vpt1CKLTaULeX52vQoQt1vIQ/TGw316ssmna7i0bGHW8Ut5Zz/WK1NjyKKLkueiYj9TPyUjpz7jAB5A==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICdGqZK7ckFs15zefyBwhld9FHDWXgDWq/XbERsU2WvrAiEAgmkZ1y6ND+qgq30njqX3EKvxE7zEKHRfCcX7pupwRws="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "adam_baldwin",
+          "email": "baldwin@andyet.net"
+        },
+        {
+          "name": "joeycozza",
+          "email": "joeycozza@gmail.com"
+        },
+        {
+          "name": "nlf",
+          "email": "quitlahok@gmail.com"
+        }
+      ],
+      "directories": {}
+    },
+    "2.1.0": {
+      "name": "gulp-nsp",
+      "version": "2.1.0",
+      "description": "A gulp plugin that runs Node Security check",
+      "main": "index.js",
+      "scripts": {
+        "lint": "eslint .",
+        "shrinkwrap": "npm shrinkwrap && shrinkydink"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/nodesecurity/gulp-nsp.git"
+      },
+      "keywords": [
+        "security",
+        "gulp",
+        "gulpplugin",
+        "requiresafe",
+        "nodesecurity"
+      ],
+      "author": {
+        "name": "^Lift Security"
+      },
+      "bugs": {
+        "url": "https://github.com/nodesecurity/gulp-nsp/issues"
+      },
+      "homepage": "https://github.com/nodesecurity/gulp-nsp#readme",
+      "dependencies": {
+        "gulp-util": "^3.0.6",
+        "nsp": "^2.0.0"
+      },
+      "devDependencies": {
+        "eslint": "^1.7.3",
+        "eslint-config-nodesecurity": "1.0.0",
+        "gulp": "^3.9.0",
+        "shrinkydink": "^1.0.0"
+      },
+      "license": "Apache-2.0",
+      "gitHead": "6c5323cf17f5c2bb2ccc45dbc076a03b34df2e4b",
+      "_id": "gulp-nsp@2.1.0",
+      "_shasum": "dec960406aefc6e74336f40e070935fdc8f2ddf8",
+      "_from": ".",
+      "_npmVersion": "3.3.10",
+      "_nodeVersion": "4.2.1",
+      "_npmUser": {
+        "name": "adam_baldwin",
+        "email": "baldwin@andyet.net"
+      },
+      "dist": {
+        "shasum": "dec960406aefc6e74336f40e070935fdc8f2ddf8",
+        "tarball": "https://registry.npmjs.org/gulp-nsp/-/gulp-nsp-2.1.0.tgz",
+        "integrity": "sha512-//uG0KcF0nldBlXeVUZSkMwnVpKPVJTyNWVJo1khj+iVDTDRW4cgY4Rmoc6Bx5HdBOH++ONFQ1PzgFmuRo7h/Q==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQC1mC1a0Q+SyRjhmMebpqJJzDM4gEF0SMIv1x6ncN9R8AIhANBaTxHL3Wguo7jrw0enOga3oV1Tr8QTfkMoP/2FE1qj"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "adam_baldwin",
+          "email": "baldwin@andyet.net"
+        },
+        {
+          "name": "joeycozza",
+          "email": "joeycozza@gmail.com"
+        },
+        {
+          "name": "nlf",
+          "email": "quitlahok@gmail.com"
+        }
+      ],
+      "directories": {}
+    },
+    "2.2.0": {
+      "name": "gulp-nsp",
+      "version": "2.2.0",
+      "description": "A gulp plugin that runs Node Security check",
+      "main": "index.js",
+      "scripts": {
+        "lint": "eslint .",
+        "shrinkwrap": "npm shrinkwrap && shrinkydink"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/nodesecurity/gulp-nsp.git"
+      },
+      "keywords": [
+        "security",
+        "gulp",
+        "gulpplugin",
+        "requiresafe",
+        "nodesecurity"
+      ],
+      "author": {
+        "name": "^Lift Security"
+      },
+      "bugs": {
+        "url": "https://github.com/nodesecurity/gulp-nsp/issues"
+      },
+      "homepage": "https://github.com/nodesecurity/gulp-nsp#readme",
+      "dependencies": {
+        "gulp-util": "^3.0.6",
+        "nsp": "^2.0.0"
+      },
+      "devDependencies": {
+        "eslint": "^1.7.3",
+        "eslint-config-nodesecurity": "1.1.0",
+        "gulp": "^3.9.0",
+        "shrinkydink": "^1.0.0"
+      },
+      "license": "Apache-2.0",
+      "gitHead": "70e807666112679574794c6ae66de20679100925",
+      "_id": "gulp-nsp@2.2.0",
+      "_shasum": "4f7d224f8f0536eb5280685b7474f0724c19826e",
+      "_from": ".",
+      "_npmVersion": "3.5.0",
+      "_nodeVersion": "4.2.2",
+      "_npmUser": {
+        "name": "adam_baldwin",
+        "email": "baldwin@andyet.net"
+      },
+      "dist": {
+        "shasum": "4f7d224f8f0536eb5280685b7474f0724c19826e",
+        "tarball": "https://registry.npmjs.org/gulp-nsp/-/gulp-nsp-2.2.0.tgz",
+        "integrity": "sha512-5mKVPkIMXZso3/9Cv0M5UfrVBuCRav43ZM85ikSUWvR9JtBBxsRrjqOiNIx3cfANJr7hIOIF2mC7QO7vSylyGA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFVrVapWpWyjkptX6TRABj7zdmLRT2uxpgTJy3ccdCvSAiAdgoV3eM2ZFe4oZ6e0pv0g7wZ+vd3AHG+REFgstFRHog=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "adam_baldwin",
+          "email": "baldwin@andyet.net"
+        },
+        {
+          "name": "joeycozza",
+          "email": "joeycozza@gmail.com"
+        },
+        {
+          "name": "nlf",
+          "email": "quitlahok@gmail.com"
+        }
+      ],
+      "directories": {}
+    },
+    "2.2.1": {
+      "name": "gulp-nsp",
+      "version": "2.2.1",
+      "description": "A gulp plugin that runs Node Security check",
+      "main": "index.js",
+      "scripts": {
+        "lint": "eslint .",
+        "shrinkwrap": "npm shrinkwrap && shrinkydink"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/nodesecurity/gulp-nsp.git"
+      },
+      "keywords": [
+        "security",
+        "gulp",
+        "gulpplugin",
+        "requiresafe",
+        "nodesecurity"
+      ],
+      "author": {
+        "name": "^Lift Security"
+      },
+      "bugs": {
+        "url": "https://github.com/nodesecurity/gulp-nsp/issues"
+      },
+      "homepage": "https://github.com/nodesecurity/gulp-nsp#readme",
+      "dependencies": {
+        "gulp-util": "^3.0.6",
+        "nsp": "^2.0.0"
+      },
+      "devDependencies": {
+        "eslint": "^1.7.3",
+        "eslint-config-nodesecurity": "1.1.0",
+        "gulp": "^3.9.0",
+        "shrinkydink": "^1.0.0"
+      },
+      "license": "Apache-2.0",
+      "gitHead": "3f4a9bc7aaff6d37342d4eb05e9b7213cb80ef98",
+      "_id": "gulp-nsp@2.2.1",
+      "_shasum": "500b61f01684d3b12bdde06ee5e21148e892a658",
+      "_from": ".",
+      "_npmVersion": "3.5.0",
+      "_nodeVersion": "4.2.2",
+      "_npmUser": {
+        "name": "adam_baldwin",
+        "email": "baldwin@andyet.net"
+      },
+      "dist": {
+        "shasum": "500b61f01684d3b12bdde06ee5e21148e892a658",
+        "tarball": "https://registry.npmjs.org/gulp-nsp/-/gulp-nsp-2.2.1.tgz",
+        "integrity": "sha512-ItR93XCW1tAHQCF+zHT2lXA/h2rbc4XWnOlvp2RpI+2rwwaBT3h/+kH4DE9XhdcUX40xnqeFBr+4CyZABSBOjg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHsJ7CMyjb9olKsK5WzMCIzj5CJYjwoHZ51wwAuXwbmnAiEA4nPMX7RteqNKF1UVH6kXbmHo6Rv5AkgQgdt/wSpOV6g="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "adam_baldwin",
+          "email": "baldwin@andyet.net"
+        },
+        {
+          "name": "joeycozza",
+          "email": "joeycozza@gmail.com"
+        },
+        {
+          "name": "nlf",
+          "email": "quitlahok@gmail.com"
+        }
+      ],
+      "directories": {}
+    },
+    "2.3.0": {
+      "name": "gulp-nsp",
+      "version": "2.3.0",
+      "description": "A gulp plugin that runs Node Security check",
+      "main": "index.js",
+      "scripts": {
+        "lint": "eslint .",
+        "shrinkwrap": "npm shrinkwrap && shrinkydink"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/nodesecurity/gulp-nsp.git"
+      },
+      "keywords": [
+        "security",
+        "gulp",
+        "gulpplugin",
+        "requiresafe",
+        "nodesecurity"
+      ],
+      "author": {
+        "name": "^Lift Security"
+      },
+      "bugs": {
+        "url": "https://github.com/nodesecurity/gulp-nsp/issues"
+      },
+      "homepage": "https://github.com/nodesecurity/gulp-nsp#readme",
+      "dependencies": {
+        "gulp-util": "^3.0.6",
+        "nsp": "^2.0.0"
+      },
+      "devDependencies": {
+        "eslint": "^1.7.3",
+        "eslint-config-nodesecurity": "1.1.0",
+        "gulp": "^3.9.0",
+        "shrinkydink": "^1.0.0"
+      },
+      "license": "Apache-2.0",
+      "gitHead": "33e40b32705244c27156b9b5766c307e4dcbeaa7",
+      "_id": "gulp-nsp@2.3.0",
+      "_shasum": "ba60249b056b918d147374bb750121437f0e8443",
+      "_from": ".",
+      "_npmVersion": "3.5.2",
+      "_nodeVersion": "5.3.0",
+      "_npmUser": {
+        "name": "nlf",
+        "email": "quitlahok@gmail.com"
+      },
+      "dist": {
+        "shasum": "ba60249b056b918d147374bb750121437f0e8443",
+        "tarball": "https://registry.npmjs.org/gulp-nsp/-/gulp-nsp-2.3.0.tgz",
+        "integrity": "sha512-gPOdxCXS8S770r3IwUJHNUp6tXwFhj+mMaahpbLTt1dSsoR3E+tjrZmJm+e96pw+kVFJLX19FMLkr7PWr4/V6A==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCID/ctyNGWP5qg/8xwvZT84dIVAZYQ4HsHodyk9UJip9FAiAX2ePpOvVjKgeNISH1QA/vvfFan++N8+mLty3e+U34pA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "adam_baldwin",
+          "email": "baldwin@andyet.net"
+        },
+        {
+          "name": "joeycozza",
+          "email": "joeycozza@gmail.com"
+        },
+        {
+          "name": "nlf",
+          "email": "quitlahok@gmail.com"
+        }
+      ],
+      "directories": {}
+    },
+    "2.3.1": {
+      "name": "gulp-nsp",
+      "version": "2.3.1",
+      "description": "A gulp plugin that runs Node Security check",
+      "main": "index.js",
+      "scripts": {
+        "lint": "eslint .",
+        "shrinkwrap": "npm shrinkwrap && shrinkydink"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/nodesecurity/gulp-nsp.git"
+      },
+      "keywords": [
+        "security",
+        "gulp",
+        "gulpplugin",
+        "requiresafe",
+        "nodesecurity"
+      ],
+      "author": {
+        "name": "^Lift Security"
+      },
+      "bugs": {
+        "url": "https://github.com/nodesecurity/gulp-nsp/issues"
+      },
+      "homepage": "https://github.com/nodesecurity/gulp-nsp#readme",
+      "dependencies": {
+        "gulp-util": "^3.0.6",
+        "nsp": "^2.0.0"
+      },
+      "devDependencies": {
+        "eslint": "^1.7.3",
+        "eslint-config-nodesecurity": "1.1.0",
+        "gulp": "^3.9.0",
+        "shrinkydink": "^1.0.0"
+      },
+      "license": "Apache-2.0",
+      "gitHead": "38146f9185766b19d37a72680e1d905a10d4b9f4",
+      "_id": "gulp-nsp@2.3.1",
+      "_shasum": "494deb469b2b5b50307b2c4cf3671fcbdd8414f5",
+      "_from": ".",
+      "_npmVersion": "3.8.0",
+      "_nodeVersion": "5.7.0",
+      "_npmUser": {
+        "name": "nlf",
+        "email": "quitlahok@gmail.com"
+      },
+      "dist": {
+        "shasum": "494deb469b2b5b50307b2c4cf3671fcbdd8414f5",
+        "tarball": "https://registry.npmjs.org/gulp-nsp/-/gulp-nsp-2.3.1.tgz",
+        "integrity": "sha512-zefAO2lJIWzcK7+w6QK8SwOr1575G16U6k0wugCon/1GbA0/pmb+WMu3ZpGLuVUeDo5aoVo5TTmq/lpnnwby9g==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFXklwonQOZwSw2UvoldbHcmVIA0PAk44enYUZ+lLNEpAiEAqcu3IqPHZZvvpmvA/8tL1KC5sAPuiCS2sEXo0t9tPd0="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "adam_baldwin",
+          "email": "baldwin@andyet.net"
+        },
+        {
+          "name": "joeycozza",
+          "email": "joeycozza@gmail.com"
+        },
+        {
+          "name": "nlf",
+          "email": "quitlahok@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/gulp-nsp-2.3.1.tgz_1457722099981_0.5999189955182374"
+      },
+      "directories": {}
+    },
+    "2.4.0": {
+      "name": "gulp-nsp",
+      "version": "2.4.0",
+      "description": "A gulp plugin that runs Node Security check",
+      "main": "index.js",
+      "scripts": {
+        "lint": "eslint .",
+        "shrinkwrap": "npm shrinkwrap && shrinkydink",
+        "test": "gulp nsp"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/nodesecurity/gulp-nsp.git"
+      },
+      "keywords": [
+        "security",
+        "gulp",
+        "gulpplugin",
+        "requiresafe",
+        "nodesecurity"
+      ],
+      "author": {
+        "name": "^Lift Security"
+      },
+      "bugs": {
+        "url": "https://github.com/nodesecurity/gulp-nsp/issues"
+      },
+      "homepage": "https://github.com/nodesecurity/gulp-nsp#readme",
+      "dependencies": {
+        "gulp-util": "^3.0.6",
+        "nsp": "^2.0.0"
+      },
+      "devDependencies": {
+        "eslint": "^2.5.3",
+        "eslint-config-nodesecurity": "^1.3.1",
+        "eslint-plugin-hapi": "^1.2.2",
+        "gulp": "^3.9.0",
+        "shrinkydink": "^1.0.0"
+      },
+      "license": "Apache-2.0",
+      "gitHead": "448733a1ab809f3193d131755ed59a32a10de24f",
+      "_id": "gulp-nsp@2.4.0",
+      "_shasum": "f1d218c7cf0bbb0481a3aeef777464a99bd14d5e",
+      "_from": ".",
+      "_npmVersion": "2.14.12",
+      "_nodeVersion": "4.3.1",
+      "_npmUser": {
+        "name": "gar",
+        "email": "gar+npm@danger.computer"
+      },
+      "dist": {
+        "shasum": "f1d218c7cf0bbb0481a3aeef777464a99bd14d5e",
+        "tarball": "https://registry.npmjs.org/gulp-nsp/-/gulp-nsp-2.4.0.tgz",
+        "integrity": "sha512-YGjZBCpHGJibfrtB6uYUiHwir1zTQowiPUdSZwOkV2O6LQ+oEb1Efcxp4GmDNss8WeecrlYSHyIhbjKhTTymwg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCNnxnZuDPFPqk4ZdLEGT4Eip1EKy7HxSaNZtNvPy7q+AIhAPavbSfRjIdTABIkxk55v9yjQhj7AAFbUM1N5NcGKybl"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "adam_baldwin",
+          "email": "baldwin@andyet.net"
+        },
+        {
+          "name": "andyet-ops",
+          "email": "ops@andyet.net"
+        },
+        {
+          "name": "gar",
+          "email": "gar+npm@danger.computer"
+        },
+        {
+          "name": "joeycozza",
+          "email": "joeycozza@gmail.com"
+        },
+        {
+          "name": "nlf",
+          "email": "quitlahok@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/gulp-nsp-2.4.0.tgz_1459369302492_0.14021692285314202"
+      },
+      "directories": {}
+    },
+    "2.4.1": {
+      "name": "gulp-nsp",
+      "version": "2.4.1",
+      "description": "A gulp module that runs Node Security check",
+      "main": "index.js",
+      "scripts": {
+        "lint": "eslint .",
+        "shrinkwrap": "npm shrinkwrap && shrinkydink",
+        "test": "gulp nsp"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/nodesecurity/gulp-nsp.git"
+      },
+      "keywords": [
+        "security",
+        "gulp",
+        "gulpfriendly",
+        "nodesecurity",
+        "nsp"
+      ],
+      "author": {
+        "name": "^Lift Security"
+      },
+      "bugs": {
+        "url": "https://github.com/nodesecurity/gulp-nsp/issues"
+      },
+      "homepage": "https://github.com/nodesecurity/gulp-nsp#readme",
+      "dependencies": {
+        "gulp-util": "^3.0.6",
+        "nsp": "^2.0.0"
+      },
+      "devDependencies": {
+        "eslint": "^2.5.3",
+        "eslint-config-nodesecurity": "^1.3.1",
+        "eslint-plugin-hapi": "^1.2.2",
+        "gulp": "^3.9.0",
+        "shrinkydink": "^1.0.0"
+      },
+      "license": "Apache-2.0",
+      "gitHead": "a1d1a130821fcd9fed4e0632d8159d0d27eea7ce",
+      "_id": "gulp-nsp@2.4.1",
+      "_shasum": "902d2224a458d9408fbac7d0ffd57ad3b8de9183",
+      "_from": ".",
+      "_npmVersion": "3.8.3",
+      "_nodeVersion": "5.10.1",
+      "_npmUser": {
+        "name": "adam_baldwin",
+        "email": "baldwin@andyet.net"
+      },
+      "dist": {
+        "shasum": "902d2224a458d9408fbac7d0ffd57ad3b8de9183",
+        "tarball": "https://registry.npmjs.org/gulp-nsp/-/gulp-nsp-2.4.1.tgz",
+        "integrity": "sha512-CLbGK862MGNaVCUXA9mYzC0jtIvbgRrXP4Y/1dhXKiBtK1s7K6idmnCxCmgt79tCW6ED4c+KgfmS1wYqFMwyMA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDsDR2bqXd2iokrYGgRNL3C39xo77eEEpjQuy+A6ipRmgIhAJpfqD5x6+eEL/tLPEh9BUKSEY0VLdCLnvvWBhAqYAEL"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "adam_baldwin",
+          "email": "baldwin@andyet.net"
+        },
+        {
+          "name": "andyet-ops",
+          "email": "ops@andyet.net"
+        },
+        {
+          "name": "gar",
+          "email": "gar+npm@danger.computer"
+        },
+        {
+          "name": "joeycozza",
+          "email": "joeycozza@gmail.com"
+        },
+        {
+          "name": "nlf",
+          "email": "quitlahok@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/gulp-nsp-2.4.1.tgz_1462556155352_0.5583098172210157"
+      },
+      "directories": {}
+    },
+    "2.4.2": {
+      "name": "gulp-nsp",
+      "version": "2.4.2",
+      "description": "A gulp module that runs Node Security check",
+      "main": "index.js",
+      "scripts": {
+        "lint": "eslint .",
+        "shrinkwrap": "npm shrinkwrap && shrinkydink",
+        "test": "gulp nsp"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/nodesecurity/gulp-nsp.git"
+      },
+      "keywords": [
+        "security",
+        "gulp",
+        "gulpfriendly",
+        "nodesecurity",
+        "nsp"
+      ],
+      "author": {
+        "name": "^Lift Security"
+      },
+      "bugs": {
+        "url": "https://github.com/nodesecurity/gulp-nsp/issues"
+      },
+      "homepage": "https://github.com/nodesecurity/gulp-nsp#readme",
+      "dependencies": {
+        "gulp-util": "^3.0.6",
+        "nsp": "^2.0.0"
+      },
+      "devDependencies": {
+        "eslint": "^2.5.3",
+        "eslint-config-nodesecurity": "^1.3.1",
+        "eslint-plugin-hapi": "^1.2.2",
+        "gulp": "^3.9.0",
+        "shrinkydink": "^1.0.0"
+      },
+      "license": "Apache-2.0",
+      "gitHead": "dc57b3f3ddde106b33a8277773dc1b296fdd445a",
+      "_id": "gulp-nsp@2.4.2",
+      "_shasum": "9ea6c091b8fadf2792aa4b0bd3af01cdde150ef2",
+      "_from": ".",
+      "_npmVersion": "3.9.6",
+      "_nodeVersion": "6.2.1",
+      "_npmUser": {
+        "name": "nlf",
+        "email": "quitlahok@gmail.com"
+      },
+      "dist": {
+        "shasum": "9ea6c091b8fadf2792aa4b0bd3af01cdde150ef2",
+        "tarball": "https://registry.npmjs.org/gulp-nsp/-/gulp-nsp-2.4.2.tgz",
+        "integrity": "sha512-ZIhumAjzNlzY+xU/80TvOhD/HUOe9eS8EVz1XvevPCCG/9Oup0ptWeohuRLlkop78mLt/zM+G6AfLNFkrrsUuw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEcEZYZUxhZn5KTBvX8464cofRKUMZGT1/xwJyENA7HoAiEAtnMc9OyV8bbsMqP1kfsTFuwkwHC5C2vjqxKlUeBaECo="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "adam_baldwin",
+          "email": "baldwin@andyet.net"
+        },
+        {
+          "name": "andyet-ops",
+          "email": "ops@andyet.net"
+        },
+        {
+          "name": "gar",
+          "email": "gar+npm@danger.computer"
+        },
+        {
+          "name": "joeycozza",
+          "email": "joeycozza@gmail.com"
+        },
+        {
+          "name": "nlf",
+          "email": "quitlahok@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/gulp-nsp-2.4.2.tgz_1468446224275_0.10194628336466849"
+      },
+      "directories": {}
+    },
+    "3.0.0": {
+      "name": "gulp-nsp",
+      "version": "3.0.0",
+      "description": "A gulp module that runs Node Security check",
+      "main": "index.js",
+      "scripts": {
+        "lint": "eslint .",
+        "test": "gulp nsp"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/nodesecurity/gulp-nsp.git"
+      },
+      "keywords": [
+        "security",
+        "gulp",
+        "gulpfriendly",
+        "nodesecurity",
+        "nsp"
+      ],
+      "author": {
+        "name": "^Lift Security"
+      },
+      "bugs": {
+        "url": "https://github.com/nodesecurity/gulp-nsp/issues"
+      },
+      "homepage": "https://github.com/nodesecurity/gulp-nsp#readme",
+      "dependencies": {
+        "fancy-log": "^1.3.2",
+        "nsp": "^3.2.0",
+        "plugin-error": "^1.0.1"
+      },
+      "devDependencies": {
+        "eslint": "^2.5.3",
+        "eslint-config-nodesecurity": "^1.3.1",
+        "eslint-plugin-hapi": "^1.2.2",
+        "gulp": "^3.9.0"
+      },
+      "license": "Apache-2.0",
+      "gitHead": "f370b3b35419e259323f6012a27e629a80113171",
+      "_id": "gulp-nsp@3.0.0",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "8.9.4",
+      "_npmUser": {
+        "name": "nlf",
+        "email": "quitlahok@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-ceUC3SaJNIhMNSBKLq6J1aPgJbUaIgtbWnFxc1WWNBpmB3ncKk1oUJBPnASyA05wYCC6bdk0MrgyiFoNPIMiIg==",
+        "shasum": "31ad63438a31206c1c2e5e722a6effc9fbee3bac",
+        "tarball": "https://registry.npmjs.org/gulp-nsp/-/gulp-nsp-3.0.0.tgz",
+        "fileCount": 8,
+        "unpackedSize": 8305,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEyc8jyWrJhunpoXuMhvJP/z7jJCHibpPODX2SSQSufNAiBY6QmtM7wV90Tg/3f4jP0L/jEil+CEdqCQeY/Y6zbQJQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "baldwin@andyet.net",
+          "name": "adam_baldwin"
+        },
+        {
+          "email": "ops@andyet.net",
+          "name": "andyet-ops"
+        },
+        {
+          "email": "gar+npm@danger.computer",
+          "name": "gar"
+        },
+        {
+          "email": "joeycozza@gmail.com",
+          "name": "joeycozza"
+        },
+        {
+          "email": "quitlahok@gmail.com",
+          "name": "nlf"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/gulp-nsp_3.0.0_1518727667439_0.6476982567248994"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.0.1": {
+      "name": "gulp-nsp",
+      "version": "3.0.1",
+      "description": "A gulp module that runs Node Security check",
+      "main": "index.js",
+      "scripts": {
+        "lint": "eslint .",
+        "test": "gulp nsp"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/nodesecurity/gulp-nsp.git"
+      },
+      "keywords": [
+        "security",
+        "gulp",
+        "gulpfriendly",
+        "nodesecurity",
+        "nsp"
+      ],
+      "author": {
+        "name": "^Lift Security"
+      },
+      "bugs": {
+        "url": "https://github.com/nodesecurity/gulp-nsp/issues"
+      },
+      "homepage": "https://github.com/nodesecurity/gulp-nsp#readme",
+      "dependencies": {
+        "fancy-log": "^1.3.2",
+        "nsp": "^3.2.1",
+        "plugin-error": "^1.0.1"
+      },
+      "devDependencies": {
+        "eslint": "^2.5.3",
+        "eslint-config-nodesecurity": "^1.3.1",
+        "eslint-plugin-hapi": "^1.2.2",
+        "gulp": "^3.9.0"
+      },
+      "license": "Apache-2.0",
+      "gitHead": "213c3156cecd02b3f2659012e91424c0c1f01cc9",
+      "_id": "gulp-nsp@3.0.1",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "8.9.4",
+      "_npmUser": {
+        "name": "nlf",
+        "email": "quitlahok@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-rAG7FyEf6rsFZn3LOmxtHuXNzxwMpixl3Egzn9pYCNfhyBc3U5pyw8BFxw0/RYAwc2rx06uVwDMsH4ZQQZPcbg==",
+        "shasum": "9068bd8292dfe99662f8f1e99a347b52b7a1610e",
+        "tarball": "https://registry.npmjs.org/gulp-nsp/-/gulp-nsp-3.0.1.tgz",
+        "fileCount": 8,
+        "unpackedSize": 8306,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDLWiXBmHDdz2BZ/iYyu87xwkVwajh/0MsCp0Hs6PQa5gIhAOpdCbMh7Kr1n3+C2JIoIkFW8EzSP8qST4wi1rwhOR9Z"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "baldwin@andyet.net",
+          "name": "adam_baldwin"
+        },
+        {
+          "email": "ops@andyet.net",
+          "name": "andyet-ops"
+        },
+        {
+          "email": "gar+npm@danger.computer",
+          "name": "gar"
+        },
+        {
+          "email": "joeycozza@gmail.com",
+          "name": "joeycozza"
+        },
+        {
+          "email": "quitlahok@gmail.com",
+          "name": "nlf"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/gulp-nsp_3.0.1_1518730519643_0.8861052611097588"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "homepage": "https://github.com/nodesecurity/gulp-nsp#readme",
+  "keywords": [
+    "security",
+    "gulp",
+    "gulpfriendly",
+    "nodesecurity",
+    "nsp"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nodesecurity/gulp-nsp.git"
+  },
+  "author": {
+    "name": "^Lift Security"
+  },
+  "bugs": {
+    "url": "https://github.com/nodesecurity/gulp-nsp/issues"
+  },
+  "license": "Apache-2.0",
+  "readmeFilename": "README.md",
+  "users": {
+    "carlosvillademor": true,
+    "dpjayasekara": true,
+    "wangnan0610": true
+  }
+}
