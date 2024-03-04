@@ -1,0 +1,1271 @@
+{
+  "_id": "gulp-concat-css",
+  "_rev": "125-63a6901a87aa8242cfa3ecd2a95f54e1",
+  "name": "gulp-concat-css",
+  "time": {
+    "modified": "2022-06-18T16:49:04.130Z",
+    "created": "2014-02-19T19:58:11.529Z",
+    "0.1.0": "2014-02-19T19:58:13.065Z",
+    "0.1.1": "2014-02-19T22:49:29.229Z",
+    "0.1.3": "2014-02-25T23:42:44.340Z",
+    "0.1.4": "2014-03-26T18:36:55.410Z",
+    "0.2.0": "2014-10-02T08:22:16.490Z",
+    "1.0.0": "2014-10-02T10:11:27.251Z",
+    "1.1.0": "2014-10-18T15:11:44.379Z",
+    "1.1.1": "2014-11-28T14:28:56.032Z",
+    "1.2.0": "2015-01-24T16:50:16.268Z",
+    "2.0.0": "2015-01-25T22:19:45.136Z",
+    "2.1.0": "2015-02-13T19:42:50.345Z",
+    "2.1.1": "2015-03-04T15:56:36.863Z",
+    "2.1.2": "2015-03-23T11:00:46.991Z",
+    "2.2.0": "2015-03-30T12:26:26.314Z",
+    "2.3.0": "2016-05-17T10:23:53.142Z",
+    "3.0.0": "2018-01-02T15:13:54.292Z",
+    "3.1.0": "2018-03-06T13:34:26.985Z"
+  },
+  "description": "Concatenate css files, rebasing urls and inlining @import",
+  "readme": "# [gulp](https://github.com/wearefractal/gulp)-concat-css\n[![Build Status](https://secure.travis-ci.org/mariocasciaro/gulp-concat-css.png?branch=master)](https://travis-ci.org/mariocasciaro/gulp-concat-css)\n[![NPM version](http://img.shields.io/npm/v/gulp-concat-css.svg)](https://www.npmjs.org/package/gulp-concat-css)\n[![Dependency Status](https://david-dm.org/mariocasciaro/gulp-concat-css.svg)](https://david-dm.org/mariocasciaro/gulp-concat-css)\n[![Downloads](http://img.shields.io/npm/dm/gulp-concat-css.svg)](https://www.npmjs.org/package/gulp-concat-css)\n\n> Concatenates css files, bubbling up @import statements (as per the [standard](https://developer.mozilla.org/en-US/docs/Web/CSS/@import)), and optionally rebasing urls and inlining local @import statements.\n\n## Install\n\nInstall with [npm](https://npmjs.org/package/gulp-concat-css).\n\n```\nnpm install --save-dev gulp-concat-css\n```\n\n## Examples\n\n```js\nvar gulp = require('gulp');\nvar concatCss = require('gulp-concat-css');\n\ngulp.task('default', function () {\n  return gulp.src('assets/**/*.css')\n    .pipe(concatCss(\"styles/bundle.css\"))\n    .pipe(gulp.dest('out/'));\n});\n```\n\n**TIP: for a proper import inlining and url rebase, make sure you set the proper `base` for the input files.**\n\n## API\n\n`concatCss(targetFile, options)`\n* `targetFile`: The relative path of the generated file containing the concatenated css\n* `options`: (since 2.1.0)\n    * `inlineImports`: (default `true`) Inline any local import statement found\n    * `rebaseUrls`: (default `true`) Adjust any relative URL to the location of the target file.\n    * `includePaths`: (default `[]`) Include additional paths when inlining imports\n    * `commonBase`: (default to the `base` property of the first file) Common base path from wich resolving files and urls\n\n## License\n\n[MIT](http://en.wikipedia.org/wiki/MIT_License) @ Mario Casciaro\n",
+  "maintainers": [
+    {
+      "name": "mariocasciaro",
+      "email": "mariocasciaro@gmail.com"
+    }
+  ],
+  "versions": {
+    "0.1.1": {
+      "name": "gulp-concat-css",
+      "description": "Concatenate css files, rebasing urls and inlining @import",
+      "version": "0.1.1",
+      "homepage": "https://github.com/mariocasciaro/gulp-concat-css",
+      "author": {
+        "name": "Mario Casciaro"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/mariocasciaro/gulp-concat-css"
+      },
+      "bugs": {
+        "url": "https://github.com/mariocasciaro/gulp-concat-css/issues"
+      },
+      "licenses": [
+        {
+          "type": "MIT",
+          "url": "https://github.com/mariocasciaro/gulp-concat-css/blob/master/LICENSE"
+        }
+      ],
+      "dependencies": {
+        "gulp-util": "~2.2.14",
+        "through2": "~0.4.1"
+      },
+      "devDependencies": {
+        "chai": "~1.9.0",
+        "mocha": "~1.17.1"
+      },
+      "scripts": {
+        "test": "node_modules/mocha/bin/_mocha test/*.js --reporter spec"
+      },
+      "keywords": [
+        "gulpplugin",
+        "concat",
+        "css"
+      ],
+      "_id": "gulp-concat-css@0.1.1",
+      "dist": {
+        "shasum": "dd471751140dd7e314786c90930cf84f28aed000",
+        "tarball": "https://registry.npmjs.org/gulp-concat-css/-/gulp-concat-css-0.1.1.tgz",
+        "integrity": "sha512-Q/G5lOVgagTDU1g9dZbF4Lo1zVRMRxz0cL5akBW5W9NIhlmkogvAVYIR9qkssQojLP5hQRqCWZ27gezNlqK4cg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIB0tn0uSMwTNXjx55pSu6ent0TixmuOdVEjBKKnbpUqZAiEA9ygF3iIMLqsQg3KKYdvIvAwIVlkmfJnifJXn/mu2Dtw="
+          }
+        ]
+      },
+      "_from": ".",
+      "_npmVersion": "1.3.14",
+      "_npmUser": {
+        "name": "mariocasciaro",
+        "email": "mariocasciaro@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "mariocasciaro",
+          "email": "mariocasciaro@gmail.com"
+        }
+      ],
+      "directories": {}
+    },
+    "0.1.3": {
+      "name": "gulp-concat-css",
+      "description": "Concatenate css files, rebasing urls and inlining @import",
+      "version": "0.1.3",
+      "homepage": "https://github.com/mariocasciaro/gulp-concat-css",
+      "author": {
+        "name": "Mario Casciaro"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/mariocasciaro/gulp-concat-css"
+      },
+      "bugs": {
+        "url": "https://github.com/mariocasciaro/gulp-concat-css/issues"
+      },
+      "licenses": [
+        {
+          "type": "MIT",
+          "url": "https://github.com/mariocasciaro/gulp-concat-css/blob/master/LICENSE"
+        }
+      ],
+      "dependencies": {
+        "gulp-util": "~2.2.14",
+        "through2": "~0.4.1",
+        "rework-importer": "~0.3.0",
+        "rework": "~0.20.2"
+      },
+      "devDependencies": {
+        "chai": "~1.9.0",
+        "mocha": "~1.17.1"
+      },
+      "scripts": {
+        "test": "node_modules/mocha/bin/_mocha test/*.js --reporter spec"
+      },
+      "keywords": [
+        "gulpplugin",
+        "concat",
+        "css"
+      ],
+      "_id": "gulp-concat-css@0.1.3",
+      "dist": {
+        "shasum": "b1ca4390fe5e1634a31c17af19231e6905f74d27",
+        "tarball": "https://registry.npmjs.org/gulp-concat-css/-/gulp-concat-css-0.1.3.tgz",
+        "integrity": "sha512-FfTWPHAnniRphAeEj9lELBmJhMujvOpDZ0LQqzGzJMmn5GRNnjmVO3R2hy/TsmkslfXKoXi3a3NiUDIfXHmBQA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC786AuBcIy3E7C5HQv1Hj7v0Arl5VTRT4E9W+7h9n3mQIgaup1vhCYYNtWYDC8pSxrPdC0SfmD2ndm/RKD+o72zvk="
+          }
+        ]
+      },
+      "_from": ".",
+      "_npmVersion": "1.3.14",
+      "_npmUser": {
+        "name": "mariocasciaro",
+        "email": "mariocasciaro@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "mariocasciaro",
+          "email": "mariocasciaro@gmail.com"
+        }
+      ],
+      "directories": {}
+    },
+    "0.1.4": {
+      "name": "gulp-concat-css",
+      "description": "Concatenate css files, rebasing urls and inlining @import",
+      "version": "0.1.4",
+      "homepage": "https://github.com/mariocasciaro/gulp-concat-css",
+      "author": {
+        "name": "Mario Casciaro"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/mariocasciaro/gulp-concat-css"
+      },
+      "bugs": {
+        "url": "https://github.com/mariocasciaro/gulp-concat-css/issues"
+      },
+      "licenses": [
+        {
+          "type": "MIT",
+          "url": "https://github.com/mariocasciaro/gulp-concat-css/blob/master/LICENSE"
+        }
+      ],
+      "dependencies": {
+        "gulp-util": "~2.2.14",
+        "through2": "~0.4.1",
+        "rework-importer": "~0.3.1",
+        "rework": "~0.20.2"
+      },
+      "devDependencies": {
+        "chai": "~1.9.0",
+        "mocha": "~1.17.1"
+      },
+      "scripts": {
+        "test": "node_modules/mocha/bin/_mocha test/*.js --reporter spec"
+      },
+      "keywords": [
+        "gulpplugin",
+        "concat",
+        "css"
+      ],
+      "_id": "gulp-concat-css@0.1.4",
+      "dist": {
+        "shasum": "2909e58db7caeae0d996af935deb42dabaef2db7",
+        "tarball": "https://registry.npmjs.org/gulp-concat-css/-/gulp-concat-css-0.1.4.tgz",
+        "integrity": "sha512-6KJQ6NyARxH7XDIV4BH0pDNoh4Q2LVWkWjzPvBXCd3NDiYEtTDFADnPpVM9sQRO0Rd8uh+lO9f/g9kOzeaCjhA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHWYWkGqsP0HpEiZoP6v9h4+tL2A/83W2dWVkurn8up8AiEA/glH/z1cPIOmeLfNdf1S1Oo4v5lFobxe1ocn6Mw0vOg="
+          }
+        ]
+      },
+      "_from": ".",
+      "_npmVersion": "1.3.14",
+      "_npmUser": {
+        "name": "mariocasciaro",
+        "email": "mariocasciaro@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "mariocasciaro",
+          "email": "mariocasciaro@gmail.com"
+        }
+      ],
+      "directories": {}
+    },
+    "0.2.0": {
+      "name": "gulp-concat-css",
+      "description": "Concatenate css files, rebasing urls and inlining @import",
+      "version": "0.2.0",
+      "homepage": "https://github.com/mariocasciaro/gulp-concat-css",
+      "author": {
+        "name": "Mario Casciaro"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/mariocasciaro/gulp-concat-css"
+      },
+      "bugs": {
+        "url": "https://github.com/mariocasciaro/gulp-concat-css/issues"
+      },
+      "licenses": [
+        {
+          "type": "MIT",
+          "url": "https://github.com/mariocasciaro/gulp-concat-css/blob/master/LICENSE"
+        }
+      ],
+      "dependencies": {
+        "gulp-util": "~3.0.1",
+        "through2": "~1.1.1",
+        "rework-importer": "~0.4.0",
+        "rework": "~0.20.2"
+      },
+      "devDependencies": {
+        "chai": "~1.9.2",
+        "mocha": "~1.21.4"
+      },
+      "scripts": {
+        "test": "node_modules/mocha/bin/_mocha test/*.js --reporter spec"
+      },
+      "keywords": [
+        "gulpplugin",
+        "concat",
+        "css",
+        "import",
+        "merge",
+        "inline"
+      ],
+      "_id": "gulp-concat-css@0.2.0",
+      "_shasum": "066d93914b48f921e67d9089b996a7ff6dcdc66f",
+      "_from": ".",
+      "_npmVersion": "1.4.9",
+      "_npmUser": {
+        "name": "mariocasciaro",
+        "email": "contact@mariocasciaro.me"
+      },
+      "maintainers": [
+        {
+          "name": "mariocasciaro",
+          "email": "mariocasciaro@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "066d93914b48f921e67d9089b996a7ff6dcdc66f",
+        "tarball": "https://registry.npmjs.org/gulp-concat-css/-/gulp-concat-css-0.2.0.tgz",
+        "integrity": "sha512-I2OEyB6FjV5Op2JYrLzIZ0nmSlTxKKD95V6YS1jPUxliv+cgEsGlsgNuKyGag/BjGULYgwPrNH8ZDfuZnqSugg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFx3PcYAN57uOKzZMuQ9sECPNFv2z7YgVsb76vxBkfCAAiA9H9xgEp+hgIkhAtUccQ8LM1zvoEFSJJn9O2Xk9t87Lw=="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "1.0.0": {
+      "name": "gulp-concat-css",
+      "description": "Concatenate css files, rebasing urls and inlining @import",
+      "version": "1.0.0",
+      "homepage": "https://github.com/mariocasciaro/gulp-concat-css",
+      "author": {
+        "name": "Mario Casciaro"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/mariocasciaro/gulp-concat-css"
+      },
+      "bugs": {
+        "url": "https://github.com/mariocasciaro/gulp-concat-css/issues"
+      },
+      "licenses": [
+        {
+          "type": "MIT",
+          "url": "https://github.com/mariocasciaro/gulp-concat-css/blob/master/LICENSE"
+        }
+      ],
+      "dependencies": {
+        "gulp-util": "~3.0.1",
+        "rework": "~1.0.0",
+        "rework-import": "^1.2.1",
+        "rework-plugin-function": "^1.0.1",
+        "through2": "~1.1.1"
+      },
+      "devDependencies": {
+        "chai": "~1.9.2",
+        "mocha": "~1.21.4"
+      },
+      "scripts": {
+        "test": "node_modules/mocha/bin/_mocha test/*.js --reporter spec"
+      },
+      "keywords": [
+        "gulpplugin",
+        "concat",
+        "css",
+        "import",
+        "merge",
+        "inline"
+      ],
+      "_id": "gulp-concat-css@1.0.0",
+      "_shasum": "71a44159b9245f83a9b1b0ab4788c66387cb7276",
+      "_from": ".",
+      "_npmVersion": "1.4.9",
+      "_npmUser": {
+        "name": "mariocasciaro",
+        "email": "contact@mariocasciaro.me"
+      },
+      "maintainers": [
+        {
+          "name": "mariocasciaro",
+          "email": "mariocasciaro@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "71a44159b9245f83a9b1b0ab4788c66387cb7276",
+        "tarball": "https://registry.npmjs.org/gulp-concat-css/-/gulp-concat-css-1.0.0.tgz",
+        "integrity": "sha512-U/d6c8bh/LgIaaEHG1cCPcHdjcAcifCusxSCFqvKfvUw9kv0c19Ps31b7pjDx1qFjQO72tBygACgM3YN1mte5g==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDtCyXCvdZvZ/Z4tW00Xhzuq0cjjP1xF5VExrIiGblmvQIganXGshkL568SQ0V/Z2Q+QzUluHzR3SYSEhC7KadhVkI="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "1.1.0": {
+      "name": "gulp-concat-css",
+      "description": "Concatenate css files, rebasing urls and inlining @import",
+      "version": "1.1.0",
+      "homepage": "https://github.com/mariocasciaro/gulp-concat-css",
+      "author": {
+        "name": "Mario Casciaro"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/mariocasciaro/gulp-concat-css"
+      },
+      "bugs": {
+        "url": "https://github.com/mariocasciaro/gulp-concat-css/issues"
+      },
+      "licenses": [
+        {
+          "type": "MIT",
+          "url": "https://github.com/mariocasciaro/gulp-concat-css/blob/master/LICENSE"
+        }
+      ],
+      "dependencies": {
+        "gulp-util": "~3.0.1",
+        "parse-import": "^1.0.0",
+        "rework": "~1.0.0",
+        "rework-import": "^1.2.1",
+        "rework-plugin-function": "^1.0.1",
+        "through2": "~1.1.1"
+      },
+      "devDependencies": {
+        "chai": "~1.9.2",
+        "mocha": "~1.21.4"
+      },
+      "scripts": {
+        "test": "node_modules/mocha/bin/_mocha test/*.js --reporter spec"
+      },
+      "keywords": [
+        "gulpplugin",
+        "concat",
+        "css",
+        "import",
+        "merge",
+        "inline"
+      ],
+      "gitHead": "a8f0b0d70bec133f5df2173ae77639b59692375b",
+      "_id": "gulp-concat-css@1.1.0",
+      "_shasum": "e55d2699557560821001108eae78f2170daa5dc5",
+      "_from": ".",
+      "_npmVersion": "2.0.0",
+      "_npmUser": {
+        "name": "mariocasciaro",
+        "email": "mariocasciaro@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "mariocasciaro",
+          "email": "mariocasciaro@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "e55d2699557560821001108eae78f2170daa5dc5",
+        "tarball": "https://registry.npmjs.org/gulp-concat-css/-/gulp-concat-css-1.1.0.tgz",
+        "integrity": "sha512-WLjzDf7ertJ8AjHLE83YZmY5HNIhaIylFb40uHHUauVUq8zRN7TmvvgjRaeDvfoX3c6klK8+y90XL8KpY7+KJQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDXXbtWpnXnR0oHiVRr3Enr7/w1QyiwjwcJwWTCiZ4XBAiAKtsltBw5iGFmkzElL9HtLKmhxQP3pS0U2kfY+x/KUmQ=="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "1.1.1": {
+      "name": "gulp-concat-css",
+      "description": "Concatenate css files, rebasing urls and inlining @import",
+      "version": "1.1.1",
+      "homepage": "https://github.com/mariocasciaro/gulp-concat-css",
+      "author": {
+        "name": "Mario Casciaro"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/mariocasciaro/gulp-concat-css"
+      },
+      "bugs": {
+        "url": "https://github.com/mariocasciaro/gulp-concat-css/issues"
+      },
+      "licenses": [
+        {
+          "type": "MIT",
+          "url": "https://github.com/mariocasciaro/gulp-concat-css/blob/master/LICENSE"
+        }
+      ],
+      "dependencies": {
+        "gulp-util": "~3.0.1",
+        "parse-import": "^1.0.0",
+        "rework": "~1.0.0",
+        "rework-import": "^1.2.1",
+        "rework-plugin-function": "^1.0.1",
+        "through2": "~1.1.1"
+      },
+      "devDependencies": {
+        "chai": "~1.9.2",
+        "mocha": "~1.21.4"
+      },
+      "scripts": {
+        "test": "node_modules/mocha/bin/_mocha test/*.js --reporter spec"
+      },
+      "keywords": [
+        "gulpplugin",
+        "concat",
+        "css",
+        "import",
+        "merge",
+        "inline"
+      ],
+      "gitHead": "fca9c5627189a53dcf1cc11b15b00ba76bce337d",
+      "_id": "gulp-concat-css@1.1.1",
+      "_shasum": "b621f3ce7989b5467a4d5d4e974d3e3d56deea41",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "mariocasciaro",
+        "email": "contact@mariocasciaro.me"
+      },
+      "maintainers": [
+        {
+          "name": "mariocasciaro",
+          "email": "mariocasciaro@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "b621f3ce7989b5467a4d5d4e974d3e3d56deea41",
+        "tarball": "https://registry.npmjs.org/gulp-concat-css/-/gulp-concat-css-1.1.1.tgz",
+        "integrity": "sha512-qE+ODXwzD7Dci1WQZZSTeiltE1Ei80/X7tUN0VlKMJI4Kh2ujBFJoejWWjbxW6VQgoZOS4Crh/8bL2zbZbgq/A==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIQCRowHMyC3npWIbT4BxlI4pQtj55fngvHdpH8tlAaUZ/gIfJkt/tIeKJoubObjzj2mRqk9XBkpqUMofxIxrOJ205w=="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "1.2.0": {
+      "name": "gulp-concat-css",
+      "description": "Concatenate css files, rebasing urls and inlining @import",
+      "version": "1.2.0",
+      "homepage": "https://github.com/mariocasciaro/gulp-concat-css",
+      "author": {
+        "name": "Mario Casciaro"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/mariocasciaro/gulp-concat-css"
+      },
+      "bugs": {
+        "url": "https://github.com/mariocasciaro/gulp-concat-css/issues"
+      },
+      "licenses": [
+        {
+          "type": "MIT",
+          "url": "https://github.com/mariocasciaro/gulp-concat-css/blob/master/LICENSE"
+        }
+      ],
+      "dependencies": {
+        "gulp-util": "~3.0.1",
+        "parse-import": "^1.0.0",
+        "rework": "~1.0.0",
+        "rework-import": "^1.2.1",
+        "rework-plugin-function": "^1.0.1",
+        "through2": "~1.1.1"
+      },
+      "devDependencies": {
+        "chai": "~1.9.2",
+        "mocha": "~1.21.4"
+      },
+      "scripts": {
+        "test": "node_modules/mocha/bin/_mocha test/*.js --reporter spec"
+      },
+      "keywords": [
+        "gulpplugin",
+        "concat",
+        "css",
+        "import",
+        "merge",
+        "inline"
+      ],
+      "gitHead": "2fb951f3dc57627881f3a9ade9e9dc27bb01c80f",
+      "_id": "gulp-concat-css@1.2.0",
+      "_shasum": "cb38e183e5817ad168f4512e47e033f91476e50d",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "mariocasciaro",
+        "email": "mariocasciaro@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "mariocasciaro",
+          "email": "mariocasciaro@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "cb38e183e5817ad168f4512e47e033f91476e50d",
+        "tarball": "https://registry.npmjs.org/gulp-concat-css/-/gulp-concat-css-1.2.0.tgz",
+        "integrity": "sha512-zYOHhWot3O8el/GdkJ4w+ExJeepN7IMkQ81Mw3yc9kZU6Xl8cSOZA954L8Ud27kvehWWFVFO4FtRC22pR6T9NA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDdOmgu2hJq+/ogkhYLl1gJXUADzQj9Na7cZRz6GfHyTgIhAM/acudRBobq4pkaf42Dc45oMpo9yWmp8F94ZoUWUFbn"
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "2.0.0": {
+      "name": "gulp-concat-css",
+      "description": "Concatenate css files, rebasing urls and inlining @import",
+      "version": "2.0.0",
+      "homepage": "https://github.com/mariocasciaro/gulp-concat-css",
+      "author": {
+        "name": "Mario Casciaro"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/mariocasciaro/gulp-concat-css"
+      },
+      "bugs": {
+        "url": "https://github.com/mariocasciaro/gulp-concat-css/issues"
+      },
+      "licenses": [
+        {
+          "type": "MIT",
+          "url": "https://github.com/mariocasciaro/gulp-concat-css/blob/master/LICENSE"
+        }
+      ],
+      "dependencies": {
+        "gulp-util": "~3.0.1",
+        "parse-import": "^2.0.0",
+        "rework": "~1.0.0",
+        "rework-import": "^2.0.0",
+        "rework-plugin-url": "^1.0.1",
+        "through2": "~1.1.1"
+      },
+      "devDependencies": {
+        "chai": "^1.10.0",
+        "mocha": "^2.1.0"
+      },
+      "scripts": {
+        "test": "node_modules/mocha/bin/_mocha test/*.js --reporter spec"
+      },
+      "keywords": [
+        "gulpplugin",
+        "concat",
+        "css",
+        "import",
+        "merge",
+        "inline"
+      ],
+      "gitHead": "3ae3e3c428b0462d6b3032a47eb46bbd6ed8149b",
+      "_id": "gulp-concat-css@2.0.0",
+      "_shasum": "36dd77476ca2d35ba5d2ad981330cb3f895a7144",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "mariocasciaro",
+        "email": "mariocasciaro@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "mariocasciaro",
+          "email": "mariocasciaro@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "36dd77476ca2d35ba5d2ad981330cb3f895a7144",
+        "tarball": "https://registry.npmjs.org/gulp-concat-css/-/gulp-concat-css-2.0.0.tgz",
+        "integrity": "sha512-iL5XSLtTDg/Xvz4jKOJPYJvzTJnWEb+rLTujK/q4AmUPcWmpWPJ5qw9bVYBb0yB+aJujB0IH1xFv/VFdJ5225A==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIATb1G4BPnU9zZp83zB363JUZgDv5hX/bFaj3rkZUgmUAiAgT9rbWlXegAT5tniNbmeEhnDAcHOcrQRQLskF1yUofw=="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "2.1.0": {
+      "name": "gulp-concat-css",
+      "description": "Concatenate css files, rebasing urls and inlining @import",
+      "version": "2.1.0",
+      "homepage": "https://github.com/mariocasciaro/gulp-concat-css",
+      "author": {
+        "name": "Mario Casciaro"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/mariocasciaro/gulp-concat-css"
+      },
+      "bugs": {
+        "url": "https://github.com/mariocasciaro/gulp-concat-css/issues"
+      },
+      "licenses": [
+        {
+          "type": "MIT",
+          "url": "https://github.com/mariocasciaro/gulp-concat-css/blob/master/LICENSE"
+        }
+      ],
+      "dependencies": {
+        "gulp-util": "~3.0.1",
+        "lodash.defaults": "^3.0.0",
+        "parse-import": "^2.0.0",
+        "rework": "~1.0.0",
+        "rework-import": "^2.0.0",
+        "rework-plugin-url": "^1.0.1",
+        "through2": "~1.1.1"
+      },
+      "devDependencies": {
+        "chai": "^1.10.0",
+        "mocha": "^2.1.0"
+      },
+      "scripts": {
+        "test": "node_modules/mocha/bin/_mocha test/*.js --reporter spec"
+      },
+      "keywords": [
+        "gulpplugin",
+        "concat",
+        "css",
+        "import",
+        "merge",
+        "inline"
+      ],
+      "gitHead": "cc5926b5753653503fd2e2bb80be63d021dfc53a",
+      "_id": "gulp-concat-css@2.1.0",
+      "_shasum": "62ea6fcf03f792e6b8f4d5557de984b9a7ed6fe8",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "mariocasciaro",
+        "email": "mariocasciaro@gmail.com"
+      },
+      "maintainers": [
+        {
+          "name": "mariocasciaro",
+          "email": "mariocasciaro@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "62ea6fcf03f792e6b8f4d5557de984b9a7ed6fe8",
+        "tarball": "https://registry.npmjs.org/gulp-concat-css/-/gulp-concat-css-2.1.0.tgz",
+        "integrity": "sha512-kSgXDhq2YExbmpNhJzyoEvVdiYlxTvQ9lqSMyE7675qMoYZzU1LggHN3PYlf0XunJBSSs2Ta3OJfryX5iyA8CA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFNJos3PIFLYsO2nn2x7Ouperb0kwTIQWPDUZB7HTOAOAiAbDgdNhskr1P6S3W4dc4gNf/5AJdXOwEaTs1V5pjZBKQ=="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "2.1.1": {
+      "name": "gulp-concat-css",
+      "description": "Concatenate css files, rebasing urls and inlining @import",
+      "version": "2.1.1",
+      "homepage": "https://github.com/mariocasciaro/gulp-concat-css",
+      "author": {
+        "name": "Mario Casciaro"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/mariocasciaro/gulp-concat-css"
+      },
+      "bugs": {
+        "url": "https://github.com/mariocasciaro/gulp-concat-css/issues"
+      },
+      "licenses": [
+        {
+          "type": "MIT",
+          "url": "https://github.com/mariocasciaro/gulp-concat-css/blob/master/LICENSE"
+        }
+      ],
+      "dependencies": {
+        "gulp-util": "~3.0.1",
+        "lodash.defaults": "^3.0.0",
+        "parse-import": "^2.0.0",
+        "rework": "~1.0.0",
+        "rework-import": "^2.0.0",
+        "rework-plugin-url": "^1.0.1",
+        "through2": "~1.1.1"
+      },
+      "devDependencies": {
+        "chai": "^1.10.0",
+        "mocha": "^2.1.0"
+      },
+      "scripts": {
+        "test": "node_modules/mocha/bin/_mocha test/*.js --reporter spec"
+      },
+      "keywords": [
+        "gulpplugin",
+        "concat",
+        "css",
+        "import",
+        "merge",
+        "inline"
+      ],
+      "gitHead": "aa8e5cada1c9d8134d7df237eb4f5a6a418f3492",
+      "_id": "gulp-concat-css@2.1.1",
+      "_shasum": "2bf455cec1af9f36ff9a0fbacc83a4abeb0896d2",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "mariocasciaro",
+        "email": "contact@mariocasciaro.me"
+      },
+      "maintainers": [
+        {
+          "name": "mariocasciaro",
+          "email": "mariocasciaro@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "2bf455cec1af9f36ff9a0fbacc83a4abeb0896d2",
+        "tarball": "https://registry.npmjs.org/gulp-concat-css/-/gulp-concat-css-2.1.1.tgz",
+        "integrity": "sha512-CA3SmM3XCFHAVMrqqbTVH25j3AG27B1MI0Cu0o3aoFb1GSF8Q3SJ1QpVrRJ0L81MxjbW344KvtoC/gZYpSeksQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGbvlHGDpSAeMMgLOiIMSEyfuc83MKQV0FgbB5a3yfjnAiEAsuNLbxZx69nPMiXUZLjQd56xuTvyjZHhufwxoizrqks="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "2.1.2": {
+      "name": "gulp-concat-css",
+      "description": "Concatenate css files, rebasing urls and inlining @import",
+      "version": "2.1.2",
+      "homepage": "https://github.com/mariocasciaro/gulp-concat-css",
+      "author": {
+        "name": "Mario Casciaro"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/mariocasciaro/gulp-concat-css"
+      },
+      "bugs": {
+        "url": "https://github.com/mariocasciaro/gulp-concat-css/issues"
+      },
+      "licenses": [
+        {
+          "type": "MIT",
+          "url": "https://github.com/mariocasciaro/gulp-concat-css/blob/master/LICENSE"
+        }
+      ],
+      "dependencies": {
+        "gulp-util": "~3.0.1",
+        "lodash.defaults": "^3.0.0",
+        "parse-import": "^2.0.0",
+        "rework": "~1.0.0",
+        "rework-import": "^2.0.0",
+        "rework-plugin-url": "^1.0.1",
+        "through2": "~1.1.1"
+      },
+      "devDependencies": {
+        "chai": "^1.10.0",
+        "mocha": "^2.1.0"
+      },
+      "scripts": {
+        "test": "node_modules/mocha/bin/mocha test/*.js --reporter spec"
+      },
+      "keywords": [
+        "gulpplugin",
+        "concat",
+        "css",
+        "import",
+        "merge",
+        "inline"
+      ],
+      "gitHead": "b12d30419da4cacddeda8cf363dc3515269a11ea",
+      "_id": "gulp-concat-css@2.1.2",
+      "_shasum": "68315df444c912d8e5d36ea96ddbd7d8c7b76328",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "mariocasciaro",
+        "email": "contact@mariocasciaro.me"
+      },
+      "maintainers": [
+        {
+          "name": "mariocasciaro",
+          "email": "mariocasciaro@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "68315df444c912d8e5d36ea96ddbd7d8c7b76328",
+        "tarball": "https://registry.npmjs.org/gulp-concat-css/-/gulp-concat-css-2.1.2.tgz",
+        "integrity": "sha512-CgYbC3/evnJTslQYlNuxrt9HrCnacIlnxZFfPs70mSpg/yyjNOUjB52A1ukt0lYyyVG/ESTnCtygxjkLf8+v5A==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGZcICHohRCjzyqAXHENVzK4DCoZ1NhmJgwnCu98DWWtAiEAzO7YVHHY4VQ4vwp53Py1bXk19NuvjFahb9lovlLE5Kc="
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "2.2.0": {
+      "name": "gulp-concat-css",
+      "description": "Concatenate css files, rebasing urls and inlining @import",
+      "version": "2.2.0",
+      "homepage": "https://github.com/mariocasciaro/gulp-concat-css",
+      "author": {
+        "name": "Mario Casciaro"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/mariocasciaro/gulp-concat-css"
+      },
+      "bugs": {
+        "url": "https://github.com/mariocasciaro/gulp-concat-css/issues"
+      },
+      "licenses": [
+        {
+          "type": "MIT",
+          "url": "https://github.com/mariocasciaro/gulp-concat-css/blob/master/LICENSE"
+        }
+      ],
+      "dependencies": {
+        "gulp-util": "~3.0.1",
+        "lodash.defaults": "^3.0.0",
+        "parse-import": "^2.0.0",
+        "rework": "~1.0.0",
+        "rework-import": "^2.0.0",
+        "rework-plugin-url": "^1.0.1",
+        "through2": "~1.1.1"
+      },
+      "devDependencies": {
+        "chai": "^1.10.0",
+        "mocha": "^2.1.0"
+      },
+      "scripts": {
+        "test": "node_modules/mocha/bin/mocha test/*.js --reporter spec"
+      },
+      "keywords": [
+        "gulpplugin",
+        "concat",
+        "css",
+        "import",
+        "merge",
+        "inline"
+      ],
+      "gitHead": "bac037cb5d2a6ddbc1172b65d9929aa7577c0110",
+      "_id": "gulp-concat-css@2.2.0",
+      "_shasum": "25f28126a9da8a0f583e0897b3fb8425229c5282",
+      "_from": ".",
+      "_npmVersion": "1.4.28",
+      "_npmUser": {
+        "name": "mariocasciaro",
+        "email": "contact@mariocasciaro.me"
+      },
+      "maintainers": [
+        {
+          "name": "mariocasciaro",
+          "email": "mariocasciaro@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "25f28126a9da8a0f583e0897b3fb8425229c5282",
+        "tarball": "https://registry.npmjs.org/gulp-concat-css/-/gulp-concat-css-2.2.0.tgz",
+        "integrity": "sha512-2rIcjJEmSGp5qwz+6ns2tdatkDTA+/jgTIzmaI3/ENJZsw4mpxTuvS92wiIS8QEXCMx4ZgOkLHQmBRKoVkS+mg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDraakpJTc/x2i+GIcqeN3SjIt7jzgCrRbfpkaCb7q5jAIhAJdpiaTzaXSz77vUPxwc3LTJCaECpWp4hWUmGn53Nm/a"
+          }
+        ]
+      },
+      "directories": {}
+    },
+    "2.3.0": {
+      "name": "gulp-concat-css",
+      "description": "Concatenate css files, rebasing urls and inlining @import",
+      "version": "2.3.0",
+      "homepage": "https://github.com/mariocasciaro/gulp-concat-css",
+      "author": {
+        "name": "Mario Casciaro"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/mariocasciaro/gulp-concat-css.git"
+      },
+      "bugs": {
+        "url": "https://github.com/mariocasciaro/gulp-concat-css/issues"
+      },
+      "licenses": [
+        {
+          "type": "MIT",
+          "url": "https://github.com/mariocasciaro/gulp-concat-css/blob/master/LICENSE"
+        }
+      ],
+      "dependencies": {
+        "gulp-util": "~3.0.1",
+        "lodash.defaults": "^3.0.0",
+        "parse-import": "^2.0.0",
+        "rework": "~1.0.0",
+        "rework-import": "^2.0.0",
+        "rework-plugin-url": "^1.0.1",
+        "through2": "~1.1.1"
+      },
+      "devDependencies": {
+        "chai": "^1.10.0",
+        "mocha": "^2.1.0"
+      },
+      "scripts": {
+        "test": "node_modules/mocha/bin/mocha test/*.js --reporter spec"
+      },
+      "keywords": [
+        "gulpplugin",
+        "concat",
+        "css",
+        "import",
+        "merge",
+        "inline"
+      ],
+      "gitHead": "c4171769510e6921b7c33610acfb6fd6a42237be",
+      "_id": "gulp-concat-css@2.3.0",
+      "_shasum": "4c1586121a8411ff4b2dc44fcfa4dc740e8fe1b6",
+      "_from": ".",
+      "_npmVersion": "2.14.12",
+      "_nodeVersion": "4.2.6",
+      "_npmUser": {
+        "name": "mariocasciaro",
+        "email": "contact@mariocasciaro.me"
+      },
+      "maintainers": [
+        {
+          "name": "mariocasciaro",
+          "email": "mariocasciaro@gmail.com"
+        }
+      ],
+      "dist": {
+        "shasum": "4c1586121a8411ff4b2dc44fcfa4dc740e8fe1b6",
+        "tarball": "https://registry.npmjs.org/gulp-concat-css/-/gulp-concat-css-2.3.0.tgz",
+        "integrity": "sha512-CL0q2oWB4823KJ6OUw+p+LUTAGk7h8B5ELQyyHB82xamPuMH5vsstH+NmNZ0kFJCN6RSkAf7AOBGA09f0J+IGA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIF/W49Z81MCk8X/YiSjteirYm45jINbihZBRw19syi9NAiBIqz/KGFDR0YEuB0r4InYfIGH5pZqNCdkpCQ95n2a4Ag=="
+          }
+        ]
+      },
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/gulp-concat-css-2.3.0.tgz_1463480630688_0.9583744644187391"
+      },
+      "directories": {}
+    },
+    "3.0.0": {
+      "name": "gulp-concat-css",
+      "description": "Concatenate css files, rebasing urls and inlining @import",
+      "version": "3.0.0",
+      "homepage": "https://github.com/mariocasciaro/gulp-concat-css",
+      "author": {
+        "name": "Mario Casciaro"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/mariocasciaro/gulp-concat-css.git"
+      },
+      "bugs": {
+        "url": "https://github.com/mariocasciaro/gulp-concat-css/issues"
+      },
+      "licenses": [
+        {
+          "type": "MIT",
+          "url": "https://github.com/mariocasciaro/gulp-concat-css/blob/master/LICENSE"
+        }
+      ],
+      "dependencies": {
+        "lodash.defaults": "^3.0.0",
+        "parse-import": "^2.0.0",
+        "plugin-error": "^0.1.2",
+        "rework": "~1.0.0",
+        "rework-import": "^2.0.0",
+        "rework-plugin-url": "^1.0.1",
+        "through2": "~1.1.1",
+        "vinyl": "^2.1.0"
+      },
+      "devDependencies": {
+        "chai": "^1.10.0",
+        "mocha": "^2.1.0"
+      },
+      "scripts": {
+        "test": "node_modules/mocha/bin/mocha test/*.js --reporter spec"
+      },
+      "keywords": [
+        "gulpplugin",
+        "concat",
+        "css",
+        "import",
+        "merge",
+        "inline"
+      ],
+      "gitHead": "8d11ad59c1120e860f458dc1a463278c359f03c9",
+      "_id": "gulp-concat-css@3.0.0",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.5.0",
+      "_npmUser": {
+        "name": "mariocasciaro",
+        "email": "contact@mariocasciaro.me"
+      },
+      "dist": {
+        "integrity": "sha512-J5K8mg/iPfyspqZgcycYw4rL/pYEHn1fujf+dO7E+TkWLfRI4MDgv1ur0eJxGnGOEvEGJd2ePRh+Qbzow/3STQ==",
+        "shasum": "a70bfe16e42fe33480364ff1dd2fe45478fef446",
+        "tarball": "https://registry.npmjs.org/gulp-concat-css/-/gulp-concat-css-3.0.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDI1ib3RIX6Zn4V+Bed6ElOx2LFZW7e6QDkkAImynX3/gIgX8QEaEElqIFLv0K3ECCgTq1rAdv3n+4Jk/WhKU5wNzU="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mariocasciaro",
+          "email": "mariocasciaro@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/gulp-concat-css-3.0.0.tgz_1514906034186_0.3691732070874423"
+      },
+      "directories": {}
+    },
+    "3.1.0": {
+      "name": "gulp-concat-css",
+      "description": "Concatenate css files, rebasing urls and inlining @import",
+      "version": "3.1.0",
+      "homepage": "https://github.com/mariocasciaro/gulp-concat-css",
+      "author": {
+        "name": "Mario Casciaro"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/mariocasciaro/gulp-concat-css.git"
+      },
+      "bugs": {
+        "url": "https://github.com/mariocasciaro/gulp-concat-css/issues"
+      },
+      "licenses": [
+        {
+          "type": "MIT",
+          "url": "https://github.com/mariocasciaro/gulp-concat-css/blob/master/LICENSE"
+        }
+      ],
+      "dependencies": {
+        "lodash.defaults": "^3.0.0",
+        "parse-import": "^2.0.0",
+        "plugin-error": "^0.1.2",
+        "rework": "~1.0.0",
+        "rework-import": "^2.0.0",
+        "rework-plugin-url": "^1.0.1",
+        "through2": "~1.1.1",
+        "vinyl": "^2.1.0"
+      },
+      "devDependencies": {
+        "chai": "^1.10.0",
+        "mocha": "^2.1.0"
+      },
+      "scripts": {
+        "test": "node_modules/mocha/bin/mocha test/*.js --reporter spec"
+      },
+      "keywords": [
+        "gulpplugin",
+        "concat",
+        "css",
+        "import",
+        "merge",
+        "inline"
+      ],
+      "gitHead": "09bba96ae346a499b98cb9c859ba0711a444aa7c",
+      "_id": "gulp-concat-css@3.1.0",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "8.9.4",
+      "_npmUser": {
+        "name": "mariocasciaro",
+        "email": "contact@mariocasciaro.me"
+      },
+      "dist": {
+        "integrity": "sha512-iLTBPS+cutlgLyK3bp9DMts+WuS8n2mQpjzQ7p/ZVQc8FO5fvpN+ntg9U6jsuNvPeuii82aKm8XeOzF0nUK+TA==",
+        "shasum": "392567a9c50d409c3dae5c0f2f5b71d54ce60c99",
+        "tarball": "https://registry.npmjs.org/gulp-concat-css/-/gulp-concat-css-3.1.0.tgz",
+        "fileCount": 14,
+        "unpackedSize": 15754,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDs50u2+hY+YaFKv6pjZfdJDKxXIGAU4jnJurgLV+PgwAiEAgU3TlH42lvP6ILzGC1dRX/FLiXh6ThTuRiWE+z0H1z8="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mariocasciaro",
+          "email": "mariocasciaro@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/gulp-concat-css_3.1.0_1520343266930_0.29581273090448734"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "dist-tags": {
+    "latest": "3.1.0"
+  },
+  "readmeFilename": "README.md",
+  "author": {
+    "name": "Mario Casciaro"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mariocasciaro/gulp-concat-css.git"
+  },
+  "homepage": "https://github.com/mariocasciaro/gulp-concat-css",
+  "keywords": [
+    "gulpplugin",
+    "concat",
+    "css",
+    "import",
+    "merge",
+    "inline"
+  ],
+  "bugs": {
+    "url": "https://github.com/mariocasciaro/gulp-concat-css/issues"
+  },
+  "users": {
+    "sexyoung1985": true,
+    "agantelin": true,
+    "wthompson_lixar": true,
+    "alvint": true,
+    "majorbarberry": true,
+    "kolesnikoff": true,
+    "joaocunha": true,
+    "darg": true,
+    "wmhilton": true,
+    "heavymod": true,
+    "martinlancer": true,
+    "ilkanimal": true,
+    "thatk": true,
+    "johnym": true,
+    "ifeature": true,
+    "dskecse": true,
+    "greendwin": true,
+    "rubychen": true,
+    "aswerty": true,
+    "runningtalus": true,
+    "ameer157": true,
+    "qwr": true,
+    "rugoals": true,
+    "dennykuo": true,
+    "jovib": true,
+    "amirrustam": true,
+    "lpent": true,
+    "sanketss84": true,
+    "rubiadias": true,
+    "patsifist": true,
+    "monjer": true,
+    "mallocation": true,
+    "xy958121404": true,
+    "bpatel": true,
+    "sesamechee": true,
+    "tower1229": true,
+    "vsanjo": true,
+    "sushiilbharti": true,
+    "otravers": true,
+    "tmurngon": true,
+    "nickvirden": true,
+    "sansgumen": true,
+    "morogasper": true,
+    "eswat2": true,
+    "jamesmoreira": true,
+    "matheushf": true,
+    "haoxiaodan": true,
+    "evandrosevergnini": true,
+    "nekhaevskiy": true,
+    "caikan": true,
+    "axelrindle": true,
+    "leks": true,
+    "oliverastro": true,
+    "sensaetions": true,
+    "kimkee": true,
+    "dtardencilla": true,
+    "xianghongai": true,
+    "agplan": true,
+    "yikuo": true,
+    "olonam": true,
+    "linxaingjun": true,
+    "yu3ver": true,
+    "onenglar": true
+  }
+}

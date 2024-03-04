@@ -1,0 +1,5886 @@
+{
+  "_id": "@std/esm",
+  "_rev": "132-ac545a6e0baf97377f78f48e7664ef6c",
+  "name": "@std/esm",
+  "description": "Enable ES modules in Node today!",
+  "dist-tags": {
+    "latest": "0.26.0"
+  },
+  "versions": {
+    "0.0.1": {
+      "name": "@std/esm",
+      "version": "0.0.1",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs,ecmascript,export,import,modules,node,require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "prebuild:prod": "optional-dev-dependency",
+        "precommit": "npm run lint",
+        "prelint": "npm run pretest",
+        "prepack": "npm run test:prod",
+        "pretest": "npm run build -- --test",
+        "pretest:prod": "npm run build:prod -- --test",
+        "build": "node script/build.js",
+        "build:prod": "node script/build.js --prod",
+        "clean": "node script/clean.js",
+        "lint": "eslint ./*.js ./**/*.js --fix --quiet",
+        "test": "node --require ./build/esm.js script/test.js",
+        "test:prod": "node --require ./index.js script/test.js"
+      },
+      "devDependencies": {
+        "acorn": "^5.1.1",
+        "babel-core": "^6.25.0",
+        "babel-eslint": "^7.2.3",
+        "babel-loader": "^7.1.1",
+        "babel-plugin-transform-for-of-as-array": "^1.0.3",
+        "babel-preset-env": "^1.6.0",
+        "babel-register": "^6.24.1",
+        "download": "^6.2.5",
+        "eslint": "^4.4.1",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-node": "^5.1.1",
+        "execa": "^0.8.0",
+        "fs-extra": "^4.0.0",
+        "globby": "^6.1.0",
+        "husky": "^0.14.3",
+        "minizlib": "^1.0.3",
+        "mocha": "^3.5.0",
+        "optimize-js-plugin": "0.0.4",
+        "optional-dev-dependency": "^2.0.1",
+        "pify": "^3.0.0",
+        "punycode": "^2.1.0",
+        "semver": "^5.4.1",
+        "trash": "^4.0.1",
+        "uglify-es": "^3.0.27",
+        "uglifyjs-webpack-plugin": "^1.0.0-beta.2",
+        "webpack": "^3.5.2",
+        "webpack-bundle-analyzer": "^2.8.3",
+        "webpack-common-shake": "^1.5.3",
+        "yargs": "^8.0.2"
+      },
+      "optionalDevDependencies": {
+        "node-zopfli": "^2.0.2"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "f6f99134797714168dc76820a382a39680ca97eb",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.0.1",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-F8T0KuSYZktkOHZ4nxh6A++m4xKn7WCiTpK55RjnajfT0cw1bW543iBqiFM1EvdgQ4N0eRJ+vjBstM65IcaGeA==",
+        "shasum": "c8c2806d627e16107b18094684e83bf042d3ed9b",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.0.1.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDetf+VIAfJbTzeV4rRQagM7kamcP9RgetNRmPOJ5aVVQIgXVQV3HniCpSyJtxmNo0Cifjs1aza60SiJlgXC/tiD1w="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.0.1.tgz_1502342174158_0.6554997942876071"
+      },
+      "directories": {}
+    },
+    "0.1.0": {
+      "name": "@std/esm",
+      "version": "0.1.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "prebuild:prod": "optional-dev-dependency",
+        "precommit": "npm run lint",
+        "prelint": "npm run pretest",
+        "prepack": "npm run test:prod",
+        "pretest": "npm run build -- --test",
+        "pretest:prod": "npm run build:prod -- --test",
+        "build": "node script/build.js",
+        "build:prod": "node script/build.js --prod",
+        "clean": "node script/clean.js",
+        "lint": "eslint ./*.js ./**/*.js --fix --quiet",
+        "test": "node --require ./build/esm.js script/test.js",
+        "test:prod": "node --require ./index.js script/test.js"
+      },
+      "devDependencies": {
+        "acorn": "^5.1.1",
+        "babel-core": "^6.25.0",
+        "babel-eslint": "^7.2.3",
+        "babel-loader": "^7.1.1",
+        "babel-plugin-transform-for-of-as-array": "^1.0.3",
+        "babel-preset-env": "^1.6.0",
+        "babel-register": "^6.24.1",
+        "download": "^6.2.5",
+        "eslint": "^4.4.1",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-node": "^5.1.1",
+        "execa": "^0.8.0",
+        "fs-extra": "^4.0.0",
+        "globby": "^6.1.0",
+        "husky": "^0.14.3",
+        "minizlib": "^1.0.3",
+        "mocha": "^3.5.0",
+        "optimize-js-plugin": "0.0.4",
+        "optional-dev-dependency": "^2.0.1",
+        "pify": "^3.0.0",
+        "punycode": "^2.1.0",
+        "semver": "^5.4.1",
+        "trash": "^4.0.1",
+        "uglify-es": "^3.0.27",
+        "uglifyjs-webpack-plugin": "^1.0.0-beta.2",
+        "webpack": "^3.5.3",
+        "webpack-bundle-analyzer": "^2.8.3",
+        "webpack-common-shake": "^1.5.3",
+        "yargs": "^8.0.2"
+      },
+      "optionalDevDependencies": {
+        "node-zopfli": "^2.0.2"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "4747810035ec86b51804149571c91721dd211fc0",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.1.0",
+      "_shasum": "aac87b41992de647dfe48a34b01f0e64362f3d12",
+      "_from": ".",
+      "_npmVersion": "4.6.1",
+      "_nodeVersion": "8.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "shasum": "aac87b41992de647dfe48a34b01f0e64362f3d12",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.1.0.tgz",
+        "integrity": "sha512-LtwDQv+78aiKi6nk+aFCgUpT1La3tJ/3x0GA+cmFiPhiHAj3W+q6hT7EW3I6zHaAYgvz5WqXCXFovUtWnuXRGg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGZR1fjenp2b/t3ANp6CP70ot16fAq9vFyN4bpUX2WVEAiB5UU4n8keZ7uMvQv8HclH2pm4fXncZW//N2LOQoq/lhw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.1.0.tgz_1502399031489_0.9873704966157675"
+      },
+      "directories": {}
+    },
+    "0.1.1": {
+      "name": "@std/esm",
+      "version": "0.1.1",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "prebuild:prod": "optional-dev-dependency",
+        "precommit": "npm run lint",
+        "prelint": "npm run pretest",
+        "prepack": "npm run test:prod",
+        "pretest": "npm run build -- --test",
+        "pretest:prod": "npm run build:prod -- --test",
+        "build": "node script/build.js",
+        "build:prod": "node script/build.js --prod",
+        "clean": "node script/clean.js",
+        "lint": "eslint ./*.js ./**/*.js --fix --quiet",
+        "test": "node --require ./build/esm.js script/test.js",
+        "test:prod": "node --require ./index.js script/test.js"
+      },
+      "devDependencies": {
+        "acorn": "^5.1.1",
+        "babel-core": "^6.25.0",
+        "babel-eslint": "^7.2.3",
+        "babel-loader": "^7.1.1",
+        "babel-plugin-transform-for-of-as-array": "^1.0.3",
+        "babel-preset-env": "^1.6.0",
+        "babel-register": "^6.24.1",
+        "download": "^6.2.5",
+        "eslint": "^4.4.1",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-node": "^5.1.1",
+        "execa": "^0.8.0",
+        "fs-extra": "^4.0.0",
+        "globby": "^6.1.0",
+        "husky": "^0.14.3",
+        "minizlib": "^1.0.3",
+        "mocha": "^3.5.0",
+        "optimize-js-plugin": "0.0.4",
+        "optional-dev-dependency": "^2.0.1",
+        "pify": "^3.0.0",
+        "punycode": "^2.1.0",
+        "semver": "^5.4.1",
+        "trash": "^4.0.1",
+        "uglify-es": "^3.0.27",
+        "uglifyjs-webpack-plugin": "^1.0.0-beta.2",
+        "webpack": "^3.5.3",
+        "webpack-bundle-analyzer": "^2.8.3",
+        "webpack-common-shake": "^1.5.3",
+        "yargs": "^8.0.2"
+      },
+      "optionalDevDependencies": {
+        "node-zopfli": "^2.0.2"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "4747810035ec86b51804149571c91721dd211fc0",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.1.1",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-fzmgPfPmA3qBpQhcWhTA9xbOlaecR4h9pZgih8LzWdFacifh5rw4uZOAJS/ijPjNJDhip5smzjR7nqR4+SPoeQ==",
+        "shasum": "f8d0453955a93aeebdb44256cb0c1a8a7bedd125",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.1.1.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAkuE/Gh7VWJWB5eA//S5UGTpzqHkNo1G2CmHz1FQ4m1AiEA9nFjAxreRjJcmJYVb2xi3X1Hwvgu5cqPhH5aHyk0dH0="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.1.1.tgz_1502399220160_0.4519299508538097"
+      },
+      "directories": {}
+    },
+    "0.2.0": {
+      "name": "@std/esm",
+      "version": "0.2.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "prebuild:prod": "optional-dev-dependency",
+        "precommit": "npm run lint",
+        "prelint": "npm run pretest",
+        "prepublish": "npm run test:prod",
+        "pretest": "npm run build -- --test",
+        "pretest:prod": "npm run build:prod -- --test",
+        "build": "node script/build.js",
+        "build:prod": "node script/build.js --prod",
+        "clean": "node script/clean.js",
+        "lint": "eslint ./*.js ./**/*.js --fix --quiet",
+        "publish": "npm publish",
+        "test": "node --require ./build/esm.js script/test.js",
+        "test:prod": "node --require ./index.js script/test.js"
+      },
+      "devDependencies": {
+        "acorn": "^5.1.1",
+        "babel-core": "^6.25.0",
+        "babel-eslint": "^7.2.3",
+        "babel-loader": "^7.1.1",
+        "babel-plugin-transform-for-of-as-array": "^1.0.3",
+        "babel-preset-env": "^1.6.0",
+        "babel-register": "^6.24.1",
+        "download": "^6.2.5",
+        "eslint": "^4.4.1",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-node": "^5.1.1",
+        "execa": "^0.8.0",
+        "fs-extra": "^4.0.0",
+        "globby": "^6.1.0",
+        "husky": "^0.14.3",
+        "minizlib": "^1.0.3",
+        "mocha": "^3.5.0",
+        "optimize-js-plugin": "0.0.4",
+        "optional-dev-dependency": "^2.0.1",
+        "pify": "^3.0.0",
+        "punycode": "^2.1.0",
+        "semver": "^5.4.1",
+        "trash": "^4.0.1",
+        "uglify-es": "^3.0.27",
+        "uglifyjs-webpack-plugin": "^1.0.0-beta.2",
+        "webpack": "^3.5.3",
+        "webpack-bundle-analyzer": "^2.8.3",
+        "webpack-common-shake": "^1.5.3",
+        "yargs": "^8.0.2"
+      },
+      "optionalDevDependencies": {
+        "node-zopfli": "^2.0.2"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "dependencies": {
+        "node-zopfli": "^2.0.2"
+      },
+      "gitHead": "dfed3232cdd091e16f7d7d489afc2e780b2d4ff5",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.2.0",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-sdA/Yx+aDZVggmJfHoBH/SMsLc/YhDQDLL5oXiWhsNB0x4c44qw2DgUoKCXk2KpHY+HGc0jpyjvTRkrbvsUxcw==",
+        "shasum": "8ce000bcba7dd2ecaf87e7582f1e3228d7b6c302",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.2.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCgLZD4VFMSAXd93KP/Nm1pddk0wpQIPVtereCD+OokMQIhAOcN3LvYWfYKz4qE1x6+nRnaNDwyB01hf8i8k5r2Xd5J"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.2.0.tgz_1502472112468_0.9363592732697725"
+      },
+      "directories": {}
+    },
+    "0.2.1": {
+      "name": "@std/esm",
+      "version": "0.2.1",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "prebuild:prod": "optional-dev-dependency",
+        "prelint": "npm run pretest",
+        "prepub": "npm run test:prod",
+        "pretest": "npm run build -- --test",
+        "pretest:prod": "npm run build:prod -- --test",
+        "build": "node script/build.js",
+        "build:prod": "node script/build.js --prod",
+        "clean": "node script/clean.js",
+        "lint": "eslint ./*.js ./**/*.js --fix --quiet",
+        "pub": "npm publish",
+        "test": "node --require ./build/esm.js script/test.js",
+        "test:prod": "node --require ./index.js script/test.js"
+      },
+      "devDependencies": {
+        "acorn": "^5.1.1",
+        "babel-core": "^6.25.0",
+        "babel-eslint": "^7.2.3",
+        "babel-loader": "^7.1.1",
+        "babel-plugin-transform-for-of-as-array": "^1.0.3",
+        "babel-preset-env": "^1.6.0",
+        "babel-register": "^6.24.1",
+        "download": "^6.2.5",
+        "eslint": "^4.4.1",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-node": "^5.1.1",
+        "execa": "^0.8.0",
+        "fs-extra": "^4.0.0",
+        "globby": "^6.1.0",
+        "husky": "^0.14.3",
+        "minizlib": "^1.0.3",
+        "mocha": "^3.5.0",
+        "optimize-js-plugin": "0.0.4",
+        "optional-dev-dependency": "^2.0.1",
+        "pify": "^3.0.0",
+        "punycode": "^2.1.0",
+        "semver": "^5.4.1",
+        "trash": "^4.0.1",
+        "uglify-es": "^3.0.27",
+        "uglifyjs-webpack-plugin": "^1.0.0-beta.2",
+        "webpack": "^3.5.3",
+        "webpack-bundle-analyzer": "^2.8.3",
+        "webpack-common-shake": "^1.5.3",
+        "yargs": "^8.0.2"
+      },
+      "optionalDevDependencies": {
+        "node-zopfli": "^2.0.2"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.2.1",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-nwHAbu83gFgawtkk/Ogyva3RlAWO/DXxzVblOZBBDlc/0C1wrFUi5g0cg2yhjBze95mTY5qjqxnbocbV+yuqig==",
+        "shasum": "3d0a887f19dc28b952290ce4b7f7d8a3b72ffeae",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.2.1.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICaWxrTxk83OXRaMlhQVYRBdPR4BW3dr18GZS+n34fFpAiBRA2T4FcVfo3UzzRgYji/3r/VOtv+zrBHjjwSqmJQBZQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.2.1.tgz_1502476076948_0.2488000129815191"
+      },
+      "directories": {}
+    },
+    "0.2.2": {
+      "name": "@std/esm",
+      "version": "0.2.2",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "prebuild:prod": "optional-dev-dependency",
+        "prelint": "npm run pretest",
+        "prepub": "npm run test:prod",
+        "pretest": "npm run build -- --test",
+        "pretest:prod": "npm run build:prod -- --test",
+        "build": "node script/build.js",
+        "build:prod": "node script/build.js --prod",
+        "clean": "node script/clean.js",
+        "lint": "eslint ./*.{js,mjs} ./**/*.{js,mjs} --fix --quiet",
+        "pub": "node script/publish.js",
+        "test": "node --require ./build/esm.js script/test.js",
+        "test:prod": "node --require ./index.js script/test.js"
+      },
+      "devDependencies": {
+        "acorn": "^5.1.1",
+        "babel-core": "^6.25.0",
+        "babel-eslint": "^7.2.3",
+        "babel-loader": "^7.1.1",
+        "babel-plugin-transform-for-of-as-array": "^1.0.3",
+        "babel-preset-env": "^1.6.0",
+        "download": "^6.2.5",
+        "eslint": "^4.4.1",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-node": "^5.1.1",
+        "execa": "^0.8.0",
+        "fs-extra": "^4.0.0",
+        "globby": "^6.1.0",
+        "husky": "^0.14.3",
+        "minizlib": "^1.0.3",
+        "mocha": "^3.5.0",
+        "optimize-js-plugin": "0.0.4",
+        "optional-dev-dependency": "^2.0.1",
+        "pify": "^3.0.0",
+        "punycode": "^2.1.0",
+        "semver": "^5.4.1",
+        "trash": "^4.0.1",
+        "uglify-es": "^3.0.27",
+        "uglifyjs-webpack-plugin": "^1.0.0-beta.2",
+        "webpack": "^3.5.3",
+        "webpack-bundle-analyzer": "^2.8.3",
+        "webpack-common-shake": "^1.5.3",
+        "yargs": "^8.0.2"
+      },
+      "optionalDevDependencies": {
+        "node-zopfli": "^2.0.2"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "e458cd6fcd945630a1441ae41ddf491088a63377",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.2.2",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-pLemObiLGS2s66jOMH48J9AIv/J8cLOyHQGr6snbFBhb8Qjh+fXc6/SQ21SYH8KUl2Mwl3Ua+v++eSYqiDE7GA==",
+        "shasum": "8d3fdacae23015eae01db739a9f76d7cd1ab617d",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.2.2.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDx1OKCp31eTfNjTLpJhEb+3lO8l0V2FxdO3A1/Wdx4FwIhAMAr92No3UXercc1i4LjiGEKmKBr8Q9RSI2YNghjywJV"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.2.2.tgz_1502604363119_0.2632547316607088"
+      },
+      "directories": {}
+    },
+    "0.3.0": {
+      "name": "@std/esm",
+      "version": "0.3.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "prebuild:prod": "optional-dev-dependency",
+        "precommit": "npm run lint",
+        "prelint": "npm run pretest",
+        "prepub": "npm run test:prod",
+        "pretest": "npm run build -- --test",
+        "pretest:prod": "npm run build:prod -- --test",
+        "build": "node script/build.js",
+        "build:prod": "node script/build.js --prod",
+        "clean": "node script/clean.js",
+        "lint": "eslint ./*.{js,mjs} ./**/*.{js,mjs} --fix --quiet",
+        "pub": "node script/publish.js",
+        "test": "node --require ./build/esm.js script/test.js",
+        "test:prod": "node --require ./index.js script/test.js"
+      },
+      "devDependencies": {
+        "acorn": "^5.1.1",
+        "babel-core": "^6.25.0",
+        "babel-eslint": "^7.2.3",
+        "babel-loader": "^7.1.1",
+        "babel-plugin-transform-for-of-as-array": "^1.0.3",
+        "babel-preset-env": "^1.6.0",
+        "download": "^6.2.5",
+        "eslint": "^4.4.1",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-node": "^5.1.1",
+        "execa": "^0.8.0",
+        "fs-extra": "^4.0.0",
+        "globby": "^6.1.0",
+        "husky": "^0.14.3",
+        "minizlib": "^1.0.3",
+        "mocha": "^3.5.0",
+        "optimize-js-plugin": "0.0.4",
+        "optional-dev-dependency": "^2.0.1",
+        "pify": "^3.0.0",
+        "punycode": "^2.1.0",
+        "semver": "^5.4.1",
+        "trash": "^4.0.1",
+        "uglify-es": "^3.0.27",
+        "uglifyjs-webpack-plugin": "^1.0.0-beta.2",
+        "webpack": "^3.5.3",
+        "webpack-bundle-analyzer": "^2.8.3",
+        "webpack-common-shake": "^1.5.3",
+        "yargs": "^8.0.2"
+      },
+      "optionalDevDependencies": {
+        "node-zopfli": "^2.0.2"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "53f09d01f47669acc36ee87650fc9c6a54d82119",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.3.0",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-xuA2NWR0Hp6pYeJK2xXB6hgLVRd3ObumH3lrOdWCIWJf9KMB+xFUVR0kuqYX4GLhXiinRxEPBP3GTqr6F6nlNg==",
+        "shasum": "2ba98c13510174d51d5e813059090ba00d41b6f6",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.3.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCSxDU06wXPjCIGvvSKBUWW7WkKX1qcnRx6AG4tNLph2QIhAKPY2wjudztFkw/iSFsBpTvuv4SbfLlKzb484fEQxXp7"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.3.0.tgz_1502820816805_0.38626628858037293"
+      },
+      "directories": {}
+    },
+    "0.4.0": {
+      "name": "@std/esm",
+      "version": "0.4.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "prebuild:prod": "optional-dev-dependency",
+        "precommit": "npm run lint",
+        "prelint": "npm run pretest",
+        "prepub": "npm run test:prod",
+        "pretest": "npm run build -- --test",
+        "pretest:prod": "npm run build:prod -- --test",
+        "build": "node script/build.js",
+        "build:prod": "node script/build.js --prod",
+        "clean": "node script/clean.js",
+        "lint": "eslint ./*.{js,mjs} ./**/*.{js,mjs} --fix --quiet",
+        "pub": "node script/publish.js",
+        "test": "node --require ./build/esm.js script/test.js",
+        "test:prod": "node --require ./index.js script/test.js"
+      },
+      "devDependencies": {
+        "acorn": "^5.1.1",
+        "babel-core": "^6.26.0",
+        "babel-eslint": "^7.2.3",
+        "babel-loader": "^7.1.1",
+        "babel-plugin-transform-for-of-as-array": "^1.0.3",
+        "babel-preset-env": "^1.6.0",
+        "download": "^6.2.5",
+        "eslint": "^4.4.1",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-node": "^5.1.1",
+        "execa": "^0.8.0",
+        "fs-extra": "^4.0.0",
+        "globby": "^6.1.0",
+        "husky": "^0.14.3",
+        "minizlib": "^1.0.3",
+        "mocha": "^3.5.0",
+        "optimize-js-plugin": "0.0.4",
+        "optional-dev-dependency": "^2.0.1",
+        "pify": "^3.0.0",
+        "punycode": "^2.1.0",
+        "semver": "^5.4.1",
+        "trash": "^4.0.1",
+        "uglify-es": "^3.0.27",
+        "uglifyjs-webpack-plugin": "^1.0.0-beta.2",
+        "webpack": "^3.5.3",
+        "webpack-bundle-analyzer": "^2.8.3",
+        "webpack-common-shake": "^1.5.3",
+        "yargs": "^8.0.2"
+      },
+      "optionalDevDependencies": {
+        "node-zopfli": "^2.0.2"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "da4bf128acc210ae661ca516407ec96c1030aef2",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.4.0",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-/Tnua2VyFQoYKAi2Y15l5cdO/hxg+bBTGo17gjWojVXV0bgePqVRZPI2fPRehFS7tgmZuO8AIUK1P5R4DJI1mw==",
+        "shasum": "a7ad63694fef5c2910c45c5445b129e38984a53f",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.4.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGfQH4zX9WqtY8X5m8LrJPgmDjba1rknm2Bh162Y1qk4AiBY1UjUaR/iz/OY3295l9F3w1yNr7Yy2YHRlkTv90hn2w=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.4.0.tgz_1502906454276_0.21965751005336642"
+      },
+      "directories": {}
+    },
+    "0.5.0": {
+      "name": "@std/esm",
+      "version": "0.5.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "prebuild:prod": "optional-dev-dependency",
+        "precommit": "npm run lint",
+        "prelint": "npm run pretest",
+        "prepub": "npm run test:prod",
+        "pretest": "npm run build -- --test",
+        "pretest:prod": "npm run build:prod -- --test",
+        "build": "node script/build.js",
+        "build:prod": "node script/build.js --prod",
+        "clean": "node script/clean.js",
+        "lint": "eslint ./*.{js,mjs} ./**/*.{js,mjs} --fix --quiet",
+        "pub": "node script/publish.js",
+        "test": "node --require ./build/esm.js script/test.js",
+        "test:prod": "node --require ./index.js script/test.js"
+      },
+      "devDependencies": {
+        "acorn": "^5.1.1",
+        "babel-core": "^6.26.0",
+        "babel-eslint": "^7.2.3",
+        "babel-loader": "^7.1.1",
+        "babel-plugin-transform-for-of-as-array": "^1.0.3",
+        "babel-preset-env": "^1.6.0",
+        "download": "^6.2.5",
+        "eslint": "^4.4.1",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-node": "^5.1.1",
+        "execa": "^0.8.0",
+        "fs-extra": "^4.0.0",
+        "globby": "^6.1.0",
+        "husky": "^0.14.3",
+        "minizlib": "^1.0.3",
+        "mocha": "^3.5.0",
+        "optimize-js-plugin": "0.0.4",
+        "optional-dev-dependency": "^2.0.1",
+        "pify": "^3.0.0",
+        "punycode": "^2.1.0",
+        "semver": "^5.4.1",
+        "trash": "^4.0.1",
+        "uglify-es": "^3.0.27",
+        "uglifyjs-webpack-plugin": "^1.0.0-beta.2",
+        "webpack": "^3.5.3",
+        "webpack-bundle-analyzer": "^2.8.3",
+        "webpack-common-shake": "^1.5.3",
+        "yargs": "^8.0.2"
+      },
+      "optionalDevDependencies": {
+        "node-zopfli": "^2.0.2"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "37662d933eee124af79655b50aef38b33350b43c",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.5.0",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-pm61DU/bx62H7q3zGqxRO/EerGW00095WsQNsBlBOgg9kBEoG0c1B7dbBFmLXPuRSjiIst860lJhvybce3X/Pg==",
+        "shasum": "84bfe06ee49c3c42e7470984bc35da118006d8ef",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.5.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCHegpf40rmiIVLhqziw7IfvE2sclJd2AzuH2lq67li9gIgOIJuInIggNn8HK4Ig0nZlXm2OX4H8H6UPG7IushjQ2w="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.5.0.tgz_1502922494516_0.06126168789342046"
+      },
+      "directories": {}
+    },
+    "0.5.1": {
+      "name": "@std/esm",
+      "version": "0.5.1",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "8fc38d8d3be175cbbfc0e6c39e3ab70e011d87ea",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.5.1",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-N8A2sbYtt/X2a/MK3fosDmFx8VBj6hS6ko51I3f58YcsQQMLyv/XCwmG+70Hxbxaaf0vX82oyYfskEdBTzUWKg==",
+        "shasum": "5d9c855c1ce68401bd235b835a4fc609b1a8df26",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.5.1.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCID+tWW5yJe4U5+BDm0odS2v07+Qv7CZLxjSn5wwmBi9cAiAJAlNuCYqwZydVhSHzI3rLz3sX24DsFx7/rHd1GcJQHg=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.5.1.tgz_1502998345622_0.6368023620452732"
+      },
+      "directories": {}
+    },
+    "0.6.0": {
+      "name": "@std/esm",
+      "version": "0.6.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "ead1fe97cfb12149094fb2f0cb174fbb3664c91d",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.6.0",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-6buzNssnqt/nQWvrZeo7Ebr5KysQ5WacERKGQf+n3EMPYcibC+b/paLWCL6gkrnv7Iktsed3oie7BCdvhg7ouQ==",
+        "shasum": "f4d6ad1da5412da5141906b93f5eb469e4dfad4e",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.6.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDlv1EW+yKxQrNM2VVYIJ9FHKPQztHAus531nHACS0lLwIgG1d2AmdmYbOyg44oZzKx83aluQkTnV3qjhW195njqGM="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.6.0.tgz_1503954210166_0.917711049085483"
+      },
+      "directories": {}
+    },
+    "0.7.0": {
+      "name": "@std/esm",
+      "version": "0.7.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "01dd4015b6ec41e4a8e740967bc8a4daa7614020",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.7.0",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-LpCzmcNTUujiXo6+Rii0cgMeQfX/esg8GhQAD7ZSlT+rghVzp1OdzhUSGdq/ClSWDOZxLpC1FVh2ffGlh9HDww==",
+        "shasum": "8171d3981085589057ae411ec7ddee3e1dd29de8",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.7.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDIaXgOXhsCP0Tqw+HVhcOI89ZrPXZxnAj69GklrdSrBAIgdsbTAjPQQfpa6eu6aFX1lpx85BA8TFKJzOek91mFGk0="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.7.0.tgz_1503979195794_0.8490048148669302"
+      },
+      "directories": {}
+    },
+    "0.7.1": {
+      "name": "@std/esm",
+      "version": "0.7.1",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "22f0feda90f786c8503c8b9f27e235ba8a5d9f56",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.7.1",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-UlzeWnrIjacUSFL2Az1sX2vtROL5efRbB+caZc/js6HiYCKWhITb9qiCnJLcLGDYCX0wmfN2WSEj9E1tDb+j7Q==",
+        "shasum": "f612e3f10b87622c2054f241d1933585ea9050fe",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.7.1.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICn1bh4loNjtHsaAKlOzFoBWFdqLvUYJr+ilOKeL1woBAiEAiyWQX0vWTyw6uEvkA8GXRm6kZ7dkuQLL0QZleApmwRc="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.7.1.tgz_1504107319499_0.5339896604418755"
+      },
+      "directories": {}
+    },
+    "0.8.0": {
+      "name": "@std/esm",
+      "version": "0.8.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "1898abbff95867079d37ebaa13f1ac264dc2566f",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.8.0",
+      "_npmVersion": "5.4.0",
+      "_nodeVersion": "8.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-PfRuLGRBx2+rtr4ze0A6zu4dO8Z0hi5WipeFuOBuB/hnwzIVIIrrrzlBbBI+0dneIIWYgOZhJE1t8wHO/d3z/g==",
+        "shasum": "d7c25eb2b23c1f6423d70fb455c1af7a78718162",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.8.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAbtJtgLzk/ZGQ6XQ2r2jINXP8tm5Z42ehp5moskKAmZAiBDUCDgwULEWQaS5IdkYZ8kGyQ6YlFKkSQnKFpE48YYWg=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.8.0.tgz_1504796122353_0.8804902920965105"
+      },
+      "directories": {}
+    },
+    "0.8.1": {
+      "name": "@std/esm",
+      "version": "0.8.1",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "1a43e98183b1a5840e2f1121ba1bd16fb3524524",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.8.1",
+      "_npmVersion": "5.4.0",
+      "_nodeVersion": "8.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-pR1fdva92WKXIbzHW/Q4la+r6olV7fdthQdjft7F3P/AFZ5F49JhkppgCn8kGqmO7kyHEJ6+PDIiLvc9QgyKdg==",
+        "shasum": "86a62fedb1b0b3dd61f9a5f5f1bcee11d4eaa05d",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.8.1.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDxn/OZHjYH5oxXVYNkhc5lL7V8B7Z7ic38/PPTxmZMJwIhAOO0cED+z7A4QqcLjxsvP2NhmMKhu+LpEyreoO67LFH4"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.8.1.tgz_1504814624587_0.22207253193482757"
+      },
+      "directories": {}
+    },
+    "0.8.2": {
+      "name": "@std/esm",
+      "version": "0.8.2",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "2a26bfc2f3193fa4bde1ca67edbfc73232fdb609",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.8.2",
+      "_npmVersion": "5.4.0",
+      "_nodeVersion": "8.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-qav1ctleKotwDVT5tqBaGkdDlPXjmbTJe75Bh4NjS47AsxemeF4DgN81T0GNeHae6u6kvjLGrXeibGML3FP72A==",
+        "shasum": "51189dd133a54dcaaf4be14c0e106efe0bbe0886",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.8.2.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCGtQP/M7dqpFn5FX8yCb/fP3pCPFIwKuozG+1AuEMrrgIgcN1Xrp/opKbmXIrN1EmEwrJYTRiPa7cXTTpmzID5wqg="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.8.2.tgz_1504840737093_0.8293116074055433"
+      },
+      "directories": {}
+    },
+    "0.8.3": {
+      "name": "@std/esm",
+      "version": "0.8.3",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "7ee86772c0b0f3c79a1348a6cb32fe799a4d7cef",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.8.3",
+      "_npmVersion": "5.4.0",
+      "_nodeVersion": "8.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-JZigVxIuy2mCkBZWxwS3Wu9eL0lJzR176Rmzb6hLjGIg3yBVBEK4XhEiFX6k5lXDY+e69XAvEVbp59PfUpfpBA==",
+        "shasum": "7a3c3144ca0905c9b92d82b79987503ecb58a193",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.8.3.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDvHcwv8LrQgHfDXmT/XPI1d6RxS8rqP+SipvuDjdMkBAIgQt/+GOubGMGwsb/OGhuEdbH5WiGFz+yJNB5kZzNGF9c="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.8.3.tgz_1504893449200_0.7708744499832392"
+      },
+      "directories": {}
+    },
+    "0.9.0": {
+      "name": "@std/esm",
+      "version": "0.9.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "b107e8e91214a791a0dbeb961f5fe509c8bbaec3",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.9.0",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-+cEooKFPqmNX/ZJ/pv67ch1E8Unur3v4qvyOBqNAtz6qOzorBRFm/HeUs5fpCpl2zDE/H3iyH0mv4jd1/aULLA==",
+        "shasum": "47f7723aa62edb8de1c29df37f399a3ab26bf556",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.9.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGuZTzsv6+i5fqmE7HMgdcNBKJGCXOqIvxz1pQr2Op/LAiAvafAGi3sm+Z2Pa5GGzeOST3gEwHPgop4vFTIbQtJrlQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.9.0.tgz_1505226033645_0.6331050023436546"
+      },
+      "directories": {}
+    },
+    "0.9.1": {
+      "name": "@std/esm",
+      "version": "0.9.1",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "c73b9b7f91bd2ba700d2fd7e60f6c528bbc2c9f1",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.9.1",
+      "_npmVersion": "5.4.1",
+      "_nodeVersion": "8.5.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-GrWVjkeFOyLhVkO58ZwGl0PsVNgb+1XirYGNl0uRXutSaFbD9j+YbBOf9Jl93T+rBMqvifCnn5YBf0ahgoZ/Kg==",
+        "shasum": "19cec2bee59a7baabbd5248822a67ec9e0d5c31d",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.9.1.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIG99q1IoGgRQ73jc77KD+urLA1SkmBARUzLAhERqg5OEAiEA1h5RJ9s5zxAWhzkCxok8QYvFo07xaQ93Ke76b0CrQ94="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.9.1.tgz_1505240856579_0.725927647203207"
+      },
+      "directories": {}
+    },
+    "0.9.2": {
+      "name": "@std/esm",
+      "version": "0.9.2",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "6b9a9ce2279a02535f2daca54ca294106d36169f",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.9.2",
+      "_npmVersion": "5.4.1",
+      "_nodeVersion": "8.5.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-bPbUPyrwSzwamkblH3iNoInsTFSP6TbqHD8CK0jGh4VdPFhm/t2WKfUNN0eMwKZwH99gIKPrHu6SdcdPW1fufg==",
+        "shasum": "825dfadee6ba354536d275d6f7dbe1db542295b0",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.9.2.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIF2M/ZlJS2p2Fn6XP8645FGePsvL02blsvZDyNVUsHvnAiAnJWMnkHEy/l6QvLLXAZN7hP9Dw53ukU66Z1g064JqmA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.9.2.tgz_1505265115807_0.36073535098694265"
+      },
+      "directories": {}
+    },
+    "0.10.0": {
+      "name": "@std/esm",
+      "version": "0.10.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "875dd5257f91b9f85d6a963b1e4b128549747c09",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.10.0",
+      "_npmVersion": "5.4.1",
+      "_nodeVersion": "8.5.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-v76E3Btvx+5exYqaD4KVCpF/5OY9TFUCVMwJKCeqsX7R7lyTAfjdY1B+EUwATiS5xNDKkB2WNbteAwsNEQ5SMw==",
+        "shasum": "5610607ec4c99acdb2104b263d3a3c406d06ef2d",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.10.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQD9hkL5NuvuAKbSm3WhhT3iB8zYuPXt4xeDddqtlUIiUwIgQaTzALfg5c3cHrPqT7LVVzCDx9xPcSchOiptuGz7HzE="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.10.0.tgz_1505640453629_0.8368907952681184"
+      },
+      "directories": {}
+    },
+    "0.10.1": {
+      "name": "@std/esm",
+      "version": "0.10.1",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "794bf2688d3ce9b912dae637e7b270ca485974be",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.10.1",
+      "_npmVersion": "5.4.1",
+      "_nodeVersion": "8.5.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-DEHFeVREPgv5aJntA783kiNBDbB3b4+jZccGMflzltfW3TGD36UOy/FSchd6XTDU1yndOadp/ZQHHcg2kIHAew==",
+        "shasum": "21d6e408871952702ab4c14326945dc256209de9",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.10.1.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHv1xQqEe/PKdQ5V5zC3rNMRQJZhiks8WknfYoGH+dShAiEAkN8acFh7J+XBMcejplX3MgyffkxY1aN9rcTEW3WKOQA="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.10.1.tgz_1505707224995_0.25079458160325885"
+      },
+      "directories": {}
+    },
+    "0.10.2": {
+      "name": "@std/esm",
+      "version": "0.10.2",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "9ee089139106bbdc08e0cd13b449e3b49d4ee178",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.10.2",
+      "_npmVersion": "5.4.2",
+      "_nodeVersion": "8.5.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-dQBfTXlUmabvZodZSz50AhNq82Ox198V8Vc5de6iCpY3aa/gRktwDf6g/6+1D2onbIBfwnFDaMQ0EUoQpsKIyA==",
+        "shasum": "28bdfa473e624dc4585f0e3004820f59a227cc72",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.10.2.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEZWSVF3K962o/oq7YIqvPDA26zDMtrF8LhlfZwG6sZ0AiEA0QwWHtX8LqxsYzyxPktxT1uqi7QTli5cAbreM1YjpJo="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.10.2.tgz_1505949459676_0.9970794981345534"
+      },
+      "directories": {}
+    },
+    "0.11.0": {
+      "name": "@std/esm",
+      "version": "0.11.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "733d00fa224bfca136c3f738e12542111b720c27",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.11.0",
+      "_npmVersion": "5.4.2",
+      "_nodeVersion": "8.5.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-aZgosm+SRbm9olDsnL4oROYVdkTHC1JxlcY6etqSU+G9BqMesEubmtTxEmajxCcuLTaCnwhy+SwWviEJJMloYQ==",
+        "shasum": "f5562c6723a2eae5d6f95c3b35ff1338c586ae4e",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.11.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDxA6/JfLX8i/6Qd6uoQHcQUg3t/aoLnlTLb4asHpDnEgIgLMrrqRz0S9V5UF9RRa/WcyQYtp7eMXP916+rj3yobYI="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.11.0.tgz_1506198568311_0.10240984847769141"
+      },
+      "directories": {}
+    },
+    "0.11.1": {
+      "name": "@std/esm",
+      "version": "0.11.1",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "9c29cf886681b74bb4405af4a6090cafd6307dc7",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.11.1",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.6.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-rhXSf8fM7Hz6sVJjuWh8jV5eMkH7z5Pljmx9HUOaWS4zTL39Mbq9rNVdj1n+ByPKswterjf2E8SSG52dEZixXA==",
+        "shasum": "ec1ddfee283303bccc72fb22c74b9a7df7b78aac",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.11.1.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDTEgX62UVtehFhwpyHIVQ8kOMhJYtgZsugRY+Dg5d5GwIgRjBzH4YmVzFmO08pp0+9c/BC0mMttW3H4p98nBE9wxo="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.11.1.tgz_1506726084332_0.5743535875808448"
+      },
+      "directories": {}
+    },
+    "0.11.2": {
+      "name": "@std/esm",
+      "version": "0.11.2",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "d3d81bb5009b358bf70d039e589d96e1d2ebea4b",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.11.2",
+      "_npmVersion": "5.4.2",
+      "_nodeVersion": "8.6.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-l1z84sEcY7uMqCffg/DmsWpASMDkZrkE7niT+IlnKTcLnL3WGJYSDJRMb/6Tpclu0K45AXa887ElJ+CybyYe3g==",
+        "shasum": "a9a7ea29aab276dbdbc633d08dde0896cce74e57",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.11.2.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDR+lOJ8trh2gd2nYs/Vct6/KRHqLqARIRug0FTFNHybAiEAzZ/YiwKpDay24taQqHgKAf1JxQ4HWFP9Hup6n2j1gXY="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.11.2.tgz_1506963999253_0.8201062702573836"
+      },
+      "directories": {}
+    },
+    "0.11.3": {
+      "name": "@std/esm",
+      "version": "0.11.3",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "c3942c28d7aad4bdb00f2f21dec51c0e20019210",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.11.3",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "8.6.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-bVaTBF/5az6e5gK2ZEPsbRopWwZaJLJcNvh7uJ0SK7xEnKK/EO6NJQa93aP2MOtht9jE02Hals3iE6KLfLECjQ==",
+        "shasum": "78afd0edb3546e36e68e73d0128cf930e4817606",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.11.3.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIElajXFCePXyeiSgMiAR+UGj7g9c812HKK5TTbwXPaUdAiEAndc5IrW0WINgMihwvp9czs21MSF79LZzk00CaoExwtg="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.11.3.tgz_1507414039819_0.8173879694659263"
+      },
+      "directories": {}
+    },
+    "0.12.0": {
+      "name": "@std/esm",
+      "version": "0.12.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "f54e47b85528df78ddb01d158b4209b30a707311",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.12.0",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "8.7.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-8yGEatxyUdrM3s6BNIFtRLibS96BlZST3v9O1nz7QgVrdBotvmSWejJoaNirxgol3U+5hxRxHQYE4JRBsU27mw==",
+        "shasum": "d33b83e35e6854c94ac8840716c516b6f9b3cde2",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.12.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIE62129skA2a6GNoOH2YnG0FxfWxHoK2QidZmpX2dHWDAiEAmV/DDgnaPexSmCYyoG5J7387aW52BqdD9jVCMXDs8Bw="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.12.0.tgz_1508389284008_0.20060148555785418"
+      },
+      "directories": {}
+    },
+    "0.12.1": {
+      "name": "@std/esm",
+      "version": "0.12.1",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "8bfa2f6a52a098760e26337d443002f2a6280260",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.12.1",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "8.7.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-GhvQjoAL8pES8c+1qaphPIb8KHexWO6B4RwjhBRD5y33Gt2/0mHWOCHxWxKhHokAawD/OU0ie7ZKA686CaRwAg==",
+        "shasum": "d07b7c5e2701beade1e7db74b95484f5d91c46bf",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.12.1.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCkwuHBkl5teYYykAtduaGGWCYRRtrTbkv8GmlDudWa4QIgN49l3lD03x66oieBneo9+GalzPcxGGFpAhMkroHAsCY="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.12.1.tgz_1508541641391_0.1650133654475212"
+      },
+      "directories": {}
+    },
+    "0.12.2": {
+      "name": "@std/esm",
+      "version": "0.12.2",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "b24e487a63bf8179b868fa9d78fb7305002c879a",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.12.2",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "8.7.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-nyxQmNIRoWGo9SfbOCUL2GVU/a66fRH9GChzsJ897QnmRcss7+VMo0J3VNGOU8B+bmfT8l408VD7siDiP07IYg==",
+        "shasum": "78009033bc95ab665c62a575d371343b13aaa1b8",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.12.2.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDe3EHMSCxtaBsRO7iWzOhtp73ALCHKUvqmUMoLUc6f1AiBUZSqeBRlYnc5xV14lbG4icKZ1whS4pcArPEtMgzSJlA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.12.2.tgz_1508696443641_0.029302885523065925"
+      },
+      "directories": {}
+    },
+    "0.12.3": {
+      "name": "@std/esm",
+      "version": "0.12.3",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "00860cc05ba26e6d11aab1b2ca804d737ce0ab34",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.12.3",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "8.7.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-Exd9rKmezT6Uly3kcPFqeiEOvXKapBBpbPI0Jgdx88hpB/CK3ZMEvmr4SuN3NWfHEjQsbWsu8CHx5OHN2x3ouA==",
+        "shasum": "5abdf40c9d38f3175838521ffe75e5c7cda71961",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.12.3.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCP2RNekrmNiMk1XSzfcdylGDLTBtal+qvvOKeb4pXbxQIgfdCGvLwEkoNijfbVQ6prcTxqs83LtpGhnudppMfrzP8="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.12.3.tgz_1508928231087_0.3084388873539865"
+      },
+      "directories": {}
+    },
+    "0.12.4": {
+      "name": "@std/esm",
+      "version": "0.12.4",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "076354c9a8f40398b433fd4007200a27850be092",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.12.4",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "8.7.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-isMjDyshPcYkL8IopQluUMW+WOZA72FqhNVkN3V9xmdrn8UrJ08RVht6IOzL9y0SeEPJz3uRP1GlvaNmWAsElw==",
+        "shasum": "01e06a392ba577205a691d97916490406c39ef26",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.12.4.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBhTYprcv7ca2S2azJpB5dv9P1nSe8KwdNEHUy4jqwWHAiBAmcJ+leTavOzOq20Vamdj0YhqXLaJ1S4jTwVH5xy5+Q=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.12.4.tgz_1508935358582_0.13516600034199655"
+      },
+      "directories": {}
+    },
+    "0.12.5": {
+      "name": "@std/esm",
+      "version": "0.12.5",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "d989a2af263bbb5bcd7dbf6b6bcd7853a7eb0523",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.12.5",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "8.8.1",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-faJ//Sl37MVrLFM0t4+wpAgQL6LCLzP1B0PbDBb5WufMk8EJ6CY8FwwMmr8R/gPRXLEw8gQdL5PFX9DmCwGZcQ==",
+        "shasum": "b38a9bc70462df18a09b16f653141b9ab5557635",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.12.5.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIG7FdlNqQt83px3+JMywmxdMVRgSFKdM6MKx4fxTDHwDAiEAzwJf5U8r1iZ6y3rkZyl395lCSEJJKM4y+OdvCNSIy2c="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.12.5.tgz_1509374175645_0.9644945615436882"
+      },
+      "directories": {}
+    },
+    "0.13.0": {
+      "name": "@std/esm",
+      "version": "0.13.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "cb04ea8a39544a57b5f625ea94c986f0af7da7bb",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.13.0",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "9.0.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-b6P1wA14RUGONNKEtTFHcZNXaXL6myQqHV1dyJW7Z2z6m6yt8EjlNdQElbi4oGUTbLkOvW7EzIMygnhKZ9C1PA==",
+        "shasum": "b2ca2f7d96f50eec14bd14f0b8afc3138b2a40d4",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.13.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDZzs5gYVpgo1ijjFV2iNsP7dZJvoBDzWSgcKPHY5xphAiEA3JnOpnob8q5NBcl3ZzZSGguPygNgLZpLcNP2x4ZJj6I="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.13.0.tgz_1509732640899_0.4930277813691646"
+      },
+      "directories": {}
+    },
+    "0.14.0": {
+      "name": "@std/esm",
+      "version": "0.14.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "79c73b89ae6c5bf114c3ce16b6cc9bb09d5ee282",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.14.0",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "9.1.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-QrjkNyJCaPHOZ/xhdLhPFWJToQw9NnhrswyMJZPMR51V/9Jb7JdWHRMILHrQTdyD9++xAUi9shjD+YkoX94UNw==",
+        "shasum": "125081a4daf99a98ca63afe3f0610a8739e15067",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.14.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHcbxF//ZY4zNA4In2nHsniwwy1R2uFgH+skHRWkFrqhAiEA1oT4qX5f4K5eh35I2chMretZXTYE8N6Sj7cEXT9AFl8="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.14.0.tgz_1510472289865_0.6328645229805261"
+      },
+      "directories": {}
+    },
+    "0.15.0": {
+      "name": "@std/esm",
+      "version": "0.15.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "289f33e299ac1d4cb227aaf1b8deee9fca1ce4e0",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.15.0",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "9.1.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-JalZAUhKFfZZqb+G/nGFGdcUBnKBAol+GH5hqEqIhMeZcaPURo9DQPJ4Epw8fV0GERXf8BdNwG73rO0fLBRnjQ==",
+        "shasum": "ffbdeb6dd6834daf6bc8fa095a82681e93786529",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.15.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHxmmzlXqrSp3dOJV+rDbg+aF4ZEN+SLqbD43sV/eEshAiEAkU3Cm8LJv24pJeb8NDxoYecGZri+KCOQrM3NFlY0S28="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.15.0.tgz_1510623442602_0.7513871416449547"
+      },
+      "directories": {}
+    },
+    "0.16.0": {
+      "name": "@std/esm",
+      "version": "0.16.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "5f22e2c6d192b5348111ad956f7cd08697ffc22b",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.16.0",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "9.1.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-JokzOdnTmxUWJ81VWp0OuSR+VZGuvM9lmnefiPoeTwrOH/wworkRvwkXMpSuso0zYQ0LcbGUKLEdkoKwkYyohg==",
+        "shasum": "2a7a33ecb7f1701cebd4c87df6d0d945ed51f730",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.16.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCby9a7caZhFcMO2Yh8sfkmo5gDnrT7GkkeDHd+TJ+irAIhAIUFGlLkY6B7dg8w1rHj3JtauRJyKZbjWHfqQz3V0wrZ"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.16.0.tgz_1510895269101_0.9106848761439323"
+      },
+      "directories": {}
+    },
+    "0.17.0": {
+      "name": "@std/esm",
+      "version": "0.17.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "3a8e15166e913e6cc951756b5fc069581184b9a6",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.17.0",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "9.1.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-PRMxpCXF88D+rvmYNR6Yxck3ujMYWeF7/i+5UPI53IM32vBfv122WW8X3d7eR3k6V8TCqWetcHoQ+Rg5+I13Cg==",
+        "shasum": "286b81ae081a9bc8624a304bd479cb05d8c40ab9",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.17.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHO56SDzXlmXM0Zrw+KCptfaGS0gAqqNSDB//xeH918oAiEA/ObQslyAMkZM2tDmEbiZMIMjE+w4CLyftfmYF8XArhI="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.17.0.tgz_1511399077725_0.9045897019095719"
+      },
+      "directories": {}
+    },
+    "0.17.1": {
+      "name": "@std/esm",
+      "version": "0.17.1",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "fa930a9d752d05b4d23fdadc8f3fb33a35260fc5",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.17.1",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "9.1.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-MKaeP+itoBNcvN7/tycUp6jhAIbU7/ECBtSAbKF49A/pSBzHsaiNsNcyGy52eytpGGRn4CFtXR1y/G2+IywsOg==",
+        "shasum": "0780223a5b9df5af10bdd404738b0dc955735407",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.17.1.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHzX2mnqhTBDA7gJE651327rQ9Yi+Dy6lxON0oR+xeIdAiAhNNPgX61UqYJqhEetDEVkb0rkx9QE0+8O+2nfSz6OgA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.17.1.tgz_1511447206644_0.9150581127032638"
+      },
+      "directories": {}
+    },
+    "0.17.2": {
+      "name": "@std/esm",
+      "version": "0.17.2",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "d045ecc51b7c8c7b0f4e1b58432f71329f5fffab",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.17.2",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "9.1.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-tK8E9o8QW6j9Dq44wESuBx3vUM+SYSlzEpkfnO47Pz1zI3G0rXqweXceXL5e1ocjnr2a9bzSgWtG9OlUNTYGIQ==",
+        "shasum": "5be4e8f423d922d0f159a617fef02029832fe350",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.17.2.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQD0o4cSyVkbqzgBhfO33aMODkPhyhsVQ+SVKNg2FSJQpAIhAKp2X/nltG9vE8Tie8kJPavTtr0Ir0qps3DMfgjO+LhW"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.17.2.tgz_1511757837483_0.6770117781125009"
+      },
+      "directories": {}
+    },
+    "0.17.3": {
+      "name": "@std/esm",
+      "version": "0.17.3",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "d875bcd6cd2bd0e27cd777cd553202873d50413c",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.17.3",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "7.10.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-Uphl5Vy1+AFQqJfVCqB8f2r9clc4AhifC2b5UxseSGz9CB/ig+0Uqk5lgSefr2Y1VsgfAC8CNGFKRO3qanbPgQ==",
+        "shasum": "c3cff9dcfa28966a567dbb27207317ea70ac6fb0",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.17.3.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFyAq4tkVlGfPZ4np5CQ7PNeRnuK6XOA8qFT0p6gtNOYAiEA8eN+AVFk2x/fbSrji9jbsx0v6UQdrPBIqnoTnhfLPtI="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.17.3.tgz_1511899687414_0.08713175356388092"
+      },
+      "directories": {}
+    },
+    "0.18.0": {
+      "name": "@std/esm",
+      "version": "0.18.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "86aa1c6804a52798d33026c5feb52bb18ca4fdb3",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.18.0",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "9.1.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-oeHSSVp/WxC08ngpKgyYR4LcI0+EBwZiJcB58jvIqyJnOGxudSkxTgAQKsVfpNsMXfOoILgu9PWhuzIZ8GQEjw==",
+        "shasum": "e212b565c765f93b29ec522a493a192ce7ae2ba6",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.18.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDxKyREAIrUbIDaYMTWNv/01QE9K9i3ASfIFQ5EKyDiFgIgXPyvXODG29nNk2Id11YDN1UJnfK2nn2yz92Ytbzj0fQ="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.18.0.tgz_1512177712460_0.30482572969049215"
+      },
+      "directories": {}
+    },
+    "0.19.0": {
+      "name": "@std/esm",
+      "version": "0.19.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "2167cc5144817c1e7119f7ff3a0966b9bd583f2a",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.19.0",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-bE+CJGOs3V16gvVeupLjsC3I8wRFhj1v6wgoaIEy6XWdnbVSejPhZIEWsjgLrajxrgYCR82oFNJb15pLJrrRvA==",
+        "shasum": "4b5cfe5f1e55eda7bbd5ed8556a4412489d2b3f6",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.19.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDH+0t9K79mD6CONzwin1FmLbcvwAnE2cqmb0T/yHF0ZwIgXuG9loLeIVBt5JmZMpVb3KYDRnj3w2bWO5UKRNTrt3s="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.19.0.tgz_1515198317080_0.08554411423392594"
+      },
+      "directories": {}
+    },
+    "0.19.1": {
+      "name": "@std/esm",
+      "version": "0.19.1",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "1029007e6638455523d10bb1cd5d829e7f01d81c",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.19.1",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-4Ph4hdaDIkt5sChK565oU16Wa9jcBwLbiNAMEB6fyQZlBw5uz3UpxTo/ZohjeILgJfNtb/l1HzVql1ys5s74Ww==",
+        "shasum": "8bdf8ed0e759eea1c7010d22fb9789e462ec0a9b",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.19.1.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIC+hZvkhf0hgPItJbt66tKkn+mkO5a7Ur48ebhlOCCI/AiBLUZksCfPB25QnSMSWzSmG4+NLk+QhipCiBvsK/gjXpw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.19.1.tgz_1515231578574_0.28470336738973856"
+      },
+      "directories": {}
+    },
+    "0.19.2": {
+      "name": "@std/esm",
+      "version": "0.19.2",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "9ae2d70a129265bf5ced48c376935b6ff57b6306",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.19.2",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-6rDve9WU/fG3WResomu7T/XwaNEp2lIX+N4lIHPh64fVkjWXOTRolzNDp29cpPXFnulUTdVVoqkxLYcrAYeNkA==",
+        "shasum": "36b1aab0d39bdf3d1f479cea4df5a2079610e15e",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.19.2.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCDmSGq+UONrPVKabI6T2kP81S+NX/NPmiQrqW+EccpAAIgbFcqrKkdKKotaSlI5ef00LfGLWXzOm0OkQNa4oA+o0k="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.19.2.tgz_1515810071607_0.6247307050507516"
+      },
+      "directories": {}
+    },
+    "0.19.3": {
+      "name": "@std/esm",
+      "version": "0.19.3",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "52d690aadc9928855254a2fd486bd6905756cacd",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.19.3",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-CCJEHYReU7P80Wjilr7LRBxcmq08NEKJwo3n1wgf2XyXO0+Z6VBzDS2g5dtpCXfWayDv+/NsKrF35hVy6/rCmA==",
+        "shasum": "1bca732fc27a18e7dc32243316d0dd890f90cf7a",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.19.3.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDFZ4OuhWSx3hN/m+XRuXoSOvX8qeYdysMGfTvWZNvwRgIhAKHM3uI4Y0uCPmh2SZxi2tE9vzudJKNKjzPCE4doYhqp"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.19.3.tgz_1515964155770_0.18603142211213708"
+      },
+      "directories": {}
+    },
+    "0.19.4": {
+      "name": "@std/esm",
+      "version": "0.19.4",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "d072b8331cb5e759812ebe0aa58f8826e3df8422",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.19.4",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-7N5nt1ZfBWleKcZssuzQtjsGRF5APZCm1NbDAXttBEHGbDbm1HxB9h9stZxGW0brm0tOVTyksIca+nSXG1b6wA==",
+        "shasum": "0930b7ea18643582744672c7cb40868ee6f6aea1",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.19.4.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIArUPoY6KkUfUFeyRHupOeifi4Cx4i2+bLGANRqyO3+hAiBQpQonLv/uXRu6xxUlCh7g9kgbhv+42P235mQRI/Rfww=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.19.4.tgz_1516154677411_0.001350680598989129"
+      },
+      "directories": {}
+    },
+    "0.19.5": {
+      "name": "@std/esm",
+      "version": "0.19.5",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "210263bb9a1b30b4c28f9d4c9dc414687e165334",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.19.5",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-igkDM8H55RN5Pno1RM9RYJrtcOuiHhGQcpq8MXtlUm/+m+0LXSrAxhOMelIrkpmLP9vGIylRr4paMoqOZ9vOEw==",
+        "shasum": "c5181e1434bd5bb8963a54dcae6ed7e056b33a3e",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.19.5.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEN+y+s3gIK9FiTMhPDZfzc6O7kEwsVvrm68DrCSyqF0AiBu0Mc6Wj6pUwc5Idfj2EYUDSRk7AQR3gzNwFtuNCWIdQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.19.5.tgz_1516175167401_0.6738497517071664"
+      },
+      "directories": {}
+    },
+    "0.19.6": {
+      "name": "@std/esm",
+      "version": "0.19.6",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "aecf9c2d762c61980b2849548d4b657af7b3e89d",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.19.6",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-umTmOFYqAt4ccXuu9IHu6Ml1ba10z3KRsjOry1YQczWd+8gSNgDMjJIhOR7v0OPQCoTdPI1n6FchqF4PQNoyuA==",
+        "shasum": "65d42ebcfe2e8c8d222c2c5792493dbe4748c15c",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.19.6.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIByBoyD0/KGtH/Aipiy/cVWlBQcDRZNmxFpBJ4DZGmn+AiBXuJP6s/COSIqvzZf8r95coZiHJyHiofWh9a2+aJKU0A=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.19.6.tgz_1516215785156_0.3265470336191356"
+      },
+      "directories": {}
+    },
+    "0.19.7": {
+      "name": "@std/esm",
+      "version": "0.19.7",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "71de83754145579e71d5116ba56a0d0442bba1aa",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.19.7",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-bPBbpu1vqgOOD70aMVG5tgioPdttKXQQFq6xodjZxVbPprtZIcm8NcTEJoB+/1QoH8z1TIqjaEN1Wm3YndnfNQ==",
+        "shasum": "8eeab6c54596a92e3557992621c91e8166a19852",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.19.7.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAhekPqBqF9BsHJ4QEcSoIFjw1oudj5P5QIS4FyPmyoCAiB3T8CAjcJ6mSTb2rKuiyyMsxNqrL8OH85G0ExzyQoJRw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.19.7.tgz_1516338336229_0.9011501346249133"
+      },
+      "directories": {}
+    },
+    "0.20.0": {
+      "name": "@std/esm",
+      "version": "0.20.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "e565d12648b66248a11732b4a117519b37ddc2f7",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.20.0",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.3.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-05cQYa1T/6XxKhhnyIKQC8kSBHYkXWueZ0XFLABLlghoymwgyp4XT9ivjDrHb7EbSWbQoHSRk34zhIuPeShJow==",
+        "shasum": "658cb32e3b163f20b7d9f29a78987041068b1182",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.20.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHDpQHqbY2UwebfZA34BpAv1Jp24vB4mmErV7IqE/833AiBWkWdiO+pfx7TPtzYRDGN7VSbbe+YdZOcJzfOs3tv4ug=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm-0.20.0.tgz_1517110907753_0.9757302217185497"
+      },
+      "directories": {}
+    },
+    "0.21.0": {
+      "name": "@std/esm",
+      "version": "0.21.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "11b12189973b76a4e9ccfc79f33f6139028fb21b",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.21.0",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.5.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-kl4LqRQnHe0CCb+2VudsAXBtS7SqCRAEkKSMA4YfHKAK70ZPLx/DTlyjMENx1pLCfcE/aK+Jghzn+CTgUtjmgw==",
+        "shasum": "3936747787c7b360c1713ed87c66ea4ac3b0603f",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.21.0.tgz",
+        "fileCount": 5,
+        "unpackedSize": 66792,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCiYx1YvshwzxTY83iUUvQYTTvcPfronnjj1lICu8Lt/AIhANNCAQEzccEKQLS0ZZYrnwqtb0XM6vWJGpct/wXUeLIZ"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.21.0_1518119262765_0.35679083406932177"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.21.1": {
+      "name": "@std/esm",
+      "version": "0.21.1",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "f3ab14d169d79c58c1721f6bda4cb1bda85ae3d1",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.21.1",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.5.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-V0jvjJfFaZfnnj41o6UxxM5mScoAWfDWga/jhXpNdE2WNjhhgDNICojmWhPWz5lb7pC7tnE8Ke86qxZdL5qt+Q==",
+        "shasum": "603144bc4e5fc34a80522c5772124a4453188bf5",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.21.1.tgz",
+        "fileCount": 5,
+        "unpackedSize": 66864,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC538VNe6A5iNLXOCHqilGAmzPiaoIbD8r1ltYQ0/E8egIgC2G8xd8iwjFnaArgnLpyq0QTq+0JnGUzj43HghSk3dU="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.21.1_1518130237846_0.7227880690469544"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.21.2": {
+      "name": "@std/esm",
+      "version": "0.21.2",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "d93ca0a1e274d39a76895106a16230f8234a0f04",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.21.2",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.5.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-iNbCHf14Z8C/h89YahjZS6+cU0z1H79Luw+D5/ocRpTZh3Watki6ptHuwPVQPwvmCCfWoX48JE3KZxT7XIBm6w==",
+        "shasum": "d4a50e33e56badc487c0303c0920cb91ac356f63",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.21.2.tgz",
+        "fileCount": 5,
+        "unpackedSize": 67085,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDP11EfCJ2noMnSMKD9MEmLxLAGng2hGAZb7KSEBeu1bAIhAIje35I4A01YtoUJ62aNDJDD5AwdOZZ+wbMq/FFZMUrv"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.21.2_1518236288826_0.2625026734184963"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.21.3": {
+      "name": "@std/esm",
+      "version": "0.21.3",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "01bfc2034ff6e3c48f82541bba3fc2a42d818b5a",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.21.3",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.5.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-g0pOafyU8U2gnOKM+Le9Nbrg35CZebZffyfq5EcdKSMzO6tVspLNob4SDz54bx6V/qHgcInloGl2inDh8htfHw==",
+        "shasum": "b823ab4d6962fd80437e9190b69b8731dbb186b1",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.21.3.tgz",
+        "fileCount": 5,
+        "unpackedSize": 67049,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCV69qRwAEgz8qC2Sh2YIMvU24NYWiQ5alTi60tZ7ahxAIhAPq1YH2BAgcHwZjl5f/3XulgG4L6qpZkZuArlZpxKcvP"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.21.3_1518301763419_0.45876706274441537"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.21.4": {
+      "name": "@std/esm",
+      "version": "0.21.4",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "29ed7dd84416223e7166ef07a3d302a6213e261a",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.21.4",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.5.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-9oM1cZLxDK+KU6I338py7JemTH/FIN7XB1JOHsyNEv6ATKhaA+6LXKyQQpKK32Yhd0oe/Mz+rYDW4DGm8US5tw==",
+        "shasum": "6a2cc0fa2abddadce55aee76af0ddce19c9362bf",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.21.4.tgz",
+        "fileCount": 5,
+        "unpackedSize": 67117,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDSJff+CJa6gpbYK3bef0Is2MEEGt446wefXbdWFHwKWQIgaKn8cBwxb2EXlOPttV0yNqWvqWkI5KAhVa5q0OLfGE8="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.21.4_1518317637326_0.8618473190144775"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.21.5": {
+      "name": "@std/esm",
+      "version": "0.21.5",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "b2e9fd0efc9c475d18701e6936efd67be4038d13",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.21.5",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.5.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-H9kCDn1TvlRAJat3Z/snNW8KvLSVmwERrI+bawyUxXTAzZmMCNAghio/YJEFUh875zWqZ0GL3pvJz4rU/Txung==",
+        "shasum": "d6102bd642b7022d8b446c5e12794bac8bed0ea1",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.21.5.tgz",
+        "fileCount": 5,
+        "unpackedSize": 67469,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDWrRe8CamLLk8T4ik2xfVKLQkBy9SVhbDIJr9oGWciRAiEAjjBP66LvEeQWcxTCMibx7R6JJcjs2ztZPvTrj7IG7Ig="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.21.5_1518471456932_0.05405785646857897"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.21.6": {
+      "name": "@std/esm",
+      "version": "0.21.6",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "bd93abf0e765b03892b5a5508781a73ae505f9c8",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.21.6",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.5.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-Vxptomi/94SeYkC08HSdKNHSgRJ79OE6HQlFg+587rB6fzsbGpXiXJZPOwG4qwEeo9N95Ge0T7WngHU/COS15Q==",
+        "shasum": "d890ec357feb5d7f2c72325bbfe4afca7f372d04",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.21.6.tgz",
+        "fileCount": 5,
+        "unpackedSize": 67285,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDa6C7gTjGFVNIDJQ2EKMVOnhggQvR2oCeGVpyIXdbGBAiEAg1C2Rqd5A0Ul5glCIugeIik1N0D9+eKzHXKZMnwEzv8="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.21.6_1518508146390_0.298165752836024"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.21.7": {
+      "name": "@std/esm",
+      "version": "0.21.7",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js.gz"
+      ],
+      "gitHead": "3af21c6ec2ac785201c18817620c8729795eee8b",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.21.7",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.5.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-GbuVyWFeh+HYCX0cgvKoY0jWN3t8s11+i2mvBtXswl2WDNNaHpF6JwbZQxdf3cfRRO4E7bS9FeZ2Y+HB1WwFPg==",
+        "shasum": "492d7931aed03e91a133deac4d9062fbfce5fd6b",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.21.7.tgz",
+        "fileCount": 5,
+        "unpackedSize": 67420,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGr40RsS1Z6B+qhdZezUDetVXvXS9wbcWul4j+E/twvfAiAaW5FxU5/ItJpCKsvtCcpHCTDr70hreYfL8cgB4AiNUA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.21.7_1518550177963_0.12983728096954805"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.22.0": {
+      "name": "@std/esm",
+      "version": "0.22.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=4"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js"
+      ],
+      "gitHead": "eff6fbecb89817efcc99677a8ad27dbab78f4324",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.22.0",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.5.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-05wcYXG9GW/1Y+PeO+SzI8K+gt7Ylk0p9FvtlyrbxvugCnzy6rdrn1KPO0NsQVbc4VRlVthBnUNCZgADY164vg==",
+        "shasum": "042b6f77ea98c2ad25769084420ced851a15b74e",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.22.0.tgz",
+        "fileCount": 5,
+        "unpackedSize": 201921,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQC/Qtr9mAO13xqopolDYAvyJjPZNWbRW1F3lqjd/4Q4bAIhANDChFA8CDWT0peBu3c7/Bvw3WV3x1Sd441FHttuoLBU"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.22.0_1519019059399_0.20269939549164007"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.23.0": {
+      "name": "@std/esm",
+      "version": "0.23.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=6"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js"
+      ],
+      "gitHead": "76cfe85e5f68f290a0ff84ae7a0b6b6117445075",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.23.0",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.5.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-VjLLNB+s6ovazbUboE/RgYPsTbDBP1XZvQRiL+FUyRDQNPvRr+H/0I4hiw5sDjaCCm1UOTdnbKX41UfEznFutQ==",
+        "shasum": "5165ccf829efb51663cd94ad53577966198933d3",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.23.0.tgz",
+        "fileCount": 5,
+        "unpackedSize": 205491,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEhbGGhdLg077GfWzJBrFQRxRLk2Hc0UWhZtziKHEjpQAiEA3HB94IyujH2V5Y9Vs4fBnjUqFC957y/E36hYyF36Ztk="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.23.0_1519501486173_0.8972963446719064"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.23.1": {
+      "name": "@std/esm",
+      "version": "0.23.1",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=6"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js"
+      ],
+      "gitHead": "f407b6a928d0d65b5ac0c9d0ec86d3db7a45aca3",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.23.1",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.6.1",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-mbDbB8J4Wr3hl40v2bXfqeb+pm1tl7TzEx3b04Aw32Dhb5nmnir4DfdrYFpd6cFR+L1suxles1oSPypIKrTyOg==",
+        "shasum": "94db8f5345b34d5d847673bf510f47e41fb83fe8",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.23.1.tgz",
+        "fileCount": 5,
+        "unpackedSize": 207470,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCKV1+QV6tPAkaMqBOYJh5EbrJnb+B1JxWV0d7Qe+AGtAIgNvvuNTrSbG1OO9TXrj379mRWzhj1MozIoZJpfWMU51g="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.23.1_1519610966573_0.3576752137354897"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.23.2": {
+      "name": "@std/esm",
+      "version": "0.23.2",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=6"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js"
+      ],
+      "gitHead": "0535211fadc80a83a88aa7b19463c107c3bbebfd",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.23.2",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.6.1",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-0qCO1xaL70lzaKB8Q9rrLrehlTglyO4cgfVk+TwuT7TnghjlitnrkaTUp7Qhbme52xxXcogmLlP9HaTBD1PIqg==",
+        "shasum": "32ec2009a4915f743d51a8d029c3a95b196ddc59",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.23.2.tgz",
+        "fileCount": 5,
+        "unpackedSize": 207550,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCWJt/HsUImX/bvdAe1K9O3nLLv1ixtcKAHKecaEYaA6wIgablR8SNRZswUCw9JewycdjOkYTnuEbPGiL0D1w+HyEI="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.23.2_1519713023777_0.5754234271693515"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.23.3": {
+      "name": "@std/esm",
+      "version": "0.23.3",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=6"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js"
+      ],
+      "gitHead": "90b3678b3994c7833b98b2d3808db0db23348d80",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.23.3",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.6.1",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-eWmU4/I38je9okPnh/F38cobymve6emVB1jx3CNR9an1DNkN1dvStQEJ6cXdSUdB0JMw0dUyBaAjq6YnvkjLmw==",
+        "shasum": "c09b0011ee454bb916c34f6bb84d14038826edda",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.23.3.tgz",
+        "fileCount": 5,
+        "unpackedSize": 209707,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHkJaLD8vDBk6Y5jLWfK07r7OFbGhd1fD8vfi+Qqcl76AiEA/1k1jRce/FdVYusyt9f0fl8F6Xd2TFg8q1M8rZ8Q0Oo="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.23.3_1519804124493_0.5963386114021412"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.23.4": {
+      "name": "@std/esm",
+      "version": "0.23.4",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=6"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js"
+      ],
+      "gitHead": "f240ae0469130258d0374ee9e68dc39342ac0576",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.23.4",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.7.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-S+gN8dIuCmNn84Maa2DNBhJK38hQh/0Fm1c6Njc2YBjE+xpnj039T8jSZpyv74pvbjoZdaGAJNP/uhVqaf+uTw==",
+        "shasum": "e047aeb8a79bbea1d2f62f862de5d88c8faafd37",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.23.4.tgz",
+        "fileCount": 5,
+        "unpackedSize": 224468,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCOR7rlkolK5qoTPMw0dLuHOhW1iIdNv3TV88f+HUE2ZwIgCQo2Qw7gpgH/KlFlC+jvDp8UYDEiv4scVOy9va9r1CU="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.23.4_1519939700260_0.07142939616870536"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.24.0": {
+      "name": "@std/esm",
+      "version": "0.24.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=6"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js"
+      ],
+      "gitHead": "5f0eca5f1698fe95384c8091277545c41571e30c",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.24.0",
+      "_npmVersion": "5.7.1",
+      "_nodeVersion": "9.7.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-Yny95TwwgoVIBHN+atuwt+QWEcBlgONHlr3lCzK8Zj0RzJuRvNEESbnYwtwqjpIumjDwswrNbhz3rhfDtza4TA==",
+        "shasum": "0e8ce9288ddcdec4e568feb4038416453c12ed34",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.24.0.tgz",
+        "fileCount": 5,
+        "unpackedSize": 225235,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAqrcWx4rRoE0yoTaHOp3f+PSFfht+ypk9ceTL3V1WcoAiEAqbFoGel4g24luZIkhuVTor4EUQm6B2keGRNfN4QXlxA="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.24.0_1520108362749_0.3357311480148446"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.25.0": {
+      "name": "@std/esm",
+      "version": "0.25.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=6"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js"
+      ],
+      "gitHead": "c44914f4bad052a136af81d3bb473df8aa8c8a54",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.25.0",
+      "_npmVersion": "5.7.1",
+      "_nodeVersion": "9.7.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-htyUY4TrUSMYLdtmk2RPrNJJGZPAhliYcjf5vIh+RMVEI6Yy88Jl98cWcJY8McPcrizkXdbzOGFtp6pf8qd45w==",
+        "shasum": "8587baa7ecba8cea7930b5637457edfdee323e44",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.25.0.tgz",
+        "fileCount": 5,
+        "unpackedSize": 227139,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDti8Yzi+XJ19Zr8jT+H5wndzz5LsRtgjuN8wffOuwHkAiEAthzIHPUsUDsQmGWbgngGNQbSyCUUeW4KhE63JQH6w5c="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.25.0_1520301202848_0.5876129574321709"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.25.1": {
+      "name": "@std/esm",
+      "version": "0.25.1",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=6"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js"
+      ],
+      "gitHead": "d6ec7d3da60d5cba66e5ffb53e06dfed1a76935f",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.25.1",
+      "_npmVersion": "5.7.1",
+      "_nodeVersion": "9.7.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-lV6dllmRUkf8R1x0scFHx2P+urhjr01fZzYUfmB5Ii+zVB7737HBfh+EU/1znacOXBWNlVon2rMO00fl7j90pg==",
+        "shasum": "90ce810e48bf3eda8f3533dabc5d4e31046d8228",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.25.1.tgz",
+        "fileCount": 5,
+        "unpackedSize": 226081,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQD8JPx6oYdpT0DO4O3skjqviWfBDln7FjJZNHBChnhrfQIhAKGQhcNiNh5PdnH1esAKmAooVdjgSk84YN9t3IdQFo03"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.25.1_1520354578985_0.7353068232140989"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.25.2": {
+      "name": "@std/esm",
+      "version": "0.25.2",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=6"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js"
+      ],
+      "gitHead": "f64282fdf4756534445b44fc9485aa695c4e0685",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.25.2",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "6.10.3",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-YvgAIsOl5gQhiln2ZZrC2gfCvav41LkDNj3RGmNM+aSPpYJuCYUgemJkz8t3T5wGSsPUsuswxZfh7RAZLHuKJQ==",
+        "shasum": "b71e1545764f96134935fd1cb5f3785e0cb19d15",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.25.2.tgz",
+        "fileCount": 5,
+        "unpackedSize": 226250,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBDsJTipJnnSo6olr5lqC1PLW51uBqUtad3Go5KrAn6OAiEAkbuVsIAs2Q7B5274o6Wh+K6EhlGdUSrWMgonPpdLGX0="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.25.2_1520361737593_0.26489764596282805"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.25.3": {
+      "name": "@std/esm",
+      "version": "0.25.3",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=6"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js"
+      ],
+      "gitHead": "e3aa66e910010a9d5e6766afa365414c0ddd929a",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.25.3",
+      "_npmVersion": "5.7.1",
+      "_nodeVersion": "9.8.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-EM+IhyhwbTn9z9T7WNm+SkAiWaxco9xBV+2pF9fEMs399ucqWUl70pTTaEMm8AKtO+umRgekm3Fqaq4cYXpeKg==",
+        "shasum": "f211165c643b0fe29077428c4dcd0ce462a25d00",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.25.3.tgz",
+        "fileCount": 5,
+        "unpackedSize": 226770,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDNRcbg91QTYrIH2kJeg1Q4P2wNP/rJNYVuUhr52Qt1DwIgDo4kcp2c/drBcJmhHFNAfRbATfePXEa1yNY9ujwNCpE="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.25.3_1521183866635_0.32357597932613547"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.25.4": {
+      "name": "@std/esm",
+      "version": "0.25.4",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=6"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js"
+      ],
+      "gitHead": "2a72bcb0bdf754b8b4af348a11aa26102219f71a",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.25.4",
+      "_npmVersion": "5.7.1",
+      "_nodeVersion": "9.8.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-VAa0aMzOMnmcQ+3mDjuYsKNHdcgegl09bhLBsxm/nhHtqa6S3Ecrr6lXa2PPwkdxQhLbJZA2Or7j9EV9GO4uAg==",
+        "shasum": "5a2453b74f5a674e87b13e57190d3c360dff1941",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.25.4.tgz",
+        "fileCount": 5,
+        "unpackedSize": 226822,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCvcAhLwPI7nqPpnUzxvDFsilsLtWWQCUTptqhfKxzfMgIgNAJwH8rD3KMs3VcjPUl+cj+CFgvmiCk3C2XMWFfJz1o="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.25.4_1521612058418_0.9825819275859211"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.25.5": {
+      "name": "@std/esm",
+      "version": "0.25.5",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=6"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js"
+      ],
+      "gitHead": "e5963f963fcb241ad4f5c9af5b4eff7f8fa37d68",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.25.5",
+      "_npmVersion": "5.7.1",
+      "_nodeVersion": "9.8.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-uZ5C/y5PGpvizSTUPFwKyooID6KgzJGBTmoaHbELbOonJVO3woFfcyHQEuuN8ETkYiuo9w7VeBON/h+b6psnZw==",
+        "shasum": "6fc3f7309574bbff7b2593351c44c9848297721c",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.25.5.tgz",
+        "fileCount": 5,
+        "unpackedSize": 226883,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCv2c9SkXdoQxlbGzy09yC/gona5xQlPsxOaSIkMkoXpwIgWKJvGzh1T7pN88lhnU7bNkO4TzW+6DczuPkauVbOcsM="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.25.5_1521780836216_0.5405309709918633"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.26.0": {
+      "name": "@std/esm",
+      "version": "0.26.0",
+      "description": "Enable ES modules in Node today!",
+      "keywords": [
+        "commonjs",
+        "ecmascript",
+        "export",
+        "import",
+        "modules",
+        "node",
+        "require"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/standard-things/esm.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "John-David Dalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "main": "index.js",
+      "engines": {
+        "node": ">=6"
+      },
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "files": [
+        "index.js",
+        "esm.js"
+      ],
+      "gitHead": "3fd56c07c6fda1960a898a9fb3767899aa8f8766",
+      "bugs": {
+        "url": "https://github.com/standard-things/esm/issues"
+      },
+      "homepage": "https://github.com/standard-things/esm#readme",
+      "_id": "@std/esm@0.26.0",
+      "_npmVersion": "5.8.0",
+      "_nodeVersion": "9.9.0",
+      "_npmUser": {
+        "name": "jdalton",
+        "email": "john.david.dalton@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-g3RDuosSa5fZOzENtrZdx7Gevb3zabfn8qglug2aCJIVz/4woFpKoqm1yD3mG2RD0zJEZRnkkuPHsmNglKGl7g==",
+        "shasum": "c3ec3abdee95738e15ea7c695b7fee14ae529b81",
+        "tarball": "https://registry.npmjs.org/@std/esm/-/esm-0.26.0.tgz",
+        "fileCount": 5,
+        "unpackedSize": 226993,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh2cTPCRA9TVsSAnZWagAAzlsP/0ujgwF25BeLoQAZHIyT\nmD5z9NkKWIswlpAQdbKC6e978MOI7wrFtha5VYwZAo6mCLgCCk5oLWHYU0Pa\nSj4eRjTeITYWbkHfo72M4ueikKIWR6ipIYIJHClVe5kHsNj0SQ+LAJkX7Kto\nlzuW3JtyowEKh5OWPzW+jVwHQDi2t/Iy2M6dYxWI0tCuBLRdMlZsLb48OMKw\n81mz+kHOX8UTMz3KohOuBcuJtxrhyMIs49DxNzui8YS0pn4rTQQbz52tja/2\nJyfmyn61mgvgtaeOw4W6s4ch9DMZm2AUvgyusveM6NCf90PlTx73K9/PWcGg\nPIsWlVZJSLyh0KKGTVhSZGVu7f0PK5qY/9GmlOKrpLzGzzB41uYlOc6tP8by\n1Q3GCxIy8NPmkY3Iosp/26XENyyQtaAumBi0Xb+Z9vqpzqTylXo2ZGzYzNTg\n6jB/P/PvLqc3RTseFcIuI/C/3elXPdoo6UNXXeto8OO/3zHPD9zwdaTtDEyw\nmyztTwblndZ4gVlv7ZEBZNTj8thmga2Af4jdpVfznyQPKAz8AzdxdrMhoakO\nYfie7G2FpX7uxEWYgru6aP9tx/0AkEvZofsD6FLAO52I1sxy2Cevk1vUEh4e\nhiAWjpWbWI9F1d4JjXzMzwdKFTgpRNW9qAsHd5qvleIRTFIDaE+i8jYrCmI6\n9dZE\r\n=w7YC\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICQ1/EelLy020Dsvh9JrGKWS5NRzFUYQiO462uvUYjAiAiB0qU/2WX5qLIbmJDr+f0Oc8TvDunIDnGwSXL1ReI2riA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "jdalton",
+          "email": "john.david.dalton@gmail.com"
+        },
+        {
+          "name": "mathias",
+          "email": "mathias@qiwi.be"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/esm_0.26.0_1522172466636_0.41677485276319204"
+      },
+      "_hasShrinkwrap": false,
+      "deprecated": "This package is discontinued. Use https://npmjs.com/esm"
+    }
+  },
+  "readme": "# @std/esm\n\nThis fast, small, zero-dependency package is all you need to enable\nES modules in Node 6+ today!\n\nSee the release [post](https://medium.com/web-on-the-edge/es-modules-in-node-today-32cff914e4b)\n:book: and [video](https://www.youtube.com/watch?v=60S1PFndbn0) :movie_camera:\nfor all the details.\n\nDiscontinued\n---\n\nThis package has been discontinued in favor of [`esm`](https://www.npmjs.com/package/esm).\n\nGetting started\n---\n\nRun `npm i --save @std/esm` in your app or package directory.\n\nThere are three ways to enable ESM with `@std/esm`.\n\n1. Enable ESM with a CJS bridge:\n\n    **index.js**\n    ```js\n    // Provide options as a parameter, environment variable, or rc file.\n    require = require(\"@std/esm\")(module/*, options*/)\n    module.exports = require(\"./main.mjs\").default\n    ```\n\n2. Enable ESM in the Node CLI with the [`-r` option](https://nodejs.org/api/cli.html#cli_r_require_module):\n\n    ```shell\n    node -r @std/esm main.mjs\n    ```\n\n3. Enable ESM in the Node REPL:\n\n    ```shell\n    node -r @std/esm\n    ```\n\n    or upon entering:\n\n    ```shell\n    $ node\n    > require(\"@std/esm\")\n    @std/esm enabled\n    ```\n\n*Note: All `\"cjs\"` options are [unlocked](#unlockables) in the Node REPL.*\n\nStandard Features\n---\n\nThe `@std/esm` loader is as spec-compliant\nas possible and follows Node’s [ESM rules](https://github.com/nodejs/node-eps/blob/master/002-es-modules.md).\n\n:point_right: This means, by default, ESM requires the use of the `.mjs` file\nextension.<br>\n:unlock: You can [unlock](#unlockables) ESM with the `.js` file extension using\nthe `\"js\"` ESM mode.\n\nOut of the box `@std/esm` just works, no configuration necessary, and supports:\n\n* [`import`](https://ponyfoo.com/articles/es6-modules-in-depth#import) / [`export`](https://ponyfoo.com/articles/es6-modules-in-depth#export)\n* [`import.meta`](https://github.com/tc39/proposal-import-meta)\n* [Dynamic `import`](https://github.com/tc39/proposal-dynamic-import)\n* [Improved errors](https://github.com/standard-things/esm/wiki/improved-errors)\n* [Live bindings](https://ponyfoo.com/articles/es6-modules-in-depth#bindings-not-values)\n* [Loading `.mjs` files as ESM](https://github.com/nodejs/node-eps/blob/master/002-es-modules.md#32-determining-if-source-is-an-es-module)\n* [The file URI scheme](https://en.wikipedia.org/wiki/File_URI_scheme)\n* Node [`--eval`](https://nodejs.org/api/cli.html#cli_e_eval_script) and [`--print`](https://nodejs.org/api/cli.html#cli_p_print_script) flags\n* Node 6+ support\n\nUnlockables\n---\n\nUnlock features with options specified as one of the following:\n\n* The `\"@std/esm\"` field in your package.json\n* [JSON6](https://github.com/d3x0r/json6) in an .esmrc or .esmrc.json file\n* JSON6 or file path in the `ESM_OPTIONS` environment variable\n* CJS/ESM in an .esmrc.js or .esmrc.mjs file\n\nCommonly used options may be specified in shorthand form:\n\n* `\"@std/esm\":\"js\"` is shorthand for `\"@std/esm\":{\"mode\":\"js\"}`\n* `\"@std/esm\":\"cjs\"` is shorthand for `\"@std/esm\":{\"cjs\":true,\"mode\":\"js\"}`\n\n<table><tr><td colspan=2><code>{</code><tr><td valign=top><code>\"mode\":</code><td><p>A string mode:<ul><li><code>\"all\"</code> files as ESM<li><code>\"js\"</code> and other files with <code>import</code>, <code>import.meta</code>, <code>export</code>, or <a href=https://github.com/tc39/proposal-modules-pragma><code>\"use module\"</code></a> as ESM</ul><tr><td valign=top><code>\"cjs\":</code><td><p>A boolean or object to unlock CJS features in ESM.<details><summary>Unlockable Features</summary><table><tr><td colspan=2><code>{</code><tr><td valign=top><code>\"cache\":</code><td><p>A boolean for storing ES modules in <code>require.cache</code>.<tr><td valign=top><code>\"extensions\":</code><td><p>A boolean for respecting <code>require.extensions</code> in ESM.<tr><td valign=top><code>\"interop\":</code><td><p>A boolean for <code>__esModule</code> interoperability.<tr><td valign=top><code>\"namedExports\":</code><td><p>A boolean for <a href=https://ponyfoo.com/articles/es6-modules-in-depth#importing-named-exports>importing named exports</a> of CJS modules.<tr><td valign=top><code>\"paths\":</code><td><p>A boolean for following CJS <a href=https://github.com/nodejs/node-eps/blob/master/002-es-modules.md#432-removal-of-non-local-dependencies>path rules</a> in ESM.<tr><td valign=top><code>\"topLevelReturn\":</code><td><p>A boolean for <a href=http://stackoverflow.com/questions/28955047/why-does-a-module-level-return-statement-work-in-node-js/#28955050>top-level <code>return</code></a>.<tr><td valign=top><code>\"vars\":</code><td><p>A boolean for <code>__dirname</code>, <code>__filename</code>, and <code>require</code> in ESM.<tr><td colspan=2><code>}</code></table></details><tr><td valign=top><code>\"await\":</code><td><p>A boolean for <a href=https://github.com/MylesBorins/proposal-top-level-await#variant-c-top-level-await-can-only-be-used-in-modules-without-exports>top-level <code>await</code></a> in modules without ESM exports. <i>(requires Node 7.6+)</i><tr><td colspan=2><code>}</code></table>\n\nDevOpts\n---\n\n<table><tr><td colspan=2><code>{</code><tr><td valign=top><code>\"cache\":</code><td><p>A boolean for toggling cache creation or string path of the cache directory.<tr><td valign=top><code>\"debug\":</code><td><p>A boolean for unmasking stack traces.<tr><td valign=top><code>\"sourceMap\":</code><td><p>A boolean for including inline source maps.<tr><td valign=top><code>\"warnings\":</code><td><p>A boolean for logging development parse and runtime warnings.<tr><td colspan=2><code>}</code></table>\n\nTips\n---\n* Load `@std/esm` before\n  [`@babel/register`](https://github.com/babel/babel/tree/master/packages/babel-register) v7+\n* Load `@std/esm` with the *“require”* option of\n  [`ava`](https://github.com/avajs/ava#options),\n  [`mocha`](https://mochajs.org/#-r---require-module-name),\n  [`nyc`](https://github.com/istanbuljs/nyc#require-additional-modules), and\n  [`tape`](https://github.com/substack/tape#preloading-modules)\n* Load `@std/esm` with the `--node-arg=-r --node-arg=@std/esm` option of\n  [`node-tap`](http://www.node-tap.org/cli/)\n* Load `@std/esm` with the `--node-args=\"-r @std/esm\"` option of\n  [`pm2`](http://pm2.keymetrics.io/docs/usage/quick-start/#options)\n* Load `@std/esm` with [`wallaby.js`](https://wallabyjs.com/docs/integration/node.html#es-modules)\n* Use `@std/esm` to load [`jasmine`](https://jasmine.github.io/setup/nodejs.html#a-simple-example-using-the-library)\n* Use `\"@std/esm\":\"cjs\"` for the `--watch` and `--watch-extensions` options of\n  [`mocha`](https://mochajs.org/#-w---watch)\n* Use `\"@std/esm\":\"cjs\"` for [`ava`](https://github.com/avajs/ava) and [`webpack`](https://github.com/webpack/webpack)\n* When in doubt, use `\"@std/esm\":\"cjs\"`\n",
+  "maintainers": [
+    {
+      "email": "john.david.dalton@gmail.com",
+      "name": "jdalton"
+    }
+  ],
+  "time": {
+    "modified": "2022-06-13T00:23:52.231Z",
+    "created": "2017-08-10T05:16:14.580Z",
+    "0.0.1": "2017-08-10T05:16:14.580Z",
+    "0.1.0": "2017-08-10T21:03:51.580Z",
+    "0.1.1": "2017-08-10T21:07:00.367Z",
+    "0.2.0": "2017-08-11T17:21:52.610Z",
+    "0.2.1": "2017-08-11T18:27:57.125Z",
+    "0.2.2": "2017-08-13T06:06:03.201Z",
+    "0.3.0": "2017-08-15T18:13:36.909Z",
+    "0.4.0": "2017-08-16T18:00:54.482Z",
+    "0.5.0": "2017-08-16T22:28:14.817Z",
+    "0.5.1": "2017-08-17T19:32:25.739Z",
+    "0.6.0": "2017-08-28T21:03:30.275Z",
+    "0.7.0": "2017-08-29T03:59:55.887Z",
+    "0.7.1": "2017-08-30T15:35:19.637Z",
+    "0.8.0": "2017-09-07T14:55:22.459Z",
+    "0.8.1": "2017-09-07T20:03:44.781Z",
+    "0.8.2": "2017-09-08T03:18:57.167Z",
+    "0.8.3": "2017-09-08T17:57:30.573Z",
+    "0.9.0": "2017-09-12T14:20:33.750Z",
+    "0.9.1": "2017-09-12T18:27:36.727Z",
+    "0.9.2": "2017-09-13T01:11:55.923Z",
+    "0.10.0": "2017-09-17T09:27:33.776Z",
+    "0.10.1": "2017-09-18T04:00:25.113Z",
+    "0.10.2": "2017-09-20T23:17:39.785Z",
+    "0.11.0": "2017-09-23T20:29:28.473Z",
+    "0.11.1": "2017-09-29T23:01:24.524Z",
+    "0.11.2": "2017-10-02T17:06:39.379Z",
+    "0.11.3": "2017-10-07T22:07:19.952Z",
+    "0.12.0": "2017-10-19T05:01:24.176Z",
+    "0.12.1": "2017-10-20T23:20:41.460Z",
+    "0.12.2": "2017-10-22T18:20:43.778Z",
+    "0.12.3": "2017-10-25T10:43:52.179Z",
+    "0.12.4": "2017-10-25T12:42:39.735Z",
+    "0.12.5": "2017-10-30T14:36:15.803Z",
+    "0.13.0": "2017-11-03T18:10:41.946Z",
+    "0.14.0": "2017-11-12T07:38:09.979Z",
+    "0.15.0": "2017-11-14T01:37:22.762Z",
+    "0.16.0": "2017-11-17T05:07:49.230Z",
+    "0.17.0": "2017-11-23T01:04:37.830Z",
+    "0.17.1": "2017-11-23T14:26:47.737Z",
+    "0.17.2": "2017-11-27T04:43:57.674Z",
+    "0.17.3": "2017-11-28T20:08:07.550Z",
+    "0.18.0": "2017-12-02T01:21:52.564Z",
+    "0.19.0": "2018-01-06T00:25:17.303Z",
+    "0.19.1": "2018-01-06T09:39:38.715Z",
+    "0.19.2": "2018-01-13T02:21:11.923Z",
+    "0.19.3": "2018-01-14T21:09:15.841Z",
+    "0.19.4": "2018-01-17T02:04:37.540Z",
+    "0.19.5": "2018-01-17T07:46:07.481Z",
+    "0.19.6": "2018-01-17T19:03:06.358Z",
+    "0.19.7": "2018-01-19T05:05:36.474Z",
+    "0.20.0": "2018-01-28T03:41:47.828Z",
+    "0.21.0": "2018-02-08T19:47:42.895Z",
+    "0.21.1": "2018-02-08T22:50:37.955Z",
+    "0.21.2": "2018-02-10T04:18:08.933Z",
+    "0.21.3": "2018-02-10T22:29:24.201Z",
+    "0.21.4": "2018-02-11T02:53:57.449Z",
+    "0.21.5": "2018-02-12T21:37:37.017Z",
+    "0.21.6": "2018-02-13T07:49:06.450Z",
+    "0.21.7": "2018-02-13T19:29:38.830Z",
+    "0.22.0": "2018-02-19T05:44:19.484Z",
+    "0.23.0": "2018-02-24T19:44:46.282Z",
+    "0.23.1": "2018-02-26T02:09:26.672Z",
+    "0.23.2": "2018-02-27T06:30:23.879Z",
+    "0.23.3": "2018-02-28T07:48:44.558Z",
+    "0.23.4": "2018-03-01T21:28:20.422Z",
+    "0.24.0": "2018-03-03T20:19:22.885Z",
+    "0.25.0": "2018-03-06T01:53:22.994Z",
+    "0.25.1": "2018-03-06T16:42:59.074Z",
+    "0.25.2": "2018-03-06T18:42:17.682Z",
+    "0.25.3": "2018-03-16T07:04:26.697Z",
+    "0.25.4": "2018-03-21T06:00:58.510Z",
+    "0.25.5": "2018-03-23T04:53:56.279Z",
+    "0.26.0": "2018-03-27T17:41:06.726Z"
+  },
+  "homepage": "https://github.com/standard-things/esm#readme",
+  "keywords": [
+    "commonjs",
+    "ecmascript",
+    "export",
+    "import",
+    "modules",
+    "node",
+    "require"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/standard-things/esm.git"
+  },
+  "author": {
+    "name": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/standard-things/esm/issues"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "users": {
+    "mlcdf": true,
+    "sergiodxa": true,
+    "davidnyhuis": true,
+    "capaj": true,
+    "ruyadorno": true,
+    "zafaransari": true,
+    "boneskull": true,
+    "kodekracker": true,
+    "spences10": true,
+    "jacob-beltran": true,
+    "rajivmehtajs": true,
+    "ograbek": true,
+    "ferrari": true,
+    "washingtonhua": true,
+    "jmhill": true,
+    "bartoindahouse": true,
+    "nestfall": true,
+    "majgis": true,
+    "jacobmischka": true,
+    "masonwan": true,
+    "jmsmrgn": true,
+    "ciro-maciel": true,
+    "shyling": true,
+    "labithiotis": true,
+    "aidenzou": true,
+    "ggingell": true,
+    "forceuser": true,
+    "chhetrisushil": true,
+    "jacky3399": true,
+    "yatsu": true,
+    "hugojosefson": true,
+    "jream": true,
+    "shannonmoeller": true,
+    "jdalton": true,
+    "ta2edchimp": true,
+    "mjurincic": true,
+    "sua": true,
+    "knksmith57": true,
+    "xmarcos": true,
+    "dyakovk": true,
+    "ndelangen": true,
+    "eibay": true,
+    "youngluo": true
+  }
+}

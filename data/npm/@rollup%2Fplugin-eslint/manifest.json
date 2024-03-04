@@ -1,0 +1,1727 @@
+{
+  "_id": "@rollup/plugin-eslint",
+  "_rev": "12-68314e43371e4d0fea4ab692f8227091",
+  "name": "@rollup/plugin-eslint",
+  "dist-tags": {
+    "latest": "9.0.5"
+  },
+  "versions": {
+    "8.0.0": {
+      "name": "@rollup/plugin-eslint",
+      "version": "8.0.0",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Verify entry point and all imported files with ESLint",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rollup/plugins.git"
+      },
+      "author": {
+        "name": "Bogdan Chadkin",
+        "email": "trysound@yandex.ru"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/eslint#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "dist/index.js",
+      "module": "dist/index.es.js",
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm run test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm run build && pnpm run lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm run test -- --verbose",
+        "lint": "pnpm run lint:js && pnpm run lint:docs && pnpm run lint:package",
+        "lint:docs": "prettier --single-quote --arrow-parens avoid --trailing-comma none --write README.md",
+        "lint:js": "eslint --fix --cache src test types --ext .js,.ts",
+        "lint:package": "prettier --write package.json --plugin=prettier-plugin-package",
+        "prebuild": "del-cli dist",
+        "prepare": "pnpm run build",
+        "prepublishOnly": "pnpm run lint && pnpm run test",
+        "pretest": "pnpm run build",
+        "test": "ava"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "rollup-plugin",
+        "eslint",
+        "es2015",
+        "es6",
+        "lint"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0"
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^4.0.0",
+        "eslint": "^7.12.0"
+      },
+      "devDependencies": {
+        "@rollup/plugin-node-resolve": "^9.0.0",
+        "@rollup/plugin-typescript": "^6.0.0",
+        "@types/eslint": "^7.2.2",
+        "rollup": "^2.23.0"
+      },
+      "types": "types/index.d.ts",
+      "ava": {
+        "babel": {
+          "compileEnhancements": false
+        },
+        "extensions": [
+          "ts"
+        ],
+        "require": [
+          "ts-node/register"
+        ],
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "contributors": [
+        {
+          "name": "Andrew Powell",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "Mattias Ekstrand",
+          "email": "mattias.ekstrand@gmail.com"
+        }
+      ],
+      "_id": "@rollup/plugin-eslint@8.0.0",
+      "_nodeVersion": "12.18.1",
+      "_npmVersion": "6.14.5",
+      "dist": {
+        "integrity": "sha512-XmcF7V3fIbcdzADHmaqPtf9HjMK/DPyHUWvJEnYOLlK8YZG8iKvSeL9N8izSBzcxNKQskoHe30aN+9pMvMuiTA==",
+        "shasum": "a30ca62273f3c4d47a75f71ddd6e0818fcbd33c1",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-eslint/-/plugin-eslint-8.0.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 11277,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJflhtJCRA9TVsSAnZWagAAto4P/RxYduxKZI1g60Qy+s49\nVcy6lfOGlh/PJ4dwfDGWl6F567XjrWLpkrfDCwJXbXCHe6HIMULbQ+8WadMU\nsRH46rwu6nbPEgwLqERpeJwakjJ1Dk/2zU6+VBY+u1mH9BgPbk93960kIIUY\nb7gKcsmvr7D7JWsljBDPl7rBRkwRiFCONRGmIOKYPQUbobKcb10Am8P/5UA4\nDylqNaiAE+usTGy9TeC7nJBMdUJ70hkUYbzKAZJPBtC0FL3EsSMj/VST6FmI\nKIT56H55wkec6ufZbq7OlvM7l1K0CracfdMCrAiB7UdM10JoZomKZPQTLuPp\naLveLlSHxKnsM8eQTFc1Njr8zw9O4pmDXwE0l3rOcZnMEiFXauQs5JXNaqGu\nPFZj1qx5gBDNcEdgMiCp/4YIekxAxlcd5M4ucDY5m2xnNAHmXLGFBTA/BLJV\n3n9rmG2k3VxErgMSyMQmOeYAIXawbA/NUDRhtdmGAem0eaQr0/Nz2m0hDnOd\nA466Mz574+yc4oYnUiZJmuUj62xOqBm3kIfenl0EmrWHL+25QuDgkAT3zCLu\nb/JotfaVtqsSORfs1dfP+/DHtJzZp2kglqiVgwZ/mU4dSTEDZHouEZvzHpZ6\nnQ6ULZwbSVmB9sKe5PbfPwBDhULTWRDS/PeUjzU9mL8rhS+gcyePLLsj1KLE\nDgRN\r\n=L00Z\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEf3Knd7QkLIeZcfz/ftoeKPHza4p06ObD5AhCZWOm2DAiEAo2HQsi6aRJ1miksNPSMBSNU/YQrr9oyD6/sCmueOKqw="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-eslint_8.0.0_1603672904992_0.5269368822669414"
+      },
+      "_hasShrinkwrap": false
+    },
+    "8.0.1": {
+      "name": "@rollup/plugin-eslint",
+      "version": "8.0.1",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Verify entry point and all imported files with ESLint",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rollup/plugins.git"
+      },
+      "author": {
+        "name": "Bogdan Chadkin",
+        "email": "trysound@yandex.ru"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/eslint#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "dist/index.js",
+      "module": "dist/index.es.js",
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm run test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm run build && pnpm run lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm run test -- --verbose",
+        "lint": "pnpm run lint:js && pnpm run lint:docs && pnpm run lint:package",
+        "lint:docs": "prettier --single-quote --arrow-parens avoid --trailing-comma none --write README.md",
+        "lint:js": "eslint --fix --cache src test types --ext .js,.ts",
+        "lint:package": "prettier --write package.json --plugin=prettier-plugin-package",
+        "prebuild": "del-cli dist",
+        "prepare": "pnpm run build",
+        "prepublishOnly": "pnpm run lint && pnpm run test",
+        "pretest": "pnpm run build",
+        "test": "ava"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "rollup-plugin",
+        "eslint",
+        "es2015",
+        "es6",
+        "lint"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0"
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^4.0.0",
+        "eslint": "^7.12.0"
+      },
+      "devDependencies": {
+        "@rollup/plugin-node-resolve": "^9.0.0",
+        "@rollup/plugin-typescript": "^6.0.0",
+        "@types/eslint": "^7.2.2",
+        "rollup": "^2.23.0"
+      },
+      "types": "types/index.d.ts",
+      "ava": {
+        "babel": {
+          "compileEnhancements": false
+        },
+        "extensions": [
+          "ts"
+        ],
+        "require": [
+          "ts-node/register"
+        ],
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "contributors": [
+        {
+          "name": "Andrew Powell",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "Mattias Ekstrand",
+          "email": "mattias.ekstrand@gmail.com"
+        }
+      ],
+      "_id": "@rollup/plugin-eslint@8.0.1",
+      "_nodeVersion": "12.18.1",
+      "_npmVersion": "6.14.5",
+      "dist": {
+        "integrity": "sha512-rTMAY4tKGBdbkHHQDaVhXNJg9tRmW7ihRAg7NQHiPUv13NFYBygIr+OYgpVNwSnGOH146BgCITSBAoMxMQGPTQ==",
+        "shasum": "bf7462f96027613729b8a805caaa951dc23c333e",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-eslint/-/plugin-eslint-8.0.1.tgz",
+        "fileCount": 7,
+        "unpackedSize": 11347,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfxT05CRA9TVsSAnZWagAAfQIP/0eCIf5O2UlHwb5rqlC2\n1chMRNhBgSlp1P8jyyDiUFE/HMo8faiWy7p0Csj7zkPbmQudjgHci74xtLS4\n43K09HiILyNQKxpVCA839w841rntjTRRVl6RnancVjXF+HDV4MekSlDGN3ck\newcCWH5AZ3rCCpBP8crovH8g+7XJQoGek14ijf3K5rdDPGeA40elWq8/YOVr\nPqMpF1i4m3eAUd5xB3h5eOgrN5SkjwcdGtPwUHBRdhZG4BojejXpzrHCuISN\nkUItcerfdULrKY9PSUCX1zQ3CScC9xQHfrZ/XdDPid08F85f3GnEGZtvS85x\nagrZ5m7z6JOm0zQmyd1k880a4OF3eijlSWewU3DrSCBmuXho04X8c6P/LlAC\nb3agmq39d1bkZ01g1bPEqPOANofjAnMlJ9aqV2hP5Kh541aHL1V/GSr0t548\nDknQprIShh47Rb9EIJ3f3SIlg6/KiUfE/IrMCd31GFtaMRtbwDjL5C6RZYIn\nYTsFG32jnLe7BxzQ4jyIBmlpJfwA6+wQ7e2YKl0vhfLq3WWkd85nQX5W9M2c\nPUx1op53U7BQ0U8/444uUoxSTTPF2XW7AqiIM3w0XNv4fzuv2M3ZyQnmzsgo\nooyCPpjt+eeBa0TCpgGpst+WsdkxK3GgnMCbifEgaocfrpDRqn+0/8lCQSk3\nQbba\r\n=Ys1T\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCsyxUkTesWwZCHQ0lsvItT12CdB0miZNoLAuBHToOs6QIhAIcAHpZ1zvkLCt3GBy78OXRrCEMBI1jRMC49Wcuh3XuI"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-eslint_8.0.1_1606761785342_0.7267944721526374"
+      },
+      "_hasShrinkwrap": false
+    },
+    "8.0.2": {
+      "name": "@rollup/plugin-eslint",
+      "version": "8.0.2",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Verify entry point and all imported files with ESLint",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/rollup/plugins.git",
+        "directory": "packages/eslint"
+      },
+      "author": {
+        "name": "Bogdan Chadkin",
+        "email": "trysound@yandex.ru"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/eslint#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "dist/index.js",
+      "module": "dist/index.es.js",
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm build && pnpm lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm test -- --verbose",
+        "prebuild": "del-cli dist",
+        "prepare": "if [ ! -d 'dist' ]; then pnpm build; fi",
+        "prerelease": "pnpm build",
+        "pretest": "pnpm build",
+        "release": "pnpm plugin:release --workspace-root -- --pkg $npm_package_name",
+        "test": "ava",
+        "test:ts": "tsc --noEmit"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "rollup-plugin",
+        "eslint",
+        "es2015",
+        "es6",
+        "lint"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0"
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^4.0.0",
+        "eslint": "^7.12.0"
+      },
+      "devDependencies": {
+        "@rollup/plugin-node-resolve": "^9.0.0",
+        "@rollup/plugin-typescript": "^6.0.0",
+        "@types/eslint": "^7.2.2",
+        "rollup": "^2.67.3",
+        "typescript": "^4.1.2"
+      },
+      "types": "types/index.d.ts",
+      "ava": {
+        "babel": {
+          "compileEnhancements": false
+        },
+        "extensions": [
+          "ts"
+        ],
+        "require": [
+          "ts-node/register"
+        ],
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "contributors": [
+        {
+          "name": "Andrew Powell",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "Mattias Ekstrand",
+          "email": "mattias.ekstrand@gmail.com"
+        }
+      ],
+      "_id": "@rollup/plugin-eslint@8.0.2",
+      "_nodeVersion": "14.19.1",
+      "_npmVersion": "6.14.16",
+      "dist": {
+        "integrity": "sha512-XI38cLYfl/jww8KklJT/ji0yJbCyHgFWPbVQlGrgWblWgHlngteOJDhqtc+7iy5ek0q8k6tvBYkbCQwMScEJHA==",
+        "shasum": "8de988797a199cdce29b2370f6674f4302454935",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-eslint/-/plugin-eslint-8.0.2.tgz",
+        "fileCount": 6,
+        "unpackedSize": 10846,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQD750zjEz5gMzIo1RmE4NDzNGQbk5+zYRSHrmh5mjFBTQIgKDph+ZtDD3c5guE0Zz4BRM4tfKSoTIa7L/WQ19rj28k="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiVJGcACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrhTg//VVhMFwwx1xCDEU3OxvqZVYqhN0aDS+TcaWMk2dqgPMQMbhHn\r\npi9vHGjXTD2we8pvOLq7oVBngoCnwJ5wWOh786OxTWVtxjenzVwqbFU7+Fww\r\nSuevfzEWy7m5DF3muH62iEgcT6grwOp11Vz/iw6ni0y0bXs1ZAcyo1Az9mNi\r\nGZPKQmfBmb+cMMBLPhnwRSSBvdr5DS5DUePyP1E5nytzHjUZ/xPGtwP8YGbe\r\nx5+0yoZdMymMa5TKN9iRrsqta5+xL81TjVNCCwaDWG9e3FFVu31ufm0uyMGL\r\nrIVDGrRowdt4pbZKsn5jX07Zv0jFMDrP46s/83z/PuIc0EI0z8HOI2/Oq9so\r\nPoZPeo3YuLj8Guyw5yia9dEVSK7fhBkagJHwMt5Gj+jnDwDs+p7EgIgn0NJy\r\n4AiHTmo9/+DprZGL3Ga5Y7TH2JU5rpLpmr6kKjFTbR7He9dZX2HHnspSHPm8\r\nJZJ78/fMntX6LGZpLEVg/2aExv9/JZZANGGO10kRDqiEOadNxxwZK0GJcY+t\r\nfTIW3ohtu1ypPQU3mcrVNkTn6uNj49pI/5I/IspVwLC3FFtVAhdstMqGeTO4\r\nB/ql31wEc3w1htrZq4PZiAHRXSQeaC+LzKSQhNT+gutxKVZLWJy9qGXvfW9+\r\nA6r/gZanci7H4wWE0S2Pgm9WF03qGjmSTLU=\r\n=zp66\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-eslint_8.0.2_1649709468781_0.5960711868579989"
+      },
+      "_hasShrinkwrap": false
+    },
+    "8.0.3": {
+      "name": "@rollup/plugin-eslint",
+      "version": "8.0.3",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Verify entry point and all imported files with ESLint",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/rollup/plugins.git",
+        "directory": "packages/eslint"
+      },
+      "author": {
+        "name": "Bogdan Chadkin",
+        "email": "trysound@yandex.ru"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/eslint#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "./dist/cjs/index.js",
+      "module": "./dist/es/index.js",
+      "exports": {
+        "import": "./dist/es/index.js",
+        "types": "./types/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm build && pnpm lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm test -- --verbose",
+        "prebuild": "del-cli dist",
+        "prepare": "if [ ! -d 'dist' ]; then pnpm build; fi",
+        "prerelease": "pnpm build",
+        "pretest": "pnpm build",
+        "release": "pnpm --workspace-root plugin:release --pkg $npm_package_name",
+        "test": "ava",
+        "test:ts": "tsc --noEmit"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "rollup-plugin",
+        "eslint",
+        "es2015",
+        "es6",
+        "lint"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0||^3.0.0"
+      },
+      "peerDependenciesMeta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^4.2.1",
+        "eslint": "^8.24.0"
+      },
+      "devDependencies": {
+        "@rollup/plugin-node-resolve": "^14.1.0",
+        "@rollup/plugin-typescript": "^8.5.0",
+        "@types/eslint": "^8.4.6",
+        "rollup": "^3.0.0-7",
+        "typescript": "^4.8.3"
+      },
+      "types": "./types/index.d.ts",
+      "ava": {
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "contributors": [
+        {
+          "name": "Andrew Powell",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "Mattias Ekstrand",
+          "email": "mattias.ekstrand@gmail.com"
+        }
+      ],
+      "gitHead": "9f10bfb41f11b2d9d93fe479376f840c48620ff1",
+      "_id": "@rollup/plugin-eslint@8.0.3",
+      "_nodeVersion": "18.10.0",
+      "_npmVersion": "8.19.2",
+      "dist": {
+        "integrity": "sha512-dWSawO5LJREiEHBN5DABglAXprMfGuCkqy3FOR5pfguvcAUX4nL3G02iuHlI+FcOWYtIPE5Go65Tw/+wZWS26g==",
+        "shasum": "811ccd0fc25843c46e56b378afc9f8696bdf37fe",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-eslint/-/plugin-eslint-8.0.3.tgz",
+        "fileCount": 6,
+        "unpackedSize": 11212,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDhTOYZaLg/WZrcGbTaLnBPkPCtGP3pNoI4M43lxgSQGQIgC8tfl3doQ03p7/LLaVoEuprkWbnU15fJImK5QMO2erQ="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjQHwuACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrBWA//dcoEaEEcfHAckmQZmEAF2kK00E3AVb/2nsRUmO/se1CreNqC\r\ncCfC65+5iI0y1rqiRqGHX7tQeK2NCAtDXR5MvER9aRJbJ+YnNVxcpPO4nCRW\r\nMQpCcc5csUp5qx8J5xGfKgHrM+PFLWmCk+iMI+WRJepeSks6wish18QbA4sa\r\n4W1nuwU5Pf5jFWxNz0Er4AmlrABcPybHzv2mSbVs8ZRgSOVJx/2l9tI1Ud0G\r\nRGHL0C+huRC/hdgGG5SNdz7SJImofw3NmBnfVZ+Dfbx7K47tt0TvpVT4FPJy\r\nEOfVdVTOU5mr75BqV1t0IW65ektXRBU5UHQTfMZXQEVPCmz2yWmIb5yx6X0W\r\n3SdPUBf6sQKsLYy3qR2IL/NIN1RvwxJPm1q4vXUPx5sDq75meZixdI76yqmO\r\nWywc1uycg20LiN/N2s7tXki60z09RfSTuwK2dRnc9Ss8YfBfujegra7U8XZI\r\ngugHQYRlSUUcyjIZSBQ3bTOQCPFqlCOO9D9lkDP1PTUaT0/JHR6P4D0KDbNC\r\nwck49j9LgR3+VVHuN4lvwr9Y9DfmXO0CbchAL4DOfcq8RoPdba0GKvUabQzC\r\nQEHBPLJGy3UMyfxxAfwHuyFAiuXqbGxcdQqEocgCbw0TKdmZUb5eS/lbPLaL\r\nY+mQynDG7OrS/cjU/lPOJ3QtKbxdlNewWsE=\r\n=sZbC\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-eslint_8.0.3_1665170478448_0.02314698428559958"
+      },
+      "_hasShrinkwrap": false
+    },
+    "8.0.4": {
+      "name": "@rollup/plugin-eslint",
+      "version": "8.0.4",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Verify entry point and all imported files with ESLint",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/rollup/plugins.git",
+        "directory": "packages/eslint"
+      },
+      "author": {
+        "name": "Bogdan Chadkin",
+        "email": "trysound@yandex.ru"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/eslint#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "dist/index.js",
+      "module": "dist/index.es.js",
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm build && pnpm lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm test -- --verbose",
+        "prebuild": "del-cli dist",
+        "prepare": "if [ ! -d 'dist' ]; then pnpm build; fi",
+        "prerelease": "pnpm build",
+        "pretest": "pnpm build",
+        "release": "pnpm --workspace-root plugin:release --pkg $npm_package_name",
+        "test": "ava",
+        "test:ts": "tsc --noEmit"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "rollup-plugin",
+        "eslint",
+        "es2015",
+        "es6",
+        "lint"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0"
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^4.0.0",
+        "eslint": "^7.12.0"
+      },
+      "devDependencies": {
+        "@rollup/plugin-node-resolve": "^9.0.0",
+        "@rollup/plugin-typescript": "^6.0.0",
+        "@types/eslint": "^7.2.2",
+        "rollup": "^2.67.3",
+        "typescript": "^4.1.2"
+      },
+      "types": "types/index.d.ts",
+      "ava": {
+        "babel": {
+          "compileEnhancements": false
+        },
+        "extensions": [
+          "ts"
+        ],
+        "require": [
+          "ts-node/register"
+        ],
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "contributors": [
+        {
+          "name": "Andrew Powell",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "Mattias Ekstrand",
+          "email": "mattias.ekstrand@gmail.com"
+        }
+      ],
+      "gitHead": "0bd83b553ec07af65dbbc71aec4af969a651aba0",
+      "_id": "@rollup/plugin-eslint@8.0.4",
+      "_nodeVersion": "16.17.1",
+      "_npmVersion": "8.15.0",
+      "dist": {
+        "integrity": "sha512-kmFa/LxK9N17g4kMtZHh4/EkvKBCu4plvzA58Gejck5p9ObZR0tX4HfpWhPU9BJxZjsyYf32mOdCIuDA7M3nlQ==",
+        "shasum": "457e7a1854fe2509184f0139f3118d67e9ac84f3",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-eslint/-/plugin-eslint-8.0.4.tgz",
+        "fileCount": 8,
+        "unpackedSize": 14794,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIH1+ap1ReS1dvEQC9tZwk6q2kNCOBopcFP3HWhwu0iUFAiA1PvOSPmEqsk/pMsae/jjw+HwuWeDizqUrbcR/bonFhA=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjQH/VACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqA4g//YiPnB51jzlIqo8WmaGL4koS0dXfMTNV/D0HgXYgPCtj/PBaS\r\ndFyOqgBz6tB64gSzE4Gj4cH+7ij4A47Faf+kb/XdFbXHg1zKlvVt8XlVHxG+\r\ngDEVs6em6LfnvxwLAKTAliXnjMEMTFRFnbDl7ssOEIQJxb/2O15QcyXCkr5K\r\nP4DadVD72BvSFNoIqQ4xxD3AETNgb/KSRGK/Q6OPnTKD0uFpN26vH1PEaQD2\r\nRII5VSsYM/emcxrWTIO1IgV/1QkTMdrrh2O5IsaJqsiPaRN1L475hqns+B8i\r\n4sQ0MwTb7LjwiVEooVgTpgZS8kGR/5jFXW/xm4QycJ8DPfe0j7P6yG5nicVE\r\nwEquIKmAADB5nbM8ZUtXYpIyW43jYWeK7mshrqGChx+dVxNImOXpjkxqP1TE\r\nNB/CfATWkJNdkZJS3ZnhBk5GeSwT3b9nNRZHugevYiL/sa2ChFClhw3p9y5F\r\nUIu0LIU2Q8MflXn25n/iwcCpWidT2VW4u+i9j0cIdbq/CFuwTZWoFbOTGq0N\r\nXQipb+T3pMKe2hhzQIgK+JgXxidsy0/TynwQ80R0jReBKZcyxhlt8tNZrbzL\r\njPfdJ/gPaw/lbfzQDxII6JPmZHbJV9raH9u3dqGOPBZIf7c4CsNnqXtFy7qY\r\noHqMay2/8FZDrnk8Mqgrj6cAxV9FZVrUmL8=\r\n=76xG\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "lukastaegert",
+        "email": "lukas.taegert@tngtech.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-eslint_8.0.4_1665171413645_0.04967586732444618"
+      },
+      "_hasShrinkwrap": false
+    },
+    "9.0.0": {
+      "name": "@rollup/plugin-eslint",
+      "version": "9.0.0",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Verify entry point and all imported files with ESLint",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/rollup/plugins.git",
+        "directory": "packages/eslint"
+      },
+      "author": {
+        "name": "Bogdan Chadkin",
+        "email": "trysound@yandex.ru"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/eslint#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "./dist/cjs/index.js",
+      "module": "./dist/es/index.js",
+      "exports": {
+        "import": "./dist/es/index.js",
+        "types": "./types/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm build && pnpm lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm test -- --verbose",
+        "prebuild": "del-cli dist",
+        "prepare": "if [ ! -d 'dist' ]; then pnpm build; fi",
+        "prerelease": "pnpm build",
+        "pretest": "pnpm build",
+        "release": "pnpm --workspace-root plugin:release --pkg $npm_package_name",
+        "test": "ava",
+        "test:ts": "tsc --noEmit"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "rollup-plugin",
+        "eslint",
+        "es2015",
+        "es6",
+        "lint"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0||^3.0.0"
+      },
+      "peerDependenciesMeta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^4.2.1",
+        "eslint": "^8.24.0"
+      },
+      "devDependencies": {
+        "@rollup/plugin-node-resolve": "^14.1.0",
+        "@rollup/plugin-typescript": "^8.5.0",
+        "@types/eslint": "^8.4.6",
+        "rollup": "^3.0.0-7",
+        "typescript": "^4.8.3"
+      },
+      "types": "./types/index.d.ts",
+      "ava": {
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "contributors": [
+        {
+          "name": "Andrew Powell",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "Mattias Ekstrand",
+          "email": "mattias.ekstrand@gmail.com"
+        }
+      ],
+      "gitHead": "05cb2aeca3c0f62ea82b1f1af5231f42cffec07a",
+      "_id": "@rollup/plugin-eslint@9.0.0",
+      "_nodeVersion": "18.10.0",
+      "_npmVersion": "8.19.2",
+      "dist": {
+        "integrity": "sha512-jT0f9YxkrTiH7MJmY0gLxtNePoIZm77ZmpsNvNhZoY42/vUvVQSkmtT3WkGFmgSWZ7LHYL2RhjCnj2kAqOOUcQ==",
+        "shasum": "fc6e95a8a412e4acab088a141cb90eacfeea75c0",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-eslint/-/plugin-eslint-9.0.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 11212,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDac45I9Fhrhz5FadYXN0+upClEgH0OEUf0lQQ8OwP+qQIhAN7qgA1uFfsBXnkdslkxzrtiw5nwXyCBPXUvgGXAsHPC"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjQIDoACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpZeA//bwLAjmRtVUr1i3jN3JqGKknJ7bAS7VTBoAdhlfaun4W+kg3+\r\nTHUyUbRo4WaJ09BMf5noCnTaorFBvNvgqGBItXhf0mJma3CRTybYLOCB76t2\r\nwRV3D5WmdtAz8BdqvGjA+dUR6qru3T0JbC++WZ/ESl7TYXNpv95DeATptnbI\r\na+vHsL90Sle8FpoB0z+qkt9WRuEAeRlzo4crK2u/s5Zj6PN6SBmWwYzSmIH/\r\njr/NlCaVub/e41RRNfI7S/WC5Ohgj/5x3pFWb31by3CtWGS+3TnQks/k3Xdf\r\nUjYO+oPcakSdPcj6913oc+BnYgtH1DgfgJg+GBB7WBBXfPlwhlypNPGj7ODC\r\nAPgtetq6vYHsKe+Wy6Ca5AtnvJZdbyWccC4L2kEeS+5TTmCMIAZX4h48Xxyv\r\nSDKDLXjhrCGv7l64ygXXEV1I4sCGGdrX0+2jcS2yPYhNDfuYdbUdL9p5TOCZ\r\nvSluHphUGnf87tMemmyJBCviJ0aVh2S8ROmEh9GE5AMznS83+WUZT/K+JU3Y\r\ndjeoXIPAZ6JZP1OYpUdZKo08tmGVqwi1scFqruI0qxeZ7sHdBRVJICndnBwf\r\nWYgCAhNfC3o/qqCtiOV4B4GrrbIZesHtRubMrBYhZOCcIFE1E303xtIpXSCK\r\nGxop77dG2UZTxU5FfRS+YHRwWu8GBSSb1mo=\r\n=Nb/B\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-eslint_9.0.0_1665171688540_0.10673421587104914"
+      },
+      "_hasShrinkwrap": false
+    },
+    "8.0.5": {
+      "name": "@rollup/plugin-eslint",
+      "version": "8.0.5",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Verify entry point and all imported files with ESLint",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/rollup/plugins.git",
+        "directory": "packages/eslint"
+      },
+      "author": {
+        "name": "Bogdan Chadkin",
+        "email": "trysound@yandex.ru"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/eslint#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "dist/index.js",
+      "module": "dist/index.es.js",
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm build && pnpm lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm test -- --verbose",
+        "prebuild": "del-cli dist",
+        "prepare": "if [ ! -d 'dist' ]; then pnpm build; fi",
+        "prerelease": "pnpm build",
+        "pretest": "pnpm build",
+        "release": "pnpm plugin:release --workspace-root -- --pkg $npm_package_name",
+        "test": "ava",
+        "test:ts": "tsc --noEmit"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "rollup-plugin",
+        "eslint",
+        "es2015",
+        "es6",
+        "lint"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0"
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^4.0.0",
+        "eslint": "^7.12.0"
+      },
+      "devDependencies": {
+        "@rollup/plugin-node-resolve": "^9.0.0",
+        "@rollup/plugin-typescript": "^6.0.0",
+        "@types/eslint": "^7.2.2",
+        "rollup": "^2.67.3",
+        "typescript": "^4.1.2"
+      },
+      "types": "types/index.d.ts",
+      "ava": {
+        "babel": {
+          "compileEnhancements": false
+        },
+        "extensions": [
+          "ts"
+        ],
+        "require": [
+          "ts-node/register"
+        ],
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "contributors": [
+        {
+          "name": "Andrew Powell",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "Mattias Ekstrand",
+          "email": "mattias.ekstrand@gmail.com"
+        }
+      ],
+      "gitHead": "c24586a8138154f4f092f623fd2c0f68e9d57e1f",
+      "_id": "@rollup/plugin-eslint@8.0.5",
+      "_nodeVersion": "16.17.1",
+      "_npmVersion": "8.15.0",
+      "dist": {
+        "integrity": "sha512-cSasMRxV4lddMpjcHSN9QV4MCDxYQWuXhc3xa0lUuw+DEQuS0tNoKNZEzsEZqoEvs4KVkHgDpbhQ4jKU+AZ9iw==",
+        "shasum": "931d2177d5d919f6e7c733ab4e49ca0e6f22218c",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-eslint/-/plugin-eslint-8.0.5.tgz",
+        "fileCount": 5,
+        "unpackedSize": 10409,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDqRkYyZ3KicJ2zO4/0H9uADbDtTwBO9BaxvZhy/aOoLQIhAJVwOgUuB72jwoPfuIVPXJGZ4NnYjO0frtFK+l6AYfzw"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjSAamACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpyUg/+LcRTPNXb0uegxFepVdIVVHB9SSbTnKPxAKQAnkEcpp5/mFvk\r\nmG2CKQ6Eg2L944CETyalg09Ltj/2YeNkP5BMxZs7MZ7c3VuvN1La4L+2SW+K\r\nv1YKMENRdqtJ2VIjy+vULH+/LrvezSPdhkXJOkxiH7V1n1zDlZxjAolqSXNb\r\neGs1AZQihh9dn8FrIn6W0W5k3aJAVth9MBLWGaWVKo9MewpsNPQxoAjLDpj+\r\nuqa2g1kZIx0tckIPrYT9Wvl11/YX8WnlBkCnhr5dfvm6M3UyHosn0/liFBj1\r\nAW2F/Vh727fF5SVtOAfPLKD2lmt3wreqNJR/rzn9zwOCO51h7+i0VA5hxB1S\r\nS6F9txAV6wbsc6JjsL/byXWbYJBAq3URFsbouBHYozSPQuCAj5Uo/Vmw2pRa\r\nSKuVciJ7kqOELdseXwIjdRzsoAwqEBbu3x00cEEm2mB/fLqfRA2WJEIstlLD\r\nTcPWKwAENrA8AXQmmN4Z6nWtnMGJiUOAxYY+fM81iA1RCsQ8bo7Bkrn0/hMQ\r\nnOdrYa8rX+N+rIfJ5Bk5+Cx89skwbrN3oFX7pBcRY1JoGyVDuwQ1ltp7Rlb3\r\ni0+LFPIj/SrINfpnn6nSeWLvqRrgr25qopKOUn1puJDzNoBq7p8daKk7fmke\r\nTFTYMEAo2cIHWULJqO3qAovviBJjiuD/lSM=\r\n=Zx4X\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "lukastaegert",
+        "email": "lukas.taegert@tngtech.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-eslint_8.0.5_1665664678041_0.9627363033853666"
+      },
+      "_hasShrinkwrap": false
+    },
+    "9.0.1": {
+      "name": "@rollup/plugin-eslint",
+      "version": "9.0.1",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Verify entry point and all imported files with ESLint",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/rollup/plugins.git",
+        "directory": "packages/eslint"
+      },
+      "author": {
+        "name": "Bogdan Chadkin",
+        "email": "trysound@yandex.ru"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/eslint#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "./dist/cjs/index.js",
+      "module": "./dist/es/index.js",
+      "exports": {
+        "import": "./dist/es/index.js",
+        "types": "./types/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm build && pnpm lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm test -- --verbose",
+        "prebuild": "del-cli dist",
+        "prepare": "if [ ! -d 'dist' ]; then pnpm build; fi",
+        "prerelease": "pnpm build",
+        "pretest": "pnpm build",
+        "release": "pnpm --workspace-root plugin:release --pkg $npm_package_name",
+        "test": "ava",
+        "test:ts": "tsc --noEmit"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "rollup-plugin",
+        "eslint",
+        "es2015",
+        "es6",
+        "lint"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0||^3.0.0"
+      },
+      "peerDependenciesMeta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^5.0.1",
+        "eslint": "^8.24.0"
+      },
+      "devDependencies": {
+        "@rollup/plugin-node-resolve": "^15.0.0",
+        "@rollup/plugin-typescript": "^9.0.1",
+        "@types/eslint": "^8.4.6",
+        "rollup": "^3.2.3",
+        "typescript": "^4.8.3"
+      },
+      "types": "./types/index.d.ts",
+      "ava": {
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "contributors": [
+        {
+          "name": "Andrew Powell",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "Mattias Ekstrand",
+          "email": "mattias.ekstrand@gmail.com"
+        }
+      ],
+      "gitHead": "a7fc6dc9ea1f159a281da2ab37ad8b7b27dd0364",
+      "_id": "@rollup/plugin-eslint@9.0.1",
+      "_nodeVersion": "18.11.0",
+      "_npmVersion": "8.19.2",
+      "dist": {
+        "integrity": "sha512-6arHaZt+0pH8dgsxqT4KLW7BvJ0NThJRJtf56A7HKgBynLfcWJwiUvdb+TMowQdZgxRIvTnBV1VIER/FBrDFDw==",
+        "shasum": "7ee86e566c780840e5ce3708446801becfaea9cb",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-eslint/-/plugin-eslint-9.0.1.tgz",
+        "fileCount": 6,
+        "unpackedSize": 11210,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCnq/ChVKcqmO5I1CdcajK/P3VkmJVtTn/ytubLSbaIXAIhAN1+t6pcAMCAgZ4T2aS8bEst8ygF592s7wrMXGS/yHtM"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjUu4sACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoWlw//ZAr3CYvXzBpJgUpBwC1ktGwAQFn163hlMiHnUtHC5oSYNtdC\r\nGZVd/5FuTGpiijFOIjppcmWz+s6HALVjbgvVsfUYe8G4iggutptVpUuj3Ckq\r\nyw9mxZXLOf0oF5VlvXh1umMNNyXbyrgMqghBfDK/FWxCrFCoe9VKVWkhClQZ\r\nrel2IQh7rEWX+y/2dkzz+010ypFFFVp7CNv2lsK2BWK+E7j7Zw85KBeB1TNd\r\njnses/wyq2IexvwMSnsm16B9JbgcCZXln5ZfvHMqBbk1eHDBbCkmavN8oF+A\r\nd7uSr3WPXTerSg/zL9dQkPDTW4GusJL7FrWtfrqbLjauUlHVrnib0G+zMskP\r\n9Ra3yo/27eZtTnRnu4PvGfLtlqcl88zwOxXsjltbX1kyezdTmCaa0Kwn2haq\r\nyTj+nPcqtz1azwwoS1cvhD/p5SMH7cP1l3sUgFhQ+FesUqXODYGKQ63KfYpl\r\nbLh9ZbPHi/3W4sZh51EKBbOa43VaXjbQC9njiRW4Uu2wpRHam6RdiW/+BHhX\r\n9EOwP9j9sZ6+To+mCxOYRy++eNz0sQmMm8eKxWPSCa0FaYUhHh0CGDuhsveR\r\neiV+czZI0RKR9sxvzhPKDyBTtCkqs5mWA2UP/XcOdsn+VqR5njLHsQar7fC+\r\nb7z4wDcBYriQrLeJZifeAGyk1q1faYqvE9s=\r\n=R4YA\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-eslint_9.0.1_1666379307855_0.9041369733006213"
+      },
+      "_hasShrinkwrap": false
+    },
+    "9.0.2": {
+      "name": "@rollup/plugin-eslint",
+      "version": "9.0.2",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Verify entry point and all imported files with ESLint",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/rollup/plugins.git",
+        "directory": "packages/eslint"
+      },
+      "author": {
+        "name": "Bogdan Chadkin",
+        "email": "trysound@yandex.ru"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/eslint#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "./dist/cjs/index.js",
+      "module": "./dist/es/index.js",
+      "exports": {
+        "import": "./dist/es/index.js",
+        "types": "./types/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm build && pnpm lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm test -- --verbose",
+        "prebuild": "del-cli dist",
+        "prepare": "if [ ! -d 'dist' ]; then pnpm build; fi",
+        "prerelease": "pnpm build",
+        "pretest": "pnpm build",
+        "release": "pnpm --workspace-root plugin:release --pkg $npm_package_name",
+        "test": "ava",
+        "test:ts": "tsc types/index.d.ts test/types.ts --noEmit"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "rollup-plugin",
+        "eslint",
+        "es2015",
+        "es6",
+        "lint"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0||^3.0.0"
+      },
+      "peerDependenciesMeta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^5.0.1",
+        "eslint": "^8.24.0"
+      },
+      "devDependencies": {
+        "@rollup/plugin-node-resolve": "^15.0.0",
+        "@rollup/plugin-typescript": "^9.0.1",
+        "@types/eslint": "^8.4.6",
+        "rollup": "^3.2.3",
+        "typescript": "^4.8.3"
+      },
+      "types": "./types/index.d.ts",
+      "ava": {
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "contributors": [
+        {
+          "name": "Andrew Powell",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "Mattias Ekstrand",
+          "email": "mattias.ekstrand@gmail.com"
+        }
+      ],
+      "gitHead": "776d72cc8e5da851d2a0292cfe38993996f1e0cd",
+      "_id": "@rollup/plugin-eslint@9.0.2",
+      "_nodeVersion": "18.13.0",
+      "_npmVersion": "8.19.3",
+      "dist": {
+        "integrity": "sha512-dawPJxm7I1hupxoNPIul8Xpq/Q8MhKnmICdmpQvjFakplrteoOeNLlQNSjNHoRBrn0uW6a+rJR51mOU1VJ+upg==",
+        "shasum": "0b0e8fbf4a6b17c6c40968024070c2d396673f2f",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-eslint/-/plugin-eslint-9.0.2.tgz",
+        "fileCount": 6,
+        "unpackedSize": 11328,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHPMRVt7VQHl0GOcYpSfe0aHfhxuFvUKBWT0qEQDJmFxAiBVGPs5/aHipmuwSueS1OVoB9GU5Qb0HyRiFB0CaCNkhg=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjwM2XACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqGVw//VUe9JV5f619dE2mfBcuw2P74OoluoELIt/NvGm17/0LfcwOO\r\nuIuVJ9J8LdjG50du12Z0aS3ilwLS1Iumtr0Ia1bsAdoc8o3bduCXH8JOqSdo\r\nkORH5Dlj1HV3ll8VJ5XP8fZWVgmADB7Db49gZTQaFDuG9ISnBHTxOyRmq/YW\r\nelx/v6E7w/7j6SwOOhdbHFD4Bzp8F9OXP/KU6yWO3Vknxc/gHCfNDA63K+n/\r\neAxLEDluFRi06rDm8LUbFnboZDEQwsTttaF9PdEohTHbNc8CruYNiCUyWkEp\r\nZrhiq4lZFHSyvIT1l12H0gpl+KkjKTpNiUkX9n3lsooEwKCiCqOC+uGgd+C9\r\nT7oBjXYoRzzc6zHSJBp9ZcRUVI7w/9NkQkOcem+8RKyNsIbUopJ02cvhNV1z\r\nMxpKoQT3RFU4Yl393jxlUF1PtQ2+bBwfkNbqzPFD141R6RfzOdS6IO3G2yF7\r\nQernv/ivR3PounVFNlHbBjpou3TGKnxt/HokwmKe6eDOW9ifgX/vSbN+HPGq\r\nXJiOqJAGI7Zz2Qx//7BKsS9FSLwVhXkfJeTbMTyHzxZxNjDsjst+BIju3gYu\r\nE0jSRaMBvBfhih/omVe5j4HZf4U+3HmlIj0lK8YenqSgoijFwauAOulpmFTS\r\ndYqAf7M3TDREPVF0OBZW3+89nElEq0NlJTM=\r\n=Du+f\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-eslint_9.0.2_1673579927059_0.642303129742466"
+      },
+      "_hasShrinkwrap": false
+    },
+    "9.0.3": {
+      "name": "@rollup/plugin-eslint",
+      "version": "9.0.3",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Verify entry point and all imported files with ESLint",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/rollup/plugins.git",
+        "directory": "packages/eslint"
+      },
+      "author": {
+        "name": "Bogdan Chadkin",
+        "email": "trysound@yandex.ru"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/eslint#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "./dist/cjs/index.js",
+      "module": "./dist/es/index.js",
+      "exports": {
+        "types": "./types/index.d.ts",
+        "import": "./dist/es/index.js",
+        "default": "./dist/cjs/index.js"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm build && pnpm lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm test -- --verbose",
+        "prebuild": "del-cli dist",
+        "prepare": "if [ ! -d 'dist' ]; then pnpm build; fi",
+        "prerelease": "pnpm build",
+        "pretest": "pnpm build",
+        "release": "pnpm --workspace-root plugin:release --pkg $npm_package_name",
+        "test": "ava",
+        "test:ts": "tsc types/index.d.ts test/types.ts --noEmit"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "rollup-plugin",
+        "eslint",
+        "es2015",
+        "es6",
+        "lint"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0||^3.0.0"
+      },
+      "peerDependenciesMeta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^5.0.1",
+        "eslint": "^8.24.0"
+      },
+      "devDependencies": {
+        "@rollup/plugin-node-resolve": "^15.0.0",
+        "@rollup/plugin-typescript": "^9.0.1",
+        "@types/eslint": "^8.4.6",
+        "rollup": "^3.2.3",
+        "typescript": "^4.8.3"
+      },
+      "types": "./types/index.d.ts",
+      "ava": {
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "contributors": [
+        {
+          "name": "Andrew Powell",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "Mattias Ekstrand",
+          "email": "mattias.ekstrand@gmail.com"
+        }
+      ],
+      "gitHead": "28a5319e8332580788adc2460fef9e79e2505b4e",
+      "_id": "@rollup/plugin-eslint@9.0.3",
+      "_nodeVersion": "18.13.0",
+      "_npmVersion": "8.19.3",
+      "dist": {
+        "integrity": "sha512-iV2m9BhPdsjQzmRVe3Nzovrjxbdq5Slva8bvUSzbM4gSBUaGXAFnFXcHcvO4N4tSuirZoY61mkn8KtV3G6o0iQ==",
+        "shasum": "f5e8c22d557bef02570e4f1770fb085568ea4b37",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-eslint/-/plugin-eslint-9.0.3.tgz",
+        "fileCount": 6,
+        "unpackedSize": 11328,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICAKkojG2bC8HK/W38r2rVZ7okXgYnXi50s/x4nom65eAiEAo+MyP3W/KH+NEW7q86chNxq5DEri0xCf/TLj1rXyWPI="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjyydGACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmpyvQ/6A8Ss1GUDa+M+xyUl2Uzx59ECbs/ykE21MABiLMmimbXGpWY0\r\nRJvhnEZMVsdownSeFFPKOGnx7liM9VGkiBUEyWd/LAc57dfYfcwSO3buwQTV\r\nFFjLys2q40QzLRsKwFpxySuyXHMvmF4zzo+S9TQyAAEUSm1th4wwpjD40eRM\r\nvhrSI7HPxW/ZLWv9SNqYdn+KudlBePH9jNoSF6BsM4mHcmRGSLz89kT7tmfP\r\nCwnuYtXoKM5VGmsC/UiP2CvencglW6z2T7/57AdVC6riyh0SrFeCiOTNSD0a\r\nJOd0cLgTKxutuEiz9b7sBJPMfiWSj7151S7Hb+hzFN/FmrS7IZRSNTKhyHPk\r\nPvnxig8WpRNIoOaFdxPqF2SXCKI3kEzItjDzR3FZXKSZzyW+VEg8UZK00dkC\r\n9mN1B/CxGjhz5Wh6RniLDHIwPLy6dGpB1fbS279iT8lC79rrC1+oayzQXJTc\r\n7o7Y7edMpEzrCasP8eQ6fXQcaeAYCSbKGWNazd7xRawsLbCVpjw0Taclmmj5\r\n5TB/YNiIhOMP8Bxd7WV4zhICqn1X7mFSyNdUKLtvcaQSpP8klwOZ6u40IjVv\r\nnIXQ3rNWo9zq85Y4YwlEEnVKCpMFfeqRBH7VSxA2pY0vW3rXjt0ONQjT6h9Q\r\naNR9oNTGkGve0YcdT7/a86uKppHI4jK5FX0=\r\n=xHhp\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-eslint_9.0.3_1674258245765_0.33550628736322863"
+      },
+      "_hasShrinkwrap": false
+    },
+    "9.0.4": {
+      "name": "@rollup/plugin-eslint",
+      "version": "9.0.4",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Verify entry point and all imported files with ESLint",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/rollup/plugins.git",
+        "directory": "packages/eslint"
+      },
+      "author": {
+        "name": "Bogdan Chadkin",
+        "email": "trysound@yandex.ru"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/eslint#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "./dist/cjs/index.js",
+      "module": "./dist/es/index.js",
+      "exports": {
+        "types": "./types/index.d.ts",
+        "import": "./dist/es/index.js",
+        "default": "./dist/cjs/index.js"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm build && pnpm lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm test -- --verbose",
+        "prebuild": "del-cli dist",
+        "prepare": "if [ ! -d 'dist' ]; then pnpm build; fi",
+        "prerelease": "pnpm build",
+        "pretest": "pnpm build",
+        "release": "pnpm --workspace-root plugin:release --pkg $npm_package_name",
+        "test": "ava",
+        "test:ts": "tsc types/index.d.ts test/types.ts --noEmit"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "rollup-plugin",
+        "eslint",
+        "es2015",
+        "es6",
+        "lint"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0||^3.0.0"
+      },
+      "peerDependenciesMeta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^5.0.1",
+        "eslint": "^8.24.0"
+      },
+      "devDependencies": {
+        "@rollup/plugin-node-resolve": "^15.0.0",
+        "@rollup/plugin-typescript": "^9.0.1",
+        "@types/eslint": "^8.4.6",
+        "rollup": "^3.2.3",
+        "typescript": "^4.8.3"
+      },
+      "types": "./types/index.d.ts",
+      "ava": {
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "contributors": [
+        {
+          "name": "Andrew Powell",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "Mattias Ekstrand",
+          "email": "mattias.ekstrand@gmail.com"
+        }
+      ],
+      "gitHead": "8160f293f02640624679844ffccc6811225232e8",
+      "_id": "@rollup/plugin-eslint@9.0.4",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-JtXb8RFMsRB6pMsVAo7qR3wopb7XT7XlxnqQQk/5zdrhmCOgF/OoKBYWLzK0yaUXNfRZeuly9VLt6VgXIBrvkw==",
+        "shasum": "be9c8d48318cdb213181cedfd8815d136ff1bc8a",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-eslint/-/plugin-eslint-9.0.4.tgz",
+        "fileCount": 6,
+        "unpackedSize": 11328,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEuttOpaSQr/oiibD+8EzypqxhQlRErm+kwzcJJr1febAiEA8VK02glufr1qvhxKi4S7G3JQ+66ZSJH719j+/4U3sgo="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-eslint_9.0.4_1683899116965_0.9157083625984417"
+      },
+      "_hasShrinkwrap": false
+    },
+    "9.0.5": {
+      "name": "@rollup/plugin-eslint",
+      "version": "9.0.5",
+      "publishConfig": {
+        "access": "public"
+      },
+      "description": "Verify entry point and all imported files with ESLint",
+      "license": "MIT",
+      "repository": {
+        "url": "git+https://github.com/rollup/plugins.git",
+        "directory": "packages/eslint"
+      },
+      "author": {
+        "name": "Bogdan Chadkin",
+        "email": "trysound@yandex.ru"
+      },
+      "homepage": "https://github.com/rollup/plugins/tree/master/packages/eslint#readme",
+      "bugs": {
+        "url": "https://github.com/rollup/plugins/issues"
+      },
+      "main": "./dist/cjs/index.js",
+      "module": "./dist/es/index.js",
+      "exports": {
+        "types": "./types/index.d.ts",
+        "import": "./dist/es/index.js",
+        "default": "./dist/cjs/index.js"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "scripts": {
+        "build": "rollup -c",
+        "ci:coverage": "nyc pnpm test && nyc report --reporter=text-lcov > coverage.lcov",
+        "ci:lint": "pnpm build && pnpm lint",
+        "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
+        "ci:test": "pnpm test -- --verbose",
+        "prebuild": "del-cli dist",
+        "prepare": "if [ ! -d 'dist' ]; then pnpm build; fi",
+        "prerelease": "pnpm build",
+        "pretest": "pnpm build",
+        "release": "pnpm --workspace-root plugin:release --pkg $npm_package_name",
+        "test": "ava",
+        "test:ts": "tsc types/index.d.ts test/types.ts --noEmit"
+      },
+      "keywords": [
+        "rollup",
+        "plugin",
+        "rollup-plugin",
+        "eslint",
+        "es2015",
+        "es6",
+        "lint"
+      ],
+      "peerDependencies": {
+        "rollup": "^1.20.0||^2.0.0||^3.0.0||^4.0.0"
+      },
+      "peerDependenciesMeta": {
+        "rollup": {
+          "optional": true
+        }
+      },
+      "dependencies": {
+        "@rollup/pluginutils": "^5.0.1",
+        "eslint": "^8.24.0"
+      },
+      "devDependencies": {
+        "@rollup/plugin-node-resolve": "^15.0.0",
+        "@rollup/plugin-typescript": "^9.0.1",
+        "@types/eslint": "^8.4.6",
+        "rollup": "^4.0.0-24",
+        "typescript": "^4.8.3"
+      },
+      "types": "./types/index.d.ts",
+      "ava": {
+        "files": [
+          "!**/fixtures/**",
+          "!**/helpers/**",
+          "!**/recipes/**",
+          "!**/types.ts"
+        ]
+      },
+      "contributors": [
+        {
+          "name": "Andrew Powell",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "Mattias Ekstrand",
+          "email": "mattias.ekstrand@gmail.com"
+        }
+      ],
+      "_id": "@rollup/plugin-eslint@9.0.5",
+      "gitHead": "b262f3a64eb4f16c952160b5bfab2b049ba82338",
+      "_nodeVersion": "20.8.0",
+      "_npmVersion": "10.1.0",
+      "dist": {
+        "integrity": "sha512-C4nh0sSeJuxVW5u5tDX+dCMjKcNfHm4hS+zeUVh1si7gttnhgGbrmPkUxIX7iZgYABwdEh/ewyMbZB+WXjSJdA==",
+        "shasum": "6153f5b72bad1833f5b5ce88cc03c3fe767a9c66",
+        "tarball": "https://registry.npmjs.org/@rollup/plugin-eslint/-/plugin-eslint-9.0.5.tgz",
+        "fileCount": 6,
+        "unpackedSize": 11339,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDYQSWSbTvePhaY4ww5HVWU4gZSJSh+nEWK9y9fnbaMXwIgKKBcHWv0FxXxIpD0blfX22WPGPMyTlFK5L25Kk6o0bk="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "shellscape",
+        "email": "andrew@shellscape.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "shellscape",
+          "email": "andrew@shellscape.org"
+        },
+        {
+          "name": "rich_harris",
+          "email": "richard.a.harris@gmail.com"
+        },
+        {
+          "name": "guybedford",
+          "email": "guybedford@gmail.com"
+        },
+        {
+          "name": "lukastaegert",
+          "email": "lukas.taegert@tngtech.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/plugin-eslint_9.0.5_1696507340922_0.13005334188939144"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2020-10-26T00:41:44.937Z",
+    "8.0.0": "2020-10-26T00:41:45.090Z",
+    "modified": "2023-10-05T12:02:21.362Z",
+    "8.0.1": "2020-11-30T18:43:05.512Z",
+    "8.0.2": "2022-04-11T20:37:48.885Z",
+    "8.0.3": "2022-10-07T19:21:18.656Z",
+    "8.0.4": "2022-10-07T19:36:53.815Z",
+    "9.0.0": "2022-10-07T19:41:28.776Z",
+    "8.0.5": "2022-10-13T12:37:58.230Z",
+    "9.0.1": "2022-10-21T19:08:28.059Z",
+    "9.0.2": "2023-01-13T03:18:47.274Z",
+    "9.0.3": "2023-01-20T23:44:05.966Z",
+    "9.0.4": "2023-05-12T13:45:17.101Z",
+    "9.0.5": "2023-10-05T12:02:21.084Z"
+  },
+  "maintainers": [
+    {
+      "name": "shellscape",
+      "email": "andrew@shellscape.org"
+    },
+    {
+      "name": "rich_harris",
+      "email": "richard.a.harris@gmail.com"
+    },
+    {
+      "name": "guybedford",
+      "email": "guybedford@gmail.com"
+    },
+    {
+      "name": "lukastaegert",
+      "email": "lukas.taegert@tngtech.com"
+    }
+  ],
+  "description": "Verify entry point and all imported files with ESLint",
+  "homepage": "https://github.com/rollup/plugins/tree/master/packages/eslint#readme",
+  "keywords": [
+    "rollup",
+    "plugin",
+    "rollup-plugin",
+    "eslint",
+    "es2015",
+    "es6",
+    "lint"
+  ],
+  "repository": {
+    "url": "git+https://github.com/rollup/plugins.git",
+    "directory": "packages/eslint"
+  },
+  "contributors": [
+    {
+      "name": "Andrew Powell",
+      "email": "andrew@shellscape.org"
+    },
+    {
+      "name": "Mattias Ekstrand",
+      "email": "mattias.ekstrand@gmail.com"
+    }
+  ],
+  "author": {
+    "name": "Bogdan Chadkin",
+    "email": "trysound@yandex.ru"
+  },
+  "bugs": {
+    "url": "https://github.com/rollup/plugins/issues"
+  },
+  "license": "MIT",
+  "readme": "[npm]: https://img.shields.io/npm/v/@rollup/plugin-eslint\n[npm-url]: https://www.npmjs.com/package/@rollup/plugin-eslint\n[size]: https://packagephobia.now.sh/badge?p=@rollup/plugin-eslint\n[size-url]: https://packagephobia.now.sh/result?p=@rollup/plugin-eslint\n\n[![npm][npm]][npm-url]\n[![size][size]][size-url]\n[![libera manifesto](https://img.shields.io/badge/libera-manifesto-lightgrey.svg)](https://liberamanifesto.com)\n\n# @rollup/plugin-eslint\n\n🍣 A Rollup plugin to lint entry points and all imported files with ESLint.\n\n## Requirements\n\nThis plugin requires an [LTS](https://github.com/nodejs/Release) Node version (v14.0.0+) and Rollup v1.20.0+.\n\n## Install\n\nUsing npm:\n\n```console\nnpm install @rollup/plugin-eslint --save-dev\n# or\nyarn add -D @rollup/plugin-eslint\n```\n\n## Usage\n\n```js\nimport eslint from '@rollup/plugin-eslint';\n\nexport default {\n  input: 'main.js',\n  plugins: [\n    eslint({\n      /* your options */\n    })\n  ]\n};\n```\n\n## Options\n\nThis plugin takes a configuration object intended for the [ESLint constructor](https://eslint.org/docs/developer-guide/nodejs-api#-new-eslintoptions) with the addition of a `throwOnWarning`, `throwOnError`, `formatter`, `include` and `exclude` prop.\n\nYou can also use eslint configuration in the form of a `.eslintrc.*` file in your project's root. It will be loaded automatically.\n\n### exclude\n\nType: `String | String[]`<br>\nDefault: `node_modules/**`\n\nA single [`picomatch`](https://github.com/micromatch/picomatch) pattern or an array of patterns controlling which files this plugin should explicitly exclude. Gets forwarded to the [`createFilter`](https://github.com/rollup/plugins/tree/master/packages/pluginutils#createfilter) method of `@rollup/pluginutils`.\n\n### fix\n\nType: `Boolean`<br>\nDefault: `false`\n\nIf true, will auto fix source code.\n\n### formatter\n\nType: `Function<String> | Function<Promise<String>> | String`<br>\nDefault: `stylish`\n\nCustom error formatter, the name of a built-in formatter, or the path to a custom formatter.\n\n### include\n\nType: `String | String[]`<br>\nDefault: `[]`\n\nA single [`picomatch`](https://github.com/micromatch/picomatch) pattern or an array of patterns controlling which files this plugin should explicitly include. Gets forwarded to the [`createFilter`](https://github.com/rollup/plugins/tree/master/packages/pluginutils#createfilter) method of `@rollup/pluginutils`.\n\n### throwOnError\n\nType: `Boolean`<br>\nDefault: `false`\n\nIf true, will throw an error and exit the process when ESLint reports any errors.\n\n### throwOnWarning\n\nType: `Boolean`<br>\nDefault: `false`\n\nIf true, will throw an error and exit the process when ESLint reports any warnings.\n\n## Meta\n\n[CONTRIBUTING](/.github/CONTRIBUTING.md)\n\n[LICENSE (MIT)](/LICENSE)\n",
+  "readmeFilename": "README.md"
+}

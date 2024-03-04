@@ -1,0 +1,1062 @@
+{
+  "_id": "webpack-visualizer-plugin",
+  "_rev": "31-8dde84ee6e37cce90477a60bb70992f5",
+  "name": "webpack-visualizer-plugin",
+  "description": "Visualize and analyze your Webpack bundle to see which modules are taking up space and which might be duplicates.",
+  "dist-tags": {
+    "latest": "0.1.11"
+  },
+  "versions": {
+    "0.1.0": {
+      "name": "webpack-visualizer-plugin",
+      "version": "0.1.0",
+      "main": "lib/plugin.js",
+      "author": {
+        "name": "Chris Bateman",
+        "url": "http://cbateman.com/"
+      },
+      "license": "MIT",
+      "files": [
+        "lib",
+        "src",
+        "README.md"
+      ],
+      "scripts": {
+        "build": "npm run buildsite && npm run buildplugin",
+        "prebuildplugin": "rm -rf lib && mkdir lib",
+        "buildplugin": "webpack src/plugin/main.jsx lib/pluginmain.js --config webpack.prod.js",
+        "postbuildplugin": "babel src/shared/buildHierarchy.js --out-file lib/buildHierarchy.js && babel src/plugin/plugin.js --out-file lib/plugin.js && cp src/shared/style.css lib",
+        "prebuildsite": "rm -rf dist-site && mkdir dist-site",
+        "buildsite": "webpack src/site/main.jsx dist-site/build.js --config webpack.prod.js && babel-node src/site/serverRender.js",
+        "postbuildsite": "cp src/shared/style.css test/stats-demo.json dist-site",
+        "dev": "webpack-dev-server --config webpack.dev.js",
+        "lint": "eslint src --ext .js,.jsx",
+        "preversion": "npm run lint && npm run build",
+        "postversion": "npm run publishSite",
+        "publishSite": "git checkout gh-pages && cp dist-site/* . && git add . && git reset -- dist-site && git commit -m 'release' && git push origin gh-pages && git checkout master"
+      },
+      "dependencies": {
+        "babel": "^5.8.23",
+        "d3": "^3.5.6",
+        "prettysize": "0.0.3",
+        "react": "^0.14.0",
+        "react-dom": "^0.14.0"
+      },
+      "devDependencies": {
+        "babel-core": "^5.8.25",
+        "babel-loader": "^5.3.2",
+        "eslint": "^1.6.0",
+        "eslint-plugin-react": "^3.5.1",
+        "merge": "^1.2.0",
+        "webpack": "^1.12.2",
+        "webpack-dev-server": "^1.12.0"
+      },
+      "engines": {
+        "npm": ">=2.13.0"
+      },
+      "gitHead": "7193e23257828a48a830091fc1a5f8e57801aa4b",
+      "description": "Visualize and analyze your Webpack bundle to see which modules are taking up space and which might be duplicates.",
+      "_id": "webpack-visualizer-plugin@0.1.0",
+      "_shasum": "5ea190eb08df0ee4384416f58473799a776243ab",
+      "_from": ".",
+      "_npmVersion": "2.14.8",
+      "_nodeVersion": "0.10.35",
+      "_npmUser": {
+        "name": "chrisbateman",
+        "email": "chris@cbateman.com"
+      },
+      "maintainers": [
+        {
+          "name": "chrisbateman",
+          "email": "chris@cbateman.com"
+        }
+      ],
+      "dist": {
+        "shasum": "5ea190eb08df0ee4384416f58473799a776243ab",
+        "tarball": "https://registry.npmjs.org/webpack-visualizer-plugin/-/webpack-visualizer-plugin-0.1.0.tgz",
+        "integrity": "sha512-A6GKgeQbvo07UiN5vAgR/C9PK7cL5VY4BKNA6IJ8uD3mVD2I3x7LkmQa24bff270ggMEsbi8N2OhvttM/WM+Sw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDMPVkeQyse3nqyy2yH220EVjT77UmKQOnPr73WbxmZVAiAdJIwao7AtWspiADVCr4kANT2fprZ7Pw7krusJPY4AcQ=="
+          }
+        ]
+      }
+    },
+    "0.1.1": {
+      "name": "webpack-visualizer-plugin",
+      "version": "0.1.1",
+      "main": "lib/plugin.js",
+      "author": {
+        "name": "Chris Bateman",
+        "url": "http://cbateman.com/"
+      },
+      "license": "MIT",
+      "files": [
+        "lib",
+        "README.md"
+      ],
+      "scripts": {
+        "build": "npm run buildsite && npm run buildplugin",
+        "prebuildplugin": "rm -rf lib && mkdir lib",
+        "buildplugin": "webpack src/plugin/main.jsx lib/pluginmain.js --config webpack.prod.js",
+        "postbuildplugin": "babel src/shared/buildHierarchy.js --out-file lib/buildHierarchy.js && babel src/plugin/plugin.js --out-file lib/plugin.js && cp src/shared/style.css lib",
+        "prebuildsite": "rm -rf dist-site && mkdir dist-site",
+        "buildsite": "webpack src/site/main.jsx dist-site/build.js --config webpack.prod.js && babel-node src/site/serverRender.js",
+        "postbuildsite": "cp src/shared/style.css test/stats-demo.json dist-site",
+        "dev": "webpack-dev-server --config webpack.dev.js",
+        "lint": "eslint src --ext .js,.jsx",
+        "preversion": "npm run lint && npm run build",
+        "publishSite": "git checkout gh-pages && cp dist-site/* . && git add . && git commit -m 'release' && git push origin gh-pages && git checkout master"
+      },
+      "dependencies": {
+        "babel": "^5.8.23",
+        "d3": "^3.5.6",
+        "prettysize": "0.0.3",
+        "react": "^0.14.0",
+        "react-dom": "^0.14.0"
+      },
+      "devDependencies": {
+        "babel-core": "^5.8.25",
+        "babel-loader": "^5.3.2",
+        "eslint": "^1.6.0",
+        "eslint-plugin-react": "^3.5.1",
+        "merge": "^1.2.0",
+        "webpack": "^1.12.2",
+        "webpack-dev-server": "^1.12.0"
+      },
+      "engines": {
+        "npm": ">=2.13.0"
+      },
+      "gitHead": "1e4c0b7831be2be3d8e89017f5d136d3ee21fb1c",
+      "description": "Visualize and analyze your Webpack bundle to see which modules are taking up space and which might be duplicates.",
+      "_id": "webpack-visualizer-plugin@0.1.1",
+      "_shasum": "c8bf146ba3c67a8514ba64a80f5bed66954bf463",
+      "_from": ".",
+      "_npmVersion": "2.14.8",
+      "_nodeVersion": "0.10.35",
+      "_npmUser": {
+        "name": "chrisbateman",
+        "email": "chris@cbateman.com"
+      },
+      "maintainers": [
+        {
+          "name": "chrisbateman",
+          "email": "chris@cbateman.com"
+        }
+      ],
+      "dist": {
+        "shasum": "c8bf146ba3c67a8514ba64a80f5bed66954bf463",
+        "tarball": "https://registry.npmjs.org/webpack-visualizer-plugin/-/webpack-visualizer-plugin-0.1.1.tgz",
+        "integrity": "sha512-RP1+Vakv4jrbk/cXgtWr6nvcw5Wm+rnLJV1wNc7vBq4gbqZNMQSANM0ncH7aix49mHcY5Jt7GGPQAQh2jo1DUQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICmcBLqgem2NfZxWrkaRxRYgYuKPZH5OZN9Ejeob8pZZAiBwvrxtF14A567H6XnHZIJD2YHnWizz6E8WK0gkhaVhOw=="
+          }
+        ]
+      }
+    },
+    "0.1.2": {
+      "name": "webpack-visualizer-plugin",
+      "version": "0.1.2",
+      "main": "lib/plugin.js",
+      "author": {
+        "name": "Chris Bateman",
+        "url": "http://cbateman.com/"
+      },
+      "license": "MIT",
+      "files": [
+        "lib",
+        "README.md"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/chrisbateman/webpack-visualizer.git"
+      },
+      "scripts": {
+        "build": "npm run buildsite && npm run buildplugin",
+        "prebuildplugin": "rm -rf lib && mkdir lib",
+        "buildplugin": "webpack src/plugin/main.jsx lib/pluginmain.js --config webpack.prod.js",
+        "postbuildplugin": "babel src/shared/buildHierarchy.js --out-file lib/buildHierarchy.js && babel src/plugin/plugin.js --out-file lib/plugin.js && cp src/shared/style.css lib",
+        "prebuildsite": "rm -rf dist-site && mkdir dist-site",
+        "buildsite": "webpack src/site/main.jsx dist-site/build.js --config webpack.prod.js && babel-node src/site/serverRender.js",
+        "postbuildsite": "cp src/shared/style.css test/stats-demo.json dist-site",
+        "dev": "webpack-dev-server --config webpack.dev.js",
+        "lint": "eslint src --ext .js,.jsx",
+        "preversion": "npm run lint && npm run build",
+        "publishSite": "git checkout gh-pages && cp dist-site/* . && git add . && git commit -m 'release' && git push origin gh-pages && git checkout master"
+      },
+      "dependencies": {
+        "babel": "^5.8.23",
+        "d3": "^3.5.6",
+        "prettysize": "0.0.3",
+        "react": "^0.14.0",
+        "react-dom": "^0.14.0"
+      },
+      "devDependencies": {
+        "babel-core": "^5.8.25",
+        "babel-loader": "^5.3.2",
+        "eslint": "^1.6.0",
+        "eslint-plugin-react": "^3.5.1",
+        "merge": "^1.2.0",
+        "webpack": "^1.12.2",
+        "webpack-dev-server": "^1.12.0"
+      },
+      "engines": {
+        "npm": ">=2.13.0"
+      },
+      "gitHead": "dddfe7fe966fbc0a7b2efdfc88073939097ed612",
+      "description": "Visualize and analyze your Webpack bundle to see which modules are taking up space and which might be duplicates.",
+      "bugs": {
+        "url": "https://github.com/chrisbateman/webpack-visualizer/issues"
+      },
+      "homepage": "https://github.com/chrisbateman/webpack-visualizer#readme",
+      "_id": "webpack-visualizer-plugin@0.1.2",
+      "_shasum": "a5fbc932ccd195b65faa38930163b4431ce66129",
+      "_from": ".",
+      "_npmVersion": "2.14.8",
+      "_nodeVersion": "0.10.35",
+      "_npmUser": {
+        "name": "chrisbateman",
+        "email": "chris@cbateman.com"
+      },
+      "maintainers": [
+        {
+          "name": "chrisbateman",
+          "email": "chris@cbateman.com"
+        }
+      ],
+      "dist": {
+        "shasum": "a5fbc932ccd195b65faa38930163b4431ce66129",
+        "tarball": "https://registry.npmjs.org/webpack-visualizer-plugin/-/webpack-visualizer-plugin-0.1.2.tgz",
+        "integrity": "sha512-JQuOVRz05MgPqdkUgxQdyGVwGMi0FOFYqwOZCrxPeARE9tlLYS/ddiOTAhoX9/l+clkCPp644Xaa5K4d1oP6PQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCvkeUXyyGq3THNOEFJphTYMxzgCcgBIR4km2xfEj+7agIgLjgAQJe0L9PUlGmHdbeHCvTfp55yS8Ha7R/S/8gOQ54="
+          }
+        ]
+      }
+    },
+    "0.1.3": {
+      "name": "webpack-visualizer-plugin",
+      "version": "0.1.3",
+      "main": "lib/plugin.js",
+      "author": {
+        "name": "Chris Bateman",
+        "url": "http://cbateman.com/"
+      },
+      "license": "MIT",
+      "files": [
+        "lib",
+        "README.md"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/chrisbateman/webpack-visualizer.git"
+      },
+      "scripts": {
+        "build": "npm run buildsite && npm run buildplugin",
+        "prebuildplugin": "rm -rf lib && mkdir lib",
+        "buildplugin": "webpack src/plugin/main.jsx lib/pluginmain.js --config webpack.prod.js",
+        "postbuildplugin": "babel src/shared/buildHierarchy.js --out-file lib/buildHierarchy.js && babel src/plugin/plugin.js --out-file lib/plugin.js && cp src/shared/style.css lib",
+        "prebuildsite": "rm -rf dist-site && mkdir dist-site",
+        "buildsite": "webpack src/site/main.jsx dist-site/build.js --config webpack.prod.js && babel-node src/site/serverRender.js",
+        "postbuildsite": "cp src/shared/style.css test/stats-demo.json dist-site",
+        "dev": "webpack-dev-server --config webpack.dev.js",
+        "lint": "eslint src --ext .js,.jsx",
+        "preversion": "npm run lint && npm run build",
+        "publishSite": "git checkout gh-pages && cp dist-site/* . && git add . && git commit -m 'release' && git push origin gh-pages && git checkout master"
+      },
+      "dependencies": {
+        "d3": "^3.5.6",
+        "prettysize": "0.0.3",
+        "react": "^0.14.0",
+        "react-dom": "^0.14.0"
+      },
+      "devDependencies": {
+        "babel": "^5.8.23",
+        "babel-core": "^5.8.25",
+        "babel-loader": "^5.3.2",
+        "eslint": "^1.6.0",
+        "eslint-plugin-react": "^3.5.1",
+        "merge": "^1.2.0",
+        "webpack": "^1.12.2",
+        "webpack-dev-server": "^1.12.0"
+      },
+      "engines": {
+        "npm": ">=2.13.0"
+      },
+      "gitHead": "8218fad8e303f86fa36c8aa9fcb09e3d8cf74e83",
+      "description": "Visualize and analyze your Webpack bundle to see which modules are taking up space and which might be duplicates.",
+      "bugs": {
+        "url": "https://github.com/chrisbateman/webpack-visualizer/issues"
+      },
+      "homepage": "https://github.com/chrisbateman/webpack-visualizer#readme",
+      "_id": "webpack-visualizer-plugin@0.1.3",
+      "_shasum": "9b6b4e6962981847267ac68cbe02e3ed1961880d",
+      "_from": ".",
+      "_npmVersion": "2.14.8",
+      "_nodeVersion": "0.10.35",
+      "_npmUser": {
+        "name": "chrisbateman",
+        "email": "chris@cbateman.com"
+      },
+      "maintainers": [
+        {
+          "name": "chrisbateman",
+          "email": "chris@cbateman.com"
+        }
+      ],
+      "dist": {
+        "shasum": "9b6b4e6962981847267ac68cbe02e3ed1961880d",
+        "tarball": "https://registry.npmjs.org/webpack-visualizer-plugin/-/webpack-visualizer-plugin-0.1.3.tgz",
+        "integrity": "sha512-gtXRF2W9NEHpO5N3Mrqs4V4bAy6idfHWYKHchYoNDJlzqOGq4d+YheKYtcKhtkmaWnc/rkRIvjs4PNwfvHHntg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCb1STc73LprEH5puBr3BG/DJWiSIgAm5MLVnJUjSFEMAIgXrEcaGbd8AULUcyoL7V7ezIQ28JZi/v+SqVZVqxfxv0="
+          }
+        ]
+      }
+    },
+    "0.1.4": {
+      "name": "webpack-visualizer-plugin",
+      "version": "0.1.4",
+      "main": "lib/plugin.js",
+      "author": {
+        "name": "Chris Bateman",
+        "url": "http://cbateman.com/"
+      },
+      "license": "MIT",
+      "files": [
+        "lib",
+        "README.md"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/chrisbateman/webpack-visualizer.git"
+      },
+      "scripts": {
+        "build": "npm run buildsite && npm run buildplugin",
+        "prebuildplugin": "rm -rf lib && mkdir lib",
+        "buildplugin": "webpack src/plugin/main.jsx lib/pluginmain.js --config webpack.prod.js",
+        "postbuildplugin": "babel src/shared/buildHierarchy.js --out-file lib/buildHierarchy.js && babel src/plugin/plugin.js --out-file lib/plugin.js && cp src/shared/style.css lib",
+        "prebuildsite": "rm -rf dist-site && mkdir dist-site",
+        "buildsite": "webpack src/site/main.jsx dist-site/build.js --config webpack.prod.js && babel-node src/site/serverRender.js",
+        "postbuildsite": "cp src/shared/style.css test/stats-demo.json dist-site",
+        "dev": "webpack-dev-server --config webpack.dev.js",
+        "lint": "eslint src --ext .js,.jsx",
+        "preversion": "npm run lint && npm run build",
+        "publishSite": "git checkout gh-pages && cp dist-site/* . && git add . && git commit -m 'release' && git push origin gh-pages && git checkout master"
+      },
+      "dependencies": {
+        "d3": "^3.5.6",
+        "prettysize": "0.0.3",
+        "react": "^0.14.0",
+        "react-dom": "^0.14.0"
+      },
+      "devDependencies": {
+        "babel": "^5.8.23",
+        "babel-core": "^5.8.25",
+        "babel-loader": "^5.3.2",
+        "eslint": "^1.6.0",
+        "eslint-plugin-react": "^3.5.1",
+        "merge": "^1.2.0",
+        "webpack": "^1.12.2",
+        "webpack-dev-server": "^1.12.0"
+      },
+      "engines": {
+        "npm": ">=2.13.0"
+      },
+      "gitHead": "0e16ef8fdb835c571c54a7f8f7c5a3a753aab4d5",
+      "description": "Visualize and analyze your Webpack bundle to see which modules are taking up space and which might be duplicates.",
+      "bugs": {
+        "url": "https://github.com/chrisbateman/webpack-visualizer/issues"
+      },
+      "homepage": "https://github.com/chrisbateman/webpack-visualizer#readme",
+      "_id": "webpack-visualizer-plugin@0.1.4",
+      "_shasum": "9fde5886b80862f37df770b60196d9fcf62a0359",
+      "_from": ".",
+      "_npmVersion": "2.14.8",
+      "_nodeVersion": "0.10.35",
+      "_npmUser": {
+        "name": "chrisbateman",
+        "email": "chris@cbateman.com"
+      },
+      "maintainers": [
+        {
+          "name": "chrisbateman",
+          "email": "chris@cbateman.com"
+        }
+      ],
+      "dist": {
+        "shasum": "9fde5886b80862f37df770b60196d9fcf62a0359",
+        "tarball": "https://registry.npmjs.org/webpack-visualizer-plugin/-/webpack-visualizer-plugin-0.1.4.tgz",
+        "integrity": "sha512-O5JEWiEzpJhthOzWy0klW+Du5ILkXMabk2NEEhRvu3Bj9jFYn7+Nh5Y0btjf5DXwDFs1PL402KESNAFrN1siDg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCVeZFmQNdg26OSvl9hO7ILL8tkFqlSH7kTjPjiWdhomAIhANR8VIs4zs+5Kno0V0lW+anOm7O0hFkXB3IUL+lHj82b"
+          }
+        ]
+      }
+    },
+    "0.1.5": {
+      "name": "webpack-visualizer-plugin",
+      "version": "0.1.5",
+      "main": "lib/plugin.js",
+      "author": {
+        "name": "Chris Bateman",
+        "url": "http://cbateman.com/"
+      },
+      "license": "MIT",
+      "files": [
+        "lib",
+        "README.md"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/chrisbateman/webpack-visualizer.git"
+      },
+      "scripts": {
+        "build": "npm run buildsite && npm run buildplugin",
+        "prebuildplugin": "rm -rf lib && mkdir lib",
+        "buildplugin": "webpack src/plugin/main.jsx lib/pluginmain.js --config webpack.prod.js",
+        "postbuildplugin": "babel src/shared/buildHierarchy.js --out-file lib/buildHierarchy.js && babel src/plugin/plugin.js --out-file lib/plugin.js && cp src/shared/style.css lib",
+        "prebuildsite": "rm -rf dist-site && mkdir dist-site",
+        "buildsite": "webpack src/site/main.jsx dist-site/build.js --config webpack.prod.js && babel-node src/site/serverRender.js",
+        "postbuildsite": "cp src/shared/style.css test/stats-demo.json dist-site",
+        "dev": "webpack-dev-server --config webpack.dev.js",
+        "lint": "eslint src --ext .js,.jsx",
+        "preversion": "npm run lint && npm run build",
+        "publishSite": "git checkout gh-pages && cp dist-site/* . && git add . && git commit -m 'release' && git push origin gh-pages && git checkout master"
+      },
+      "dependencies": {
+        "d3": "^3.5.6",
+        "prettysize": "0.0.3",
+        "react": "^0.14.0",
+        "react-dom": "^0.14.0"
+      },
+      "devDependencies": {
+        "babel": "^5.8.23",
+        "babel-core": "^5.8.25",
+        "babel-loader": "^5.3.2",
+        "eslint": "^1.6.0",
+        "eslint-plugin-react": "^3.5.1",
+        "merge": "^1.2.0",
+        "webpack": "^1.12.2",
+        "webpack-dev-server": "^1.12.0"
+      },
+      "engines": {
+        "npm": ">=2.13.0"
+      },
+      "gitHead": "3b63ccb669905d27112fa7d9255778e3c33f88f0",
+      "description": "Visualize and analyze your Webpack bundle to see which modules are taking up space and which might be duplicates.",
+      "bugs": {
+        "url": "https://github.com/chrisbateman/webpack-visualizer/issues"
+      },
+      "homepage": "https://github.com/chrisbateman/webpack-visualizer#readme",
+      "_id": "webpack-visualizer-plugin@0.1.5",
+      "_shasum": "88acdba3a212f7c845f37a086ed23188ab476ea6",
+      "_from": ".",
+      "_npmVersion": "2.14.8",
+      "_nodeVersion": "0.10.35",
+      "_npmUser": {
+        "name": "chrisbateman",
+        "email": "chris@cbateman.com"
+      },
+      "maintainers": [
+        {
+          "name": "chrisbateman",
+          "email": "chris@cbateman.com"
+        }
+      ],
+      "dist": {
+        "shasum": "88acdba3a212f7c845f37a086ed23188ab476ea6",
+        "tarball": "https://registry.npmjs.org/webpack-visualizer-plugin/-/webpack-visualizer-plugin-0.1.5.tgz",
+        "integrity": "sha512-pJAIoXmnnIkkPffCu9KnFvLJ7B/UsCV4ST0F05lbmL1lyC68VoORFoidY6ExrA9TVNEd0eyBWzZDzEDRHD6NSw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDT7KkN1hIec5aRJkiRFyUh3Tvv8bpYr8hpi4KEJZUbAAiEAmuCndrK2Bg1bH8xwZv3GiKgunp8w6LF5dhLLP7GC4Gc="
+          }
+        ]
+      },
+      "_npmOperationalInternal": {
+        "host": "packages-9-west.internal.npmjs.com",
+        "tmp": "tmp/webpack-visualizer-plugin-0.1.5.tgz_1454984429321_0.6859737092163414"
+      }
+    },
+    "0.1.6": {
+      "name": "webpack-visualizer-plugin",
+      "version": "0.1.6",
+      "main": "lib/plugin.js",
+      "author": {
+        "name": "Chris Bateman",
+        "url": "http://cbateman.com/"
+      },
+      "license": "MIT",
+      "files": [
+        "lib",
+        "README.md"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/chrisbateman/webpack-visualizer.git"
+      },
+      "scripts": {
+        "build": "npm run buildsite && npm run buildplugin",
+        "prebuildplugin": "rm -rf lib && mkdir lib",
+        "buildplugin": "webpack src/plugin/main.jsx lib/pluginmain.js --config webpack.prod.js",
+        "postbuildplugin": "babel src/shared/buildHierarchy.js --out-file lib/buildHierarchy.js && babel src/plugin/plugin.js --out-file lib/plugin.js && cp src/shared/style.css lib",
+        "prebuildsite": "rm -rf dist-site && mkdir dist-site",
+        "buildsite": "webpack src/site/main.jsx dist-site/build.js --config webpack.prod.js && babel-node src/site/serverRender.js",
+        "postbuildsite": "cp src/shared/style.css test/stats-demo.json dist-site",
+        "dev": "webpack-dev-server --config webpack.dev.js",
+        "lint": "eslint src --ext .js,.jsx",
+        "preversion": "npm run lint && npm run build",
+        "publishSite": "git checkout gh-pages && cp dist-site/* . && git add . && git commit -m 'release' && git push origin gh-pages && git checkout master"
+      },
+      "dependencies": {
+        "d3": "^3.5.6",
+        "prettysize": "0.0.3",
+        "react": "^0.14.0",
+        "react-dom": "^0.14.0"
+      },
+      "devDependencies": {
+        "babel": "^5.8.23",
+        "babel-core": "^5.8.25",
+        "babel-loader": "^5.3.2",
+        "eslint": "^1.6.0",
+        "eslint-plugin-react": "^3.5.1",
+        "merge": "^1.2.0",
+        "webpack": "^1.12.2",
+        "webpack-dev-server": "^1.12.0"
+      },
+      "engines": {
+        "npm": ">=2.13.0"
+      },
+      "gitHead": "ef9d718db45dfdc87ce6c2fac193dde19505caf4",
+      "description": "Visualize and analyze your Webpack bundle to see which modules are taking up space and which might be duplicates.",
+      "bugs": {
+        "url": "https://github.com/chrisbateman/webpack-visualizer/issues"
+      },
+      "homepage": "https://github.com/chrisbateman/webpack-visualizer#readme",
+      "_id": "webpack-visualizer-plugin@0.1.6",
+      "_shasum": "91e064895eaf7f3dd35fe11ad0ab8c0f3e185948",
+      "_from": ".",
+      "_npmVersion": "3.10.10",
+      "_nodeVersion": "6.9.2",
+      "_npmUser": {
+        "name": "chrisbateman",
+        "email": "chris@cbateman.com"
+      },
+      "dist": {
+        "shasum": "91e064895eaf7f3dd35fe11ad0ab8c0f3e185948",
+        "tarball": "https://registry.npmjs.org/webpack-visualizer-plugin/-/webpack-visualizer-plugin-0.1.6.tgz",
+        "integrity": "sha512-hDIHkprJa14CCqCfUCMcN0fisP+v/krnUAT9aOJDYNWbJA2om9rG2qZOUiM7OrngduwK2zsXqGQD0FlgJqN1vg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDS1GFdf/QCqeyBW7/Mhsr26z2jRAEhlayW3oL5PxpQTAiEAjIZTBGnRaO7oEI6cwnseZOZ9Z6dfLW/vS7ENAsM2OBA="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "chrisbateman",
+          "email": "chris@cbateman.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/webpack-visualizer-plugin-0.1.6.tgz_1482208281779_0.09099465538747609"
+      }
+    },
+    "0.1.7": {
+      "name": "webpack-visualizer-plugin",
+      "version": "0.1.7",
+      "main": "lib/plugin.js",
+      "author": {
+        "name": "Chris Bateman",
+        "url": "http://cbateman.com/"
+      },
+      "license": "MIT",
+      "files": [
+        "lib",
+        "README.md"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/chrisbateman/webpack-visualizer.git"
+      },
+      "scripts": {
+        "build": "npm run buildsite && npm run buildplugin",
+        "prebuildplugin": "rm -rf lib && mkdir lib",
+        "buildplugin": "webpack src/plugin/main.jsx lib/pluginmain.js --config webpack.prod.js",
+        "postbuildplugin": "babel src/plugin/plugin.js --out-file lib/plugin.js && cp src/shared/style.css lib",
+        "prebuildsite": "rm -rf dist-site && mkdir dist-site",
+        "buildsite": "webpack src/site/main.jsx dist-site/build.js --config webpack.prod.js && babel-node src/site/serverRender.js",
+        "postbuildsite": "cp src/shared/style.css test/stats-demo.json dist-site",
+        "dev": "webpack-dev-server --config webpack.dev.js",
+        "lint": "eslint src --ext .js,.jsx",
+        "preversion": "npm run lint && npm run build",
+        "publishSite": "git checkout gh-pages && cp dist-site/* . && git add . && git commit -m 'release' && git push origin gh-pages && git checkout master"
+      },
+      "dependencies": {
+        "d3": "^3.5.6",
+        "react": "^0.14.0",
+        "react-dom": "^0.14.0"
+      },
+      "devDependencies": {
+        "babel": "^5.8.23",
+        "babel-core": "^5.8.25",
+        "babel-loader": "^5.3.2",
+        "eslint": "^1.6.0",
+        "eslint-plugin-react": "^3.5.1",
+        "merge": "^1.2.0",
+        "webpack": "^1.12.2",
+        "webpack-dev-server": "^1.12.0"
+      },
+      "engines": {
+        "npm": ">=2.13.0"
+      },
+      "gitHead": "f2cc506cd74c23b6066dc383cb54afd9d6d006c6",
+      "description": "Visualize and analyze your Webpack bundle to see which modules are taking up space and which might be duplicates.",
+      "bugs": {
+        "url": "https://github.com/chrisbateman/webpack-visualizer/issues"
+      },
+      "homepage": "https://github.com/chrisbateman/webpack-visualizer#readme",
+      "_id": "webpack-visualizer-plugin@0.1.7",
+      "_shasum": "399b54d28d4028d660db63cb7e6ab7f3683d3fd8",
+      "_from": ".",
+      "_npmVersion": "3.10.10",
+      "_nodeVersion": "6.9.2",
+      "_npmUser": {
+        "name": "chrisbateman",
+        "email": "chris@cbateman.com"
+      },
+      "dist": {
+        "shasum": "399b54d28d4028d660db63cb7e6ab7f3683d3fd8",
+        "tarball": "https://registry.npmjs.org/webpack-visualizer-plugin/-/webpack-visualizer-plugin-0.1.7.tgz",
+        "integrity": "sha512-WRToVUslxBzC8JckCNGSTwsO3oBnC1lWbPFvQ2jZWk/yQcnyNelqqyUMFs2R3iETodFFeEHDk4E0N7R5rWl3bQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDMnmhBZWSZlHeWj3gWk4MANS7hkCaS6EiH+V9edctXtwIgC6djh1l9tOQt/qvhExW5w/8tZ0qEL8EyZ+iLnsB/W5c="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "chrisbateman",
+          "email": "chris@cbateman.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/webpack-visualizer-plugin-0.1.7.tgz_1483912385591_0.2376763701904565"
+      }
+    },
+    "0.1.8": {
+      "name": "webpack-visualizer-plugin",
+      "version": "0.1.8",
+      "main": "lib/plugin.js",
+      "author": {
+        "name": "Chris Bateman",
+        "url": "http://cbateman.com/"
+      },
+      "license": "MIT",
+      "files": [
+        "lib",
+        "README.md"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/chrisbateman/webpack-visualizer.git"
+      },
+      "scripts": {
+        "build": "npm run buildsite && npm run buildplugin",
+        "prebuildplugin": "rm -rf lib && mkdir lib",
+        "buildplugin": "webpack src/plugin/main.jsx lib/pluginmain.js --config webpack.prod.js",
+        "postbuildplugin": "babel src/plugin/plugin.js --out-file lib/plugin.js && cp src/shared/style.css lib",
+        "prebuildsite": "rm -rf dist-site && mkdir dist-site",
+        "buildsite": "webpack src/site/main.jsx dist-site/build.js --config webpack.prod.js && babel-node src/site/serverRender.js",
+        "postbuildsite": "cp src/shared/style.css test/stats-demo.json dist-site",
+        "dev": "webpack-dev-server --config webpack.dev.js",
+        "lint": "eslint src --ext .js,.jsx",
+        "preversion": "npm run lint && npm run build",
+        "publishSite": "git checkout gh-pages && cp dist-site/* . && git add . && git commit -m 'release' && git push origin gh-pages && git checkout master"
+      },
+      "dependencies": {
+        "d3": "^3.5.6",
+        "react": "^0.14.0",
+        "react-dom": "^0.14.0"
+      },
+      "devDependencies": {
+        "babel": "^5.8.23",
+        "babel-core": "^5.8.25",
+        "babel-loader": "^5.3.2",
+        "eslint": "^1.6.0",
+        "eslint-plugin-react": "^3.5.1",
+        "merge": "^1.2.0",
+        "webpack": "^1.12.2",
+        "webpack-dev-server": "^1.12.0"
+      },
+      "engines": {
+        "npm": ">=2.13.0"
+      },
+      "gitHead": "ee4e17f4a539fb241b203aee8366d4cb1d3b037f",
+      "description": "Visualize and analyze your Webpack bundle to see which modules are taking up space and which might be duplicates.",
+      "bugs": {
+        "url": "https://github.com/chrisbateman/webpack-visualizer/issues"
+      },
+      "homepage": "https://github.com/chrisbateman/webpack-visualizer#readme",
+      "_id": "webpack-visualizer-plugin@0.1.8",
+      "_shasum": "8a0bd306e8593202b7271a224287f3384b9ec9e9",
+      "_from": ".",
+      "_npmVersion": "3.10.10",
+      "_nodeVersion": "6.9.2",
+      "_npmUser": {
+        "name": "chrisbateman",
+        "email": "chris@cbateman.com"
+      },
+      "dist": {
+        "shasum": "8a0bd306e8593202b7271a224287f3384b9ec9e9",
+        "tarball": "https://registry.npmjs.org/webpack-visualizer-plugin/-/webpack-visualizer-plugin-0.1.8.tgz",
+        "integrity": "sha512-Vih7ir33WpnEQc/ReR5PjIrrsGrFARyWP7rgn5lYGQ6HZPzqnD0zB7MvhZG8bmDaiAB1gk21XCADUoOYtkvgQQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDDhPqw5FIjDtIoNyq777owPvj2E9T+RN2Dg72rBHFrGwIhALBtJwezg9a8AklqKQ6poNUag7zIBZVhS5scoUv2J2sA"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "chrisbateman",
+          "email": "chris@cbateman.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/webpack-visualizer-plugin-0.1.8.tgz_1483971776473_0.827952781226486"
+      }
+    },
+    "0.1.9": {
+      "name": "webpack-visualizer-plugin",
+      "version": "0.1.9",
+      "main": "lib/plugin.js",
+      "author": {
+        "name": "Chris Bateman",
+        "url": "http://cbateman.com/"
+      },
+      "license": "MIT",
+      "files": [
+        "lib",
+        "README.md"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/chrisbateman/webpack-visualizer.git"
+      },
+      "scripts": {
+        "build": "npm run buildsite && npm run buildplugin",
+        "prebuildplugin": "rm -rf lib && mkdir lib",
+        "buildplugin": "webpack src/plugin/main.jsx lib/pluginmain.js --config webpack.prod.js",
+        "postbuildplugin": "babel src/plugin/plugin.js --out-file lib/plugin.js && cp src/shared/style.css lib",
+        "prebuildsite": "rm -rf dist-site && mkdir dist-site",
+        "buildsite": "webpack src/site/main.jsx dist-site/build.js --config webpack.prod.js && babel-node src/site/serverRender.js",
+        "postbuildsite": "cp src/shared/style.css test/stats-demo.json dist-site",
+        "dev": "webpack-dev-server --config webpack.dev.js",
+        "lint": "eslint src --ext .js,.jsx",
+        "preversion": "npm run lint && npm run build",
+        "publishSite": "git checkout gh-pages && cp dist-site/* . && git add . && git commit -m 'release' && git push origin gh-pages && git checkout master"
+      },
+      "dependencies": {
+        "d3": "^3.5.6",
+        "react": "^0.14.0",
+        "react-dom": "^0.14.0"
+      },
+      "devDependencies": {
+        "babel": "^5.8.23",
+        "babel-core": "^5.8.25",
+        "babel-loader": "^5.3.2",
+        "eslint": "^1.6.0",
+        "eslint-plugin-react": "^3.5.1",
+        "merge": "^1.2.0",
+        "webpack": "^1.12.2",
+        "webpack-dev-server": "^1.12.0"
+      },
+      "engines": {
+        "npm": ">=2.13.0"
+      },
+      "gitHead": "58d8b2d1d1d27326977f11727e7247fe8792e545",
+      "description": "Visualize and analyze your Webpack bundle to see which modules are taking up space and which might be duplicates.",
+      "bugs": {
+        "url": "https://github.com/chrisbateman/webpack-visualizer/issues"
+      },
+      "homepage": "https://github.com/chrisbateman/webpack-visualizer#readme",
+      "_id": "webpack-visualizer-plugin@0.1.9",
+      "_shasum": "83d09d81c4012cc9772a45b05b57fc9c7474eeb2",
+      "_from": ".",
+      "_npmVersion": "3.10.10",
+      "_nodeVersion": "6.9.2",
+      "_npmUser": {
+        "name": "chrisbateman",
+        "email": "chris@cbateman.com"
+      },
+      "dist": {
+        "shasum": "83d09d81c4012cc9772a45b05b57fc9c7474eeb2",
+        "tarball": "https://registry.npmjs.org/webpack-visualizer-plugin/-/webpack-visualizer-plugin-0.1.9.tgz",
+        "integrity": "sha512-v0cSeF/cYOPqgGVVaK9ORDiW6fTn+unAgkvNC2zH79SCMTF4NL05tdyPOOqoPm/pl9fFZsfZGP1XA3MAZuKIfA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDAarJ4KEG6oF99rd8pC4taOjYqa2tluRRp4POekYNY/QIgbItJCmFceqfCzt1P3xjtAW4wb8UnCURYRmaLr+jDJow="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "chrisbateman",
+          "email": "chris@cbateman.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/webpack-visualizer-plugin-0.1.9.tgz_1484104375866_0.3441942643839866"
+      }
+    },
+    "0.1.10": {
+      "name": "webpack-visualizer-plugin",
+      "version": "0.1.10",
+      "main": "lib/plugin.js",
+      "author": {
+        "name": "Chris Bateman",
+        "url": "http://cbateman.com/"
+      },
+      "license": "MIT",
+      "files": [
+        "lib",
+        "README.md"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/chrisbateman/webpack-visualizer.git"
+      },
+      "scripts": {
+        "build": "npm run buildsite && npm run buildplugin",
+        "prebuildplugin": "rm -rf lib && mkdir lib",
+        "buildplugin": "webpack src/plugin/main.jsx lib/pluginmain.js --config webpack.prod.js",
+        "postbuildplugin": "babel src/plugin/plugin.js --out-file lib/plugin.js && cp src/shared/style.css lib",
+        "prebuildsite": "rm -rf dist-site && mkdir dist-site",
+        "buildsite": "webpack src/site/main.jsx dist-site/build.js --config webpack.prod.js && babel-node src/site/serverRender.js",
+        "postbuildsite": "cp src/shared/style.css test/stats-demo.json dist-site",
+        "dev": "webpack-dev-server --config webpack.dev.js",
+        "lint": "eslint src --ext .js,.jsx",
+        "preversion": "npm run lint && npm run build",
+        "publishSite": "git checkout gh-pages && cp dist-site/* . && git add . && git commit -m 'release' && git push origin gh-pages && git checkout master"
+      },
+      "dependencies": {
+        "d3": "^3.5.6",
+        "mkdirp": "^0.5.1",
+        "react": "^0.14.0",
+        "react-dom": "^0.14.0"
+      },
+      "devDependencies": {
+        "babel": "^5.8.23",
+        "babel-core": "^5.8.25",
+        "babel-loader": "^5.3.2",
+        "eslint": "^1.6.0",
+        "eslint-plugin-react": "^3.5.1",
+        "merge": "^1.2.0",
+        "webpack": "^1.12.2",
+        "webpack-dev-server": "^1.12.0"
+      },
+      "engines": {
+        "npm": ">=2.13.0"
+      },
+      "gitHead": "bda924aeb1c055b4af60f4372000808753050f7d",
+      "description": "Visualize and analyze your Webpack bundle to see which modules are taking up space and which might be duplicates.",
+      "bugs": {
+        "url": "https://github.com/chrisbateman/webpack-visualizer/issues"
+      },
+      "homepage": "https://github.com/chrisbateman/webpack-visualizer#readme",
+      "_id": "webpack-visualizer-plugin@0.1.10",
+      "_shasum": "1174907504ba05158b7f9bb726ebcadb2fc5d690",
+      "_from": ".",
+      "_npmVersion": "3.10.10",
+      "_nodeVersion": "6.9.2",
+      "_npmUser": {
+        "name": "chrisbateman",
+        "email": "chris@cbateman.com"
+      },
+      "dist": {
+        "shasum": "1174907504ba05158b7f9bb726ebcadb2fc5d690",
+        "tarball": "https://registry.npmjs.org/webpack-visualizer-plugin/-/webpack-visualizer-plugin-0.1.10.tgz",
+        "integrity": "sha512-0a9n2xjsG1xPDY7ssJmTswvaWtCTiMnWJmePuL8Irogt6P0Ab6G1tBePwbb7atEkQhO9M2jiVu74S6B8iTOiyQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIH+lgOVjbhoHjP/+fDN42JKwKQKn8qQWIofiXv61NoH7AiB/vhv6nfOw1AaSoFUzmVWFZxyrOCG4ErulH2VkdaTSvQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "chrisbateman",
+          "email": "chris@cbateman.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/webpack-visualizer-plugin-0.1.10.tgz_1484317971057_0.812862558523193"
+      }
+    },
+    "0.1.11": {
+      "name": "webpack-visualizer-plugin",
+      "version": "0.1.11",
+      "main": "lib/plugin.js",
+      "author": {
+        "name": "Chris Bateman",
+        "url": "http://cbateman.com/"
+      },
+      "license": "MIT",
+      "files": [
+        "lib",
+        "README.md"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/chrisbateman/webpack-visualizer.git"
+      },
+      "scripts": {
+        "build": "npm run buildsite && npm run buildplugin",
+        "prebuildplugin": "rm -rf lib && mkdir lib",
+        "buildplugin": "webpack src/plugin/main.jsx lib/pluginmain.js --config webpack.prod.js",
+        "postbuildplugin": "babel src/plugin/plugin.js --out-file lib/plugin.js && cp src/shared/style.css lib",
+        "prebuildsite": "rm -rf dist-site && mkdir dist-site",
+        "buildsite": "webpack src/site/main.jsx dist-site/build.js --config webpack.prod.js && babel-node src/site/serverRender.js",
+        "postbuildsite": "cp src/shared/style.css test/stats-demo.json dist-site",
+        "dev": "webpack-dev-server --config webpack.dev.js",
+        "lint": "eslint src --ext .js,.jsx",
+        "preversion": "npm run lint && npm run build",
+        "publishSite": "git checkout gh-pages && cp dist-site/* . && git add . && git commit -m 'release' && git push origin gh-pages && git checkout master"
+      },
+      "dependencies": {
+        "d3": "^3.5.6",
+        "mkdirp": "^0.5.1",
+        "react": "^0.14.0",
+        "react-dom": "^0.14.0"
+      },
+      "devDependencies": {
+        "babel": "^5.8.23",
+        "babel-core": "^5.8.25",
+        "babel-loader": "^5.3.2",
+        "eslint": "^1.6.0",
+        "eslint-plugin-react": "^3.5.1",
+        "merge": "^1.2.0",
+        "webpack": "^1.12.2",
+        "webpack-dev-server": "^1.12.0"
+      },
+      "engines": {
+        "npm": ">=2.13.0"
+      },
+      "gitHead": "ea9ed0b8e8c83b45c398aa7605f9d8478f031f23",
+      "description": "Visualize and analyze your Webpack bundle to see which modules are taking up space and which might be duplicates.",
+      "bugs": {
+        "url": "https://github.com/chrisbateman/webpack-visualizer/issues"
+      },
+      "homepage": "https://github.com/chrisbateman/webpack-visualizer#readme",
+      "_id": "webpack-visualizer-plugin@0.1.11",
+      "_shasum": "b8770ad86b4f652612c68b1b782253faf9f8a34e",
+      "_from": ".",
+      "_npmVersion": "3.10.10",
+      "_nodeVersion": "6.9.2",
+      "_npmUser": {
+        "name": "chrisbateman",
+        "email": "chris@cbateman.com"
+      },
+      "dist": {
+        "shasum": "b8770ad86b4f652612c68b1b782253faf9f8a34e",
+        "tarball": "https://registry.npmjs.org/webpack-visualizer-plugin/-/webpack-visualizer-plugin-0.1.11.tgz",
+        "integrity": "sha512-4e22QblPqJhgiDSCE5lJ6bPdzGYMRAYAQ298uWfOdf6uc5XhwE7virbwQn1wY5h1UFA/InS0dLRYYfpneUscxg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDiTFyIz9F6qtnmXAwPsqfv0UTwIktU1uC2alHyO+FSYwIgU5TMXv1cRB0HJbeLBHZ8mbkrkJx/7TCgZIjzPjF0WHg="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "chrisbateman",
+          "email": "chris@cbateman.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/webpack-visualizer-plugin-0.1.11.tgz_1487916310401_0.08191920351237059"
+      }
+    }
+  },
+  "readme": "# Webpack Visualizer\r\nVisualize and analyze your Webpack bundle to see which modules are taking up space and which might be duplicates.\r\n\r\nThis tool is still pretty new, so please submit issues or feature requests!\r\n\r\n\r\n## Site Usage\r\n\r\nUpload your stats JSON file to the site: [chrisbateman.github.io/webpack-visualizer/](http://chrisbateman.github.io/webpack-visualizer/)\r\n\r\n## Plugin Usage\r\n\r\n```\r\nnpm install webpack-visualizer-plugin\r\n```\r\n```javascript\r\nvar Visualizer = require('webpack-visualizer-plugin');\r\n\r\n//...\r\nplugins: [new Visualizer()],\r\n//...\r\n```\r\nThis will output a file named `stats.html` in your output directory. You can modify the name/location by passing a `filename` parameter into the constructor.\r\n\r\n```javascript\r\nvar Visualizer = require('webpack-visualizer-plugin');\r\n\r\n//...\r\nplugins: [new Visualizer({\r\n  filename: './statistics.html'\r\n})],\r\n//...\r\n```\r\n\r\n---\r\n\r\n![](https://cloud.githubusercontent.com/assets/1145857/10471320/5b284d60-71da-11e5-8d35-7d1d4c58843a.png)\r\n",
+  "maintainers": [
+    {
+      "name": "chrisbateman",
+      "email": "chris@cbateman.com"
+    }
+  ],
+  "time": {
+    "modified": "2022-06-29T00:13:21.382Z",
+    "created": "2015-11-02T13:57:52.868Z",
+    "0.1.0": "2015-11-02T13:57:52.868Z",
+    "0.1.1": "2015-11-02T14:33:49.959Z",
+    "0.1.2": "2015-11-02T14:37:35.462Z",
+    "0.1.3": "2015-11-02T18:44:48.016Z",
+    "0.1.4": "2015-11-03T03:55:06.040Z",
+    "0.1.5": "2016-02-09T02:20:32.477Z",
+    "0.1.6": "2016-12-20T04:31:23.978Z",
+    "0.1.7": "2017-01-08T21:53:06.262Z",
+    "0.1.8": "2017-01-09T14:22:57.033Z",
+    "0.1.9": "2017-01-11T03:12:56.483Z",
+    "0.1.10": "2017-01-13T14:32:51.730Z",
+    "0.1.11": "2017-02-24T06:05:11.102Z"
+  },
+  "author": {
+    "name": "Chris Bateman",
+    "url": "http://cbateman.com/"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/chrisbateman/webpack-visualizer#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/chrisbateman/webpack-visualizer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chrisbateman/webpack-visualizer/issues"
+  },
+  "users": {
+    "sashashakun": true,
+    "wouter_vdb": true,
+    "program247365": true,
+    "timhemming": true,
+    "monolithed": true,
+    "scronide": true,
+    "qddegtya": true,
+    "drewigg": true,
+    "zhongyuan": true,
+    "tommytroylin": true,
+    "codesleuth": true,
+    "usex": true,
+    "doublelift": true,
+    "dwqs": true,
+    "nisimjoseph": true,
+    "maxwelldu": true,
+    "hewenxuan": true
+  }
+}

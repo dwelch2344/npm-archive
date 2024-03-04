@@ -1,0 +1,4018 @@
+{
+  "_id": "validate-commit-msg",
+  "_rev": "59-ed7e065d2a091854c83c1c7ae7182d3c",
+  "name": "validate-commit-msg",
+  "description": "Script to validate a commit message follows the conventional changelog standard",
+  "dist-tags": {
+    "latest": "2.14.0"
+  },
+  "versions": {
+    "1.0.0": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "scripts": {
+        "commit": "git-cz",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "chai": "3.2.0",
+        "commitizen": "1.0.4",
+        "cz-conventional-changelog": "1.1.0",
+        "ghooks": "0.3.2",
+        "istanbul": "0.3.19",
+        "mocha": "2.3.0",
+        "semantic-release": "^4.3.4",
+        "sinon": "1.16.1"
+      },
+      "config": {
+        "ghooks": {
+          "commit-msg": "./index.js && npm t && npm run check-coverage"
+        }
+      },
+      "czConfig": {
+        "path": "node_modules/cz-conventional-changelog"
+      },
+      "version": "1.0.0",
+      "gitHead": "05f0576552751cda0528f4396ae74449f02c5ad6",
+      "_id": "validate-commit-msg@1.0.0",
+      "_shasum": "29384bbf71d11e936a3cfd7ec76f4f05168dc164",
+      "_from": ".",
+      "_npmVersion": "2.14.2",
+      "_nodeVersion": "3.3.0",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "29384bbf71d11e936a3cfd7ec76f4f05168dc164",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-1.0.0.tgz",
+        "integrity": "sha512-5TyGsJveecj+jrrfb2y+ltAT0ikK4N7r+cyyLoF01IhGCqw0BNu3HE+AYu1VQVw5Ym1H0VJKGqbe8u/SibpwoQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQChfs8wxKR++CEVN4ATm2OlMCbnxRiFlvWHzSGz4Hke2wIgFxR+i2bOdACTJb52l13VEXRfN+DRCr3BK5Wpqo1AkGA="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "1.1.0": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "scripts": {
+        "commit": "git-cz",
+        "check-coverage": "istanbul check-coverage --statements 96 --branches 81 --functions 87 --lines 96",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "ghooks": "1.0.3",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "ghooks": {
+          "commit-msg": "./index.js && npm t && npm run check-coverage"
+        },
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false
+        }
+      },
+      "dependencies": {
+        "findup": "0.1.5"
+      },
+      "version": "1.1.0",
+      "gitHead": "e68a2bc7d5a55b46f599456959b51c5d8c7cb1ec",
+      "_id": "validate-commit-msg@1.1.0",
+      "_shasum": "03c5ffe4699b7d6c276e0fd99168cba47f3a1b02",
+      "_from": ".",
+      "_npmVersion": "2.14.15",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "03c5ffe4699b7d6c276e0fd99168cba47f3a1b02",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-1.1.0.tgz",
+        "integrity": "sha512-TyXmRGcxFl2qyOmPuunvkoXF+3ZUtSM93l4sUV5n4fW8xi4Zt5Zna6LsxFBLH1Od205B4EseVL+6fNHyUo9ngA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDqV/GgFhjwS7NRaHfphl25RVOqQJWW0LxlgJwS88E9hQIhAJnD7BcuXbMbm5tDIpPJ5Z2eAKSYPgBOMk3KfXLaMzRX"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "1.1.1": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "scripts": {
+        "commit": "git-cz",
+        "check-coverage": "istanbul check-coverage --statements 96 --branches 81 --functions 87 --lines 96",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "ghooks": "1.0.3",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "ghooks": {
+          "commit-msg": "./index.js && npm t && npm run check-coverage"
+        },
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false
+        }
+      },
+      "dependencies": {
+        "findup": "0.1.5"
+      },
+      "version": "1.1.1",
+      "gitHead": "80fe7c781fb0ee2b7fc64532934cfa7c9bc866de",
+      "_id": "validate-commit-msg@1.1.1",
+      "_shasum": "cbb54635f18cbaa9086dd644c76a3d9f4f241020",
+      "_from": ".",
+      "_npmVersion": "2.14.15",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "cbb54635f18cbaa9086dd644c76a3d9f4f241020",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-1.1.1.tgz",
+        "integrity": "sha512-5STcB9JUbnnUZvgEZUaV9itZwgiH4W9+zcRCCgSHqtHp7Tk2KmSnslwb2ESDrSB/worjIE4D1P7/to8IP+Rk1A==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIB0Oy9IzeIUph05GQjGoWS1tjb/1Un6punpGuc6+cT01AiAqxVml3YkbM95GNF1r9dbZ2kV6h0Tiw/d+WM5AVAidXw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "1.1.2": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "1.1.2",
+      "scripts": {
+        "commit": "git-cz",
+        "check-coverage": "istanbul check-coverage --statements 96 --branches 81 --functions 87 --lines 96",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "ghooks": "1.0.3",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "ghooks": {
+          "commit-msg": "./index.js && npm t && npm run check-coverage"
+        },
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false
+        }
+      },
+      "dependencies": {
+        "findup": "0.1.5"
+      },
+      "gitHead": "7ebdb3e33a55595f10d5936cbe9c5b27a46c3823",
+      "_id": "validate-commit-msg@1.1.2",
+      "_shasum": "84af59867bc8d2c7f2fd7648a5cfca396f0e41ab",
+      "_from": ".",
+      "_npmVersion": "2.14.17",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "84af59867bc8d2c7f2fd7648a5cfca396f0e41ab",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-1.1.2.tgz",
+        "integrity": "sha512-B5cMpklcafqysREKDlaA6CC87yrgDU5cxjiltQE1LShanLqa/tdWzgsRsw4CNX66Yk/lmvF6JC6crsOvBqLjOw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBl+ckfEzTQ/D7TVX8YSeuxQdNR8vpczUyPwR6EyZc6EAiByNpPFaIf94sdKrCrRLNvrbmDKSEo1foZQPqOoikGa0w=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-6-west.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-1.1.2.tgz_1454429651512_0.24670251505449414"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "1.1.3": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "1.1.3",
+      "scripts": {
+        "commit": "git-cz",
+        "check-coverage": "istanbul check-coverage --statements 96 --branches 81 --functions 87 --lines 96",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "ghooks": "1.0.3",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "ghooks": {
+          "commit-msg": "./index.js && npm t && npm run check-coverage"
+        },
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false
+        }
+      },
+      "dependencies": {
+        "findup": "0.1.5"
+      },
+      "gitHead": "496825a8b3b05aa3fb0ed03744cac96b80d9c5aa",
+      "_id": "validate-commit-msg@1.1.3",
+      "_shasum": "09d0a482eda6a7b1ee0697f2d56a0829359351f6",
+      "_from": ".",
+      "_npmVersion": "2.14.17",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "09d0a482eda6a7b1ee0697f2d56a0829359351f6",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-1.1.3.tgz",
+        "integrity": "sha512-eM00RknK2TS1NE9WYYTGIjZ6bitdvJY/xUBYjwICI91YUuiYcHZdakPxAGl1vS9q1AbjnkxnZ4gYinKbWnTwsg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICxyNjGTKCwBqnlhdJp0WiVU2E8mbifOjjGj7cm9SjCIAiEAjUfuSpHK/pmblS2ma2Bx6bPmvk/OceuJnPU4xjxtH1c="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-5-east.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-1.1.3.tgz_1454429811085_0.4080824451521039"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "1.2.0": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "1.2.0",
+      "scripts": {
+        "commit": "git-cz",
+        "check-coverage": "istanbul check-coverage --statements 96 --branches 81 --functions 87 --lines 96",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "ghooks": "1.0.3",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "ghooks": {
+          "commit-msg": "./index.js && npm t && npm run check-coverage"
+        },
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false
+        }
+      },
+      "dependencies": {
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "gitHead": "cd5aacad6aa270525de24e56e6287758d7b05696",
+      "_id": "validate-commit-msg@1.2.0",
+      "_shasum": "1140b2b7c684285c4823d1c10ef1d77ef3369285",
+      "_from": ".",
+      "_npmVersion": "2.14.17",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "1140b2b7c684285c4823d1c10ef1d77ef3369285",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-1.2.0.tgz",
+        "integrity": "sha512-OwpVQj/OyQCbjCyTrShS11C1IcgDnK7oZRsqgtKA8KC8jVb62QMPyzSyq7Xjn5aIgjmh74IyW/zZ7UuTjDaOWQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGJ23YDqlzgixE6B4IENcWUextX9ssXlsLw4g3btMUwAAiBhjoCYmT8SnGPzihJQC3tyUW++c/iftGAplFDTntdbqQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-6-west.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-1.2.0.tgz_1454434968563_0.5691479074303061"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "1.3.0": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "1.3.0",
+      "scripts": {
+        "commit": "git-cz",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "ghooks": "1.0.3",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "ghooks": {
+          "commit-msg": "./index.js && npm t && npm run check-coverage"
+        },
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false
+        }
+      },
+      "dependencies": {
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "gitHead": "3b7d25f886aaabd08268241ac999394557d0ecaf",
+      "_id": "validate-commit-msg@1.3.0",
+      "_shasum": "2c04cb1ad54dd2f3212706da3635a10eaa2adc7d",
+      "_from": ".",
+      "_npmVersion": "2.14.17",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "2c04cb1ad54dd2f3212706da3635a10eaa2adc7d",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-1.3.0.tgz",
+        "integrity": "sha512-0Gb6JJBK4Qji52pwkaWjOqe9cLTU25ncOc5Baz5Njm/NDM2wfHcMVjzgOxoHFsfh/HtAjsDchqhKRDdS3vRnnQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICEBmBYnc6VUEbhAaBnfY98wmfShnzT1BlW3u8UDSB4oAiB+omoXEvn3KtnZnHrtQMQWGVCcoYalhHpxAmAEX+7Xhg=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-6-west.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-1.3.0.tgz_1454622036146_0.2173941759392619"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.0.0": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.0.0",
+      "scripts": {
+        "commit": "git-cz",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "ghooks": "1.0.3",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "ghooks": {
+          "commit-msg": "./index.js && npm t && npm run check-coverage"
+        },
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false
+        }
+      },
+      "dependencies": {
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "gitHead": "f76f0ae1c7fc7636dc806fb08ec13704bff237e6",
+      "_id": "validate-commit-msg@2.0.0",
+      "_shasum": "c2498e63139a5d3c1482484d9eb4487ea053cb3d",
+      "_from": ".",
+      "_npmVersion": "2.14.18",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "c2498e63139a5d3c1482484d9eb4487ea053cb3d",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.0.0.tgz",
+        "integrity": "sha512-F5zbPQHT6H2yTbscvLLixou91a3XPL+xb+i0tp6CvmtpCy8AjHTp4mQO4+H8gtcISEdT+OLPeXRLu+Z4B0an/g==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEI0ufbT+FcS5bsDuEpFyNh9d5JhzspfdjVEp+BfAKMBAiBCW6y7HkSsC/TbdJv6MJh5RN9kyTRGrVKuUQYoBfWyjw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-9-west.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.0.0.tgz_1454674570446_0.5216568398755044"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.1.0": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.1.0",
+      "scripts": {
+        "commit": "git-cz",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "ghooks": "1.0.3",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "ghooks": {
+          "commit-msg": "./index.js && npm t && npm run check-coverage"
+        },
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false
+        }
+      },
+      "dependencies": {
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "gitHead": "8e3a5a2f9881e817732e66731e38d4148c9c087d",
+      "_id": "validate-commit-msg@2.1.0",
+      "_shasum": "5808e55ce8cc493c63b324a15594977dfe4ebf88",
+      "_from": ".",
+      "_npmVersion": "2.14.20",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "5808e55ce8cc493c63b324a15594977dfe4ebf88",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.1.0.tgz",
+        "integrity": "sha512-YdC88eVNBl9r/7e4G3bkRnxK77lXbFna7BQYOnYAgzt0XDq6o0dML+OUXFf+EyFzbWbwtZhIjZ2inDPWTPII+Q==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFddAy3pmNzrUDp+V2DfnWEBdk/HyVAbapCYp8D7wUmZAiBJmek0GWVMgoJqt0/JgXeazusWIjv02602oZ3Uc9idTQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-6-west.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.1.0.tgz_1456170904901_0.43277624854817986"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.2.0": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.2.0",
+      "scripts": {
+        "commit": "git-cz",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "ghooks": "1.0.3",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "ghooks": {
+          "commit-msg": "./index.js && npm t && npm run check-coverage"
+        },
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false
+        }
+      },
+      "dependencies": {
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "gitHead": "75e6ad0cd1046e203077ad5728e1b99dd87b9485",
+      "_id": "validate-commit-msg@2.2.0",
+      "_shasum": "bb77b7123f4be230dec19c1d13c7851c1d346ac0",
+      "_from": ".",
+      "_npmVersion": "2.14.21",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "bb77b7123f4be230dec19c1d13c7851c1d346ac0",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.2.0.tgz",
+        "integrity": "sha512-vLuzyHM6HOxRxhZ93QGMI1c/1z6ySpdW7k4rZA6VzpNh/rLGq1SdIq0q8QpoQjbvmOuT0JT6qQIEmBE50A24GA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGV/JfH9RxHKxrFvYuyeH6rHnAfirR5fkZImimoLayDpAiEA1u21imQOXsdA5dYOb5NYdSSiUUQocgexob1vNqoIoCI="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.2.0.tgz_1457048575579_0.6438250890932977"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.3.0": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.3.0",
+      "scripts": {
+        "commit": "git-cz",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "ghooks": "1.0.3",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "ghooks": {
+          "commit-msg": "./index.js && npm t && npm run check-coverage"
+        },
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false
+        }
+      },
+      "dependencies": {
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "gitHead": "0d571c5c1ee6f2713fc49b19ecdbd245f35c02c8",
+      "_id": "validate-commit-msg@2.3.0",
+      "_shasum": "fc368760af033f6bf2bd6390dca9bd254a8cd712",
+      "_from": ".",
+      "_npmVersion": "2.14.22",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "fc368760af033f6bf2bd6390dca9bd254a8cd712",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.3.0.tgz",
+        "integrity": "sha512-j5RRVN1p8osmpaWGWVZ5KsHiiXL7WGHBbK4pAq1qnArL4sAtlgyw9w7nPtFwtb+j9bxOHXSSTqvtZg/iw7Gd8Q==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICjl84SrSeZT+gGxDV5HRUIVZAp/vpZAQA9vKbS24+AUAiEAhvkfcE8mcgjsnHxxQX7AHjQXZKGu0XQrkARNOrCp6BM="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-13-west.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.3.0.tgz_1457209963095_0.1897843675687909"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.3.1": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.3.1",
+      "scripts": {
+        "commit": "git-cz",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "ghooks": "1.0.3",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "ghooks": {
+          "commit-msg": "./index.js && npm t && npm run check-coverage"
+        },
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false
+        }
+      },
+      "dependencies": {
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "gitHead": "bb0afb626c03af7f378fccc23b23e93d1f141e30",
+      "_id": "validate-commit-msg@2.3.1",
+      "_shasum": "3700c987ce918cfd7de213e18aae25d6c786b54c",
+      "_from": ".",
+      "_npmVersion": "2.14.22",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "3700c987ce918cfd7de213e18aae25d6c786b54c",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.3.1.tgz",
+        "integrity": "sha512-0OJcNzeCZij2NYYITFsz+i3/2F/ry3nTR0fcxMFt/G9LKWAMDYOtqgZwffDnvC7w8jVzjdrcmaRWm5I1Q60VSQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDAc9ZwIbLr43fjyyM4H0vsSxa3QAO3ySbnsb2/Y9H9OQIgEZntrhozy+gluw6d9sDZ8qknk76eDmmeNTyscduIsaU="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-13-west.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.3.1.tgz_1457274690393_0.7942600566893816"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.4.0": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.4.0",
+      "scripts": {
+        "commit": "git-cz",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "ghooks": "1.0.3",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "ghooks": {
+          "commit-msg": "./index.js && npm t && npm run check-coverage"
+        },
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false
+        }
+      },
+      "dependencies": {
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "gitHead": "333f3580b35ff7797ed12528247fa1f970f99508",
+      "_id": "validate-commit-msg@2.4.0",
+      "_shasum": "5366cca0877bbac44b9e57f5636bd68c548712ea",
+      "_from": ".",
+      "_npmVersion": "2.15.0",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "5366cca0877bbac44b9e57f5636bd68c548712ea",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.4.0.tgz",
+        "integrity": "sha512-MMnDUd0tEb+iziRRid37TI2QfrxRZ3XtfgqZwjV1n8T8B95oazoTeAUiCqISYCAsS46SuxwJCyl914FVLi01ww==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBARQzVT0eP9zOjUidwMEdkYrB4OB7X/eTqsO8UfNrfpAiBpVdqrzrC7JywZfEWVpT69tXVy3G10BBYv2bDfpesfxA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.4.0.tgz_1457880111964_0.3132680526468903"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.4.1": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.4.1",
+      "scripts": {
+        "commit": "git-cz",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "ghooks": "1.0.3",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "ghooks": {
+          "commit-msg": "./index.js && npm t && npm run check-coverage"
+        },
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false
+        }
+      },
+      "dependencies": {
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "gitHead": "5b569a0c73a488e4258b50b56f62c2a92158df00",
+      "_id": "validate-commit-msg@2.4.1",
+      "_shasum": "f61243db0b200e43cd5616ea8fd4b822f14e00b7",
+      "_from": ".",
+      "_npmVersion": "2.15.1",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "f61243db0b200e43cd5616ea8fd4b822f14e00b7",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.4.1.tgz",
+        "integrity": "sha512-O+Dz7Uz10yxix/4FtnaG7iUAHSaMWyv2s+d/qHmxuVTvPhUlj3xuGNY7foMyZQeu+vOK6DX5cHsv15dklPNCQQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFw1x9uNU/CSKS4uxD+9CxAjzDhJw5dhzimNLq3cIdewAiB5B2Mb4nrysDDFpueJCRYPc7fg/EYii5SQfeDwF90k1Q=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-13-west.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.4.1.tgz_1458532386095_0.7773100552149117"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.5.0": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.5.0",
+      "scripts": {
+        "commit": "git-cz",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "ghooks": "1.0.3",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "ghooks": {
+          "commit-msg": "./index.js && npm t && npm run check-coverage"
+        },
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false
+        }
+      },
+      "dependencies": {
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "gitHead": "d6b34b88f5d123d159d361f26867d2a25bbcb77f",
+      "_id": "validate-commit-msg@2.5.0",
+      "_shasum": "a7d0a68aa3917171b560664689a2ac59c25908b6",
+      "_from": ".",
+      "_npmVersion": "2.15.2",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "a7d0a68aa3917171b560664689a2ac59c25908b6",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.5.0.tgz",
+        "integrity": "sha512-2X0scPqYLkaOOv/VcI6ZFhlY3UKCxLFa3pkthtjchGZbUCD/NQSmNvaVLsRJhrgmvtUTiKLAJpxpDT01y5eBpw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDWqxXGNyIj7xNaK78MCT2E+kRQwugMtVUvxdYUa9dPsgIhAM8sgzZbVFPRYsnUyDeHLUV4YUnioSVvyE2CfH3uhiwm"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.5.0.tgz_1459281769214_0.1514337658882141"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.6.0": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.6.0",
+      "scripts": {
+        "commit": "git-cz",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "ghooks": "1.0.3",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "ghooks": {
+          "commit-msg": "./index.js && npm t && npm run check-coverage"
+        },
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false
+        }
+      },
+      "dependencies": {
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "gitHead": "5be905175662af970ff34166f0b0f9fb9a6458b8",
+      "_id": "validate-commit-msg@2.6.0",
+      "_shasum": "37382f274dafc397cd04a327507230b66d1ee7f2",
+      "_from": ".",
+      "_npmVersion": "2.15.3",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "37382f274dafc397cd04a327507230b66d1ee7f2",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.6.0.tgz",
+        "integrity": "sha512-bCx/e3/aGeXvIL96LuTXgviGDReDIDO0UsxdFAYevotreciy6VSxw2uzIxc2Gv9KUZFb+AeSdR2bm/iWNwgorw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICV4x+fUxOwmzDr2eBk2JvsZKxl68O4UJGvsMWBaR/CxAiAjw/xYRnmRWPnESCEvBU0qlX4so8C2p5e5OBlUny3y7Q=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.6.0.tgz_1460663784872_0.606067071435973"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.6.1": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.6.1",
+      "scripts": {
+        "commit": "git-cz",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "ghooks": "1.0.3",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "ghooks": {
+          "commit-msg": "./index.js && npm t && npm run check-coverage"
+        },
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false
+        }
+      },
+      "dependencies": {
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "gitHead": "f162949c3132fd7015ebf6e2aaee4bdcf0a72ee4",
+      "_id": "validate-commit-msg@2.6.1",
+      "_shasum": "5f9418e4ec66ebebdfee2a4253d2a777bc4dfcfa",
+      "_from": ".",
+      "_npmVersion": "2.15.3",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "5f9418e4ec66ebebdfee2a4253d2a777bc4dfcfa",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.6.1.tgz",
+        "integrity": "sha512-wa0Tx+lMIHu7KYB0NfPAOtyTb6mBfQNLJYkktLabE8sT4h8B9ZGgDb5/oWwby2S/a/pmaq3LICe8zowXX+h9Iw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCC6AkgKZwrh8TUzfoED6Xmwuu6Ezg90Ns2nFasbwzoEAIgBdscRMSMaFr/kxKmsEQrEAXiNQv/HhdEjEpt1jwI2RA="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.6.1.tgz_1460990455833_0.6688768924213946"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.7.0": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.7.0",
+      "scripts": {
+        "commit": "git-cz",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "ghooks": "1.0.3",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "ghooks": {
+          "commit-msg": "./index.js && npm t && npm run check-coverage"
+        },
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false
+        }
+      },
+      "dependencies": {
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "gitHead": "dd4c7f2569e989b71070cf4b85ee5f1668725a64",
+      "_id": "validate-commit-msg@2.7.0",
+      "_shasum": "bacb8945a6afbe2a493d3676ce231e1bb4ac2c6a",
+      "_from": ".",
+      "_npmVersion": "2.15.10",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "bacb8945a6afbe2a493d3676ce231e1bb4ac2c6a",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.7.0.tgz",
+        "integrity": "sha512-Ug1cM7EtjxJdSH4AzM8A234wTvYO8RhbzNF/ybjFiKVVo2FFgpa9wvSEcAHUDS97vJD9AfC7i40bTXaZsbusEw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIB/DuNWpTIfHYNMGexhwd8CyCBvOBe5QqmQjhlz9vdX9AiAXp51YNyLuaOtNkH/nsP2ad5z7P7NVCWpl25vmWFDRCw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.7.0.tgz_1471120335038_0.062139835208654404"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.8.0": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.8.0",
+      "scripts": {
+        "commit": "git-cz",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "conventional-commit-types": "^2.0.0",
+        "cz-conventional-changelog": "1.1.5",
+        "ghooks": "1.0.3",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "ghooks": {
+          "commit-msg": "./index.js && npm t && npm run check-coverage"
+        },
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false
+        }
+      },
+      "dependencies": {
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "gitHead": "f542458a92071a909a74283778caad330b203a00",
+      "_id": "validate-commit-msg@2.8.0",
+      "_shasum": "ba790eeda9f621d4edf9f2b0f9e05e3645e947c5",
+      "_from": ".",
+      "_npmVersion": "2.15.10",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "ba790eeda9f621d4edf9f2b0f9e05e3645e947c5",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.8.0.tgz",
+        "integrity": "sha512-rtEnv2BhfjMHv7D/Io98VM80i6TfFspcWK9ENoiQApwrva2gjuLN75ScquNMclHUUfdVCOA3MDOWlrGJgSSmxQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDK/Ly4LLOD337cOBiUSYaperYyQQRI7d6iHruhI2DNmAIhAIZSPQkf57kZ7KEeS7eGzjJYlFxXvhJH3NsTru/J32ID"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.8.0.tgz_1471964026399_0.3692994548473507"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.8.1": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.8.1",
+      "scripts": {
+        "commit": "git-cz",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "ghooks": "1.0.3",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "ghooks": {
+          "commit-msg": "./index.js && npm t && npm run check-coverage"
+        },
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false
+        }
+      },
+      "dependencies": {
+        "conventional-commit-types": "^2.0.0",
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "files": [
+        "index.js"
+      ],
+      "gitHead": "8e0d4eb96d05617d6cf5aa8b7eb61311fb50ce99",
+      "_id": "validate-commit-msg@2.8.1",
+      "_shasum": "1b013f0091425b3a4f4b89e85f1226050c0cbace",
+      "_from": ".",
+      "_npmVersion": "2.15.11",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "1b013f0091425b3a4f4b89e85f1226050c0cbace",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.8.1.tgz",
+        "integrity": "sha512-C8XEAam+aUCNiq8vdlzKh2pz2GvgXctE2/ncNLAcnEQv1oBGQpS+oWKhVr+YrWF3BjbKVmw/CdZhdp7KpH36VA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEobNezIkB4JFvwv3bNANKG/v4+MEXsKXZF/pUVryGB1AiA0mxyde7J+aSLFyFo0urzGySCMrapuPmE/I4BdoGuu2A=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.8.1.tgz_1475679299103_0.536729711573571"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.8.2": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.8.2",
+      "scripts": {
+        "commit": "git-cz",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "ghooks": "1.0.3",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "ghooks": {
+          "commit-msg": "./index.js && npm t && npm run check-coverage"
+        },
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false
+        }
+      },
+      "dependencies": {
+        "conventional-commit-types": "^2.0.0",
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "files": [
+        "index.js"
+      ],
+      "gitHead": "eb4962f4afa87878165631fdd663b70793548af6",
+      "_id": "validate-commit-msg@2.8.2",
+      "_shasum": "3020c4227523e6964214537427c1fb058007eaab",
+      "_from": ".",
+      "_npmVersion": "2.15.11",
+      "_nodeVersion": "3.3.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "3020c4227523e6964214537427c1fb058007eaab",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.8.2.tgz",
+        "integrity": "sha512-n56fRg0MmU9OBOopz+ZAIxqOavQH8CEDh3H0T4zBLlH+E1qvy/zlI1/jiTA4iGmGx6dpwxuTYt6WAulQ+FDTRw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICxJ/KykRUos5nD/pUQHHrzyfP6sxk6PI7hXxiynx8zhAiEAmVG6ayxhZMGQmYjREH9MffpQskakoEH0UOVZXxWdvT8="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.8.2.tgz_1475686473439_0.7398066520690918"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.9.0": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.9.0",
+      "scripts": {
+        "add-contributor": "all-contributors add",
+        "generate-contributors": "all-contributors generate",
+        "commit": "git-cz",
+        "commitmsg": "opt --in commitmsg --exec \"node ./index.js\"",
+        "precommit": "opt --in precommit --exec \"npm run validate\"",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x *.test.js _mocha -- -R spec -w index.test.js",
+        "test": "istanbul cover -x *.test.js _mocha -- -R spec index.test.js",
+        "validate": "npm t && npm run check-coverage",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "index.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "all-contributors-cli": "3.0.7",
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "husky": "0.12.0",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "opt-cli": "1.5.1",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false,
+          "autoFix": false
+        }
+      },
+      "dependencies": {
+        "conventional-commit-types": "^2.0.0",
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "files": [
+        "index.js"
+      ],
+      "gitHead": "ca62533a1c6e27193e488f95bd2f4031a65cdd14",
+      "_id": "validate-commit-msg@2.9.0",
+      "_shasum": "b40b1675a176a0e07024f7082ee0adca9f4c4204",
+      "_from": ".",
+      "_npmVersion": "3.10.10",
+      "_nodeVersion": "6.9.4",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "b40b1675a176a0e07024f7082ee0adca9f4c4204",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.9.0.tgz",
+        "integrity": "sha512-vIlve65Ubod1v0Y5WNibJrasO25kIICcyQdlMXWGiUXCBgsi+cjpTj4ClGkurz9w5hyu1yZrTBlW1GM5+0JURA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCpybFXbVB2f9fcGvzDYbLn5dozHV1NC+jtA5gLer+7hQIgPFxx0d/pDmkZa69GjFnracE6N7bzdlMglViIeOEI4Mw="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.9.0.tgz_1484951979219_0.7675216344650835"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.10.0": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.10.0",
+      "scripts": {
+        "add-contributor": "all-contributors add",
+        "generate-contributors": "all-contributors generate",
+        "commit": "git-cz",
+        "commitmsg": "opt --in commitmsg --exec \"node ./lib/cli.js\"",
+        "precommit": "opt --in precommit --exec \"npm run validate\"",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x test/**/*.test.js _mocha -- -R spec -w test/**/*.test.js",
+        "test": "istanbul cover -x test/**/*.test.js _mocha -- -R spec test/**/*.test.js",
+        "validate": "npm t && npm run check-coverage",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "./lib/cli.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "all-contributors-cli": "3.0.7",
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "husky": "0.12.0",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "opt-cli": "1.5.1",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false,
+          "autoFix": false
+        }
+      },
+      "dependencies": {
+        "conventional-commit-types": "^2.0.0",
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "files": [
+        "index.js",
+        "lib/cli.js"
+      ],
+      "gitHead": "d924a34f2692513f86a714505b5ff5ec68c5230a",
+      "_id": "validate-commit-msg@2.10.0",
+      "_shasum": "1f6067527aeffbcf137032e55adbe3cc1bf53a5a",
+      "_from": ".",
+      "_npmVersion": "3.10.10",
+      "_nodeVersion": "6.9.4",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "1f6067527aeffbcf137032e55adbe3cc1bf53a5a",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.10.0.tgz",
+        "integrity": "sha512-/soAOUCPZWJ+Haa2GDO9kOSyesMhIhHjOhksNCSXKvcUbYYOh+icRChXJyGeK2ruGWgnlmn0gMFj5t7gAReAMg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCDFvukHBz1Kwh6LSrqMBqGmMSm++gVhS73/FSorwpA6wIgAZusPrvlwnZMG5neq2c5VjEvFUcJnHNskF1OO4QLwcU="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.10.0.tgz_1485124006268_0.5416665857192129"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.10.1": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.10.1",
+      "scripts": {
+        "add-contributor": "all-contributors add",
+        "generate-contributors": "all-contributors generate",
+        "commit": "git-cz",
+        "commitmsg": "opt --in commitmsg --exec \"node ./lib/cli.js\"",
+        "precommit": "opt --in precommit --exec \"npm run validate\"",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x test/**/*.test.js _mocha -- -R spec -w test/**/*.test.js",
+        "test": "istanbul cover -x test/**/*.test.js _mocha -- -R spec test/**/*.test.js",
+        "validate": "npm t && npm run check-coverage",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "./lib/cli.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "all-contributors-cli": "3.0.7",
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "husky": "0.12.0",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "opt-cli": "1.5.1",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false,
+          "autoFix": false
+        }
+      },
+      "dependencies": {
+        "conventional-commit-types": "^2.0.0",
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "files": [
+        "index.js",
+        "lib"
+      ],
+      "gitHead": "ea45ffd4fb6f4e117ed0684d98b23059a5a4afbd",
+      "_id": "validate-commit-msg@2.10.1",
+      "_shasum": "85fab0793586eaa0fb229861d5e5cacafa90685b",
+      "_from": ".",
+      "_npmVersion": "3.10.10",
+      "_nodeVersion": "6.9.4",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "85fab0793586eaa0fb229861d5e5cacafa90685b",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.10.1.tgz",
+        "integrity": "sha512-+7CbXcS4b4MDbvrxRiAofqwP99OZwyD60yA74NiI1JI4Mf+mCcYgfQPXwFs9Je/qlVtp2jnqAF4vedJmTQlTlA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCfktabp1PLIWLo6gQEY9d4L6nQwghgAPFREZRWNExj+AIhANF97QDqfyhXH88L0FmGSLpa2HsPA/vL1LR93SwuDbAa"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.10.1.tgz_1485144192937_0.41664737928658724"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.11.0": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.11.0",
+      "scripts": {
+        "add-contributor": "all-contributors add",
+        "generate-contributors": "all-contributors generate",
+        "commit": "git-cz",
+        "commitmsg": "opt --in commitmsg --exec \"node ./lib/cli.js\"",
+        "precommit": "opt --in precommit --exec \"npm run validate\"",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x test/**/*.test.js _mocha -- -R spec -w test/**/*.test.js",
+        "test": "istanbul cover -x test/**/*.test.js _mocha -- -R spec test/**/*.test.js",
+        "validate": "npm t && npm run check-coverage",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "./lib/cli.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "all-contributors-cli": "3.0.7",
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "husky": "0.12.0",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "opt-cli": "1.5.1",
+        "semantic-release": "4.3.5",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false,
+          "autoFix": false
+        }
+      },
+      "dependencies": {
+        "conventional-commit-types": "^2.0.0",
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "files": [
+        "index.js",
+        "lib"
+      ],
+      "gitHead": "815bc7708a00d632211cf2e41307d4a6e14ce391",
+      "_id": "validate-commit-msg@2.11.0",
+      "_shasum": "f5edd82591138a383cbf5bd832bd3de34afc6da0",
+      "_from": ".",
+      "_npmVersion": "3.10.10",
+      "_nodeVersion": "6.9.4",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "f5edd82591138a383cbf5bd832bd3de34afc6da0",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.11.0.tgz",
+        "integrity": "sha512-ynOe2D/gWHLjhxHi6F5QI3mRsh/okOCy96c3mYUM/XhIk4BmQ2NaOzrRT5r87s37cQ/mUxQvU+qxJop+CZLs3w==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGKKHgY8UnKGBnIcF3nPCNRVamfLwyIS1az6komNkRFdAiAqp/YRS4GHPUjDj4MsboNU+K8/i2XWoHnyGFu9NZFEzw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.11.0.tgz_1485448547452_0.9823251164052635"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.11.1": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.11.1",
+      "scripts": {
+        "add-contributor": "all-contributors add",
+        "generate-contributors": "all-contributors generate",
+        "commit": "git-cz",
+        "commitmsg": "opt --in commitmsg --exec \"node ./lib/cli.js\"",
+        "precommit": "opt --in precommit --exec \"npm run validate\"",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x test/**/*.test.js _mocha -- -R spec -w test/**/*.test.js",
+        "test": "istanbul cover -x test/**/*.test.js _mocha -- -R spec test/**/*.test.js",
+        "validate": "npm t && npm run check-coverage",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "./lib/cli.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "all-contributors-cli": "3.0.7",
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "husky": "0.12.0",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "opt-cli": "1.5.1",
+        "semantic-release": "^6.3.2",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false,
+          "autoFix": false
+        }
+      },
+      "dependencies": {
+        "conventional-commit-types": "^2.0.0",
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "files": [
+        "index.js",
+        "lib"
+      ],
+      "gitHead": "b5769f1a5875b1d6a91a85beb2910e66033d2d8f",
+      "_id": "validate-commit-msg@2.11.1",
+      "_shasum": "c8f86643ca03b26da1b4f3e37d7f6e659fbc34ca",
+      "_from": ".",
+      "_npmVersion": "3.10.10",
+      "_nodeVersion": "6.9.4",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "c8f86643ca03b26da1b4f3e37d7f6e659fbc34ca",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.11.1.tgz",
+        "integrity": "sha512-zfTQCQqOAHXj7wE6RHmsiASjIkyohqrf6g3y/6OydhiGYPar3LpJdmfb/8jSGMkUCKjjPRbW95Da17skVYLUyA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIH0y8QByk3s/phYfgGOjNOYYg40tIZXjSsZZxTIhu7B4AiBKqQIhAwO75BuJTdEoJKnb8dgQQKe+IxfqmYjptEsViw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.11.1.tgz_1485463251555_0.934154624119401"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.11.2": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.11.2",
+      "scripts": {
+        "add-contributor": "all-contributors add",
+        "generate-contributors": "all-contributors generate",
+        "commit": "git-cz",
+        "commitmsg": "opt --in commitmsg --exec \"node ./lib/cli.js\"",
+        "precommit": "opt --in precommit --exec \"npm run validate\"",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x test/**/*.test.js _mocha -- -R spec -w test/**/*.test.js",
+        "test": "istanbul cover -x test/**/*.test.js _mocha -- -R spec test/**/*.test.js",
+        "validate": "npm t && npm run check-coverage",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "./lib/cli.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "all-contributors-cli": "3.0.7",
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "husky": "0.12.0",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "opt-cli": "1.5.1",
+        "semantic-release": "^6.3.2",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false,
+          "autoFix": false
+        }
+      },
+      "dependencies": {
+        "conventional-commit-types": "^2.0.0",
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "files": [
+        "index.js",
+        "lib"
+      ],
+      "gitHead": "7a580ce26cc13793ebfd21d7c0cd8034f88de2b7",
+      "_id": "validate-commit-msg@2.11.2",
+      "_shasum": "63bd15c2cd8fb782b230a9f51d0f4e9d31f7ee24",
+      "_from": ".",
+      "_npmVersion": "3.10.10",
+      "_nodeVersion": "6.10.0",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "63bd15c2cd8fb782b230a9f51d0f4e9d31f7ee24",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.11.2.tgz",
+        "integrity": "sha512-IH+l2KFVACP1B7cE+mUaFyzm/mx50h14M39wTPM2WBBr+crsE3ddphn4nTRomEb8mrZ8qmA2BLQSz3CzDzbN/Q==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCQ5CAA69tsZsQ6CaKUprh8hx2utZBknEFlr91RJrq0ngIhAKU9VWcN8fqQbYBE5Jo/J7OKtAba/LZVzWW6jXAt3plX"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.11.2.tgz_1488934748437_0.8885310408659279"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.12.0": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.12.0",
+      "scripts": {
+        "add-contributor": "all-contributors add",
+        "generate-contributors": "all-contributors generate",
+        "commit": "git-cz",
+        "commitmsg": "opt --in commitmsg --exec \"node ./lib/cli.js\"",
+        "precommit": "opt --in precommit --exec \"npm run validate\"",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x test/**/*.test.js _mocha -- -R spec -w test/**/*.test.js",
+        "test": "istanbul cover -x test/**/*.test.js _mocha -- -R spec test/**/*.test.js",
+        "validate": "npm t && npm run check-coverage",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "./lib/cli.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "all-contributors-cli": "3.0.7",
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "husky": "0.12.0",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "opt-cli": "1.5.1",
+        "semantic-release": "^6.3.2",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false,
+          "autoFix": false
+        }
+      },
+      "dependencies": {
+        "conventional-commit-types": "^2.0.0",
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "files": [
+        "index.js",
+        "lib"
+      ],
+      "gitHead": "eefe5f382bb6114f00c17cfa6b61c76e554da528",
+      "_id": "validate-commit-msg@2.12.0",
+      "_shasum": "549a7f84a07bbf442de7b44b7865c92d5e06cf1e",
+      "_from": ".",
+      "_npmVersion": "3.10.10",
+      "_nodeVersion": "6.10.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "549a7f84a07bbf442de7b44b7865c92d5e06cf1e",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.12.0.tgz",
+        "integrity": "sha512-Sol3RJklw4YyE44FIMbfdzFIvI82s8bLw1YPUT8vk+9iaMsmoqrlJJdgZxlN5yWH11n0RSIRhZNDiz9bzHJVFQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICfPKddMr78/+mccJn0FZlxSTLIVjpJv73EY4PO3/zuFAiAJ1c1uDOUfHMlTx/Dby+uv7a1UXJtXVrwGrUnXbgBPWQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.12.0.tgz_1490991725366_0.33872162410989404"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.12.1": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.12.1",
+      "scripts": {
+        "add-contributor": "all-contributors add",
+        "generate-contributors": "all-contributors generate",
+        "commit": "git-cz",
+        "commitmsg": "opt --in commitmsg --exec \"node ./lib/cli.js\"",
+        "precommit": "opt --in precommit --exec \"npm run validate\"",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x test/**/*.test.js node_modules/mocha/bin/_mocha -- -R spec -w test/**/*.test.js",
+        "test": "istanbul cover -x test/**/*.test.js node_modules/mocha/bin/_mocha -- -R spec test/**/*.test.js",
+        "validate": "npm t && npm run check-coverage",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "./lib/cli.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "all-contributors-cli": "3.0.7",
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "husky": "0.12.0",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "opt-cli": "1.5.1",
+        "semantic-release": "^6.3.2",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false,
+          "autoFix": false
+        }
+      },
+      "dependencies": {
+        "conventional-commit-types": "^2.0.0",
+        "find-parent-dir": "^0.3.0",
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "files": [
+        "index.js",
+        "lib"
+      ],
+      "gitHead": "e3a81f8298427b94be01e7ea305505ee6005cec8",
+      "_id": "validate-commit-msg@2.12.1",
+      "_shasum": "612b61bc9f09f0fee5130de3648870d01cdddf1d",
+      "_from": ".",
+      "_npmVersion": "3.10.10",
+      "_nodeVersion": "6.10.1",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "612b61bc9f09f0fee5130de3648870d01cdddf1d",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.12.1.tgz",
+        "integrity": "sha512-v0TFt+eSkT2MXUJy2wX55DIAoZuwIxJAm4EAldgMEpUZOk0nOOBLSXvPmkX72Y1tE/FbV/XfvQY2uO8dBqoGPw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCnKKKo+FkRyEEa58v6hF37aIHQOWd+0jpgTVM3vuc9SwIgdDFQCGLC/10vi8TG0BPApOwHI234cUtGCHQyw7fWXeU="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/validate-commit-msg-2.12.1.tgz_1491300747301_0.39427161030471325"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.12.2": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.12.2",
+      "scripts": {
+        "add-contributor": "all-contributors add",
+        "generate-contributors": "all-contributors generate",
+        "commit": "git-cz",
+        "commitmsg": "opt --in commitmsg --exec \"node ./lib/cli.js\"",
+        "precommit": "opt --in precommit --exec \"npm run validate\"",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x test/**/*.test.js node_modules/mocha/bin/_mocha -- -R spec -w test/**/*.test.js",
+        "test": "istanbul cover -x test/**/*.test.js node_modules/mocha/bin/_mocha -- -R spec test/**/*.test.js",
+        "validate": "npm t && npm run check-coverage",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "./lib/cli.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "all-contributors-cli": "3.0.7",
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "husky": "0.12.0",
+        "istanbul": "0.4.2",
+        "mocha": "2.3.4",
+        "opt-cli": "1.5.1",
+        "semantic-release": "^6.3.2",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false,
+          "autoFix": false
+        }
+      },
+      "dependencies": {
+        "conventional-commit-types": "^2.0.0",
+        "find-parent-dir": "^0.3.0",
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "files": [
+        "index.js",
+        "lib"
+      ],
+      "gitHead": "fd320322d0ecc1ce814b260b7039d978f110af71",
+      "_id": "validate-commit-msg@2.12.2",
+      "_shasum": "6d5015331bf196c22afb880d3f33bcef1deafea6",
+      "_from": ".",
+      "_npmVersion": "3.10.10",
+      "_nodeVersion": "6.11.0",
+      "_npmUser": {
+        "name": "kentcdodds",
+        "email": "kent@doddsfamily.us"
+      },
+      "dist": {
+        "shasum": "6d5015331bf196c22afb880d3f33bcef1deafea6",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.12.2.tgz",
+        "integrity": "sha512-W2tiNCNFSIhQ/Ocf7m/O2MNNSM8HWXDt0k2/3KQxGn+bvU5iJd3ux7FZfB2sXkSZSotBUmcwmOhCuynJD7hd2Q==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCID83OQWTc4ABAN4D9Sw7lInOdkP8RyZ/Y7yYrK/+hkYNAiEAg8iKoMD8rL3fTTocUIYIAxdPpxbjmDFZHtV4pDT2QTk="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/validate-commit-msg-2.12.2.tgz_1496952852459_0.21064375340938568"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.12.3": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.12.3",
+      "scripts": {
+        "add-contributor": "all-contributors add",
+        "generate-contributors": "all-contributors generate",
+        "commit": "git-cz",
+        "commitmsg": "opt --in commitmsg --exec \"node ./lib/cli.js\"",
+        "precommit": "opt --in precommit --exec \"npm run validate\"",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x test/**/*.test.js node_modules/mocha/bin/_mocha -- -R spec -w test/**/*.test.js",
+        "test": "istanbul cover -x test/**/*.test.js node_modules/mocha/bin/_mocha -- -R spec test/**/*.test.js",
+        "validate": "npm t && npm run check-coverage",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "./lib/cli.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kentcdodds/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/kentcdodds/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/kentcdodds/validate-commit-msg#readme",
+      "devDependencies": {
+        "all-contributors-cli": "3.0.7",
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "husky": "0.12.0",
+        "istanbul": "0.4.2",
+        "mkdirp": "^0.5.1",
+        "mocha": "2.3.4",
+        "opt-cli": "1.5.1",
+        "rimraf": "^2.6.1",
+        "semantic-release": "^6.3.2",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false,
+          "autoFix": false
+        }
+      },
+      "dependencies": {
+        "conventional-commit-types": "^2.0.0",
+        "find-parent-dir": "^0.3.0",
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "files": [
+        "index.js",
+        "lib"
+      ],
+      "gitHead": "79b5b3a985601941c69bf782eb63ba9e38f92a90",
+      "_id": "validate-commit-msg@2.12.3",
+      "_shasum": "23ece72966fadd6ee5007209645924494ad9a30a",
+      "_from": ".",
+      "_npmVersion": "3.10.10",
+      "_nodeVersion": "6.11.1",
+      "_npmUser": {
+        "name": "nickbalestra",
+        "email": "nick@balestra.ch"
+      },
+      "dist": {
+        "shasum": "23ece72966fadd6ee5007209645924494ad9a30a",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.12.3.tgz",
+        "integrity": "sha512-2LNmIZ38qIG1gimoQArnK2jGrvR3Ia13CwZCC2FzFgv3daKP1O11x+2SzWmRN1/H+mmqNNffKDi+FImLEfhX3A==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCmXPUhR3ox6kLi3GyyE8z9uSNv0FOVLAzGbPeTMaLElgIhALmwt/Z0kuNj1yDXACcXqUggDhgYqhayksVC3WL++7Fc"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "garbee",
+          "email": "jonathan@garbee.me"
+        },
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        },
+        {
+          "name": "nickbalestra",
+          "email": "nick@balestra.ch"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/validate-commit-msg-2.12.3.tgz_1500584385779_0.13303171657025814"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.13.0": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.13.0",
+      "scripts": {
+        "add-contributor": "all-contributors add",
+        "generate-contributors": "all-contributors generate",
+        "commit": "git-cz",
+        "commitmsg": "opt --in commitmsg --exec \"node ./lib/cli.js\"",
+        "precommit": "opt --in precommit --exec \"npm run validate\"",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x test/**/*.test.js node_modules/mocha/bin/_mocha -- -R spec -w test/**/*.test.js",
+        "test": "istanbul cover -x test/**/*.test.js node_modules/mocha/bin/_mocha -- -R spec test/**/*.test.js",
+        "validate": "npm t && npm run check-coverage",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "./lib/cli.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/conventional-changelog/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/conventional-changelog/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/conventional-changelog/validate-commit-msg#readme",
+      "devDependencies": {
+        "all-contributors-cli": "3.0.7",
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "husky": "0.12.0",
+        "istanbul": "0.4.2",
+        "mkdirp": "^0.5.1",
+        "mocha": "2.3.4",
+        "opt-cli": "1.5.1",
+        "rimraf": "^2.6.1",
+        "semantic-release": "^6.3.2",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false,
+          "autoFix": false
+        }
+      },
+      "dependencies": {
+        "conventional-commit-types": "^2.0.0",
+        "find-parent-dir": "^0.3.0",
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "files": [
+        "index.js",
+        "lib"
+      ],
+      "gitHead": "6d23bbcff1c80ac2496c53b8ff519fff4bcea377",
+      "_id": "validate-commit-msg@2.13.0",
+      "_shasum": "284032acbeaf4fb59a490c1cae69889e60abde59",
+      "_from": ".",
+      "_npmVersion": "3.10.10",
+      "_nodeVersion": "6.11.1",
+      "_npmUser": {
+        "name": "nickbalestra",
+        "email": "nick@balestra.ch"
+      },
+      "dist": {
+        "shasum": "284032acbeaf4fb59a490c1cae69889e60abde59",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.13.0.tgz",
+        "integrity": "sha512-BGWSJhTEZtuSdTEi6yYY06kovub6Ch6+AhJ7COOV5xgrTF6j24Qgzx7VoqZpPVmB5iOBneMCcUZnbY3y4nDuVQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGqfHaUM1VEEtDJAWkGHm3tMPhOEr5FY7YhB6rkF9bQ5AiBYQXe8HHLoNFPhFiRsX0n/TuJip8RiWs1C3b+znyVqgQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "garbee",
+          "email": "jonathan@garbee.me"
+        },
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        },
+        {
+          "name": "nickbalestra",
+          "email": "nick@balestra.ch"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/validate-commit-msg-2.13.0.tgz_1500587298762_0.6339182476513088"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.13.1": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.13.1",
+      "scripts": {
+        "add-contributor": "all-contributors add",
+        "generate-contributors": "all-contributors generate",
+        "commit": "git-cz",
+        "commitmsg": "opt --in commitmsg --exec \"node ./lib/cli.js\"",
+        "precommit": "opt --in precommit --exec \"npm run validate\"",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x test/**/*.test.js node_modules/mocha/bin/_mocha -- -R spec -w test/**/*.test.js",
+        "test": "istanbul cover -x test/**/*.test.js node_modules/mocha/bin/_mocha -- -R spec test/**/*.test.js",
+        "validate": "npm t && npm run check-coverage",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "./lib/cli.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/conventional-changelog/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/conventional-changelog/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/conventional-changelog/validate-commit-msg#readme",
+      "devDependencies": {
+        "all-contributors-cli": "3.0.7",
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "husky": "0.12.0",
+        "istanbul": "0.4.2",
+        "mkdirp": "^0.5.1",
+        "mocha": "2.3.4",
+        "opt-cli": "1.5.1",
+        "rimraf": "^2.6.1",
+        "semantic-release": "^6.3.2",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false,
+          "autoFix": false
+        }
+      },
+      "dependencies": {
+        "conventional-commit-types": "^2.0.0",
+        "find-parent-dir": "^0.3.0",
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "files": [
+        "index.js",
+        "lib"
+      ],
+      "gitHead": "888617bff0b3e54689aab04ce417e0e42953c6b6",
+      "_id": "validate-commit-msg@2.13.1",
+      "_shasum": "71386ea45349c4970e091296f132dcf67dc50714",
+      "_from": ".",
+      "_npmVersion": "3.10.10",
+      "_nodeVersion": "6.11.1",
+      "_npmUser": {
+        "name": "nickbalestra",
+        "email": "nick@balestra.ch"
+      },
+      "dist": {
+        "shasum": "71386ea45349c4970e091296f132dcf67dc50714",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.13.1.tgz",
+        "integrity": "sha512-odKmfmgAM7agL8oomg4UQ6/cPPqAWgdF45pHgv+Ox6iokFy8cE0gBcDlTS/jBO20PHuBbqQfocoD+2+SVQQVFA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDMFT8zZz1rE6yTs8xvX3yWYV3RkFVrHXKey1wENp7bkgIhAMgRK9fMxZY8oqLEbj9jGY4Kg05GXIqdRiviEaHuzcBz"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "garbee",
+          "email": "jonathan@garbee.me"
+        },
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        },
+        {
+          "name": "nickbalestra",
+          "email": "nick@balestra.ch"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/validate-commit-msg-2.13.1.tgz_1500821260499_0.8630371582694352"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    },
+    "2.14.0": {
+      "name": "validate-commit-msg",
+      "description": "Script to validate a commit message follows the conventional changelog standard",
+      "main": "index.js",
+      "version": "2.14.0",
+      "scripts": {
+        "add-contributor": "all-contributors add",
+        "generate-contributors": "all-contributors generate",
+        "commit": "git-cz",
+        "commitmsg": "opt --in commitmsg --exec \"node ./lib/cli.js\"",
+        "precommit": "opt --in precommit --exec \"npm run validate\"",
+        "check-coverage": "istanbul check-coverage --statements 100 --branches 90 --functions 100 --lines 100",
+        "report-coverage": "cat ./coverage/lcov.info | codecov",
+        "test:watch": "istanbul cover -x test/**/*.test.js node_modules/mocha/bin/_mocha -- -R spec -w test/**/*.test.js",
+        "test": "istanbul cover -x test/**/*.test.js node_modules/mocha/bin/_mocha -- -R spec test/**/*.test.js",
+        "validate": "npm t && npm run check-coverage",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "bin": {
+        "validate-commit-msg": "./lib/cli.js"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/conventional-changelog/validate-commit-msg.git"
+      },
+      "keywords": [
+        "githook",
+        "commit",
+        "message",
+        "git",
+        "conventional",
+        "changelog"
+      ],
+      "author": {
+        "name": "Kent C. Dodds",
+        "email": "kent@doddsfamily.us",
+        "url": "http://kentcdodds.com/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/conventional-changelog/validate-commit-msg/issues"
+      },
+      "homepage": "https://github.com/conventional-changelog/validate-commit-msg#readme",
+      "devDependencies": {
+        "all-contributors-cli": "3.0.7",
+        "chai": "3.4.1",
+        "codecov.io": "0.1.6",
+        "commitizen": "2.5.0",
+        "cz-conventional-changelog": "1.1.5",
+        "husky": "0.12.0",
+        "istanbul": "0.4.2",
+        "mkdirp": "^0.5.1",
+        "mocha": "2.3.4",
+        "opt-cli": "1.5.1",
+        "rimraf": "^2.6.1",
+        "semantic-release": "^6.3.2",
+        "sinon": "1.17.2"
+      },
+      "config": {
+        "commitizen": {
+          "path": "node_modules/cz-conventional-changelog"
+        },
+        "validate-commit-msg": {
+          "helpMessage": "\nPlease fix your commit message (and consider using http://npm.im/commitizen)\n",
+          "types": [
+            "feat",
+            "fix",
+            "docs",
+            "style",
+            "refactor",
+            "perf",
+            "test",
+            "chore",
+            "revert",
+            "custom"
+          ],
+          "warnOnFail": false,
+          "autoFix": true
+        }
+      },
+      "dependencies": {
+        "conventional-commit-types": "^2.0.0",
+        "find-parent-dir": "^0.3.0",
+        "findup": "0.1.5",
+        "semver-regex": "1.0.0"
+      },
+      "files": [
+        "index.js",
+        "lib"
+      ],
+      "gitHead": "2e048fb5477fad9377d8978564fe7479495604ac",
+      "_id": "validate-commit-msg@2.14.0",
+      "_shasum": "e5383691012cbb270dcc0bc2a4effebe14890eac",
+      "_from": ".",
+      "_npmVersion": "3.10.10",
+      "_nodeVersion": "6.11.1",
+      "_npmUser": {
+        "name": "nickbalestra",
+        "email": "nick@balestra.ch"
+      },
+      "dist": {
+        "shasum": "e5383691012cbb270dcc0bc2a4effebe14890eac",
+        "tarball": "https://registry.npmjs.org/validate-commit-msg/-/validate-commit-msg-2.14.0.tgz",
+        "integrity": "sha512-sETG7UmikRVseMyeayyF6L1svmNXoZiyG4TVyLYSVSYjcSuZT602T+irJKjIyE+FutGyngSLxHGLTeyFy+oyag==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIG1OppsxKHeqFchnriCFSKDUqRCoajY1QdiWSmCmVTu0AiEAzlarqqh7zvqJpU0Y9r1R6VbbAjcOaHrG1qjgBUFiOFQ="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "garbee",
+          "email": "jonathan@garbee.me"
+        },
+        {
+          "name": "kentcdodds",
+          "email": "kent@doddsfamily.us"
+        },
+        {
+          "name": "nickbalestra",
+          "email": "nick@balestra.ch"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/validate-commit-msg-2.14.0.tgz_1501337811399_0.5179867965634912"
+      },
+      "deprecated": "Check out CommitLint which provides the same functionality with a more user-focused experience.",
+      "directories": {}
+    }
+  },
+  "readme": "# validate-commit-msg\n\n[![Build Status][build-badge]][build]\n[![Code Coverage][coverage-badge]][coverage]\n[![Dependencies][dependencyci-badge]][dependencyci]\n[![version][version-badge]][package]\n[![downloads][downloads-badge]][npm-stat]\n[![MIT License][license-badge]][LICENSE]\n\n[![All Contributors](https://img.shields.io/badge/all_contributors-28-orange.svg?style=flat-square)](#contributors)\n[![PRs Welcome][prs-badge]][prs]\n[![Donate][donate-badge]][donate]\n[![Code of Conduct][coc-badge]][coc]\n\n[![Watch on GitHub][github-watch-badge]][github-watch]\n[![Star on GitHub][github-star-badge]][github-star]\n[![Tweet][twitter-badge]][twitter]\n\nThis provides you a binary that you can use as a githook to validate the commit message. I recommend\n[husky](http://npm.im/husky). You'll want to make this part of the `commit-msg` githook, e.g. when using [husky](http://npm.im/husky), add `\"commitmsg\": \"validate-commit-msg\"` to your [npm scripts](https://docs.npmjs.com/misc/scripts) in `package.json`.\n\nValidates that your commit message follows this format:\n\n```\n<type>(<scope>): <subject>\n```\n\nOr without optional scope:\n\n```\n<type>: <subject>\n```\n\n## Installation\n\nThis module is distributed via [npm](https://www.npmjs.com/) which is bundled with [node](https://nodejs.org/) and\nshould be installed as one of your project's `devDependencies`:\n\n```\nnpm install --save-dev validate-commit-msg\n```\n\n## Usage\n\n### options\n\nYou can specify options in `.vcmrc`.\nIt must be valid JSON file.\nThe default configuration object is:\n\n```json\n{\n  \"types\": [\"feat\", \"fix\", \"docs\", \"style\", \"refactor\", \"perf\", \"test\", \"build\", \"ci\", \"chore\", \"revert\"],\n  \"scope\": {\n    \"required\": false,\n    \"allowed\": [\"*\"],\n    \"validate\": false,\n    \"multiple\": false\n  },\n  \"warnOnFail\": false,\n  \"maxSubjectLength\": 100,\n  \"subjectPattern\": \".+\",\n  \"subjectPatternErrorMsg\": \"subject does not match subject pattern!\",\n  \"helpMessage\": \"\",\n  \"autoFix\": false\n}\n```\n\nAlternatively, options can be specified in `package.json`:\n\n```json\n{\n  \"config\": {\n    \"validate-commit-msg\": {\n      /* your config here */\n    }\n  }\n}\n```\n\n`.vcmrc` has precedence, if it does not exist, then `package.json` will be used.\n\n#### types\n\nThese are the types that are allowed for your commit message. If omitted, the value is what is shown above.\n\nYou can also specify: `\"types\": \"*\"` to indicate that you don't wish to validate types.\n\nOr you can specify the name of a module that exports types according to the\n[conventional-commit-types](https://github.com/commitizen/conventional-commit-types)\nspec, e.g. `\"types\": \"conventional-commit-types\"`.\n\n#### scope\n\nThis object defines scope requirements for the commit message. Possible properties are:\n\n##### required\n\nA boolean to define whether a scope is required for all commit messages.\n\n##### allowed\n\nAn array of scopes that are allowed for your commit message.\n\nYou may also define it as `\"*\"` which is the default to allow any scope names.\n\n##### validate\n\nA boolean to define whether or not to validate the scope(s) provided.\n\n##### multiple\n\nA boolean to define whether or not to allow multiple scopes.\n\n#### warnOnFail\n\nIf this is set to `true` errors will be logged to the console, however the commit will still pass.\n\n#### maxSubjectLength\n\nThis will control the maximum length of the subject.\n\n#### subjectPattern\n\nOptional, accepts a RegExp to match the commit message subject against.\n\n#### subjectPatternErrorMsg\n\nIf `subjectPattern` is provided, this message will be displayed if the commit message subject does not match the pattern.\n\n#### helpMessage\n\nIf provided, the helpMessage string is displayed when a commit message is not valid. This allows projects to provide a better developer experience for new contributors.\n\nThe `helpMessage` also supports interpolating a single `%s` with the original commit message.\n\n#### autoFix\n\nIf this is set to `true`, type will be auto fixed to all lowercase, subject first letter will be lowercased, and the commit will pass (assuming there's nothing else wrong with it).\n\n### Node\n\nThrough node you can use as follows\n\n```javascript\nvar validateMessage = require('validate-commit-msg');\n\nvar valid = validateMessage('chore(index): an example commit message');\n\n// valid = true\n```\n\n### CI\n\nYou can use your CI to validate your _last_ commit message:\n\n```\nvalidate-commit-msg \"$(git log -1 --pretty=%B)\"\n```\n\n_Note_ this will only validate the last commit message, not all messages in a pull request.\n\n### Monorepo\n\nIf your lerna repo looks something like this:\n\n```\nmy-lerna-repo/\n  package.json\n  packages/\n    package-1/\n      package.json\n    package-2/\n      package.json\n```\n\nThe scope of your commit message should be one (or more) of the packages:\n\nEG:\n\n```json\n{\n  \"config\": {\n    \"validate-commit-msg\": {\n      \"scope\": {\n        \"required\": true,\n        \"allowed\": [\"package-1\", \"package-2\"],\n        \"validate\": true,\n        \"multiple\": true\n      },\n    }\n  }\n}\n```\n\n### Other notes\n\nIf the commit message begins with `WIP` then none of the validation will happen.\n\n\n## Credits\n\nThis was originally developed by contributors to [the angular.js project](https://github.com/angular/angular.js). I\npulled it out so I could re-use this same kind of thing in other projects.\n\n[build-badge]: https://img.shields.io/travis/kentcdodds/validate-commit-msg.svg?style=flat-square\n[build]: https://travis-ci.org/kentcdodds/validate-commit-msg\n[coverage-badge]: https://img.shields.io/codecov/c/github/kentcdodds/validate-commit-msg.svg?style=flat-square\n[coverage]: https://codecov.io/github/kentcdodds/validate-commit-msg\n[dependencyci-badge]: https://dependencyci.com/github/kentcdodds/validate-commit-msg/badge?style=flat-square\n[dependencyci]: https://dependencyci.com/github/kentcdodds/validate-commit-msg\n[version-badge]: https://img.shields.io/npm/v/validate-commit-msg.svg?style=flat-square\n[package]: https://www.npmjs.com/package/validate-commit-msg\n[downloads-badge]: https://img.shields.io/npm/dm/validate-commit-msg.svg?style=flat-square\n[npm-stat]: http://npm-stat.com/charts.html?package=validate-commit-msg&from=2016-04-01\n[license-badge]: https://img.shields.io/npm/l/validate-commit-msg.svg?style=flat-square\n[license]: https://github.com/kentcdodds/validate-commit-msg/blob/master/LICENSE\n[prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square\n[prs]: http://makeapullrequest.com\n[donate-badge]: https://img.shields.io/badge/$-support-green.svg?style=flat-square\n[donate]: http://kcd.im/donate\n[coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square\n[coc]: https://github.com/kentcdodds/validate-commit-msg/blob/master/CODE_OF_CONDUCT.md\n[github-watch-badge]: https://img.shields.io/github/watchers/kentcdodds/validate-commit-msg.svg?style=social\n[github-watch]: https://github.com/kentcdodds/validate-commit-msg/watchers\n[github-star-badge]: https://img.shields.io/github/stars/kentcdodds/validate-commit-msg.svg?style=social\n[github-star]: https://github.com/kentcdodds/validate-commit-msg/stargazers\n[twitter]: https://twitter.com/intent/tweet?text=Check%20out%20validate-commit-msg!%20https://github.com/kentcdodds/validate-commit-msg%20%F0%9F%91%8D\n[twitter-badge]: https://img.shields.io/twitter/url/https/github.com/kentcdodds/validate-commit-msg.svg?style=social\n\n## Contributors\n\nThanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):\n\n<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->\n| [<img src=\"https://avatars.githubusercontent.com/u/1500684?v=3\" width=\"100px;\"/><br /><sub>Kent C. Dodds</sub>](https://kentcdodds.com)<br />💁 [💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=kentcdodds) [📖](https://github.com/kentcdodds/validate-commit-msg/commits?author=kentcdodds) 👀 [⚠️](https://github.com/kentcdodds/validate-commit-msg/commits?author=kentcdodds) | [<img src=\"https://avatars.githubusercontent.com/u/13700?v=3\" width=\"100px;\"/><br /><sub>Remy Sharp</sub>](http://remysharp.com)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=remy) [📖](https://github.com/kentcdodds/validate-commit-msg/commits?author=remy) [⚠️](https://github.com/kentcdodds/validate-commit-msg/commits?author=remy) | [<img src=\"https://avatars.githubusercontent.com/u/1692136?v=3\" width=\"100px;\"/><br /><sub>Cédric Malard</sub>](http://valdun.net)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=cmalard) [⚠️](https://github.com/kentcdodds/validate-commit-msg/commits?author=cmalard) | [<img src=\"https://avatars.githubusercontent.com/u/696693?v=3\" width=\"100px;\"/><br /><sub>Mark Dalgleish</sub>](http://markdalgleish.com)<br />[📖](https://github.com/kentcdodds/validate-commit-msg/commits?author=markdalgleish) | [<img src=\"https://avatars.githubusercontent.com/u/1018189?v=3\" width=\"100px;\"/><br /><sub>Ryan Kimber</sub>](https://formhero.io)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=ryan-kimber) [⚠️](https://github.com/kentcdodds/validate-commit-msg/commits?author=ryan-kimber) | [<img src=\"https://avatars.githubusercontent.com/u/43780?v=3\" width=\"100px;\"/><br /><sub>Javier Collado</sub>](https://github.com/jcollado)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=jcollado) [⚠️](https://github.com/kentcdodds/validate-commit-msg/commits?author=jcollado) | [<img src=\"https://avatars.githubusercontent.com/u/606014?v=3\" width=\"100px;\"/><br /><sub>Jamis Charles</sub>](https://github.com/jamischarles)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=jamischarles) [⚠️](https://github.com/kentcdodds/validate-commit-msg/commits?author=jamischarles) |\n| :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n| [<img src=\"https://avatars.githubusercontent.com/u/2112202?v=3\" width=\"100px;\"/><br /><sub>Shawn Erquhart</sub>](http://www.professant.com)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=erquhart) [📖](https://github.com/kentcdodds/validate-commit-msg/commits?author=erquhart) [⚠️](https://github.com/kentcdodds/validate-commit-msg/commits?author=erquhart) | [<img src=\"https://avatars.githubusercontent.com/u/194482?v=3\" width=\"100px;\"/><br /><sub>Tushar Mathur</sub>](http://tusharm.com)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=tusharmath) [⚠️](https://github.com/kentcdodds/validate-commit-msg/commits?author=tusharmath) | [<img src=\"https://avatars.githubusercontent.com/u/904007?v=3\" width=\"100px;\"/><br /><sub>Jason Dreyzehner</sub>](https://twitter.com/bitjson)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=bitjson) [📖](https://github.com/kentcdodds/validate-commit-msg/commits?author=bitjson) [⚠️](https://github.com/kentcdodds/validate-commit-msg/commits?author=bitjson) | [<img src=\"https://avatars.githubusercontent.com/u/9654923?v=3\" width=\"100px;\"/><br /><sub>Abimbola Idowu</sub>](http://twitter.com/hisabimbola)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=hisabimbola) | [<img src=\"https://avatars.githubusercontent.com/u/2212006?v=3\" width=\"100px;\"/><br /><sub>Gleb Bahmutov</sub>](https://glebbahmutov.com/)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=bahmutov) [⚠️](https://github.com/kentcdodds/validate-commit-msg/commits?author=bahmutov) | [<img src=\"https://avatars.githubusercontent.com/u/332905?v=3\" width=\"100px;\"/><br /><sub>Dennis</sub>](http://dennis.io)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=ds82) | [<img src=\"https://avatars.githubusercontent.com/u/6425649?v=3\" width=\"100px;\"/><br /><sub>Matt Lewis</sub>](https://mattlewis.me/)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=mattlewis92) |\n| [<img src=\"https://avatars.githubusercontent.com/u/323761?v=3\" width=\"100px;\"/><br /><sub>Tom Vincent</sub>](https://tlvince.com)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=tlvince) | [<img src=\"https://avatars.githubusercontent.com/u/615381?v=3\" width=\"100px;\"/><br /><sub>Anders D. Johnson</sub>](https://andrz.me/)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=AndersDJohnson) [📖](https://github.com/kentcdodds/validate-commit-msg/commits?author=AndersDJohnson) [⚠️](https://github.com/kentcdodds/validate-commit-msg/commits?author=AndersDJohnson) | [<img src=\"https://avatars.githubusercontent.com/u/1643758?v=3\" width=\"100px;\"/><br /><sub>James Zetlen</sub>](http://jameszetlen.com)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=zetlen) [⚠️](https://github.com/kentcdodds/validate-commit-msg/commits?author=zetlen) | [<img src=\"https://avatars.githubusercontent.com/u/235784?v=3\" width=\"100px;\"/><br /><sub>Paul Bienkowski</sub>](http://opatut.de)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=opatut) [⚠️](https://github.com/kentcdodds/validate-commit-msg/commits?author=opatut) | [<img src=\"https://avatars.githubusercontent.com/u/324073?v=3\" width=\"100px;\"/><br /><sub>Barney Scott</sub>](https://github.com/bmds)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=bmds) [⚠️](https://github.com/kentcdodds/validate-commit-msg/commits?author=bmds) | [<img src=\"https://avatars.githubusercontent.com/u/5572221?v=3\" width=\"100px;\"/><br /><sub>Emmanuel Murillo Sánchez</sub>](https://github.com/Emmurillo)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=Emmurillo) [⚠️](https://github.com/kentcdodds/validate-commit-msg/commits?author=Emmurillo) | [<img src=\"https://avatars.githubusercontent.com/u/968267?v=3\" width=\"100px;\"/><br /><sub>Hans Kristian Flaatten</sub>](https://starefossen.github.io)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=Starefossen) [⚠️](https://github.com/kentcdodds/validate-commit-msg/commits?author=Starefossen) |\n| [<img src=\"https://avatars.githubusercontent.com/u/16605186?v=3\" width=\"100px;\"/><br /><sub>Bo Lingen</sub>](https://github.com/citycide)<br />[📖](https://github.com/kentcdodds/validate-commit-msg/commits?author=citycide) | [<img src=\"https://avatars.githubusercontent.com/u/1057324?v=3\" width=\"100px;\"/><br /><sub>Spyros Ioakeimidis</sub>](http://www.spyros.io)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=spirosikmd) [📖](https://github.com/kentcdodds/validate-commit-msg/commits?author=spirosikmd) [⚠️](https://github.com/kentcdodds/validate-commit-msg/commits?author=spirosikmd) | [<img src=\"https://avatars.githubusercontent.com/u/126441?v=3\" width=\"100px;\"/><br /><sub>Matt Travi</sub>](https://matt.travi.org)<br />[🐛](https://github.com/kentcdodds/validate-commit-msg/issues?q=author%3Atravi) | [<img src=\"https://avatars.githubusercontent.com/u/868301?v=3\" width=\"100px;\"/><br /><sub>Jonathan Garbee</sub>](http://jonathan.garbee.me)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=Garbee) [📖](https://github.com/kentcdodds/validate-commit-msg/commits?author=Garbee) [⚠️](https://github.com/kentcdodds/validate-commit-msg/commits?author=Garbee) | [<img src=\"https://avatars.githubusercontent.com/u/2978876?v=3\" width=\"100px;\"/><br /><sub>Tobias Lins</sub>](https://lins.in)<br />[📖](https://github.com/kentcdodds/validate-commit-msg/commits?author=tobiaslins) | [<img src=\"https://avatars1.githubusercontent.com/u/680356?v=3\" width=\"100px;\"/><br /><sub>Max Claus Nunes</sub>](http://maxcnunes.com/)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=maxcnunes) | [<img src=\"https://avatars3.githubusercontent.com/u/750319?v=3\" width=\"100px;\"/><br /><sub>standy</sub>](https://github.com/standy)<br />[💻](https://github.com/kentcdodds/validate-commit-msg/commits?author=standy) [⚠️](https://github.com/kentcdodds/validate-commit-msg/commits?author=standy) |\n<!-- ALL-CONTRIBUTORS-LIST:END -->\n\nThis project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!\n",
+  "maintainers": [
+    {
+      "name": "garbee",
+      "email": "jonathan@garbee.me"
+    },
+    {
+      "name": "kentcdodds",
+      "email": "kent@doddsfamily.us"
+    },
+    {
+      "name": "nickbalestra",
+      "email": "nick@balestra.ch"
+    }
+  ],
+  "time": {
+    "modified": "2023-06-09T21:41:13.601Z",
+    "created": "2015-09-04T22:55:17.550Z",
+    "1.0.0": "2015-09-04T22:55:17.550Z",
+    "1.1.0": "2016-01-15T20:54:29.222Z",
+    "1.1.1": "2016-01-19T21:39:04.062Z",
+    "1.1.2": "2016-02-02T16:14:13.859Z",
+    "1.1.3": "2016-02-02T16:16:52.096Z",
+    "1.2.0": "2016-02-02T17:42:51.144Z",
+    "1.3.0": "2016-02-04T21:40:38.850Z",
+    "2.0.0": "2016-02-05T12:16:12.682Z",
+    "2.1.0": "2016-02-22T19:55:09.907Z",
+    "2.2.0": "2016-03-03T23:42:58.621Z",
+    "2.3.0": "2016-03-05T20:32:46.847Z",
+    "2.3.1": "2016-03-06T14:31:33.639Z",
+    "2.4.0": "2016-03-13T14:41:54.471Z",
+    "2.4.1": "2016-03-21T03:53:08.338Z",
+    "2.5.0": "2016-03-29T20:02:50.151Z",
+    "2.6.0": "2016-04-14T19:56:27.407Z",
+    "2.6.1": "2016-04-18T14:40:57.109Z",
+    "2.7.0": "2016-08-13T20:32:16.767Z",
+    "2.8.0": "2016-08-23T14:53:48.412Z",
+    "2.8.1": "2016-10-05T14:55:01.086Z",
+    "2.8.2": "2016-10-05T16:54:35.488Z",
+    "2.9.0": "2017-01-20T22:39:41.324Z",
+    "2.10.0": "2017-01-22T22:26:46.977Z",
+    "2.10.1": "2017-01-23T04:03:15.096Z",
+    "2.11.0": "2017-01-26T16:35:48.261Z",
+    "2.11.1": "2017-01-26T20:40:52.219Z",
+    "2.11.2": "2017-03-08T00:59:09.208Z",
+    "2.12.0": "2017-03-31T20:22:07.371Z",
+    "2.12.1": "2017-04-04T10:12:27.943Z",
+    "2.12.2": "2017-06-08T20:14:13.442Z",
+    "2.12.3": "2017-07-20T20:59:46.759Z",
+    "2.13.0": "2017-07-20T21:48:19.822Z",
+    "2.13.1": "2017-07-23T14:47:41.508Z",
+    "2.14.0": "2017-07-29T14:16:52.458Z"
+  },
+  "homepage": "https://github.com/conventional-changelog/validate-commit-msg#readme",
+  "keywords": [
+    "githook",
+    "commit",
+    "message",
+    "git",
+    "conventional",
+    "changelog"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/conventional-changelog/validate-commit-msg.git"
+  },
+  "author": {
+    "name": "Kent C. Dodds",
+    "email": "kent@doddsfamily.us",
+    "url": "http://kentcdodds.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/conventional-changelog/validate-commit-msg/issues"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "users": {
+    "furzeface": true,
+    "growdigital": true,
+    "glebec": true,
+    "nice_body": true,
+    "quafoo": true,
+    "adriancmiranda": true,
+    "nikolay": true,
+    "ricardogobbosouza": true,
+    "rubiadias": true,
+    "rickyrattlesnake": true,
+    "kodekracker": true,
+    "ridermansb": true,
+    "ajsb85": true,
+    "shakakira": true,
+    "taylorpzreal": true,
+    "flumpus-dev": true
+  }
+}

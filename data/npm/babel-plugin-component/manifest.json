@@ -1,0 +1,2324 @@
+{
+  "_id": "babel-plugin-component",
+  "_rev": "42-f3237b80d5b5a0b30160213d09938fed",
+  "name": "babel-plugin-component",
+  "time": {
+    "modified": "2022-06-13T04:00:47.987Z",
+    "created": "2016-05-25T03:01:42.476Z",
+    "0.1.0": "2016-05-25T03:01:42.476Z",
+    "0.1.1": "2016-05-25T07:38:26.717Z",
+    "0.1.2": "2016-05-25T09:47:01.834Z",
+    "0.1.3": "2016-05-25T10:51:51.059Z",
+    "0.2.0": "2016-06-07T06:06:59.159Z",
+    "0.3.0": "2016-06-08T12:32:52.403Z",
+    "0.3.1": "2016-06-20T08:27:55.915Z",
+    "0.3.2": "2016-06-20T08:36:05.304Z",
+    "0.3.3": "2016-06-22T06:10:21.716Z",
+    "0.3.4": "2016-07-25T10:33:12.986Z",
+    "0.3.5": "2016-07-25T11:04:39.171Z",
+    "0.4.0": "2016-07-26T03:01:15.205Z",
+    "0.4.1": "2016-09-12T13:48:26.471Z",
+    "0.4.2": "2016-09-26T10:10:02.707Z",
+    "0.4.3": "2016-10-13T10:43:37.197Z",
+    "0.5.0": "2016-10-23T04:52:46.673Z",
+    "0.5.1": "2016-11-02T08:07:51.188Z",
+    "0.6.0": "2016-11-12T04:41:50.668Z",
+    "0.7.0": "2016-12-30T03:49:11.978Z",
+    "0.8.0": "2017-01-03T03:18:53.512Z",
+    "0.9.0": "2017-01-16T09:12:46.833Z",
+    "0.9.1": "2017-03-09T08:24:04.566Z",
+    "0.10.0": "2017-07-08T17:10:58.509Z",
+    "0.10.1": "2017-09-20T09:29:28.462Z",
+    "0.11.0": "2017-12-19T05:09:35.481Z",
+    "1.0.0": "2017-12-19T05:11:35.868Z",
+    "1.1.0": "2018-01-15T02:32:20.153Z",
+    "1.1.1": "2018-05-08T08:14:35.209Z"
+  },
+  "maintainers": [
+    {
+      "email": "cinwell.li@gmail.com",
+      "name": "qingwei.li"
+    },
+    {
+      "email": "leopoldthecuber@gmail.com",
+      "name": "yi.yang"
+    }
+  ],
+  "dist-tags": {
+    "latest": "1.1.1"
+  },
+  "description": "Modular build plugin for babel.",
+  "readme": "# babel-plugin-component\n\n[![NPM version](https://img.shields.io/npm/v/babel-plugin-component.svg)](https://npmjs.org/package/babel-plugin-component)\n[![Build Status](https://travis-ci.org/ElementUI/babel-plugin-component.svg?branch=master)](https://travis-ci.org/ElementUI/babel-plugin-component)\n[![Coverage Status](https://coveralls.io/repos/github/QingWei-Li/babel-plugin-component/badge.svg?branch=master)](https://coveralls.io/github/QingWei-Li/babel-plugin-component?branch=master)\n\n## Install\n\n```shell\nnpm i babel-plugin-component -D\n\n# For babel6\nnpm i babel-plugin-component@0 -D\n```\n\n## Example\n\nConverts\n\n```javascript\nimport { Button } from 'components'\n```\n\nto\n\n```javascript\nvar button = require('components/lib/button')\nrequire('components/lib/button/style.css')\n```\n\n## styleLibraryName Example\n\nConverts\n\n```javascript\nimport Components from 'components'\nimport { Button } from 'components'\n```\n\nto\n\n```javascript\nrequire('components/lib/styleLibraryName/index.css')\nvar button = require('components/lib/styleLibraryName/button.css')\n```\n\n## Usage\n\nVia `.babelrc` or babel-loader.\n\n```javascript\n{\n  \"plugins\": [[\"component\", options]]\n}\n```\n\n## Multiple Module\n```javascript\n{\n  \"plugins\": [xxx,\n    [\"component\", {\n      libraryName: \"antd\",\n      style: true,\n    }, \"antd\"],\n    [\"component\", {\n      libraryName: \"test-module\",\n      style: true,\n    }, \"test-module\"]\n  ]\n}\n```\n\n### Component directory structure\n```\n- lib // 'libDir'\n  - index.js // or custom 'root' relative path\n  - style.css // or custom 'style' relative path\n  - componentA\n    - index.js\n    - style.css\n  - componentB\n    - index.js\n    - style.css\n```\n\n### Theme library directory structure\n```\n- lib\n  - theme-default // 'styleLibraryName'\n    - base.css // required\n    - index.css // required\n    - componentA.css\n    - componentB.css\n  - theme-material\n    - ...\n  - componentA\n    - index.js\n  - componentB\n    - index.js\n```\nor \n```\n- lib\n  - theme-custom // 'styleLibrary.name'\n    - base.css // if styleLibrary.base true\n    - index.css // required\n    - componentA.css // default \n    - componentB.css\n  - theme-material\n    - componentA\n      -index.css  // styleLibrary.path  [module]/index.css\n    - componentB\n      -index.css\n  - componentA\n    - index.js\n  - componentB\n    - index.js\n```\n\n### options\n\n- `[\"component\"]`: import js modularly\n- `[\"component\", { \"libraryName\": \"component\" }]`: module name\n- `[\"component\", { \"styleLibraryName\": \"theme_package\" }]`: style module name\n- `[\"component\", { \"styleLibraryName\": \"~independent_theme_package\" }]`: Import a independent theme package\n- `[\"component\", { \"styleLibrary\": {} }]`: Import a independent theme package with more config\n  ```\n  styleLibrary: {\n    \"name\": \"xxx\", // same with styleLibraryName\n    \"base\": true,  // if theme package has a base.css\n    \"path\": \"[module]/index.css\",  // the style path. e.g. module Alert =>  alert/index.css\n    \"mixin\": true  // if theme-package not found css file, then use [libraryName]'s css file\n  }\n  ```\n- `[\"component\", { \"style\": true }]`: import js and css from 'style.css'\n- `[\"component\", { \"style\": cssFilePath }]`: import style css from filePath\n- `[\"component\", { \"libDir\": \"lib\" }]`: lib directory\n- `[\"component\", { \"root\": \"index\" }]`: main file dir\n- `[\"component\", { \"camel2Dash\": false }]`: whether parse name to dash mode or not, default `true`\n",
+  "versions": {
+    "0.1.1": {
+      "name": "babel-plugin-component",
+      "version": "0.1.1",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": {
+        "name": "chencheng",
+        "email": "sorrycc@gmail.com"
+      },
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "dfe46215592bcfc58431fa39d56cd4a2eac03b8e",
+      "_id": "babel-plugin-component@0.1.1",
+      "_shasum": "00fee254d9fe4f3e17c60573c86df648fed5b4e9",
+      "_from": ".",
+      "_npmVersion": "3.8.9",
+      "_nodeVersion": "5.7.1",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "shasum": "00fee254d9fe4f3e17c60573c86df648fed5b4e9",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.1.1.tgz",
+        "integrity": "sha512-ldgoGyHrjkgC170H3ECnUkcPA00AHM0eZztGcPXzoqkYCcYoBZNRlfKSmdPv3qU/Zfh+NSsmcwnj6a8tQVO5bQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIG0Q7Le3vjd1D7/eKhtWZOJE6qZFJdO0MJVFTxxxFWgIAiBiSzssv0Q+R/y2Z58JjGC+/i1EYb00S9pqyrJ8coOF0g=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-component-0.1.1.tgz_1464161904252_0.005154650891199708"
+      },
+      "directories": {}
+    },
+    "0.1.2": {
+      "name": "babel-plugin-component",
+      "version": "0.1.2",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "9fca4ce3fda8f2fa834f76eac9d604b6a72f92b6",
+      "_id": "babel-plugin-component@0.1.2",
+      "_shasum": "716c319e20c2e0a393a60d7447618853f62daac1",
+      "_from": ".",
+      "_npmVersion": "3.8.9",
+      "_nodeVersion": "5.7.1",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "shasum": "716c319e20c2e0a393a60d7447618853f62daac1",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.1.2.tgz",
+        "integrity": "sha512-Nqu7DvZ1iEsMUwvQT9x8Ix+PB5J6oGgrUSHhe+vuvPctOpNn0foM+iJDArA6upNBAqoopmbfUs9zGIzexXInFA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCwE2EOLUpUWThjiX3v5UcBhnrAB5LB4vgliHtt8NVCQQIgawdEkBi2ltNqa+lTKnvSZXNMeoQaAdTI0Ms0dsfZ090="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-component-0.1.2.tgz_1464169621375_0.7614375124685466"
+      },
+      "directories": {}
+    },
+    "0.1.3": {
+      "name": "babel-plugin-component",
+      "version": "0.1.3",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qingwei-li/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/qingwei-li/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/qingwei-li/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "266a7c607d27e3dfe054b2a4432341473f04ed53",
+      "_id": "babel-plugin-component@0.1.3",
+      "_shasum": "036af3d63a15f757cee1224384d46a96569213ee",
+      "_from": ".",
+      "_npmVersion": "3.8.9",
+      "_nodeVersion": "5.7.1",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "shasum": "036af3d63a15f757cee1224384d46a96569213ee",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.1.3.tgz",
+        "integrity": "sha512-nSD6gXBViI+eZqsLNmf/adB2pgg9RjWQRRML7q1YtafCu1vxhCsrORcy+Y+htxw9tyux3yh+9vRlYhuod9YCKg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFR6P6j7UwdcCsjh/OY61xBHXrRx2do354vw2ckz/uyaAiA3CuWnJbFxyMUGhuX1KxVh4zVa0hLvXUPY01r4DeIgPw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-component-0.1.3.tgz_1464173508582_0.8439770764671266"
+      },
+      "directories": {}
+    },
+    "0.2.0": {
+      "name": "babel-plugin-component",
+      "version": "0.2.0",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qingwei-li/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/qingwei-li/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/qingwei-li/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "30f96223e03cc8f0912ae47ea3548730127a5e3d",
+      "_id": "babel-plugin-component@0.2.0",
+      "_shasum": "71b8ae6885ee8879e2a43914e6ad2a6023f0a669",
+      "_from": ".",
+      "_npmVersion": "3.8.9",
+      "_nodeVersion": "5.7.1",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "shasum": "71b8ae6885ee8879e2a43914e6ad2a6023f0a669",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.2.0.tgz",
+        "integrity": "sha512-u0x/xO/pGHOpO8lvjDGkf+C1Bs3zTLU0rYhjHf/3NQbwxVQP0kA8nBnenHhG+LhHrB2piuvavnxez8U8uT/kSQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBZme/h/HLGxDZR3WeG91m0h6drYgza1DYsavlcVlUQ2AiAOOzhoGjhS8JFH5+ENwlfrTjWf1oQUJ7iJ9P5U5hsUeA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-component-0.2.0.tgz_1465279618627_0.2743832217529416"
+      },
+      "directories": {}
+    },
+    "0.3.0": {
+      "name": "babel-plugin-component",
+      "version": "0.3.0",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qingwei-li/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/qingwei-li/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/qingwei-li/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "513a2108843f6def4e3e924bc50129fa7b291fc2",
+      "_id": "babel-plugin-component@0.3.0",
+      "_shasum": "0384056a5a27cc01e2a31cf72301200ed9a4bab5",
+      "_from": ".",
+      "_npmVersion": "3.8.9",
+      "_nodeVersion": "5.7.1",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "shasum": "0384056a5a27cc01e2a31cf72301200ed9a4bab5",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.3.0.tgz",
+        "integrity": "sha512-lUcg0jwMGN3xqCgqxLki2Y1CEgYsb+VMBVfbgVRAtW4tujKdnCRXEkTJGPr55vsE7M4JoN2wz2UejejiooPgJQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCghR8FPDPPSdrx4m/Ye3UX5iPgvoI0oCM9LqZzEI5HCwIhAKdMD/PUWApJi9jPLK21g8X2ucIGNem3XOOJSn3F0oSN"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-component-0.3.0.tgz_1465389169033_0.07671354012563825"
+      },
+      "directories": {}
+    },
+    "0.3.1": {
+      "name": "babel-plugin-component",
+      "version": "0.3.1",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qingwei-li/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/qingwei-li/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/qingwei-li/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "30950bd607d482973c638140cd78991a06c5d550",
+      "_id": "babel-plugin-component@0.3.1",
+      "_shasum": "4a2e0f327a3e74b9bcd84578b1ee27d00733093f",
+      "_from": ".",
+      "_npmVersion": "3.8.9",
+      "_nodeVersion": "5.7.1",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "shasum": "4a2e0f327a3e74b9bcd84578b1ee27d00733093f",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.3.1.tgz",
+        "integrity": "sha512-XM1MPSsiQtqwHWyAR/gsoLTq/LDDwOkWnVlXTmzuvbrnU5Nipjfm6jkie8ivu5ZdbUDrBXn2bKrudVLvsaS3Fg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDZa/rIlxW/n+JOsafe1DYpW7jRO6Opyg9MKpl27XiqCAIhAPaBIveTqMe6KYDuL7UAL0Rpk01e0J9O+S5Hp3BQTUd3"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-component-0.3.1.tgz_1466411273461_0.4302998387720436"
+      },
+      "directories": {}
+    },
+    "0.3.2": {
+      "name": "babel-plugin-component",
+      "version": "0.3.2",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qingwei-li/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/qingwei-li/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/qingwei-li/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "03e8ae98ca443baa473a15fe6e756a2c7eef159a",
+      "_id": "babel-plugin-component@0.3.2",
+      "_shasum": "587be21546784e29929a221781425a2606461dea",
+      "_from": ".",
+      "_npmVersion": "3.8.9",
+      "_nodeVersion": "5.7.1",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "shasum": "587be21546784e29929a221781425a2606461dea",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.3.2.tgz",
+        "integrity": "sha512-MEod1b6f/o8FMuN7fyJ4BTuFsf61Gtys64UetYsHAGgdSHIRMVnjompEJJoGUWOvssUOF5OHM4ygOncf9xMV9Q==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAuNQ0Pqif5rJIYFI6ehCB/kzBSEW8httGtDeMltWYTAAiEA0PlqI5/BImLzu1Kl0XVyWECmpLjJ7ofGZe9HdCAwASI="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-component-0.3.2.tgz_1466411762730_0.1596177590545267"
+      },
+      "directories": {}
+    },
+    "0.3.3": {
+      "name": "babel-plugin-component",
+      "version": "0.3.3",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qingwei-li/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/qingwei-li/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/qingwei-li/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "4233edfd4e6981b4c03c7db92bc270f10cb9c37e",
+      "_id": "babel-plugin-component@0.3.3",
+      "_shasum": "10ef2fe694ff79ab9b2a22c262f964d11b3987fe",
+      "_from": ".",
+      "_npmVersion": "3.8.9",
+      "_nodeVersion": "5.7.1",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "shasum": "10ef2fe694ff79ab9b2a22c262f964d11b3987fe",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.3.3.tgz",
+        "integrity": "sha512-uVGEEQEpFryk39diMXatw2qhXC87ErycZpdO5IMCOT2ELBDhA7XZrKzuJXvjjJs84lyQRvLaf937KPapL2FkeA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC+nB1L5h7fAIaDY/IqUBTC0ot9MJ/+TUM4bMA9EMiSGQIgLAwLeap6hb4h6mdzdLx1wt9bH5JdFRoR86TufYxVnuc="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-component-0.3.3.tgz_1466575818993_0.04412619071081281"
+      },
+      "directories": {}
+    },
+    "0.4.0": {
+      "name": "babel-plugin-component",
+      "version": "0.4.0",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "prepublish": "npm run build"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qingwei-li/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/qingwei-li/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/qingwei-li/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "444278890af76ac9e608a05fdfbccc2b72b3d9c7",
+      "_id": "babel-plugin-component@0.4.0",
+      "_shasum": "8a600f0a6ba8ad1324f65c2bfe87513291f160ec",
+      "_from": ".",
+      "_npmVersion": "3.10.2",
+      "_nodeVersion": "5.7.1",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "shasum": "8a600f0a6ba8ad1324f65c2bfe87513291f160ec",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.4.0.tgz",
+        "integrity": "sha512-JMAQkGtAE9B4M27WDgwdbTEjcNbNMMrWHyqwR6RJe+UBPa+PSzVG/3TsRTdOV3EFJ4ttdZtunQ1i+QitvfXEGw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBHg0rfwF6KXP3tmnb2aig11m+bKAuADxLCAcmkKGJRUAiEA9a+i12RKt0aAeSon3Di8mO2HdNOxDlF9+Fl7cPlOS1A="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-component-0.4.0.tgz_1469502071903_0.03753851284272969"
+      },
+      "directories": {}
+    },
+    "0.4.1": {
+      "name": "babel-plugin-component",
+      "version": "0.4.1",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "prepublish": "npm run build"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qingwei-li/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/qingwei-li/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/qingwei-li/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "9e391af425c1cde7a4a52ed68d525c252932a59e",
+      "_id": "babel-plugin-component@0.4.1",
+      "_shasum": "a2e27e328ca42ba5ccdc645ab065945ca4874297",
+      "_from": ".",
+      "_npmVersion": "3.10.2",
+      "_nodeVersion": "5.7.1",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "shasum": "a2e27e328ca42ba5ccdc645ab065945ca4874297",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.4.1.tgz",
+        "integrity": "sha512-QHwnCitjYfUo+Bw6Tp/g1c4V4/sfrYHfbZ+uuQZWWyHFaaOyVzzWFb28QPH9fkCP6C1YHb1sVl2jwk/K6hDD/A==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDyANmx64eysvLnsPaOHJMYmmlKLdeONey1KdNKkQwncAiACFUKjf7XAojtdpp89MPZqw0swafoSHYC25M0pUufQ2A=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-component-0.4.1.tgz_1473688103473_0.16942998673766851"
+      },
+      "directories": {}
+    },
+    "0.4.2": {
+      "name": "babel-plugin-component",
+      "version": "0.4.2",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "prepublish": "npm run build"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qingwei-li/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/qingwei-li/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/qingwei-li/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "4911329f3ababc40453a69b9811fbea75e03f7da",
+      "_id": "babel-plugin-component@0.4.2",
+      "_shasum": "beb5a3c92ec07787b9eac909b72a701a7ec92f67",
+      "_from": ".",
+      "_npmVersion": "3.7.3",
+      "_nodeVersion": "5.8.0",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "shasum": "beb5a3c92ec07787b9eac909b72a701a7ec92f67",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.4.2.tgz",
+        "integrity": "sha512-t5OF55JJd/sw63hRGzUuXtBsSu0AX0nFDC3XR2UTETHuKxhDifuhgUUMRV4FlYHhAAhImjHrCCeeBKUnw59ksA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICCvEEBItYwnQFw4rAPTZ5vIpalDHEMRANjeXCdVrqPmAiBPHzd5MmsW5vI0zVLddMlVVXgAlBg/r2sNd7hP/Ixdsg=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-component-0.4.2.tgz_1474884600308_0.1684532226063311"
+      },
+      "directories": {}
+    },
+    "0.4.3": {
+      "name": "babel-plugin-component",
+      "version": "0.4.3",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && ./node_modules/.bin/babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "prepublish": "npm run build"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qingwei-li/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/qingwei-li/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/qingwei-li/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "b62cb609687ee64a9ab18297e285e5b4f04e795e",
+      "_id": "babel-plugin-component@0.4.3",
+      "_shasum": "8aacead9c4b4bd40b11903f9bca198700fecbf79",
+      "_from": ".",
+      "_npmVersion": "3.7.3",
+      "_nodeVersion": "5.8.0",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "shasum": "8aacead9c4b4bd40b11903f9bca198700fecbf79",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.4.3.tgz",
+        "integrity": "sha512-vPyuf35yOfG6aOVsUtRb81ohCBBKx52ErV7g2LEK8r3dKv66S5TAdEz2nkubLD9bWUoluYCCJ2nZV+a6YF5sdA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICrtbEytRX1ypS2VimY9yn9xGOnVX0trQ0sRNvzuO2qQAiBhmbVawnIRnuz5/tErZE43l9ecJz4wovAT5jBt+KnmSQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-component-0.4.3.tgz_1476355416977_0.4183311539236456"
+      },
+      "directories": {}
+    },
+    "0.5.0": {
+      "name": "babel-plugin-component",
+      "version": "0.5.0",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "prepublish": "npm run build"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qingwei-li/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/qingwei-li/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/qingwei-li/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "a093db256ac4d3d23056a907ee00a492affa8757",
+      "_id": "babel-plugin-component@0.5.0",
+      "_shasum": "288996ae2d043583c4a1d5fa31f1f103fbd0e1c2",
+      "_from": ".",
+      "_npmVersion": "3.7.3",
+      "_nodeVersion": "5.8.0",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "shasum": "288996ae2d043583c4a1d5fa31f1f103fbd0e1c2",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.5.0.tgz",
+        "integrity": "sha512-tJewoZBmr+zK91INbdNCvKmHwsKYcujD45PPtmHFh1W1qja9l5NBaADJJKx2gxQ34p/1bQFJMwTXLKiL2XfN5g==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCXQCj4F6leKeA9sGjMIswUOM5pal4N7y1tJ83Rdr7tgAIgCc7A3jUOd9AeQnkA6VRgQeElBL7g88X+M1dSSd8pK1s="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-component-0.5.0.tgz_1477198363954_0.9706224296241999"
+      },
+      "directories": {}
+    },
+    "0.5.1": {
+      "name": "babel-plugin-component",
+      "version": "0.5.1",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "prepublish": "npm run build"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qingwei-li/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/qingwei-li/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/qingwei-li/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "300bc9b85f72d96e5f2fda74470d54a7e25d18ca",
+      "_id": "babel-plugin-component@0.5.1",
+      "_shasum": "978516a1e652f9eb202fc0a9abb2ed6332b5e3df",
+      "_from": ".",
+      "_npmVersion": "3.7.3",
+      "_nodeVersion": "5.8.0",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "shasum": "978516a1e652f9eb202fc0a9abb2ed6332b5e3df",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.5.1.tgz",
+        "integrity": "sha512-BGMyWmjFEFVtmpC3VL+I5ArA+my9GzAgvl6QZu2GX0OgU0a9WGFNs1QY21B1kzPIVMGAArsOkeBUHwYEx/OnXQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCWdfANiJJG3qrvnlVYIlky3ykguPwnAEHR9kf0CE5FkAIhALk32FXs5EDMbNm4PF+jVDoeUjnqEvVJ6ZlsHRBIypU3"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-component-0.5.1.tgz_1478074070969_0.4278511442244053"
+      },
+      "directories": {}
+    },
+    "0.6.0": {
+      "name": "babel-plugin-component",
+      "version": "0.6.0",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "prepublish": "npm run build"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qingwei-li/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/qingwei-li/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/qingwei-li/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "3be588cf850e7071947d67692ff79f2247f695c3",
+      "_id": "babel-plugin-component@0.6.0",
+      "_shasum": "a2e27361c8848919e85b5e3f246c0f6194710fa3",
+      "_from": ".",
+      "_npmVersion": "3.7.3",
+      "_nodeVersion": "5.8.0",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "shasum": "a2e27361c8848919e85b5e3f246c0f6194710fa3",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.6.0.tgz",
+        "integrity": "sha512-PrsaS53I5yubDYkpYgP9rV9qL6B1bRCCtifZ68vEPVvaRNg/6ZsjWTNThpdfCEoRbtdkjUhr4tPX7PLlDsgDzA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCTmWj9LPJ+R1V3MZdGz/XpjwFtgVBSnEt+w0q2q+YfzwIgC6Aseo0cjcbRgnGRwW5RVM1/l/z50476IYCH3Xon6wA="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-component-0.6.0.tgz_1478925708648_0.872796966927126"
+      },
+      "directories": {}
+    },
+    "0.7.0": {
+      "name": "babel-plugin-component",
+      "version": "0.7.0",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "prepublish": "npm run build"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qingwei-li/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/qingwei-li/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/qingwei-li/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "44b1c39b9cc9ecda227424b48e882883685e5f0d",
+      "_id": "babel-plugin-component@0.7.0",
+      "_shasum": "90e14d1700c56116c449b5840ee8ae47674e4127",
+      "_from": ".",
+      "_npmVersion": "3.7.3",
+      "_nodeVersion": "5.8.0",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "shasum": "90e14d1700c56116c449b5840ee8ae47674e4127",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.7.0.tgz",
+        "integrity": "sha512-amVkNu6GCn2tHolnxDF/EoHg5kMpVzHpp5Xe+9J5fVGRH7RVfuAvb4rz69YSj6OUioCy+7zqPrRoo8Pq7aJRCA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHQigzbYeIkQoQ/Cjg5oKys4AjYs3CKoIaSW5USoDO4FAiASm5HVp0bYA1uB480S3xWAdVo72nWGg/vEdaiEc2vacg=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-component-0.7.0.tgz_1483069751756_0.9294372480362654"
+      },
+      "directories": {}
+    },
+    "0.8.0": {
+      "name": "babel-plugin-component",
+      "version": "0.8.0",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "prepublish": "npm run build"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qingwei-li/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/qingwei-li/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/qingwei-li/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "c164e92cdab68295198a749811f5c186616f060e",
+      "_id": "babel-plugin-component@0.8.0",
+      "_shasum": "933b5010f9d3bead8c3b5eb9fdb5aa2594ac7d7b",
+      "_from": ".",
+      "_npmVersion": "3.7.3",
+      "_nodeVersion": "5.8.0",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "shasum": "933b5010f9d3bead8c3b5eb9fdb5aa2594ac7d7b",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.8.0.tgz",
+        "integrity": "sha512-NO1doOW6eSbM+hLNXbHTdCCoPbfMY8XD/yROt5ioLu8w+51NQeB1CoQPT1IzjeTzxNr58e6Rtg4TOxdmwF4XIw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICoybw2blLv70WJlMDUJQGx3DuEsLg7vji6F5qjW74NmAiB+u7xz9bgiWBDpQqguw19FoUJygHKe54IUyFrPwiM17g=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-component-0.8.0.tgz_1483413531685_0.12265422940254211"
+      },
+      "directories": {}
+    },
+    "0.9.0": {
+      "name": "babel-plugin-component",
+      "version": "0.9.0",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "prepublish": "npm run build"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qingwei-li/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/qingwei-li/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/qingwei-li/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "f5d2ec416be0bdbfaaadddb6b278e3c56276f224",
+      "_id": "babel-plugin-component@0.9.0",
+      "_shasum": "f653146630b1bf7017faf4e9f890a4b420c1e728",
+      "_from": ".",
+      "_npmVersion": "4.0.5",
+      "_nodeVersion": "7.4.0",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "shasum": "f653146630b1bf7017faf4e9f890a4b420c1e728",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.9.0.tgz",
+        "integrity": "sha512-3ISqF2YD0sICOMyeKVztGNkYXJTtri5lvh4ubv/wLaYDih0AupfOPWMsxUSFs10XQxoUYk+s/sHX1BVg731nCw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHEl5RA5j9fOpatDd3oZKun6MRkbVV7Tezz3KuMhDGWlAiEAjzv0UIRj7VJxkYZHSJgeC/zXwA/BG9h7tHtITZLDmVc="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-component-0.9.0.tgz_1484557964753_0.7622206818778068"
+      },
+      "directories": {}
+    },
+    "0.9.1": {
+      "name": "babel-plugin-component",
+      "version": "0.9.1",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "prepublish": "npm run build"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qingwei-li/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/qingwei-li/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/qingwei-li/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "7d08b47976076d1c62a6d68895a4feccc9174bc3",
+      "_id": "babel-plugin-component@0.9.1",
+      "_shasum": "17b74ce8025256d52bb24fac0a4d4185ad01813f",
+      "_from": ".",
+      "_npmVersion": "4.0.5",
+      "_nodeVersion": "7.4.0",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "shasum": "17b74ce8025256d52bb24fac0a4d4185ad01813f",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.9.1.tgz",
+        "integrity": "sha512-b1RUp/YGBaaCxE2Kipa2Bt4l80oemYU1GWFacDVxiAoiZhm2n5YNXy40T398OyUf1QRhTYxwcmLhhtSeVmyXEQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHRCklnP7Om+G6u0HdnXEYIIGtgbjIW0+xtWBTwWja7sAiEApK1lVLbh8gcm6aluUV9HDldkPSAVwtotutGKj1yayeM="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-component-0.9.1.tgz_1489047844334_0.5831914399750531"
+      },
+      "directories": {}
+    },
+    "0.10.0": {
+      "name": "babel-plugin-component",
+      "version": "0.10.0",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "prepublish": "npm run build"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qingwei-li/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/qingwei-li/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/qingwei-li/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "ebe612c266928ceeeaae49817490fec740104f18",
+      "_id": "babel-plugin-component@0.10.0",
+      "_npmVersion": "5.0.3",
+      "_nodeVersion": "7.9.0",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-XRIwGjKApks7uJDMiDGIcPVbGS/ZyFlvi5+NLKV8SRcs6Ws1iUvxS+3ujD152vDEtcMMAB7Vx1ssQnBzgiMveA==",
+        "shasum": "55d6dbc0f35d7a381931b16ff1ee34ef93085add",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.10.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGijwy2x7Yqfepcc7gaWuHC1URTzMGcuAZr9x3Qeg7OOAiBWvojc5ksaIEl41DfqGMkxZuCubl7yRywlEN9itka9Gw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-component-0.10.0.tgz_1499533858403_0.5198879304807633"
+      },
+      "directories": {}
+    },
+    "0.10.1": {
+      "name": "babel-plugin-component",
+      "version": "0.10.1",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "prepublish": "npm run build"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qingwei-li/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/qingwei-li/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/qingwei-li/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "f7dfc265d3312cbf96b23616fed498e0add87b49",
+      "_id": "babel-plugin-component@0.10.1",
+      "_npmVersion": "5.4.1",
+      "_nodeVersion": "7.9.0",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-lDnSRHmOyM2K/DWrusAgv04yDgoJVA0vJOiiNHTA6kP+VUzwqAjcjHQbFEQFgKE0WHxhb0mCsKrocOIjK1qgKQ==",
+        "shasum": "cfac25045e5c6e1353e89f05ff5a675af9712759",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.10.1.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQC2edlCSTEUBlAa0xe6q+MEz47x0l1lW9S1KVP91DcEiwIhAL4as7YDOtzHCxvQXAhUHDd9SzlmKJHjWtkJpMEJXPhc"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-component-0.10.1.tgz_1505899768386_0.7748315134085715"
+      },
+      "directories": {}
+    },
+    "0.11.0": {
+      "name": "babel-plugin-component",
+      "version": "0.11.0",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && babel src --out-dir lib --ignore __tests__",
+        "test": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --no-timeouts",
+        "debug": "mocha --require babel-core/register --require babel-polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "prepublish": "npm run build"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "babel-cli": "^6.3.13",
+        "babel-core": "^6.7.4",
+        "babel-istanbul": "^0.7.0",
+        "babel-plugin-add-module-exports": "^0.1.2",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "babel-preset-stage-0": "^6.3.13",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "^2.3.4",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qingwei-li/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/qingwei-li/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/qingwei-li/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "es2015",
+          "stage-0"
+        ],
+        "plugins": [
+          "add-module-exports"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "gitHead": "b43f70a0a18fe1c05dfd13667b891ff185612698",
+      "_id": "babel-plugin-component@0.11.0",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.5.0",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-YFJaLwi1GXBbS2lBuFEJS3ONxvH6GGt9IMTbYraKBvPcuQAbS2eI4OkYqKJm8EBCSmMwHBpoMOLt4ng304MCug==",
+        "shasum": "ef124d9a85005ee535e23e15e7223190299bbf81",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-0.11.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDprfXdmSzNliJ/TH7oQsYkMsi+9eUCLUG8U9wL6yrUeQIgMSrnvHSfxjbOtjoC3D1x8KRSQ94sVsXSdGONuqANK54="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-component-0.11.0.tgz_1513660175412_0.5144476697314531"
+      },
+      "directories": {}
+    },
+    "1.0.0": {
+      "name": "babel-plugin-component",
+      "version": "1.0.0",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && babel src --out-dir lib --ignore __tests__",
+        "test": "mocha --require @babel/register",
+        "debug": "mocha --require @babel/register --require @babel/polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "prepublish": "npm run build"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "@babel/cli": "7.0.0-beta.35",
+        "@babel/core": "7.0.0-beta.35",
+        "@babel/node": "7.0.0-beta.35",
+        "@babel/preset-env": "7.0.0-beta.35",
+        "@babel/preset-react": "7.0.0-beta.35",
+        "@babel/preset-stage-0": "7.0.0-beta.35",
+        "@babel/register": "7.0.0-beta.35",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "4.0.1",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ElementUI/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/ElementUI/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/ElementUI/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "@babel/preset-env",
+          "@babel/preset-react"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "dependencies": {
+        "@babel/helper-module-imports": "7.0.0-beta.35"
+      },
+      "gitHead": "d09c384f3077556ba91427855fe8c0729cb4beb0",
+      "_id": "babel-plugin-component@1.0.0",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.5.0",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-v80YhbxvpHgL/5qGCgM1TffrS3b+QcUlk9mC6qcWadMFwx2nhRp0rH6iuoXi+1xibYIrcgWHX6EZ1LW82eTAQg==",
+        "shasum": "9229448673c66c9b0ca643abecb6ea4b4d0671f8",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-1.0.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDD8ghCKq+U5IR1S5aEb6dVmVYT+8oOfSWIe07l3JIOnAiAh4aFay4bHgjewDSIHzLN0nr7uH8VT78YrOz1c5Gv/pw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-component-1.0.0.tgz_1513660295777_0.7040097850840539"
+      },
+      "directories": {}
+    },
+    "1.1.0": {
+      "name": "babel-plugin-component",
+      "version": "1.1.0",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && babel src --out-dir lib --ignore __tests__",
+        "test": "mocha --require @babel/register",
+        "debug": "mocha --require @babel/register --require @babel/polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "prepublish": "npm run build"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "@babel/cli": "7.0.0-beta.35",
+        "@babel/core": "7.0.0-beta.35",
+        "@babel/node": "7.0.0-beta.35",
+        "@babel/preset-env": "7.0.0-beta.35",
+        "@babel/preset-react": "7.0.0-beta.35",
+        "@babel/preset-stage-0": "7.0.0-beta.35",
+        "@babel/register": "7.0.0-beta.35",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "4.0.1",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ElementUI/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/ElementUI/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/ElementUI/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "@babel/preset-env",
+          "@babel/preset-react"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "dependencies": {
+        "@babel/helper-module-imports": "7.0.0-beta.35"
+      },
+      "gitHead": "d41f6d63cebacfb524b153df6c697ef17304967d",
+      "_id": "babel-plugin-component@1.1.0",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "8.5.0",
+      "_npmUser": {
+        "name": "qingwei.li",
+        "email": "cinwell.li@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-NIc3eLr96/5cG6UOJgkLCzQIJxEWX5knQOfKRTkTIPceXHpEvU3exccYlf8D0GxB5Dw4HYym3vjX0rhiTAZ+KQ==",
+        "shasum": "74fa3446814bca990f52bcad6700465361b011b7",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-1.1.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAVePkYRS+/195ByQXSwV187D+0JiITjtGXzm6iT/g+qAiEA4k8rjX4b3uORmtO9KVEYJyztwuJai6RQf40YS9DaP+o="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "qingwei.li",
+          "email": "cinwell.li@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-component-1.1.0.tgz_1515983540084_0.8497883465606719"
+      },
+      "directories": {}
+    },
+    "1.1.1": {
+      "name": "babel-plugin-component",
+      "version": "1.1.1",
+      "description": "Modular build plugin for babel.",
+      "main": "lib/index.js",
+      "scripts": {
+        "build": "rm -rf lib && babel src --out-dir lib --ignore __tests__",
+        "test": "mocha --require @babel/register",
+        "debug": "mocha --require @babel/register --require @babel/polyfill --no-timeouts",
+        "lint": "eslint --ext .js src",
+        "coveralls": "cat ./coverage/lcov.info | coveralls",
+        "prepublish": "npm run build"
+      },
+      "pre-commit": [
+        "lint"
+      ],
+      "keywords": [
+        "babel-plugin"
+      ],
+      "author": "",
+      "license": "MIT",
+      "devDependencies": {
+        "@babel/cli": "7.0.0-beta.35",
+        "@babel/core": "7.0.0-beta.35",
+        "@babel/node": "7.0.0-beta.35",
+        "@babel/preset-env": "7.0.0-beta.35",
+        "@babel/preset-react": "7.0.0-beta.35",
+        "@babel/preset-stage-0": "7.0.0-beta.35",
+        "@babel/register": "7.0.0-beta.35",
+        "coveralls": "^2.11.6",
+        "eslint": "^2.7.0",
+        "eslint-config-airbnb": "^6.2.0",
+        "expect": "^1.13.4",
+        "mocha": "4.0.1",
+        "pre-commit": "~1.1.2"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ElementUI/babel-plugin-component.git"
+      },
+      "homepage": "https://github.com/ElementUI/babel-plugin-component#readme",
+      "bugs": {
+        "url": "https://github.com/ElementUI/babel-plugin-component/issues"
+      },
+      "babel": {
+        "presets": [
+          "@babel/preset-env",
+          "@babel/preset-react"
+        ]
+      },
+      "files": [
+        "lib",
+        "package.json",
+        "README.md"
+      ],
+      "dependencies": {
+        "@babel/helper-module-imports": "7.0.0-beta.35"
+      },
+      "gitHead": "f07ad886a9a8e18dcd49edb0de975d79cd3859c8",
+      "_id": "babel-plugin-component@1.1.1",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "8.9.0",
+      "_npmUser": {
+        "name": "yi.yang",
+        "email": "leopoldthecuber@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-WUw887kJf2GH80Ng/ZMctKZ511iamHNqPhd9uKo14yzisvV7Wt1EckIrb8oq/uCz3B3PpAW7Xfl7AkTLDYT6ag==",
+        "shasum": "9b023a23ff5c9aae0fd56c5a18b9cab8c4d45eea",
+        "tarball": "https://registry.npmjs.org/babel-plugin-component/-/babel-plugin-component-1.1.1.tgz",
+        "fileCount": 4,
+        "unpackedSize": 15609,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa8VxrCRA9TVsSAnZWagAAxhwP/jsZhOg/opwMdjq506k5\nGasMlVZ86DmsyF+suWeY+vl6IRc3RSAPypGOs34CzyefhJHhj8YBoDrgj7H3\ng1RiRoddX3pkLccoJVHOfWtSVx380pg04MkgJ9znmXzjqzuaAcSCMJ0oV9vg\nTbwvDxY9vc9ohJz4IELftT6YLhqilwfVAPDxraDmfgVGLvwfz8LYxzuXrMOc\nt4XicV+5pJ04pqnEZig1eRGxdDUbQ2kvrdTMdDgLc+lUd5dCoCgCj5PsjksA\nsjsksjjNUdQlToIAfEUO4XhvdNVAoZqpF88J28YzOHYkIyX63BRDceBAAQfT\nvBj9AJxcu0iAnqpsJO3pCXDf6+7n07rVmA8efuhe3AvKG0m68W5ZPDpJWXuy\nIl6NtM4HcVAfalv/djlW7MAA0+tQs3aNtP2IXBPApHBAME4SSm+pPDWfjhud\nLXWJAjhiumoKdZojhUSzBdjSkoQZKRRho1T2rJAT8ENxaudMNXZ1Uts0P6xq\ne/7eqksbof2WNcQBq/RyFITf0qp6vvgTrV+AAv9k8GU2MPDlLlgPJvbdBAGt\nu5ZnnZFtRCRCNh7GGEen04Nicfj+LGzGBhiALiGQGmujHol6yG0eSJukUbfs\nf0NTASiFCRNIN6wpLuQsm36ifwVargYObvtpH4WbZ/qhNjeT8830jlgJ5y57\nSGCI\r\n=fset\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGmyMkD7yIW0DCBidOQ4pVp6JyCL0J3YIOqYSHEz7e27AiEAy8UjK7QLC6SNwcWukkw5ZeQNrhdArdY9VrirdrmWsOA="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "email": "cinwell.li@gmail.com",
+          "name": "qingwei.li"
+        },
+        {
+          "email": "leopoldthecuber@gmail.com",
+          "name": "yi.yang"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-component_1.1.1_1525767275127_0.2628016608139254"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "keywords": [
+    "babel-plugin"
+  ],
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/ElementUI/babel-plugin-component#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElementUI/babel-plugin-component.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ElementUI/babel-plugin-component/issues"
+  },
+  "users": {
+    "ww522413622": true,
+    "huangshuwei": true,
+    "hyteer": true,
+    "stone_breaker": true,
+    "pajamacat": true
+  }
+}

@@ -1,0 +1,1977 @@
+{
+  "_id": "@nuxt/module-builder",
+  "_rev": "22-8b3d34171067f5207d4811c1c967c7ec",
+  "name": "@nuxt/module-builder",
+  "dist-tags": {
+    "latest": "0.5.5"
+  },
+  "versions": {
+    "0.0.0": {
+      "name": "@nuxt/module-builder",
+      "version": "0.0.0",
+      "license": "MIT",
+      "type": "module",
+      "exports": {
+        ".": {
+          "import": "./dist/index.mjs"
+        }
+      },
+      "types": "./dist/index.d.ts",
+      "bin": {
+        "nuxt-build-module": "dist/cli.mjs"
+      },
+      "scripts": {
+        "build": "unbuild",
+        "cli": "jiti ./src/cli.ts",
+        "lint": "eslint --ext .ts,.js,.mjs .",
+        "prepack": "yarn build",
+        "play": "yarn cli ./playground",
+        "release": "yarn test && standard-version && git push --follow-tags && npm publish",
+        "test": "yarn lint"
+      },
+      "dependencies": {
+        "mri": "^1.2.0",
+        "pathe": "^0.2.0",
+        "unbuild": "^0.6.2"
+      },
+      "devDependencies": {
+        "@nuxt/kit": "npm:@nuxt/kit-edge@latest",
+        "@nuxtjs/eslint-config-typescript": "^8.0.0",
+        "@types/mri": "^1.1.1",
+        "eslint": "^8.3.0",
+        "jiti": "^1.12.9",
+        "standard-version": "^9.3.2"
+      },
+      "gitHead": "575126b8f8e49994f5163a66354fc15a844dc756",
+      "description": "> Build Nuxt modules using [unjs/unbuild](https://github.com/unjs/unbuild).",
+      "_id": "@nuxt/module-builder@0.0.0",
+      "_nodeVersion": "14.18.1",
+      "_npmVersion": "8.1.0",
+      "dist": {
+        "integrity": "sha512-7u84FreHB8k+BqIlyJdj7GlQc1zCyOyizydG8vQD4rnmtQs5K6CiGLpVXNa9iojYbfAfJti9o949PliqsEYRgg==",
+        "shasum": "7313c42f3d1ef3b9401bad3d67c10a00fee67764",
+        "tarball": "https://registry.npmjs.org/@nuxt/module-builder/-/module-builder-0.0.0.tgz",
+        "fileCount": 22,
+        "unpackedSize": 7066,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhqfSqCRA9TVsSAnZWagAAS0YP+QCXKijuxGGj9NDbRXQI\nVqoeTghZUo3TXC0MPVAyC1zHkA6vPmT0WY1CY7ecdC+t8HBDhojECTif7/oP\ngIKSHBurK97u/aTD0KMUdhAAghVuLB1pAlQdcBt60ZtlZWrdYynBikqKfRnF\nqb0ceaf7pajjTXZWstzQpeOEMi081YlqALHx8zCXvnHZiXblZh8Cf3nb7bPD\nHw69ee61WEDcVOJX0ovIMktKADQQiJ44VcLgEYY3VXPqyQ727XRUnLbLqBxo\n2xpBhhkNPeaxUUmIfxDya/Hh3aaY7lOEGAc0oHmBCZ7bsbVc5ZDvXUhD3rd/\norhuUajWfwyEa2GN1Pa8OiabHZ8eC5H+XA1rgU+Pv/ClkBOaMS2mFUQHqGRo\n7GhKoWmX2aaQDHo15L5rzKc2Mp43VpQ1U81AsFfXgT6uYfyLeqz9qVJdix9S\nmvwn/y5xc3SoMF+4uT6dLlE3nPnotpsR3x25oC/pzXeEEY8vHq/fVjiwftaL\nJcfUrBL5IRTHnp/LwTGwydNJ7xjeSIp6rDccXTcnqWC+ot+UkFfNUu3VNKYe\nS3UJQHFaLoH462E5lAPsEz78heGQ8x8JxQFrKre0Vw7yIju/sGd3wNca/hEu\nsdD/+nOVkyMYc9+60lV6BwTIuG5dS6t4ZlxbgRySLBjD20yNxB3SzFitqbuj\nwDVM\r\n=j0Hl\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIATbVMDT+ZB0gwo7O2GjOoXZeTCsPNEfLerTBFcn2ZT+AiAeILEfElIeTRtdERtUh6ZG8lkscbAAmer3PvYPq1BTHA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pi0",
+        "email": "pyapar@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "atinux",
+          "email": "atinux@gmail.com"
+        },
+        {
+          "name": "pi0",
+          "email": "pyapar@gmail.com"
+        },
+        {
+          "name": "clarkdo",
+          "email": "clark.duxin@gmail.com"
+        },
+        {
+          "name": "danielroe",
+          "email": "daniel@roe.dev"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/module-builder_0.0.0_1638528170607_0.43026984199710716"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.1": {
+      "name": "@nuxt/module-builder",
+      "version": "0.1.1",
+      "description": "Complete solution to build Nuxt Modules",
+      "license": "MIT",
+      "type": "module",
+      "exports": {
+        ".": {
+          "import": "./dist/index.mjs"
+        }
+      },
+      "types": "./dist/index.d.ts",
+      "bin": {
+        "nuxt-build-module": "dist/cli.mjs",
+        "nuxt-module-build": "dist/cli.mjs"
+      },
+      "scripts": {
+        "build": "unbuild",
+        "example:build": "yarn nuxt-module-build ./example",
+        "lint": "eslint --ext .ts,.js,.mjs .",
+        "nuxt-module-build": "jiti ./src/cli.ts",
+        "prepack": "yarn build",
+        "release": "yarn test && standard-version && git push --follow-tags && npm publish",
+        "test": "yarn lint"
+      },
+      "dependencies": {
+        "consola": "^2.15.3",
+        "mri": "^1.2.0",
+        "pathe": "^0.2.0",
+        "unbuild": "^0.6.7"
+      },
+      "devDependencies": {
+        "@nuxt/kit": "npm:@nuxt/kit-edge@latest",
+        "@nuxt/schema": "npm:@nuxt/schema-edge@latest",
+        "@nuxtjs/eslint-config-typescript": "^8.0.0",
+        "@types/mri": "^1.1.1",
+        "eslint": "^8.5.0",
+        "jiti": "^1.12.9",
+        "standard-version": "^9.3.2"
+      },
+      "gitHead": "012570276cfe0c03fb565c6c7e70ff1f4a291ac2",
+      "_id": "@nuxt/module-builder@0.1.1",
+      "_nodeVersion": "14.18.2",
+      "_npmVersion": "6.14.15",
+      "dist": {
+        "integrity": "sha512-zs3ZDrkvfnfjcXo4pgCFN8+9seZrG/ZAOnnjq3NzigVhCYVq1OXk6gHqRA2+gZ3gpqYciNGfDgUZNltT2NO89A==",
+        "shasum": "693a1c678fae7601af52f2cb92c46c4aebbe677b",
+        "tarball": "https://registry.npmjs.org/@nuxt/module-builder/-/module-builder-0.1.1.tgz",
+        "fileCount": 26,
+        "unpackedSize": 13328,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhxOgXCRA9TVsSAnZWagAA9kYP/3Nmfmh/glNfeAKMeZzA\n9ihjBymIHmG28hlEfGjD+ZsNcmn+JC9ozCbY2lU8I7+OZKgjfLlKDEVaRCxW\n48W6KEGBXf6JBcQDUX0PAP0XhJFVE2puUVwiZhFYZSEpJaVw5Dr+x9/oNQKX\n9n/1gZIOpbmwhLl0+w+djWTUmqkGqYK1nEremJJQAw/qEX5w8f7DFcZD2ZrK\nQUuQAXYl57Ol+80Hd+gPcNsXcIDGErAs7leTUUPxNI0Za+i3cIdJZsExlYcE\na7EHV2c2CYOvLviIM/95b8gEbMYFx5oFL0tjTkDnAhJmz9VgayEVqXqwrTpE\nfFfQ15+t/dkLTGPUngKwP/jQXVpYg2YVrWElqERPddxce6RI93BzOYjFYd7w\nTHXdZvl3y8w8mXpCmGABNbtlogd+BlV4Mac4zoiyJrtc2Ce+jw+hFE4MnWMa\nEJ03xLwIhWK7C5NRDAzKAwqsgACbXCNwg+xUpUp4zIA4rUHt0pOUbZBOSHLw\nW23hts8prr1QhK2+yT/8ZcuttiAoasEqm0iLrVxP8dW9AvfxvcUz1JWjEA/B\n/4gudaaiWuK9EmuLWSuEIARYKiRLqIp4+/jBj/88jPmyCl8Fw/Ha3bVliwBf\nCL5u/7AVuPhVpGiahybQ1tENA817sHuyxZriN8TvDzi17AjIpLT05FKCzAS9\nWuBb\r\n=7SlK\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICTRc56cqrzxMCS3YrGKpXf5Mi4I6qs0Sd+qzFIdBVDwAiBNQxAa+If5+eGyz3/kH10yQN80EHAu1lC3jMIV7vcpxA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pi0",
+        "email": "pyapar@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "antfu",
+          "email": "anthonyfu117@hotmail.com"
+        },
+        {
+          "name": "atinux",
+          "email": "atinux@gmail.com"
+        },
+        {
+          "name": "pi0",
+          "email": "pyapar@gmail.com"
+        },
+        {
+          "name": "clarkdo",
+          "email": "clark.duxin@gmail.com"
+        },
+        {
+          "name": "danielroe",
+          "email": "daniel@roe.dev"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/module-builder_0.1.1_1640294423596_0.6748814929977749"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.2": {
+      "name": "@nuxt/module-builder",
+      "version": "0.1.2",
+      "description": "Complete solution to build Nuxt Modules",
+      "license": "MIT",
+      "type": "module",
+      "exports": {
+        ".": {
+          "import": "./dist/index.mjs"
+        }
+      },
+      "types": "./dist/index.d.ts",
+      "bin": {
+        "nuxt-build-module": "dist/cli.mjs",
+        "nuxt-module-build": "dist/cli.mjs"
+      },
+      "scripts": {
+        "build": "unbuild",
+        "example:build": "yarn nuxt-module-build ./example",
+        "lint": "eslint --ext .ts,.js,.mjs .",
+        "nuxt-module-build": "jiti ./src/cli.ts",
+        "prepack": "yarn build",
+        "release": "yarn test && standard-version && git push --follow-tags && npm publish",
+        "test": "yarn lint"
+      },
+      "dependencies": {
+        "consola": "^2.15.3",
+        "mri": "^1.2.0",
+        "pathe": "^0.2.0",
+        "unbuild": "^0.6.7"
+      },
+      "devDependencies": {
+        "@nuxt/kit": "npm:@nuxt/kit-edge@latest",
+        "@nuxt/schema": "npm:@nuxt/schema-edge@latest",
+        "@nuxtjs/eslint-config-typescript": "^8.0.0",
+        "@types/mri": "^1.1.1",
+        "eslint": "^8.5.0",
+        "jiti": "^1.12.9",
+        "standard-version": "^9.3.2"
+      },
+      "gitHead": "a86db33847517db0c4d2faa4ddb180611316ea58",
+      "_id": "@nuxt/module-builder@0.1.2",
+      "_nodeVersion": "14.18.2",
+      "_npmVersion": "6.14.15",
+      "dist": {
+        "integrity": "sha512-skXQm2IkJSmHVKSs3NBxsNXyMcoC8RCACYrqocCZttkaEAIAKLKEFs4mt7+edJqEYT9woiNNJopqxIU5Pq8iEw==",
+        "shasum": "b5c02a7bae798b7c6675e5776c361a6b3a0fabf3",
+        "tarball": "https://registry.npmjs.org/@nuxt/module-builder/-/module-builder-0.1.2.tgz",
+        "fileCount": 9,
+        "unpackedSize": 8130,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhxOhYCRA9TVsSAnZWagAAeloP/05jvU4jjtc8q17Sf1rW\nzEmyllUk3ffJ4bU/fFLj2qKvpG0H/17Puhl/vZ1q3rtK8uqCa9b5/lBWn+E8\nvF5kcsqAsrLrxyC4GxqBGj3PrEwO+HWyxT1yu22u0Z/6gAcqTqZgCvbBCLuZ\nUA1pC3+b9jqk/toJYPtySRMBgnB0dnsu43MeRUXof/qI2ot8BEyC3KpQFW3T\nLf6vOP/AH4BaFLPbiRp+UUlygwx8A4/6BATwktasB5hLAoz+688hv816bhN6\nY2nYeqe9RQuwbhiNoRUPEU4rlwywj5g0ZWQ79siU+Khk0ap0YroworFE3VQH\nWDysYBxIlRQ2uysHJi5hmhtq7B6FrKMZ0A0aZfN/gvnr2NPea+hKGSgjuwEM\nWvv5thfpvKsKBwKgVGBidddc6Nk6fevWsdz+JK2Ual0xWgsvUccYYf4CWqfE\nvQiI52mlB3kQr+6RFBIC00ptf7fZZdvF4UuCp7Spk9nyPNPii/XyY+YzKbOy\now1ANWFhGLXjWb5PEx6s7CbSnw76Xy4liz0RBDwVi+Txb3FhIdPvCO3fH+56\nSmmQK0Dm3LkUVTZ9MhhiYfCgXKEF6mAQSs02HyBBKLD3uiPQ6u92V3FBYKat\n0g/XA7MocYytnbPUQWdtQvQzGNxI4sX/cHpWOqju+gXo8ptfxbjWoe7gobPg\n7rue\r\n=4i9Y\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCZkafNiIrODzJZk9o6KgSeCWC5QMGwoaGuSKsBdS+8dwIgOU+lOGFFiXuSbKK0D2vyRioI/SwwDtpnbopgHaxtIWw="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pi0",
+        "email": "pyapar@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "antfu",
+          "email": "anthonyfu117@hotmail.com"
+        },
+        {
+          "name": "atinux",
+          "email": "atinux@gmail.com"
+        },
+        {
+          "name": "pi0",
+          "email": "pyapar@gmail.com"
+        },
+        {
+          "name": "clarkdo",
+          "email": "clark.duxin@gmail.com"
+        },
+        {
+          "name": "danielroe",
+          "email": "daniel@roe.dev"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/module-builder_0.1.2_1640294487903_0.04478382161866268"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.3": {
+      "name": "@nuxt/module-builder",
+      "version": "0.1.3",
+      "description": "Complete solution to build Nuxt Modules",
+      "license": "MIT",
+      "type": "module",
+      "exports": {
+        ".": {
+          "import": "./dist/index.mjs"
+        }
+      },
+      "types": "./dist/index.d.ts",
+      "bin": {
+        "nuxt-build-module": "dist/cli.mjs",
+        "nuxt-module-build": "dist/cli.mjs"
+      },
+      "scripts": {
+        "build": "unbuild",
+        "example:build": "yarn nuxt-module-build ./example",
+        "lint": "eslint --ext .ts,.js,.mjs .",
+        "nuxt-module-build": "jiti ./src/cli.ts",
+        "prepack": "yarn build",
+        "release": "yarn test && standard-version && git push --follow-tags && npm publish",
+        "test": "yarn lint"
+      },
+      "dependencies": {
+        "consola": "^2.15.3",
+        "mri": "^1.2.0",
+        "pathe": "^0.2.0",
+        "unbuild": "^0.6.7"
+      },
+      "devDependencies": {
+        "@nuxt/kit": "npm:@nuxt/kit-edge@latest",
+        "@nuxt/schema": "npm:@nuxt/schema-edge@latest",
+        "@nuxtjs/eslint-config-typescript": "latest",
+        "@types/mri": "latest",
+        "eslint": "latest",
+        "jiti": "latest",
+        "standard-version": "latest"
+      },
+      "gitHead": "519cd16ca87f8a346a11a716e6f6f5a60c9f379e",
+      "_id": "@nuxt/module-builder@0.1.3",
+      "_nodeVersion": "14.18.2",
+      "_npmVersion": "8.3.0",
+      "dist": {
+        "integrity": "sha512-StSK8Ag9jhp1DqKu2VMV4/n0S2JU+ZNYeqLGjsdZdSWdRzEKRR8u99re10gGVFWx6LF4HCBrR75/I2Wnw0SMYA==",
+        "shasum": "536202a01df5d82b0294165876e03fbe20d1ee20",
+        "tarball": "https://registry.npmjs.org/@nuxt/module-builder/-/module-builder-0.1.3.tgz",
+        "fileCount": 8,
+        "unpackedSize": 8470,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh5afDCRA9TVsSAnZWagAACn4QAKI2CeKNwqOXX/DLJTzW\nySmpq5zFVjIftN3Hmw5hoKF7bFKUVPFtieHk1067B2W2DqFoRDILAMwTJQ2o\nEj8AuigmhwkdC4TH75mPbwVVYLMoY1WxjHd8rxr71mtClGgvZfIsHzjui+SW\nOxfB5Vh8scSFQMSHBnYwB/JOPCLjVup+ekerbVkV+QFanFI2BmPXV1/hEwhi\nogvUeKTKbz1Mdr6ff3FqfTUSjQMEiMyLb34PUCISAQ+GRADcPcVe70kV+fS8\nWSStHJfiqZGwH5CYAt8imLEP1SM36eAmfgxwa2/kezR3nsX1seUumVKI0OWP\n4/62DOFrFY0t4V7uP2pIc7G2yVh5PaRRoZlVo4D+reHUM0jRcIuKH7QTuwLb\nwNrB4KC5PLlqKToJ8mv6dmAK9wNyLknYnml9NYkcTUIDhif/rsL2tSlI3lSy\njhaKKWcAkhANvMMoRKaAJ3Ghai+seg9+4EPsPF01MAE1mfSqSJF2cHG0fBpF\nwGm9TlbHVK0elsMxf3f+ok8Kxhgo2orPOOvU/54M0adSPI2vu96GBeKQnRVe\nvr7RrW1lSmZ7KzhhXzw41OLCOTPvYBRTScCHe7ensm/e/iZb5MkA4om1n4eE\noNFZCHT8fllPRMl3Z6X8tKoR0ovQpx6906cCwkSpFlhNxN0/xff9puqAYJcj\nR2le\r\n=ydHX\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHjj4YaksTDhWwsj4ayUzXfGgUtmSd4A6m6ZFXKyXN+uAiEAvlv4d0FfYo/c2OGzjXMTezVS4iuxzXujInsqw4gG3s8="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pi0",
+        "email": "pyapar@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "antfu",
+          "email": "anthonyfu117@hotmail.com"
+        },
+        {
+          "name": "atinux",
+          "email": "atinux@gmail.com"
+        },
+        {
+          "name": "pi0",
+          "email": "pyapar@gmail.com"
+        },
+        {
+          "name": "clarkdo",
+          "email": "clark.duxin@gmail.com"
+        },
+        {
+          "name": "danielroe",
+          "email": "daniel@roe.dev"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/module-builder_0.1.3_1642440643590_0.5901688818446476"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.4": {
+      "name": "@nuxt/module-builder",
+      "version": "0.1.4",
+      "description": "Complete solution to build Nuxt Modules",
+      "license": "MIT",
+      "type": "module",
+      "exports": {
+        ".": {
+          "import": "./dist/index.mjs"
+        }
+      },
+      "types": "./dist/index.d.ts",
+      "bin": {
+        "nuxt-build-module": "dist/cli.mjs",
+        "nuxt-module-build": "dist/cli.mjs"
+      },
+      "scripts": {
+        "build": "unbuild",
+        "example:build": "yarn nuxt-module-build ./example",
+        "lint": "eslint --ext .ts,.js,.mjs .",
+        "nuxt-module-build": "jiti ./src/cli.ts",
+        "prepack": "yarn build",
+        "release": "yarn test && standard-version && git push --follow-tags && npm publish",
+        "test": "yarn lint"
+      },
+      "dependencies": {
+        "consola": "^2.15.3",
+        "mlly": "^0.3.19",
+        "mri": "^1.2.0",
+        "pathe": "^0.2.0",
+        "unbuild": "^0.6.7"
+      },
+      "devDependencies": {
+        "@nuxt/kit": "npm:@nuxt/kit-edge@latest",
+        "@nuxt/schema": "npm:@nuxt/schema-edge@latest",
+        "@nuxtjs/eslint-config-typescript": "latest",
+        "@types/mri": "latest",
+        "eslint": "latest",
+        "jiti": "^1.12.9",
+        "standard-version": "latest"
+      },
+      "gitHead": "666a7e575ecd9f00f26127eb43c41d2d5f68d2ba",
+      "_id": "@nuxt/module-builder@0.1.4",
+      "_nodeVersion": "14.18.2",
+      "_npmVersion": "8.3.0",
+      "dist": {
+        "integrity": "sha512-TddChvKb/nihEiH1HpJSyAhyQmGKaNT836eXOBq773E9mjlyW9wwEXQ+O7d9azRZ+kFucKdqYJvqzSwkPjr92A==",
+        "shasum": "8e3b79e9bcb798b71ce81b16d932ee8c4b4e018a",
+        "tarball": "https://registry.npmjs.org/@nuxt/module-builder/-/module-builder-0.1.4.tgz",
+        "fileCount": 8,
+        "unpackedSize": 9567,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh5bQ9CRA9TVsSAnZWagAAs/YP/16VtQh0pdL84gsjFe7+\nYZVLg86RTmU+i7aqqmjXgzsT9VQORWqHq4PjiYfjJ2xbjmxlEbnC19e5vbEi\nFXn8PGZq/LGenLwPhgFksuE9tdE1W1cFhNx2ZWlryCN1xEiUc6sTmW3KRlsU\nE2bs8MEQszGja5lS8pUoBA2G8eSJyl0WeQIysRE7SX5crobVeD7iKm1Ie5h+\nd8aEnd4Y1GkKEyMY63/g1xQYp2B5Blo6QrXfuoWgigZfjnqKUNHU4bHeDTBg\nfYpTzNeWGH8MbdR5LVSQ1mcqW5p323Z5hC35CyJjSD99qdjgbzDURAtxEDD1\nZAxno/DlD5KKl1Uwh1iWM0Gku/Ra9J86uZdVaRh1/7ReeOtNjQCKIErjLI+d\n8Z6ddVrTzCpWU8TVUSj9iXekfQSr1vrbYSp5WyuDM0Ehy8U9mU1YcleffW1t\nT6CO70+nb34XrKOnqZpkxbbIzNi51cPXstTSVbnN1VpwW5pWbICeEOcYZIIK\ns7VDD6Erpp2Dll7xg/B+idbpa8s/rFlSf0CRcING6fAQGy6phuFqDnm9+FLW\nXP7TwmAvsychO167rN0NNHkpD8wDpbIW4IqB2Yn8YZMSkoN0LSOHI+BcDt4Y\nENwKB/7ur+3NpGs0YSK33G1FLmgBj8zKdgxEetxfRxe/qNsJH4Ad3DDsSbfE\nYrWR\r\n=BvrJ\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEpjQqKVWxf+wg/+jJJTezECHZdwEI5vmD16LE9XS0RCAiAslFWrfXcB9aL0vaFg2L3DMXMTZ2QyuI0Y9ED8iWxeSQ=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pi0",
+        "email": "pyapar@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "antfu",
+          "email": "anthonyfu117@hotmail.com"
+        },
+        {
+          "name": "atinux",
+          "email": "atinux@gmail.com"
+        },
+        {
+          "name": "pi0",
+          "email": "pyapar@gmail.com"
+        },
+        {
+          "name": "clarkdo",
+          "email": "clark.duxin@gmail.com"
+        },
+        {
+          "name": "danielroe",
+          "email": "daniel@roe.dev"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/module-builder_0.1.4_1642443837253_0.8237618326806442"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.5": {
+      "name": "@nuxt/module-builder",
+      "version": "0.1.5",
+      "description": "Complete solution to build Nuxt Modules",
+      "license": "MIT",
+      "type": "module",
+      "exports": {
+        ".": {
+          "import": "./dist/index.mjs"
+        }
+      },
+      "types": "./dist/index.d.ts",
+      "bin": {
+        "nuxt-build-module": "dist/cli.mjs",
+        "nuxt-module-build": "dist/cli.mjs"
+      },
+      "scripts": {
+        "build": "unbuild",
+        "example:build": "yarn nuxt-module-build ./example",
+        "lint": "eslint --ext .ts,.js,.mjs .",
+        "nuxt-module-build": "jiti ./src/cli.ts",
+        "prepack": "yarn build",
+        "release": "yarn test && standard-version && git push --follow-tags && npm publish",
+        "test": "yarn lint"
+      },
+      "dependencies": {
+        "consola": "^2.15.3",
+        "mlly": "^0.3.19",
+        "mri": "^1.2.0",
+        "pathe": "^0.2.0",
+        "unbuild": "^0.6.7"
+      },
+      "devDependencies": {
+        "@nuxt/kit": "npm:@nuxt/kit-edge@latest",
+        "@nuxt/schema": "npm:@nuxt/schema-edge@latest",
+        "@nuxtjs/eslint-config-typescript": "latest",
+        "@types/mri": "latest",
+        "eslint": "latest",
+        "jiti": "^1.12.9",
+        "standard-version": "latest"
+      },
+      "gitHead": "35deefcdad39fe8aa781dd9e28ddff690fcd5494",
+      "_id": "@nuxt/module-builder@0.1.5",
+      "_nodeVersion": "14.18.2",
+      "_npmVersion": "8.3.0",
+      "dist": {
+        "integrity": "sha512-wY/4LnfTnPfBWZ/FVfeJvMQOAjeblIQ7voluss+dEBYxKQACMUfO/xmXRtGb+UToIbZ6t5A0lcucBULKGTB2rw==",
+        "shasum": "5412fa64475238230593961f2925a1ded12fff78",
+        "tarball": "https://registry.npmjs.org/@nuxt/module-builder/-/module-builder-0.1.5.tgz",
+        "fileCount": 8,
+        "unpackedSize": 9765,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh5dwcCRA9TVsSAnZWagAALycP/2LJ8/kRTsDeNvzQP8Bu\nL8qgIuGQiXjMoHCVTANdvobMg5hizSbP3vgGMTKczVE6vx4/T4h5EojmmJ6t\n6zFkDkIf+UgjxKda32zpanfgLlIas49H1Mt0wquCdeF143dSWq4CNKSjcxXZ\nZe9D6MEG/Qm6RkVsthqSESFYubf4Xabuy/sUtiHXgpMSEkoo7IeOJ9u69v0b\ny47zDL0av6B4G8eJGr9RTYiA5vlyjQou3XRzyTa+QFspxMlbuM2aSRvVS+Pc\nInuiGqi/rWzt5PF7Xz29S8Ioxy2jhoh4nW41tu6GiM4Ke3hpdqkmTtm7eyPr\nEQZTXkiwFHNZ0nawDVulVycGddVga4/MzjqT0kMPdiMbxaQRNZ4ha7D4MX+0\nCYFaNh0uTEH+oER/YuRDBVs/Uqpll8XUnc9WFGNYQulXQtFjMu03t8aoNwhR\nVdYlMeXXh4zAg8J31ZGXhWSyRjuXUNpottHPNH1Qpv9hDIbjomYz8rOLBnXS\nP/X9Q9VBE3EVUAgnkFQx9jPwF/q447WBpQRADDwGEQ/M6MF9H80uM1JnDvBD\nnTEp3rUgdgjW85ZQh4V1ibmiJ0yAryVV/t5VnvFW3XCME1KN5IVk0qNwwR8M\njNPQheGfWImkizVvT2HhAeCrQwe42I3Udm6/fSHjIY7RKcXzrcqT3ipAZO1B\nc2Y4\r\n=D2or\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBDvM7gR6DUaELg0/XlfQmHfyR/ihK+pba9w6bYgVcd1AiEAwrRWRkH59pXwX8h1RVH3lvICZqoPBR5VkfEyGBC6l0U="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pi0",
+        "email": "pyapar@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "antfu",
+          "email": "anthonyfu117@hotmail.com"
+        },
+        {
+          "name": "atinux",
+          "email": "atinux@gmail.com"
+        },
+        {
+          "name": "pi0",
+          "email": "pyapar@gmail.com"
+        },
+        {
+          "name": "clarkdo",
+          "email": "clark.duxin@gmail.com"
+        },
+        {
+          "name": "danielroe",
+          "email": "daniel@roe.dev"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/module-builder_0.1.5_1642454044246_0.44749676284751927"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.6": {
+      "name": "@nuxt/module-builder",
+      "version": "0.1.6",
+      "description": "Complete solution to build Nuxt Modules",
+      "license": "MIT",
+      "type": "module",
+      "exports": {
+        ".": {
+          "import": "./dist/index.mjs"
+        }
+      },
+      "types": "./dist/index.d.ts",
+      "bin": {
+        "nuxt-build-module": "dist/cli.mjs",
+        "nuxt-module-build": "dist/cli.mjs"
+      },
+      "scripts": {
+        "build": "unbuild",
+        "example:build": "yarn nuxt-module-build ./example",
+        "lint": "eslint --ext .ts,.js,.mjs .",
+        "nuxt-module-build": "jiti ./src/cli.ts",
+        "prepack": "yarn build",
+        "release": "yarn test && standard-version && git push --follow-tags && npm publish",
+        "test": "yarn lint"
+      },
+      "dependencies": {
+        "consola": "^2.15.3",
+        "mlly": "^0.3.19",
+        "mri": "^1.2.0",
+        "pathe": "^0.2.0",
+        "unbuild": "^0.6.7"
+      },
+      "devDependencies": {
+        "@nuxt/kit": "npm:@nuxt/kit-edge@latest",
+        "@nuxt/schema": "npm:@nuxt/schema-edge@latest",
+        "@nuxtjs/eslint-config-typescript": "latest",
+        "@types/mri": "latest",
+        "eslint": "latest",
+        "jiti": "^1.12.9",
+        "standard-version": "latest"
+      },
+      "gitHead": "b2dd614a7923832d636c1ec065ff58df95b9754e",
+      "_id": "@nuxt/module-builder@0.1.6",
+      "_nodeVersion": "14.18.2",
+      "_npmVersion": "8.3.0",
+      "dist": {
+        "integrity": "sha512-JOe8FgavtYVaMXI54GyCh0nxNJG6XwmGPE5VFeQwdrfRqzYQAjZ0MwLu+0kxilakyJjHim0fsMxiX8Dtp+2Lpw==",
+        "shasum": "e7e03697a4500c268e635e9c6e91be586daf81e3",
+        "tarball": "https://registry.npmjs.org/@nuxt/module-builder/-/module-builder-0.1.6.tgz",
+        "fileCount": 8,
+        "unpackedSize": 9767,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh5dz/CRA9TVsSAnZWagAAUbsP/2xQx6zi7kad0nB3p+67\nhgm6BgXaGtCydpdUHm/BIvfCXjKtnzSN3tWozeLg8CNHVedDd+hD99QPylV5\nx/VXAwf9OlJzsZp6TVRs1zkTfJWhHUGzSpcYr1T99x53iOFV6in1+KGRYUHQ\nf+FLPncMK/vuh2/p3O+odxlmqNAQWtqXYOFYbC8bdYbV3l/yEIjYpTr5rwS/\nVSecBVR6txF4oVc5CjT5/FYmmfoNehzrgzCOmDeAjUhQAx9MHOv3v1WelW9Y\nGt07IYzh+RmH/trGhi0oouNymgq0s3GzXgiW+oDk+/BO03xTjpZfdkCKdFnf\n5MsOZi6YPDokZlMCb0FkH4/mfv3gnEtoNpXxs2KNVa3KhnMj6aYGOfb2iTAR\ngLcztl8lH74Daky+xffP9YwkHH2Zr/JPVQD6+7dYkT68KviBFERqCR0Puq5Y\nFsotXm3efiw/XSaqgaUaZvk7DZ0t1Q+WtJhNfCSaE/BrryRksiwToG9IdQWM\nwm3AWOrZ/np9x2VNxc2/wcjrM6jkHmDj9zNG+4WrkH0y7OZ+R8kWRQchgvHX\nBFl0rktTTk6QMl7xhvdhduGq9pP3S+iWOTgFCTHqm06igNubeP8QrysFiEV6\nIFa/80wR9y2rSaZmBB1m6e/2Z4PlZ1w1+TRWX0HbNg9uDE/oz1MfH0onTBq6\nGw5Z\r\n=ouxg\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC1I0dPhASGb5t4Yva+xLJyixvxISB/KytNBnLoH/WVhwIgY3/+/b+QLG3Xr0czgcOoSU0qlzSXR5jwRJkPBh4jRL8="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pi0",
+        "email": "pyapar@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "antfu",
+          "email": "anthonyfu117@hotmail.com"
+        },
+        {
+          "name": "atinux",
+          "email": "atinux@gmail.com"
+        },
+        {
+          "name": "pi0",
+          "email": "pyapar@gmail.com"
+        },
+        {
+          "name": "clarkdo",
+          "email": "clark.duxin@gmail.com"
+        },
+        {
+          "name": "danielroe",
+          "email": "daniel@roe.dev"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/module-builder_0.1.6_1642454271798_0.16669892022390465"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.1.7": {
+      "name": "@nuxt/module-builder",
+      "version": "0.1.7",
+      "description": "Complete solution to build Nuxt Modules",
+      "license": "MIT",
+      "type": "module",
+      "exports": {
+        ".": {
+          "import": "./dist/index.mjs"
+        }
+      },
+      "types": "./dist/index.d.ts",
+      "bin": {
+        "nuxt-build-module": "dist/cli.mjs",
+        "nuxt-module-build": "dist/cli.mjs"
+      },
+      "scripts": {
+        "build": "unbuild",
+        "example:build": "yarn nuxt-module-build ./example",
+        "lint": "eslint --ext .ts,.js,.mjs .",
+        "nuxt-module-build": "jiti ./src/cli.ts",
+        "prepack": "yarn build",
+        "release": "yarn test && standard-version && git push --follow-tags && npm publish",
+        "test": "yarn lint"
+      },
+      "dependencies": {
+        "consola": "^2.15.3",
+        "mlly": "^0.3.19",
+        "mri": "^1.2.0",
+        "pathe": "^0.2.0",
+        "unbuild": "^0.6.7"
+      },
+      "devDependencies": {
+        "@nuxt/kit": "npm:@nuxt/kit-edge@latest",
+        "@nuxt/schema": "npm:@nuxt/schema-edge@latest",
+        "@nuxtjs/eslint-config-typescript": "latest",
+        "@types/mri": "latest",
+        "eslint": "latest",
+        "jiti": "^1.12.9",
+        "standard-version": "latest"
+      },
+      "gitHead": "1014d02f467a050a3ffcc06f22eb03430a9b8491",
+      "_id": "@nuxt/module-builder@0.1.7",
+      "_nodeVersion": "14.18.2",
+      "_npmVersion": "8.3.0",
+      "dist": {
+        "integrity": "sha512-ueTrJhXrKKxGp6VAe2C/nOqTeRoy0qfq9RH2QVl0kq0duDyQHCe1e8dw8yBbYjTlSvfqBPYaraxpX8i2zis2cw==",
+        "shasum": "6de83fa24a839265d43abdb5ecf8ec85456ca765",
+        "tarball": "https://registry.npmjs.org/@nuxt/module-builder/-/module-builder-0.1.7.tgz",
+        "fileCount": 8,
+        "unpackedSize": 9828,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh5vA+CRA9TVsSAnZWagAA5BwP/jwLHeVSudOvYtwW1/fX\nfgEJRZbj8OIg05giW3z2vLwhQ2sIhXlGFfGQm6Pz4MBokBsVErjWgrfaMyYu\n4wCfPTnrK0qApCey1TBZeHMQmr3i5WM2nK4LAdXZBXxSTVmmpysuSmGMZ0VE\nt64ErqAM9nvHP1tN07PyojfP6GNiYevTqK5xSBG14u8WoSpdot04OMLlW60M\nocqzLl1eM5GqSVkiTwLxPCE8MAa/pJN9AWk7W/shNHNqsY35s47Yoi7lzzhx\nHqSfY1DC7M4wywK4CzN2eEhVR4H7solDgUu+eMMxgI6rGeKkzFmC+9gZVXK6\ngS8a0JVHQq00uP4Lk5fU3FsB3sB5EY6SmR/s+3Jc++KIX98DCWYfZs9P4hdr\n9HajHv9mOPm76Nd3UiJFiWsZoQoNf4g4YlPM/b+LQrsAvaYSrXCBkV5Fzn8Y\nP6mg7bN/EtW3I+qzKIe2Od/jI0eK7hblL5/LDDbko0wLVkmopZsInMqOteDK\n4it5NjSmeCrItR1JMw7rzOLiOfBmxfGwL13h+S5oxBfAi3EbxblhOnjBC2wW\n+JRBIjoK6vYnJCGrHyrSd6kfqCnlXIw8Wtd+03G1l+c6DKgXB1Eg/0Uj3On2\nRaB8gWz5l6AsrtTWelxBEr5zgMOvbcw0A2/RKGK0Cz6RjjYjRfgxSGGUmixj\n3rVf\r\n=J3JD\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAlzzSiOffZERiIbGxUEAI7ehrZEMd38BUfukn8kOWMiAiAA3PzhnT1rOCQhpWtYXCRh+QLCBpk5NRhiLPkROAkyOw=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "pi0",
+        "email": "pyapar@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "antfu",
+          "email": "anthonyfu117@hotmail.com"
+        },
+        {
+          "name": "atinux",
+          "email": "atinux@gmail.com"
+        },
+        {
+          "name": "pi0",
+          "email": "pyapar@gmail.com"
+        },
+        {
+          "name": "clarkdo",
+          "email": "clark.duxin@gmail.com"
+        },
+        {
+          "name": "danielroe",
+          "email": "daniel@roe.dev"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/module-builder_0.1.7_1642524734018_0.18365717784983193"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.0": {
+      "name": "@nuxt/module-builder",
+      "version": "0.2.0",
+      "description": "Complete solution to build Nuxt Modules",
+      "license": "MIT",
+      "type": "module",
+      "exports": {
+        ".": {
+          "import": "./dist/index.mjs"
+        },
+        "./package.json": "./package.json"
+      },
+      "types": "./dist/index.d.ts",
+      "bin": {
+        "nuxt-build-module": "dist/cli.mjs",
+        "nuxt-module-build": "dist/cli.mjs"
+      },
+      "scripts": {
+        "build": "unbuild",
+        "example:build": "yarn nuxt-module-build ./example",
+        "lint": "eslint --ext .ts,.js,.mjs .",
+        "nuxt-module-build": "jiti ./src/cli.ts",
+        "prepack": "yarn build",
+        "release": "yarn test && standard-version && git push --follow-tags && npm publish",
+        "test": "yarn lint"
+      },
+      "dependencies": {
+        "consola": "^2.15.3",
+        "mlly": "^0.5.16",
+        "mri": "^1.2.0",
+        "pathe": "^0.3.9",
+        "unbuild": "^0.9.4"
+      },
+      "devDependencies": {
+        "@nuxt/kit": "^3.0.0-rc.11",
+        "@nuxt/schema": "^3.0.0-rc.11",
+        "@nuxtjs/eslint-config-typescript": "^11.0.0",
+        "@types/mri": "^1.1.1",
+        "@types/node": "^18.11.0",
+        "eslint": "^8.25.0",
+        "jiti": "^1.16.0",
+        "standard-version": "^9.5.0"
+      },
+      "gitHead": "3563247401e0ea301bdca4936624cfe340a7277e",
+      "_id": "@nuxt/module-builder@0.2.0",
+      "_nodeVersion": "16.17.0",
+      "_npmVersion": "8.15.0",
+      "dist": {
+        "integrity": "sha512-jzQ10I5n+oAsjvY6ennqmJMU7MneYs79iGXJ6jnBbts4jFuLwWpQbIPpIFfboI4xjHeeTp1quHZyCcpFy+TjAA==",
+        "shasum": "9b231eec668b6a780fc4e699b319e87d7388281c",
+        "tarball": "https://registry.npmjs.org/@nuxt/module-builder/-/module-builder-0.2.0.tgz",
+        "fileCount": 8,
+        "unpackedSize": 10750,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAl3E29JxZHJdqaoHlAw69lW4H0fqNcJBC08R/TCNkqsAiBaNNt5yxQSyjROaCKQSf9dcI0OT/uL5+imRkCVC4zsDA=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjSwtRACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmr+wg//X8+ivZ61V0ep53roY8wCKRcDrYNU6RCUEtnTRqjV/dCM4Hxt\r\nBXyVGnnC4VGqgPOwTmJc9SQckKrC7rnyd6YjBzp5o2BezULf0LOXVs6/2RAE\r\nlRK28k7UdgUM4XmD8JSDGWoiaS3JguPy96Htzvbclt/blXJfp6K7L3ERjXDK\r\ngxIhyw9pRWy66uBycdT8MtDUma6A3sVZiBQfsJ11GlEiZ+ZP9epcLU6RdUW9\r\nv09XwuxAwyIaewMphv3xEiXtY/rJ5ABVReItd/1E3Aa+mEJ9KYrKyKflsRLW\r\nFqScOYnxqDt64/bGnKFJGHoNJEhEJYmc+2rLb9Z4VP5ZsDX2S7Scj44Guadl\r\n3dsxEOQSR8r+xtd7a2lbwW6LJIbuTXOpGacG7CTqc7uMlREsyHyw22BVDtis\r\npmGWYdpai/J81arsa0hapjn4mB5eVZ2AeLjIbnVH3HGvJ8vb/xCT6fcLSxOm\r\nyobopa4nLuE6OS3nRAnVw59nTs7Q4l7s6XDRm3ZAwZqJ4VmsaGoLdMgpxTVn\r\nV1bhb7grcnbWp4iYtBmzD1y3Zxoi+6g+SzLWBpkDANhhaSnodciv0ulFjlFb\r\nOjah8ADZiGcD4SL0syrYyxsrzz5XzIntXY2eiD5t/WLR3KVSFYj3PVwJRhbs\r\n5UzQvGPF+mUuKhpVxHmZPWSALcJn6lXGFJo=\r\n=IUVO\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "pi0",
+        "email": "pyapar@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "antfu",
+          "email": "anthonyfu117@hotmail.com"
+        },
+        {
+          "name": "atinux",
+          "email": "atinux@gmail.com"
+        },
+        {
+          "name": "pi0",
+          "email": "pyapar@gmail.com"
+        },
+        {
+          "name": "clarkdo",
+          "email": "clark.duxin@gmail.com"
+        },
+        {
+          "name": "danielroe",
+          "email": "daniel@roe.dev"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/module-builder_0.2.0_1665862481264_0.6702336989476043"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.2.1": {
+      "name": "@nuxt/module-builder",
+      "version": "0.2.1",
+      "description": "Complete solution to build Nuxt Modules",
+      "license": "MIT",
+      "type": "module",
+      "exports": {
+        ".": {
+          "import": "./dist/index.mjs"
+        },
+        "./package.json": "./package.json"
+      },
+      "types": "./dist/index.d.ts",
+      "bin": {
+        "nuxt-build-module": "dist/cli.mjs",
+        "nuxt-module-build": "dist/cli.mjs"
+      },
+      "scripts": {
+        "build": "unbuild",
+        "example:build": "pnpm nuxt-module-build ./example",
+        "lint": "eslint --ext .ts,.js,.mjs .",
+        "nuxt-module-build": "jiti ./src/cli.ts",
+        "prepack": "pnpm build",
+        "release": "pnpm test && standard-version && git push --follow-tags && npm publish",
+        "test": "pnpm lint"
+      },
+      "dependencies": {
+        "consola": "^2.15.3",
+        "mlly": "^1.0.0",
+        "mri": "^1.2.0",
+        "pathe": "^1.0.0",
+        "unbuild": "^1.0.1"
+      },
+      "devDependencies": {
+        "@nuxt/kit": "^3.0.0-rc.13",
+        "@nuxt/schema": "^3.0.0-rc.13",
+        "@nuxtjs/eslint-config-typescript": "^11.0.0",
+        "@types/mri": "^1.1.1",
+        "@types/node": "^18.11.9",
+        "eslint": "^8.27.0",
+        "jiti": "^1.16.0",
+        "nuxt": "^3.0.0-rc.13",
+        "standard-version": "^9.5.0"
+      },
+      "gitHead": "588d4e0ce6f274e8a35908c60a4f086d238e6064",
+      "_id": "@nuxt/module-builder@0.2.1",
+      "_nodeVersion": "16.17.0",
+      "_npmVersion": "8.15.0",
+      "dist": {
+        "integrity": "sha512-Om8q08CO2joxiv9piTL+jcFUAL7nOZrrq9DedbA0PoRww1It1UnRs3Mijp0MfkFNyGHwWbSbmvbo3EhWmGdWUg==",
+        "shasum": "e74539b8cb97fc4dfa66cde74e7ceb68dc1832cb",
+        "tarball": "https://registry.npmjs.org/@nuxt/module-builder/-/module-builder-0.2.1.tgz",
+        "fileCount": 8,
+        "unpackedSize": 10777,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDwC6Ef8BwPlo7H41yOcMadqq3hsjOBg7pBdUmpnPHMMgIgV+XBbXmfYx5lZXWXL1wW7fPgjd2E3taPbYhjdw/9Agg="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJjdDZBACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmq0bg/9HhcWQau5TnRnrgibbnOmVn9iULcWmZWZ/LmOPMzRyrC+XG+S\r\n39i7VBvX/ii/YJtQd0g9/DPDv9M08QW5yqrUHDlZNIzZBzA3w6PKpS7nWEJc\r\n2KNfS6zspf+l0y4C3+8GyP95dGRc7RlrqMPfrWrqoqrgRRF3Y6AbtFvXBSH/\r\nOdWuFDSGXhWgi4mszMFxUdjp1WCX0eQaupMB0tW5PQI5n9FcuwCqa1GDbzof\r\n+B29RC36wbSLQYIPg/FB9Vq9QhuvZB56IhOwYETOjq3g7zxNU9dM+3jX6h2m\r\ndTTsB6oEkhbzGHHvunKqeCIBqoWt819r/gvd1nIgyPmfYsWr6meyX458/KSx\r\nw8gGbZoLwvLP1VAub9JSYpM+hSa+hZeGp1Hxf4LJQlUXfFH5UU6OjGHks+FU\r\n7DREbZX/3+YM/bvV7VRI8rvZv9G+PZYBlgIK6/6tTpobO8mabC7OOrV2L3un\r\nNO4X+/O9gy0na2TD5+tIWCBhUKk9an9WUq/3kQWosnpj9s3nkCFSI7F0Hhx2\r\nCHSuDYw67bu7cbTgK7O2mGMJsVfKpyREdGjrFmEQSjKJFhJ9Y7Q7nTj8GNoZ\r\ncmIQyWb8UUmTSja4k7AGtdgIhbAG8kcIW9md4y6s6MsSOUl3fPbyRIJ8tAJT\r\nPzSgH52+nzRGV0Ciwa2vJscazw+JB8EGwxk=\r\n=lcTD\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "pi0",
+        "email": "pyapar@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "antfu",
+          "email": "anthonyfu117@hotmail.com"
+        },
+        {
+          "name": "atinux",
+          "email": "atinux@gmail.com"
+        },
+        {
+          "name": "pi0",
+          "email": "pyapar@gmail.com"
+        },
+        {
+          "name": "clarkdo",
+          "email": "clark.duxin@gmail.com"
+        },
+        {
+          "name": "danielroe",
+          "email": "daniel@roe.dev"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/module-builder_0.2.1_1668560448766_0.7813121313338836"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.3.0": {
+      "name": "@nuxt/module-builder",
+      "version": "0.3.0",
+      "description": "Complete solution to build Nuxt Modules",
+      "license": "MIT",
+      "type": "module",
+      "exports": {
+        ".": {
+          "import": "./dist/index.mjs"
+        },
+        "./package.json": "./package.json"
+      },
+      "types": "./dist/index.d.ts",
+      "bin": {
+        "nuxt-build-module": "dist/cli.mjs",
+        "nuxt-module-build": "dist/cli.mjs"
+      },
+      "scripts": {
+        "build": "unbuild",
+        "example:build": "pnpm nuxt-module-build ./example",
+        "lint": "eslint --ext .ts,.js,.mjs .",
+        "nuxt-module-build": "jiti ./src/cli.ts",
+        "prepack": "pnpm build",
+        "release": "pnpm test && standard-version && git push --follow-tags && npm publish",
+        "test": "pnpm lint"
+      },
+      "dependencies": {
+        "consola": "^3.0.1",
+        "mlly": "^1.2.0",
+        "mri": "^1.2.0",
+        "pathe": "^1.1.0",
+        "unbuild": "^1.2.0"
+      },
+      "devDependencies": {
+        "@nuxt/kit": "^3.4.0",
+        "@nuxt/schema": "^3.4.0",
+        "@nuxtjs/eslint-config-typescript": "^12.0.0",
+        "@types/mri": "^1.1.1",
+        "@types/node": "^18.15.11",
+        "eslint": "^8.38.0",
+        "jiti": "^1.18.2",
+        "nuxt": "^3.4.0",
+        "standard-version": "^9.5.0"
+      },
+      "gitHead": "87b5dfcd7de6bf84fbe965dd763b6f8ff7e39bc3",
+      "_id": "@nuxt/module-builder@0.3.0",
+      "_nodeVersion": "18.12.1",
+      "_npmVersion": "8.19.2",
+      "dist": {
+        "integrity": "sha512-ocXA3pY5T3YKBLNE/Epgnh5cIIrad6vGP31gT7RorpFa7mtIqMxIPX/Z7RSQ7xnTvZW9sA1AxadjfhwHMEBhKg==",
+        "shasum": "77a756f9844a2bd6acd56280f9a27d8e32447936",
+        "tarball": "https://registry.npmjs.org/@nuxt/module-builder/-/module-builder-0.3.0.tgz",
+        "fileCount": 8,
+        "unpackedSize": 11772,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCr8tFEDtBdUhmgjm9mkxRcOjf4BbkWPXDu5al+Z5UGvgIhAOZKjtjdT+Qr4rG6EHJ58Z8qzRBU92f+t8P6+W7uQ3Am"
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkNcLwACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrBEw/9Gy+7LxMjek3HPdYCpEqfnxRLpNQVzKG2WknbzCzRa1wUczd9\r\n0O3rqpWAQS+WFO5NZ74/viDv6caz0vyjJNvF3shgorkYtAZ9bq8SgABSvKjb\r\nkNPS5/Rn8lhbUXVL+dhkkj2dRMdgfRLA160tMgSWa5ckpWzlqDaUM4pS09uk\r\nv8amuwEzFtzuEVwNMFTfyQaeziNfTtqUEqS2NlpBKv73Gc7mh6dR7Vsg7tqk\r\njGyISfyxd+iZHV1Gv9akFIcprjC6d6rI25xnfJZJM/S5Bs5JBJIEJl1zq3w3\r\nSPb03HMXLNOyWQwOoXVp3Upt3lL0qVdK0NRHV8JqWO7lOoi3ho+W4DN6SJa5\r\n61nu037LUkxNX5PPGJLIzfNYn/XbEVGHPLHnK0G7gNOAAoREKtoskWIZYqsr\r\nOi9XyT/8fFl+ocNNfl+TCe5meTF2v71+ntGnV3R8cLT2nOGhelAFLEhOP2/Y\r\nVgnf5JSfyTMSMM7dM2UExUvH/7wnctATD61eF76rP+Vpa/dxH3SOg7cdLkzV\r\nu5WfKmn+Io3RD3MsK/gwRbxwmPuQ/X47yDqZS226vh5mxLbbeAypn7lQD4jb\r\ni+H4ts3xR4bJQppgPxflvMhPEYIGbWstEwIW2qT+f1Xw7AWe+wpF877w6WBj\r\noUB1193kqw/quffHO4HNgPceWUd6fKAMzAk=\r\n=IRT/\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "danielroe",
+        "email": "daniel@roe.dev"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "antfu",
+          "email": "anthonyfu117@hotmail.com"
+        },
+        {
+          "name": "atinux",
+          "email": "atinux@gmail.com"
+        },
+        {
+          "name": "pi0",
+          "email": "pyapar@gmail.com"
+        },
+        {
+          "name": "clarkdo",
+          "email": "clark.duxin@gmail.com"
+        },
+        {
+          "name": "danielroe",
+          "email": "daniel@roe.dev"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/module-builder_0.3.0_1681244912388_0.22461190641900264"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.3.1": {
+      "name": "@nuxt/module-builder",
+      "version": "0.3.1",
+      "description": "Complete solution to build Nuxt Modules",
+      "license": "MIT",
+      "type": "module",
+      "exports": {
+        ".": {
+          "import": "./dist/index.mjs"
+        },
+        "./package.json": "./package.json"
+      },
+      "types": "./dist/index.d.ts",
+      "bin": {
+        "nuxt-build-module": "dist/cli.mjs",
+        "nuxt-module-build": "dist/cli.mjs"
+      },
+      "scripts": {
+        "build": "unbuild",
+        "example:build": "pnpm nuxt-module-build ./example",
+        "lint": "eslint --ext .ts,.js,.mjs .",
+        "nuxt-module-build": "jiti ./src/cli.ts",
+        "prepack": "pnpm build",
+        "release": "pnpm test && standard-version && git push --follow-tags && npm publish",
+        "test": "pnpm vitest"
+      },
+      "dependencies": {
+        "consola": "^3.1.0",
+        "mlly": "^1.2.0",
+        "mri": "^1.2.0",
+        "pathe": "^1.1.0",
+        "unbuild": "^1.2.1"
+      },
+      "devDependencies": {
+        "@nuxt/kit": "^3.4.3",
+        "@nuxt/schema": "^3.4.3",
+        "@nuxtjs/eslint-config-typescript": "^12.0.0",
+        "@types/mri": "^1.1.1",
+        "@types/node": "^18.16.3",
+        "@vitest/coverage-c8": "^0.30.1",
+        "eslint": "^8.39.0",
+        "jiti": "^1.18.2",
+        "nuxt": "^3.4.3",
+        "standard-version": "^9.5.0",
+        "vitest": "^0.30.1"
+      },
+      "gitHead": "88275286d6fbafeef7c895bf049787db86565d7e",
+      "_id": "@nuxt/module-builder@0.3.1",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-qH/F3SgIE4mobpAfJ6D9c6IqIrhEsiPM+aSdckyJgRGUbyU8urKqPR0d3DkGanN9mWy5Nk6Fwqon6jNKz97SRA==",
+        "shasum": "addf633082589fa3095535e36767b7cfa6ff0a97",
+        "tarball": "https://registry.npmjs.org/@nuxt/module-builder/-/module-builder-0.3.1.tgz",
+        "fileCount": 8,
+        "unpackedSize": 11927,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDQGCYOacjslmHZSaCW4yz9QCVJhXgRK96Iecfy7va7OAiEAzHkpDI38XOZO0iMq9tvuWpPkURJ6RpNMdJn2elGH2tg="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkUB/5ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmr8fw//UIUNa688MnGfosBfJjODIxMmWNx2Hk7zxB5XVSSKAigz+yew\r\nPzFuxn2OmZRWZgj2yb34SYLWzAUqUWPKWIZCC+bIBo+8LU29zWwGIVjbQnp4\r\nLh0+RKuaoeHhhWIIHYezY3nJK8+yb9H5HHLhcGX6JzpGvVKhS3DgWue6xxXL\r\nFmXEmsXg/WCeQXoxHqpx1tUuCNBESt75GA2hr5NMEP9eQm0VAb7TojBCQpJy\r\numxDaLbpeBF64H2fp8Nh5D+nY7Wz6Fpu92bgUMCA2HZxn6iZwqiA4MB3p5Ea\r\nF4NAk42RfZH3ePgTRo2o6on8wVFcwdgHF2LTlERhXCD464pCz6cWj0ysLBux\r\nKrxU1nX+05Ju6U9LkP8V84P4WPkVFWmG/TLC3K0y6PlUUPPPF7PClFN6uAfX\r\nlV4IDWfV4R4kjeDjOJD9+m9anF7JW83CJtKRFR51XKcfu9acoo/OG89SeC2W\r\nqaoEXhNG8aArjd9Jn/7tlpojgWBqW/qs9EOvok7/1U3Nptg+lUgge5myfsm5\r\nwAMRkjnPHhHxjrUyIi9sHf0Je4Q0ZMcw/8Uullgn9BVoOgsWJ3HrMzG1ACSN\r\nn5kys5gUo1pHhMfWmN1iBMjI+ODQ8zEeSGUcy6uocjHjepTg8UJ6P1nC2MX4\r\nwM59Uh2tzO9xTZPskw7oinYdb4ywFbKIxV4=\r\n=yf7Z\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "danielroe",
+        "email": "daniel@roe.dev"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "antfu",
+          "email": "anthonyfu117@hotmail.com"
+        },
+        {
+          "name": "atinux",
+          "email": "atinux@gmail.com"
+        },
+        {
+          "name": "pi0",
+          "email": "pyapar@gmail.com"
+        },
+        {
+          "name": "clarkdo",
+          "email": "clark.duxin@gmail.com"
+        },
+        {
+          "name": "danielroe",
+          "email": "daniel@roe.dev"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/module-builder_0.3.1_1682972665685_0.050270818786087856"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.4.0": {
+      "name": "@nuxt/module-builder",
+      "version": "0.4.0",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nuxt/module-builder.git"
+      },
+      "description": "Complete solution to build Nuxt Modules",
+      "license": "MIT",
+      "type": "module",
+      "exports": {
+        ".": {
+          "import": "./dist/index.mjs"
+        },
+        "./package.json": "./package.json"
+      },
+      "types": "./dist/index.d.ts",
+      "bin": {
+        "nuxt-build-module": "dist/cli.mjs",
+        "nuxt-module-build": "dist/cli.mjs"
+      },
+      "scripts": {
+        "build": "unbuild",
+        "example:build": "pnpm nuxt-module-build ./example",
+        "lint": "eslint --ext .ts,.js,.mjs .",
+        "nuxt-module-build": "JITI_ESM_RESOLVE=1 jiti ./src/cli.ts",
+        "prepack": "pnpm build",
+        "release": "pnpm test && standard-version && git push --follow-tags && npm publish",
+        "test": "pnpm vitest"
+      },
+      "packageManager": "pnpm@8.5.1",
+      "dependencies": {
+        "consola": "^3.1.0",
+        "mlly": "^1.3.0",
+        "mri": "^1.2.0",
+        "pathe": "^1.1.0",
+        "unbuild": "^1.2.1"
+      },
+      "peerDependencies": {
+        "@nuxt/kit": "^3.5.0",
+        "nuxi": "^3.5.0"
+      },
+      "devDependencies": {
+        "@nuxt/kit": "^3.5.1",
+        "@nuxt/schema": "^3.5.1",
+        "@nuxtjs/eslint-config-typescript": "^12.0.0",
+        "@types/mri": "^1.1.1",
+        "@types/node": "^20.1.3",
+        "@vitest/coverage-c8": "^0.31.1",
+        "eslint": "^8.41.0",
+        "jiti": "^1.18.2",
+        "nuxi": "^3.5.1",
+        "nuxt": "^3.5.1",
+        "standard-version": "^9.5.0",
+        "vitest": "^0.31.1"
+      },
+      "gitHead": "db9b8d02741c3bcd3919299b3d50db7c7816af6e",
+      "bugs": {
+        "url": "https://github.com/nuxt/module-builder/issues"
+      },
+      "homepage": "https://github.com/nuxt/module-builder#readme",
+      "_id": "@nuxt/module-builder@0.4.0",
+      "_nodeVersion": "20.1.0",
+      "_npmVersion": "9.6.4",
+      "dist": {
+        "integrity": "sha512-B+UAYgFV1Hkc2ZcD7GaiKZ3SNHhyxFlXzZoBWTc9ulE0Z/+rq6RTa9fNm13BZyGhVhDCl5FN/wF/yYa1O/D2iw==",
+        "shasum": "1ace36e1c44d07d410ae78e82bd1178d12800101",
+        "tarball": "https://registry.npmjs.org/@nuxt/module-builder/-/module-builder-0.4.0.tgz",
+        "fileCount": 7,
+        "unpackedSize": 12549,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDy8j6Gmjn3aePOEa52w+0nng2Qh34Kyi2QHH8xk50NZQIhAKDeQWaEYPBCYgjyDuVj5W/iwLAcEBqIOpkadycSqzPr"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "danielroe",
+        "email": "daniel@roe.dev"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "antfu",
+          "email": "anthonyfu117@hotmail.com"
+        },
+        {
+          "name": "atinux",
+          "email": "atinux@gmail.com"
+        },
+        {
+          "name": "pi0",
+          "email": "pyapar@gmail.com"
+        },
+        {
+          "name": "clarkdo",
+          "email": "clark.duxin@gmail.com"
+        },
+        {
+          "name": "danielroe",
+          "email": "daniel@roe.dev"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/module-builder_0.4.0_1685129607888_0.02415294567286974"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.5.0": {
+      "name": "@nuxt/module-builder",
+      "version": "0.5.0",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nuxt/module-builder.git"
+      },
+      "description": "Complete solution to build Nuxt Modules",
+      "license": "MIT",
+      "type": "module",
+      "exports": {
+        ".": {
+          "import": "./dist/index.mjs"
+        },
+        "./package.json": "./package.json"
+      },
+      "types": "./dist/index.d.ts",
+      "bin": {
+        "nuxt-build-module": "dist/cli.mjs",
+        "nuxt-module-build": "dist/cli.mjs"
+      },
+      "packageManager": "pnpm@8.7.0",
+      "dependencies": {
+        "consola": "^3.2.3",
+        "mlly": "^1.4.1",
+        "mri": "^1.2.0",
+        "pathe": "^1.1.1",
+        "unbuild": "^2.0.0"
+      },
+      "peerDependencies": {
+        "@nuxt/kit": "^3.7.0",
+        "nuxi": "^3.7.2"
+      },
+      "devDependencies": {
+        "@nuxt/kit": "^3.7.0",
+        "@nuxt/schema": "^3.7.0",
+        "@nuxtjs/eslint-config-typescript": "^12.0.0",
+        "@types/mri": "^1.1.1",
+        "@types/node": "^20.5.7",
+        "@vitest/coverage-v8": "^0.34.3",
+        "changelogen": "^0.5.5",
+        "eslint": "^8.48.0",
+        "jiti": "^1.19.3",
+        "nuxi": "^3.7.2",
+        "nuxt": "^3.7.0",
+        "vitest": "^0.34.3"
+      },
+      "scripts": {
+        "build": "unbuild",
+        "example:build": "pnpm nuxt-module-build ./example",
+        "lint": "eslint --ext .ts,.js,.mjs .",
+        "nuxt-module-build": "JITI_ESM_RESOLVE=1 jiti ./src/cli.ts",
+        "release": "pnpm vitest run && pnpm build && changelogen --release && pnpm publish && git push --follow-tags",
+        "test": "pnpm vitest"
+      },
+      "bugs": {
+        "url": "https://github.com/nuxt/module-builder/issues"
+      },
+      "homepage": "https://github.com/nuxt/module-builder#readme",
+      "_id": "@nuxt/module-builder@0.5.0",
+      "_integrity": "sha512-RTLZa+FY0QffqXXNAcrCB4ttEOhPcNTy845yHd+xP92AIq1I8DVNjJMRuKNQOw7bBzZkL6SJU8FgpRtr7fiKaQ==",
+      "_resolved": "/private/var/folders/48/0bsggqvn049_nfcq7msw2njw0000gn/T/2954f9e54dd4c19dae9f9e4184307e6d/nuxt-module-builder-0.5.0.tgz",
+      "_from": "file:nuxt-module-builder-0.5.0.tgz",
+      "_nodeVersion": "20.3.1",
+      "_npmVersion": "9.7.2",
+      "dist": {
+        "integrity": "sha512-RTLZa+FY0QffqXXNAcrCB4ttEOhPcNTy845yHd+xP92AIq1I8DVNjJMRuKNQOw7bBzZkL6SJU8FgpRtr7fiKaQ==",
+        "shasum": "56300e5586e9db66cd887521a399cea1418be998",
+        "tarball": "https://registry.npmjs.org/@nuxt/module-builder/-/module-builder-0.5.0.tgz",
+        "fileCount": 9,
+        "unpackedSize": 13469,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDCkm1H7mYBxTqibXTuq90Hv/oh5eSrWm3YWvnX3n/GXQIhAJyAVMjIW9f58qBUuyvyYB5HCT4nluQE1OB6wciodzGb"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "danielroe",
+        "email": "daniel@roe.dev"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "nuxtbot",
+          "email": "nuxtbot@roe.dev"
+        },
+        {
+          "name": "antfu",
+          "email": "anthonyfu117@hotmail.com"
+        },
+        {
+          "name": "atinux",
+          "email": "atinux@gmail.com"
+        },
+        {
+          "name": "pi0",
+          "email": "pyapar@gmail.com"
+        },
+        {
+          "name": "clarkdo",
+          "email": "clark.duxin@gmail.com"
+        },
+        {
+          "name": "danielroe",
+          "email": "daniel@roe.dev"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/module-builder_0.5.0_1693212511962_0.8214803472953238"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.5.1": {
+      "name": "@nuxt/module-builder",
+      "version": "0.5.1",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nuxt/module-builder.git"
+      },
+      "description": "Complete solution to build Nuxt Modules",
+      "license": "MIT",
+      "type": "module",
+      "exports": {
+        ".": {
+          "import": "./dist/index.mjs"
+        },
+        "./package.json": "./package.json"
+      },
+      "types": "./dist/index.d.ts",
+      "bin": {
+        "nuxt-build-module": "dist/cli.mjs",
+        "nuxt-module-build": "dist/cli.mjs"
+      },
+      "packageManager": "pnpm@8.7.0",
+      "dependencies": {
+        "consola": "^3.2.3",
+        "mlly": "^1.4.1",
+        "mri": "^1.2.0",
+        "pathe": "^1.1.1",
+        "unbuild": "^2.0.0"
+      },
+      "peerDependencies": {
+        "@nuxt/kit": "^3.7.0",
+        "nuxi": "^3.7.3"
+      },
+      "devDependencies": {
+        "@nuxt/kit": "^3.7.0",
+        "@nuxt/schema": "^3.7.0",
+        "@nuxtjs/eslint-config-typescript": "^12.1.0",
+        "@types/mri": "^1.1.1",
+        "@types/node": "^20.5.7",
+        "@vitest/coverage-v8": "^0.34.3",
+        "changelogen": "^0.5.5",
+        "eslint": "^8.48.0",
+        "jiti": "^1.19.3",
+        "nuxi": "^3.7.3",
+        "nuxt": "^3.7.0",
+        "vitest": "^0.34.3"
+      },
+      "scripts": {
+        "build": "unbuild",
+        "example:build": "pnpm nuxt-module-build ./example",
+        "lint": "eslint --ext .ts,.js,.mjs .",
+        "nuxt-module-build": "JITI_ESM_RESOLVE=1 jiti ./src/cli.ts",
+        "release": "pnpm vitest run && pnpm build && changelogen --release && pnpm publish && git push --follow-tags",
+        "test": "pnpm vitest"
+      },
+      "bugs": {
+        "url": "https://github.com/nuxt/module-builder/issues"
+      },
+      "homepage": "https://github.com/nuxt/module-builder#readme",
+      "_id": "@nuxt/module-builder@0.5.1",
+      "_integrity": "sha512-O39UrOFbNgL27urwDqeMgXeYiNIUvp73nsmtt7jm9JDcMVIWykuUzyBPYtHif7gq5ElzIjjmDw9zdRGgyMzo+w==",
+      "_resolved": "/private/var/folders/48/0bsggqvn049_nfcq7msw2njw0000gn/T/f8d81d2a02daf4760ab249e48b6c2d83/nuxt-module-builder-0.5.1.tgz",
+      "_from": "file:nuxt-module-builder-0.5.1.tgz",
+      "_nodeVersion": "20.3.1",
+      "_npmVersion": "9.7.2",
+      "dist": {
+        "integrity": "sha512-O39UrOFbNgL27urwDqeMgXeYiNIUvp73nsmtt7jm9JDcMVIWykuUzyBPYtHif7gq5ElzIjjmDw9zdRGgyMzo+w==",
+        "shasum": "bb619c561433fd258bd98c5d0950a5da2e03f2b5",
+        "tarball": "https://registry.npmjs.org/@nuxt/module-builder/-/module-builder-0.5.1.tgz",
+        "fileCount": 9,
+        "unpackedSize": 13581,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHa78YXS032oYkWeqaklXQqwYaatBBd1ELoO0mWVKVn/AiEA5hz7g8TxMMArG2d0A9Y48fF7mMuAvbXGs6YpmULtk8I="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "danielroe",
+        "email": "daniel@roe.dev"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "nuxtbot",
+          "email": "nuxtbot@roe.dev"
+        },
+        {
+          "name": "antfu",
+          "email": "anthonyfu117@hotmail.com"
+        },
+        {
+          "name": "atinux",
+          "email": "atinux@gmail.com"
+        },
+        {
+          "name": "pi0",
+          "email": "pyapar@gmail.com"
+        },
+        {
+          "name": "clarkdo",
+          "email": "clark.duxin@gmail.com"
+        },
+        {
+          "name": "danielroe",
+          "email": "daniel@roe.dev"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/module-builder_0.5.1_1693486216577_0.855846618520717"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.5.2": {
+      "name": "@nuxt/module-builder",
+      "version": "0.5.2",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nuxt/module-builder.git"
+      },
+      "description": "Complete solution for building Nuxt modules",
+      "license": "MIT",
+      "type": "module",
+      "exports": {
+        ".": {
+          "import": "./dist/index.mjs"
+        },
+        "./package.json": "./package.json"
+      },
+      "types": "./dist/index.d.ts",
+      "bin": {
+        "nuxt-build-module": "dist/cli.mjs",
+        "nuxt-module-build": "dist/cli.mjs"
+      },
+      "packageManager": "pnpm@8.8.0",
+      "dependencies": {
+        "citty": "^0.1.4",
+        "consola": "^3.2.3",
+        "mlly": "^1.4.2",
+        "pathe": "^1.1.1",
+        "unbuild": "^2.0.0"
+      },
+      "peerDependencies": {
+        "@nuxt/kit": "^3.7.4",
+        "nuxi": "^3.9.0"
+      },
+      "devDependencies": {
+        "@nuxt/kit": "^3.7.4",
+        "@nuxt/schema": "^3.7.4",
+        "@nuxtjs/eslint-config-typescript": "^12.1.0",
+        "@types/node": "^20.7.1",
+        "@vitest/coverage-v8": "^0.34.5",
+        "changelogen": "^0.5.5",
+        "eslint": "^8.50.0",
+        "jiti": "^1.20.0",
+        "nuxi": "^3.9.0",
+        "nuxt": "^3.7.4",
+        "vitest": "^0.34.5"
+      },
+      "scripts": {
+        "build": "unbuild",
+        "example:build": "pnpm nuxt-module-build ./example",
+        "lint": "eslint --ext .ts,.js,.mjs .",
+        "nuxt-module-build": "JITI_ESM_RESOLVE=1 jiti ./src/cli.ts",
+        "release": "pnpm vitest run && pnpm build && changelogen --release && pnpm publish && git push --follow-tags",
+        "test": "pnpm vitest"
+      },
+      "bugs": {
+        "url": "https://github.com/nuxt/module-builder/issues"
+      },
+      "homepage": "https://github.com/nuxt/module-builder#readme",
+      "_id": "@nuxt/module-builder@0.5.2",
+      "_integrity": "sha512-MsnPTsa94VNrzV76RKCDS0C96uaKw9s3EbTtabI/BkAXOD4Ud1w6m0O20XUdI9tmRtE8Kbgyr4XUhD/YB3eeAw==",
+      "_resolved": "/private/var/folders/6z/46zhtr8n22zg8nh3bp7cq7c40000gn/T/5b98462b32e7b8f480324bb2a15858e8/nuxt-module-builder-0.5.2.tgz",
+      "_from": "file:nuxt-module-builder-0.5.2.tgz",
+      "_nodeVersion": "20.7.0",
+      "_npmVersion": "10.1.0",
+      "dist": {
+        "integrity": "sha512-MsnPTsa94VNrzV76RKCDS0C96uaKw9s3EbTtabI/BkAXOD4Ud1w6m0O20XUdI9tmRtE8Kbgyr4XUhD/YB3eeAw==",
+        "shasum": "4951014b6a72cfc930dc7663067ba2cfa6f0ca1c",
+        "tarball": "https://registry.npmjs.org/@nuxt/module-builder/-/module-builder-0.5.2.tgz",
+        "fileCount": 11,
+        "unpackedSize": 15763,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCmwL01fmg2lUdFsKaQaiQnIJ45l6SSojynBKyrV5vYuAIgUZnhWY5u3xHlHfaXTCDLcrf5vxL4H/h2Wyh34IlpA0I="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "danielroe",
+        "email": "daniel@roe.dev"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "nuxtbot",
+          "email": "nuxtbot@roe.dev"
+        },
+        {
+          "name": "antfu",
+          "email": "anthonyfu117@hotmail.com"
+        },
+        {
+          "name": "atinux",
+          "email": "atinux@gmail.com"
+        },
+        {
+          "name": "pi0",
+          "email": "pyapar@gmail.com"
+        },
+        {
+          "name": "clarkdo",
+          "email": "clark.duxin@gmail.com"
+        },
+        {
+          "name": "danielroe",
+          "email": "daniel@roe.dev"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/module-builder_0.5.2_1695892795568_0.7749667193052889"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.5.3": {
+      "name": "@nuxt/module-builder",
+      "version": "0.5.3",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nuxt/module-builder.git"
+      },
+      "description": "Complete solution for building Nuxt modules",
+      "license": "MIT",
+      "type": "module",
+      "exports": {
+        ".": {
+          "import": "./dist/index.mjs"
+        },
+        "./package.json": "./package.json"
+      },
+      "types": "./dist/index.d.ts",
+      "bin": {
+        "nuxt-build-module": "dist/cli.mjs",
+        "nuxt-module-build": "dist/cli.mjs"
+      },
+      "packageManager": "pnpm@8.10.2",
+      "dependencies": {
+        "citty": "^0.1.4",
+        "consola": "^3.2.3",
+        "mlly": "^1.4.2",
+        "pathe": "^1.1.1",
+        "unbuild": "^2.0.0"
+      },
+      "peerDependencies": {
+        "@nuxt/kit": "^3.8.0",
+        "nuxi": "^3.9.1"
+      },
+      "devDependencies": {
+        "@nuxt/kit": "^3.8.0",
+        "@nuxt/schema": "^3.8.0",
+        "@nuxtjs/eslint-config-typescript": "^12.1.0",
+        "@types/node": "^20.8.10",
+        "@vitest/coverage-v8": "^0.34.6",
+        "changelogen": "^0.5.5",
+        "eslint": "^8.53.0",
+        "jiti": "^1.21.0",
+        "nuxi": "^3.9.1",
+        "nuxt": "^3.8.0",
+        "vitest": "^0.34.6"
+      },
+      "scripts": {
+        "build": "unbuild",
+        "example:build": "pnpm nuxt-module-build ./example",
+        "lint": "eslint --ext .ts,.js,.mjs .",
+        "nuxt-module-build": "JITI_ESM_RESOLVE=1 jiti ./src/cli.ts",
+        "release": "pnpm vitest run && pnpm build && changelogen --release && pnpm publish && git push --follow-tags",
+        "test": "pnpm vitest"
+      },
+      "bugs": {
+        "url": "https://github.com/nuxt/module-builder/issues"
+      },
+      "homepage": "https://github.com/nuxt/module-builder#readme",
+      "_id": "@nuxt/module-builder@0.5.3",
+      "_integrity": "sha512-iKQHuZb8/IXzTW2CqrIlsmzBuSaM9vISTGM0+KxbBPSG5JCy5MtWbmxPIw1jgac1g/B2ZkBhOCXOxGTecCHTRQ==",
+      "_resolved": "/private/var/folders/6z/46zhtr8n22zg8nh3bp7cq7c40000gn/T/7f05e46c3233e7a4e020000006c376cb/nuxt-module-builder-0.5.3.tgz",
+      "_from": "file:nuxt-module-builder-0.5.3.tgz",
+      "_nodeVersion": "20.9.0",
+      "_npmVersion": "10.1.0",
+      "dist": {
+        "integrity": "sha512-iKQHuZb8/IXzTW2CqrIlsmzBuSaM9vISTGM0+KxbBPSG5JCy5MtWbmxPIw1jgac1g/B2ZkBhOCXOxGTecCHTRQ==",
+        "shasum": "5424753c4a264dc68b83a86af57bda858e26a7a8",
+        "tarball": "https://registry.npmjs.org/@nuxt/module-builder/-/module-builder-0.5.3.tgz",
+        "fileCount": 11,
+        "unpackedSize": 15822,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICcQHbUFl2Y8YHUUFF6NIAB5piH+IpGT65LvNvbdfk2FAiEAv/9f4uiQazTHWMCsCfHbwVf3Q5WSDTbJYSYryo751rU="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "danielroe",
+        "email": "daniel@roe.dev"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "nuxtbot",
+          "email": "nuxtbot@roe.dev"
+        },
+        {
+          "name": "antfu",
+          "email": "anthonyfu117@hotmail.com"
+        },
+        {
+          "name": "atinux",
+          "email": "atinux@gmail.com"
+        },
+        {
+          "name": "pi0",
+          "email": "pyapar@gmail.com"
+        },
+        {
+          "name": "clarkdo",
+          "email": "clark.duxin@gmail.com"
+        },
+        {
+          "name": "danielroe",
+          "email": "daniel@roe.dev"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/module-builder_0.5.3_1699270292804_0.7265203832544707"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.5.4": {
+      "name": "@nuxt/module-builder",
+      "version": "0.5.4",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nuxt/module-builder.git"
+      },
+      "description": "Complete solution for building Nuxt modules",
+      "license": "MIT",
+      "type": "module",
+      "exports": {
+        ".": {
+          "import": "./dist/index.mjs"
+        },
+        "./package.json": "./package.json"
+      },
+      "types": "./dist/index.d.ts",
+      "bin": {
+        "nuxt-build-module": "dist/cli.mjs",
+        "nuxt-module-build": "dist/cli.mjs"
+      },
+      "packageManager": "pnpm@8.10.2",
+      "dependencies": {
+        "citty": "^0.1.4",
+        "consola": "^3.2.3",
+        "mlly": "^1.4.2",
+        "pathe": "^1.1.1",
+        "unbuild": "^2.0.0"
+      },
+      "peerDependencies": {
+        "@nuxt/kit": "^3.8.1",
+        "nuxi": "^3.9.1"
+      },
+      "devDependencies": {
+        "@nuxt/kit": "^3.8.1",
+        "@nuxt/schema": "^3.8.1",
+        "@nuxtjs/eslint-config-typescript": "^12.1.0",
+        "@types/node": "^20.9.0",
+        "@vitest/coverage-v8": "^0.34.6",
+        "changelogen": "^0.5.5",
+        "eslint": "^8.53.0",
+        "jiti": "^1.21.0",
+        "nuxi": "^3.9.1",
+        "nuxt": "^3.8.1",
+        "vitest": "^0.34.6"
+      },
+      "scripts": {
+        "build": "unbuild",
+        "example:build": "pnpm nuxt-module-build ./example",
+        "lint": "eslint --ext .ts,.js,.mjs .",
+        "nuxt-module-build": "JITI_ESM_RESOLVE=1 jiti ./src/cli.ts",
+        "release": "pnpm vitest run && pnpm build && changelogen --release && pnpm publish && git push --follow-tags",
+        "test": "pnpm vitest"
+      },
+      "bugs": {
+        "url": "https://github.com/nuxt/module-builder/issues"
+      },
+      "homepage": "https://github.com/nuxt/module-builder#readme",
+      "_id": "@nuxt/module-builder@0.5.4",
+      "_integrity": "sha512-lCPh8s8LSfYqHgIMMsctDhz+AX1z6TnATkUes/GXc/No4kApC0zmJkQWrbtDRjmsWjElwl1kE7l7OzYdYc3d4w==",
+      "_resolved": "/private/var/folders/6z/46zhtr8n22zg8nh3bp7cq7c40000gn/T/2af17f704dcdcb979df2468bae2e3807/nuxt-module-builder-0.5.4.tgz",
+      "_from": "file:nuxt-module-builder-0.5.4.tgz",
+      "_nodeVersion": "20.9.0",
+      "_npmVersion": "10.1.0",
+      "dist": {
+        "integrity": "sha512-lCPh8s8LSfYqHgIMMsctDhz+AX1z6TnATkUes/GXc/No4kApC0zmJkQWrbtDRjmsWjElwl1kE7l7OzYdYc3d4w==",
+        "shasum": "46cc6e7434f6e53b33ea5796a6117652128d2ef3",
+        "tarball": "https://registry.npmjs.org/@nuxt/module-builder/-/module-builder-0.5.4.tgz",
+        "fileCount": 11,
+        "unpackedSize": 16205,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICSUayw4GcIR1ybdZ60CSQ/hOazMkJKLzLNiiqSguyryAiB8orlPBGQ+r0OnBLKRpCaIeA3q3KbG0N108xnh7+TK+w=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "danielroe",
+        "email": "daniel@roe.dev"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "nuxtbot",
+          "email": "nuxtbot@roe.dev"
+        },
+        {
+          "name": "antfu",
+          "email": "anthonyfu117@hotmail.com"
+        },
+        {
+          "name": "atinux",
+          "email": "atinux@gmail.com"
+        },
+        {
+          "name": "pi0",
+          "email": "pyapar@gmail.com"
+        },
+        {
+          "name": "clarkdo",
+          "email": "clark.duxin@gmail.com"
+        },
+        {
+          "name": "danielroe",
+          "email": "daniel@roe.dev"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/module-builder_0.5.4_1699445438189_0.37106931506214025"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.5.5": {
+      "name": "@nuxt/module-builder",
+      "version": "0.5.5",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nuxt/module-builder.git"
+      },
+      "description": "Complete solution for building Nuxt modules",
+      "license": "MIT",
+      "type": "module",
+      "exports": {
+        ".": {
+          "import": "./dist/index.mjs"
+        },
+        "./package.json": "./package.json"
+      },
+      "types": "./dist/index.d.ts",
+      "bin": {
+        "nuxt-build-module": "dist/cli.mjs",
+        "nuxt-module-build": "dist/cli.mjs"
+      },
+      "packageManager": "pnpm@8.12.1",
+      "dependencies": {
+        "citty": "^0.1.5",
+        "consola": "^3.2.3",
+        "mlly": "^1.4.2",
+        "pathe": "^1.1.1",
+        "unbuild": "^2.0.0"
+      },
+      "peerDependencies": {
+        "@nuxt/kit": "^3.8.2",
+        "nuxi": "^3.10.0"
+      },
+      "devDependencies": {
+        "@nuxt/kit": "^3.8.2",
+        "@nuxt/schema": "^3.8.2",
+        "@nuxtjs/eslint-config-typescript": "^12.1.0",
+        "@types/node": "^20.10.5",
+        "@vitest/coverage-v8": "^1.1.0",
+        "changelogen": "^0.5.5",
+        "eslint": "^8.56.0",
+        "jiti": "^1.21.0",
+        "nuxi": "^3.10.0",
+        "nuxt": "^3.8.2",
+        "vitest": "^1.1.0"
+      },
+      "scripts": {
+        "build": "unbuild",
+        "example:build": "pnpm nuxt-module-build build ./example",
+        "lint": "eslint --ext .ts,.js,.mjs .",
+        "nuxt-module-build": "JITI_ESM_RESOLVE=1 jiti ./src/cli.ts",
+        "release": "pnpm vitest run && pnpm build && changelogen --release && pnpm publish && git push --follow-tags",
+        "test": "pnpm vitest",
+        "test:types": "tsc --noEmit && pnpm -r test:types"
+      },
+      "bugs": {
+        "url": "https://github.com/nuxt/module-builder/issues"
+      },
+      "homepage": "https://github.com/nuxt/module-builder#readme",
+      "_id": "@nuxt/module-builder@0.5.5",
+      "_integrity": "sha512-ifFfwA1rbSXSae25RmqA2kAbV3xoShZNrq1yK8VXB/EnIcDn4WiaYR1PytaSxIt5zsvWPn92BJXiIUBiMQZ0hw==",
+      "_resolved": "/private/var/folders/48/0bsggqvn049_nfcq7msw2njw0000gn/T/03390ba37d195a5ffac8eaed2c457d7a/nuxt-module-builder-0.5.5.tgz",
+      "_from": "file:nuxt-module-builder-0.5.5.tgz",
+      "_nodeVersion": "20.3.1",
+      "_npmVersion": "9.7.2",
+      "dist": {
+        "integrity": "sha512-ifFfwA1rbSXSae25RmqA2kAbV3xoShZNrq1yK8VXB/EnIcDn4WiaYR1PytaSxIt5zsvWPn92BJXiIUBiMQZ0hw==",
+        "shasum": "7b45e239250884e1382fd0ec8fd43e06d6b21303",
+        "tarball": "https://registry.npmjs.org/@nuxt/module-builder/-/module-builder-0.5.5.tgz",
+        "fileCount": 11,
+        "unpackedSize": 16797,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIB7AABJHuLd0MUQ/M+vtWIBm6rjaQBdpCcYaXn7GpRIRAiEA/g5r+bMwFSllKpBxJEhJpGq3JOK2mbcsMarnzaMKZjI="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "danielroe",
+        "email": "daniel@roe.dev"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "nuxtbot",
+          "email": "nuxtbot@roe.dev"
+        },
+        {
+          "name": "antfu",
+          "email": "anthonyfu117@hotmail.com"
+        },
+        {
+          "name": "atinux",
+          "email": "atinux@gmail.com"
+        },
+        {
+          "name": "pi0",
+          "email": "pyapar@gmail.com"
+        },
+        {
+          "name": "clarkdo",
+          "email": "clark.duxin@gmail.com"
+        },
+        {
+          "name": "danielroe",
+          "email": "daniel@roe.dev"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/module-builder_0.5.5_1703622669872_0.8895582992582902"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2021-12-03T10:42:50.550Z",
+    "0.0.0": "2021-12-03T10:42:50.770Z",
+    "modified": "2023-12-26T20:31:10.367Z",
+    "0.1.1": "2021-12-23T21:20:23.775Z",
+    "0.1.2": "2021-12-23T21:21:28.057Z",
+    "0.1.3": "2022-01-17T17:30:43.733Z",
+    "0.1.4": "2022-01-17T18:23:57.448Z",
+    "0.1.5": "2022-01-17T21:14:04.386Z",
+    "0.1.6": "2022-01-17T21:17:51.966Z",
+    "0.1.7": "2022-01-18T16:52:14.168Z",
+    "0.2.0": "2022-10-15T19:34:41.446Z",
+    "0.2.1": "2022-11-16T01:00:48.995Z",
+    "0.3.0": "2023-04-11T20:28:32.535Z",
+    "0.3.1": "2023-05-01T20:24:25.855Z",
+    "0.4.0": "2023-05-26T19:33:28.108Z",
+    "0.5.0": "2023-08-28T08:48:32.107Z",
+    "0.5.1": "2023-08-31T12:50:16.714Z",
+    "0.5.2": "2023-09-28T09:19:55.785Z",
+    "0.5.3": "2023-11-06T11:31:33.044Z",
+    "0.5.4": "2023-11-08T12:10:38.384Z",
+    "0.5.5": "2023-12-26T20:31:10.045Z"
+  },
+  "maintainers": [
+    {
+      "name": "nuxtbot",
+      "email": "nuxtbot@roe.dev"
+    },
+    {
+      "name": "antfu",
+      "email": "anthonyfu117@hotmail.com"
+    },
+    {
+      "name": "atinux",
+      "email": "atinux@gmail.com"
+    },
+    {
+      "name": "pi0",
+      "email": "pyapar@gmail.com"
+    },
+    {
+      "name": "clarkdo",
+      "email": "clark.duxin@gmail.com"
+    },
+    {
+      "name": "danielroe",
+      "email": "daniel@roe.dev"
+    }
+  ],
+  "description": "Complete solution for building Nuxt modules",
+  "license": "MIT",
+  "readme": "# 📦 Nuxt Module Builder\n\n[![npm version][npm-version-src]][npm-version-href]\n[![License][license-src]][license-href]\n[![npm downloads][npm-downloads-src]][npm-downloads-href]\n<a href=\"https://volta.net/nuxt/module-builder?utm_source=nuxt_module_builder_readme\"><img src=\"https://user-images.githubusercontent.com/904724/209143798-32345f6c-3cf8-4e06-9659-f4ace4a6acde.svg\" alt=\"Volta board\"></a>\n\n> The complete solution to build and ship [Nuxt modules](https://nuxt.com/modules).\n\n## Features\n\n- Compatible with Nuxt 3 and Nuxt Kit\n- Unified build with [unjs/unbuild](https://github.com/unjs/unbuild)\n- Automated build config using last module spec\n- Typescript and ESM support\n- Auto generated CommonJS stubs\n- Auto generated types and shims for `@nuxt/schema`\n\nWe recommend to checkout the [Nuxt modules author guide](https://nuxt.com/docs/guide/going-further/modules) before starting with the module-builder.\n\n## Requirements\n\nFor a user to use a module generated from module-builder, it's recommended they have:\n- Node.js >= 16.x. _Latest Node LTS preferred_\n- Nuxt 3 or Nuxt Bridge. _Nuxt 2 is functional but not advised_\n\n## Quick start\n\nGet started with our [module starter](https://github.com/nuxt/starter/tree/module):\n\n```bash\nnpx nuxi init -t module my-module\n```\n\n## Project structure\n\nThe module builder requires a special project structure. You can check out the [module template](https://github.com/nuxt/starter/tree/module).\n\n### `src/module.ts`\n\nThe entrypoint for module definition.\n\nA default export using `defineNuxtModule` and `ModuleOptions` type export is expected.\n\nYou could also optionally export `ModuleHooks` or `ModuleRuntimeHooks` to annotate any custom hooks the module uses.\n\n```ts [src/module.ts]\nimport { defineNuxtModule } from '@nuxt/kit'\n\nexport interface ModuleOptions {\n  apiKey: string\n}\n\nexport interface ModuleHooks {\n  'my-module:init': any\n}\n\nexport interface ModuleRuntimeHooks {\n  'my-module:runtime-hook': any\n}\n\nexport interface ModuleRuntimeConfig {\n  PRIVATE_NAME: string\n}\n\nexport interface ModulePublicRuntimeConfig {\n  NAME: string\n}\n\nexport default defineNuxtModule<ModuleOptions>({\n  meta: {\n    name: 'my-module',\n    configKey: 'myModule'\n  },\n  defaults: {\n    apiKey: 'test'\n  },\n  async setup (moduleOptions, nuxt) {\n    // Write module logic in setup function\n  }\n})\n```\n\n### `src/runtime/`\n\nAny runtime file and code that we need to provide by module including plugins, composables and server api, should be in this directory.\n\nEach file will be transformed individually using [unjs/mkdist](https://github.com/unjs/mkdist) to `dist/runtime/`.\n\n<!-- TODO: Docs about how to address runtime from within setup -->\n\n### `package.json`:\n\nA minimum `package.json` should look like this:\n\n```json [package.json]\n{\n  \"name\": \"my-module\",\n  \"license\": \"MIT\",\n  \"version\": \"1.0.0\",\n  \"exports\": {\n    \".\": {\n      \"import\": \"./dist/module.mjs\",\n      \"require\": \"./dist/module.cjs\"\n    }\n  },\n  \"main\": \"./dist/module.cjs\",\n  \"types\": \"./dist/types.d.ts\",\n  \"files\": [\n    \"dist\"\n  ],\n  \"scripts\": {\n    \"prepack\": \"nuxt-module-build\"\n  },\n  \"dependencies\": {\n    \"@nuxt/kit\": \"npm:@nuxt/kit-edge@latest\"\n  },\n  \"devDependencies\": {\n    \"@nuxt/module-builder\": \"latest\"\n  }\n}\n```\n\n## Dist files\n\nModule builder generates dist files in `dist/` directory:\n\n- `module.mjs`: Module entrypoint build from `src/module`\n- `module.json`: Module meta extracted from `module.mjs` + `package.json`\n- `module.cjs`: ESM proxy to allow require module in CommonJS context\n- `types.d.ts`: Exported types in addition to shims for `nuxt.config` auto completion.\n- `runtime/*`: Individually transformed files using [unjs/mkdist](https://github.com/unjs/mkdist)\n  - Javascript and `.ts` files will be transformed to `.mjs` with extracted types on `.d.ts` file with same name\n  - `.vue` files will be transformed with extracted `.d.ts` file\n  - Other files will be copied as is\n\n## 💻 Development\n\n- Clone repository\n- Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`\n- Install dependencies using `pnpm install`\n- Try building [example module](./example) using `pnpm example:build`\n\n## License\n\n[MIT](./LICENSE) - Made with 💚\n\n<!-- Badges -->\n[npm-version-src]: https://img.shields.io/npm/v/@nuxt/module-builder/latest.svg?style=flat&colorA=18181B&colorB=28CF8D\n[npm-version-href]: https://npmjs.com/package/@nuxt/module-builder\n\n[npm-downloads-src]: https://img.shields.io/npm/dt/@nuxt/module-builder.svg?style=flat&colorA=18181B&colorB=28CF8D\n[npm-downloads-href]: https://npmjs.com/package/@nuxt/module-builder\n\n[license-src]: https://img.shields.io/github/license/nuxt/module-builder.svg?style=flat&colorA=18181B&colorB=28CF8D\n[license-href]: https://github.com/nuxt/module-builder/blob/main/LICENSE\n",
+  "readmeFilename": "README.md",
+  "users": {
+    "flumpus-dev": true
+  },
+  "homepage": "https://github.com/nuxt/module-builder#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nuxt/module-builder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nuxt/module-builder/issues"
+  }
+}
