@@ -1,0 +1,830 @@
+{
+  "_id": "babel-plugin-annotate-pure-calls",
+  "_rev": "9-c4fe64dd5da4da1b8af294a5d0ee19b5",
+  "name": "babel-plugin-annotate-pure-calls",
+  "dist-tags": {
+    "latest": "0.4.0",
+    "babel7": "0.3.0-beta.0"
+  },
+  "versions": {
+    "0.0.1": {
+      "name": "babel-plugin-annotate-pure-calls",
+      "version": "0.0.1",
+      "description": "",
+      "main": "index.js",
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Andarist/babel-plugin-annotate-pure-calls.git"
+      },
+      "keywords": [
+        "babel",
+        "plugin",
+        "pure",
+        "side-effects",
+        "uglifyjs"
+      ],
+      "author": "",
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/Andarist/babel-plugin-annotate-pure-calls/issues"
+      },
+      "homepage": "https://github.com/Andarist/babel-plugin-annotate-pure-calls#readme",
+      "gitHead": "a69aa5b8fbd3e5b079434b9afcc5a6b8eae5ce44",
+      "_id": "babel-plugin-annotate-pure-calls@0.0.1",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.4.0",
+      "_npmUser": {
+        "name": "andarist",
+        "email": "mateuszburzynski@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-6ICEq8Z51zYQ6MjevscUfGT2NSwPW8fLkqgb1hE1E59bl+1VI0I/dLX9zfweObAukpF3u8OYbKWyD9Fj1PDm8g==",
+        "shasum": "e7222755fe4d7a789986be1d4f4dd3c0370c055a",
+        "tarball": "https://registry.npmjs.org/babel-plugin-annotate-pure-calls/-/babel-plugin-annotate-pure-calls-0.0.1.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDMs4ZCGUHZaXH3OXj+DvPjA2HkF8qXHKK8iMv/TLkIbwIgAnZdk4NUSoJ28XuGunTyq+NrP67Jn+61xbU2J+AgY3s="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "andarist",
+          "email": "mateuszburzynski@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-annotate-pure-calls-0.0.1.tgz_1506064780965_0.6405123120639473"
+      },
+      "directories": {}
+    },
+    "0.1.0": {
+      "name": "babel-plugin-annotate-pure-calls",
+      "version": "0.1.0",
+      "description": "Babel plugin for annotating automatically pure function calls.",
+      "author": {
+        "name": "Mateusz Burzyński",
+        "email": "mateuszburzynski@gmail.com",
+        "url": "https://github.com/Andarist"
+      },
+      "license": "MIT",
+      "main": "lib/index.js",
+      "files": [
+        "lib"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Andarist/babel-plugin-annotate-pure-calls.git"
+      },
+      "keywords": [
+        "babel",
+        "plugin",
+        "pure",
+        "side-effects",
+        "uglifyjs"
+      ],
+      "bugs": {
+        "url": "https://github.com/Andarist/babel-plugin-annotate-pure-calls/issues"
+      },
+      "homepage": "https://github.com/Andarist/babel-plugin-annotate-pure-calls#readme",
+      "dependencies": {
+        "babel-plugin-syntax-dynamic-import": "^6.18.0"
+      },
+      "peerDependencies": {
+        "babel-core": "6"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-helper-plugin-test-runner": "^6.24.1",
+        "babel-jest": "^21.0.2",
+        "babel-preset-env": "^1.6.0",
+        "husky": "^0.14.3",
+        "jest": "^21.1.0",
+        "lint-staged": "^4.2.2",
+        "prettier": "^1.7.0"
+      },
+      "scripts": {
+        "build": "babel src --out-dir lib",
+        "self-link": "npm link && npm link $npm_package_name",
+        "pretest": "if [ ! -d ./node_modules/$npm_package_name ]; then npm run self-link; else npm run build; fi",
+        "test": "jest",
+        "test-only": "jest",
+        "precommit": "lint-staged",
+        "prepare": "npm run build",
+        "prepublish": "test $(npm -v | tr . '\\n' | head -n 1) -ge '4' || exit 1",
+        "prerelease": "npm run prepare && npm test",
+        "release:patch": "npm run prerelease && npm version patch && git push --follow-tags && npm publish",
+        "release:minor": "npm run prerelease && npm version minor && git push --follow-tags && npm publish",
+        "release:major": "npm run prerelease && npm version major && git push --follow-tags && npm publish"
+      },
+      "gitHead": "ef142e116cabefbc1cda9da4f232e3e1031e5fe5",
+      "_id": "babel-plugin-annotate-pure-calls@0.1.0",
+      "_npmVersion": "5.4.2",
+      "_nodeVersion": "8.4.0",
+      "_npmUser": {
+        "name": "andarist",
+        "email": "mateuszburzynski@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-wAZVfDcFJYlS5o7ZLq2bDNfQf9uwQbYMJ6/AaC+Qma+YPdIq9+YdibPWqBiNVkf7YTZv9ze0JhSlPbpAyo1l1Q==",
+        "shasum": "3564ca40ca3c3fcfb43300a0a609f8f774cf2364",
+        "tarball": "https://registry.npmjs.org/babel-plugin-annotate-pure-calls/-/babel-plugin-annotate-pure-calls-0.1.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDGDsS+USTw//wJdP/tBCyFOXaW3ay4eBKTwmjSq/N4YAIgI2BJOU8maeC4LQFjkbmTf1AJCUdHHtuIDmynSsg66AI="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "andarist",
+          "email": "mateuszburzynski@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-annotate-pure-calls-0.1.0.tgz_1506208942807_0.06014441349543631"
+      },
+      "directories": {}
+    },
+    "0.1.1": {
+      "name": "babel-plugin-annotate-pure-calls",
+      "version": "0.1.1",
+      "description": "Babel plugin for annotating automatically pure function calls.",
+      "author": {
+        "name": "Mateusz Burzyński",
+        "email": "mateuszburzynski@gmail.com",
+        "url": "https://github.com/Andarist"
+      },
+      "license": "MIT",
+      "main": "lib/index.js",
+      "files": [
+        "lib"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Andarist/babel-plugin-annotate-pure-calls.git"
+      },
+      "keywords": [
+        "babel",
+        "plugin",
+        "pure",
+        "side-effects",
+        "uglifyjs"
+      ],
+      "bugs": {
+        "url": "https://github.com/Andarist/babel-plugin-annotate-pure-calls/issues"
+      },
+      "homepage": "https://github.com/Andarist/babel-plugin-annotate-pure-calls#readme",
+      "dependencies": {
+        "babel-plugin-syntax-dynamic-import": "^6.18.0"
+      },
+      "peerDependencies": {
+        "babel-core": "6"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-helper-plugin-test-runner": "^6.24.1",
+        "babel-jest": "^21.0.2",
+        "babel-preset-env": "^1.6.0",
+        "husky": "^0.14.3",
+        "jest": "^21.1.0",
+        "lint-staged": "^4.2.2",
+        "prettier": "^1.7.0"
+      },
+      "scripts": {
+        "build": "babel src --out-dir lib",
+        "self-link": "npm link && npm link $npm_package_name",
+        "pretest": "if [ ! -d ./node_modules/$npm_package_name ]; then npm run self-link; else npm run build; fi",
+        "test": "jest",
+        "test-only": "jest",
+        "precommit": "lint-staged",
+        "prepare": "npm run build",
+        "prepublish": "test $(npm -v | tr . '\\n' | head -n 1) -ge '4' || exit 1",
+        "prerelease": "npm run prepare && npm test",
+        "release:patch": "npm run prerelease && npm version patch && git push --follow-tags && npm publish",
+        "release:minor": "npm run prerelease && npm version minor && git push --follow-tags && npm publish",
+        "release:major": "npm run prerelease && npm version major && git push --follow-tags && npm publish"
+      },
+      "gitHead": "7f1af9d746a2c72fa9432e952af96c1e29c9b675",
+      "_id": "babel-plugin-annotate-pure-calls@0.1.1",
+      "_npmVersion": "5.4.2",
+      "_nodeVersion": "8.4.0",
+      "_npmUser": {
+        "name": "andarist",
+        "email": "mateuszburzynski@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-n6ZDp0cS/mLKf5iEIq8ezhc7jtbDBw+sKCJom631ZZac6/tb7BhzRT9InyiGutyooeb4rcDyZ9IuFkg46gwimw==",
+        "shasum": "a084b5d444defc6be34f3ea17bbe742de3b1c140",
+        "tarball": "https://registry.npmjs.org/babel-plugin-annotate-pure-calls/-/babel-plugin-annotate-pure-calls-0.1.1.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCLjrFjcH8NjZJwnFGV4bHAVEkYICvKW8+kyxiBEGGCHwIhAOft5H8C07tnRhi8OMZPYOGsJ41Q8mXSllSseMIN9WGp"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "andarist",
+          "email": "mateuszburzynski@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-annotate-pure-calls-0.1.1.tgz_1506244134601_0.7474949476309121"
+      },
+      "directories": {}
+    },
+    "0.2.0": {
+      "name": "babel-plugin-annotate-pure-calls",
+      "version": "0.2.0",
+      "description": "Babel plugin for annotating automatically pure function calls.",
+      "author": {
+        "name": "Mateusz Burzyński",
+        "email": "mateuszburzynski@gmail.com",
+        "url": "https://github.com/Andarist"
+      },
+      "license": "MIT",
+      "main": "lib/index.js",
+      "files": [
+        "lib"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Andarist/babel-plugin-annotate-pure-calls.git"
+      },
+      "keywords": [
+        "babel",
+        "plugin",
+        "pure",
+        "side-effects",
+        "uglifyjs"
+      ],
+      "bugs": {
+        "url": "https://github.com/Andarist/babel-plugin-annotate-pure-calls/issues"
+      },
+      "homepage": "https://github.com/Andarist/babel-plugin-annotate-pure-calls#readme",
+      "dependencies": {
+        "babel-plugin-syntax-dynamic-import": "^6.18.0"
+      },
+      "peerDependencies": {
+        "babel-core": "6"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-helper-plugin-test-runner": "^6.24.1",
+        "babel-jest": "^21.0.2",
+        "babel-preset-env": "^1.6.0",
+        "husky": "^0.14.3",
+        "jest": "^21.1.0",
+        "lint-staged": "^4.2.2",
+        "prettier": "^1.7.0"
+      },
+      "scripts": {
+        "build": "babel src --out-dir lib",
+        "self-link": "npm link && npm link $npm_package_name",
+        "pretest": "if [ ! -d ./node_modules/$npm_package_name ]; then npm run self-link; else npm run build; fi",
+        "test": "jest",
+        "test-only": "jest",
+        "precommit": "lint-staged",
+        "prepare": "npm run build",
+        "prepublish": "test $(npm -v | tr . '\\n' | head -n 1) -ge '4' || exit 1",
+        "prerelease": "npm run prepare && npm test",
+        "release:patch": "npm run prerelease && npm version patch && npm publish && git push --follow-tags",
+        "release:minor": "npm run prerelease && npm version minor && npm publish && git push --follow-tags",
+        "release:major": "npm run prerelease && npm version major && npm publish && git push --follow-tags"
+      },
+      "gitHead": "8c6697289743528c52e7e4221acf8153f6ce89cc",
+      "_id": "babel-plugin-annotate-pure-calls@0.2.0",
+      "_npmVersion": "5.4.2",
+      "_nodeVersion": "8.4.0",
+      "_npmUser": {
+        "name": "andarist",
+        "email": "mateuszburzynski@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-gj6zqCGZOGb4oIVGcuxYLha8mhG5ZHdaBSnEoATF3Rf21CnptKCdYs4EZS1hV5OhQhDj6MM9YCpKnlxxC9Tclw==",
+        "shasum": "4224fbaa1f5ff689dac3956846a1db562e506db8",
+        "tarball": "https://registry.npmjs.org/babel-plugin-annotate-pure-calls/-/babel-plugin-annotate-pure-calls-0.2.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDDsH6W/qChj9m+6Vmyzi0CQYSr1jsvHIx8Xl1lwigeqQIhAOmV7AviwMS2B2ln4BwJp5oki/DScHqu5m9DtV/VCRA1"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "andarist",
+          "email": "mateuszburzynski@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-annotate-pure-calls-0.2.0.tgz_1506790299789_0.6442352177109569"
+      },
+      "directories": {}
+    },
+    "0.2.1": {
+      "name": "babel-plugin-annotate-pure-calls",
+      "version": "0.2.1",
+      "description": "Babel plugin for annotating automatically pure function calls.",
+      "author": {
+        "name": "Mateusz Burzyński",
+        "email": "mateuszburzynski@gmail.com",
+        "url": "https://github.com/Andarist"
+      },
+      "license": "MIT",
+      "main": "lib/index.js",
+      "files": [
+        "lib"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Andarist/babel-plugin-annotate-pure-calls.git"
+      },
+      "keywords": [
+        "babel",
+        "plugin",
+        "pure",
+        "side-effects",
+        "uglifyjs"
+      ],
+      "bugs": {
+        "url": "https://github.com/Andarist/babel-plugin-annotate-pure-calls/issues"
+      },
+      "homepage": "https://github.com/Andarist/babel-plugin-annotate-pure-calls#readme",
+      "dependencies": {
+        "babel-plugin-syntax-dynamic-import": "^6.18.0"
+      },
+      "peerDependencies": {
+        "babel-core": "6"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-helper-plugin-test-runner": "^6.24.1",
+        "babel-jest": "^21.0.2",
+        "babel-preset-env": "^1.6.0",
+        "husky": "^0.14.3",
+        "jest": "^21.1.0",
+        "lint-staged": "^4.2.2",
+        "prettier": "^1.7.0"
+      },
+      "scripts": {
+        "build": "babel src --out-dir lib",
+        "self-link": "npm link && npm link $npm_package_name",
+        "pretest": "if [ ! -d ./node_modules/$npm_package_name ]; then npm run self-link; else npm run build; fi",
+        "test": "jest",
+        "test-only": "jest",
+        "precommit": "lint-staged",
+        "prepare": "npm run build",
+        "prepublish": "test $(npm -v | tr . '\\n' | head -n 1) -ge '4' || exit 1",
+        "prerelease": "npm run prepare && npm test",
+        "release:patch": "npm run prerelease && npm version patch && npm publish && git push --follow-tags",
+        "release:minor": "npm run prerelease && npm version minor && npm publish && git push --follow-tags",
+        "release:major": "npm run prerelease && npm version major && npm publish && git push --follow-tags"
+      },
+      "gitHead": "a530af9fb411d477ce51a5e3ea81a696c64a779a",
+      "_id": "babel-plugin-annotate-pure-calls@0.2.1",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "8.4.0",
+      "_npmUser": {
+        "name": "andarist",
+        "email": "mateuszburzynski@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-TjC2l5IlCwAPqZDn82W6nHIR6Z5rjM58yUzwxn2Bjw2MmkNcrjEYVbCNEhafZZK4brUudVfofjO+m6ZbP2fq1Q==",
+        "shasum": "ef92cd9f5dc3a8cc566909cfb44b226d0fdaa09f",
+        "tarball": "https://registry.npmjs.org/babel-plugin-annotate-pure-calls/-/babel-plugin-annotate-pure-calls-0.2.1.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDHovM0fNJ56JHrOr1ByPkXaDMJQCwewWQdCT6FxHaOZwIhAMTvsfa1H2nPG/n76qSLDIDdt/HLj8LR8Jrdj2lhZW2k"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "andarist",
+          "email": "mateuszburzynski@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-annotate-pure-calls-0.2.1.tgz_1509749217323_0.8935890758875757"
+      },
+      "directories": {}
+    },
+    "0.3.0-beta.0": {
+      "name": "babel-plugin-annotate-pure-calls",
+      "version": "0.3.0-beta.0",
+      "description": "Babel plugin for annotating automatically pure function calls.",
+      "author": {
+        "name": "Mateusz Burzyński",
+        "email": "mateuszburzynski@gmail.com",
+        "url": "https://github.com/Andarist"
+      },
+      "license": "MIT",
+      "main": "lib/index.js",
+      "files": [
+        "lib"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Andarist/babel-plugin-annotate-pure-calls.git"
+      },
+      "keywords": [
+        "babel",
+        "plugin",
+        "pure",
+        "side-effects",
+        "uglifyjs"
+      ],
+      "bugs": {
+        "url": "https://github.com/Andarist/babel-plugin-annotate-pure-calls/issues"
+      },
+      "homepage": "https://github.com/Andarist/babel-plugin-annotate-pure-calls#readme",
+      "dependencies": {
+        "@babel/helper-annotate-as-pure": "^7.0.0-beta.31",
+        "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.31"
+      },
+      "peerDependencies": {
+        "@babel/core": "7 || ^7.0.0-beta"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.0.0-beta.31",
+        "@babel/helper-plugin-test-runner": "^7.0.0-beta.31",
+        "@babel/preset-env": "^7.0.0-beta.31",
+        "babel-jest": "^21.0.2",
+        "husky": "^0.14.3",
+        "jest": "^21.1.0",
+        "lint-staged": "^4.2.2",
+        "prettier": "^1.7.0"
+      },
+      "scripts": {
+        "build": "babel src --out-dir lib",
+        "self-link": "npm link && npm link $npm_package_name",
+        "pretest": "if [ ! -d ./node_modules/$npm_package_name ]; then npm run self-link; else npm run build; fi",
+        "test": "jest",
+        "test-only": "jest",
+        "precommit": "lint-staged",
+        "prepare": "npm run build",
+        "prepublish": "test $(npm -v | tr . '\\n' | head -n 1) -ge '4' || exit 1",
+        "prerelease": "npm run prepare && npm test",
+        "release:patch": "npm run prerelease && npm version patch && npm publish && git push --follow-tags",
+        "release:minor": "npm run prerelease && npm version minor && npm publish && git push --follow-tags",
+        "release:major": "npm run prerelease && npm version major && npm publish && git push --follow-tags"
+      },
+      "gitHead": "e57c174158c03516106e2abffd9788b1b4418bf1",
+      "_id": "babel-plugin-annotate-pure-calls@0.3.0-beta.0",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "8.4.0",
+      "_npmUser": {
+        "name": "andarist",
+        "email": "mateuszburzynski@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-DmF0kUS9osqp2dHbDxdUuV4KDKMBvIyIQA2h2VCbFA5tXBLCWmmU32ORLuDnbuo0J3+gW/fttUxs7X4jhCZJVg==",
+        "shasum": "0a540f9d2ed715081b74b89eaeb9ce166cdbd66e",
+        "tarball": "https://registry.npmjs.org/babel-plugin-annotate-pure-calls/-/babel-plugin-annotate-pure-calls-0.3.0-beta.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCA+zM+V1EQu42wJXo7wnLXB9+mSrBZ8UGj1iLvuG1fIgIgEoztTPQvFkSz3khtKjvRPsrL0UtU1GtE7dNMcPkxeoo="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "andarist",
+          "email": "mateuszburzynski@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-annotate-pure-calls-0.3.0-beta.0.tgz_1511696588648_0.8484650040045381"
+      },
+      "directories": {}
+    },
+    "0.2.2": {
+      "name": "babel-plugin-annotate-pure-calls",
+      "version": "0.2.2",
+      "description": "Babel plugin for annotating automatically pure function calls.",
+      "author": {
+        "name": "Mateusz Burzyński",
+        "email": "mateuszburzynski@gmail.com",
+        "url": "https://github.com/Andarist"
+      },
+      "license": "MIT",
+      "main": "lib/index.js",
+      "files": [
+        "lib"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Andarist/babel-plugin-annotate-pure-calls.git"
+      },
+      "keywords": [
+        "babel",
+        "plugin",
+        "pure",
+        "side-effects",
+        "uglifyjs"
+      ],
+      "bugs": {
+        "url": "https://github.com/Andarist/babel-plugin-annotate-pure-calls/issues"
+      },
+      "homepage": "https://github.com/Andarist/babel-plugin-annotate-pure-calls#readme",
+      "dependencies": {
+        "babel-plugin-syntax-dynamic-import": "^6.18.0"
+      },
+      "peerDependencies": {
+        "babel-core": "6"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-helper-plugin-test-runner": "^6.24.1",
+        "babel-jest": "^21.0.2",
+        "babel-preset-env": "^1.6.0",
+        "husky": "^0.14.3",
+        "jest": "^21.1.0",
+        "lint-staged": "^4.2.2",
+        "prettier": "^1.7.0"
+      },
+      "scripts": {
+        "build": "babel src --out-dir lib",
+        "self-link": "npm link && npm link $npm_package_name",
+        "pretest": "if [ ! -d ./node_modules/$npm_package_name ]; then npm run self-link; else npm run build; fi",
+        "test": "jest",
+        "test-only": "jest",
+        "precommit": "lint-staged",
+        "prepare": "npm run build",
+        "prepublish": "test $(npm -v | tr . '\\n' | head -n 1) -ge '4' || exit 1",
+        "prerelease": "npm run prepare && npm test",
+        "release:patch": "npm run prerelease && npm version patch && npm publish && git push --follow-tags",
+        "release:minor": "npm run prerelease && npm version minor && npm publish && git push --follow-tags",
+        "release:major": "npm run prerelease && npm version major && npm publish && git push --follow-tags"
+      },
+      "gitHead": "6807a27b4d81885bcbfda78458fe202baa7f4d31",
+      "_id": "babel-plugin-annotate-pure-calls@0.2.2",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "8.4.0",
+      "_npmUser": {
+        "name": "andarist",
+        "email": "mateuszburzynski@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-0IP5H7eRCKPKcas8JCJf11c6OrSNmYmc3Ehaz+JFLasa4a2pLvfnfOeMBYMdqmutXjXcoqWA+H7ZyzHo008S/w==",
+        "shasum": "a0d8c27361db4a518d925a7202f8854382b17594",
+        "tarball": "https://registry.npmjs.org/babel-plugin-annotate-pure-calls/-/babel-plugin-annotate-pure-calls-0.2.2.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIF7boOGXN1xqxKTl0Jx/2eMmoyw8bO6D1NwTtS1e4KLVAiBSXW01P+1W8vOocfW382T5n3zpsuJ+KJq2zI+ER6TJcw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "andarist",
+          "email": "mateuszburzynski@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-annotate-pure-calls-0.2.2.tgz_1514025414901_0.03901866381056607"
+      },
+      "directories": {}
+    },
+    "0.3.0": {
+      "name": "babel-plugin-annotate-pure-calls",
+      "version": "0.3.0",
+      "description": "Babel plugin for annotating automatically pure function calls.",
+      "author": {
+        "name": "Mateusz Burzyński",
+        "email": "mateuszburzynski@gmail.com",
+        "url": "https://github.com/Andarist"
+      },
+      "license": "MIT",
+      "main": "lib/index.js",
+      "files": [
+        "lib"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Andarist/babel-plugin-annotate-pure-calls.git"
+      },
+      "keywords": [
+        "babel",
+        "plugin",
+        "pure",
+        "side-effects",
+        "uglifyjs"
+      ],
+      "bugs": {
+        "url": "https://github.com/Andarist/babel-plugin-annotate-pure-calls/issues"
+      },
+      "homepage": "https://github.com/Andarist/babel-plugin-annotate-pure-calls#readme",
+      "dependencies": {},
+      "peerDependencies": {
+        "babel-core": "6.x || ^7.0.0-0"
+      },
+      "devDependencies": {
+        "@babel/cli": "7.0.0-beta.49",
+        "@babel/core": "7.0.0-beta.49",
+        "@babel/preset-env": "7.0.0-beta.49",
+        "babel-core": "^6.26.3",
+        "babel-plugin-tester": "^5.4.0",
+        "husky": "^0.14.3",
+        "jest": "^23.1.0",
+        "lint-staged": "^7.1.3",
+        "prettier": "^1.13.5"
+      },
+      "scripts": {
+        "build": "babel src --out-dir lib",
+        "pretest": "npm run build",
+        "test": "jest",
+        "precommit": "lint-staged",
+        "prepare": "npm test",
+        "prepublish": "test $(npm -v | tr . '\\n' | head -n 1) -ge '4' || exit 1",
+        "release:patch": "npm version patch && npm publish && git push --follow-tags",
+        "release:minor": "npm version minor && npm publish && git push --follow-tags",
+        "release:major": "npm version major && npm publish && git push --follow-tags"
+      },
+      "gitHead": "6395c50747c4b002461f4cbe8b736327ccc75b0d",
+      "_id": "babel-plugin-annotate-pure-calls@0.3.0",
+      "_npmVersion": "5.8.0",
+      "_nodeVersion": "8.9.4",
+      "_npmUser": {
+        "name": "andarist",
+        "email": "mateuszburzynski@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-/PYPbv+l80VmBAs7kNrlxh3XfGnqGMUAtSXHJtB+vobo8OnmlUKoLH7HL099Y4sTSCW7SYbfPIii2P+bWYxe/g==",
+        "shasum": "7f0ec500432506a94ff878d6425dce9d043f6902",
+        "tarball": "https://registry.npmjs.org/babel-plugin-annotate-pure-calls/-/babel-plugin-annotate-pure-calls-0.3.0.tgz",
+        "fileCount": 3,
+        "unpackedSize": 6363,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbHUkRCRA9TVsSAnZWagAA/8AQAKFKYTs3ehzdYrYd7lIS\nkadsuVT998z3C4HT4iD/OseUonQC6AqwmcxZ8f7Afa4WvJoNn2jjszaIkkC5\nRDtGVq8Y6L89E8AW42wsc4QgbyhwKPu2Z/Yza1H9Oy3gG/Go2E98G+PZkv+A\na9gUaP7vpJhm5wUy6iX48RPlA9dvzEZjZcPcpOOykeBqV+aO3nGq5xN1OBhN\ngTSnGDJhRw55jAHFd4Sn1GBSqNHM7pdRZyq0DtZqAAIccxxlw/eWCDBnC08s\nF5LN/KcBfEMZ+fWr/rLv8xm0HRAMcb0V9O/OwhL06SwJa/NWszDM5LDOpt+1\nUVkEyXh9FiZ0rzVW+UN2lV3i+YVDTKkaPxUbJwStyQY9wXvdvmFHqA/Quyrx\nIjiHBtqhpYB2qJGpRudht6v+RhWvYcG8JGE3tuFvjbc3Nh7klb/GqwMUeFWq\nuo+uwiSTwVapS3NtSut5iRjril4wfxWOjLqF6D1E5c4nblrf1634uP2SlfYF\nguDVEnu/kFPtBs+eyJgCwpiuo3BN4qVsMyMIQOlCUNR99EyShPCfAsbYLuPN\nzBQo0jwjiPSFYIX8DC6h/rcVtY9YjkM09NRYrIKfBwltge5O3bbkwpbt8WXz\nOs4q9kFyhpgqYEXmon4Z9kc2vZY0FDkMcNvbn9V0OlXpJG0qNHYInkU5X9Go\ntobN\r\n=oU8i\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIC5MFxMS4g1HsVUWJWxNNm3YmQ/e0bZDZ7B4HVpSRy7EAiAXsUuZgkU8AeujHoQtjt8gHHPuw+TQUKOSOGOwEciaWQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "andarist",
+          "email": "mateuszburzynski@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-annotate-pure-calls_0.3.0_1528645904455_0.9191497594317928"
+      },
+      "_hasShrinkwrap": false
+    },
+    "0.4.0": {
+      "name": "babel-plugin-annotate-pure-calls",
+      "version": "0.4.0",
+      "description": "Babel plugin for annotating automatically pure function calls.",
+      "author": {
+        "name": "Mateusz Burzyński",
+        "email": "mateuszburzynski@gmail.com",
+        "url": "https://github.com/Andarist"
+      },
+      "license": "MIT",
+      "main": "lib/index.js",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Andarist/babel-plugin-annotate-pure-calls.git"
+      },
+      "keywords": [
+        "babel",
+        "plugin",
+        "pure",
+        "side-effects",
+        "uglifyjs"
+      ],
+      "bugs": {
+        "url": "https://github.com/Andarist/babel-plugin-annotate-pure-calls/issues"
+      },
+      "homepage": "https://github.com/Andarist/babel-plugin-annotate-pure-calls#readme",
+      "dependencies": {},
+      "peerDependencies": {
+        "@babel/core": "^6.0.0-0 || 7.x"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.1.0",
+        "@babel/core": "^7.1.0",
+        "@babel/plugin-transform-modules-commonjs": "^7.1.0",
+        "@babel/preset-env": "^7.1.0",
+        "babel-core": "^6.26.3",
+        "babel-plugin-tester": "^5.4.0",
+        "husky": "^0.14.3",
+        "jest": "^23.1.0",
+        "lint-staged": "^7.1.3",
+        "prettier": "^1.13.5"
+      },
+      "scripts": {
+        "build": "babel src --out-dir lib",
+        "pretest": "npm run build",
+        "test": "jest",
+        "precommit": "lint-staged",
+        "prepare": "npm run build",
+        "prepublish": "test $(npm -v | tr . '\\n' | head -n 1) -ge '4' || exit 1",
+        "preversion": "npm test",
+        "release:patch": "npm version patch && npm publish && git push --follow-tags",
+        "release:minor": "npm version minor && npm publish && git push --follow-tags",
+        "release:major": "npm version major && npm publish && git push --follow-tags"
+      },
+      "gitHead": "2f847b6d851ae185e133845892afb71a4af613a6",
+      "_id": "babel-plugin-annotate-pure-calls@0.4.0",
+      "_npmVersion": "6.1.0",
+      "_nodeVersion": "10.5.0",
+      "_npmUser": {
+        "name": "andarist",
+        "email": "mateuszburzynski@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-oi4M/PWUJOU9ZyRGoPTfPMqdyMp06jbJAomd3RcyYuzUtBOddv98BqLm96Lucpi2QFoQHkdGQt0ACvw7VzVEQA==",
+        "shasum": "78aa00fd878c4fcde4d49f3da397fcf5defbcce8",
+        "tarball": "https://registry.npmjs.org/babel-plugin-annotate-pure-calls/-/babel-plugin-annotate-pure-calls-0.4.0.tgz",
+        "fileCount": 3,
+        "unpackedSize": 6370,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbqc6BCRA9TVsSAnZWagAAmy4QAIkkI6/LlhMDs3SZGn/I\n3CgwT1K+IKGUmilRYXFU6OBMALKEcQgciHFuwG+CWu8+KirCFIEI6U9KpAPz\nEscx4SqMqv+iiiHcgUaWnXN0HE91BEnUXGPNUVeoN1g28QQmxfL++IvUSiZc\nN5qIb0PaZNW1uZSx6xPUcEeRrvWy1Y8DIx8+EPDZNqamvDig9zQpoFNq1gzE\nZHW9XyojH9Mg8tbZT67esLweiz6x5S57LWpClutoA7GSzPYZYe0c2NGa/6tx\nrfL/CAnNspp8JQg0ams8zkeDIxb2OqxIARehIrRh4JAsTYANEwNl0P1iFQqI\njaWyUiBC6WQXhV+u7UC1+6xKtGtDHohAwNSZHHZhjzFZM8QHStCxj9mKKUmU\n1Rqmb+2NEOqfNwQFDj8XcbkO4Mh8HfhNF9JVWNVTTzA3Pt8FeBT7ohzLfflF\nkREaLk/3xB/kfXAOhJqt6otoN9foVay8BRGJX6R/rQUPMRlb2FbserVmkjb1\nU9VGn16F51PF4P/N3RvEoseHJsZzN+v561qIHjo/t3Pm4vwWh4H6C+GPfICq\nZ+4RC8VH+LO705bXJcDqCiDxtmRNB5DrciTCBTB1nBTCssVRMFT2VqUFdmqY\nbvWbRb/SKCz3WBAG0Tqu8jOyE+uM7Z2v9EMUtKO+w/f/KxXDte2dKn/4JFUT\n8MKi\r\n=d3J5\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCfb3jafoK8dWc0wg/Y/vOc8HuiWgSPiFomfDjZwLfXXwIgA80F19z0k9AOUJQYY+XPxbQ3CxFjwjxjl/63+bsIsUo="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "andarist",
+          "email": "mateuszburzynski@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-annotate-pure-calls_0.4.0_1537855104740_0.16714052423133063"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "readme": "# babel-plugin-annotate-pure-calls\n\n[![npm version](https://img.shields.io/npm/v/babel-plugin-annotate-pure-calls.svg)](https://www.npmjs.com/package/babel-plugin-annotate-pure-calls)\n[![Build Status](https://travis-ci.org/Andarist/babel-plugin-annotate-pure-calls.svg?branch=master)](https://travis-ci.org/Andarist/babel-plugin-annotate-pure-calls)\n[![npm](https://img.shields.io/npm/dm/babel-plugin-annotate-pure-calls.svg)](https://www.npmjs.com/package/babel-plugin-annotate-pure-calls)\n\nThis plugins helps with automatic **#\\_\\_PURE\\_\\_** annotation insertion. It add the comment to\n[top level call](#top-level-calls) expressions and new expressions in assignment contexts (those are considered by the\nplugin as **side effect free**). This helps [UglifyJS](https://github.com/mishoo/UglifyJS2) to perform dead code\nelimination more efficiently and therefore reduces the bundle sizes for the consumers.\n\n**NOTE:** It might break your code, so the caution is advised. Target audience for the plugin are libraries, which in\nvast major of use cases do not introduce side effects in top level calls. That doesn't mean that application bundles\ncannot benefit from the plugin.\n\n## Pure calls\n\n```js\n// pure call\nvar inc = add(1)\n\n// clearly impure - no assignment context\nmutate({ prop: 'value' })\n```\n\n## Top level calls\n\nTop level call (in terms of this plugin) is one that gets executed during script initialization. So it is every call\nlocated at the root of a file, but also a call in an IIFE that gets executed at startup (including nested ones).\n\n```js\nvar a = topLevelCall()\n\nb = function() {\n  noTopLevelCall()\n}\n\ntopLevelIIFEs = (function() {\n  var c = (function() {\n    var d = (function() {\n      var e = topLevelCall()\n    })()\n  })()\n})()\n```\n\n## Installation\n\n```sh\nnpm install --save-dev babel-plugin-annotate-pure-calls\n```\n\n## Usage\n\n### Via `.babelrc` (Recommended)\n\n**.babelrc**\n\n```json\n{\n  \"plugins\": [\"annotate-pure-calls\"]\n}\n```\n\n### Via CLI\n\n```sh\nbabel --plugins annotate-pure-calls script.js\n```\n\n### Via Node API\n\n```javascript\nrequire('babel-core').transform('var inc = add(1)', {\n  plugins: ['annotate-pure-calls'],\n})\n```\n\n### Usage with babel@6\n\nThe plugin works with babel@6, you might see unmet peer dependency warning though. If you want to get rid of it, please\ninstall `@babel/core@6.0.0-bridge.1`.\n\n## Similar projects\n\n- [annotate-pure-call-in-variable-declarator](https://github.com/morlay/babel-plugin-annotate-pure-call-in-variable-declarator)\n",
+  "maintainers": [
+    {
+      "name": "andarist",
+      "email": "mateuszburzynski@gmail.com"
+    }
+  ],
+  "time": {
+    "modified": "2022-04-11T16:35:26.051Z",
+    "created": "2017-09-22T07:19:41.942Z",
+    "0.0.1": "2017-09-22T07:19:41.942Z",
+    "0.1.0": "2017-09-23T23:22:23.722Z",
+    "0.1.1": "2017-09-24T09:08:56.014Z",
+    "0.2.0": "2017-09-30T16:51:40.769Z",
+    "0.2.1": "2017-11-03T22:46:58.163Z",
+    "0.3.0-beta.0": "2017-11-26T11:43:09.500Z",
+    "0.2.2": "2017-12-23T10:36:55.840Z",
+    "0.3.0": "2018-06-10T15:51:44.512Z",
+    "0.4.0": "2018-09-25T05:58:24.871Z"
+  },
+  "homepage": "https://github.com/Andarist/babel-plugin-annotate-pure-calls#readme",
+  "keywords": [
+    "babel",
+    "plugin",
+    "pure",
+    "side-effects",
+    "uglifyjs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andarist/babel-plugin-annotate-pure-calls.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Andarist/babel-plugin-annotate-pure-calls/issues"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "description": "Babel plugin for annotating automatically pure function calls.",
+  "author": {
+    "name": "Mateusz Burzyński",
+    "email": "mateuszburzynski@gmail.com",
+    "url": "https://github.com/Andarist"
+  }
+}

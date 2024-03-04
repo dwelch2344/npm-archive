@@ -1,0 +1,1092 @@
+{
+  "_id": "@nomiclabs/hardhat-waffle",
+  "_rev": "12-0f7952d11b34576e5687504458fabcc9",
+  "name": "@nomiclabs/hardhat-waffle",
+  "dist-tags": {
+    "rc": "2.0.0-rc.1",
+    "latest": "2.0.6"
+  },
+  "versions": {
+    "2.0.0-rc.0": {
+      "name": "@nomiclabs/hardhat-waffle",
+      "version": "2.0.0-rc.0",
+      "description": "Hardhat plugin to test smart contracts with Waffle",
+      "homepage": "https://github.com/nomiclabs/hardhat/tree/master/packages/hardhat-waffle",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/nomiclabs/hardhat.git"
+      },
+      "author": {
+        "name": "Nomic Labs LLC"
+      },
+      "license": "MIT",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "keywords": [
+        "ethereum",
+        "smart-contracts",
+        "hardhat",
+        "hardhat-plugin",
+        "ethers.js"
+      ],
+      "scripts": {
+        "lint:fix": "node ../../node_modules/prettier/bin-prettier.js --write \"src/**/*.{js,ts}\" \"test/**/*.{js,ts}\" && yarn lint --fix",
+        "lint": "node ../../node_modules/tslint/bin/tslint --config tslint.json --project ./tsconfig.json",
+        "test": "node ../../node_modules/mocha/bin/mocha --recursive \"test/**/*.ts\" --exit",
+        "build": "node ../../node_modules/typescript/bin/tsc --build .",
+        "clean": "node ../../node_modules/rimraf/bin.js dist"
+      },
+      "devDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.0.0-rc.0",
+        "@types/chai": "^4.2.0",
+        "@types/fs-extra": "^5.1.0",
+        "chai": "^4.2.0",
+        "ethereum-waffle": "^3.0.0",
+        "ethers": "^5.0.0",
+        "hardhat": "^2.0.0-rc.0"
+      },
+      "peerDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.0.0-rc.0",
+        "ethers": "^5.0.0",
+        "ethereum-waffle": "^3.0.0",
+        "hardhat": "^2.0.0-rc.0"
+      },
+      "dependencies": {
+        "@types/web3": "1.0.19",
+        "@types/sinon-chai": "^3.2.3"
+      },
+      "licenseText": "MIT License\n\nCopyright (c) 2019 Nomic Labs LLC\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "_id": "@nomiclabs/hardhat-waffle@2.0.0-rc.0",
+      "dist": {
+        "shasum": "1f763d6660109674831e40a398fa3331f1e1b584",
+        "integrity": "sha512-puhIohOWounPHTpGUGuN9U4omtqOaJ8cACwKuUw9B1GT2I1tedmppq2FCIz96sbEi4ajKJUwICyNASndpGqPjg==",
+        "tarball": "https://registry.npmjs.org/@nomiclabs/hardhat-waffle/-/hardhat-waffle-2.0.0-rc.0.tgz",
+        "fileCount": 47,
+        "unpackedSize": 37420,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfjaIyCRA9TVsSAnZWagAACH4QAJ10/eS9uTumlQHIQwDr\nprR1DJ5KS8z7GV5mS6CjclUnrD7ZBiCALgXD6LDi23QHQbaqXfQjNL8SmYlH\nz+osGvwE4PuLQjXz1t+oI+EBbfWX/BzOAUbz2sObcrxhdP+tjyzJLCNWSSIy\nh+sTB0pUkMaqcg70SUcPaGUYlmx1oczp+FcMzeAowMPQDQLlmvGjX84eYm9m\nzlRst4ui2xAOtfdJLlhYMMSpSOIJACOOX+vPfmh/4hbcjkYw8fY4sqXhH8SS\nVhuZmhs6JRByxgHaaUMrzs80nIdAQNmv4yuuuWPVkNPIGj2NhEQGf1tF/lgY\nGrtSm2ia10alkDSsv9aZxXkTY4FENyXZiUzZfvHVoUFOwmItQxlygKXVjgE1\nStyWr+pFXoFCWRQ8OYV3xFI0nj9DnCUpPrx1pDl5hlOIqp5BZtsenL+lEn4v\nRr+7gsZdtIGLsCPCmr/MZpMkMl96gT8OS7dQ+OUom7RHDoeE4nHtUOUp8HUz\npAaoVPrTncl8VhXNb02l2ghRU69noGdWme2uMeKciWmE8/Fcbgt5ilz7X4jo\n/bxfFHtdl0I8aCXgsQywwdLGVJSlox2LIHrQ5etD9KqB0WkqJaWEnTVPGz0J\n6BGum++rZPDfZP8n6j2iebw6PVOzfRXsyU5NkHnp6tvj4cppukSwZU5EpwtZ\nwSvm\r\n=dN25\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCArhP3ZVNRrk0Ucwyti37XKmcNIXIi6bMU9F7FuJ/8tQIhAILIgSybd098AtwB5AHeCMbPILv1PgfKYiZ8eXkL6Fz5"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "fvictorio",
+          "email": "victorio.franco@gmail.com"
+        },
+        {
+          "name": "alcuadrado",
+          "email": "email@patriciopalladino.com"
+        },
+        {
+          "name": "fzeoli",
+          "email": "franco@nomiclabs.io"
+        }
+      ],
+      "_npmUser": {
+        "name": "alcuadrado",
+        "email": "email@patriciopalladino.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hardhat-waffle_2.0.0-rc.0_1603117618266_0.8800985519672251"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0-rc.1": {
+      "name": "@nomiclabs/hardhat-waffle",
+      "version": "2.0.0-rc.1",
+      "description": "Hardhat plugin to test smart contracts with Waffle",
+      "homepage": "https://github.com/nomiclabs/hardhat/tree/master/packages/hardhat-waffle",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/nomiclabs/hardhat.git"
+      },
+      "author": {
+        "name": "Nomic Labs LLC"
+      },
+      "license": "MIT",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "keywords": [
+        "ethereum",
+        "smart-contracts",
+        "hardhat",
+        "hardhat-plugin",
+        "ethers.js"
+      ],
+      "scripts": {
+        "lint:fix": "node ../../node_modules/prettier/bin-prettier.js --write \"src/**/*.{js,ts}\" \"test/**/*.{js,ts}\" && yarn lint --fix",
+        "lint": "node ../../node_modules/tslint/bin/tslint --config tslint.json --project ./tsconfig.json",
+        "test": "node ../../node_modules/mocha/bin/mocha --recursive \"test/**/*.ts\" --exit",
+        "build": "node ../../node_modules/typescript/bin/tsc --build .",
+        "clean": "node ../../node_modules/rimraf/bin.js dist"
+      },
+      "devDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.0.0-rc.1",
+        "@types/chai": "^4.2.0",
+        "@types/fs-extra": "^5.1.0",
+        "chai": "^4.2.0",
+        "ethereum-waffle": "^3.0.0",
+        "ethers": "^5.0.0",
+        "hardhat": "^2.0.0-rc.1"
+      },
+      "peerDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.0.0-rc.1",
+        "ethers": "^5.0.0",
+        "ethereum-waffle": "^3.0.0",
+        "hardhat": "^2.0.0-rc.1"
+      },
+      "dependencies": {
+        "@types/web3": "1.0.19",
+        "@types/sinon-chai": "^3.2.3"
+      },
+      "readmeFilename": "README.md",
+      "readme": "[![npm](https://img.shields.io/npm/v/@nomiclabs/hardhat-waffle.svg)](https://www.npmjs.com/package/@nomiclabs/hardhat-waffle)\n[![hardhat](https://hardhat.org/hardhat-plugin-badge.svg?1)](https://hardhat.org)\n\n# hardhat-waffle\n\n[Hardhat](https://hardhat.org) plugin for integration with [Waffle](https://getwaffle.io/).\n\n## What\n\nYou can use this plugin to build smart contract tests using Waffle in Hardhat,\ntaking advantage of both.\n\nThis plugin adds a Hardhat-ready version of Waffle to the Hardhat Runtime Environment,\nand automatically initializes the [Waffle Chai matchers](https://ethereum-waffle.readthedocs.io/en/latest/matchers.html).\n\n## Installation\n\n```bash\nnpm install --save-dev @nomiclabs/hardhat-waffle 'ethereum-waffle@^3.0.0' @nomiclabs/hardhat-ethers 'ethers@^5.0.0'\n```\n\nAnd add the following statement to your `hardhat.config.js`:\n\n```js\nusePlugin(\"@nomiclabs/hardhat-waffle\");\n```\n\n## Tasks\n\nThis plugin creates no additional tasks.\n\n## Environment extensions\n\nThis plugin adds a `waffle` object to the Hardhat Runtime Environment. This object has all the Waffle functionality, already adapted to work with Hardhat.\n\nThe `waffle` object has these properties:\n\n- `provider`\n- `deployContract`\n- `solidity`\n- `link`\n- `deployMockContract`\n- `createFixtureLoader`\n- `loadFixture`\n\nThis plugin depends on [`@nomiclabs/hardhat-ethers`](https://github.com/nomiclabs/hardhat/tree/master/packages/hardhat-ethers),\nso it also injects an `ethers` object into the HRE, which is documented [here](https://github.com/nomiclabs/hardhat/tree/master/packages/hardhat-ethers#environment-extensions).\n\n## Usage\n\nOnce installed, you can build your tests almost like in Waffle.\n\nInstead of importing things from `ethereum-waffle`, you access them from the `waffle` property of the Hardhat Runtime Environment.\n\nFor example, instead of doing\n\n```typescript\nimport { deployContract } from \"ethereum-waffle\";\n```\n\nyou should do\n\n```typescript\nimport { waffle } from \"hardhat\";\nconst { deployContract } = waffle;\n```\n\nAlso, you don't need to call `chai.use`.\n\nNote that by default, Hardhat save its compilation output into `artifacts/` instead of `build/`. You can either use\nthat directory in your tests, or [customize your Hardhat config](https://hardhat.org/config/#path-configuration).\n\n## TypeScript support\n\nThis plugin supports TypeScript by following these steps:\n\n1. Create a `hardhat-env.d.ts` file like this:\n\n    ``` typescript\n    /// <reference types=\"@nomiclabs/hardhat-waffle\" />\n    /// <reference types=\"@nomiclabs/hardhat-ethers\" />\n    ```\n\n    If you already have this file, just add those lines to it.\n\n    Then you have to include that file in the `files` array of your `tsconfig.json`:\n\n    ```\n    {\n      ...\n      \"files\": [..., \"hardhat-env.d.ts\"]\n    }\n    ```\n\n    using the relative path from the `tsconfig.json` to your `hardhat-env.d.ts`.\n\n2. Install these packages: `npm install --save-dev @types/mocha @types/chai`\n\nWe also recommend enabling `resolveJsonModule` in your `tsconfig.json`, as it's common\nto import JSON files directly when using Waffle.\n\nThere's no need to import the Waffle's `solidity` Chai matchers. They are\nautomatically imported and initialized by this plugin, including its types.\n",
+      "licenseText": "MIT License\n\nCopyright (c) 2019 Nomic Labs LLC\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "_id": "@nomiclabs/hardhat-waffle@2.0.0-rc.1",
+      "dist": {
+        "shasum": "3abb622d51d63cd8a1120fc704fb2d6099cb6d23",
+        "integrity": "sha512-kVbXPfvY12x8GQ1huEfrvQPZdECBdLGc0VPZT7EayD1esWRC9EaZuGActkzt8tQDihZFcbTZrTj96B6y9dCzHw==",
+        "tarball": "https://registry.npmjs.org/@nomiclabs/hardhat-waffle/-/hardhat-waffle-2.0.0-rc.1.tgz",
+        "fileCount": 47,
+        "unpackedSize": 37420,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfkKyxCRA9TVsSAnZWagAAGhwP/23y1AfkRK7mp5fd225f\nIYKQL6b7kILoeAiFl3PlQj9qZj9PzSksIvouhX08DjNIsHKh2KxjlsQRa+io\nHqsUD1k1F5TNS1Ag8qyWXsoFj0qUsdXkPNdMZLRW9kMcurJuNYyF78bcZ/mz\n2ybnuB6wmFhH4DUvU58pL0y4cmr2Tsk7qBjgYD5pHWfC+SuF9NwwQlKX5+SS\nCE1GEmgepI6P/HkmNIdF6OzD1N/jbrqcdD7lFagxIiO49x06/ccJIUunsxsr\nXKTb1vDlTRy2DjRDZGts/G2tJ21Cg2+hbCAcMJpCMcn6mGKy/R484W7cm4Ir\nbn2PdOkx4fA5VtYmzmxu05LXnavpq7fOb93fgz4U+fNO0oyt9p0rNv1GbRev\nY0mnnK6tWoG5or+x0CbvPPQnLeObIDT7+/Pabx7frgJaLfNQvCiNPnVczJJ5\nSQhUVHvM9YdLsngsKuqfqp+tGKAzxm9vUNXmuCaqowBgQGFaZHbIGb/TTYjw\nb3kclnS8R+bKOHNUyAine5bOeHyRVcXXzYYEN/qt3bhkw2yt/1IYSb9ppFQp\nkQy/bwz2pwA+jfYP7TqIyU8NMbu71Ep6i48UOzyzHbzOY4kWWwHIMwnkDUwx\nzmQSy377BZxB6L5MjyjBpIdGcR1qNH6I0113HCuBfVeppqW0ygEGDI/CF3FF\nF6xM\r\n=ijbd\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCZNs3xTFCgir0m5/21FkZRAT4q/zFmAJwKo5DOjfzqSQIgGILhdrn8bErih92wHkOA560YxxbmwWVoWLWbuCdIDx4="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "fvictorio",
+          "email": "victorio.franco@gmail.com"
+        },
+        {
+          "name": "alcuadrado",
+          "email": "email@patriciopalladino.com"
+        },
+        {
+          "name": "fzeoli",
+          "email": "franco@nomiclabs.io"
+        }
+      ],
+      "_npmUser": {
+        "name": "alcuadrado",
+        "email": "email@patriciopalladino.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hardhat-waffle_2.0.0-rc.1_1603316913624_0.9285619692191089"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0": {
+      "name": "@nomiclabs/hardhat-waffle",
+      "version": "2.0.0",
+      "description": "Hardhat plugin to test smart contracts with Waffle",
+      "homepage": "https://github.com/nomiclabs/hardhat/tree/master/packages/hardhat-waffle",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/nomiclabs/hardhat.git"
+      },
+      "author": {
+        "name": "Nomic Labs LLC"
+      },
+      "license": "MIT",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "keywords": [
+        "ethereum",
+        "smart-contracts",
+        "hardhat",
+        "hardhat-plugin",
+        "ethers.js"
+      ],
+      "scripts": {
+        "lint:fix": "node ../../node_modules/prettier/bin-prettier.js --write \"src/**/*.{js,ts}\" \"test/**/*.{js,ts}\" && yarn lint --fix",
+        "lint": "node ../../node_modules/tslint/bin/tslint --config tslint.json --project ./tsconfig.json",
+        "test": "node ../../node_modules/mocha/bin/mocha --recursive \"test/**/*.ts\" --exit",
+        "build": "node ../../node_modules/typescript/bin/tsc --build .",
+        "clean": "node ../../node_modules/rimraf/bin.js dist"
+      },
+      "devDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.0.0",
+        "@types/chai": "^4.2.0",
+        "@types/fs-extra": "^5.1.0",
+        "chai": "^4.2.0",
+        "ethereum-waffle": "^3.0.0",
+        "ethers": "^5.0.0",
+        "hardhat": "^2.0.0"
+      },
+      "peerDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.0.0",
+        "ethers": "^5.0.0",
+        "ethereum-waffle": "^3.0.0",
+        "hardhat": "^2.0.0"
+      },
+      "dependencies": {
+        "@types/web3": "1.0.19",
+        "@types/sinon-chai": "^3.2.3"
+      },
+      "licenseText": "MIT License\n\nCopyright (c) 2019 Nomic Labs LLC\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "_id": "@nomiclabs/hardhat-waffle@2.0.0",
+      "dist": {
+        "shasum": "b06533c802da1a9d614e432f719d2816384df9b3",
+        "integrity": "sha512-CnG9JC0rgqa68LTgyETxBUEWYAovvNGVs5abqaXjG80eF7iMLjDjM8IjOM87siAaxaxFCf6VBMJmtueqVq7jZw==",
+        "tarball": "https://registry.npmjs.org/@nomiclabs/hardhat-waffle/-/hardhat-waffle-2.0.0.tgz",
+        "fileCount": 47,
+        "unpackedSize": 36567,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfkbjPCRA9TVsSAnZWagAAx9gP/iqGkpENzpCyGccg5JBq\nKG2TOFsqwcE3/UCMqfmx9zZ++r5j7I4xpT5Q3dAlJIO8hr1ZJr/2FPtmrrj1\nJYFQFi/sBpc1Px0VKKCnwjzHOSkvt/Wt/zlh7EEvkJBj4IW5+LM+xMa4k7iu\nXKLeM3+J27Us4/pLsBZ6nbV5TAfjndHptvYhKCt+cOEwVJ1TvcZi0cA7TCmB\nMBos/Fy3aYYNUbg2lxhCDNvaTvOWxHnl4tDSpDQw/Ia91JiUchBL5LcNiy54\n2sge+t5R/SiMJ3K7FcrXCyZdgTMs2P+Oy0dD3EJN4xtJ33kkrO+82dLJV6Ea\ncS3LKIAfycbLquVjEC2hRvdrOdahYNMZ5NaqXla+2FO/iC0hUtFmhQwM0+Uk\ncY+FoDocmUZxOgCwfc3Lah5IEdYLuuZ+WywZfpiIt5J6f0r9No5gcfb7MYK/\nJWCyed6mXMC0xtBTtHGzzCpKgTec82PNZZtbTqhmvdonnazMwFjAhgeTx9MZ\nEAq4v4x3kw14k6tq/LJHxUPc2FvYh2w9+ckxkeUhHGA2gwGSfzKWGYi8dL/5\n7wxP/upO0akpdtDmxXfyPuWJ2xrYflyIVhWiv1gZ5+2Yvn4VFDWYY+q9BqyV\nghAma6Xvt+bKIXgVguU5LJnE+mZtnoe1y8ZE54x8oGPh+k+szj4Js7T9RUrM\nZ7Aj\r\n=ke3H\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCEChGGJQN+W8UjIx68F3Bwyd/L4umlEjzBBW+XX//kuAIgSfuqS+APWzDNwFFnLULZ/LjQq7LdxXGcOTj79ykBZ3c="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "fvictorio",
+          "email": "victorio.franco@gmail.com"
+        },
+        {
+          "name": "alcuadrado",
+          "email": "email@patriciopalladino.com"
+        },
+        {
+          "name": "fzeoli",
+          "email": "franco@nomiclabs.io"
+        }
+      ],
+      "_npmUser": {
+        "name": "alcuadrado",
+        "email": "email@patriciopalladino.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hardhat-waffle_2.0.0_1603385551283_0.2536833249137389"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.0": {
+      "name": "@nomiclabs/hardhat-waffle",
+      "version": "1.0.0",
+      "description": "Hardhat plugin to test smart contracts with Waffle",
+      "homepage": "https://github.com/nomiclabs/hardhat/tree/master/packages/hardhat-waffle",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/nomiclabs/hardhat.git"
+      },
+      "author": {
+        "name": "Nomic Labs LLC"
+      },
+      "license": "MIT",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "keywords": [
+        "ethereum",
+        "smart-contracts",
+        "hardhat",
+        "hardhat-plugin",
+        "ethers.js"
+      ],
+      "scripts": {
+        "lint:fix": "node ../../node_modules/prettier/bin-prettier.js --write \"src/**/*.{js,ts}\" \"test/**/*.{js,ts}\" && yarn lint --fix",
+        "lint": "node ../../node_modules/tslint/bin/tslint --config tslint.json --project ./tsconfig.json",
+        "test": "node ../../node_modules/mocha/bin/mocha --recursive \"test/**/*.ts\" --exit",
+        "build": "node ../../node_modules/typescript/bin/tsc --build .",
+        "clean": "node ../../node_modules/rimraf/bin.js dist"
+      },
+      "devDependencies": {
+        "@nomiclabs/hardhat-ethers": "^1.0.0",
+        "@types/chai": "^4.2.0",
+        "@types/fs-extra": "^5.1.0",
+        "chai": "^4.2.0",
+        "ethereum-waffle": "^2.3.0",
+        "ethers": "^4.0.0",
+        "hardhat": "^2.0.0"
+      },
+      "peerDependencies": {
+        "@nomiclabs/hardhat-ethers": "^1.0.0",
+        "ethers": "^4.0.0",
+        "ethereum-waffle": "^2.3.0",
+        "hardhat": "^2.0.0"
+      },
+      "dependencies": {
+        "@types/web3": "1.0.19",
+        "@types/sinon-chai": "^3.2.3"
+      },
+      "licenseText": "MIT License\n\nCopyright (c) 2019 Nomic Labs LLC\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "_id": "@nomiclabs/hardhat-waffle@1.0.0",
+      "dist": {
+        "shasum": "5636d03c91f8409207dea4fdb718768b5a2064d3",
+        "integrity": "sha512-Gavni3EHpp4FAADniYyvomEhdwjVKjodRlUFCd/oEf7iO6BL1vLRv9GP2QbIzQ+/Wql/YaFpH8TLDV+aAlPFOA==",
+        "tarball": "https://registry.npmjs.org/@nomiclabs/hardhat-waffle/-/hardhat-waffle-1.0.0.tgz",
+        "fileCount": 47,
+        "unpackedSize": 36567,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfkby9CRA9TVsSAnZWagAAjPQP/RSX4CcJJystNwLP4sjK\nOoWPGKuAwx88AUFh7STSkX4lMYmclHj36Rj3Zo9tqCkjHSt79nDdvfZ3h8Fz\nEck5CezCJ9kiH/DNXeXOkSQAx15gyeC2Y7DilYxT21XZ3aTCRNgIxXVJGDVB\nMYpv6FXbYylJxH/UnQscIwKdWF480P1h6foT1f6tpEQ4p/icyQCh+OBOWvz+\nXVhk6LgUhgjXwpHy7mwAzeMVvao53xSJ558wNTXKY7Jlich9Aee4KA6c1wSd\nGq6KjMj9DcCN9tPsnpS3ZQKFYcqf5477hux/IqlWwcALBD9ncdflt5xiq9eG\ndkFcRWmWsB99C+ucXxLSrEZEUvuZ65eIpxNTZtcWenyBDWprW9n4LtovGdQh\nUwj2Uk/ZUTlkIXEO5a5Fvc5qleeXN2jXLQF5S9isxGWuX2ch93szicHKK3MW\nxdSEnnkfVTR0qbgvluFkwLZNE/RY09YCuRHU8zpKCfDrrckMKgO0HSqG4DKW\noW/2cnKg84TMddqCwAAtf9AcII5NdWXHStZrdGHQRGXkwkXLd8dQG+L/KhDN\nI5cDyMThaoClREcWtoKsZtcVNVik4LW4fd+bZ2eKW2WrqsJuBQKuYQI9lnLu\nPGP6KaRgM1MGdqrlZJGYrgB7CzWg87zDcsekAoZ5yTL/a0khN7ObgEZXhzsD\niiyZ\r\n=lRN7\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCADysOd7HRuilWkjL+jWuw1qP8HRXXeYiiPJjdrMIplwIgF9u/QlmXCkYHx7rwpltgJz6clo9Ajpqc2b4qgn9UhNk="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "fvictorio",
+          "email": "victorio.franco@gmail.com"
+        },
+        {
+          "name": "alcuadrado",
+          "email": "email@patriciopalladino.com"
+        },
+        {
+          "name": "fzeoli",
+          "email": "franco@nomiclabs.io"
+        }
+      ],
+      "_npmUser": {
+        "name": "alcuadrado",
+        "email": "email@patriciopalladino.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hardhat-waffle_1.0.0_1603386557393_0.9902798750155442"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.1": {
+      "name": "@nomiclabs/hardhat-waffle",
+      "version": "2.0.1",
+      "description": "Hardhat plugin to test smart contracts with Waffle",
+      "homepage": "https://github.com/nomiclabs/hardhat/tree/master/packages/hardhat-waffle",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nomiclabs/hardhat.git"
+      },
+      "author": {
+        "name": "Nomic Labs LLC"
+      },
+      "license": "MIT",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "keywords": [
+        "ethereum",
+        "smart-contracts",
+        "hardhat",
+        "hardhat-plugin",
+        "ethers.js"
+      ],
+      "scripts": {
+        "lint:fix": "node ../../node_modules/prettier/bin-prettier.js --write \"src/**/*.{js,ts}\" \"test/**/*.{js,ts}\" && yarn lint --fix",
+        "lint": "node ../../node_modules/tslint/bin/tslint --config tslint.json --project ./tsconfig.json",
+        "test": "node ../../node_modules/mocha/bin/mocha --recursive \"test/**/*.ts\" --exit",
+        "build": "node ../../node_modules/typescript/bin/tsc --build .",
+        "clean": "node ../../node_modules/rimraf/bin.js dist"
+      },
+      "devDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.0.0",
+        "@types/chai": "^4.2.0",
+        "@types/fs-extra": "^5.1.0",
+        "chai": "^4.2.0",
+        "ethereum-waffle": "^3.2.0",
+        "ethers": "^5.0.0",
+        "hardhat": "^2.0.0"
+      },
+      "peerDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.0.0",
+        "ethers": "^5.0.0",
+        "ethereum-waffle": "^3.2.0",
+        "hardhat": "^2.0.0"
+      },
+      "dependencies": {
+        "@types/web3": "1.0.19",
+        "@types/sinon-chai": "^3.2.3"
+      },
+      "bugs": {
+        "url": "https://github.com/nomiclabs/hardhat/issues"
+      },
+      "_id": "@nomiclabs/hardhat-waffle@2.0.1",
+      "_nodeVersion": "10.23.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-2YR2V5zTiztSH9n8BYWgtv3Q+EL0N5Ltm1PAr5z20uAY4SkkfylJ98CIqt18XFvxTD5x4K2wKBzddjV9ViDAZQ==",
+        "shasum": "5d43654fba780720c5033dea240fe14f70ef4bd2",
+        "tarball": "https://registry.npmjs.org/@nomiclabs/hardhat-waffle/-/hardhat-waffle-2.0.1.tgz",
+        "fileCount": 43,
+        "unpackedSize": 37501,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfxonRCRA9TVsSAnZWagAAfqIP+wRMr3ytmrfwxJdp5+dP\nR1FvkqVBGoWp1RJhq71dohjx0AUDj9Ve63tNlT0UGkPpCP6AB+kVvgHbX0OC\njYNT7y2jCjHNJE4GinFGEp+1eF77DsTcVDWy++0mUBHyQpneNMNMQV2yuKS4\nMShcCTsvMQv0me/Ujpy4C2pdvHrr23cGY4zFPNGWmyMB7aul0Lfts+NOFmZ4\nVQoZxkwjl5JL9GyYp+n+U+Mj8bjyiBq7aOscLVGhjV/QT6Ntg5ydqjeMGJdr\nNrTsTJBZxY7Ix7S48vn+uzBHSui+4UwaI0zEQbYsHcmSFYsN0nYnm7p82y3E\nB+DSTGYbG6A1LKx4+1WfN2Q4a5hkfmbwu5vBvGzVfrRONqiGitnlQ8R8o/+T\na2Ypvfo2z3BotueEwGBVqxTM2i0qkZIPKIvuyXMj+dx5nR5v5E5rA/1vXD3r\nfu6xE3wP2sgM9xtTMpNpvCs59pMC2jfy8x/hW6WIKxn8aKgZKqzl82G9eESo\nEeA5ZlblCYF2eYTu/Ow+fi6BOUNsQcLQzgwF5vetQQsm8EkX6rajbmMuY/lP\nqM6MK3VxuWUWNGAKCW8b/+riGpUn8TsauMV25vzfBKczYs0o6LKUu8EuFr2x\n1IVe6/W7gcWm4gjQ2cwyEleSolC3JWFqVxx4kkMoxLraS9rUkDIDG+Cv+CVk\n9bFl\r\n=HoQj\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDzHFRnffj2FlnBGkZW2fn6OEXS8GBMzbusEAHcWrzz+QIhALwiheubHfnY1z669oK/1NouSg+12gKQWi0SohVukuex"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "fvictorio",
+        "email": "victorio.franco@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "fvictorio",
+          "email": "victorio.franco@gmail.com"
+        },
+        {
+          "name": "alcuadrado",
+          "email": "email@patriciopalladino.com"
+        },
+        {
+          "name": "fzeoli",
+          "email": "franco@nomiclabs.io"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hardhat-waffle_2.0.1_1606846928525_0.13029579633076205"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.2": {
+      "name": "@nomiclabs/hardhat-waffle",
+      "version": "2.0.2",
+      "description": "Hardhat plugin to test smart contracts with Waffle",
+      "homepage": "https://github.com/nomiclabs/hardhat/tree/master/packages/hardhat-waffle",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nomiclabs/hardhat.git"
+      },
+      "author": {
+        "name": "Nomic Labs LLC"
+      },
+      "license": "MIT",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "keywords": [
+        "ethereum",
+        "smart-contracts",
+        "hardhat",
+        "hardhat-plugin",
+        "ethers.js"
+      ],
+      "scripts": {
+        "lint": "yarn prettier --check && yarn eslint",
+        "lint:fix": "yarn prettier --write && yarn eslint --fix",
+        "eslint": "eslint 'src/**/*.ts' 'test/**/*.ts'",
+        "prettier": "prettier \"**/*.{js,md,json}\"",
+        "test": "mocha --recursive \"test/**/*.ts\" --exit",
+        "build": "tsc --build .",
+        "clean": "rimraf dist"
+      },
+      "devDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.0.0",
+        "@types/chai": "^4.2.0",
+        "@types/fs-extra": "^5.1.0",
+        "@types/mocha": "^9.0.0",
+        "@types/node": "^12.0.0",
+        "@typescript-eslint/eslint-plugin": "4.29.2",
+        "@typescript-eslint/parser": "4.29.2",
+        "chai": "^4.2.0",
+        "eslint": "^7.29.0",
+        "eslint-config-prettier": "8.3.0",
+        "eslint-plugin-import": "2.24.1",
+        "eslint-plugin-prettier": "3.4.0",
+        "ethereum-waffle": "^3.2.0",
+        "ethers": "^5.0.0",
+        "hardhat": "^2.0.0",
+        "mocha": "^7.2.0",
+        "prettier": "2.4.1",
+        "rimraf": "^3.0.2",
+        "ts-node": "^8.1.0",
+        "typescript": "~4.5.2"
+      },
+      "peerDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.0.0",
+        "ethers": "^5.0.0",
+        "ethereum-waffle": "^3.2.0",
+        "hardhat": "^2.0.0"
+      },
+      "dependencies": {
+        "@types/web3": "1.0.19",
+        "@types/sinon-chai": "^3.2.3"
+      },
+      "bugs": {
+        "url": "https://github.com/nomiclabs/hardhat/issues"
+      },
+      "_id": "@nomiclabs/hardhat-waffle@2.0.2",
+      "_nodeVersion": "16.6.0",
+      "_npmVersion": "7.19.1",
+      "dist": {
+        "integrity": "sha512-dnhry6Bj15O8L3pBksTuXfr4RAUIf+BxRxWJXiu+ioSawcQaOcNF4gfMxn6ik0auk3zrsAJLA6m9vqe87d4xvg==",
+        "shasum": "6030aa6fd9ea05327bf79d1107356af906d8b1e4",
+        "tarball": "https://registry.npmjs.org/@nomiclabs/hardhat-waffle/-/hardhat-waffle-2.0.2.tgz",
+        "fileCount": 43,
+        "unpackedSize": 38570,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh6FI7CRA9TVsSAnZWagAAki4QAIxqQMcgNE0Es5XpfvaL\nnrnkrg3R/+73yqyR+d+XA1m/AURg5IID0MnLVJjb0Hp9AX4qP6rPltenQK+d\nZky2HwQBO80tC1Tw7f8ATfsoDczom9ZyjovJUOeLOlERICwg/VUY/fyhRMFR\n1DsDdUu7pahMLP+h3MahgT9EHVY7Ml3ZJkEeJ0i2vSDzgDzVBd+C69ubp6SM\nY4gWBkdzjXEgEbgCZewLwmhCif+ko1TCHlIm0soDb/SkHFhaZRz6i+0hA2DR\n6sqTFW+ulhBIkMRwS4ZcUNr7xts1p1MAu0pKhHCpbHj/B10BfBCsa+NZhp5s\nLMiwfFvAklEHXqFKS96+GNlzR8h0nsqCk2HIK88jd/Ucb7dYaFoRqLlq6aV1\n5VfBwddh0ownHErnIRzisbguTdf/bu5g9YF7Mg5GP8LhehPHTj6pIRcVOqi5\nqMCgXpAw7/aXXSv0Yq3MtYqlIELeXeoVKRSiW917EbXiY/PiraLtuc08rtbC\nBbJdFABm4k/3x77ZRzsxiRk6zxMqC9Ij9qE7OFCiQFGKlx3WbQnDAk2GTTDb\nGdUY97qOcvF79uSDdc+geGvcj8HRBwgXfKGgSPveM+ZKo8u7x5sswjgL1uyn\nAByeYBB7QfJ+RkcDVh9ZWRyMjrMs+vJrEp/9GaefMDDrlCGgEfjSTJlIYnGD\n0qr6\r\n=6F43\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIEhy7hvEz5AG23jqw8Y3bMCuJe1U/zHPAx0YkcAhwpIgAiEApiZiJWEkcluBGQ4+v9fn7aRorh2IwS4QaAtAzyi2frk="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "geneaum",
+        "email": "gene@aumson.org"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "geneaum",
+          "email": "gene@aumson.org"
+        },
+        {
+          "name": "fzeoli",
+          "email": "franco@nomiclabs.io"
+        },
+        {
+          "name": "alcuadrado",
+          "email": "email@patriciopalladino.com"
+        },
+        {
+          "name": "fvictorio",
+          "email": "victorio.franco@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hardhat-waffle_2.0.2_1642615355661_0.9710695483746015"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.3": {
+      "name": "@nomiclabs/hardhat-waffle",
+      "version": "2.0.3",
+      "description": "Hardhat plugin to test smart contracts with Waffle",
+      "homepage": "https://github.com/nomiclabs/hardhat/tree/master/packages/hardhat-waffle",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nomiclabs/hardhat.git"
+      },
+      "author": {
+        "name": "Nomic Labs LLC"
+      },
+      "license": "MIT",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "keywords": [
+        "ethereum",
+        "smart-contracts",
+        "hardhat",
+        "hardhat-plugin",
+        "ethers.js"
+      ],
+      "scripts": {
+        "lint": "yarn prettier --check && yarn eslint",
+        "lint:fix": "yarn prettier --write && yarn eslint --fix",
+        "eslint": "eslint 'src/**/*.ts' 'test/**/*.ts'",
+        "prettier": "prettier \"**/*.{js,md,json}\"",
+        "test": "mocha --recursive \"test/**/*.ts\" --exit",
+        "build": "tsc --build .",
+        "clean": "rimraf dist"
+      },
+      "devDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.0.0",
+        "@types/chai": "^4.2.0",
+        "@types/fs-extra": "^5.1.0",
+        "@types/mocha": "^9.1.0",
+        "@types/node": "^12.0.0",
+        "@typescript-eslint/eslint-plugin": "4.29.2",
+        "@typescript-eslint/parser": "4.29.2",
+        "chai": "^4.2.0",
+        "eslint": "^7.29.0",
+        "eslint-config-prettier": "8.3.0",
+        "eslint-plugin-import": "2.24.1",
+        "eslint-plugin-prettier": "3.4.0",
+        "ethereum-waffle": "^3.2.0",
+        "ethers": "^5.0.0",
+        "hardhat": "^2.0.0",
+        "mocha": "^9.2.0",
+        "prettier": "2.4.1",
+        "rimraf": "^3.0.2",
+        "ts-node": "^8.1.0",
+        "typescript": "~4.5.2"
+      },
+      "peerDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.0.0",
+        "ethereum-waffle": "^3.2.0",
+        "ethers": "^5.0.0",
+        "hardhat": "^2.0.0"
+      },
+      "dependencies": {
+        "@types/sinon-chai": "^3.2.3",
+        "@types/web3": "1.0.19"
+      },
+      "gitHead": "dffdfd0b293b0cc00bfe2bfdbfcf1c95ec624a5d",
+      "bugs": {
+        "url": "https://github.com/nomiclabs/hardhat/issues"
+      },
+      "_id": "@nomiclabs/hardhat-waffle@2.0.3",
+      "_nodeVersion": "16.13.1",
+      "_npmVersion": "8.5.0",
+      "dist": {
+        "integrity": "sha512-049PHSnI1CZq6+XTbrMbMv5NaL7cednTfPenx02k3cEh8wBMLa6ys++dBETJa6JjfwgA9nBhhHQ173LJv6k2Pg==",
+        "shasum": "9c538a09c5ed89f68f5fd2dc3f78f16ed1d6e0b1",
+        "tarball": "https://registry.npmjs.org/@nomiclabs/hardhat-waffle/-/hardhat-waffle-2.0.3.tgz",
+        "fileCount": 48,
+        "unpackedSize": 39564,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiHg7MACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmqKjA//VEQvmGRrGHIXSi6fnxqWGjm9aCTz3z9pHI0DB7PNX1WA+Amk\r\nI21CKQmXFPTyz8JufitpOTOcuYycjhQLRLf+Wm7x3ej/Odc44r9D+8JSLb2o\r\nuy20vvy+Rf4PnVq9KLp+9ctorPPtBi///iMk5Z7Vowx42U5+LjYOqTV4PPYL\r\nakSY3b/6E30cQ/O26cDloPuO5Uko/YNDc5b54+/ZvMi3aws3qo+q8jcwx5zx\r\ncsBSPOZsHORGovOti8gEzn1/h8lqa0ZVTAz2aLQKjjXUmE6Xzl4WpBUwzQHk\r\nFRpbuFnxROSY+I6Ett3OMu36VhAxyDtLoSFWD1FOIXV3kHQl5xneYZrZjbGU\r\nHmiYB5Iu5r3NbSRxMNWOZDkZuDFvFxqQPPkViCGYp1yvmwxXLQjYlS9oqDC3\r\n0CqPfku7M6zUKIkhvNagpGetQ8fRZGohWgvrage9HgDk9CQpj+9XXK6YLz95\r\nzj63QhXU/+aSLLzDgVsJZCG2R+U/LCRgXFFfFga3hJwzhJRTV/0jG3zOTbu8\r\nP9rIgAXJIRnqzuxSrCHB1P+dPux68nIUycpusvDSfDznwkPp7x2t1I/RglDU\r\nvMZ2UG0ORggZHA951A5RZRD13TTfs/e/8O9sBnuDJTOMKB0CX6ZFKj6gr4cf\r\nGf0wKjx3ZeuDuaYb3Oqdr7niqMyWuJxtaWM=\r\n=ubya\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFE9HaSlNMkw+SUF3B3gK3Z4GzqCARu2TthknXHHQfoLAiAPi6IhLVYdbIgAuRTd4od8Vv1V36fFt18uALpBOnpBVw=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "alcuadrado",
+        "email": "email@patriciopalladino.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "geneaum",
+          "email": "gene@aumson.org"
+        },
+        {
+          "name": "fzeoli",
+          "email": "franco@nomiclabs.io"
+        },
+        {
+          "name": "alcuadrado",
+          "email": "email@patriciopalladino.com"
+        },
+        {
+          "name": "fvictorio",
+          "email": "victorio.franco@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hardhat-waffle_2.0.3_1646137036839_0.8762764897776221"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.4": {
+      "name": "@nomiclabs/hardhat-waffle",
+      "version": "2.0.4",
+      "description": "Hardhat plugin to test smart contracts with Waffle",
+      "homepage": "https://github.com/nomiclabs/hardhat/tree/main/packages/hardhat-waffle",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nomiclabs/hardhat.git"
+      },
+      "author": {
+        "name": "Nomic Labs LLC"
+      },
+      "license": "MIT",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "keywords": [
+        "ethereum",
+        "smart-contracts",
+        "hardhat",
+        "hardhat-plugin",
+        "ethers.js"
+      ],
+      "scripts": {
+        "lint": "yarn prettier --check && yarn eslint",
+        "lint:fix": "yarn prettier --write && yarn eslint --fix",
+        "eslint": "eslint 'src/**/*.ts' 'test/**/*.ts'",
+        "prettier": "prettier \"**/*.{js,md,json}\"",
+        "test": "mocha --recursive \"test/**/*.ts\" --exit",
+        "build": "tsc --build .",
+        "prepublishOnly": "yarn build",
+        "clean": "rimraf dist"
+      },
+      "devDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.0.0",
+        "@types/chai": "^4.2.0",
+        "@types/fs-extra": "^5.1.0",
+        "@types/mocha": ">=9.1.0",
+        "@types/node": "^14.0.0",
+        "@typescript-eslint/eslint-plugin": "^5.30.7",
+        "@typescript-eslint/parser": "4.29.2",
+        "chai": "^4.2.0",
+        "eslint": "^7.29.0",
+        "eslint-config-prettier": "8.3.0",
+        "eslint-plugin-import": "2.24.1",
+        "eslint-plugin-no-only-tests": "3.0.0",
+        "eslint-plugin-prettier": "3.4.0",
+        "ethereum-waffle": "^3.2.0",
+        "ethers": "^5.0.0",
+        "hardhat": "^2.0.0",
+        "mocha": "^10.0.0",
+        "prettier": "2.4.1",
+        "rimraf": "^3.0.2",
+        "ts-node": "^8.1.0",
+        "typescript": "~4.5.2"
+      },
+      "peerDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.0.0",
+        "ethereum-waffle": "^3.2.0",
+        "ethers": "^5.0.0",
+        "hardhat": "^2.0.0"
+      },
+      "dependencies": {
+        "@types/sinon-chai": "^3.2.3",
+        "@types/web3": "1.0.19"
+      },
+      "gitHead": "6baf30a296db6f0a4981660aed25753839e75675",
+      "bugs": {
+        "url": "https://github.com/nomiclabs/hardhat/issues"
+      },
+      "_id": "@nomiclabs/hardhat-waffle@2.0.4",
+      "_nodeVersion": "18.13.0",
+      "_npmVersion": "8.13.2",
+      "dist": {
+        "integrity": "sha512-WnnLH4pPS4bAq/p0vscwmoW763b286FPWZ1oKVon1bmAGf6BCGCEIMvSBK7iTCVafwK3yKj/7Q2ZQvTep83Hfg==",
+        "shasum": "77172ddd101681fc0a58ffbc51c9f9ef3f8e4b8a",
+        "tarball": "https://registry.npmjs.org/@nomiclabs/hardhat-waffle/-/hardhat-waffle-2.0.4.tgz",
+        "fileCount": 53,
+        "unpackedSize": 41944,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDHtn9LSSKYwmzW764OH+Kn1Ba1mSxfaU2VKvJj92xM0AIgOVMmaNEIMD/LNQoCGvuOI+oEAgka28uxVuELV6JYs4A="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj5SOLACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmoo3BAAjnHyw2iM5d+oRUQJmj5nCkBZ4SSTM4mcm/LMCbkyYLYMrV1i\r\nIk4OYgrHBj/WK51/b53KbAyl9RUfDVUHyND0JGOIkfdKGImegQSp0UbwutV/\r\nheETAUFP3Mb+VIOksECQC3+5NDCSczldE0KDn63ntU08uvKZyLzOLKAetHBj\r\nbttS0aU4BMJzVmRmA0d7xE2de8HD95vNq4xHXJOJxKd+Jos5jCus8b35uXo5\r\nyXm066x/KD89AQc4OksWgSQ3baClx6wjkOFwAcwTLlRbQV9K0PIvB+932MT5\r\nln/4nKmQRiAh4rP284mP8rFVM/YX0xZYYJQGuSRUKDWiUuVc68g5U8KPnbyY\r\ngf866k5zUDWJU5EmkOreQYn5mHo+2a0+Kxgwuoj68oJxlHi98SuwRe9i5UE8\r\ndzx46iPlfOzAXfmwRpRdvZdqI0ziEKynBReeQVp8US9j7aKG7//azqYuRv+d\r\nAHsbYEjfRYShFlfNELQPXMjdTEFa9AzyFkFFuiPvOvk0vnUgkmrkveu+a5QJ\r\nuAAfyMblGwTS1aGkH47N3A0PZUhE/ydNetuUegob4KqQIGv7F3sg7Y5l3xaG\r\ne8KbzZXAyrl0LuA28cUasg2+CaF8dRZqpfX2HVge70csnAfqb29P3e2/XooQ\r\nHM+oelA5ob0ZVXEbfbfgfwn8gmWl5NEU0nk=\r\n=4ULo\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "alcuadrado",
+        "email": "email@patriciopalladino.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "geneaum",
+          "email": "gene@aumson.org"
+        },
+        {
+          "name": "fzeoli",
+          "email": "franco@nomiclabs.io"
+        },
+        {
+          "name": "alcuadrado",
+          "email": "email@patriciopalladino.com"
+        },
+        {
+          "name": "fvictorio",
+          "email": "victorio.franco@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hardhat-waffle_2.0.4_1675961227064_0.9070461679830779"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.5": {
+      "name": "@nomiclabs/hardhat-waffle",
+      "version": "2.0.5",
+      "description": "Hardhat plugin to test smart contracts with Waffle",
+      "homepage": "https://github.com/NomicFoundation/hardhat-waffle",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/NomicFoundation/hardhat-waffle.git"
+      },
+      "author": {
+        "name": "Nomic Labs LLC"
+      },
+      "license": "MIT",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "keywords": [
+        "ethereum",
+        "smart-contracts",
+        "hardhat",
+        "hardhat-plugin",
+        "ethers.js"
+      ],
+      "scripts": {
+        "lint": "yarn prettier --check && yarn eslint",
+        "lint:fix": "yarn prettier --write && yarn eslint --fix",
+        "eslint": "eslint 'src/**/*.ts' 'test/**/*.ts'",
+        "prettier": "prettier \"**/*.{js,md,json}\"",
+        "test": "mocha --recursive \"test/**/*.ts\" --exit",
+        "build": "tsc --build .",
+        "prepublishOnly": "yarn build",
+        "clean": "rimraf dist",
+        "version": "yarn changeset version"
+      },
+      "devDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.0.0",
+        "@types/chai": "^4.2.0",
+        "@types/fs-extra": "^5.1.0",
+        "@types/mocha": "^9.1.0",
+        "@types/node": "^18.11.9",
+        "@typescript-eslint/eslint-plugin": "4.29.2",
+        "@typescript-eslint/parser": "4.29.2",
+        "chai": "^4.2.0",
+        "eslint": "^7.29.0",
+        "eslint-config-prettier": "8.3.0",
+        "eslint-plugin-import": "2.24.1",
+        "eslint-plugin-prettier": "3.4.0",
+        "ethereum-waffle": "^4.0.7",
+        "ethers": "^5.0.0",
+        "fs-extra": "^10.1.0",
+        "hardhat": "^2.0.0",
+        "mocha": "^10.0.0",
+        "prettier": "2.4.1",
+        "rimraf": "^3.0.2",
+        "ts-node": "^8.1.0",
+        "typescript": "~4.5.2",
+        "@types/sinon-chai": "^3.2.3",
+        "@types/web3": "1.0.19",
+        "@changesets/cli": "^2.25.2"
+      },
+      "peerDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.0.0",
+        "ethereum-waffle": "*",
+        "ethers": "^5.0.0",
+        "hardhat": "^2.0.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "gitHead": "ffdc5675ebf47c244a6e6d9ec664c14adabc2984",
+      "bugs": {
+        "url": "https://github.com/NomicFoundation/hardhat-waffle/issues"
+      },
+      "_id": "@nomiclabs/hardhat-waffle@2.0.5",
+      "_nodeVersion": "18.13.0",
+      "_npmVersion": "8.13.2",
+      "dist": {
+        "integrity": "sha512-U1RH9OQ1mWYQfb+moX5aTgGjpVVlOcpiFI47wwnaGG4kLhcTy90cNiapoqZenxcRAITVbr0/+QSduINL5EsUIQ==",
+        "shasum": "97c217f1db795395c04404291937edb528f3f218",
+        "tarball": "https://registry.npmjs.org/@nomiclabs/hardhat-waffle/-/hardhat-waffle-2.0.5.tgz",
+        "fileCount": 53,
+        "unpackedSize": 49256,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDOdJHLyu4O/lv7fUuzHg1n/WmRA4vPYnFtF6IshA+R1wIgY3iecetJz4baOygehK56TYf0K57IBVSf8Pr30sbiuJ0="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJj5kXDACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmp7+RAAj0aVz6dWHn5oQS+nWXzkk7wT24tS/6Jb2qg+5IQhpaU5OjYs\r\nCj0dN8rtEPpBEb1bhRGZnELnuaddSbpiLyIyjxZcCpziBfcLZ9zx+PhZbr3n\r\n6aBMJDCHEM4uFplitsx00jlTiwBaqjgBHKjQXlgWRPwOYIRcreDwZ4bN6GyY\r\no0uoxAe8XmYum8bhV6xS5UlKQpxzYY7EjK0jYr/j6WZDfo9rAdYIrLKABSxi\r\nxG1NCbkKuESuUmNSFCyPNyXxfKEipFyxqIFslj6qCxY4BB7bpZpj4bQwZMxp\r\nb8G4XYzmmpitIck/W5Q0EYV8WnlJbSU6n1uo+5yJaqiI3s36B+eyZgRfPTJ7\r\ngOzhi6jh6TvM1ETqFvvruYjepS8U3u75XgMxWcFNFGHUJBdq+ZiSf7jHwMdc\r\n4Ux0WK1IkIKUBGDxiuVPAlIGgfaLgXauFFoAl9uxap8JbLA02CVJJZtLfwBc\r\nYTl3+tt25CeZ59+oowlwpYYqJY9VHP9xN22QoqVUmnPYXIPvbJZldPzJMbnT\r\nmqnEqa10Ga9c4MhsdwgrNlKlpvmd0QFFn0/fXltp2FlQODEorDoGDvdOhgT6\r\nAUT+px/p9j4xDyx6H9bYen6dqSNkzZEuYDZnwlq15vY5MPX8w2S4AUbFu835\r\ncTU6gUfOlj50xPjoy2+131ECJPL6DKyAYAs=\r\n=wFFF\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "alcuadrado",
+        "email": "email@patriciopalladino.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "geneaum",
+          "email": "gene@aumson.org"
+        },
+        {
+          "name": "fzeoli",
+          "email": "franco@nomiclabs.io"
+        },
+        {
+          "name": "alcuadrado",
+          "email": "email@patriciopalladino.com"
+        },
+        {
+          "name": "fvictorio",
+          "email": "victorio.franco@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hardhat-waffle_2.0.5_1676035523660_0.3711507633425324"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.6": {
+      "name": "@nomiclabs/hardhat-waffle",
+      "version": "2.0.6",
+      "description": "Hardhat plugin to test smart contracts with Waffle",
+      "homepage": "https://github.com/NomicFoundation/hardhat-waffle",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/NomicFoundation/hardhat-waffle.git"
+      },
+      "author": {
+        "name": "Nomic Labs LLC"
+      },
+      "license": "MIT",
+      "main": "dist/src/index.js",
+      "types": "dist/src/index.d.ts",
+      "keywords": [
+        "ethereum",
+        "smart-contracts",
+        "hardhat",
+        "hardhat-plugin",
+        "ethers.js"
+      ],
+      "scripts": {
+        "lint": "yarn prettier --check && yarn eslint",
+        "lint:fix": "yarn prettier --write && yarn eslint --fix",
+        "eslint": "eslint 'src/**/*.ts' 'test/**/*.ts'",
+        "prettier": "prettier \"**/*.{js,md,json}\"",
+        "test": "mocha --recursive \"test/**/*.ts\" --exit",
+        "build": "tsc --build .",
+        "prepublishOnly": "yarn build",
+        "clean": "rimraf dist",
+        "version": "yarn changeset version"
+      },
+      "devDependencies": {
+        "@changesets/cli": "^2.25.2",
+        "@nomiclabs/hardhat-ethers": "^2.0.0",
+        "@types/chai": "^4.2.0",
+        "@types/fs-extra": "^5.1.0",
+        "@types/mocha": "^9.1.0",
+        "@types/node": "^18.11.9",
+        "@types/sinon-chai": "^3.2.3",
+        "@types/web3": "1.0.19",
+        "@typescript-eslint/eslint-plugin": "4.29.2",
+        "@typescript-eslint/parser": "4.29.2",
+        "chai": "^4.2.0",
+        "eslint": "^7.29.0",
+        "eslint-config-prettier": "8.3.0",
+        "eslint-plugin-import": "2.24.1",
+        "eslint-plugin-prettier": "3.4.0",
+        "ethereum-waffle": "^4.0.10",
+        "ethers": "^5.0.0",
+        "fs-extra": "^10.1.0",
+        "hardhat": "^2.0.0",
+        "mocha": "^10.0.0",
+        "prettier": "2.4.1",
+        "rimraf": "^3.0.2",
+        "ts-node": "^8.1.0",
+        "typescript": "~4.5.2"
+      },
+      "peerDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.0.0",
+        "@types/sinon-chai": "^3.2.3",
+        "ethereum-waffle": "*",
+        "ethers": "^5.0.0",
+        "hardhat": "^2.0.0"
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "gitHead": "24dcac5618e46bfdeb2cedc65eff9a46367ce7a2",
+      "bugs": {
+        "url": "https://github.com/NomicFoundation/hardhat-waffle/issues"
+      },
+      "_id": "@nomiclabs/hardhat-waffle@2.0.6",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.0",
+      "dist": {
+        "integrity": "sha512-+Wz0hwmJGSI17B+BhU/qFRZ1l6/xMW82QGXE/Gi+WTmwgJrQefuBs1lIf7hzQ1hLk6hpkvb/zwcNkpVKRYTQYg==",
+        "shasum": "d11cb063a5f61a77806053e54009c40ddee49a54",
+        "tarball": "https://registry.npmjs.org/@nomiclabs/hardhat-waffle/-/hardhat-waffle-2.0.6.tgz",
+        "fileCount": 53,
+        "unpackedSize": 49341,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDLvDwYT/fwUmspEv9fpAEbYJXhCPO6hVzT2XAntH3V8AIhAIOnqL84k5mqx+JUGqlK2cd+IKisLoMxn4BPjOY0r/rQ"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "fvictorio",
+        "email": "victorio.franco@gmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "geneaum",
+          "email": "gene@aumson.org"
+        },
+        {
+          "name": "fzeoli",
+          "email": "franco@nomiclabs.io"
+        },
+        {
+          "name": "alcuadrado",
+          "email": "email@patriciopalladino.com"
+        },
+        {
+          "name": "fvictorio",
+          "email": "victorio.franco@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/hardhat-waffle_2.0.6_1684227764543_0.9451455252527077"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2020-10-19T14:26:58.093Z",
+    "2.0.0-rc.0": "2020-10-19T14:26:58.375Z",
+    "modified": "2023-05-16T09:02:44.957Z",
+    "2.0.0-rc.1": "2020-10-21T21:48:33.723Z",
+    "2.0.0": "2020-10-22T16:52:31.424Z",
+    "1.0.0": "2020-10-22T17:09:17.569Z",
+    "2.0.1": "2020-12-01T18:22:08.661Z",
+    "2.0.2": "2022-01-19T18:02:35.901Z",
+    "2.0.3": "2022-03-01T12:17:16.983Z",
+    "2.0.4": "2023-02-09T16:47:07.549Z",
+    "2.0.5": "2023-02-10T13:25:23.828Z",
+    "2.0.6": "2023-05-16T09:02:44.766Z"
+  },
+  "maintainers": [
+    {
+      "name": "geneaum",
+      "email": "gene@aumson.org"
+    },
+    {
+      "name": "fzeoli",
+      "email": "franco@nomiclabs.io"
+    },
+    {
+      "name": "alcuadrado",
+      "email": "email@patriciopalladino.com"
+    },
+    {
+      "name": "fvictorio",
+      "email": "victorio.franco@gmail.com"
+    }
+  ],
+  "description": "Hardhat plugin to test smart contracts with Waffle",
+  "homepage": "https://github.com/NomicFoundation/hardhat-waffle",
+  "keywords": [
+    "ethereum",
+    "smart-contracts",
+    "hardhat",
+    "hardhat-plugin",
+    "ethers.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NomicFoundation/hardhat-waffle.git"
+  },
+  "author": {
+    "name": "Nomic Labs LLC"
+  },
+  "license": "MIT",
+  "readme": "[![npm](https://img.shields.io/npm/v/@nomiclabs/hardhat-waffle.svg)](https://www.npmjs.com/package/@nomiclabs/hardhat-waffle) [![hardhat](https://hardhat.org/buidler-plugin-badge.svg?1)](https://hardhat.org)\n\n# hardhat-waffle\n\n[Hardhat](https://hardhat.org) plugin for integration with [Waffle](https://getwaffle.io/).\n\n## What\n\nYou can use this plugin to build smart contract tests using Waffle in Hardhat, taking advantage of both.\n\nThis plugin adds a Hardhat-ready version of Waffle to the Hardhat Runtime Environment, and automatically initializes the [Waffle Chai matchers](https://ethereum-waffle.readthedocs.io/en/latest/matchers.html).\n\n## Installation\n\n```bash\nnpm install --save-dev @nomiclabs/hardhat-waffle 'ethereum-waffle@^3.0.0' @nomiclabs/hardhat-ethers 'ethers@^5.0.0' @types/sinon-chai@^3.2.3\n```\n\nAnd add the following statement to your `hardhat.config.js`:\n\n```js\nrequire(\"@nomiclabs/hardhat-waffle\");\n```\n\nOr, if you are using TypeScript, add this to your `hardhat.config.ts`:\n\n```js\nimport \"@nomiclabs/hardhat-waffle\";\n```\n\n## Tasks\n\nThis plugin creates no additional tasks.\n\n## Environment extensions\n\nThis plugin adds a `waffle` object to the Hardhat Runtime Environment. This object has all the Waffle functionality, already adapted to work with Hardhat.\n\nThe `waffle` object has these properties:\n\n- `provider`\n- `deployContract`\n- `solidity`\n- `link`\n- `deployMockContract`\n- `createFixtureLoader`\n- `loadFixture`\n\nThis plugin depends on [`@nomiclabs/hardhat-ethers`](https://github.com/nomiclabs/hardhat/tree/master/packages/hardhat-ethers), so it also injects an `ethers` object into the HRE, which is documented [here](https://github.com/nomiclabs/hardhat/tree/master/packages/hardhat-ethers#environment-extensions).\n\n## Usage\n\nOnce installed, you can build your tests almost like in Waffle.\n\nInstead of importing things from `ethereum-waffle`, you access them from the `waffle` property of the Hardhat Runtime Environment.\n\nFor example, instead of doing\n\n```js\nconst { deployContract } = require(\"ethereum-waffle\");\n```\n\nyou should do\n\n```typescript\nconst { waffle } = require(\"hardhat\");\nconst { deployContract } = waffle;\n```\n\nAlso, you don't need to call `chai.use` in order to use [Waffle's Chai matchers](https://ethereum-waffle.readthedocs.io/en/latest/matchers.html).\n\nNote that by default, Hardhat saves its compilation output into `artifacts/` instead of `build/`. You can either use that directory in your tests, or [customize your Hardhat config](https://hardhat.org/hardhat-runner/docs/config#path-configuration).\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/NomicFoundation/hardhat-waffle/issues"
+  }
+}

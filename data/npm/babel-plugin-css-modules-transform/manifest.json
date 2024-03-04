@@ -1,0 +1,2629 @@
+{
+  "_id": "babel-plugin-css-modules-transform",
+  "_rev": "43-d05b563589b17aed35d280759594c126",
+  "name": "babel-plugin-css-modules-transform",
+  "time": {
+    "modified": "2022-06-13T04:00:55.681Z",
+    "created": "2015-11-17T19:36:29.162Z",
+    "0.0.1": "2015-11-17T19:36:29.162Z",
+    "0.0.2": "2015-11-17T19:49:12.214Z",
+    "0.0.3": "2015-11-17T19:54:23.896Z",
+    "0.0.4": "2015-11-17T19:59:05.143Z",
+    "0.0.5": "2016-01-30T11:09:24.568Z",
+    "0.0.6": "2016-02-18T09:04:07.202Z",
+    "0.0.7": "2016-02-29T12:11:06.588Z",
+    "0.0.8": "2016-04-03T13:27:35.622Z",
+    "0.0.9": "2016-04-06T14:38:05.598Z",
+    "0.1.0": "2016-05-03T10:36:31.683Z",
+    "0.1.1": "2016-05-26T15:58:25.937Z",
+    "0.2.0": "2016-08-02T08:09:13.326Z",
+    "0.2.1": "2016-08-20T11:38:27.311Z",
+    "1.0.0": "2016-09-02T11:02:51.878Z",
+    "1.0.1": "2016-09-17T12:55:48.309Z",
+    "1.1.0": "2016-09-21T06:43:43.637Z",
+    "1.2.0": "2017-02-04T09:26:53.611Z",
+    "1.2.1": "2017-02-16T08:11:44.933Z",
+    "1.2.3": "2017-03-11T14:10:43.607Z",
+    "1.2.5": "2017-03-18T17:56:18.360Z",
+    "1.2.6": "2017-03-21T09:01:23.489Z",
+    "1.2.7": "2017-03-22T09:48:23.742Z",
+    "1.2.8": "2017-11-12T09:42:17.258Z",
+    "1.3.0": "2017-11-26T14:00:12.248Z",
+    "1.3.1": "2017-12-01T19:00:02.654Z",
+    "1.4.0": "2018-01-06T11:36:16.263Z",
+    "1.5.0": "2018-03-01T13:18:21.104Z",
+    "1.6.0": "2018-05-08T07:32:38.956Z",
+    "1.6.1": "2018-05-08T07:46:33.173Z",
+    "1.6.2": "2018-11-25T16:42:14.109Z"
+  },
+  "maintainers": [
+    {
+      "name": "michalkvasnicak",
+      "email": "michal.kvasnicak@gmail.com"
+    }
+  ],
+  "dist-tags": {
+    "latest": "1.6.2",
+    "next": "1.2.5"
+  },
+  "description": "Transform required css modules so one can use generated class names.",
+  "readme": "# babel-plugin-css-modules-transform [![Circle CI](https://circleci.com/gh/michalkvasnicak/babel-plugin-css-modules-transform.svg?style=svg)](https://circleci.com/gh/michalkvasnicak/babel-plugin-css-modules-transform)\n\n**🎉 Babel 6 and Babel 7 compatible**\n\n**⚠️ Babel 7 compatibility added in 1.4.0**\n\nThis Babel plugin finds all `require`s for css module files and replace them with a hash where keys are class names and values are generated css class names.\n\nThis plugin is based on the fantastic [css-modules-require-hook](https://github.com/css-modules/css-modules-require-hook).\n\n## Warning\n\nThis plugin is experimental, pull requests are welcome.\n\n**Do not run this plugin as part of webpack frontend configuration. This plugin is intended only for backend compilation.**\n\n## Example\n\n```css\n/* test.css */\n\n.someClass {\n    color: red;\n}\n```\n\n```js\n// component.js\nconst styles = require('./test.css');\n\nconsole.log(styles.someClass);\n\n// transformed file\nconst styles = {\n    'someClass': 'Test__someClass___2Frqu'\n}\n\nconsole.log(styles.someClass); // prints Test__someClass___2Frqu\n```\n\n## Installation\n\n```console\nnpm install --save-dev babel-plugin-css-modules-transform\n```\n\n**Include plugin in `.babelrc`**\n\n```json\n{\n    \"plugins\": [\"css-modules-transform\"]\n}\n```\n\n**With custom options [css-modules-require-hook options](https://github.com/css-modules/css-modules-require-hook#tuning-options)**\n\n\n```js\n{\n    \"plugins\": [\n        [\n            \"css-modules-transform\", {\n                \"append\": [\n                    \"npm-module-name\",\n                    \"./path/to/module-exporting-a-function.js\"\n                ],\n                \"camelCase\": false,\n                \"createImportedName\": \"npm-module-name\",\n                \"createImportedName\": \"./path/to/module-exporting-a-function.js\",\n                \"devMode\": false,\n                \"extensions\": [\".css\", \".scss\", \".less\"], // list extensions to process; defaults to .css\n                \"generateScopedName\": \"[name]__[local]___[hash:base64:5]\", // in case you don't want to use a function\n                \"generateScopedName\": \"./path/to/module-exporting-a-function.js\", // in case you want to use a function\n                \"generateScopedName\": \"npm-module-name\",\n                \"hashPrefix\": \"string\",\n                \"ignore\": \"*css\",\n                \"ignore\": \"./path/to/module-exporting-a-function-or-regexp.js\",\n                \"preprocessCss\": \"./path/to/module-exporting-a-function.js\",\n                \"preprocessCss\": \"npm-module-name\",\n                \"processCss\": \"./path/to/module-exporting-a-function.js\",\n                \"processCss\": \"npm-module-name\",\n                \"processorOpts\": \"npm-module-name\",\n                \"processorOpts\": \"./path/to/module/exporting-a-plain-object.js\",\n                \"mode\": \"string\",\n                \"prepend\": [\n                    \"npm-module-name\",\n                    \"./path/to/module-exporting-a-function.js\"\n                ],\n                \"extractCss\": \"./dist/stylesheets/combined.css\"\n            }\n        ]\n    ]\n}\n```\n\n## Using a preprocessor\n\nWhen using this plugin with a preprocessor, you'll need to configure it as such:\n\n\n```js\n// ./path/to/module-exporting-a-function.js\nvar sass = require('node-sass');\nvar path = require('path');\n\nmodule.exports = function processSass(data, filename) {\n    var result;\n    result = sass.renderSync({\n        data: data,\n        file: filename\n    }).css;\n    return result.toString('utf8');\n};\n```\n\nand then add any relevant extensions to your plugin config:\n\n```js\n{\n    \"plugins\": [\n        [\n            \"css-modules-transform\", {\n                \"preprocessCss\": \"./path/to/module-exporting-a-function.js\",\n                \"extensions\": [\".css\", \".scss\"]\n            }\n        ]\n    ]\n}\n\n```\n\n## Extract CSS Files\n\nWhen you publish a library, you might want to ship compiled css files as well to\nhelp integration in other projects.\n\nAn more complete alternative is to use\n[babel-plugin-webpack-loaders](https://github.com/istarkov/babel-plugin-webpack-loaders)\nbut be aware that a new webpack instance is run for each css file, this has a\nhuge overhead. If you do not use fancy stuff, you might consider using\n[babel-plugin-css-modules-transform](https://github.com/michalkvasnicak/babel-plugin-css-modules-transform)\ninstead.\n\n\nTo combine all css files in a single file, give its name:\n\n```js\n{\n    \"plugins\": [\n        [\n            \"css-modules-transform\", {\n                \"extractCss\": \"./dist/stylesheets/combined.css\"\n            }\n        ]\n    ]\n}\n```\n\nTo extract all files in a single directory, give an object:\n\n```js\n{\n    \"plugins\": [\n        [\n            \"css-modules-transform\", {\n                \"extractCss\": {\n                    \"dir\": \"./dist/stylesheets/\",\n                    \"relativeRoot\": \"./src/\",\n                    \"filename\": \"[path]/[name].css\"\n                }\n            }\n        ]\n    ]\n}\n```\n\nNote that `relativeRoot` is used to resolve relative directory names, available\nas `[path]` in `filename` pattern.\n\n## Keeping import\n\nTo keep import statements you should set option `keepImport` to *true*. In this way, simultaneously with the converted values, the import will be described as unassigned call expression.\n\n```js\n// before\nconst styles = require('./test.css');\n```\n\n```js\n// after\nrequire('./test.css');\n\nconst styles = {\n    'someClass': 'Test__someClass___2Frqu'\n}\n```\n\n## Alternatives\n\n- [babel-plugin-transform-postcss](https://github.com/wbyoung/babel-plugin-transform-postcss) - which supports async plugins and does not depend on `css-modules-require-hook`.\n\n## License\n\nMIT\n",
+  "versions": {
+    "0.0.4": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "0.0.4",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "node node_modules/.bin/babel src --ignore **/*.spec.js -d build",
+        "lint": "node node_modules/.bin/eslint src",
+        "test": "npm run lint && node node_modules/.bin/mocha --compilers js:babel-core/register 'test/**/*.spec.js'"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^2.0.2"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.1.18",
+        "babel-core": "^6.1.21",
+        "babel-eslint": "^4.1.5",
+        "babel-plugin-transform-strict-mode": "^6.1.18",
+        "babel-plugin-transform-es2015-parameters": "^6.1.18",
+        "babel-plugin-transform-es2015-destructuring": "^6.1.18",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.1.18",
+        "babel-plugin-transform-object-rest-spread": "^6.1.18",
+        "babel-plugin-transform-es2015-spread": "^6.1.18",
+        "babel-plugin-transform-export-extensions": "^6.1.18",
+        "chai": "^3.4.1",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "mocha": "^2.3.4",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "6f782d32479a51e912ed951911726f536456bb0a",
+      "_id": "babel-plugin-css-modules-transform@0.0.4",
+      "_shasum": "5a1836bb3f5f36bade00fda7ec69ceaa1a67680c",
+      "_from": ".",
+      "_npmVersion": "3.4.0",
+      "_nodeVersion": "4.1.1",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "shasum": "5a1836bb3f5f36bade00fda7ec69ceaa1a67680c",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-0.0.4.tgz",
+        "integrity": "sha512-XUdRxnJOy3v3nPv7f1v7esRJ/sYBk11w/pX8UPQMMOIVOWoK3Nq3A+PzcZxMpGcAwcgHkVD1F6xyLWxEs92qig==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDjuDMTK0WDFL+5eYC3WWBYDnVWI/7PMIUuGNgn7e2kIAiEAtg99tuMu/PoiSlNDD9z7KY5jjrMNRtg2L+FNElk4Kek="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "directories": {}
+    },
+    "0.0.5": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "0.0.5",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "node node_modules/.bin/babel src --ignore **/*.spec.js -d build",
+        "lint": "node node_modules/.bin/eslint src",
+        "test": "npm run lint && node node_modules/.bin/mocha --compilers js:babel-core/register 'test/**/*.spec.js'"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^2.0.2"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.1.18",
+        "babel-core": "^6.1.21",
+        "babel-eslint": "^4.1.5",
+        "babel-plugin-transform-strict-mode": "^6.1.18",
+        "babel-plugin-transform-es2015-parameters": "^6.1.18",
+        "babel-plugin-transform-es2015-destructuring": "^6.1.18",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.1.18",
+        "babel-plugin-transform-object-rest-spread": "^6.1.18",
+        "babel-plugin-transform-es2015-spread": "^6.1.18",
+        "babel-plugin-transform-export-extensions": "^6.1.18",
+        "chai": "^3.4.1",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "mocha": "^2.3.4",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "02baec452151c0d0cca3777cb150a8c1e6079b8e",
+      "_id": "babel-plugin-css-modules-transform@0.0.5",
+      "_shasum": "fbf65c10b1f41fd2640a8455ec13bcac557d4fe1",
+      "_from": ".",
+      "_npmVersion": "3.6.0",
+      "_nodeVersion": "4.2.3",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "shasum": "fbf65c10b1f41fd2640a8455ec13bcac557d4fe1",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-0.0.5.tgz",
+        "integrity": "sha512-YvlINJzmzuTAcQuk+ZSognHP0JIRcHDsFbzz8h0Q6zwl0J04JN7v92oRtIponNGKbfHQp1NI8CPyKRm7lCafHA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICgu7ctHMJO0imrvrcnWD+ZZqtknMyMBOyluGY21m7T+AiEA5PR/4JfdIPpoT2AtHEqr2/EHD5AOY0ob5rluq3P75Es="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "directories": {}
+    },
+    "0.0.6": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "0.0.6",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "node node_modules/.bin/babel src --ignore **/*.spec.js -d build",
+        "lint": "node node_modules/.bin/eslint src",
+        "test": "npm run lint && node node_modules/.bin/mocha --compilers js:babel-core/register 'test/**/*.spec.js'"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^2.0.2"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.1.18",
+        "babel-core": "^6.1.21",
+        "babel-eslint": "^4.1.5",
+        "babel-plugin-transform-es2015-destructuring": "^6.1.18",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.1.18",
+        "babel-plugin-transform-es2015-parameters": "^6.1.18",
+        "babel-plugin-transform-es2015-spread": "^6.1.18",
+        "babel-plugin-transform-export-extensions": "^6.1.18",
+        "babel-plugin-transform-object-rest-spread": "^6.1.18",
+        "babel-plugin-transform-strict-mode": "^6.1.18",
+        "babel-preset-es2015": "^6.5.0",
+        "chai": "^3.4.1",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "mocha": "^2.3.4",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "1971e703a78c081e6b91dfdfc3814746828b2029",
+      "_id": "babel-plugin-css-modules-transform@0.0.6",
+      "_shasum": "23583d4b735d4a582278f81e9e7e511c4de4aefe",
+      "_from": ".",
+      "_npmVersion": "3.6.0",
+      "_nodeVersion": "5.6.0",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "shasum": "23583d4b735d4a582278f81e9e7e511c4de4aefe",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-0.0.6.tgz",
+        "integrity": "sha512-PuhyFaPkheWcNIaU4HVFjAuvRbtmDYz/NditgSNSvwmpov3ASmqzIty42kS3VmoHZEapyOqUo+7mIE34He3NFQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQC6PoplXthumjCpJUNp4gX0T464QpWvG84D/HUo8O2YKQIhAJyvlDZ3pmQ4xulcxpbYJFGKUg0u+J7kzWwxeNQOPBeL"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-9-west.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-css-modules-transform-0.0.6.tgz_1455786243056_0.5624850725289434"
+      },
+      "directories": {}
+    },
+    "0.0.7": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "0.0.7",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "node node_modules/.bin/babel src --ignore **/*.spec.js -d build",
+        "lint": "node node_modules/.bin/eslint src",
+        "test": "npm run lint && node node_modules/.bin/mocha --compilers js:babel-core/register 'test/**/*.spec.js'"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^3.0.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.1.18",
+        "babel-core": "^6.1.21",
+        "babel-eslint": "^4.1.5",
+        "babel-plugin-transform-es2015-destructuring": "^6.1.18",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.1.18",
+        "babel-plugin-transform-es2015-parameters": "^6.1.18",
+        "babel-plugin-transform-es2015-spread": "^6.1.18",
+        "babel-plugin-transform-export-extensions": "^6.1.18",
+        "babel-plugin-transform-object-rest-spread": "^6.1.18",
+        "babel-plugin-transform-strict-mode": "^6.1.18",
+        "babel-preset-es2015": "^6.5.0",
+        "chai": "^3.4.1",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "^6.1.2",
+        "gulp-util": "^3.0.7",
+        "mocha": "^2.3.4",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "ec3e6dc8669c932d471134c96e268e5e8e4937a3",
+      "_id": "babel-plugin-css-modules-transform@0.0.7",
+      "_shasum": "f3e50997387859c47c9b2b298f9f516382ab3ed6",
+      "_from": ".",
+      "_npmVersion": "3.6.0",
+      "_nodeVersion": "5.6.0",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "shasum": "f3e50997387859c47c9b2b298f9f516382ab3ed6",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-0.0.7.tgz",
+        "integrity": "sha512-5kxw0F08FeUPT5pgJeAH65Du4DEA3iJcojQeDSU1Sg7JkBBHWUjAgeBhn11mdwycVWTRmW1HWEk99dKxaNmVZA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDO/G4ddJpOezQnwkdKsG90MOG16dXClspYJgQfCOoHDgIgOh7rnD/kPdAr9c0am4WpAS375ePZY+DV+S7hawmyfd4="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-9-west.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-css-modules-transform-0.0.7.tgz_1456747863678_0.7467335928231478"
+      },
+      "directories": {}
+    },
+    "0.0.8": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "0.0.8",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "node node_modules/.bin/babel src --ignore **/*.spec.js -d build",
+        "lint": "node node_modules/.bin/eslint src",
+        "test": "npm run lint && node node_modules/.bin/mocha --compilers js:babel-core/register 'test/**/*.spec.js'"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^3.0.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.1.18",
+        "babel-core": "^6.1.21",
+        "babel-eslint": "^4.1.5",
+        "babel-plugin-transform-es2015-destructuring": "^6.1.18",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.1.18",
+        "babel-plugin-transform-es2015-parameters": "^6.1.18",
+        "babel-plugin-transform-es2015-spread": "^6.1.18",
+        "babel-plugin-transform-export-extensions": "^6.1.18",
+        "babel-plugin-transform-object-rest-spread": "^6.1.18",
+        "babel-plugin-transform-strict-mode": "^6.1.18",
+        "babel-preset-es2015": "^6.5.0",
+        "chai": "^3.4.1",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "^6.1.2",
+        "gulp-util": "^3.0.7",
+        "mocha": "^2.3.4",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "9bc73619eec64f0d22da258f207304a18d851548",
+      "_id": "babel-plugin-css-modules-transform@0.0.8",
+      "_shasum": "ef248a536e7d51e64d462b425201d5dff78a5fa6",
+      "_from": ".",
+      "_npmVersion": "3.6.0",
+      "_nodeVersion": "5.6.0",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "shasum": "ef248a536e7d51e64d462b425201d5dff78a5fa6",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-0.0.8.tgz",
+        "integrity": "sha512-MsZAxLGcRn8BZzWkFXi2nnR99vNxcquTxH75Nys4OCKH0J9oWo1aCMi6Vh2xn+E2lhKJxwByNunYGNNHBGFPNg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDlVl5F/OdFXeAib0ekdPrxZPKWpNvIgcIfC21q9gAHmQIhAI4qC22q/ZkOD8cmADgVcHxNNL0W24GCpgg4+RfjHHny"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-css-modules-transform-0.0.8.tgz_1459690053271_0.44107998395338655"
+      },
+      "directories": {}
+    },
+    "0.0.9": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "0.0.9",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "node node_modules/.bin/babel src --ignore **/*.spec.js -d build",
+        "lint": "node node_modules/.bin/eslint src",
+        "test": "npm run lint && node node_modules/.bin/mocha --compilers js:babel-core/register 'test/**/*.spec.js'"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^3.0.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.1.18",
+        "babel-core": "^6.1.21",
+        "babel-eslint": "^4.1.5",
+        "babel-plugin-transform-es2015-destructuring": "^6.1.18",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.1.18",
+        "babel-plugin-transform-es2015-parameters": "^6.1.18",
+        "babel-plugin-transform-es2015-spread": "^6.1.18",
+        "babel-plugin-transform-export-extensions": "^6.1.18",
+        "babel-plugin-transform-object-rest-spread": "^6.1.18",
+        "babel-plugin-transform-strict-mode": "^6.1.18",
+        "babel-preset-es2015": "^6.5.0",
+        "chai": "^3.4.1",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "^6.1.2",
+        "gulp-util": "^3.0.7",
+        "mocha": "^2.3.4",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "ddb71bc1d947e7512c789f22700be2e202a7a2b2",
+      "_id": "babel-plugin-css-modules-transform@0.0.9",
+      "_shasum": "ba86dc97bab752824cdae959414df601f8f638c1",
+      "_from": ".",
+      "_npmVersion": "3.6.0",
+      "_nodeVersion": "5.6.0",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "shasum": "ba86dc97bab752824cdae959414df601f8f638c1",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-0.0.9.tgz",
+        "integrity": "sha512-bLgYR5CGmQY2A/7eM+jntTfclhHpSRpKsQv+0nuWsb4hJ/GFWMHaNkHOfRiIvWlM9aiY5gLLuyEnOzQuDV1EoQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDPovMIjP3o40RwZhPePnF8oYJkwXh1RWnPXmlTLtU5ZAIhAKCboyiDrPdMAKu9XEnhX9K/KFQB0a6iH3WLCOQBaHvM"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-css-modules-transform-0.0.9.tgz_1459953483100_0.6015276289545"
+      },
+      "directories": {}
+    },
+    "0.1.0": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "0.1.0",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "node node_modules/.bin/babel src --ignore **/*.spec.js -d build",
+        "lint": "node node_modules/.bin/eslint src",
+        "test": "npm run lint && node node_modules/.bin/mocha --compilers js:babel-core/register 'test/**/*.spec.js'"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^3.0.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.1.18",
+        "babel-core": "^6.1.21",
+        "babel-eslint": "^4.1.5",
+        "babel-plugin-transform-es2015-destructuring": "^6.1.18",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.1.18",
+        "babel-plugin-transform-es2015-parameters": "^6.1.18",
+        "babel-plugin-transform-es2015-spread": "^6.1.18",
+        "babel-plugin-transform-export-extensions": "^6.1.18",
+        "babel-plugin-transform-object-rest-spread": "^6.1.18",
+        "babel-plugin-transform-strict-mode": "^6.1.18",
+        "babel-preset-es2015": "^6.5.0",
+        "chai": "^3.4.1",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "^6.1.2",
+        "gulp-util": "^3.0.7",
+        "mocha": "^2.3.4",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "79bdab9ae94851ab2972d1c38f51f20f4ace7984",
+      "_id": "babel-plugin-css-modules-transform@0.1.0",
+      "_shasum": "046906d20531d8de7dd9aa927602561d65c4778f",
+      "_from": ".",
+      "_npmVersion": "3.6.0",
+      "_nodeVersion": "5.6.0",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "shasum": "046906d20531d8de7dd9aa927602561d65c4778f",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-0.1.0.tgz",
+        "integrity": "sha512-99vvIvRdME1L6nWKOnyDkDtmDgw6R246jC0vSiLI7Qvap4+MQ+HGl5A+Dmd9Ii9L23XgCnNP+O3xhLjfbRDb4g==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIA+o3etT8cermrohjiaVcGOPEbtr4QKKR/XIE3fGBl+2AiA75Oq/XgnWMC2YeivpSjhwKdfBCh1aOSgwWY9WVXlt7A=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-css-modules-transform-0.1.0.tgz_1462271790415_0.8109760072547942"
+      },
+      "directories": {}
+    },
+    "0.1.1": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "0.1.1",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "node node_modules/.bin/babel src --ignore **/*.spec.js -d build",
+        "lint": "node node_modules/.bin/eslint src",
+        "test": "npm run lint && node node_modules/.bin/mocha --compilers js:babel-core/register 'test/**/*.spec.js'"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^3.0.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.1.18",
+        "babel-core": "^6.1.21",
+        "babel-eslint": "^4.1.5",
+        "babel-plugin-transform-es2015-destructuring": "^6.1.18",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.1.18",
+        "babel-plugin-transform-es2015-parameters": "^6.1.18",
+        "babel-plugin-transform-es2015-spread": "^6.1.18",
+        "babel-plugin-transform-export-extensions": "^6.1.18",
+        "babel-plugin-transform-object-rest-spread": "^6.1.18",
+        "babel-plugin-transform-strict-mode": "^6.1.18",
+        "babel-preset-es2015": "^6.5.0",
+        "chai": "^3.4.1",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "^6.1.2",
+        "gulp-util": "^3.0.7",
+        "mocha": "^2.3.4",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "c84954c1e8155ed03bfa292e42a80375f3c6f23c",
+      "_id": "babel-plugin-css-modules-transform@0.1.1",
+      "_shasum": "9276d45ee436c20590244211261d38d506d6463f",
+      "_from": ".",
+      "_npmVersion": "3.6.0",
+      "_nodeVersion": "5.6.0",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "shasum": "9276d45ee436c20590244211261d38d506d6463f",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-0.1.1.tgz",
+        "integrity": "sha512-HVWSp808Xawa3PTfw3yDQ46V+LVO4Kdimlo0DlaTztZhMRcbm0x32q9qWhGlRpP2rHYPoDPRQ4ExamrPlebamA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAqwH6X5RB8zFqd7o9z9r1CNkr5RRmduUbUndofySQuSAiEAv9NCTgWcu00h2wu/z5EnJBj2Kyhj++swxi53dW4aL4o="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-css-modules-transform-0.1.1.tgz_1464278304101_0.9862118097953498"
+      },
+      "directories": {}
+    },
+    "0.2.0": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "0.2.0",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "node node_modules/.bin/babel src --ignore **/*.spec.js -d build",
+        "lint": "node node_modules/.bin/eslint src",
+        "test": "npm run lint && node node_modules/.bin/mocha --compilers js:babel-core/register 'test/**/*.spec.js'"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^4.0.1",
+        "mkdirp": "^0.5.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.1.18",
+        "babel-core": "^6.1.21",
+        "babel-eslint": "^4.1.5",
+        "babel-plugin-transform-es2015-destructuring": "^6.1.18",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.1.18",
+        "babel-plugin-transform-es2015-parameters": "^6.1.18",
+        "babel-plugin-transform-es2015-spread": "^6.1.18",
+        "babel-plugin-transform-export-extensions": "^6.1.18",
+        "babel-plugin-transform-object-rest-spread": "^6.1.18",
+        "babel-plugin-transform-strict-mode": "^6.1.18",
+        "babel-preset-es2015": "^6.5.0",
+        "chai": "^3.4.1",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "^6.1.2",
+        "gulp-util": "^3.0.7",
+        "mocha": "^2.3.4",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x",
+        "rimraf": "^2.5.4"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "2c8aca8eb73f788b2bc65262f778f6e92e1c20ef",
+      "_id": "babel-plugin-css-modules-transform@0.2.0",
+      "_shasum": "1cef5938618f0658f1386f3980a7254c9e512bda",
+      "_from": ".",
+      "_npmVersion": "3.10.3",
+      "_nodeVersion": "6.3.0",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "shasum": "1cef5938618f0658f1386f3980a7254c9e512bda",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-0.2.0.tgz",
+        "integrity": "sha512-fUdVCUcVvJkDkccJEj7Tx7pH8/RcNL8YppgHT0fvReHs/c962RkBMDnvn00SJLIwsg89P0xWhTwT2VOOHqP+5g==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDt08jl02ooRoU+lbPwcjsYsj+lmG/EqMSI4mmmu9jdPwIhAMtFHyYgox/SIwdq65c19v2BHgD+Ecj8PQhZvThPskW6"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-css-modules-transform-0.2.0.tgz_1470125352428_0.11971624731086195"
+      },
+      "directories": {}
+    },
+    "0.2.1": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "0.2.1",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "node node_modules/.bin/babel src --ignore **/*.spec.js -d build",
+        "lint": "node node_modules/.bin/eslint src",
+        "test": "npm run lint && node node_modules/.bin/mocha --compilers js:babel-core/register 'test/**/*.spec.js'"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^4.0.2",
+        "mkdirp": "^0.5.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.1.18",
+        "babel-core": "^6.1.21",
+        "babel-eslint": "^4.1.5",
+        "babel-plugin-transform-es2015-destructuring": "^6.1.18",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.1.18",
+        "babel-plugin-transform-es2015-parameters": "^6.1.18",
+        "babel-plugin-transform-es2015-spread": "^6.1.18",
+        "babel-plugin-transform-export-extensions": "^6.1.18",
+        "babel-plugin-transform-object-rest-spread": "^6.1.18",
+        "babel-plugin-transform-strict-mode": "^6.1.18",
+        "babel-preset-es2015": "^6.5.0",
+        "chai": "^3.4.1",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "^6.1.2",
+        "gulp-util": "^3.0.7",
+        "mocha": "^2.3.4",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x",
+        "rimraf": "^2.5.4"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "14df2d0c3d3f53ccbb336ef32af9a7b690646459",
+      "_id": "babel-plugin-css-modules-transform@0.2.1",
+      "_shasum": "f997272015ff1806f250a9f44c95d98fceee7941",
+      "_from": ".",
+      "_npmVersion": "3.10.3",
+      "_nodeVersion": "6.3.1",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "shasum": "f997272015ff1806f250a9f44c95d98fceee7941",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-0.2.1.tgz",
+        "integrity": "sha512-Y6h1U/RfwObiP5WqrBW3IhFtfb9g0g1yrrY1kdaJdPtj95td2MPHRnFvw4fGQTMTrhht7SduwJruJY/WxjUllw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGW1kLbOnqqPHWjOSNC6/WjM+KoFE6w4hojFV7TmR5mAAiEA5zbJNX/2uhq/T6nDQquFQwU4NdoYJsQl/QBzP4GrFxc="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-css-modules-transform-0.2.1.tgz_1471693105949_0.8256495594978333"
+      },
+      "directories": {}
+    },
+    "1.0.0": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "1.0.0",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "node node_modules/.bin/babel src --ignore **/*.spec.js -d build",
+        "lint": "node node_modules/.bin/eslint src",
+        "test": "npm run lint && node node_modules/.bin/mocha --compilers js:babel-core/register 'test/**/*.spec.js'"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^4.0.2",
+        "mkdirp": "^0.5.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.1.18",
+        "babel-core": "^6.1.21",
+        "babel-eslint": "^4.1.5",
+        "babel-plugin-transform-es2015-destructuring": "^6.1.18",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.1.18",
+        "babel-plugin-transform-es2015-parameters": "^6.1.18",
+        "babel-plugin-transform-es2015-spread": "^6.1.18",
+        "babel-plugin-transform-export-extensions": "^6.1.18",
+        "babel-plugin-transform-object-rest-spread": "^6.1.18",
+        "babel-plugin-transform-strict-mode": "^6.1.18",
+        "babel-preset-es2015": "^6.5.0",
+        "chai": "^3.4.1",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "^6.1.2",
+        "gulp-util": "^3.0.7",
+        "mocha": "^2.3.4",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x",
+        "rimraf": "^2.5.4"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "d936f01a052d0155055961f9a137d391f9036635",
+      "_id": "babel-plugin-css-modules-transform@1.0.0",
+      "_shasum": "47b253c7dd41006e0886cb69b2856446e600b02a",
+      "_from": ".",
+      "_npmVersion": "3.10.3",
+      "_nodeVersion": "6.3.1",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "shasum": "47b253c7dd41006e0886cb69b2856446e600b02a",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-1.0.0.tgz",
+        "integrity": "sha512-hHbmIUv/pB62oFHoskyzvafncIl8/hK5BMDYvt4iYaT2JTyo5ICRxQrJIOZtqlQSwimwzwgSWQSPNH0iNNy3uw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDbC2dGkgvCP4ydSP4F3IF7eF2dHmtK4NSIdMn1JwuKsAIhAJXTbA1ux5YiAZ3d+uEOLMbCR29mSImGQiIUfOLdUwxM"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-css-modules-transform-1.0.0.tgz_1472814169628_0.8470004992559552"
+      },
+      "directories": {}
+    },
+    "1.0.1": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "1.0.1",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "node node_modules/.bin/babel src --ignore **/*.spec.js -d build",
+        "lint": "node node_modules/.bin/eslint src",
+        "test": "npm run lint && node node_modules/.bin/mocha --compilers js:babel-core/register 'test/**/*.spec.js'"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^4.0.2",
+        "mkdirp": "^0.5.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.1.18",
+        "babel-core": "^6.1.21",
+        "babel-eslint": "^4.1.5",
+        "babel-plugin-transform-es2015-destructuring": "^6.1.18",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.1.18",
+        "babel-plugin-transform-es2015-parameters": "^6.1.18",
+        "babel-plugin-transform-es2015-spread": "^6.1.18",
+        "babel-plugin-transform-export-extensions": "^6.1.18",
+        "babel-plugin-transform-object-rest-spread": "^6.1.18",
+        "babel-plugin-transform-strict-mode": "^6.1.18",
+        "babel-preset-es2015": "^6.5.0",
+        "chai": "^3.4.1",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "^6.1.2",
+        "gulp-util": "^3.0.7",
+        "mocha": "^2.3.4",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x",
+        "rimraf": "^2.5.4"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "fe80fc5e075bdacd619ae6f253392e63099a24eb",
+      "_id": "babel-plugin-css-modules-transform@1.0.1",
+      "_shasum": "02642af80e180eed6aa9c9599e477903e479db08",
+      "_from": ".",
+      "_npmVersion": "3.10.3",
+      "_nodeVersion": "6.5.0",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "shasum": "02642af80e180eed6aa9c9599e477903e479db08",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-1.0.1.tgz",
+        "integrity": "sha512-8Hy2UwE8Aq92U5sGu6nu2YIzQGkfteEu9B1LR00s3AvZosHKYSvaBr9B8oiHxeqgzkOX1R8c36N2ZEAe1nARkw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDBUav+K46g7+cBa5sWF0NwbadPIBlQGbPQkoLGmpMP1AIhAOI9GIZXanNCJYfy1X5HHAqQD33mRZfgxYR4duwrKyaa"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-css-modules-transform-1.0.1.tgz_1474116946311_0.787046305835247"
+      },
+      "directories": {}
+    },
+    "1.1.0": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "1.1.0",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "node node_modules/.bin/babel src --ignore **/*.spec.js -d build",
+        "lint": "node node_modules/.bin/eslint src",
+        "test": "npm run lint && node node_modules/.bin/mocha --compilers js:babel-core/register 'test/**/*.spec.js'"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^4.0.3",
+        "mkdirp": "^0.5.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.1.18",
+        "babel-core": "^6.1.21",
+        "babel-eslint": "^4.1.5",
+        "babel-plugin-transform-es2015-destructuring": "^6.1.18",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.1.18",
+        "babel-plugin-transform-es2015-parameters": "^6.1.18",
+        "babel-plugin-transform-es2015-spread": "^6.1.18",
+        "babel-plugin-transform-export-extensions": "^6.1.18",
+        "babel-plugin-transform-object-rest-spread": "^6.1.18",
+        "babel-plugin-transform-strict-mode": "^6.1.18",
+        "babel-preset-es2015": "^6.5.0",
+        "chai": "^3.4.1",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "^6.1.2",
+        "gulp-util": "^3.0.7",
+        "mocha": "^2.3.4",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x",
+        "rimraf": "^2.5.4"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "f50cc1eb8d43bb2cc97fb5d35602a3a0f1df0f53",
+      "_id": "babel-plugin-css-modules-transform@1.1.0",
+      "_shasum": "d52760d9c2c984f9455c34a4a10ef6c6ec92cd69",
+      "_from": ".",
+      "_npmVersion": "3.10.3",
+      "_nodeVersion": "6.5.0",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "shasum": "d52760d9c2c984f9455c34a4a10ef6c6ec92cd69",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-1.1.0.tgz",
+        "integrity": "sha512-31MVhE6eyTbKUmu365qTwQ+P3zaTd9rbfTxPlyDyQmsRQvLIhNVNlzquDiKUuboUt5qCS9CWd8L+DpHHJRQ5+g==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQD5EAiLv56wZtSt8/v4f35MFdFkYI6JONuOcsJD9qYs2gIhAPf9rrvixegVMaHWp5bZDykoOTZXPHiUKl+k0I0pWFJS"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-css-modules-transform-1.1.0.tgz_1474440221673_0.2488344970624894"
+      },
+      "directories": {}
+    },
+    "1.2.0": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "1.2.0",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "node node_modules/.bin/babel src --ignore **/*.spec.js -d build",
+        "lint": "node node_modules/.bin/eslint src",
+        "test": "npm run lint && node node_modules/.bin/mocha --compilers js:babel-core/register 'test/**/*.spec.js'"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^4.0.3",
+        "mkdirp": "^0.5.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.22.2",
+        "babel-core": "^6.22.1",
+        "babel-eslint": "^7.1.1",
+        "babel-plugin-transform-es2015-block-scoping": "^6.22.0",
+        "babel-plugin-transform-es2015-destructuring": "^6.22.0",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.22.0",
+        "babel-plugin-transform-es2015-parameters": "^6.22.0",
+        "babel-plugin-transform-es2015-spread": "^6.22.0",
+        "babel-plugin-transform-export-extensions": "^6.22.0",
+        "babel-plugin-transform-object-rest-spread": "^6.22.0",
+        "babel-plugin-transform-strict-mode": "^6.22.0",
+        "babel-preset-es2015": "^6.22.0",
+        "chai": "^3.4.1",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "^6.1.2",
+        "gulp-util": "^3.0.7",
+        "mocha": "^2.3.4",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x",
+        "rimraf": "^2.5.4"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "0053674ab2a068984373bd261624474572393ee6",
+      "_id": "babel-plugin-css-modules-transform@1.2.0",
+      "_shasum": "6944c2265740eed74a63b4a003af427f1834821e",
+      "_from": ".",
+      "_npmVersion": "4.0.5",
+      "_nodeVersion": "7.4.0",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "shasum": "6944c2265740eed74a63b4a003af427f1834821e",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-1.2.0.tgz",
+        "integrity": "sha512-dfohcywCGq4dkpRIpidn8qXtrdvCHqxKtvBrTwi7cWp3YCjEVDUKuqKuwdrvlSaNjZ10wvQlh6BsSGSXhkyA3w==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIADw8grRnSSBxsOxkHd00+6AQ9AccgGecooDbaBTCke8AiBojXXlgu80dGeUzEorPExrAul3bbgrTNbwzPlOKToOtQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-css-modules-transform-1.2.0.tgz_1486200412894_0.5061640501953661"
+      },
+      "directories": {}
+    },
+    "1.2.1": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "1.2.1",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "node node_modules/.bin/babel src --ignore **/*.spec.js -d build",
+        "lint": "node node_modules/.bin/eslint src",
+        "test": "npm run lint && node node_modules/.bin/mocha --compilers js:babel-core/register 'test/**/*.spec.js'"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^4.0.3",
+        "mkdirp": "^0.5.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.22.2",
+        "babel-core": "^6.22.1",
+        "babel-eslint": "^7.1.1",
+        "babel-plugin-transform-es2015-block-scoping": "^6.22.0",
+        "babel-plugin-transform-es2015-destructuring": "^6.22.0",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.22.0",
+        "babel-plugin-transform-es2015-parameters": "^6.22.0",
+        "babel-plugin-transform-es2015-spread": "^6.22.0",
+        "babel-plugin-transform-export-extensions": "^6.22.0",
+        "babel-plugin-transform-object-rest-spread": "^6.22.0",
+        "babel-plugin-transform-strict-mode": "^6.22.0",
+        "babel-preset-es2015": "^6.22.0",
+        "chai": "^3.4.1",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "^6.1.2",
+        "gulp-util": "^3.0.7",
+        "mocha": "^2.3.4",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x",
+        "rimraf": "^2.5.4"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "b9f13d14a155f00588ae373208e0804bdb39d632",
+      "_id": "babel-plugin-css-modules-transform@1.2.1",
+      "_shasum": "2000f29c4e9935317d680b6b34771d861a962ce5",
+      "_from": ".",
+      "_npmVersion": "4.0.5",
+      "_nodeVersion": "7.4.0",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "shasum": "2000f29c4e9935317d680b6b34771d861a962ce5",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-1.2.1.tgz",
+        "integrity": "sha512-an5wSMpO3hEN9P3zEDHuUq9DZO0Q9Z+/nacPZY9fzXpmFwxDPs+buNNxTCnHTIId2O5KxR5GIEKd1if0xP2JNQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCOT5GLfrrsIxbSeaCYHs8Ug56AiCGC65M5mlo4AP4fzQIgQxvg4EjuKnfjFsIbpgu0lj97a0SzWRcg4dJyDrCSdyY="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-css-modules-transform-1.2.1.tgz_1487232703147_0.5945592906791717"
+      },
+      "directories": {}
+    },
+    "1.2.3": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "1.2.3",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "node node_modules/.bin/babel src --ignore **/*.spec.js -d build",
+        "lint": "node node_modules/.bin/eslint src",
+        "test": "npm run lint && node node_modules/.bin/mocha --compilers js:babel-core/register 'test/**/*.spec.js'"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^4.0.3",
+        "mkdirp": "^0.5.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.22.2",
+        "babel-core": "^6.22.1",
+        "babel-eslint": "^7.1.1",
+        "babel-plugin-transform-es2015-block-scoping": "^6.22.0",
+        "babel-plugin-transform-es2015-destructuring": "^6.22.0",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.22.0",
+        "babel-plugin-transform-es2015-parameters": "^6.22.0",
+        "babel-plugin-transform-es2015-spread": "^6.22.0",
+        "babel-plugin-transform-export-extensions": "^6.22.0",
+        "babel-plugin-transform-object-rest-spread": "^6.22.0",
+        "babel-plugin-transform-strict-mode": "^6.22.0",
+        "babel-preset-es2015": "^6.22.0",
+        "chai": "^3.4.1",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "^6.1.2",
+        "gulp-util": "^3.0.7",
+        "mocha": "^2.3.4",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x",
+        "rimraf": "^2.5.4"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "6b9cfac2f12d4fb7a02fb7d0c07103d1af66ede6",
+      "_id": "babel-plugin-css-modules-transform@1.2.3",
+      "_shasum": "34b3f00536e6ec7f6e9cd350596dcb0e2db09f60",
+      "_from": ".",
+      "_npmVersion": "4.1.2",
+      "_nodeVersion": "7.6.0",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "shasum": "34b3f00536e6ec7f6e9cd350596dcb0e2db09f60",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-1.2.3.tgz",
+        "integrity": "sha512-0CgICg9jh3l1TuYfmAt09rAONqOTG+zq8tduIBPYPB2J0q1SiUZihdIXpKqkm8KTovpaz1CHXVd5PHMwWXMwhg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIB0GaIjvo8P4q+MeU11q1r+/aONzKJAghCxXSoAzXs4KAiEAuEVAsAVBXylC9KIKG5yHr5zpDTzyfxNB98YfsVdB7NM="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-css-modules-transform-1.2.3.tgz_1489241441498_0.22553928778506815"
+      },
+      "directories": {}
+    },
+    "1.2.5": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "1.2.5",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "node node_modules/.bin/babel src --ignore **/*.spec.js -d build",
+        "lint": "node node_modules/.bin/eslint src",
+        "test": "npm run lint && node node_modules/.bin/mocha --compilers js:babel-core/register 'test/**/*.spec.js'"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^4.0.3",
+        "mkdirp": "^0.5.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.22.2",
+        "babel-core": "^6.22.1",
+        "babel-eslint": "^7.1.1",
+        "babel-plugin-transform-es2015-block-scoping": "^6.22.0",
+        "babel-plugin-transform-es2015-destructuring": "^6.22.0",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.22.0",
+        "babel-plugin-transform-es2015-parameters": "^6.22.0",
+        "babel-plugin-transform-es2015-spread": "^6.22.0",
+        "babel-plugin-transform-export-extensions": "^6.22.0",
+        "babel-plugin-transform-object-rest-spread": "^6.22.0",
+        "babel-plugin-transform-strict-mode": "^6.22.0",
+        "babel-preset-es2015": "^6.22.0",
+        "chai": "^3.4.1",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "^6.1.2",
+        "gulp-util": "^3.0.7",
+        "mocha": "^2.3.4",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x",
+        "rimraf": "^2.5.4"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "27c3b938810df449542b927389a9e9d56a6c27f6",
+      "_id": "babel-plugin-css-modules-transform@1.2.5",
+      "_shasum": "c0e155d696c16aebe28664817939655aac90a6b0",
+      "_from": ".",
+      "_npmVersion": "4.1.2",
+      "_nodeVersion": "7.6.0",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "shasum": "c0e155d696c16aebe28664817939655aac90a6b0",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-1.2.5.tgz",
+        "integrity": "sha512-93kAf2M7ovS3Pap1Iu8ri76JuDHcxwID4BWOd0W6XeKyZvpoVOGTqD4ByiaHbn3SLG3eCqE6jeYfmSJ42hq9/w==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFmytz122f7u4orpb3SAzfHok+SB3FXZsJygyuQ+iiI1AiEAp/ajn6u0jQ337orcgBqQVOnXsArH0zNkyImn7ZjSSVw="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-css-modules-transform-1.2.5.tgz_1489859776458_0.9612011201679707"
+      },
+      "directories": {}
+    },
+    "1.2.6": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "1.2.6",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "node node_modules/.bin/babel src --ignore **/*.spec.js -d build",
+        "lint": "node node_modules/.bin/eslint src",
+        "test": "npm run lint && node node_modules/.bin/mocha --compilers js:babel-core/register 'test/**/*.spec.js'"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^4.0.3",
+        "mkdirp": "^0.5.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.22.2",
+        "babel-core": "^6.22.1",
+        "babel-eslint": "^7.1.1",
+        "babel-plugin-transform-es2015-block-scoping": "^6.22.0",
+        "babel-plugin-transform-es2015-destructuring": "^6.22.0",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.22.0",
+        "babel-plugin-transform-es2015-parameters": "^6.22.0",
+        "babel-plugin-transform-es2015-spread": "^6.22.0",
+        "babel-plugin-transform-export-extensions": "^6.22.0",
+        "babel-plugin-transform-object-rest-spread": "^6.22.0",
+        "babel-plugin-transform-strict-mode": "^6.22.0",
+        "babel-preset-es2015": "^6.22.0",
+        "chai": "^3.4.1",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "^6.1.2",
+        "gulp-util": "^3.0.7",
+        "mocha": "^2.3.4",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x",
+        "rimraf": "^2.5.4"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "8b6522c9362e1a435a7c70a92e0c4bb116faecd1",
+      "_id": "babel-plugin-css-modules-transform@1.2.6",
+      "_shasum": "6da3aa76c428cecaa0efc77f659c389355664330",
+      "_from": ".",
+      "_npmVersion": "4.1.2",
+      "_nodeVersion": "7.6.0",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "shasum": "6da3aa76c428cecaa0efc77f659c389355664330",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-1.2.6.tgz",
+        "integrity": "sha512-tNZ3hrGgTFygmkKigYfwbGaGQodmPcUR5Wa7a11DdB0cSin24ykRDE0uwUisgXP+b5wEyPfHOVDqmmypK10rfQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEp2cYRPnX4/L1lKA52kioiV6x8e+Co89dVl/fADbf3QAiBnWX2mMi+kSWoz6vMm9oH+f9WiPBfpFHuP4HFmV0LwMQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-css-modules-transform-1.2.6.tgz_1490086882913_0.16826413408853114"
+      },
+      "directories": {}
+    },
+    "1.2.7": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "1.2.7",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "node node_modules/.bin/babel src --ignore **/*.spec.js -d build",
+        "lint": "node node_modules/.bin/eslint src",
+        "test": "npm run lint && node node_modules/.bin/mocha --compilers js:babel-core/register 'test/**/*.spec.js'"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^4.0.6",
+        "mkdirp": "^0.5.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.22.2",
+        "babel-core": "^6.22.1",
+        "babel-eslint": "^7.1.1",
+        "babel-plugin-transform-es2015-block-scoping": "^6.22.0",
+        "babel-plugin-transform-es2015-destructuring": "^6.22.0",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.22.0",
+        "babel-plugin-transform-es2015-parameters": "^6.22.0",
+        "babel-plugin-transform-es2015-spread": "^6.22.0",
+        "babel-plugin-transform-export-extensions": "^6.22.0",
+        "babel-plugin-transform-object-rest-spread": "^6.22.0",
+        "babel-plugin-transform-strict-mode": "^6.22.0",
+        "babel-preset-es2015": "^6.22.0",
+        "chai": "^3.4.1",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "^6.1.2",
+        "gulp-util": "^3.0.7",
+        "mocha": "^2.3.4",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x",
+        "rimraf": "^2.5.4"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "6bb1a19fe941d5a762bc5d603b9e1165f23b1c10",
+      "_id": "babel-plugin-css-modules-transform@1.2.7",
+      "_shasum": "56bcc8ee2665bed8fe59dd8733767911b905bae3",
+      "_from": ".",
+      "_npmVersion": "4.1.2",
+      "_nodeVersion": "7.6.0",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "shasum": "56bcc8ee2665bed8fe59dd8733767911b905bae3",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-1.2.7.tgz",
+        "integrity": "sha512-spTQ0yE8rkGAhAurcv+XY9UcORyA0ceYQCIKTFMh1bpA0j9DxrKdqGwkOVEcpRaa11t4K+AiW5UnwuyKXIO8rA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDjtFMMNK0FlB7CjLmK2BgbQLTenEs1K7nd/ePXHKRJIwIgNWKxKW8DfyUoabYOEt4f1x2R13Y06ctoUID99LQPYU0="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/babel-plugin-css-modules-transform-1.2.7.tgz_1490176101589_0.7094386296812445"
+      },
+      "directories": {}
+    },
+    "1.2.8": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "1.2.8",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "babel src --ignore **/*.spec.js -d build",
+        "lint": "eslint src",
+        "pretest": "npm run lint",
+        "test": "cross-env NODE_ENV=test nyc mocha"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^4.0.6",
+        "mkdirp": "^0.5.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.22.2",
+        "babel-core": "^6.22.1",
+        "babel-eslint": "^7.1.1",
+        "babel-plugin-istanbul": "^4.1.3",
+        "babel-plugin-transform-es2015-block-scoping": "^6.22.0",
+        "babel-plugin-transform-es2015-destructuring": "^6.22.0",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.22.0",
+        "babel-plugin-transform-es2015-parameters": "^6.22.0",
+        "babel-plugin-transform-es2015-spread": "^6.22.0",
+        "babel-plugin-transform-export-extensions": "^6.22.0",
+        "babel-plugin-transform-object-rest-spread": "^6.22.0",
+        "babel-plugin-transform-strict-mode": "^6.22.0",
+        "babel-preset-es2015": "^6.22.0",
+        "chai": "^3.4.1",
+        "cross-env": "^5.0.0",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "^6.1.2",
+        "gulp-util": "^3.0.7",
+        "mocha": "^3.4.2",
+        "nyc": "^10.3.2",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x",
+        "rimraf": "^2.5.4"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "38a908c64a1f300215baf5794fc27b65a4eeb4f7",
+      "_id": "babel-plugin-css-modules-transform@1.2.8",
+      "_npmVersion": "5.3.0",
+      "_nodeVersion": "8.2.1",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-MFKLZXx+c2Gt+95C6aE4X5jrwiMjQkcwDpDrJJ1UNAt70+WtkJsryo/l0wjS/G7pW5sLRZd/ThQ+BrmGdU4FmQ==",
+        "shasum": "ee966ca152ebfc31e199af3787d1e960b33d494d",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-1.2.8.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBYmwznZRhcNkcrjx2o8nYxlArrcCSoOScJKxYlGmxjcAiEAmMOo3AmCPybEojU5RG/Uas4e0Es6iQsWlYXjvt4LWZY="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-css-modules-transform-1.2.8.tgz_1510479736949_0.34085249016061425"
+      },
+      "directories": {}
+    },
+    "1.3.0": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "1.3.0",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "babel src --ignore **/*.spec.js -d build",
+        "lint": "eslint src",
+        "pretest": "npm run lint",
+        "test": "cross-env NODE_ENV=test nyc mocha"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^4.0.6",
+        "mkdirp": "^0.5.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.22.2",
+        "babel-core": "^6.22.1",
+        "babel-eslint": "^7.1.1",
+        "babel-plugin-istanbul": "^4.1.3",
+        "babel-plugin-transform-es2015-block-scoping": "^6.22.0",
+        "babel-plugin-transform-es2015-destructuring": "^6.22.0",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.22.0",
+        "babel-plugin-transform-es2015-parameters": "^6.22.0",
+        "babel-plugin-transform-es2015-spread": "^6.22.0",
+        "babel-plugin-transform-export-extensions": "^6.22.0",
+        "babel-plugin-transform-object-rest-spread": "^6.22.0",
+        "babel-plugin-transform-strict-mode": "^6.22.0",
+        "babel-preset-es2015": "^6.22.0",
+        "chai": "^3.4.1",
+        "cross-env": "^5.0.0",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "^6.1.2",
+        "gulp-util": "^3.0.7",
+        "mocha": "^3.4.2",
+        "nyc": "^10.3.2",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x",
+        "rimraf": "^2.5.4"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "c12296578d483aa01e95885a339902aa3ec5de54",
+      "_id": "babel-plugin-css-modules-transform@1.3.0",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "8.9.1",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-9g+y8eDMMDofCbjGn3rFumSbg37VZun6+s63B9G7nWmmcPpbaqykPiprYhWIwNQHkpWocyeuztDwkUrhptvd+Q==",
+        "shasum": "70e0b5e6bf97ecc6dfe812a76f345dd4aca7d5a1",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-1.3.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCn+yDCHOs0MEcD0FWVqiB7Wd/p2e95pBfbtPEa8h3RCgIgB7cIqCwA8SrZ/Ro1P/vGZySmnbKODe8YI7GMvNhguuc="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-css-modules-transform-1.3.0.tgz_1511704811166_0.030812959652394056"
+      },
+      "directories": {}
+    },
+    "1.3.1": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "1.3.1",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "babel src --ignore **/*.spec.js -d build",
+        "lint": "eslint src",
+        "pretest": "npm run lint",
+        "test": "cross-env NODE_ENV=test nyc mocha"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^4.0.6",
+        "mkdirp": "^0.5.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.22.2",
+        "babel-core": "^6.22.1",
+        "babel-eslint": "^7.1.1",
+        "babel-plugin-istanbul": "^4.1.3",
+        "babel-plugin-transform-es2015-block-scoping": "^6.22.0",
+        "babel-plugin-transform-es2015-destructuring": "^6.22.0",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.22.0",
+        "babel-plugin-transform-es2015-parameters": "^6.22.0",
+        "babel-plugin-transform-es2015-spread": "^6.22.0",
+        "babel-plugin-transform-export-extensions": "^6.22.0",
+        "babel-plugin-transform-object-rest-spread": "^6.22.0",
+        "babel-plugin-transform-strict-mode": "^6.22.0",
+        "babel-preset-es2015": "^6.22.0",
+        "chai": "^3.4.1",
+        "cross-env": "^5.0.0",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "^6.1.2",
+        "gulp-util": "^3.0.7",
+        "mocha": "^3.4.2",
+        "nyc": "^10.3.2",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x",
+        "rimraf": "^2.5.4"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "64f1f5e33e40b43f76e3cbdcaec1465864446798",
+      "_id": "babel-plugin-css-modules-transform@1.3.1",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "8.9.1",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-Rk2eM7vcKt+WYHmeFIGaRosjTcbnNubdsGkb1b2kFCcvAcL/HtUcPcwY4hHuWEwRzS2RcSBT55MfP4yK7Rb58g==",
+        "shasum": "0d1264dab2769028c5cbb4f99a2760e119aeef3c",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-1.3.1.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICOGvJmRJ6XaMSkw307DtB1Rnl5Ku7FWHZIPshmMVZv7AiB76gxWCT4zuTnPTH4HLrMartoRm5Khyr6OT94T1n0iJg=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-css-modules-transform-1.3.1.tgz_1512154801302_0.6281958494801074"
+      },
+      "directories": {}
+    },
+    "1.4.0": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "1.4.0",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "babel src --ignore **/*.spec.js -d build",
+        "lint": "eslint src",
+        "pretest": "npm run lint",
+        "test": "cross-env NODE_ENV=test nyc mocha"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^4.0.6",
+        "mkdirp": "^0.5.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.0",
+        "babel-eslint": "^7.1.1",
+        "babel-plugin-istanbul": "^4.1.3",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "babel-register": "^6.26.0",
+        "chai": "^3.4.1",
+        "cross-env": "^5.0.0",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "7.0.0",
+        "gulp-util": "^3.0.7",
+        "mocha": "^3.4.2",
+        "nyc": "^10.3.2",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x",
+        "rimraf": "^2.5.4"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "ac8e338771c67355bcaf8bca68bfac851500d9c4",
+      "_id": "babel-plugin-css-modules-transform@1.4.0",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "8.9.1",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-byonF+wNC2anhyfAz07EnWLcMOh+29e9jJqsVA0e3BNz7pMZxyr7BC3D8QKmMHAwDp0hy+SqyqG9qCwef9prVg==",
+        "shasum": "6e7da3c15fa6fc94b06f85a2c17fd1833b52162d",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-1.4.0.tgz",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHl4OiC/CNsTObgK3h3kuw2TYtKsVWEQvdIBUibE7qXSAiAjnTjF5uONNFmBftQBKkBwAF973ovo2XHDWcdEqK9wXA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-css-modules-transform-1.4.0.tgz_1515238575129_0.7269149150233716"
+      },
+      "directories": {}
+    },
+    "1.5.0": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "1.5.0",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "babel src --ignore **/*.spec.js -d build",
+        "lint": "eslint src",
+        "pretest": "npm run lint",
+        "test": "cross-env NODE_ENV=test nyc mocha"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^4.0.6",
+        "mkdirp": "^0.5.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.0",
+        "babel-eslint": "^7.1.1",
+        "babel-plugin-istanbul": "^4.1.3",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "babel-register": "^6.26.0",
+        "chai": "^3.4.1",
+        "cross-env": "^5.0.0",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "7.0.0",
+        "gulp-util": "^3.0.7",
+        "mocha": "^3.4.2",
+        "nyc": "^10.3.2",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x",
+        "rimraf": "^2.5.4"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "ec95cbeae128977a5198620be1b7ae9b81177b1f",
+      "_id": "babel-plugin-css-modules-transform@1.5.0",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "8.9.1",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-9RYMeNDj4o24nsEYHDdjw0KX0K3BW5py9EHoYUixpaY/49BoA0bUcCcjZBI2Y7NsFYX5aZcSsO39Ka6dFLvLmQ==",
+        "shasum": "89f81e4098a51310780179e5d95dcd14923c3258",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-1.5.0.tgz",
+        "fileCount": 39,
+        "unpackedSize": 230168,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAUn+bZk+fur4tpu+6JPELwi54L53sPk68H/Xrr9DFD/AiEA/2PhWj2gqYH0H7gbVG13WpsIJ6CmSpt6kphxmS2P+2A="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-css-modules-transform_1.5.0_1519910300964_0.5590204596448394"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.6.0": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "1.6.0",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "babel src --ignore **/*.spec.js -d build",
+        "lint": "eslint src",
+        "pretest": "npm run lint",
+        "test": "cross-env NODE_ENV=test nyc mocha"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^4.0.6",
+        "mkdirp": "^0.5.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.0",
+        "babel-eslint": "^7.1.1",
+        "babel-plugin-istanbul": "^4.1.3",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "babel-register": "^6.26.0",
+        "chai": "^3.4.1",
+        "cross-env": "^5.0.0",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "7.0.0",
+        "gulp-util": "^3.0.7",
+        "mocha": "^3.4.2",
+        "nyc": "^10.3.2",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x",
+        "rimraf": "^2.5.4"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "8bf788637b8e7789f50d6803caa584f73510afe4",
+      "_id": "babel-plugin-css-modules-transform@1.6.0",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "8.9.1",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-ZAOvhlXXwN+YtNw6y7Bto1tu1Fnc9O1puVLmKZXl0kMSYpizSIrPgW/Uh5GJdRzeYvMq0w+BMJwDj/LROo8Jxg==",
+        "shasum": "e4bf4a58fd959305a67f4a2ae7953b3789f00bed",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-1.6.0.tgz",
+        "fileCount": 40,
+        "unpackedSize": 235369,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa8VKXCRA9TVsSAnZWagAAGY4P+wbNunLi+TxGfDRVSBwX\npGUax8KqWMk7HzyQ+ZaladzjAKgqJq3jOJ9anqj+7YfyJsNtgP/Jigw14jcy\nTG8lmlXu2DcYLdOMWXggJS2Xvco6PwlCNPIm9WMj67gkWAC/VgaxpPotUHGK\nBtjrZrfiuuiDpaYkIEadizBHWwAj6IC49xQ0zzgqdJJuGRc5+yoqgzT8Ek+i\npMKZjP51rHiLRdXXQpYXy5LL0f4uzFldi0EurrXW9otKZLa7bImhhTuv0TQ4\nGWgJs5Dbv63jD4dU+XKR/hk9oAT21iFTQKwl9o6bFnhLBLKxF8arOU1dVZ1S\nCUrIP354Q5zxSsEk46QNsHldbRQ+WfsJ+WHrvZXF4UNg6aoQ7EVhcJU9xnxK\n7S2FFj/+3hwrEGHH1pvOS76FFrTbEMXd2x+1nsIMovQBgdgIapjhvPgGI5DH\nRiS0EMTvbTSw3kF91U012GOSIcUW6a/GQxie6WC64Dk7NMemDvLgBS3aKpVf\npDnj1Jup3yd/ZgJZjonG21oHjrNMSc7LkJiVfqXmDqdRDN1NTPA/2N4alLIT\nHXHd2G+oNw4JOb2gkq6VXjkU8Im2e4mDT3HhCWwptJoEAG7o1VQG7k46dijj\nORPFQ80LENWk34AFYdf2ryr+nslyGqfwco9NMJn9JW5C02YN5iT0at8iHMuc\ndz3m\r\n=/SR3\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIB774zFiCxSUTJWqk2uP5HQQ9H3NTrdso2ypWG03WafIAiEAgl18HgfAgDCQSNRcyuf1UKhXGx3JcFgH1vVUnWcReoU="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-css-modules-transform_1.6.0_1525764758806_0.8149097740526134"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.6.1": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "1.6.1",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "babel src --ignore **/*.spec.js -d build",
+        "lint": "eslint src",
+        "pretest": "npm run lint",
+        "test": "cross-env NODE_ENV=test nyc mocha"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^4.0.6",
+        "mkdirp": "^0.5.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.0",
+        "babel-eslint": "^7.1.1",
+        "babel-plugin-istanbul": "^4.1.3",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "babel-register": "^6.26.0",
+        "chai": "^3.4.1",
+        "cross-env": "^5.0.0",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "7.0.0",
+        "gulp-util": "^3.0.7",
+        "mocha": "^3.4.2",
+        "nyc": "^10.3.2",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x",
+        "rimraf": "^2.5.4"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "49407e405cca6092c33f1ca88e6ed01a579eb05c",
+      "_id": "babel-plugin-css-modules-transform@1.6.1",
+      "_npmVersion": "5.5.1",
+      "_nodeVersion": "8.9.1",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-Iv98dKRgQnhuHFcn2heHH1OpHo9LGyoKjlsAkj6/Q3wkwpVyHrNfVua/WHnrwe2f7EHy1KANnOSg+q4AJ6ZzaQ==",
+        "shasum": "5af9483bd62d09af18eeebdc7e6c4370e5125eed",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-1.6.1.tgz",
+        "fileCount": 40,
+        "unpackedSize": 235386,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa8VXaCRA9TVsSAnZWagAA4zwP/RbyEHrAizxitXGkZVHu\n7UWY1WB43WVBBjW5Pm4JF0JEFCFlEnCKBFI1Mm/m7PmXAwJpH8Lt2f7FNidv\na1UQq/Rgxz/5NAQyEVfDKAkH8cMhtxPJ2riqQLmm/MXEHU6jKWnIMHGpbsiP\nv2aWYK56aatGAO9H8ZQvXLvTy3xX0ia+nRJkfJhcLWPIe1yUloK4zv/QWyU/\nc6dnHCDQ1yqeeh/RtS5zut9ayUpnJYrdDSr6xWYufaAO7dl5yM2FR90DSiSd\nebuIgzwyLP9Oum6Bq2OzLrxkJs/IAuscJ9CB4UeOS1jV6i7T1GZq5w0h8hag\nOLUfookJ70ejE3ep70vR7WUJxQI9LoF00cKfuf0NdOSGDEWr5ycKaAOg8JfH\nVXosHIla5apiG9cq8eUWd3w7NA3mdNrdI98sxItRO8tQai3pRHFDTGEMjmrj\noqmQvbYVV7FxSEwlA0OwW7mTbSwHKMYjYM+DSu+iOC1xio0fxxhBC81lEYjg\n1fGzDHLfUfqXvHVz8VPBAPcIN2dH5Sp5B8oTiJgg5gj7/xNL7rAmsT5orCBh\n+nh80A50KVhAyoiwYPzhtcbfCCACckvRP7SOQVeIhqdp+ongHTObuE5Oa/fm\nZXV4l9F93+EIRBgdckdKO6fhsSZ0IGJ2kpmiO8Wj5y0k9kU/dCMIA01TA9WI\nA7OD\r\n=vPH7\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICDC6FPXvAEF31Y//lJ3t7N4dOZPyILXxcuia5lRP6fKAiBaa55gSq/gHWU7ICU/W5n8Rr7gzQXScaM+Jhyu0PH3dQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-css-modules-transform_1.6.1_1525765593091_0.6001551281816049"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.6.2": {
+      "name": "babel-plugin-css-modules-transform",
+      "version": "1.6.2",
+      "description": "Transform required css modules so one can use generated class names.",
+      "main": "build/index.js",
+      "scripts": {
+        "build": "babel src --ignore **/*.spec.js -d build",
+        "lint": "eslint src",
+        "pretest": "npm run lint",
+        "test": "cross-env NODE_ENV=test nyc mocha"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+      },
+      "keywords": [
+        "babel",
+        "css-modules",
+        "babel-plugin",
+        "plugin"
+      ],
+      "author": {
+        "name": "Michal Kvasničák",
+        "email": "michal.kvasnicak@gmail.com",
+        "url": "http://kvasnicak.info"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+      },
+      "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+      "dependencies": {
+        "css-modules-require-hook": "^4.0.6",
+        "mkdirp": "^0.5.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.0",
+        "babel-eslint": "^7.1.1",
+        "babel-plugin-istanbul": "^4.1.3",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "babel-register": "^6.26.0",
+        "chai": "^3.4.1",
+        "cross-env": "^5.0.0",
+        "eslint": "^1.9.0",
+        "eslint-config-airbnb-lite": "^1.0.0",
+        "gulp-babel": "7.0.0",
+        "gulp-util": "^3.0.7",
+        "mocha": "^3.4.2",
+        "nyc": "^10.3.2",
+        "postcss": "^5.x",
+        "postcss-modules-extract-imports": "^1.x",
+        "postcss-modules-local-by-default": "^1.x",
+        "postcss-modules-scope": "^1.x",
+        "postcss-modules-values": "^1.x",
+        "rimraf": "^2.5.4"
+      },
+      "engines": {
+        "node": ">=4.0.0"
+      },
+      "gitHead": "a30ba8e44e68f46220bf713aa6466b597cf0045e",
+      "_id": "babel-plugin-css-modules-transform@1.6.2",
+      "_npmVersion": "6.4.1",
+      "_nodeVersion": "10.12.0",
+      "_npmUser": {
+        "name": "michalkvasnicak",
+        "email": "michal.kvasnicak@gmail.com"
+      },
+      "dist": {
+        "integrity": "sha512-zBsI54N5n979vfYpqFzQ6oRwEiVcmLH5REyaincNW+Ecl52nvRsQPYIbDcJzHePrXI20YSRUw6G/qbPwZZDgfg==",
+        "shasum": "eecf4889637bf1c56cda25ee21df060775d1bd22",
+        "tarball": "https://registry.npmjs.org/babel-plugin-css-modules-transform/-/babel-plugin-css-modules-transform-1.6.2.tgz",
+        "fileCount": 40,
+        "unpackedSize": 235855,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb+tDmCRA9TVsSAnZWagAArK4QAIfhJ2cq3T/bZkydc4C9\ny/34tK6+qkwjh5y3BkxnN/JW0qV2/icRcPbzrQ8y1O1bio6vuQnruSWEUev2\ntWt3JxazBu4brsQnEVIK1MV6WYolDLfZmqRmCEDfohaNuOSavUvVmj5b/yCa\ndwUILJ4KiNUX/ltN/lWvF7VwpknVa0CxFb6R9ia7bTbLnOA78qhw1U+zEaTw\nVVGAbncdPmrt79sh2Nvy02hJsQaF8ic4MDhV7Yk7O9Fm+VoEcJYRqN8jsVAw\nPaMYGSj8Lm1bH8JafHI6ngoQmgUUML9K1Ob0pxxoPAbCEbDeWOpk50HvjqCN\n0deYutCX/Kn0q5Mp46zaDPOjm8Xpuu8Jmx9FVzvPLQyuHRi92s36SkfsSGCA\n2A3IsLvvPzDEpMMMPkOX3TjAX5ecItkw4PFkHjrTUi/eNM3BMvT9VQNNNCce\ntwsbYitjfaEBrLWwfJJACJSc3r0VN8ilMzAvmU1KiyG0DOt1TpazN/RT3DyT\nXHj9fG6lhKJ4PPXUuOESTQh5p6LfPsjdlpAwu7qXSCg7qhuUYRntAPGswEg4\nIm2Hjdmq2LW0Yfrqib7b+PNSLkShwfS9F4uWIzt1jGxzy8VfYbsyGfgB4FM4\nwpePhiuahYIvi90b7fSj/DaEuRVYcNw6Z9B3J7ORtlgvN1dG5dv+WNC1CmAc\n1XiD\r\n=27JK\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCM3WzjMmlbNmVT6UobDbgIPvc/Iyn+xjXh9Lw8uMvr4AIgAWQpNVrpcQw9RTnznPAHOrpPOX5GrdwZ0w7ycpO5nvs="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "michalkvasnicak",
+          "email": "michal.kvasnicak@gmail.com"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/babel-plugin-css-modules-transform_1.6.2_1543164133978_0.08668834751171461"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "homepage": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform#readme",
+  "keywords": [
+    "babel",
+    "css-modules",
+    "babel-plugin",
+    "plugin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michalkvasnicak/babel-plugin-css-modules-transform.git"
+  },
+  "author": {
+    "name": "Michal Kvasničák",
+    "email": "michal.kvasnicak@gmail.com",
+    "url": "http://kvasnicak.info"
+  },
+  "bugs": {
+    "url": "https://github.com/michalkvasnicak/babel-plugin-css-modules-transform/issues"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "users": {
+    "nelix": true,
+    "zebulonj": true,
+    "zuojiang": true,
+    "lancepw": true,
+    "leonardorb": true
+  }
+}
