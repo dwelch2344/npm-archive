@@ -1,0 +1,4110 @@
+{
+  "_id": "@smithy/smithy-client",
+  "_rev": "39-0dd38fe8b09061889a95e76d066c9896",
+  "name": "@smithy/smithy-client",
+  "dist-tags": {
+    "latest": "2.4.2"
+  },
+  "versions": {
+    "1.0.0": {
+      "name": "@smithy/smithy-client",
+      "version": "1.0.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "workspace:^",
+        "@smithy/types": "workspace:^",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "gitHead": "7b4756d90d83f268fb714913ac816d3183b27361",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/smithy-client@1.0.0",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-31rLYl0VDzcafnt4j+5ULKJPrj+gYxSsjrxqEt9OLIN7LINHFbsPI0fw58mEQ7Q25fueSlzE/pAyx8BrnADJIg==",
+        "shasum": "74be9e59885558f222a00e613e678ecf2f4f2b46",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-1.0.0.tgz",
+        "fileCount": 66,
+        "unpackedSize": 106584,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDR8lcCg1JPKebd0l3uW57o61WqN2VM7FzEbJwKWR997wIgIzliBHfbbKwXr/6ooyqBKMGI5YMqEWARI7AMUBkCZ3Y="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_1.0.0_1687212051552_0.5146011704471485"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.1": {
+      "name": "@smithy/smithy-client",
+      "version": "1.0.1",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^1.0.1",
+        "@smithy/types": "^1.1.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "63b6fcdb83b164d2409c94a6304dccaec4f35022",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/smithy-client@1.0.1",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-8QVDlWKCL8ysJM9gKMnsSxENYe6BVvNRi9TWniyVY8vX1BSOoKO4KAGobXrnMYtY51UodGqR0UB6PqmH4mpQ2g==",
+        "shasum": "5948e66ff72e23d8a924059a9c89096ac320bd33",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-1.0.1.tgz",
+        "fileCount": 66,
+        "unpackedSize": 106635,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCSVz3hO0MBdQMqOxX46vfahNMqbD+VPZ39sDaddWx1ogIhAJx+kGgZPAsT3ISGCk2yC2V8QJCqUDIJF0jtMADJM6hX"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_1.0.1_1687289203608_0.7259636644748264"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.2": {
+      "name": "@smithy/smithy-client",
+      "version": "1.0.2",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^1.0.1",
+        "@smithy/types": "^1.1.0",
+        "@smithy/util-stream": "^1.0.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "8124c8b9b0494e9679939f75b9b5bc0663bf839b",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/smithy-client@1.0.2",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-KuQKcFAws69nHxfpYDg6nv84F6+3QqJPtUvw9iyNi82XFHY0mGQg7JJL/EUsy2sNJsAoX7ZL01n0EOunPPWTjQ==",
+        "shasum": "cf7405c1324ca0902f3ec845b50d4ddfe7a374c0",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-1.0.2.tgz",
+        "fileCount": 69,
+        "unpackedSize": 108254,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEcRf8mwV/TKR8r49xOmNBgj13M4fuOKAU9/8VXwe/NLAiAAxE19Ii2lDPLcrRHD/FnB10IhC1Zq2ZLC0zfOQVe+Dg=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_1.0.2_1687453386225_0.8199201487524341"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.3": {
+      "name": "@smithy/smithy-client",
+      "version": "1.0.3",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^1.0.1",
+        "@smithy/types": "^1.1.0",
+        "@smithy/util-stream": "^1.0.1",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "004bb3e927340d37b840251491ff0c145382c16e",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/smithy-client@1.0.3",
+      "_nodeVersion": "18.16.0",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-Wh1mNP/1yUZK0uYkgCQ6NMxpBT3Fmc45TMdUfOlH1xD2zGYL7U4yDHFOhEZdi/suyjaelFobXB2p9pPIw6LjRQ==",
+        "shasum": "f31bf64fc4a21fc42171120635e6af2b58dabc22",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-1.0.3.tgz",
+        "fileCount": 69,
+        "unpackedSize": 108254,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCf28LstER4RY5/iyqTJeMwMViIBqeBrgBW8cKDTnzqtgIgUMXqC4WU9z4Y6m/i3kq+/gt6Q816msBjAmAJeOKudRY="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_1.0.3_1687906481900_0.3427087720944795"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.4": {
+      "name": "@smithy/smithy-client",
+      "version": "1.0.4",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^1.0.2",
+        "@smithy/types": "^1.1.1",
+        "@smithy/util-stream": "^1.0.2",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "95ddb42557074f1cfe11a4763f26e2da5c9d1f34",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/smithy-client@1.0.4",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-gpo0Xl5Nyp9sgymEfpt7oa9P2q/GlM3VmQIdm+FeH0QEdYOQx3OtvwVmBYAMv2FIPWxkMZlsPYRTnEiBTK5TYg==",
+        "shasum": "96d03d123d117a637c679a79bb8eae96e3857bd9",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-1.0.4.tgz",
+        "fileCount": 91,
+        "unpackedSize": 138311,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBQKNWBKkwV/vPeBJtK4WIHXA5dS3F6SK0ipAd8lKRyaAiEA31Ak7Lq7u5w4J6qIrj0yEVAIX+CEtTeFA8x8f9f9Qlo="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_1.0.4_1688660688615_0.6313028734043813"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.0.5": {
+      "name": "@smithy/smithy-client",
+      "version": "1.0.5",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^1.0.2",
+        "@smithy/types": "^2.0.0",
+        "@smithy/util-stream": "^1.0.3",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "72af08daf21ac83ec08cc604af511bc47e640b11",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/smithy-client@1.0.5",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-K/gvUh4dg+/fiXaqiP819mv5xcni7mJqbAf5RdV5g2DI2qDOy+B7/BqBb0OGWB0uQwhL+TUm6q4ibvF7Vs2Cxw==",
+        "shasum": "23ba290a6a164a8af3dc3b17f46a86441d0fb017",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-1.0.5.tgz",
+        "fileCount": 91,
+        "unpackedSize": 138311,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCocrup5Ke8yGp8cCmEpSqMoabdY7woMtC7E3OfoMQmNQIhALjUJyARxJYx9Q9snsY8SYfvZCCFFqeXStrYVC43v4Jr"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_1.0.5_1690228463085_0.8612967989739273"
+      },
+      "_hasShrinkwrap": false,
+      "deprecated": "Deprecated due to incompatible dependency."
+    },
+    "1.1.0": {
+      "name": "@smithy/smithy-client",
+      "version": "1.1.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^1.1.0",
+        "@smithy/types": "^1.2.0",
+        "@smithy/util-stream": "^1.1.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "3502553d79fa14e35479d754a706f217b29739a4",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/smithy-client@1.1.0",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-j32SGgVhv2G9nBTmel9u3OXux8KG20ssxuFakJrEeDug3kqbl1qrGzVLCe+Eib402UDtA0Sp1a4NZ2SEXDBxag==",
+        "shasum": "a546a41cc377c836756b6fa749fc9ae292472985",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-1.1.0.tgz",
+        "fileCount": 91,
+        "unpackedSize": 138311,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIEdWnFggblyx9BQsL6ilLDDez6wqlpqT2GixDeorx+UPAiBqUTlad38CdSKbdW1K6AZph+5QOW7X1+2A+ooLS2hTFw=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_1.1.0_1690231906367_0.08336053239944574"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0": {
+      "name": "@smithy/smithy-client",
+      "version": "2.0.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.0",
+        "@smithy/types": "^2.0.1",
+        "@smithy/util-stream": "^2.0.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "6d015a4681600b57079a550f6789b75fb6e387ab",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/smithy-client@2.0.0",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-VYm+HDtqd7YYuHDt5MceNMUPu4ZDK1YXtY2PhH/t+SXTKvgA9La3CqosVBPwciGYAF6e+Ghoszj1j3v609qRKA==",
+        "shasum": "da91158f1c7fd8905de2d266125adfa7763948b4",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.0.0.tgz",
+        "fileCount": 91,
+        "unpackedSize": 138311,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDeBZE0xrXzLulL1DHanl5wEXF5SIjAjflrLgx7wl5MbAIhAI70f1tEshRyWPWNHw51qqt3e/LBUoZLhtKgcd0iI68P"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.0.0_1690234131488_0.9971909057846535"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.1": {
+      "name": "@smithy/smithy-client",
+      "version": "2.0.1",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.0",
+        "@smithy/types": "^2.0.2",
+        "@smithy/util-stream": "^2.0.1",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "632c5a5cb0b8ba0ef5f2bfc1f701cfb292fa79a1",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/smithy-client@2.0.1",
+      "_nodeVersion": "18.16.1",
+      "_npmVersion": "9.5.1",
+      "dist": {
+        "integrity": "sha512-LHC5m6tYpEu1iNbONfvMbwtErboyTZJfEIPoD78Ei5MVr36vZQCaCla5mvo36+q/a2NAk2//fA5Rx3I1Kf7+lQ==",
+        "shasum": "34572ada6eccb62e6f0b38b6a9dc261e2cdf4d24",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.0.1.tgz",
+        "fileCount": 91,
+        "unpackedSize": 138311,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIELVF1Pt//rbKWgx39EqXT99rCh+kBYn9E3UQQ9Os4q2AiEAiZrN71nt4uN5wlBREN0zZ3GWRdzyTmi90wnrPqL+icQ="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.0.1_1690306807844_0.48422629530916805"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.2": {
+      "name": "@smithy/smithy-client",
+      "version": "2.0.2",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.0",
+        "@smithy/types": "^2.1.0",
+        "@smithy/util-stream": "^2.0.2",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "4b0be91f301d5e2f8fca9c6a871c8c796e047d6f",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/smithy-client@2.0.2",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-mDfokI8WwLU5C0gcQ4ww/zJI/WLGSh2+vdIA42JRnjfYUjJNH/rKfX9YOnn2eBOxl3loATERVUqkHmKe+P8s2Q==",
+        "shasum": "3364bfb4afa73d57712b95cb9319f7c8324a104e",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.0.2.tgz",
+        "fileCount": 91,
+        "unpackedSize": 138317,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHgGh8Fy/y6+Nx1CIWSbr7hNmR46ODtqIjYVQOvGZe8ZAiAldpdvS17JLjA9bT1L16Bak/O8ztTmWESnMDtPssKVpQ=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.0.2_1691448561043_0.7586286691592252"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.3": {
+      "name": "@smithy/smithy-client",
+      "version": "2.0.3",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.0",
+        "@smithy/types": "^2.2.0",
+        "@smithy/util-stream": "^2.0.3",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "1f9fcad7015cdf639e98d4e951ceddc2a1ec11db",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/smithy-client@2.0.3",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-YP0HakPOJgvX2wvPEAGH9GB3NfuQE8CmBhR13bWtqWuIErmJnInTiSQcLSc0QiXHclH/8Qlq+qjKCR7N/4wvtQ==",
+        "shasum": "cc3a8ef84c904ba75aa702edcf79973aa0e23e09",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.0.3.tgz",
+        "fileCount": 91,
+        "unpackedSize": 138317,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC7Qy9cUOmH7hN/y/4FKevhzxkE2as9DeuXVWMMZxoKnQIgXDVCQikizpHxO//Z3K7IVnNAHPr3919nDiiMEwxHqbg="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.0.3_1691773113308_0.856184796318217"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.4": {
+      "name": "@smithy/smithy-client",
+      "version": "2.0.4",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.0",
+        "@smithy/types": "^2.2.1",
+        "@smithy/util-stream": "^2.0.4",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "a6a1389994d62ebfcdf9843f58f0d1739837af92",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/smithy-client@2.0.4",
+      "_nodeVersion": "18.17.0",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-Dg1dkqyj3jwa03RFs6E4ASmfQ7CjplbGISJIJNSt3F8NfIid2RalbeCMOIHK7VagKh9qngZNyoKxObZC9LB9Lg==",
+        "shasum": "3f983b5a6e60acc00a3e05c65353cf94ac4e192c",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.0.4.tgz",
+        "fileCount": 91,
+        "unpackedSize": 138317,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIA2mXgcz1enwWAd9wxrnzsF6xnv6eM5bLWymLFb+CCBCAiEA9QQHMIn+Qzs0W0Fc28PuR02KkQZg6HxSw3YCI6dDpZU="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.0.4_1692119182345_0.8839786256210289"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.5": {
+      "name": "@smithy/smithy-client",
+      "version": "2.0.5",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.0",
+        "@smithy/types": "^2.2.2",
+        "@smithy/util-stream": "^2.0.5",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "8f6e5a31335d5469b52bf39007d0c88e373cfa72",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/smithy-client@2.0.5",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-kCTFr8wfOAWKDzGvfBElc6shHigWtHNhMQ1IbosjC4jOlayFyZMSs2PysKB+Ox/dhQ41KqOzgVjgiQ+PyWqHMQ==",
+        "shasum": "7941449f146d2c61d34670779d77d4a085141bc1",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.0.5.tgz",
+        "fileCount": 103,
+        "unpackedSize": 148064,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCjJjHQRRAzf0adkRFzz2HqrylgsvJkd7uD2eTmgkmF8gIgKWsYxkvdaFbBDrPBySASmTj9qTx20AigtJdVBRMV1Cw="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.0.5_1692736979994_0.711944212354461"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.0": {
+      "name": "@smithy/smithy-client",
+      "version": "2.1.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.0",
+        "@smithy/types": "^2.3.0",
+        "@smithy/util-stream": "^2.0.6",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "84ce53b4994faf09aa1cf8e0b9c245d214127b7c",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/smithy-client@2.1.0",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-zbGdG3TJYyGjocDcFa3LfxIRs+OqU7zWY7X0pYjnVmZ8YpzPDCHRlqyLw9s6/oN0IZIA99a/W6my/8s/08UyNQ==",
+        "shasum": "6db083ca260d64ce9be8135fa22eb641070a5da3",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.1.0.tgz",
+        "fileCount": 107,
+        "unpackedSize": 151620,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCg07UJWKWU51IYM5Cpe9FRDCDWPKrtZh8G6nQguP4xXwIhANwTpTVvQYBTzxOtVmwH104pTMqJarPiPo5V0ujDjhw9"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.1.0_1694036480145_0.27819572064282294"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.1": {
+      "name": "@smithy/smithy-client",
+      "version": "2.1.1",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.0",
+        "@smithy/types": "^2.3.0",
+        "@smithy/util-stream": "^2.0.7",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "12b06d33f7ebb1e671d52efdfb2d2f36952603b5",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/smithy-client@2.1.1",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-AXe7BR3xRrTFepUjY/nJWrOk2fXdgLRNxrnyl8V7weaf+UIaKdPf9dW5hsbJt8V67/X0ofDkNAt92nNKhuQmXw==",
+        "shasum": "1f27568b76a2232efc3b68fdf8869826830d3c0a",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.1.1.tgz",
+        "fileCount": 107,
+        "unpackedSize": 151620,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDyC60J5n67vnYWAD8HF4gsQD19ZpmMbmuSG7lX7XttdAIhAKzBE6JxaJhI2utv6qNI0GU/il06Z9g5Tf5Tyv825n0o"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.1.1_1694045927843_0.6841112829927873"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.2": {
+      "name": "@smithy/smithy-client",
+      "version": "2.1.2",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.0",
+        "@smithy/types": "^2.3.0",
+        "@smithy/util-stream": "^2.0.8",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "79dd4601426acd32c4ad101ab656d43281c3bf2c",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/smithy-client@2.1.2",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-quUuJ0SsqgG7Flopvfd8iQJLhHfnMYtYPuvImVQzPHXtqUQImtVz5msudMxW3t3jl+L0w8RlR+IN2zT6UqCJ6g==",
+        "shasum": "809e2f3539c93f59c5dc98e6ca28dc0639fd9380",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.1.2.tgz",
+        "fileCount": 107,
+        "unpackedSize": 151620,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCZZ7I5+gzqPbNbG4yqGmLFqr35k6+gtLJnVGZ8gu5utwIhAMXM7R4Yntu0Z7iXAEf0eBYPvxlVDBSRekV1sOmGGczR"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.1.2_1694137248759_0.48725426200890776"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.3": {
+      "name": "@smithy/smithy-client",
+      "version": "2.1.3",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.0",
+        "@smithy/types": "^2.3.0",
+        "@smithy/util-stream": "^2.0.9",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "a130a7bd4c710aaba1270b04d3f8b07183b35488",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/smithy-client@2.1.3",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-nSMMp2AKqcG/ruzCY01ogrMdbq/WS1cvGStTsw7yd6bTpp/bGtlOgXvy3h7e0zP7w2DH1AtvIwzYBD6ejZePsQ==",
+        "shasum": "8e1d37a5d7c9c6e463bc46be02194750a1dc7522",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.1.3.tgz",
+        "fileCount": 107,
+        "unpackedSize": 151620,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIE2PW/Lzfhb00zEAbuN7iQ4ptyybyteHKEhNonZunAPMAiBa1n3HS5Kg1JnL/LB1g5Fq4Z7DeMNUwpfw+ZevoyAI3Q=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.1.3_1694187440217_0.7840105511709032"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.4": {
+      "name": "@smithy/smithy-client",
+      "version": "2.1.4",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.0",
+        "@smithy/types": "^2.3.1",
+        "@smithy/util-stream": "^2.0.10",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "a6d5a23bd699d8f6cb6f3bcb3eefcca254660595",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/smithy-client@2.1.4",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-KRQvYYjEGqvmwnKSAZ8EL0hZvPxGQMYbAKS/AMGq2fuRmwAlinSVJ/fkIs65bZp2oYjcskd1ZgKcP+2UDjNPTQ==",
+        "shasum": "a0d08196ee31e6ed758e60c58a572658f968867e",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.1.4.tgz",
+        "fileCount": 107,
+        "unpackedSize": 151621,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDu11gVt6koWaRpnLIGQHOjAsH/xlNh8KAxWIMFfIrMqwIhAOEByFcbMtFWyhTwxl0XsurgryLwVQR6aal2ADMK8sjS"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.1.4_1694558653896_0.04158099273856952"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.5": {
+      "name": "@smithy/smithy-client",
+      "version": "2.1.5",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.1",
+        "@smithy/types": "^2.3.2",
+        "@smithy/util-stream": "^2.0.11",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "ea85d88d954d15b262df6905ea0df221e8d2bcd4",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/smithy-client@2.1.5",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-7S865uKzsxApM8W8Q6zkij7tcUFgaG8PuADMFdMt1yL/ku3d0+s6Zwrg3N7iXCPM08Gu/mf0BIfTXIu/9i450Q==",
+        "shasum": "b006518e4a708ddf22e4e410287c53ab362a8266",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.1.5.tgz",
+        "fileCount": 107,
+        "unpackedSize": 151621,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFqpFjVmZH5rWsQmA6ZSti5Q8sFlyv9wNJxB7X9jc7mQAiEAkOB0iLO9B+bEFOSjvRpxeAB2J5DYiA1/eiXwLsaOGOs="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.1.5_1694802872440_0.21798517998012112"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.6": {
+      "name": "@smithy/smithy-client",
+      "version": "2.1.6",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.2",
+        "@smithy/types": "^2.3.3",
+        "@smithy/util-stream": "^2.0.12",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "4cc46d5a045177824b880e1227284e859e760dee",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/smithy-client@2.1.6",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-+F26b8U7C6ydJgj5Y+OZ94NL54HQUPF1LrFiZjMAIX3OlgZjDhiT3m6VOZo6+hge3sEFOrupwdjB5V24JOCpQw==",
+        "shasum": "32d6e37e7da56c18235041822e82d562e202c8f2",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.1.6.tgz",
+        "fileCount": 107,
+        "unpackedSize": 151621,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCGOuHH3OKFwG1+ON/zPhl/WXbOPmrWMfYhNJi4TIL+DgIgI8j64FTsTeyz/tiqrgnItUqioFT66zbVOw+Okrua+tQ="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.1.6_1695162469078_0.5635025201839847"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.7": {
+      "name": "@smithy/smithy-client",
+      "version": "2.1.7",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:es": "tsc -p tsconfig.es.json",
+        "build:types": "tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.3",
+        "@smithy/types": "^2.3.3",
+        "@smithy/util-stream": "^2.0.12",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "jest": "28.1.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23",
+        "typescript": "~4.9.5"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "gitHead": "c7640d3449366926a30fe8228b558239b89ff892",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_id": "@smithy/smithy-client@2.1.7",
+      "_nodeVersion": "18.17.1",
+      "_npmVersion": "9.6.7",
+      "dist": {
+        "integrity": "sha512-r6T/oiBQ8vCbGqObH4/h0YqD0jFB1hAS9KFRmuTfaNJueu/L2hjmjqFjv3PV5lkbNHTgUYraSv4cFQ1naxiELQ==",
+        "shasum": "76b1f3ad9d95bd32afea3113132549be66c5eb12",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.1.7.tgz",
+        "fileCount": 107,
+        "unpackedSize": 151621,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCZTJpF4FMcpC+bxb039f2iLDrGmNjoNlgWx9k7W7iVtQIhAIBC8ooM9+V5wyScxGd+ma+QOblx9PSik0BOaALWmH7t"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.1.7_1695308972430_0.15813433069018834"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.8": {
+      "name": "@smithy/smithy-client",
+      "version": "2.1.8",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.4",
+        "@smithy/types": "^2.3.4",
+        "@smithy/util-stream": "^2.0.13",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/smithy-client@2.1.8",
+      "gitHead": "b609df10ad503972e31c025fd059c8ce6044d816",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-Puuc4wuhdTSs8wstkNJ/JtpaFwIh0qDE27zawfRVzzjpXprpT+4wROqO2+NVoZ+6GKv7kz7QgZx6AI5325bSeQ==",
+        "shasum": "aa9dcb483aa177ed0515463320da7c43bd4ec407",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.1.8.tgz",
+        "fileCount": 107,
+        "unpackedSize": 151599,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIBb2UwAwD0zsOzTyZX5jI9Xwo2ho2vreBKrG7sZwLA26AiEAlGX9FJkXUgw7bVP3Gi3vr/b7jW3HL1GgxI67Htyzdkw="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.1.8_1695923405443_0.3478427492293956"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.9": {
+      "name": "@smithy/smithy-client",
+      "version": "2.1.9",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.4",
+        "@smithy/types": "^2.3.4",
+        "@smithy/util-stream": "^2.0.14",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/smithy-client@2.1.9",
+      "gitHead": "73d098dceb8490898154253f0f41bb876edb8cca",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-HTicQSn/lOcXKJT+DKJ4YMu51S6PzbWsO8Z6Pwueo30mSoFKXg5P0BDkg2VCDqCVR0mtddM/F6hKhjW6YAV/yg==",
+        "shasum": "5a0a185947ae4e66d12d2a6135628dd2fc36924c",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.1.9.tgz",
+        "fileCount": 107,
+        "unpackedSize": 151599,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQD/gvig0J4bMTNTr5hyV7YjFqJEWRnfdq0Tm8DVtYW5wQIgVpbzmDlMzFGwFFYUDWBOqtCCvUPXCvjA220nb5YTb5E="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.1.9_1696284216451_0.7765067220296211"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.10": {
+      "name": "@smithy/smithy-client",
+      "version": "2.1.10",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.5",
+        "@smithy/types": "^2.3.5",
+        "@smithy/util-stream": "^2.0.15",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/smithy-client@2.1.10",
+      "gitHead": "5fb6d4c68777a3d358158eddcb18d22da3fd5c8d",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-2OEmZDiW1Z196QHuQZ5M6cBE8FCSG0H2HADP1G+DY8P3agsvb0YJyfhyKuJbxIQy15tr3eDAK6FOrlbxgKOOew==",
+        "shasum": "cfe93559dbec1511c434c8e94e1659ec74cf54f7",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.1.10.tgz",
+        "fileCount": 107,
+        "unpackedSize": 151600,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDCHgwbOgoABbpBRzBgZTa6C44DnHhJV4vMq3y7pFhp3QIgH8PQ+k/53waXYuQRUILwK+CDi2mlkrDyFSVYjCi42xc="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.1.10_1696630494524_0.3449256413121591"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.11": {
+      "name": "@smithy/smithy-client",
+      "version": "2.1.11",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.5",
+        "@smithy/types": "^2.3.5",
+        "@smithy/util-stream": "^2.0.16",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/smithy-client@2.1.11",
+      "gitHead": "fcc0c4602ff33b3f3e00e4ced42f85ffa57e38bc",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.0",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-okjMbuBBCTiieK665OFN/ap6u9+Z9z55PMphS5FYCsS6Zfp137Q3qlnt0OgBAnUVnH/mNGyoJV0LBX9gkTWptg==",
+        "shasum": "7e27c9969048952703ae493311245d1af62c73b8",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.1.11.tgz",
+        "fileCount": 107,
+        "unpackedSize": 151600,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBtYbvcaYYNlrdFgkKLm/7ZgHQyMmpA3462bjH649tAcAiAfS0x9QAG7Zf0bp0Va5AQYBQOKxMtwMN6cFTKmm9L5mw=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.1.11_1696957298637_0.32858383571842875"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.12": {
+      "name": "@smithy/smithy-client",
+      "version": "2.1.12",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.6",
+        "@smithy/types": "^2.4.0",
+        "@smithy/util-stream": "^2.0.17",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/smithy-client@2.1.12",
+      "gitHead": "4c4d1bd13c9e6ba89cc75fa9c3df2aed63e3cb02",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-XXqhridfkKnpj+lt8vM6HRlZbqUAqBjVC74JIi13F/AYQd/zTj9SOyGfxnbp4mjY9q28LityxIuV8CTinr9r5w==",
+        "shasum": "a7f10ab846d41ce1042eb81f087c4c9eb438b481",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.1.12.tgz",
+        "fileCount": 107,
+        "unpackedSize": 151600,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCg11b8e20CM+PNIspYenYp5upqy3eeJiUePKuD4D3lyQIhAKdABnW8EXlh5JV/n6WS9YopnODN+b/GUqrG7DytkjSf"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.1.12_1697750902376_0.1864197289302567"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.13": {
+      "name": "@smithy/smithy-client",
+      "version": "2.1.13",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.6",
+        "@smithy/types": "^2.4.0",
+        "@smithy/util-stream": "^2.0.18",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/smithy-client@2.1.13",
+      "gitHead": "a4b58b32ac2ae778917e276ba381527f551c2d3d",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-iFqrjps6K/eLNbDKppyp5gCCZyEtv/BYMlDSBXwwHIrwV7sZ8l8r6OGAcg1a69j4Id1uJccYppaTpW5G1BLhsA==",
+        "shasum": "ff5156f723778953868fc4eb38ca34e844436b7e",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.1.13.tgz",
+        "fileCount": 107,
+        "unpackedSize": 151600,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDqWZ+MJbdp2HqyenlAbXBYNDkxVpfAleJeIluHwi8YXwIhALEXP7li696fBA/WJIHbVCJtEYkevnGOPcX38wI9Gand"
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.1.13_1699642020452_0.935501476147611"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.14": {
+      "name": "@smithy/smithy-client",
+      "version": "2.1.14",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.6",
+        "@smithy/types": "^2.4.0",
+        "@smithy/util-stream": "^2.0.19",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/smithy-client@2.1.14",
+      "gitHead": "85fd49d141c71379cd787775451f10cd6f7344e9",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-SMiflchpKadmyvjWPTVwBKjDcEigRHkiUjtzLBlTp9dEp2FmbCjpyc95BNvUdOGOMcPCIkoQQGeabo6avIZNiw==",
+        "shasum": "babad7e9741048cfbb82fb7f64386f322aead9ee",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.1.14.tgz",
+        "fileCount": 107,
+        "unpackedSize": 151600,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHZCFeKGp7q8+sTBSWAvBSZiCx1hnYTwomFoRr7bbrCHAiBInilzfQnrhEaoclEFi7df95cv9YHuhMZxU9F3UAh7Pg=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.1.14_1699753633925_0.7963094624501332"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.15": {
+      "name": "@smithy/smithy-client",
+      "version": "2.1.15",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.7",
+        "@smithy/types": "^2.5.0",
+        "@smithy/util-stream": "^2.0.20",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/smithy-client@2.1.15",
+      "gitHead": "d1ff70d0d4fe18c3cb0198d6351312ed14932b46",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-rngZcQu7Jvs9UbHihK1EI67RMPuzkc3CJmu4MBgB7D7yBnMGuFR86tq5rqHfL2gAkNnMelBN/8kzQVvZjNKefQ==",
+        "shasum": "8a6e142f52fe253fd7f868eedce0e6d308415098",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.1.15.tgz",
+        "fileCount": 107,
+        "unpackedSize": 151600,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIH7Y6NCgjliSx3iHZC/ejkBCM+5HdF1gvcw0iplac/JzAiEArO5NA++DQVoDyaf4Qu0T5KL89voIAoNV7wHICz+8EDU="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.1.15_1699917756542_0.5357434931461098"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.16": {
+      "name": "@smithy/smithy-client",
+      "version": "2.1.16",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.8",
+        "@smithy/types": "^2.6.0",
+        "@smithy/util-stream": "^2.0.21",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/smithy-client@2.1.16",
+      "gitHead": "f802828bb1ef76990d5277e82c336b9750e4bc65",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-Lw67+yQSpLl4YkDLUzI2KgS8TXclXmbzSeOJUmRFS4ueT56B4pw3RZRF/SRzvgyxM/HxgkUan8oSHXCujPDafQ==",
+        "shasum": "eae70fac673b06494c536fa5637c2df12887ce3a",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.1.16.tgz",
+        "fileCount": 107,
+        "unpackedSize": 151600,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIB0WbLr9ofpjLHGGgRjQDoL0V+aqWPQB7BCIZHHPItZ3AiEA3/KTW1rIj1orM2Y1h/LVnLh5ScAHsGLky5sYsCeLoI4="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.1.16_1700596007547_0.590580605992095"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.17": {
+      "name": "@smithy/smithy-client",
+      "version": "2.1.17",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.9",
+        "@smithy/types": "^2.7.0",
+        "@smithy/util-stream": "^2.0.22",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/smithy-client@2.1.17",
+      "gitHead": "912961cb22a3310273fdf24806f294ccf23814c1",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-ru5CBV9hTcNOdTeoS+W6M4LOuMzVbeBaokYPbGtWI5GMsmcYzC7tW59D0tgkcDcWV/hxYOFMr1jt71x9AhxcEw==",
+        "shasum": "8dd12bb2fd30aa64a9a2889a00ee1197e05e3fd7",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.1.17.tgz",
+        "fileCount": 107,
+        "unpackedSize": 151640,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDZx2E5xpzM3MSUroCcUiuIvWhBAnJWuA9iaJuMLygRSAIgfsoUXm8aScal7rKZKfa+zzzziyNUtXZL8UozBNSah04="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.1.17_1701792609674_0.49043658998562467"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.1.18": {
+      "name": "@smithy/smithy-client",
+      "version": "2.1.18",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-stack": "^2.0.9",
+        "@smithy/types": "^2.7.0",
+        "@smithy/util-stream": "^2.0.23",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/smithy-client@2.1.18",
+      "gitHead": "6bada37c93e8d5fa851f4c9a8b5acd892c7b948d",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.18.2",
+      "_npmVersion": "9.8.1",
+      "dist": {
+        "integrity": "sha512-7FqdbaJiVaHJDD9IfDhmzhSDbpjyx+ZsfdYuOpDJF09rl8qlIAIlZNoSaflKrQ3cEXZN2YxGPaNWGhbYimyIRQ==",
+        "shasum": "f8ce2c0e9614f207256ddcd992403aff40750546",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.1.18.tgz",
+        "fileCount": 107,
+        "unpackedSize": 151640,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCS/N6y+S6L7EMj9jcArkSLCRn2JmhzVibZOOTtEb7xdwIgP9OvuM6wZfSiVfdPNZCj6xOLZwMWGkK78+SFFUFTGho="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.1.18_1701798794280_0.1286798664851747"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.2.0": {
+      "name": "@smithy/smithy-client",
+      "version": "2.2.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-endpoint": "^2.2.3",
+        "@smithy/middleware-stack": "^2.0.9",
+        "@smithy/protocol-http": "^3.0.11",
+        "@smithy/types": "^2.7.0",
+        "@smithy/util-stream": "^2.0.23",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/smithy-client@2.2.0",
+      "gitHead": "685553fa31dcaf7d3247eb82707d345176cde010",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-C/bkNue5H5Obgl83SnlBt4v6VM68CqIjIELh3vAabud87xFYznLNKtj6Qb69Z+QOnLp9T+We++sEem/f2AHE+Q==",
+        "shasum": "9865981a2f49dd0e9ef68193aebcd5654cdd7f00",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.2.0.tgz",
+        "fileCount": 107,
+        "unpackedSize": 167645,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCMBt9+3os2UW6UfxVu3MvRsZMy+ZGyZsjGf9vK2cw2vwIgJUuPM+WkVATY/X8BwQ1VgaZxz2Kb7aVr6q5LzTcOYGg="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.2.0_1703262658860_0.8653608983852092"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.2.1": {
+      "name": "@smithy/smithy-client",
+      "version": "2.2.1",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "yarn g:tsc -p tsconfig.cjs.json",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-endpoint": "^2.3.0",
+        "@smithy/middleware-stack": "^2.0.10",
+        "@smithy/protocol-http": "^3.0.12",
+        "@smithy/types": "^2.8.0",
+        "@smithy/util-stream": "^2.0.24",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/smithy-client@2.2.1",
+      "gitHead": "e3b13dda0891091282c27cd65cc72b87826753b6",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-SpD7FLK92XV2fon2hMotaNDa2w5VAy5/uVjP9WFmjGSgWM8pTPVkHcDl1yFs5Z8LYbij0FSz+DbCBK6i+uXXUA==",
+        "shasum": "ed1aa11f36dae2ca9b3eabcbc498bcc96d79fdfd",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.2.1.tgz",
+        "fileCount": 107,
+        "unpackedSize": 167646,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIE8Bfnu9TPyf42zTSsVP/xZILLIJnntP9/zwvgtmZx8IAiAWIvTVa4oD2oBf70NXaWxfxhC1FrpqU2GwR21QHjjjcg=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.2.1_1704222050190_0.5502143678681508"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.3.0": {
+      "name": "@smithy/smithy-client",
+      "version": "2.3.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline smithy-client",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-endpoint": "^2.4.0",
+        "@smithy/middleware-stack": "^2.1.0",
+        "@smithy/protocol-http": "^3.1.0",
+        "@smithy/types": "^2.9.0",
+        "@smithy/util-stream": "^2.1.0",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/smithy-client@2.3.0",
+      "gitHead": "1d85e7dea4cfe19aaf555a26b7504e739acb9124",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-oEaLdVmHcbdK8IHQ4yE7xOYK2nSkF2xXp6nRr5NhfKB5QTKNzpNsXLiGJgfmm7j0ol1S6BhjyBhi7tZ8M0JJtg==",
+        "shasum": "bfafb0bde47ac7bf2579e13ff9310a5f6481a013",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.3.0.tgz",
+        "fileCount": 107,
+        "unpackedSize": 166946,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGrvpTQg4Z4oNkgU63RDekS3afi5ACk+e0Xve8cu3wCGAiAZ9ygJfmPkU+X0HFRAU/o5PMkhl9n0re9YpAVplSbA+A=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.3.0_1705530405349_0.11806741654644104"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.3.1": {
+      "name": "@smithy/smithy-client",
+      "version": "2.3.1",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline smithy-client",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-endpoint": "^2.4.1",
+        "@smithy/middleware-stack": "^2.1.1",
+        "@smithy/protocol-http": "^3.1.1",
+        "@smithy/types": "^2.9.1",
+        "@smithy/util-stream": "^2.1.1",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/smithy-client@2.3.1",
+      "gitHead": "3769699491dcc1bd5ace2973f2efdf6d85b37cf4",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.0",
+      "_npmVersion": "10.2.3",
+      "dist": {
+        "integrity": "sha512-YsTdU8xVD64r2pLEwmltrNvZV6XIAC50LN6ivDopdt+YiF/jGH6PY9zUOu0CXD/d8GMB8gbhnpPsdrjAXHS9QA==",
+        "shasum": "0c3a4a0d3935c7ad2240cc23181f276705212b1f",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.3.1.tgz",
+        "fileCount": 107,
+        "unpackedSize": 166948,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFr08obF3KlBz01BtzYPhSPc6hnonPVLNpCjLq/LcM+zAiEAxAIlUHKCIBBgHlikMpfPDQNQy2eIkDLROGMDKXP9Jt8="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.3.1_1705685481041_0.15275471082407388"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.4.0": {
+      "name": "@smithy/smithy-client",
+      "version": "2.4.0",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline smithy-client",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-endpoint": "^2.4.2",
+        "@smithy/middleware-stack": "^2.1.2",
+        "@smithy/protocol-http": "^3.2.0",
+        "@smithy/types": "^2.10.0",
+        "@smithy/util-stream": "^2.1.2",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/smithy-client@2.4.0",
+      "gitHead": "7baf4b118b55683e97208f262c5083184d99b095",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.1",
+      "_npmVersion": "10.2.4",
+      "dist": {
+        "integrity": "sha512-6/jxk0om9l2s9BcgHtrBn+Hd3xcFGDzxfEJ2FvGpZxIz0S7bgvZg1gyR66O1xf1w9WZBH+W7JClhfSn2gETINw==",
+        "shasum": "f4cef6f63cdc267a32ded8446ca3db0ebb8fe64d",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.4.0.tgz",
+        "fileCount": 107,
+        "unpackedSize": 167330,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCCuf/x9QyTdl1DVgY8c6h7yVTDFVF5c+S9E1OLTmSQAAIgHHdIDKw57BsAV+FJEamG74MzzGB9rPluwdFDHTasPjE="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.4.0_1708636537105_0.29227997075585876"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.4.1": {
+      "name": "@smithy/smithy-client",
+      "version": "2.4.1",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline smithy-client",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-endpoint": "^2.4.3",
+        "@smithy/middleware-stack": "^2.1.3",
+        "@smithy/protocol-http": "^3.2.1",
+        "@smithy/types": "^2.10.1",
+        "@smithy/util-stream": "^2.1.3",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/smithy-client@2.4.1",
+      "gitHead": "3357fda448ea8cee3f7bfa7caeda2768a9751f8f",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.1",
+      "_npmVersion": "10.2.4",
+      "dist": {
+        "integrity": "sha512-dt5wlcym8lryne1jcZ6/Vp41T4gS4nCTzQ91a0Dz1/EXDA64/TwGGp79LkvJNkBbHw0rjiJk83CSH6u1HrTCvQ==",
+        "shasum": "8c32c0000922838ebfbfcad638a5ae914d7ef28d",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.4.1.tgz",
+        "fileCount": 107,
+        "unpackedSize": 167330,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCHcvKaJbOTB20plgUWYr0q2b00HoZpuT34QGvUV94HlgIgTLPl7J26eZN1Za9wKfW/W11yN4kzaxtpjsx18lCSxU4="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.4.1_1709057595831_0.8008105644046564"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.4.2": {
+      "name": "@smithy/smithy-client",
+      "version": "2.4.2",
+      "scripts": {
+        "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+        "build:cjs": "node ../../scripts/inline smithy-client",
+        "build:es": "yarn g:tsc -p tsconfig.es.json",
+        "build:types": "yarn g:tsc -p tsconfig.types.json",
+        "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+        "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+        "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+        "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+        "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+        "extract:docs": "api-extractor run --local",
+        "test": "yarn g:jest --passWithNoTests"
+      },
+      "main": "./dist-cjs/index.js",
+      "module": "./dist-es/index.js",
+      "types": "./dist-types/index.d.ts",
+      "author": {
+        "name": "AWS SDK for JavaScript Team",
+        "url": "https://aws.amazon.com/javascript/"
+      },
+      "license": "Apache-2.0",
+      "dependencies": {
+        "@smithy/middleware-endpoint": "^2.4.4",
+        "@smithy/middleware-stack": "^2.1.3",
+        "@smithy/protocol-http": "^3.2.1",
+        "@smithy/types": "^2.10.1",
+        "@smithy/util-stream": "^2.1.3",
+        "tslib": "^2.5.0"
+      },
+      "engines": {
+        "node": ">=14.0.0"
+      },
+      "typesVersions": {
+        "<4.0": {
+          "dist-types/*": [
+            "dist-types/ts3.4/*"
+          ]
+        }
+      },
+      "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awslabs/smithy-typescript.git",
+        "directory": "packages/smithy-client"
+      },
+      "devDependencies": {
+        "@tsconfig/recommended": "1.0.1",
+        "@types/node": "^14.14.31",
+        "concurrently": "7.0.0",
+        "downlevel-dts": "0.10.1",
+        "rimraf": "3.0.2",
+        "typedoc": "0.23.23"
+      },
+      "typedoc": {
+        "entryPoint": "src/index.ts"
+      },
+      "publishConfig": {
+        "directory": ".release/package"
+      },
+      "_id": "@smithy/smithy-client@2.4.2",
+      "gitHead": "beea4499bec986f091cdea47e5f8d7c69a3b6000",
+      "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+      "bugs": {
+        "url": "https://github.com/awslabs/smithy-typescript/issues"
+      },
+      "_nodeVersion": "18.19.1",
+      "_npmVersion": "10.2.4",
+      "dist": {
+        "integrity": "sha512-ntAFYN51zu3N3mCd95YFcFi/8rmvm//uX+HnK24CRbI6k5Rjackn0JhgKz5zOx/tbNvOpgQIwhSX+1EvEsBLbA==",
+        "shasum": "79e960c8761ae7dc06f592d2691419706745aab7",
+        "tarball": "https://registry.npmjs.org/@smithy/smithy-client/-/smithy-client-2.4.2.tgz",
+        "fileCount": 107,
+        "unpackedSize": 167330,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCBFFl2laXYOTurh8YwfBLMKY0mmCOWabIIVNHzeONR1wIgFSjg+gJCpSCmBadV9cZVOJa3n/1fHRxARQylC4aCo3M="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "smithy-team",
+        "email": "aws-smithy-team+npm@amazon.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "smithy-team",
+          "email": "aws-smithy-team+npm@amazon.com"
+        },
+        {
+          "name": "trivikr-aws",
+          "email": "trivikr@amazon.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/smithy-client_2.4.2_1709079418417_0.9929871193393809"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "time": {
+    "created": "2023-06-19T22:00:51.466Z",
+    "1.0.0": "2023-06-19T22:00:51.728Z",
+    "modified": "2024-02-28T00:16:59.115Z",
+    "1.0.1": "2023-06-20T19:26:43.826Z",
+    "1.0.2": "2023-06-22T17:03:06.415Z",
+    "1.0.3": "2023-06-27T22:54:42.048Z",
+    "1.0.4": "2023-07-06T16:24:48.792Z",
+    "1.0.5": "2023-07-24T19:54:23.266Z",
+    "1.1.0": "2023-07-24T20:51:46.516Z",
+    "2.0.0": "2023-07-24T21:28:51.670Z",
+    "2.0.1": "2023-07-25T17:40:07.976Z",
+    "2.0.2": "2023-08-07T22:49:21.168Z",
+    "2.0.3": "2023-08-11T16:58:33.495Z",
+    "2.0.4": "2023-08-15T17:06:22.593Z",
+    "2.0.5": "2023-08-22T20:43:00.200Z",
+    "2.1.0": "2023-09-06T21:41:20.355Z",
+    "2.1.1": "2023-09-07T00:18:48.085Z",
+    "2.1.2": "2023-09-08T01:40:49.033Z",
+    "2.1.3": "2023-09-08T15:37:20.455Z",
+    "2.1.4": "2023-09-12T22:44:14.081Z",
+    "2.1.5": "2023-09-15T18:34:32.729Z",
+    "2.1.6": "2023-09-19T22:27:49.270Z",
+    "2.1.7": "2023-09-21T15:09:32.651Z",
+    "2.1.8": "2023-09-28T17:50:05.650Z",
+    "2.1.9": "2023-10-02T22:03:36.756Z",
+    "2.1.10": "2023-10-06T22:14:54.726Z",
+    "2.1.11": "2023-10-10T17:01:38.908Z",
+    "2.1.12": "2023-10-19T21:28:22.539Z",
+    "2.1.13": "2023-11-10T18:47:00.680Z",
+    "2.1.14": "2023-11-12T01:47:14.124Z",
+    "2.1.15": "2023-11-13T23:22:36.710Z",
+    "2.1.16": "2023-11-21T19:46:47.725Z",
+    "2.1.17": "2023-12-05T16:10:09.884Z",
+    "2.1.18": "2023-12-05T17:53:14.493Z",
+    "2.2.0": "2023-12-22T16:30:59.028Z",
+    "2.2.1": "2024-01-02T19:00:50.347Z",
+    "2.3.0": "2024-01-17T22:26:45.509Z",
+    "2.3.1": "2024-01-19T17:31:21.205Z",
+    "2.4.0": "2024-02-22T21:15:37.270Z",
+    "2.4.1": "2024-02-27T18:13:16.004Z",
+    "2.4.2": "2024-02-28T00:16:58.613Z"
+  },
+  "maintainers": [
+    {
+      "name": "smithy-team",
+      "email": "aws-smithy-team+npm@amazon.com"
+    },
+    {
+      "name": "trivikr-aws",
+      "email": "trivikr@amazon.com"
+    }
+  ],
+  "description": "[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client) [![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-c",
+  "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/smithy-client",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awslabs/smithy-typescript.git",
+    "directory": "packages/smithy-client"
+  },
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "bugs": {
+    "url": "https://github.com/awslabs/smithy-typescript/issues"
+  },
+  "license": "Apache-2.0",
+  "readme": "# @smithy/smithy-client\n\n[![NPM version](https://img.shields.io/npm/v/@smithy/smithy-client/latest.svg)](https://www.npmjs.com/package/@smithy/smithy-client)\n[![NPM downloads](https://img.shields.io/npm/dm/@smithy/smithy-client.svg)](https://www.npmjs.com/package/@smithy/smithy-client)\n\n> An internal package\n\n## Usage\n\nYou probably shouldn't, at least directly.\n",
+  "readmeFilename": "README.md"
+}
