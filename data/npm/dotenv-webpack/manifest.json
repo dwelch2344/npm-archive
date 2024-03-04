@@ -1,0 +1,5453 @@
+{
+  "_id": "dotenv-webpack",
+  "_rev": "59-f1436e6c15d6e6670cbd5786ff9f2a12",
+  "name": "dotenv-webpack",
+  "description": "A simple webpack plugin to support dotenv.",
+  "dist-tags": {
+    "latest": "8.0.1"
+  },
+  "versions": {
+    "1.0.0": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.0.0",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run standard && npm run build && npm run cover",
+        "commit": "git-cz",
+        "standard": "standard",
+        "predoc": "rimraf docs",
+        "doc": "jsdoc -c doc.json",
+        "cover": "nyc npm t && npm run coverage-report",
+        "coverage-check": "nyc check-coverage --branches 100 --statements 100 --functions 100 --lines 100",
+        "coverage-report": "nyc report --reporter=lcov",
+        "test": "_mocha --compilers js:babel-register",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls",
+        "travis": "npm run precommit",
+        "travis2": "npm run precommit && npm run coveralls && npm run coverage-check",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "dependencies": {
+        "dotenv-safe": "^2.3.1",
+        "webpack": "^1.13.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.10.1",
+        "babel-eslint": "^6.1.0",
+        "babel-plugin-transform-object-assign": "^6.8.0",
+        "babel-preset-es2015": "^6.9.0",
+        "babel-register": "^6.9.0",
+        "chai": "^3.5.0",
+        "chai-subset": "^1.2.2",
+        "commitizen": "^2.8.2",
+        "coveralls": "^2.11.9",
+        "cz-conventional-changelog": "^1.1.6",
+        "jsdoc": "^3.4.0",
+        "mocha": "^2.5.3",
+        "mocha-lcov-reporter": "^1.2.0",
+        "nyc": "^6.6.1",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.3.5",
+        "standard": "^7.1.2"
+      },
+      "files": [
+        "dist",
+        "browser.js",
+        "README.md"
+      ],
+      "config": {
+        "commitizen": {
+          "path": "./node_modules/cz-conventional-changelog"
+        }
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "browser": "./browser.js",
+      "babel": {
+        "presets": [
+          "es2015"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js"
+        ]
+      },
+      "gitHead": "d397761768972dbd8cfea938323e424538dfea43",
+      "_id": "dotenv-webpack@1.0.0",
+      "_shasum": "2f4186b4c809d3d335f0a2b08ee3f99775dc8f23",
+      "_from": ".",
+      "_npmVersion": "2.15.9",
+      "_nodeVersion": "5.12.0",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "2f4186b4c809d3d335f0a2b08ee3f99775dc8f23",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.0.0.tgz",
+        "integrity": "sha512-0umSohIlAHGVQnmA70db73puW8mf2ia9mJYmvDjDpzq0B5dJYngB4tQYmAet6sPhkzJX/HwyzNWXYFqOTSypJw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDfrgiR3zPV5HgtNQ9Pc62QkU95wNVrpht2EteEAT0Z1wIgGZnVq98RReucMmJGGiuDN71NJTtFWjo83UXe/YH+lpc="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/dotenv-webpack-1.0.0.tgz_1470185390682_0.02504387916997075"
+      },
+      "directories": {}
+    },
+    "1.0.1": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.0.1",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run standard && npm run build && npm run cover",
+        "commit": "git-cz",
+        "standard": "standard",
+        "predoc": "rimraf docs",
+        "doc": "jsdoc -c doc.json",
+        "cover": "nyc npm t && npm run coverage-report",
+        "coverage-check": "nyc check-coverage --branches 100 --statements 100 --functions 100 --lines 100",
+        "coverage-report": "nyc report --reporter=lcov",
+        "test": "_mocha --compilers js:babel-register",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls",
+        "travis": "npm run precommit",
+        "travis2": "npm run precommit && npm run coveralls && npm run coverage-check",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "dependencies": {
+        "dotenv": "^2.0.0",
+        "webpack": "^1.13.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.10.1",
+        "babel-eslint": "^6.1.0",
+        "babel-plugin-transform-object-assign": "^6.8.0",
+        "babel-preset-es2015": "^6.9.0",
+        "babel-register": "^6.9.0",
+        "chai": "^3.5.0",
+        "chai-subset": "^1.2.2",
+        "commitizen": "^2.8.2",
+        "coveralls": "^2.11.9",
+        "cz-conventional-changelog": "^1.1.6",
+        "jsdoc": "^3.4.0",
+        "mocha": "^2.5.3",
+        "mocha-lcov-reporter": "^1.2.0",
+        "nyc": "^6.6.1",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.3.5",
+        "standard": "^7.1.2"
+      },
+      "files": [
+        "dist",
+        "browser.js",
+        "README.md"
+      ],
+      "config": {
+        "commitizen": {
+          "path": "./node_modules/cz-conventional-changelog"
+        }
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "browser": "./browser.js",
+      "babel": {
+        "presets": [
+          "es2015"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js"
+        ]
+      },
+      "gitHead": "235f41a81efd299a1fcc3d708422de9cdaef909e",
+      "_id": "dotenv-webpack@1.0.1",
+      "_shasum": "af0478061f22510d1ac4a7178c2449f07c16b641",
+      "_from": ".",
+      "_npmVersion": "2.15.9",
+      "_nodeVersion": "5.12.0",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "af0478061f22510d1ac4a7178c2449f07c16b641",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.0.1.tgz",
+        "integrity": "sha512-RTo77L3Q5wQsPBdoWvdfN8/st+6oXmt9pBufI+HZ30NRZ5ZC6Pa2b0denuLvg/EFIIA9jBSnH5kmsw/LTeorFg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC7HTk8Pba/4+qtegS94ghhpePykb3eHRJVYfHmuEFxHAIgQyQOnIiGSPTlJnD32Ox4qnSYlyTjyRabi3BoYHPAaX8="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/dotenv-webpack-1.0.1.tgz_1470188787624_0.0420799779240042"
+      },
+      "directories": {}
+    },
+    "1.1.0": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.1.0",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run standard && npm run build && npm run cover",
+        "commit": "git-cz",
+        "standard": "standard",
+        "predoc": "rimraf docs",
+        "doc": "jsdoc -c doc.json",
+        "cover": "nyc npm t && npm run coverage-report",
+        "coverage-check": "nyc check-coverage --branches 100 --statements 100 --functions 100 --lines 100",
+        "coverage-report": "nyc report --reporter=lcov",
+        "test": "_mocha --compilers js:babel-register",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls",
+        "travis": "npm run precommit",
+        "travis2": "npm run precommit && npm run coveralls && npm run coverage-check",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "dependencies": {
+        "dotenv": "^2.0.0",
+        "webpack": "^1.13.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.10.1",
+        "babel-eslint": "^6.1.0",
+        "babel-plugin-transform-object-assign": "^6.8.0",
+        "babel-preset-es2015": "^6.9.0",
+        "babel-register": "^6.9.0",
+        "chai": "^3.5.0",
+        "chai-subset": "^1.2.2",
+        "commitizen": "^2.8.2",
+        "coveralls": "^2.11.9",
+        "cz-conventional-changelog": "^1.1.6",
+        "jsdoc": "^3.4.0",
+        "mocha": "^2.5.3",
+        "mocha-lcov-reporter": "^1.2.0",
+        "nyc": "^6.6.1",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.3.5",
+        "standard": "^7.1.2"
+      },
+      "files": [
+        "dist",
+        "browser.js",
+        "README.md"
+      ],
+      "config": {
+        "commitizen": {
+          "path": "./node_modules/cz-conventional-changelog"
+        }
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "browser": "./browser.js",
+      "babel": {
+        "presets": [
+          "es2015"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js"
+        ]
+      },
+      "gitHead": "96d753659988908b1ae426ff1d4e4d57a45897ca",
+      "_id": "dotenv-webpack@1.1.0",
+      "_shasum": "1d68a5b15b095dcf1585859a792a8ecab585615a",
+      "_from": ".",
+      "_npmVersion": "2.15.9",
+      "_nodeVersion": "5.12.0",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "1d68a5b15b095dcf1585859a792a8ecab585615a",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.1.0.tgz",
+        "integrity": "sha512-eF095bgLaDVgYNKFmp7+P7JJPNgauYCb9oWQl2+mbWMRTLBJlDih6bGwGBheKaklIr/qBx+oa0ykrdt6GzW9Yg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFTRIzVyRY9etfTe/X1/UM4Hr3zDR0KL0LZ3w0aI6yTRAiA/ixYR/fC2at/ANlqj/3HO7q3WGRamQ6GGGvP5I0qP7Q=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/dotenv-webpack-1.1.0.tgz_1470490512522_0.25742716644890606"
+      },
+      "directories": {}
+    },
+    "1.2.0": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.2.0",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run standard && npm run cover",
+        "commit": "git-cz",
+        "standard": "standard",
+        "predoc": "rimraf docs",
+        "doc": "jsdoc -c doc.json",
+        "cover": "nyc npm t && npm run coverage-report",
+        "coverage-report": "nyc report --reporter=lcov",
+        "test": "npm run build && _mocha --compilers js:babel-register",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls",
+        "travis": "npm run precommit && npm run coveralls",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "dependencies": {
+        "dotenv": "^2.0.0",
+        "webpack": "^1.13.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.10.1",
+        "babel-eslint": "^6.1.0",
+        "babel-plugin-transform-object-assign": "^6.8.0",
+        "babel-preset-es2015": "^6.9.0",
+        "babel-register": "^6.9.0",
+        "chai": "^3.5.0",
+        "chai-subset": "^1.2.2",
+        "commitizen": "^2.8.2",
+        "coveralls": "^2.11.9",
+        "cz-conventional-changelog": "^1.1.6",
+        "jsdoc": "^3.4.0",
+        "mocha": "^2.5.3",
+        "mocha-lcov-reporter": "^1.2.0",
+        "nyc": "^6.6.1",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.3.5",
+        "standard": "^7.1.2"
+      },
+      "files": [
+        "dist",
+        "browser.js",
+        "README.md"
+      ],
+      "config": {
+        "commitizen": {
+          "path": "./node_modules/cz-conventional-changelog"
+        }
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "browser": "./browser.js",
+      "babel": {
+        "presets": [
+          "es2015"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "219b717558fb76393ea6d58ef3dc4c0dd86c7dc8",
+      "_id": "dotenv-webpack@1.2.0",
+      "_shasum": "b11ac3687302d60ad9c987075beab68586a2d107",
+      "_from": ".",
+      "_npmVersion": "2.15.9",
+      "_nodeVersion": "5.12.0",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "b11ac3687302d60ad9c987075beab68586a2d107",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.2.0.tgz",
+        "integrity": "sha512-LIJSAQpUymtQhBFxPPXv/n5tpydnOHJx/SLmz385yGJ9SgiECtY0Ds8VBfhGMxz9PQwMkis9uYcwFr2Zd7mSFw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFhKxziXB5G0YJP0wDl1mPaPx+Q7kOam5tqW9JJRcWELAiBKr6RhwvLuDN41l2a9sau1lru6/SJni2/cDPo1jQeYww=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/dotenv-webpack-1.2.0.tgz_1470673478532_0.70570879871957"
+      },
+      "directories": {}
+    },
+    "1.2.1": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.2.1",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run standard && npm run cover",
+        "commit": "git-cz",
+        "standard": "standard",
+        "predoc": "rimraf docs",
+        "doc": "jsdoc -c doc.json",
+        "cover": "nyc npm t && npm run coverage-report",
+        "coverage-report": "nyc report --reporter=lcov",
+        "test": "npm run build && _mocha --compilers js:babel-register",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls",
+        "travis": "npm run precommit && npm run coveralls",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "dependencies": {
+        "dotenv": "^2.0.0",
+        "webpack": "^1.13.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.10.1",
+        "babel-eslint": "^6.1.0",
+        "babel-plugin-transform-object-assign": "^6.8.0",
+        "babel-preset-es2015": "^6.9.0",
+        "babel-register": "^6.9.0",
+        "chai": "^3.5.0",
+        "chai-subset": "^1.2.2",
+        "commitizen": "^2.8.2",
+        "coveralls": "^2.11.9",
+        "cz-conventional-changelog": "^1.1.6",
+        "jsdoc": "^3.4.0",
+        "mocha": "^2.5.3",
+        "mocha-lcov-reporter": "^1.2.0",
+        "nyc": "^6.6.1",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.3.5",
+        "standard": "^7.1.2"
+      },
+      "files": [
+        "dist",
+        "browser.js",
+        "README.md"
+      ],
+      "config": {
+        "commitizen": {
+          "path": "./node_modules/cz-conventional-changelog"
+        }
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "browser": "./browser.js",
+      "babel": {
+        "presets": [
+          "es2015"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "6eeb6c5c08390ee46e9cce5b701e15444609976d",
+      "_id": "dotenv-webpack@1.2.1",
+      "_shasum": "aea518e1a02387788eb39dfa74ad5449c12f9881",
+      "_from": ".",
+      "_npmVersion": "2.15.10",
+      "_nodeVersion": "5.12.0",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "aea518e1a02387788eb39dfa74ad5449c12f9881",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.2.1.tgz",
+        "integrity": "sha512-AFgS91JLed9iEodWWTnxfcDPgvTPAxwJQxMzW1Y4BV3dK6Snli8Q+gBk15aC+ajUV2QWatcjeiqEoiFVSQn0HQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIHMWAQ6SBaC9ywN/eZKuxlnTS9V7uh1Axu3+KpztnJ9/AiAEuiUlIkS6+JGQwcvd2iIBItjNWDARNCnf77yWyvLYLA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/dotenv-webpack-1.2.1.tgz_1472831132647_0.7301510144025087"
+      },
+      "directories": {}
+    },
+    "1.3.0": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.3.0",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run standard && npm run cover",
+        "commit": "git-cz",
+        "standard": "standard",
+        "predoc": "rimraf docs",
+        "doc": "jsdoc -c doc.json",
+        "cover": "nyc npm t && npm run coverage-report",
+        "coverage-report": "nyc report --reporter=lcov",
+        "test": "npm run build && _mocha --compilers js:babel-register",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls",
+        "travis": "npm run precommit && npm run coveralls",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "dependencies": {
+        "dotenv": "^2.0.0",
+        "webpack": "^1.13.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.10.1",
+        "babel-eslint": "^6.1.0",
+        "babel-plugin-transform-object-assign": "^6.8.0",
+        "babel-preset-es2015": "^6.9.0",
+        "babel-register": "^6.9.0",
+        "chai": "^3.5.0",
+        "chai-subset": "^1.2.2",
+        "commitizen": "^2.8.2",
+        "coveralls": "^2.11.9",
+        "cz-conventional-changelog": "^1.1.6",
+        "jsdoc": "^3.4.0",
+        "mocha": "^2.5.3",
+        "mocha-lcov-reporter": "^1.2.0",
+        "nyc": "^6.6.1",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.3.5",
+        "standard": "^7.1.2"
+      },
+      "files": [
+        "dist",
+        "browser.js",
+        "README.md"
+      ],
+      "config": {
+        "commitizen": {
+          "path": "./node_modules/cz-conventional-changelog"
+        }
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "browser": "./browser.js",
+      "babel": {
+        "presets": [
+          "es2015"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "6ad6445085a9bf3359db44d7520a49e1148ab167",
+      "_id": "dotenv-webpack@1.3.0",
+      "_shasum": "82229265c3d3755a20a9c559f18cf39fd08a8800",
+      "_from": ".",
+      "_npmVersion": "2.15.11",
+      "_nodeVersion": "5.12.0",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "82229265c3d3755a20a9c559f18cf39fd08a8800",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.3.0.tgz",
+        "integrity": "sha512-0KjSIqbtnL3Y1SI4hUdUgqzpSc2QgtxhhY9c2XDlqUczbcQT+xjd7LbpYaeVNJFgKcQQLPRGa8uCFeNvABc/eg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDr34eol9P4R+mQ/vzEBCrSzMRbDx0m5iVYMEjhH7DI3wIhAJdgEUnxtTr6tWBWxuPCAui046SIhnpKyf4UK8TMgE2J"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/dotenv-webpack-1.3.0.tgz_1473442708296_0.4369828486815095"
+      },
+      "directories": {}
+    },
+    "1.3.1": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.3.1",
+      "main": "index.js",
+      "scripts": {
+        "lint": "standard",
+        "validate-commit": "validate-commit-msg",
+        "predoc": "rimraf docs",
+        "doc": "jsdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "nyc _mocha --compilers js:babel-register",
+        "posttest": "nyc report --reporter=lcov",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls",
+        "travis": "npm t && npm run coveralls",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "dependencies": {
+        "dotenv": "^2.0.0",
+        "webpack": "^1.13.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.10.1",
+        "babel-eslint": "^7.0.0",
+        "babel-plugin-transform-object-assign": "^6.8.0",
+        "babel-preset-es2015": "^6.9.0",
+        "babel-register": "^6.9.0",
+        "chai": "^3.5.0",
+        "coveralls": "^2.11.9",
+        "ghooks": "^1.3.2",
+        "jsdoc": "^3.4.0",
+        "mocha": "^3.1.0",
+        "mocha-lcov-reporter": "^1.2.0",
+        "nyc": "^8.3.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^4.3.5",
+        "standard": "^8.2.0",
+        "validate-commit-msg": "^2.8.0"
+      },
+      "files": [
+        "dist",
+        "browser.js",
+        "LICENSE",
+        "README.md"
+      ],
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "config": {
+        "ghooks": {
+          "pre-commit": "npm run lint",
+          "commit-msg": "npm run validate-commit",
+          "pre-push": "npm t",
+          "post-merge": "npm install && npm prune",
+          "post-rewrite": "npm install && npm prune"
+        }
+      },
+      "browser": "./browser.js",
+      "babel": {
+        "presets": [
+          "es2015"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "4a94717531cb7c729cedb42438b9ce490db483d5",
+      "_id": "dotenv-webpack@1.3.1",
+      "_shasum": "32629755da02d785319a7159b905efecf7462e0c",
+      "_from": ".",
+      "_npmVersion": "2.15.11",
+      "_nodeVersion": "5.12.0",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "32629755da02d785319a7159b905efecf7462e0c",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.3.1.tgz",
+        "integrity": "sha512-QQhlinAFuZ6j8iqoBENe1BhlaQxruyIbk72L01BcBbOovF0TP9Mmn6Z/FHL3uJ+B3EsrggH8kgcuniKyeCXvtg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIGVJvo138mjDi4nOaXCqaBI4b3pX0oj6F6MbKaYkWM38AiAJ8saNX49VKG4Cu10eGqAflawE1EVB/2gs7g3Lasu9LA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/dotenv-webpack-1.3.1.tgz_1475183649727_0.21266763750463724"
+      },
+      "directories": {}
+    },
+    "1.3.2": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.3.2",
+      "main": "index.js",
+      "scripts": {
+        "lint": "standard",
+        "validate-commit": "validate-commit-msg",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "nyc _mocha --compilers js:babel-register",
+        "posttest": "nyc report --reporter=lcov",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls",
+        "travis": "npm run lint && npm t && npm run coveralls",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "dependencies": {
+        "dotenv": "^4.0.0",
+        "webpack": "^1.14.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.18.0",
+        "babel-eslint": "^7.1.1",
+        "babel-plugin-transform-object-assign": "^6.8.0",
+        "babel-preset-es2015": "^6.18.0",
+        "babel-register": "^6.18.0",
+        "chai": "^3.5.0",
+        "coveralls": "^2.11.15",
+        "esdoc": "^0.5.2",
+        "ghooks": "^2.0.0",
+        "jsdoc": "^3.4.0",
+        "mocha": "^3.2.0",
+        "mocha-lcov-reporter": "^1.2.0",
+        "nyc": "^10.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^6.3.2",
+        "standard": "^8.6.0",
+        "validate-commit-msg": "^2.8.2"
+      },
+      "files": [
+        "dist",
+        "browser.js",
+        "LICENSE",
+        "README.md"
+      ],
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "config": {
+        "ghooks": {
+          "pre-commit": "npm run lint",
+          "commit-msg": "npm run validate-commit",
+          "pre-push": "npm t",
+          "post-merge": "npm install && npm prune",
+          "post-rewrite": "npm install && npm prune"
+        }
+      },
+      "browser": "./browser.js",
+      "babel": {
+        "presets": [
+          "es2015"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "6ac0f3bbeb7b4cb9ead40820a4c03239e0bf086e",
+      "_id": "dotenv-webpack@1.3.2",
+      "_shasum": "aeb20b659cc20c2d68e4a70116cf4cb33cb39d30",
+      "_from": ".",
+      "_npmVersion": "2.15.11",
+      "_nodeVersion": "5.12.0",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "aeb20b659cc20c2d68e4a70116cf4cb33cb39d30",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.3.2.tgz",
+        "integrity": "sha512-kyFfC08tsIg9NG+nOn+4CLr9vKnzpj+flnfEgp/LtOlviwZn7dwSMp2MTVEy6uh3SuVwAOcmutdbkMe/VBYMVg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIBV/i0qfxktHQFWxRDAbTXQz5ErHLxtmQdK9ITubrUWAAiBdf8Bo8RFua8Xisy88SCdfsCi6qZBBAAzUHE7zgFLU+A=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/dotenv-webpack-1.3.2.tgz_1484072444666_0.3540484644472599"
+      },
+      "directories": {}
+    },
+    "1.4.0": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.4.0",
+      "main": "index.js",
+      "scripts": {
+        "lint": "standard",
+        "validate-commit": "validate-commit-msg",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "nyc _mocha --compilers js:babel-register",
+        "posttest": "nyc report --reporter=lcov",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls",
+        "travis": "npm run lint && npm t && npm run coveralls",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": ">=1.14.0"
+      },
+      "dependencies": {
+        "dotenv": "^4.0.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.18.0",
+        "babel-eslint": "^7.1.1",
+        "babel-plugin-transform-object-assign": "^6.8.0",
+        "babel-preset-es2015": "^6.18.0",
+        "babel-register": "^6.18.0",
+        "chai": "^3.5.0",
+        "coveralls": "^2.11.15",
+        "esdoc": "^0.5.2",
+        "ghooks": "^2.0.0",
+        "jsdoc": "^3.4.0",
+        "mocha": "^3.2.0",
+        "mocha-lcov-reporter": "^1.2.0",
+        "nyc": "^10.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^6.3.2",
+        "standard": "^8.6.0",
+        "validate-commit-msg": "^2.8.2"
+      },
+      "files": [
+        "dist",
+        "browser.js",
+        "LICENSE",
+        "README.md"
+      ],
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "config": {
+        "ghooks": {
+          "pre-commit": "npm run lint",
+          "commit-msg": "npm run validate-commit",
+          "pre-push": "npm t",
+          "post-merge": "npm install && npm prune",
+          "post-rewrite": "npm install && npm prune"
+        }
+      },
+      "browser": "./browser.js",
+      "babel": {
+        "presets": [
+          "es2015"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "a183221809b40b0d501795e9a81cfd84279c7a78",
+      "_id": "dotenv-webpack@1.4.0",
+      "_shasum": "c8a3a3bd4255c1dbaec1ef3a31a18175e5d8bbd2",
+      "_from": ".",
+      "_npmVersion": "2.15.11",
+      "_nodeVersion": "5.12.0",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "c8a3a3bd4255c1dbaec1ef3a31a18175e5d8bbd2",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.4.0.tgz",
+        "integrity": "sha512-O3kbOXUoHk5UhGYxK60DgfwyXvpGjklba+tTyBdp48p8XpBbCCha3c/QHabwsioPcKPB7W0DcbChlBX4NIK9NA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICL1fFQn/L89hkc9p42cEfyrAprayyARSwrBK4cXoUwrAiEAwH97fmwp1P1pH+JI9idCitlYAunHeO9LoJYg+9i+aOI="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/dotenv-webpack-1.4.0.tgz_1486182659457_0.3573910004924983"
+      },
+      "directories": {}
+    },
+    "1.4.1": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.4.1",
+      "main": "index.js",
+      "scripts": {
+        "lint": "standard",
+        "validate-commit": "validate-commit-msg",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "nyc _mocha --compilers js:babel-register",
+        "posttest": "nyc report --reporter=lcov",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls",
+        "travis": "npm run lint && npm t && npm run coveralls",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": ">=1.14.0"
+      },
+      "dependencies": {
+        "dotenv": "^4.0.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.18.0",
+        "babel-eslint": "^7.1.1",
+        "babel-plugin-transform-object-assign": "^6.8.0",
+        "babel-preset-es2015": "^6.18.0",
+        "babel-register": "^6.18.0",
+        "chai": "^3.5.0",
+        "coveralls": "^2.11.15",
+        "esdoc": "^0.5.2",
+        "ghooks": "^2.0.0",
+        "jsdoc": "^3.4.0",
+        "mocha": "^3.2.0",
+        "mocha-lcov-reporter": "^1.2.0",
+        "nyc": "^10.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^6.3.2",
+        "standard": "^8.6.0",
+        "validate-commit-msg": "^2.8.2",
+        "webpack": "^1.14.0"
+      },
+      "files": [
+        "dist",
+        "browser.js",
+        "LICENSE",
+        "README.md"
+      ],
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "config": {
+        "ghooks": {
+          "pre-commit": "npm run lint",
+          "commit-msg": "npm run validate-commit",
+          "pre-push": "npm t",
+          "post-merge": "npm install && npm prune",
+          "post-rewrite": "npm install && npm prune"
+        }
+      },
+      "browser": "./browser.js",
+      "babel": {
+        "presets": [
+          "es2015"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "17fae87b9c014535fd3a36a0f7135299910ed942",
+      "_id": "dotenv-webpack@1.4.1",
+      "_shasum": "79758376b8c26be82035da4c195516b55477f9e3",
+      "_from": ".",
+      "_npmVersion": "2.15.11",
+      "_nodeVersion": "5.12.0",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "79758376b8c26be82035da4c195516b55477f9e3",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.4.1.tgz",
+        "integrity": "sha512-yKKiKaa3BDKFpEX7gyJk8NpApkPJjBFbxmJrD6U7I2NAX9XxMlKo6uC1FUXOcTCDBZT9Shrx7AGDpMNo2IM9eQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQD9Ii92FmiAwZuF1mjLSTTNX0H3C9KGOgTwy+q6Bjc1TwIgHVp2K2QfqY0T+fD72v9WmwlkANw7m8A0PXfVV0hkeBo="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/dotenv-webpack-1.4.1.tgz_1486657240585_0.3791292964015156"
+      },
+      "directories": {}
+    },
+    "1.4.2": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.4.2",
+      "main": "index.js",
+      "scripts": {
+        "lint": "standard",
+        "validate-commit": "validate-commit-msg",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "nyc _mocha --compilers js:babel-register",
+        "posttest": "nyc report --reporter=lcov",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls",
+        "travis": "npm run lint && npm t && npm run coveralls",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": ">=1.14.0"
+      },
+      "dependencies": {
+        "dotenv": "^4.0.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.18.0",
+        "babel-eslint": "^7.1.1",
+        "babel-plugin-transform-object-assign": "^6.8.0",
+        "babel-preset-es2015": "^6.18.0",
+        "babel-register": "^6.18.0",
+        "chai": "^3.5.0",
+        "coveralls": "^2.11.15",
+        "esdoc": "^0.5.2",
+        "ghooks": "^2.0.0",
+        "jsdoc": "^3.4.0",
+        "mocha": "^3.2.0",
+        "mocha-lcov-reporter": "^1.2.0",
+        "nyc": "^10.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^6.3.2",
+        "standard": "^8.6.0",
+        "validate-commit-msg": "^2.8.2",
+        "webpack": "^1.14.0"
+      },
+      "files": [
+        "dist",
+        "browser.js",
+        "LICENSE",
+        "README.md"
+      ],
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "config": {
+        "ghooks": {
+          "pre-commit": "npm run lint",
+          "commit-msg": "npm run validate-commit",
+          "pre-push": "npm t",
+          "post-merge": "npm install && npm prune",
+          "post-rewrite": "npm install && npm prune"
+        }
+      },
+      "browser": "./browser.js",
+      "babel": {
+        "presets": [
+          "es2015"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "f989f68a973c143789b18c67f89f7384df6a2339",
+      "_id": "dotenv-webpack@1.4.2",
+      "_shasum": "4fac857a8cb3ee1ebd51aef7eedb4d019594c062",
+      "_from": ".",
+      "_npmVersion": "2.15.11",
+      "_nodeVersion": "5.12.0",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "4fac857a8cb3ee1ebd51aef7eedb4d019594c062",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.4.2.tgz",
+        "integrity": "sha512-+D6AK2CYG/tZZsWlmwFJ6YDqa4mQkDCWJLV2m4N/29pHw35qIhE7J/cIJEN8ffduWjg0dh6EodyVT9g1UBmxHQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICMLgIM/cwagqHsOjjjQi5OmOqmb47fN03Mo9Y91DK3oAiBWPAQlxc3HXWQ3IoOzVd7wt0tpJE8aqII+69XCG7Om8w=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-12-west.internal.npmjs.com",
+        "tmp": "tmp/dotenv-webpack-1.4.2.tgz_1488291340701_0.8217333508655429"
+      },
+      "directories": {}
+    },
+    "1.4.3": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.4.3",
+      "main": "index.js",
+      "scripts": {
+        "lint": "standard",
+        "validate-commit": "validate-commit-msg",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "nyc _mocha --compilers js:babel-register",
+        "posttest": "nyc report --reporter=lcov",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "coveralls": "nyc report --reporter=text-lcov | coveralls",
+        "travis": "npm run lint && npm t && npm run coveralls",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": ">=1.14.0"
+      },
+      "dependencies": {
+        "dotenv": "^4.0.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.18.0",
+        "babel-eslint": "^7.1.1",
+        "babel-plugin-transform-object-assign": "^6.8.0",
+        "babel-preset-es2015": "^6.18.0",
+        "babel-register": "^6.18.0",
+        "chai": "^3.5.0",
+        "coveralls": "^2.11.15",
+        "esdoc": "^0.5.2",
+        "ghooks": "^2.0.0",
+        "jsdoc": "^3.4.0",
+        "mocha": "^3.2.0",
+        "mocha-lcov-reporter": "^1.2.0",
+        "nyc": "^10.0.0",
+        "rimraf": "^2.5.2",
+        "semantic-release": "^6.3.2",
+        "standard": "^8.6.0",
+        "validate-commit-msg": "^2.8.2",
+        "webpack": "^1.14.0"
+      },
+      "files": [
+        "dist",
+        "browser.js",
+        "LICENSE",
+        "README.md"
+      ],
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "config": {
+        "ghooks": {
+          "pre-commit": "npm run lint",
+          "commit-msg": "npm run validate-commit",
+          "pre-push": "npm t",
+          "post-merge": "npm install && npm prune",
+          "post-rewrite": "npm install && npm prune"
+        }
+      },
+      "browser": "./browser.js",
+      "babel": {
+        "presets": [
+          "es2015"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "eeb6a983f135cdbfbdacf9ce9bb941902f918dfa",
+      "_id": "dotenv-webpack@1.4.3",
+      "_shasum": "f2ff3841e22d360807648d1a070d7fb22b8e2a02",
+      "_from": ".",
+      "_npmVersion": "2.15.11",
+      "_nodeVersion": "5.12.0",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "f2ff3841e22d360807648d1a070d7fb22b8e2a02",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.4.3.tgz",
+        "integrity": "sha512-sZGS+EyC2ekJyCHWG6thkuaIyHyYU/taWii2fsL1pwlf7asyi1qwk/Joad16wN5Q5K5jLEbA+2CC8ABOo/fBqw==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIGAXwrM2UO8y3ggi1FmRBxj6n76uXvdpDjAfHeVD26c6AiEA81c1Wn/BnWqTpOExfhvFUMQ/1bSiWNzzIn5qfZOap4g="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/dotenv-webpack-1.4.3.tgz_1488920628741_0.24535024422220886"
+      },
+      "directories": {}
+    },
+    "1.4.4": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.4.4",
+      "main": "dist/index.js",
+      "scripts": {
+        "lint": "standard",
+        "validate-commit": "validate-commit-msg",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "nyc _mocha --compilers js:babel-register",
+        "posttest": "nyc report --reporter=lcov",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": ">=1.14.0"
+      },
+      "dependencies": {
+        "dotenv": "^4.0.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.23.0",
+        "babel-eslint": "^7.1.1",
+        "babel-plugin-transform-object-assign": "^6.22.0",
+        "babel-preset-es2015": "^6.22.0",
+        "babel-register": "^6.23.0",
+        "chai": "^3.5.0",
+        "esdoc": "^0.5.2",
+        "ghooks": "^2.0.0",
+        "mocha": "^3.2.0",
+        "nyc": "^10.1.2",
+        "rimraf": "^2.6.1",
+        "semantic-release": "^6.3.2",
+        "standard": "^10.0.2",
+        "validate-commit-msg": "^2.11.2",
+        "webpack": "^2.4.1"
+      },
+      "files": [
+        "dist",
+        "LICENSE",
+        "README.md"
+      ],
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "config": {
+        "ghooks": {
+          "pre-commit": "npm run lint",
+          "commit-msg": "npm run validate-commit",
+          "pre-push": "npm t",
+          "post-merge": "npm install && npm prune",
+          "post-rewrite": "npm install && npm prune"
+        }
+      },
+      "browser": "dist/browser.js",
+      "babel": {
+        "presets": [
+          "es2015"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "e8c241b46e90c7e6c2f406a946fa7b3e82864af1",
+      "_id": "dotenv-webpack@1.4.4",
+      "_shasum": "9debc184bfae80e1fa6e3be1c45b20a738e1dadb",
+      "_from": ".",
+      "_npmVersion": "2.15.12",
+      "_nodeVersion": "7.10.0",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "9debc184bfae80e1fa6e3be1c45b20a738e1dadb",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.4.4.tgz",
+        "integrity": "sha512-mDqphoDUPMJSHclzEoaWa+/IPFP8ZJ+zk7zN6vt+Qhve+LYKqZKUaxkbHZXYxxD6kh+Qxoqmez56/zalRPUXVg==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCu5c6j4UtdP0fu6G7DIt01iYZtGcYfwal/FIWKr1tWuAIgVlFHjO9skfdK9k/RcKhSL9uOVQXV2NO+5DeCo1G3aHQ="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/dotenv-webpack-1.4.4.tgz_1493908324905_0.8702031078282744"
+      },
+      "directories": {}
+    },
+    "1.4.5": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.4.5",
+      "main": "index.js",
+      "scripts": {
+        "lint": "standard",
+        "validate-commit": "validate-commit-msg",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "nyc _mocha --compilers js:babel-register",
+        "posttest": "nyc report --reporter=lcov",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": ">=1.14.0"
+      },
+      "dependencies": {
+        "dotenv": "^4.0.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.23.0",
+        "babel-eslint": "^7.1.1",
+        "babel-plugin-transform-object-assign": "^6.22.0",
+        "babel-preset-es2015": "^6.22.0",
+        "babel-register": "^6.23.0",
+        "chai": "^3.5.0",
+        "esdoc": "^0.5.2",
+        "ghooks": "^2.0.0",
+        "mocha": "^3.2.0",
+        "nyc": "^10.1.2",
+        "rimraf": "^2.6.1",
+        "semantic-release": "^6.3.2",
+        "standard": "^10.0.2",
+        "validate-commit-msg": "^2.11.2",
+        "webpack": "^2.4.1"
+      },
+      "files": [
+        "dist",
+        "LICENSE",
+        "README.md"
+      ],
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "config": {
+        "ghooks": {
+          "pre-commit": "npm run lint",
+          "commit-msg": "npm run validate-commit",
+          "pre-push": "npm t",
+          "post-merge": "npm install && npm prune",
+          "post-rewrite": "npm install && npm prune"
+        }
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "es2015"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "6f0a35aa3a042627860322ecbb70ed08da5d3a3d",
+      "_id": "dotenv-webpack@1.4.5",
+      "_shasum": "f40727990dadbe7be7341ddbab0514a2b793c9ec",
+      "_from": ".",
+      "_npmVersion": "2.15.12",
+      "_nodeVersion": "7.10.0",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "f40727990dadbe7be7341ddbab0514a2b793c9ec",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.4.5.tgz",
+        "integrity": "sha512-37fDqfqt/t40+s9jCEwC9mXGLidFDWnJQ8kIWpBaxhywpmbvCnUhloC3csckzg4B4jbFEXFvOPar3HxPzv9EPA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCHWYTKFULY/9L5R4s68NDN97xi24Q/lDjlWqGeO1XyvAIgT/Po2PVaclwMUQKuLoVZWcWIH0VNf4vcnmcLoJcRm9E="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "packages-18-east.internal.npmjs.com",
+        "tmp": "tmp/dotenv-webpack-1.4.5.tgz_1493910466540_0.7188479246105999"
+      },
+      "directories": {}
+    },
+    "1.5.0": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.5.0",
+      "main": "index.js",
+      "scripts": {
+        "lint": "standard",
+        "validate-commit": "validate-commit-msg",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "nyc _mocha --compilers js:babel-register",
+        "posttest": "nyc report --reporter=lcov",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": ">=1.14.0"
+      },
+      "dependencies": {
+        "dotenv": "^4.0.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.24.1",
+        "babel-eslint": "^7.2.3",
+        "babel-plugin-transform-object-assign": "^6.22.0",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-register": "^6.24.1",
+        "chai": "^3.5.0",
+        "esdoc": "^0.5.2",
+        "ghooks": "^2.0.0",
+        "mocha": "^3.4.1",
+        "nyc": "^10.3.2",
+        "rimraf": "^2.6.1",
+        "semantic-release": "^6.3.6",
+        "sinon": "^2.3.2",
+        "standard": "^10.0.2",
+        "validate-commit-msg": "^2.12.1",
+        "webpack": "^2.5.1"
+      },
+      "files": [
+        "dist",
+        "LICENSE",
+        "README.md"
+      ],
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "config": {
+        "ghooks": {
+          "pre-commit": "npm run lint",
+          "commit-msg": "npm run validate-commit",
+          "pre-push": "npm t",
+          "post-merge": "npm install && npm prune",
+          "post-rewrite": "npm install && npm prune"
+        }
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "es2015"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "fc11e45499937365f4c389c0401d1cc922f64b94",
+      "_id": "dotenv-webpack@1.5.0",
+      "_shasum": "934b218d1d87158237aa9cba0b3becf63298cb4b",
+      "_from": ".",
+      "_npmVersion": "2.15.12",
+      "_nodeVersion": "7.10.0",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "934b218d1d87158237aa9cba0b3becf63298cb4b",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.5.0.tgz",
+        "integrity": "sha512-g+obqrnJKutzWh+S1ao89yCRUHQFaY7t15HIBuN9URxFmfnoJiZKexDU0vmkKrWXhtkcjBQm02TOtf5pUePGiA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFW5/qkYdjlT1E91glHaQEd6qX8/4aAFSMYToNHdh47bAiEAgbqLdO6NtkbRFFtU9oYZBG3JEw57xzh70MG8zQQHGKU="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack-1.5.0.tgz_1496173821825_0.8112968758214265"
+      },
+      "directories": {}
+    },
+    "1.5.1": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.5.1",
+      "main": "index.js",
+      "scripts": {
+        "lint": "standard",
+        "validate-commit": "validate-commit-msg",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "nyc _mocha --compilers js:babel-register",
+        "posttest": "nyc report --reporter=lcov",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": ">=1.14.0"
+      },
+      "dependencies": {
+        "dotenv": "^4.0.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.24.1",
+        "babel-eslint": "^7.2.3",
+        "babel-plugin-transform-object-assign": "^6.22.0",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-register": "^6.24.1",
+        "chai": "^4.0.0",
+        "esdoc": "^0.5.2",
+        "ghooks": "^2.0.0",
+        "mocha": "^3.4.1",
+        "nyc": "^10.3.2",
+        "rimraf": "^2.6.1",
+        "semantic-release": "^6.3.6",
+        "sinon": "^2.3.2",
+        "standard": "^10.0.2",
+        "validate-commit-msg": "^2.12.1",
+        "webpack": "^2.5.1"
+      },
+      "files": [
+        "dist",
+        "LICENSE",
+        "README.md"
+      ],
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "config": {
+        "ghooks": {
+          "pre-commit": "npm run lint",
+          "commit-msg": "npm run validate-commit",
+          "pre-push": "npm t",
+          "post-merge": "npm install && npm prune",
+          "post-rewrite": "npm install && npm prune"
+        }
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "es2015"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "a1154d7cc363a3736ebf2cabe685dd4251242e04",
+      "_id": "dotenv-webpack@1.5.1",
+      "_shasum": "a9283536921b562f4d08736690a6cbde6ea2fc74",
+      "_from": ".",
+      "_npmVersion": "2.15.12",
+      "_nodeVersion": "7.10.0",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "a9283536921b562f4d08736690a6cbde6ea2fc74",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.5.1.tgz",
+        "integrity": "sha512-oG7ukE6LVUOYg3+aNGleocuLK5kEkoRyMACqoX21zpwgRpYSr0CmcupctONcrVTHbmkRBa/wf/lUArR1l6ORFA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCbBYMQ/r8eKfOWY1ykjTbvGc0PC9oodBhM2WpE4vbB0AIhAO6bGKuBwmJPdh8aSFsPn8gbCyT0kJQONsCg6k/WSlfL"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack-1.5.1.tgz_1498755148029_0.16635955148376524"
+      },
+      "directories": {}
+    },
+    "1.5.2": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.5.2",
+      "main": "index.js",
+      "scripts": {
+        "lint": "standard",
+        "validate-commit": "validate-commit-msg",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "nyc _mocha --compilers js:babel-register",
+        "posttest": "nyc report --reporter=lcov",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": ">=1.14.0"
+      },
+      "dependencies": {
+        "dotenv": "^4.0.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.24.1",
+        "babel-eslint": "^7.2.3",
+        "babel-plugin-transform-object-assign": "^6.22.0",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-register": "^6.24.1",
+        "chai": "^4.0.0",
+        "esdoc": "^0.5.2",
+        "ghooks": "^2.0.0",
+        "mocha": "^3.4.1",
+        "nyc": "^10.3.2",
+        "rimraf": "^2.6.1",
+        "semantic-release": "^6.3.6",
+        "sinon": "^2.3.2",
+        "standard": "^10.0.2",
+        "validate-commit-msg": "^2.12.1",
+        "webpack": "^3.0.0"
+      },
+      "files": [
+        "dist",
+        "LICENSE",
+        "README.md"
+      ],
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "config": {
+        "ghooks": {
+          "pre-commit": "npm run lint",
+          "commit-msg": "npm run validate-commit",
+          "pre-push": "npm t",
+          "post-merge": "npm install && npm prune",
+          "post-rewrite": "npm install && npm prune"
+        }
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "es2015"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "afc8a79381d300982def686d6431066ce69be827",
+      "_id": "dotenv-webpack@1.5.2",
+      "_shasum": "92308aeb4573ebd34b8b34ea56d35d221d79888e",
+      "_from": ".",
+      "_npmVersion": "2.15.12",
+      "_nodeVersion": "7.10.0",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "92308aeb4573ebd34b8b34ea56d35d221d79888e",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.5.2.tgz",
+        "integrity": "sha512-IcoIopV9ss2et2dKArpgRPYz34sBW+SdO+z4mAHgisrsPOqfg+BafFnA2MNE0eSqMwAaaT9fept3mqb85qGr0Q==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCgB9z5Z6t3E073wI6JMlbYBgNdZxOBWsBlQzTB6tZRnQIhAI9u/nju69G0nfOJgYxFpwznv6/cmWo4In3fqGaK054F"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack-1.5.2.tgz_1499134427830_0.8548274317290634"
+      },
+      "directories": {}
+    },
+    "1.5.3": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.5.3",
+      "main": "index.js",
+      "scripts": {
+        "lint": "standard",
+        "validate-commit": "validate-commit-msg",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "nyc _mocha --compilers js:babel-register",
+        "posttest": "nyc report --reporter=lcov",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": "^1 || ^2 || ^3"
+      },
+      "dependencies": {
+        "dotenv": "^4.0.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.24.1",
+        "babel-eslint": "^7.2.3",
+        "babel-plugin-transform-object-assign": "^6.22.0",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-register": "^6.24.1",
+        "chai": "^4.0.0",
+        "esdoc": "^0.5.2",
+        "ghooks": "^2.0.0",
+        "mocha": "^3.4.1",
+        "nyc": "^11.0.3",
+        "rimraf": "^2.6.1",
+        "semantic-release": "^6.3.6",
+        "sinon": "^2.3.2",
+        "standard": "^10.0.2",
+        "validate-commit-msg": "^2.12.1",
+        "webpack": "^3.1.0"
+      },
+      "files": [
+        "dist",
+        "LICENSE",
+        "README.md"
+      ],
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "config": {
+        "ghooks": {
+          "pre-commit": "npm run lint",
+          "commit-msg": "npm run validate-commit",
+          "pre-push": "npm t",
+          "post-merge": "npm install && npm prune",
+          "post-rewrite": "npm install && npm prune"
+        }
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "es2015"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "4b44ddb71318cf74aaa9f41adc4810360e3ef2a8",
+      "_id": "dotenv-webpack@1.5.3",
+      "_shasum": "452ed4be171fb00d2a85111cb6ee4da8ceda768c",
+      "_from": ".",
+      "_npmVersion": "2.15.12",
+      "_nodeVersion": "7.10.0",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "452ed4be171fb00d2a85111cb6ee4da8ceda768c",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.5.3.tgz",
+        "integrity": "sha512-WYMBQeP1M8N9fWLGCpgMyouOYbgxjFj4KqyArH1wae1wzX/B9PJL+3tAzfgFJX3iIbmg8GiwIAKmZ2+Ls4Vl/g==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDhUpOqPbiOmyceXWZMheb92AipqHOlf3m4wAgZLRpXjQIgDmm5Vwt98Jno1jKwLV1tUq7Mk+s2sbvS6R3w+a/8HD0="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack-1.5.3.tgz_1499706781320_0.2624321368057281"
+      },
+      "directories": {}
+    },
+    "1.5.4": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.5.4",
+      "main": "index.js",
+      "scripts": {
+        "lint": "standard",
+        "validate-commit": "validate-commit-msg",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "nyc _mocha --compilers js:babel-register",
+        "posttest": "nyc report --reporter=lcov",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t",
+        "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": "^1 || ^2 || ^3"
+      },
+      "dependencies": {
+        "dotenv": "^4.0.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.24.1",
+        "babel-eslint": "^7.2.3",
+        "babel-plugin-transform-object-assign": "^6.22.0",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-register": "^6.24.1",
+        "chai": "^4.0.0",
+        "esdoc": "^0.5.2",
+        "ghooks": "^2.0.0",
+        "mocha": "^3.4.1",
+        "nyc": "^11.0.3",
+        "rimraf": "^2.6.1",
+        "semantic-release": "^6.3.6",
+        "sinon": "^2.3.2",
+        "standard": "^10.0.2",
+        "validate-commit-msg": "^2.12.1",
+        "webpack": "^3.1.0"
+      },
+      "files": [
+        "dist",
+        "LICENSE",
+        "README.md"
+      ],
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "config": {
+        "ghooks": {
+          "pre-commit": "npm run lint",
+          "commit-msg": "npm run validate-commit",
+          "pre-push": "npm t",
+          "post-merge": "npm install && npm prune",
+          "post-rewrite": "npm install && npm prune"
+        }
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "es2015"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "308d87a5ad6c6fe778628ac6c0a4547f885280ee",
+      "_id": "dotenv-webpack@1.5.4",
+      "_shasum": "9c92e46e412a1cfbc60217ed33d69d2bbfddbf9f",
+      "_from": ".",
+      "_npmVersion": "2.15.12",
+      "_nodeVersion": "7.10.1",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "9c92e46e412a1cfbc60217ed33d69d2bbfddbf9f",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.5.4.tgz",
+        "integrity": "sha512-AMwsauQorgldxpq6EcFxaN7kfCS2J64iDUSjkF5CazEq9stpDP821z4HsquwnIVOnIxZyI05GONbtKuxgfPHEA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCWJuxPvEx09vMtHcQ6h4/I1QtAFhiYF2WKHWQQFrBgjwIhAO92na8/Tvu2CcIzlRDbPeIAfLeu4u7Lf90BG9QLb9FV"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack-1.5.4.tgz_1500911727159_0.5458306581713259"
+      },
+      "directories": {}
+    },
+    "1.5.5": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.5.5",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "nyc _mocha --compilers js:babel-register",
+        "posttest": "nyc report --reporter=lcov",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": "^1 || ^2 || ^3 || ^4"
+      },
+      "dependencies": {
+        "dotenv": "^5.0.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-eslint": "^8.2.2",
+        "babel-plugin-transform-object-assign": "^6.22.0",
+        "babel-preset-env": "^1.6.1",
+        "babel-register": "^6.26.0",
+        "chai": "^4.1.2",
+        "esdoc": "^1.0.4",
+        "husky": "^0.14.3",
+        "mocha": "^5.0.1",
+        "nyc": "^11.3.0",
+        "rimraf": "^2.6.2",
+        "sinon": "^4.4.2",
+        "standard": "^11.0.0",
+        "webpack": "^3.10.0"
+      },
+      "files": [
+        "dist"
+      ],
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "env"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "2ae172440320e21b72635f1a9911fdad0b3044ce",
+      "_id": "dotenv-webpack@1.5.5",
+      "_shasum": "3441094f04d304b6119e6b72524e62fb3252f5f2",
+      "_from": ".",
+      "_npmVersion": "2.15.12",
+      "_nodeVersion": "8.9.4",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "3441094f04d304b6119e6b72524e62fb3252f5f2",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.5.5.tgz",
+        "fileCount": 5,
+        "unpackedSize": 11314,
+        "integrity": "sha512-dzx4A7fgsiCbFOtFoGHgGX76rXKKTi1RhaJYZo+ZVRalWTuWyd0cK4L3i4EnaTbyjthynl1wBM2myuiXL3TQXQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDn8cXPxdkzTWbFC4VkQCVtPTOeoLkroZllF/t3fp8IjQIhAOe6KKL/4J997QisM4vGkxPYeNbYiYlAN9GSOhGcmDtA"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_1.5.5_1519744532306_0.19803976905473752"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.5.6": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.5.6",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "nyc _mocha --compilers js:babel-register",
+        "posttest": "nyc report --reporter=lcov",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": "^1 || ^2 || ^3 || ^4"
+      },
+      "dependencies": {
+        "dotenv": "^6.0.0"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-eslint": "^8.2.2",
+        "babel-plugin-transform-object-assign": "^6.22.0",
+        "babel-preset-env": "^1.6.1",
+        "babel-register": "^6.26.0",
+        "chai": "^4.1.2",
+        "esdoc": "^1.0.4",
+        "husky": "^0.14.3",
+        "mocha": "^5.0.1",
+        "nyc": "^11.3.0",
+        "rimraf": "^2.6.2",
+        "sinon": "^5.0.0",
+        "standard": "^11.0.0",
+        "webpack": "^4.6.0"
+      },
+      "files": [
+        "dist"
+      ],
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "env"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "b53a4b1da1d986371f499521d1ecdfb7ebaea4b8",
+      "_id": "dotenv-webpack@1.5.6",
+      "_shasum": "60146a37ce53b934c85404f689c35cb617371e04",
+      "_from": ".",
+      "_npmVersion": "2.15.12",
+      "_nodeVersion": "10.3.0",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "60146a37ce53b934c85404f689c35cb617371e04",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.5.6.tgz",
+        "fileCount": 5,
+        "unpackedSize": 11313,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbFTr1CRA9TVsSAnZWagAAO1QP/14VUctgO43EWISo8Dx5\nnPAOQ9EdGHLRSslpe1dOYZTv3emnFmBe8aj8K5Ym/qZwUGnlm7HIsFP9YYGV\nK3aQxilfQrpSG7OkG1cueNEST1dYtvFS39PMOGlPFmJsaNiSMGJNkr86Uk11\nOoAE9rIZKiNHjsBliyTLmZsxwBSEdqpFL0cplNh1IfcL/APMzeRG5wWOMj7e\nbTpTHx4UBCUs2IlKJ6zp52EzEy8y8arXAkXVq1cJYvUrJeactwjFXuU50UIl\nzSv79lAXlL24fG9neNplVkD0CIVaHIMPS71efzWq+MdGXIpNhDBHJ0WRb7ZB\nEvdw7Ejicr3qFfUdgRLeIbaJfEy42uA8PtLHGUDRdzQ1F0e8e45AhX/iqqJR\nbiQkRfPuXsC7qi948NNhFYrBgfhJn2W34Vqf5BgVQDS0GM6WfTzOUr7bisEc\nJA1bxCreCv3Dr5rl+TpR3xVOuCmE/uOrVxtgmtIiP3DXXwscZzYe32OCiWTM\nqxbz1XfOZJ68VjjLuOHT1rnt4tGmF8vUM7lGZeZXlMs7t29iel+QVGHa7llG\nu20BEN16nC0qQv2CBM67qnXrCz74FRk5V5cO5YDOGX8o8Onq8Fjdo60nAaRV\nWSByZsPbOpzEJis6aIDloak6SuoMhexSmDoIPDSqC2u017pKEJEaaXC3/GcC\nKE5r\r\n=QiLE\r\n-----END PGP SIGNATURE-----\r\n",
+        "integrity": "sha512-erz47SGkWSS0KUHg3OrI43AmMc/aGaMjarCtxpte5yN2iiZ7MpT9kgy3rUG3ksXIx1xNTnjXpifay+6D4uNELQ==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIDrHscT+CDX447ptAVqYlN/nNJBo0qCIzotxgRwolorjAiEAxzPh0vGit9E4JeBCUCVx2dPcQq9BmWw2X+ojy7aABPw="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_1.5.6_1528118004583_0.6815218017222311"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.5.7": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.5.7",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "nyc _mocha --compilers js:babel-register",
+        "posttest": "nyc report --reporter=lcov",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": "^1 || ^2 || ^3 || ^4"
+      },
+      "dependencies": {
+        "dotenv": "^5.0.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-eslint": "^8.2.2",
+        "babel-plugin-transform-object-assign": "^6.22.0",
+        "babel-preset-env": "^1.6.1",
+        "babel-register": "^6.26.0",
+        "chai": "^4.1.2",
+        "esdoc": "^1.0.4",
+        "husky": "^0.14.3",
+        "mocha": "^5.0.1",
+        "nyc": "^12.0.1",
+        "rimraf": "^2.6.2",
+        "sinon": "^5.0.0",
+        "standard": "^11.0.0",
+        "webpack": "^4.6.0"
+      },
+      "files": [
+        "dist"
+      ],
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "env"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "705396a6f5d641a6dc195739876412e23316bc0a",
+      "_id": "dotenv-webpack@1.5.7",
+      "_shasum": "c44395ab21d1fd28d79a90942a7b14b1debd145f",
+      "_from": ".",
+      "_npmVersion": "2.15.12",
+      "_nodeVersion": "8.11.2",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "shasum": "c44395ab21d1fd28d79a90942a7b14b1debd145f",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.5.7.tgz",
+        "fileCount": 5,
+        "unpackedSize": 11313,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbFtMECRA9TVsSAnZWagAAJ+gP/RtCBfahNdARJ4pF0VgP\nsowYnfqIJJF9BLLvlxhAT+OMqEqlQ/kA7Sp1SZAiKpM72lYP/gTjkevoZjZ9\nC2Iuaexe63BzdYsMN4HFGEN9xPtx5uZ9mQQZGlRuPHGWhe+08ttSrHdQxI01\nEuagHoQhn2vkpGxx26oCECf75U8RPVDTFYuzC4joWLEfnrEOx1hAYElFBwnL\ni4gWiB4LhqpOTHidM/raFETdDy9nohd+TFUBLv/UF30sJyIFrj7PQf5R6Gfx\n0K9i+l3VKudwDTN9IrdROUXgt/WCXutuWsO+NAiAlKlyKQwTGfW4rMPT/op0\n7+5MYierU2OhyfLg58RUSn0tIGdt/Uwf3TeX+503CaFAZIgee2hK1VBDrVh7\noz7O8Q+Q3+mjsqvFSG6KVizCsI0b2M1N5NhfnmZuZW8oJilRegG7BrtC6SVf\ndtbU16nsTYufywio+Hk59vQLDvG2VyVN1ehjRwNPlEK9JYEwAGu4Dq13kaYW\nh3FTXD4Uhz3zl6RGGlO7ast9nUu7vko5bnkYEaxB0fSn272inejN4l1dw58l\ny63RQkS65OH2Oqj/DybfLLVMJ+c9qCIfefI4PN4c1eHkaQ5ycyg4zms4GEZf\nqdlIuW/TMU0cLycb9BQBjq4XTRDaiQqCMPLFG4TqKg0U0PX3ZX6391f5HIIs\na9bw\r\n=BWi+\r\n-----END PGP SIGNATURE-----\r\n",
+        "integrity": "sha512-/6ptpzSB/0j4ncFOGAX3NYk5eE9dKFlVJ6182kEH7SV2A6ZQLe+YP9J69O7vDJVt5PiKWMYWpnZuU10ooSxliA==",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQDHHibBrtb0MC7BldtN3BPw8WkXAEx6EuL7u1dbcWBWhwIhAOwNyxb1JxzAlRjXMMzoJq+NtT+cZuCYKXNOYJHgBdcz"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_1.5.7_1528222467703_0.05839270307757194"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.6.0": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.6.0",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "nyc _mocha --compilers js:babel-register",
+        "posttest": "nyc report --reporter=lcov",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": "^1 || ^2 || ^3 || ^4"
+      },
+      "dependencies": {
+        "dotenv": "^5.0.1",
+        "dotenv-expand": "^4.0.1"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-eslint": "^10.0.1",
+        "babel-plugin-transform-object-assign": "^6.22.0",
+        "babel-preset-env": "^1.6.1",
+        "babel-register": "^6.26.0",
+        "chai": "^4.1.2",
+        "esdoc": "^1.0.4",
+        "esdoc-standard-plugin": "^1.0.0",
+        "husky": "^1.1.2",
+        "mocha": "^5.0.1",
+        "nyc": "^13.1.0",
+        "rimraf": "^2.6.2",
+        "sinon": "^7.0.0",
+        "standard": "^12.0.0",
+        "webpack": "^4.6.0"
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "env"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "f322be893d15003b62cb2d76184766a685cb4891",
+      "_id": "dotenv-webpack@1.6.0",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.11.2",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "integrity": "sha512-jTbHXmcVw3KMVhTdgthYNLWWHRGtucrADpZWwVCdiP+pCvuWvxLcUadwEnmz8Wqv/d2UAJxJhp1jrxGlMYCetg==",
+        "shasum": "ea5758ce4da1e0c3574ef777a32ee20beb61b3a5",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.6.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 12296,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcJC6UCRA9TVsSAnZWagAAvwIP/0zDzRiP2GKFzSe+A+BM\nwrbx08f9GZbUAAs1QfPhAR1NnyJCVYp4we/HceSBS75De3wAmWprpLhTytqI\nLLmP7jtwPgRBpFyeYcDWzgCB2lud2uDoLFjR/n5OJ+Rgi/tDeZDtwBZqZpX8\n1Y3Miyu2HgpZXvMGqCKt/fEc73ISa40GLjDLVOz9xrWmB608+VpbthY82Kmr\nQ1fk6DFdGhuCbCz5xeFSw468W/NAbG8r89ZzfOa7exfLB/+WBQt0NiPdHHuX\n8TUXAnPyEFGIK9vQUUclhs1YqLLlJehzaAGS0kpEwSrIiFt1PDMEmBuK0cqN\n/C0IdplL2oKi4HH8q7fWV1NNbKCWgpgi2t2nJSLJgpgn/Nh8KS07DPwZi3K6\npKVPFSMhEygQmKl8C+exOFBzlywD12OlTLwnsMPJwqhAFt/Wt3p/ZX/xFmVe\nlqkw/N17PlUPLpot9gAD5OXxQWosl+YXTZqjCz6FdLLcfYMKnqxM0SvLhd4a\nOgQ/Um/ll/DkAxzbXMANIa5Gq1RL34GixPPOEI9ug71HYNeMxaD2oBIuRGMy\ndFkBcVHEkL9qVW5Xwoh/eynQgSlFEpTBHa/Icm+IzcuusWW1J10Yfn1MOoS4\nv6k6d+CrRrZJfAmHtWRMGdHp8bDzM8wdEzC4xWjRQb52m5DlhC/iCTcZtT9M\n+Vay\r\n=o816\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCID6MP6+tgrIwRwl9100VikaQIu2lzYSAXU9t1TNiUc3QAiBfSRzsZGBArgR+BhvwODR+9Q5ceif85SEX9YwxfkSOmw=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_1.6.0_1545875092154_0.24767628339921655"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.7.0": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.7.0",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "nyc _mocha --compilers js:babel-register",
+        "posttest": "nyc report --reporter=lcov",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": "^1 || ^2 || ^3 || ^4"
+      },
+      "dependencies": {
+        "dotenv-defaults": "^1.0.2"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-eslint": "^10.0.1",
+        "babel-plugin-transform-object-assign": "^6.22.0",
+        "babel-preset-env": "^1.6.1",
+        "babel-register": "^6.26.0",
+        "chai": "^4.1.2",
+        "esdoc": "^1.0.4",
+        "esdoc-standard-plugin": "^1.0.0",
+        "husky": "^1.1.2",
+        "mocha": "^5.0.1",
+        "nyc": "^13.1.0",
+        "rimraf": "^2.6.2",
+        "sinon": "^7.0.0",
+        "standard": "^12.0.0",
+        "webpack": "^4.6.0"
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "env"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "14da142a1788720036d96a9a04a639a428c34f34",
+      "_id": "dotenv-webpack@1.7.0",
+      "_npmVersion": "5.6.0",
+      "_nodeVersion": "9.11.2",
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "dist": {
+        "integrity": "sha512-wwNtOBW/6gLQSkb8p43y0Wts970A3xtNiG/mpwj9MLUhtPCQG6i+/DSXXoNN7fbPCU/vQ7JjwGmgOeGZSSZnsw==",
+        "shasum": "4384d8c57ee6f405c296278c14a9f9167856d3a1",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.7.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 14409,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcQWAeCRA9TVsSAnZWagAA4asQAIlRlK2cAdjYkGgAbXVo\n+vMrBjLuyG6u4R78IhYVEJJIOXxv6B4jaQN1gb7elKvpUS9zAGMGCzeFKJ5A\nwc+Q4dZYHBMZwqrh5ioMcaIUbaoCfw9z09oHh8W3tml0HPIVGWBxvxmDpL2R\nDLtU2lQwIa98qTcMYuF31oA931SO/QhmjU2Wg3WNlHH1Yew+dolUhCB2wPTv\nqwaexnpRm2+YoEh0ZRuxmAa2YncBWOyj+muezqCwmI1+pMG7XI0PF3fBFOze\nuelTWIysE+G4UDmJLTp1SXjkQsscntrm4Z/69uy64SuhhUIBwvanS6u77CYh\nps3J5BTZO4kVaOiRVgy3jyO1sbL09cOTytZ2hjwVTzh72+Qy/eK4der3fYN1\nm0QrDlb75QSJWsZauaahn525987Dkl1g+y8IBWNJgInfJfMrzKXMlE2Kit28\n6Ek+o5Ar1EzKhKl+VG08HyiQu2jV8E1exbJCOkdRM+TosRR5g3Acwbik33Z0\n4ahiu4zVvrloRtjcLbe6rnbcXZ7e7wvrjckaK33dcL8kG5O4IQ0XSRprGtHd\nrI6gfaqR5RQ6VkN0vx7ZnjcDP0Ui6Plf/RXGy87IIZAHqe4/DKF7jv5uZbVF\nLZQg6xI/2xc6IzhN3vV+FL4IUfKoRVf5V/wgZ9IXjYz6VT4RB2rCGQbxvk1F\nw4At\r\n=XCcB\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCJZ33oKWwPRW5s21/GoEZ3wVSIk+oYXfL6R7vW5/LJuwIhAJLliQWm/NKsYKyU9aXxmUrP34q/JYGdp1whO4uBYT2l"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_1.7.0_1547788317272_0.30499880915272315"
+      },
+      "_hasShrinkwrap": false
+    },
+    "1.8.0": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "1.8.0",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "nyc _mocha --require babel-core/register",
+        "posttest": "nyc report --reporter=lcov",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": "^1 || ^2 || ^3 || ^4"
+      },
+      "dependencies": {
+        "dotenv-defaults": "^1.0.2"
+      },
+      "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-eslint": "^10.0.1",
+        "babel-plugin-transform-object-assign": "^6.22.0",
+        "babel-preset-env": "^1.6.1",
+        "babel-register": "^6.26.0",
+        "chai": "^4.1.2",
+        "esdoc": "^1.0.4",
+        "esdoc-standard-plugin": "^1.0.0",
+        "husky": "^3.0.0",
+        "mocha": "^6.0.0",
+        "nyc": "^14.0.0",
+        "rimraf": "^3.0.0",
+        "sinon": "^7.0.0",
+        "standard": "^14.0.0",
+        "webpack": "^4.6.0"
+      },
+      "standard": {
+        "parser": "babel-eslint"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "env"
+        ],
+        "plugins": [
+          "transform-object-assign"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "a1bd0f98570102d26e492383c23d7b4028dc7ba2",
+      "_id": "dotenv-webpack@1.8.0",
+      "_nodeVersion": "10.20.1",
+      "_npmVersion": "6.14.4",
+      "dist": {
+        "integrity": "sha512-o8pq6NLBehtrqA8Jv8jFQNtG9nhRtVqmoD4yWbgUyoU3+9WBlPe+c2EAiaJok9RB28QvrWvdWLZGeTT5aATDMg==",
+        "shasum": "7ca79cef2497dd4079d43e81e0796bc9d0f68a5e",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.8.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 14944,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeuWXOCRA9TVsSAnZWagAAkbsQAKH7/ldq2rmLa1B+/GYN\nLpn1FsXrUFaWq0FYpLk1UhKbKVcLi3sSqME+pel+XYbYXtaL4LuIg2JDgN9o\nBijl5uFy7odPJzYA9rDuJfSQzuQRYaeAyni550W/nYgTg9b/v8X+jVmoJtg/\nlgv56EtURmm4r/mCpv/zM8SibDm7ev1ubwBHzO3zDxfl4fGl9kn1ZLz2UQE5\nFi1fN/mdDZDs3x6ua7r1IKRoEhU1LIcQhJZkG+EX0Yni2DONRww5IwQJF/6p\nOIYVNp7BdQPngK4w2LRvHfLh30yayQzBFwxUcHhQaWAW7Nq/orsKQ1b/+sQw\nYqZDl7OJMqPOq11G0Z6DOK3JydDoLArIjkLKTT+uRj6H6smGXvQiydpiGeIr\n5Cl/SJtzvanp22LH3zv8B/e04v9QeJ+3/1ZFqvCm/7esBBnRloslBs1N5+4j\n4GePBSKoih3FaIZA9+92dsdYzD58BLJETSyVQcGZ/v4DK3hXysfNZEk3sn05\n0mzdKZs+uENnVixc0R8q+Xs32mRmI01r0ruUHO3zECcRvGC77o9Nf2ZW/lEF\nnAq/ezevHG0JWsAsmv+ebvR1cCz/PTPV806YLRKC/yF6GsmahgDXR5WAJefO\nLpExGr2D91lhMuaurxOibbS0uhic3WqHeyPl6gsLbC1x5fvFOzJAcMnyTxZt\n0XP6\r\n=s/+p\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCprbdJvwNf5BXAlZ7gG1I3Tkk62UvAXIfO52PFgug6AgIhAMc6JU49gAgxZ/CAehYnzTPs1Cl7wvI+YjUuDf/MXnlT"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matt@omnionline.us"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_1.8.0_1589208525583_0.39666048048330094"
+      },
+      "_hasShrinkwrap": false
+    },
+    "2.0.0": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "2.0.0",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "nyc mocha --require @babel/register",
+        "posttest": "nyc report --reporter=lcov",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": "^1 || ^2 || ^3 || ^4"
+      },
+      "dependencies": {
+        "dotenv-defaults": "^2.0.0"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.10.4",
+        "@babel/core": "^7.10.4",
+        "@babel/preset-env": "^7.10.4",
+        "@babel/register": "^7.10.4",
+        "chai": "^4.1.2",
+        "esdoc": "^1.0.4",
+        "esdoc-standard-plugin": "^1.0.0",
+        "husky": "^4.2.5",
+        "mocha": "^6.2.3",
+        "nyc": "^15.1.0",
+        "rimraf": "^3.0.0",
+        "sinon": "^9.0.2",
+        "standard": "^14.0.0",
+        "webpack": "^4.6.0"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      },
+      "nyc": {
+        "include": [
+          "src/**/*.js",
+          "dist/**/*.js"
+        ]
+      },
+      "gitHead": "ed168ef6bda42996beedec0bc4528cc074277a6f",
+      "_id": "dotenv-webpack@2.0.0",
+      "_nodeVersion": "12.18.2",
+      "_npmVersion": "6.14.5",
+      "dist": {
+        "integrity": "sha512-Omo5IpVl7XRgWXeZjxdfqOBEApJPxGLMOIx3F/w/W7ppUKgYMOXrk4eczlQrErPD4X0YRESlyGJek3O4uobRnw==",
+        "shasum": "064ae42dbb214778d8aff0c76dc97253594f9ec3",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-2.0.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 14615,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfBlKDCRA9TVsSAnZWagAA9JsP/iUx1z8GWPMR8nhEEBLY\nbTN2RyQcFHRbuIbXOG9vPWqvAUTepW9lFAjKUpcImW48dNeP/Kmuj1LlMowv\nGhBgHF+aQTWvYXW01pGtTriZUtZG7ZG1czJAz68ztmtW+VRQX9LXG5s4lL0l\njHTRkDp/jVTjw8y8DcqUj8TFUJY/ODHwCIRZUQHGUM5DMRFSRfCbbt3njYDp\nRO5DIHyPgIXV8QjsO5sDdl18vuuzYCwipq2jaD9NNNy2sAtO0UWdd48WaHnm\n/w4yEFBo5cKLbIL8DnUpcd9+EpqrErtqG6luX6i/ENc/ycQwikpBOPmTdgkg\nbLNBDpWwepX7Fo5xo4GivE6nZ9stVww82MRiujgstirDjre5Fns1JBq/hfKI\nRTYdUXi7n5Q0DB7fjGp3HIo9qAEzt2HKC/KAdBv6RAwPY4P8kC/KjHwErBoa\nS9OBsmA8xfBgzSKQmIJNeLamrv8gFvTbi6W338kVyQ9LnU+d0UxIKiFMXE8u\n7owlhkWFy7J5ZZrwWnJvzgrj22G9ptqr5/4duJzT7KSYXHabfq0/A1awJ83Y\nbXR3Rx5zA2BG8emTCWe0SgKUDZpTm1NQWd5l+ZG/qQrTL+DE2aMkrGAI2wLf\nvbjIxgC25Iqm1FOHgNjL7rBqK4gyCjM1zQKvMBrtdV9yij+GMDvg3sgC7mqs\ndBW1\r\n=Johm\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEYCIQCjJfEiGwsjV/rPQMZe0erOdRPQxHRlJVDLORESJRrUgAIhALD4CRGq3ciPYt4pKlcgkF35U5CLeqNO/gCWw3QewB+j"
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matt@omnionline.us"
+        }
+      ],
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matthewsteele1@hotmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_2.0.0_1594249858687_0.8329410168799587"
+      },
+      "_hasShrinkwrap": false
+    },
+    "3.0.0": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "3.0.0",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "jest",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "jest": {
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": "^1 || ^2 || ^3 || ^4 || ^5"
+      },
+      "dependencies": {
+        "dotenv-defaults": "^2.0.1"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.11.6",
+        "@babel/core": "^7.11.6",
+        "@babel/preset-env": "^7.11.5",
+        "@babel/register": "^7.11.5",
+        "chai": "^4.1.2",
+        "esdoc": "^1.0.4",
+        "esdoc-standard-plugin": "^1.0.0",
+        "husky": "^4.3.0",
+        "jest": "^25.0.0",
+        "rimraf": "^3.0.0",
+        "sinon": "^9.0.3",
+        "standard": "^14.0.0",
+        "webpack": "^4.44.2"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      },
+      "gitHead": "7749894d0398f2f92300fa26666b60dd49e66abb",
+      "_id": "dotenv-webpack@3.0.0",
+      "_nodeVersion": "12.18.4",
+      "_npmVersion": "6.14.6",
+      "dist": {
+        "integrity": "sha512-HsBTgVbh9E71IdC6QcQTnAuVt11niA5QMKblcBqhVBxP975XPGMqxf21pqgVBPyRKn2GqPh5kSHMgjxeR/HEAA==",
+        "shasum": "ff4af756f0f85c858d4d381a767b33e717b568ed",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-3.0.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 14855,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfZaysCRA9TVsSAnZWagAAihMP/A3Uup5OdrzBNufiOB4V\ngKChvP45g6BJ/MViiLZVq+hWloKaDvl+c24EJZ7GgcB0WcFng507z3Fmsf9+\nUhgPNkerPkdfDVTvGhOFLyVsYhoi9NXYO8a2tLaDCgH0dwIDCbPXEtPgIqAP\nAbcdmHCeDbsimlMI6K3unEyjT9t9tCyY77wHSZ3yc5yED5CVr/Xz++BCN9jA\nlwm3cuHSP3Tn71dJhMhEnfmYKAFNi3YLKXwWBsEzMBoAFJsi+rCuyu1fquEv\n3DCyHUfzP0G7g4AKm67TGr4sVzcjEwIeDBgcTAIN84AU8AoOiD3//hSmy2ib\nTBu5ncDC5YKai8CLbwGZdwn1Vx5p0oxXGcNNmS3aHMidvPYDxXx8Ji6mY7Hw\n9F0p8HefKrLwh1JVjOZmEsOGuHZ+FlNQmnMrFQDHNiD00u3eQz/C/TA9Rdgo\nV5vM9AyeTn9BDVFLwpvz0dGHqbnR24CR3pqSpBMAEGTTUi59Pq0G3y/+pIfn\nA68Ra8lfPpL3i/q4DOCad6F2N/22Q/RnWB3Cl5hI2LRcRQHS47C/ouRITGJg\n9wYfpIzw9KE1VQH2bc1yuA+zvLNrlMGtvHD+OsRkH4oKUzsSyaVlvHAeXxeZ\nncHbgQjPCNVFKUxomH7PMR1AyfFHh05sCOOOqLe24pYQbpLr0LPWwU2/zxX0\nHkgu\r\n=foPh\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIH31LjknyEWdq7KTzZDM67QAYjCuJDg4j4gDE780c568AiEAiOwHQhszVIDnMXNhjm8aycZVS2rteyMqC4+BynEH+Yo="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matthewsteele1@hotmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matthewsteele1@hotmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_3.0.0_1600498859830_0.7053451916353521"
+      },
+      "_hasShrinkwrap": false
+    },
+    "4.0.0": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "4.0.0",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "jest",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "jest": {
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": "^1 || ^2 || ^3 || ^4"
+      },
+      "dependencies": {
+        "dotenv-defaults": "^2.0.1"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.11.6",
+        "@babel/core": "^7.11.6",
+        "@babel/preset-env": "^7.11.5",
+        "@babel/register": "^7.11.5",
+        "chai": "^4.1.2",
+        "esdoc": "^1.0.4",
+        "esdoc-standard-plugin": "^1.0.0",
+        "husky": "^4.3.0",
+        "jest": "^25.0.0",
+        "rimraf": "^3.0.0",
+        "sinon": "^9.0.3",
+        "standard": "^14.0.0",
+        "webpack": "^4.44.2"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      },
+      "gitHead": "04d1639d986e41a8680372d7e92d3c63e9a4fd4d",
+      "_id": "dotenv-webpack@4.0.0",
+      "_nodeVersion": "14.14.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-nmfhB0fV1AJVLGrU0E+F+/mfcP8dYAqiuFPgepQmX8D0uZoynxC1AYdlBn3fiA3Cfr9h0efFftprDfSS/C3kkg==",
+        "shasum": "05f9a9c9e354efdea60d6b1b3b5f914924b5ed7d",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-4.0.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 14744,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfiZmrCRA9TVsSAnZWagAAgz8P/js4lWpkQApcgf2RCc0e\noN/ufV10tkXvMcNvp7FTMVYCFj0AKbyBqB7nBKg5ikUGnsqGEHhs0j4RBJlH\nUNjSqsfNiBrWyelaRf8al+e9P2IDRwIATmCFLQnkrFttTfcwXAtzxJ2R91CB\nwH5u4f7742kc3pX/9nexXzfiRP2YKHPx+6LjBeO4Sx39J3OvzJA5xDUB99NB\nCESg0A9Dk+BxgJSP0dqoitge7RBxmjrV+3n35gTmHMTSmSuqV9+DtPAgoX3C\nUE1dCwUnc6ovXECPVRWs9HxEyvC2QfmkVow2/6MINOOKkcf2P6opMmFqMDiX\npGVe1kThtKvSIc28TgeBt6JyUUSXS33LUEwfOlukOwHR6nn7C68eweOttdUG\nAFmnHbJiFu6yH2arG2Is+f49Sc/plCz1T/IhdGUZTquGbGQCfg8JXJkNB4aw\nbN/j0D85Cc8Z4APjIJu9Fvx9JTtdWLbzxdblzmU4Y22cJBllADo1GPIsGsjq\n2V5jCh1JVDzhRcyvwyGgS9kZWuS6aSbh8Y3tZHQTlZRdLzm4VtGqFgfHBhAS\nqgdFVlKE3XDJkvdSpONRVCtOrKWH5X68DcRWbT1FWy2UGHdoxKF9prlXBOSI\n5YfJZRd4nibDqt6WEEjLb0OeyxLZtUpHmmc+GYPW3M4SG3+w7CY2afOc91Rl\nbor9\r\n=zrE/\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIAnAE3jBuwdWcu9MO25PY5qm5QUT5AsKstxeWJykoI3ZAiBQ38mCIwlgdwZS+hU99mcTWP4BXgTAN+1eYBZzJeidaQ=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matthewsteele1@hotmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matthewsteele1@hotmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_4.0.0_1602853290897_0.32343429014955616"
+      },
+      "_hasShrinkwrap": false
+    },
+    "5.0.0": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "5.0.0",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "jest",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "jest": {
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": "^1 || ^2 || ^3 || ^4 || ^5"
+      },
+      "dependencies": {
+        "dotenv-defaults": "^2.0.1"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.11.6",
+        "@babel/core": "^7.11.6",
+        "@babel/preset-env": "^7.11.5",
+        "@babel/register": "^7.11.5",
+        "chai": "^4.1.2",
+        "esdoc": "^1.0.4",
+        "esdoc-standard-plugin": "^1.0.0",
+        "husky": "^4.3.0",
+        "jest": "^25.0.0",
+        "rimraf": "^3.0.0",
+        "sinon": "^9.0.3",
+        "standard": "^15.0.0",
+        "webpack": "^4.44.2"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      },
+      "gitHead": "a02de36bc2cec855769aed2a55463c3bee9641c1",
+      "_id": "dotenv-webpack@5.0.0",
+      "_nodeVersion": "14.15.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-AuCwhyuAxw0e29vka4Ev2zNJ0oN7PNUz7objhT8CsO1rASqY7/RPa/KNXe8ObKIFVpIaZzSD6mYkFbrbmM0thA==",
+        "shasum": "8b79b656a84353c19f732f847824111c45871158",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-5.0.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 15113,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfmhSFCRA9TVsSAnZWagAAamcP/Rindbt3OgQK9Iw3uqMw\nfc+2XUfHMnBp8j5mnfwMBuE6UowoNyB5iudlIqrAGbVlSDC6LuxCWe6yA9sr\n13135XK1zoscWt0f1h3ZNQPfP6g+SzjLrmUJxjMXMwxKJUsASZ0GMjOo8ah7\nxUebeY7NrLVMeKXBOVN2dk5uuk+j6yOCEn6SZ6mMTZ73KVbsOJiXqTCkphPK\nyuG53UEw28pBjJYy/bnrwjAKzveC9kO6fMnZCndHyVIsOCBPH6+VD9NNPYDh\na/R8zUbWJ66Q2KHQD38zDAilmTBNIepc4DgNw0H0v4Xh6zvMABX9w45K3VPN\nuVw6yjqIpyBsmM+SJGOoUdOe2TO1+7HBtwQj9wzzyIowvO2739DU5mmKkyTG\nr4eG7y8kXl6Kz4pjt2+ZVSp8qDqnjZUADKUUN60ekjfhYWscexmrcoKNe+D5\nTaaKte9iXXu6rfT2QyWxdNAQoVN0s+O57UsilNVy2plR1aK/yy4HNyz/8wtj\nV6LO4dhS5DqJOOwuGH7W2m6B2Q1bsQLn2IcGCoKSp3NgKBLyE+1tFvsOvx8C\nk7krocociz15G+G1AiNbgGqQm33ILPdvsKFxrYXlbq2QsvT8Uu+ZX6/m1QL7\nxyad4eCS02uKTaSVdzJwzrdfk2yoFU494lm7vw6fjITWnLV5vItiR0CowxQt\n4pOv\r\n=hyPn\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCQ/Orgj66bhLqmQ/zZoZLWV6NPlEm6umv1Fo6St/ak+wIgR+e6YerDFSBLGtL9gugMHMzdE7+hJG5vFzw0B45qaeE="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matthewsteele1@hotmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matthewsteele1@hotmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_5.0.0_1603933316443_0.8561967266399826"
+      },
+      "_hasShrinkwrap": false
+    },
+    "5.0.1": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "5.0.1",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "jest",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "jest": {
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": "^1 || ^2 || ^3 || ^4 || ^5"
+      },
+      "dependencies": {
+        "dotenv-defaults": "^2.0.1"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.11.6",
+        "@babel/core": "^7.11.6",
+        "@babel/preset-env": "^7.11.5",
+        "@babel/register": "^7.11.5",
+        "chai": "^4.1.2",
+        "esdoc": "^1.0.4",
+        "esdoc-standard-plugin": "^1.0.0",
+        "husky": "^4.3.0",
+        "jest": "^25.0.0",
+        "rimraf": "^3.0.0",
+        "sinon": "^9.0.3",
+        "standard": "^15.0.0",
+        "webpack": "^5.3.2"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      },
+      "gitHead": "00be1f5c646ce5f5a7a31856bf9933ca72da3e96",
+      "_id": "dotenv-webpack@5.0.1",
+      "_nodeVersion": "10.23.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-GRNHrzEr1dcuhJmB5Dd6UzDFQu5ND/XWRNSuN1x30VhS9U8kkHgeex3zY84IGrLbf198izpHcp3HnDxA7Buq6A==",
+        "shasum": "404742c0ac9648d38310b65c42d48e1da4cbeda5",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-5.0.1.tgz",
+        "fileCount": 6,
+        "unpackedSize": 15107,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfoMGtCRA9TVsSAnZWagAASooP/1WyOKmQ9F8PiLf+cjGd\nItwxkNO0Js5Uf0A6jJIFoHG5ILtaNuOSu2uUdZCnKkIyE7b+SKooO3lliXat\nAfr/fEXCkXHE0gpGOHjo/Z8jXoFNjF8399OeVfIdGUqN7Lnf2JGvTKT5DEZK\nBFNFVSum10foMUbzeMtGKZr4NT7HWnwvZSsKPsV8ovyCsd7B9ndotvVJqwOd\nAXwKTy0wOVtLOpB61ePZeEA9sGNVt/lV1DKu15B+mbJX4GHSQ10co7rwnWnN\nS6ReFHMTNEx/c8ZbqEuZc27iWaCs6xTo12BeI3O8v8rV+ADg8WDHpI6DwyhM\nvYLs5FAShG2SvgCoO6RDU7sWV6Os27ThP3Kr4Mwy4RnKvreKp8QyPpBCLfU5\n3umKFOb1UMexpkiJmMDm2Za1XfvPE9kUvMuWgQ1FrUnya0UwgjQXMNX9KwQ0\n2Cpb60VRS3tHSvC5cywkj8wDP/fvMUGLjvRhrNQpAX83R2gEJ16g62hQyncX\nXyozDLetDS7LsHZISGJ6HO5HDM1qGcqEt2VnQenE5bp7g8tPMohrrWv41McI\nY6PiW2NsYfqB0KuBEx3cmuiVx3EddJ4uTQBpaA5G7oSObQF1d+H3z5/DHDtQ\n/p+egADbxBXnhN9F8GbND+fTDoSZJKSWWzsXg9ZdNjPLVyHEfZ+pCV/h9ezs\nIz/N\r\n=znI+\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCICwSJLcOpAIsdCwHGVqtlsuWVFI/oAkaRXWVpkjv+PIUAiA0qfN0ajgG3O7FFa9xQNwNTx9Q/4ZRlYfNOI0Tv9HTxA=="
+          }
+        ]
+      },
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matthewsteele1@hotmail.com"
+        }
+      ],
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matthewsteele1@hotmail.com"
+      },
+      "directories": {},
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_5.0.1_1604370861254_0.6169238789549836"
+      },
+      "_hasShrinkwrap": false
+    },
+    "5.1.0": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "5.1.0",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "jest",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "jest": {
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": "^1 || ^2 || ^3 || ^4 || ^5"
+      },
+      "dependencies": {
+        "dotenv-defaults": "^2.0.1"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.11.6",
+        "@babel/core": "^7.11.6",
+        "@babel/preset-env": "^7.11.5",
+        "@babel/register": "^7.11.5",
+        "chai": "^4.1.2",
+        "esdoc": "^1.0.4",
+        "esdoc-standard-plugin": "^1.0.0",
+        "husky": "^4.3.0",
+        "jest": "^25.0.0",
+        "rimraf": "^3.0.0",
+        "sinon": "^9.0.3",
+        "standard": "^16.0.1",
+        "webpack": "^5.3.2"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      },
+      "gitHead": "3ecc1e09a6a72535265b4b86769e846f3288d823",
+      "_id": "dotenv-webpack@5.1.0",
+      "_nodeVersion": "12.19.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-QVdpf+oa2DGnR9jqbLTofTZIuNZUIJ11PsU6/oMKVmu8zNmKnV8WaKnP1CT6Q3L4q7BIRmNsQ21WHvhQ/awJQQ==",
+        "shasum": "cbbb7dff98cbe5897aef0b824a3b9ce08284bee6",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-5.1.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 15173,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfpVamCRA9TVsSAnZWagAATU8P/i8stUeLdRTdYBUzpZBr\n8CsqVP7aWjTk1Ft5Zf6AKlNzflOKRkQKnC4eEMksG9w2nfHSwkjiMaWNq6Yy\nUwwgbIUpx30cdB57WyHBjfRDXPDwsaC13cmlp9VVD4CSwvhKnYUr7Cl/gQAW\noZRzzShJtvM5vJlw8+P4HjJCCT5ijSIEg+T1uC9EnxnF+GMB5XVrIz0wYHba\nue3g8yFSDowBuwsCm/gp77b0ILh/o6AKccsT1oY/KtGzTasQbE1CkrnUK08F\n8jHpAn2IHaq9WK0gdGIMcOU07Kuda/dMdixsP0cd5tYoLpyP6ZXE77CJLC/g\nuBqIJjdwGE0eLb/wwtn72BGRZwK9VzXSclwCsiUAiwKQ27ibwx16PorP9cbl\n2O0TJz3RzGDZsJwVtpociUS7YkbisEgscPggReeoAZ/L+5CLkFxvoYEjttiW\nNk4m4mEnRMQZvtiuQ08GzkMr6vDPGFR5YeNjkZIZbEAWMgvJ67KHsmiXvEq0\nid0n53VdtvDMXPwsAZg9Y07Vmz7hppIhpNirf/KX7wqKRlJIdAgOu8J59xp4\n6L7QUCdCPoti6+3wLOfc38DoicPEswezP9rno9FhTlH1kCgesvSxI6j6JzIE\nx9jWisajIEg4UqsLG5dm1cXKukSBrXyVC7K51qAL7MsPsgFre01YIPxmZnUJ\nselt\r\n=ll6g\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIDQuN23f+yxPmYCzdScGhk/+ZhiaIeojzpmg59P7uwQrAiBWCrogg85Zi2iLn6aLO3GPkpYFGDmaJnYc/japWNXCcA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matthewsteele1@hotmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matthewsteele1@hotmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_5.1.0_1604671142193_0.5174888968072391"
+      },
+      "_hasShrinkwrap": false
+    },
+    "6.0.0": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "6.0.0",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "jest",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "jest": {
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": "^1 || ^2 || ^3 || ^4 || ^5"
+      },
+      "dependencies": {
+        "dotenv-defaults": "^2.0.1"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.11.6",
+        "@babel/core": "^7.11.6",
+        "@babel/preset-env": "^7.11.5",
+        "@babel/register": "^7.11.5",
+        "chai": "^4.1.2",
+        "esdoc": "^1.0.4",
+        "esdoc-standard-plugin": "^1.0.0",
+        "husky": "^4.3.0",
+        "jest": "^25.0.0",
+        "rimraf": "^3.0.0",
+        "sinon": "^9.0.3",
+        "standard": "^16.0.1",
+        "webpack": "^5.3.2"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      },
+      "gitHead": "ce5958f7670b11b151b606465d0a12777cff3816",
+      "_id": "dotenv-webpack@6.0.0",
+      "_nodeVersion": "10.23.0",
+      "_npmVersion": "6.14.8",
+      "dist": {
+        "integrity": "sha512-u/ycyUq7+x407HNTTqJDJelX64Pjmtm96IskgV4ZPPqTdE5d7+p8GzK7OW4sOoPxnwiLQ3iM6zjauYqFU8KdNg==",
+        "shasum": "cd42454ee754fe8b7adb4fb70196f6e45f41876c",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-6.0.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 15313,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfvfycCRA9TVsSAnZWagAAZvEP/i+jAXWVoZW44kFXdpWX\ntmqB80MuFLscibUJwWUUwgdj7sCewICWjXFNrAR3TPd4sRTN/TfpBjVKWjhU\nAVmT4vT+9VTTa/JUWgv0+lwkwiK69dmBa8diuf2FD9HsVIJpHV9inlPfSJXh\nVsbqiX9F9kG7H23QQKCHON2pccHXY5QZALVul3RZImozrenxE9WNp77GDsCZ\n8uvXBhZEfY+NOY3Y2shOS6iPIoJWR/DN/Hhj2Nkjv8gJeTpl+QNnT+MCeVcR\nJkte30tmHcu/mzX7r8L+rvhZTeeodNyFJC3NAjOb7GYIh+7D6ZlGma3CcF0x\nWfCgp2zNJauEfKNet/7ElM0tG51NI+YVE1Ibj3I1rGFniuAhv1ZdvglPMz+C\nF31+HdTtJMCfEMYMk321bNyn4TfzL2GYrAIYDA+12VvalRTSCdOMtfP8XrHx\n3gtVxR2ZJzE8Dc2z1ybB2KooCgxgjT0QG03VoIG87LNDJP/9gMfnI1j03ETq\nOifk7V9uk2Yn191HxazAmsngRRng+FvtvN/d9fIuB2W3yCNezSFZv2Hy29GK\no9SshyrT5RClzZPoL5kA/NcHjh8Nc3Ok9UqnyDJOIoiXulC0WnAGQEPrVWbx\ndXSFNKqIXPNqE1xfi8Zc6euyw4BJIG95/DpBjxQpOVftUYhsGZFMNui3brKZ\npiSb\r\n=4tq/\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIE/aRONo09Ak6sTslkYAEdvwAtl/l/+axV7d9/iQYpuTAiB7QAUp+n5JQl4Ct33/RlIBOXedFF392V5F7yvD1YNMsQ=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matthewsteele1@hotmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matthewsteele1@hotmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_6.0.0_1606286492209_0.3245145861130696"
+      },
+      "_hasShrinkwrap": false
+    },
+    "6.0.1": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "6.0.1",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "esdoc -c config/doc.json",
+        "pretest": "npm run build",
+        "test": "jest",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "jest": {
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": "^1 || ^2 || ^3 || ^4 || ^5"
+      },
+      "dependencies": {
+        "dotenv-defaults": "^2.0.1"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.12.17",
+        "@babel/core": "^7.12.17",
+        "@babel/preset-env": "^7.12.17",
+        "@babel/register": "^7.12.13",
+        "esdoc": "^1.0.4",
+        "esdoc-standard-plugin": "^1.0.0",
+        "husky": "^5.0.9",
+        "jest": "^25.0.0",
+        "rimraf": "^3.0.0",
+        "sinon": "^9.0.3",
+        "standard": "^16.0.1",
+        "webpack": "^5.23.0"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      },
+      "gitHead": "e104e780dbe24a043fc087fc35935fdd7bc8b80d",
+      "_id": "dotenv-webpack@6.0.1",
+      "_nodeVersion": "12.20.1",
+      "_npmVersion": "6.14.10",
+      "dist": {
+        "integrity": "sha512-3KLqCCc3uUgPw19vx+WoKPKd7u3qt2pb443YZbwLlv8V0i37GqSQeM7BKy7HbsaY38qeSiZGmzp7EY44BJxfkQ==",
+        "shasum": "7030e55ba4340cfad37b4bb803859a3184284860",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-6.0.1.tgz",
+        "fileCount": 6,
+        "unpackedSize": 15307,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgMyB1CRA9TVsSAnZWagAAeakP+wdMPm9paj114ldF3OFh\nbdUe+wiAbMo57XkHfv/ZYqqO2gwzFzFzJxgrDTYK4I28zTUWPKePYyA2PbcO\nB7ps/iStuVrfTD4tz0oM3FCGj2UomD34SZGhKPaoCFvYnNyO7wCWTNTkYtmp\n5pl0zPGHKdWU7HZstakxO6UPfTBOnrxa90XdLHogDSNCgXw6PqBEaIFrgAdf\nhE5eaNOVfjsHrH5imVj6a0B4z6aDaOC1XfQwBhC1TzqU/EaOlXjmXiY5NZvE\nwQplFz76NlQkECinjDDwBLdJi7mwvsKBvA6MO8twSk61mMQMMLg62+cSdsAK\nxMoCBObYMG9OcgO5GjT0ZbuNt/iEIvyVCHFY9CFXlIRdxAsEBqmLGIqmRhyf\ncNuv4szjvY78+OOADuz9Qul3zyjZqjr6TBNjFZAO/EclglobtC/4+Sge1JIf\neMyEvY9nUBNiJgFPNBTgSAwLZRNi7NlbRIYxyDjrDtsDCCBh+y1MMj9VnP/c\nc4W23sDPdqP46N8NTRTeBU/ceJFxuQHtoncr9GDde5wwjS5QKZjJxhWISXKt\n2TMgqn2SqLQU73b12URuNt8+vOAL+I57ePane9dmwdRXWUDfjSGZGRaMl8Oe\nFfUZ4eE+MNvXxqqlTRXWezTU44nd3u1RpmXcFVIcM5LqOXelgj7jYsN9UkxF\nCIdK\r\n=IVXf\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIB/pPEL7comnZMYhxr8Ketq7ShL/zGumyNWjmgXLlc2jAiBXGfm4NP+HZ0ZyctLSVVvgtmaUGIShCAnME57RhevmHA=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matthewsteele1@hotmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matthewsteele1@hotmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_6.0.1_1613963381264_0.2915973262842151"
+      },
+      "_hasShrinkwrap": false
+    },
+    "6.0.2": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "6.0.2",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "jsdoc src/index.js -d docs",
+        "pretest": "npm run build",
+        "test": "jest",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "jest": {
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": "^1 || ^2 || ^3 || ^4 || ^5"
+      },
+      "dependencies": {
+        "dotenv-defaults": "^2.0.1"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.12.17",
+        "@babel/core": "^7.12.17",
+        "@babel/preset-env": "^7.12.17",
+        "@babel/register": "^7.12.13",
+        "husky": "^5.0.9",
+        "jest": "^25.0.0",
+        "jsdoc": "^3.6.6",
+        "rimraf": "^3.0.0",
+        "sinon": "^9.0.3",
+        "standard": "^16.0.1",
+        "webpack": "^5.23.0"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      },
+      "gitHead": "0b60cb66f9c9c19954ce53e253914b4a46a62032",
+      "_id": "dotenv-webpack@6.0.2",
+      "_nodeVersion": "12.20.1",
+      "_npmVersion": "6.14.10",
+      "dist": {
+        "integrity": "sha512-lwFZNGudMgHU747/8rs++1czFgeyRSiadOQZG7zHNU5adB3je9xPcmjUCw9HO60gUoRHph0y14OhAiS3vAqCaQ==",
+        "shasum": "b9f1e58b15adcaa032f2f6ec1faed4a49fa6bccc",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-6.0.2.tgz",
+        "fileCount": 6,
+        "unpackedSize": 15270,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgMyPpCRA9TVsSAnZWagAAPXUQAKKYoOA8Umrdkyrs+rTe\n52oLFRj0Flw8B4f92iNEkcDoayDG13SnOuPKpTd+lmRbej2HbDSX9x0e3cjZ\npexuoNoK4fHK4S+ESn3l7fJysxhDv2CmP5/iV0QEXQAEn3oo9xTKNJjm5kxg\n711b412H3PDWK3kEG6bJ4bC4JVjkGTM1ok/SWGFtKyV4utM4pjmdqjqhr0qO\ndUr2payzL3FId1DmSqtt55VW8m+rJyG+mQBaCcLXfpk1e9B7TMhZyCzrDdHP\nI9+VAjBPoWLs9a2riyMmpKPCGXNoexBNz4iTf0c84OjXYMqjNGyuhomyPC2M\nNQuou/UeHZMZYW57e8HDxQ5pAxRsvfMrHUIqvpKFKk2f7XoOaLZxWRteEIcm\nlr4Oh2dF/KStfMuxvSKT4cuVYYIGs8szjjgaQsZyjd1cb4k4X/3Yutb80xaB\nacF9qCgj+3SoKj4OATw+uQkocqMmjHWCWQxsSq028nyIUvLmpnqRb1DOlLov\n3Lao6EfyM6kQ3pSF4iNuRHxcu/gIVkLhiE3yj2yyR06jv6/ukpkZh3ndf96u\nnh5Gsc62u/0HiwS5eoptcmUPOLE2hI30FG/A+V8PG+UHlp3KdTG2aNm1JdmC\nS/HDLElc+BHioVCd5ifR9xDS5WzfcQJY5y3r6en5HEO4qJMJB2VzKLghstFl\nuw/R\r\n=5wiF\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIHLLXPG+T6cS8GFl/EqnPp1mPhcKWFUsjqBpFb5fdNmBAiEA+nlDTVjGGLeWMxGVK7HAKaSaQG4jVbe+5XDqmOoSDWk="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matthewsteele1@hotmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matthewsteele1@hotmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_6.0.2_1613964264936_0.15764706008242668"
+      },
+      "_hasShrinkwrap": false
+    },
+    "6.0.3": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "6.0.3",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "jsdoc src/index.js -d docs",
+        "pretest": "npm run build",
+        "test": "jest",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "jest": {
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": "^1 || ^2 || ^3 || ^4 || ^5"
+      },
+      "dependencies": {
+        "dotenv-defaults": "^2.0.1"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.13.0",
+        "@babel/core": "^7.13.8",
+        "@babel/preset-env": "^7.13.9",
+        "@babel/register": "^7.13.8",
+        "husky": "^5.1.3",
+        "jest": "^25.0.0",
+        "jsdoc": "^3.6.6",
+        "rimraf": "^3.0.0",
+        "sinon": "^9.0.3",
+        "standard": "^16.0.3",
+        "webpack": "^5.24.3"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      },
+      "gitHead": "138fada528f320c434a8f935d147dec2d301f5d5",
+      "_id": "dotenv-webpack@6.0.3",
+      "_nodeVersion": "12.21.0",
+      "_npmVersion": "6.14.11",
+      "dist": {
+        "integrity": "sha512-PHcKvlk2SGFn1ghaqBYOh0jR3yzVIJ8HspqZa2NrcFIDaw1yLzaelA3v6ZHtQMwNhP2F+vZWUYzKYzept3QrEw==",
+        "shasum": "35c7fd87088e47cb461d61ef8aee3f1f7f45c184",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-6.0.3.tgz",
+        "fileCount": 6,
+        "unpackedSize": 15304,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgQF38CRA9TVsSAnZWagAAzCEQAJ6XyviBwg5YReci1WU/\nEZe/oaex9QIV6KjbhBp5zS31DH79VS5y3avkVSTZL7G2UldcNp/fSIjOezRG\nit4yngM4JqE9rCwIuX3MU6VS92ate0E5DAS/z29/NrlfzEwQoK6tiLpF6AAZ\nV6JghUuDpfwUO99WDbFX16FFwp+4GCs6ic1uN2wN/mMvZbmiOOpqWiBBsqFX\nhSOexjL5pm0hn3w41FUtJ04nxfxCedwtqMfzaCWh2Gua4zGFEe8Lg6pgKOgo\nZIgboewRyQRbGYROu7mOof88yj8ySOkGGiBjhTgY6C79t25onv92vUjW1yyc\nwbaO5Do17vpczE/aOmSr+ACKIh1ILRdnQ0z8IxAeZlvwl2IZjQyhApcCRwv4\n7hsF3PxI9WnLFHY4CVIOVeWj99Rrw6SHqOxtuotn1Jyy0uE11729FZfD7r1L\nSI/shZWUhB7Q9C8AY/tO1DuGzfL3Jc4SVBtf+KcUeGFxlzpKbASnNNeGg1mM\n6RfZI4ggxNXHKD1RpHMN2qjSfOXzxS7DN6U0x2J2X3Ted+XUn0QUXk2BvnDQ\n0N6g+zg97nmE6evsvZfSoW1KkUS08jFeCmnGhvxCoIY7DJFyrDxJl3LAXpjS\nBXWd4YrVXaIACyPEwkcqo1CanM93Dma5EPd7OlAl1u303cRUW5xzg/hWGYux\nlaln\r\n=5OXd\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDBMA8WvKWRIpspXtwJLqPhhJ/CyhJeft4Z+wPo69TMYAIgCrwVfDIqglp8m1TvnWsMk7f/hoMcrv+l6zKbXZ4yBlY="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matthewsteele1@hotmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matthewsteele1@hotmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_6.0.3_1614831099713_0.37939915695365256"
+      },
+      "_hasShrinkwrap": false
+    },
+    "6.0.4": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "6.0.4",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "jsdoc src/index.js -d docs",
+        "pretest": "npm run build",
+        "test": "jest",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "jest": {
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "peerDependencies": {
+        "webpack": "^1 || ^2 || ^3 || ^4 || ^5"
+      },
+      "dependencies": {
+        "dotenv-defaults": "^2.0.1"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.13.0",
+        "@babel/core": "^7.13.8",
+        "@babel/preset-env": "^7.13.9",
+        "@babel/register": "^7.13.8",
+        "husky": "^5.1.3",
+        "jest": "^25.5.4",
+        "jsdoc": "^3.6.6",
+        "rimraf": "^3.0.0",
+        "sinon": "^9.0.3",
+        "standard": "^16.0.3",
+        "webpack": "^5.24.3"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      },
+      "gitHead": "b2da479111e8e48798436d9c51b0db6996b9ef68",
+      "_id": "dotenv-webpack@6.0.4",
+      "_nodeVersion": "12.21.0",
+      "_npmVersion": "6.14.11",
+      "dist": {
+        "integrity": "sha512-WiTPNLanDNJ1O8AvgkBpsbarw78a4PMYG2EfJcQoxTHFWy+ji213HR+3f4PhWB1RBumiD9cbiuC3SNxJXbBp9g==",
+        "shasum": "4874045d408598e45a95519d3cc71017c91c9104",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-6.0.4.tgz",
+        "fileCount": 6,
+        "unpackedSize": 15304,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgQGMqCRA9TVsSAnZWagAAJ0UP/RJppscuY+VOap0pQA0z\nRSmTI/wl4rUD8HhLfumr1tbLqorcS7bBUL1ivUCLUGzncvKEKRtLi0AqHkv2\nhdSkl0OIPTlhQiPMpeGNg/NX6JJZT1mSgBNJwoCQll4hEuRmeJVjlDSxwBTE\n+JNTr3NVnwJZRKi3jFf9OmEKp44RgANVCxdtnmGYfl4hSrb4LSOidmNMbcfg\nZyr5RFacw6Fd/Pwxd786TONfLwbeH6Jrz+PT2pfx1JhDAXLRSwYNT/9lRXmM\naOlICXs6Dc1LgTrRJzpWg8kdxHF4q4vjrpiTLEGV+6rixsOylh2rJrKl2wEu\nvAzcmfTp65SfdtfKgwZPP3AdbdJQwPPRbMVp9dv+YmTQ0/sVNoN2rcKSMZgg\nChhzn5kv/jhLqFeTLm6SHX8ETHl2LGni50pCOcDt6AuQZSnqzCQ5s8sGofZ5\n0NiGsqGfFrK2B0e3a46B0W8YrqENt2PLhu4Gb0I+bcjRQ0l8mkpqMGAG+XL4\nDhvCWUS+iuQx1kgDy9fLYxB5QseluZn9o6n5tM3bjtECRvp7XY0KNc28u3ro\nKnRxt/AFdWUoIRxVs2/fbtEv5dWykuWwZFrPggDvn1iobC+hPrT1mvQnxWZe\nDCk1Eof0P+/JoTfCdL7p6xshFwixxn1/WFf2aeEZhdbIeXcfW3j4C0t+eAME\nn3r5\r\n=LU3H\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQC6OvoJGq1asOgrfxbEGWZWk7btskhiTLs63xHSWrLqEQIgAnU9aUm7LngrPh2JfALsuIjitcLdmLynM5/SF7KWZRE="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matthewsteele1@hotmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matthewsteele1@hotmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_6.0.4_1614832426006_0.16912158087389995"
+      },
+      "_hasShrinkwrap": false
+    },
+    "7.0.0": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "7.0.0",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "jsdoc src/index.js -d docs",
+        "pretest": "npm run build",
+        "test": "jest",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "jest": {
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true,
+        "watchPathIgnorePatterns": [
+          "output/.*?"
+        ]
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "engines": {
+        "node": ">=10"
+      },
+      "peerDependencies": {
+        "webpack": "^4 || ^5"
+      },
+      "dependencies": {
+        "dotenv-defaults": "^2.0.1"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.13.0",
+        "@babel/core": "^7.13.8",
+        "@babel/preset-env": "^7.13.9",
+        "@babel/register": "^7.13.8",
+        "fs-extra": "^9.1.0",
+        "husky": "^5.1.3",
+        "jest": "^25.5.4",
+        "jsdoc": "^3.6.6",
+        "rimraf": "^3.0.0",
+        "sinon": "^9.0.3",
+        "standard": "^16.0.3",
+        "webpack": "^5.24.3"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      },
+      "gitHead": "67c0aeb2ade9eed81674b05367f0b944ff6f3a76",
+      "_id": "dotenv-webpack@7.0.0",
+      "_nodeVersion": "12.21.0",
+      "_npmVersion": "6.14.11",
+      "dist": {
+        "integrity": "sha512-tVLQVwQM9jkmRaZGxzIKniUNcesCXYQaDJll0Ql5QmyZ/CB060LTVlj7WHfcz4Feqxe13IZMeuNS7J0vpDonIw==",
+        "shasum": "af77cbe3311f76f0b702f8538b302c4f3f5e0292",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-7.0.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 17475,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgQlbcCRA9TVsSAnZWagAAVCYQAJvtxil6SRPJ6LvCfKzH\nM+8XI9/mf56hZa7sJ8XqsYzOAYlnph0p3crsowzissYnMriw4mfHGYxoi7sE\nknT4CCGSbU9+mnGQc5s5GStFbqqFU0VnUcP3zcoQbMny5ctsr3NM8pckvh3X\niTyZo6tshct7pEyQQsKTujiysO6JKnHVa2A84rY2wgSIQV6W4ZrQ8LKpcw5i\n2T7otYAaWAySj2NQZQs1linwhMaGF4wC/7gwqKJgQNf5be8glZCzODctB//Y\nm7+ejf1OMSOkk79ZpoW5wZ84HeFB/noLNxRrfco8yzaAQwLgRfyEGfC898c4\nuXoh1P6vOlX0o83kPr+MmFrKzG77b6ALmT9XX0f86MSHFprLFoNvjQDDQWoQ\nq89WBqr7om8fYOh48r7r9CkBRD0sGYwP5VnuqG4MXKdISbqGXRmUnckLgqSl\nBf9H4fVM8OC0VnV8rEoigiHNdYuTxrFNwU/rpIQ+AccZQh/UU8oxZyg9mFwF\nRi5rahxYBsr08AoSqIUnqwOZzwv6yc9+V3OrOXc8ObbdodOdG++tLD2eVQYJ\nGyl8ZRCxqAY7YJ29bCSQtMXbjpgAUinzRbNDCv0DGkMogzcVktf3bNlPNc5U\nGtvyX6o28sVLAPlMMpEkiOQ5zr57N+HKfTEmE7GLWlj55HNb8mgwCH15aJ3I\nGzZE\r\n=Ge8C\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFJ+350DAbi6Vfvok94x6vXtJTnXDT0XQfVaEcLQhDe5AiAr/iFw4dDCsRC8ZVKdmlEmwt53qzqDyO900j6BpLfMtw=="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matthewsteele1@hotmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matthewsteele1@hotmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_7.0.0_1614960347819_0.2112072303339001"
+      },
+      "_hasShrinkwrap": false
+    },
+    "7.0.1": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "7.0.1",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "jsdoc src/index.js -d docs",
+        "pretest": "npm run build",
+        "test": "jest",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "jest": {
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true,
+        "watchPathIgnorePatterns": [
+          "output/.*?"
+        ]
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "engines": {
+        "node": ">=10"
+      },
+      "peerDependencies": {
+        "webpack": "^4 || ^5"
+      },
+      "dependencies": {
+        "dotenv-defaults": "^2.0.1"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.13.0",
+        "@babel/core": "^7.13.8",
+        "@babel/preset-env": "^7.13.9",
+        "@babel/register": "^7.13.8",
+        "fs-extra": "^9.1.0",
+        "husky": "^5.1.3",
+        "jest": "^26.6.3",
+        "jsdoc": "^3.6.6",
+        "rimraf": "^3.0.0",
+        "sinon": "^9.0.3",
+        "standard": "^16.0.3",
+        "webpack": "^5.24.3"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      },
+      "gitHead": "889ce8a7467eda2e06597b0e4059512da04e5d6b",
+      "_id": "dotenv-webpack@7.0.1",
+      "_nodeVersion": "12.21.0",
+      "_npmVersion": "6.14.11",
+      "dist": {
+        "integrity": "sha512-UT7Oqs0UlStNMtAdj8hqTlh0uy5qWni2vXNywMvvnST/weV8Ok170cOQsVvSIGx1Ty3jJOzH8TuyPWW0y8XmoQ==",
+        "shasum": "11e1a1c182c180e4a4c24e17c0ea14c45531954a",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-7.0.1.tgz",
+        "fileCount": 6,
+        "unpackedSize": 17475,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgQljQCRA9TVsSAnZWagAAID8QAIpVXEdB/nbRJGJvxpvl\nCmwIqRwDTMHUrgy+pyEm44X3T1aqZ6qc04dUyVBHZ8Wg4wXE+scB3T1KGX1J\ndZTMjr/PK7Grv957skQgMyH5HIjKI35GDnYSxtj9IDKGzLqvoeJoH2kC2L83\nJ2ttJagvJSrtFhRbLb6I6hYSuBqOC8vULBGgmU73hxOYo4U/ENvdMX9CiTmu\nUH2k5o0WmoADIwLWj0ksjve7zvLFkWZo7h8AUhVNWTln74wwhfbyKhGthsbS\nfblQvj8jQoPP9JE1I3PXJQR7WLvXToOZ+vv4zDYAx215GUxd0hiZmVm4Rr9E\nQKSDdHSTfl0guyP9SX0hKRU+lL4m2R9AdAVV+iqcks7HHP33hFfCb47vy+Bb\n7Jx7ubBobw7s0/sbwRis1CBQeYye4Kk1te9+R4yraREkxwRGyH88Yj8TvflS\nHZjr9DkY2bEItxpiie1mEjrwCEA5RXEwVl1x4PQQS9SGmRUawb9aN40yh0Xe\nx483+bSDR7m/BMP6WBVTOTYt2etlawyj86dozoPc8FzOIsuCYYYfDrN5kOeQ\nvg5Qe5sEeFqFTC2ns5kinyXJC+LZZT1w60OZopRhBnjBuZmjN5yUrAxR9ZQG\ngCKpMoKvaJNXJR2bOTW0ltHvC8+r0wCkjqvTtRguqGCklIEgzFzmWfNajwSv\nVIfy\r\n=ay+d\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAffG/sQmrAGWnPoKw8VgQdVAnOCarcwKVygV1jVW1LtAiEA7QpdC4RwpWPunC6KHwZ1hKtsEumGBPW5egChZagVICY="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matthewsteele1@hotmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matthewsteele1@hotmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_7.0.1_1614960847917_0.755230437518142"
+      },
+      "_hasShrinkwrap": false
+    },
+    "7.0.2": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "7.0.2",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "jsdoc src/index.js -d docs",
+        "pretest": "npm run build",
+        "test": "jest",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "jest": {
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true,
+        "watchPathIgnorePatterns": [
+          "output/.*?"
+        ]
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "engines": {
+        "node": ">=10"
+      },
+      "peerDependencies": {
+        "webpack": "^4 || ^5"
+      },
+      "dependencies": {
+        "dotenv-defaults": "^2.0.1"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.13.0",
+        "@babel/core": "^7.13.8",
+        "@babel/preset-env": "^7.13.9",
+        "@babel/register": "^7.13.8",
+        "fs-extra": "^9.1.0",
+        "husky": "^5.1.3",
+        "jest": "^26.6.3",
+        "jsdoc": "^3.6.6",
+        "rimraf": "^3.0.0",
+        "sinon": "^9.0.3",
+        "standard": "^16.0.3",
+        "webpack": "^5.24.3"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      },
+      "gitHead": "25bde2958d6120cfab8eaf4dd79041c2aa67554a",
+      "_id": "dotenv-webpack@7.0.2",
+      "_nodeVersion": "12.21.0",
+      "_npmVersion": "6.14.11",
+      "dist": {
+        "integrity": "sha512-RY+/5uM/XY4bGtih9f9ic8hlrUDxVcZZBPWlnX/aHhaKxcVVX9SH/5VH7CSmvVo9GL6PKvQOA0X1bc552rnatQ==",
+        "shasum": "1bf2e407e92c10fbb08d815b12c991028f10f81c",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-7.0.2.tgz",
+        "fileCount": 6,
+        "unpackedSize": 17502,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgUBhLCRA9TVsSAnZWagAAYiQQAIxVxOkNyddzleoLGnam\nSZFwkcB0f6zr3xqGYcdzN5y9qkSWnVRxichGxuUVQS+Zv+IHjkZasb3C6Jt8\nx5YHJKpYa+m2M6fGOZZwe8ZVCwYdy7kn+7+P80Z8zb/oiYsBPxDw6tMaqv/H\nk85Usf8WbyfMROrgAaAI4MZtSJFkm9ezcDhN4dH11lI+KYRPQYSe3Do8CdzE\nBz9A25bqowFzXSJ+yvRpUCQeUv7haMMji+KvB8/R321EmOVQxA9MDEmSw+PW\ncmbzomFRy9QrliFyCyWajKperQQTxfDPOQ8Rq56u868j2wPVLghVsDIfDFtr\nEnrIltQYKcrXIB2QgzE987MVGvpqSZaE3GDgwNG0jDDo9y1VfGHC0HxGSruo\not+Bsu1d1zfVAv+3DxzSs2NE8f+/dYS0vaRRcxdJgGyamwU9VSjKQTQHGOH+\nOkmECHGnuGBJSzmvf0klr6R3LYEpD4DyU4mEIdeZpTNdba9Oz7rm7jdoXdzB\nDZbuoiUm3bxMIwe7GbvqJVe8SfKW2dNftY68sMxuanKS7HNAUwPnvaVEQ2mP\nm2OlsGK8gNdNsc7Frlae7h941kZB5hXgXHS1shIA/m3RFj3nwgzWTvwwOq6B\na1Un19ux52xxDYzSUV8Z6CtSSK4qTTTMRLAzYizkc+yG5oiFqgYtE2nCevYq\n+xmV\r\n=pSeL\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQCsCe/eWzbHtpkNWi6vRmDmH7F/Do3pqdyQJ5wtNXQwVgIgMTrSZGYelVD4IdDFZmCiwMTlN3esjANDh6TEa6OxqrQ="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matthewsteele1@hotmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matthewsteele1@hotmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_7.0.2_1615861834673_0.3029502913219977"
+      },
+      "_hasShrinkwrap": false
+    },
+    "7.0.3": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "7.0.3",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "jsdoc src/index.js -d docs",
+        "pretest": "npm run build",
+        "test": "jest",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "jest": {
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true,
+        "watchPathIgnorePatterns": [
+          "output/.*?"
+        ]
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "engines": {
+        "node": ">=10"
+      },
+      "peerDependencies": {
+        "webpack": "^4 || ^5"
+      },
+      "dependencies": {
+        "dotenv-defaults": "^2.0.2"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.13.0",
+        "@babel/core": "^7.13.8",
+        "@babel/preset-env": "^7.13.9",
+        "@babel/register": "^7.13.8",
+        "fs-extra": "^9.1.0",
+        "husky": "^6.0.0",
+        "jest": "^26.6.3",
+        "jsdoc": "^3.6.7",
+        "rimraf": "^3.0.0",
+        "sinon": "^9.0.3",
+        "standard": "^16.0.3",
+        "webpack": "^5.24.3"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      },
+      "gitHead": "37b7c47620f0147078bb139292b2b223b706b160",
+      "_id": "dotenv-webpack@7.0.3",
+      "_nodeVersion": "12.22.1",
+      "_npmVersion": "6.14.12",
+      "dist": {
+        "integrity": "sha512-O0O9pOEwrk+n1zzR3T2uuXRlw64QxHSPeNN1GaiNBloQFNaCUL9V8jxSVz4jlXXFP/CIqK8YecWf8BAvsSgMjw==",
+        "shasum": "f50ec3c7083a69ec6076e110566720003b7b107b",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-7.0.3.tgz",
+        "fileCount": 6,
+        "unpackedSize": 17501,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJguGS7CRA9TVsSAnZWagAAtaQP/iIpVxlQ/Bk58puLp2k9\nYnPLWDliVjxNNxOc5vrWm0i7jGx11OwzFpUx3B0FmlyfpsQEAg4SAkzdpDN1\nQYSqg0+6NQ995eWHLPw8XWrALlxVr7mpLieBuZUcXvFvZ/j0qkkTrpnCM4f+\nmO4ZTikenZnI4QEERcI5ZSlfLCbi7dofzut3wO2XTAmMQMGWe3+j/iYSlkyq\nxjHZ8Dq2BRylsEFTO40Y0uYmzx6ZbXbV3eJVd7Q7CL4N1ak6AOlGmsTYbAD3\nmlBsQw5BI6FglX7Wnc8QRUXfoWC7YKsUS6BYCVfYGzYNKjuUYC1f4Ghu5O74\nUcKCZZMg+oKMcSGrlOAG/C57trYwYDiHp7a/EVa7cLP7uz7wM7F3XxJUQD31\nir0xjqI8CA/6yPBaSIwloGhXBaLcTsbvPvJosFTkucHm5t/57+6sxzPIGeYo\n8JL778Vjh96kpoGItlvyajDUTBGc7If3q5ksbB9VtPyPPQd3vaOQvMT8nRKl\n47JhK0sNuuW3KyTwQAMkKLx91IvdECtYJLyxDxZ+cU+5hfDhutgxlc2dwI2/\nquDaQ6pmxGgt4nCeXDOr+kVEKhFotl14fjjx3dA0K+ZHZT5xrwuij1kQSQi4\nMSdTdYcH7S+XCyVx7mfZYMrdTzuQkHU70DmjXho3Yj0Lhm3DySiiefRG8deI\nfELI\r\n=7cv/\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDIAcKeB6BmYkPiapX6+E0bujrmqp33eOGPFSpiNL4VygIgdI49nN6xaLjcM2h+Lka3xdb7cAc4leQhlCmi/TwiWJM="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matthewsteele1@hotmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matthewsteele1@hotmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_7.0.3_1622697147343_0.71338921347608"
+      },
+      "_hasShrinkwrap": false
+    },
+    "7.1.0": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "7.1.0",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "jsdoc src/index.js -d docs",
+        "pretest": "npm run build",
+        "test": "jest",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "jest": {
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true,
+        "watchPathIgnorePatterns": [
+          "output/.*?"
+        ]
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "engines": {
+        "node": ">=10"
+      },
+      "peerDependencies": {
+        "webpack": "^4 || ^5"
+      },
+      "dependencies": {
+        "dotenv-defaults": "^2.0.2"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.13.0",
+        "@babel/core": "^7.13.8",
+        "@babel/preset-env": "^7.13.9",
+        "@babel/register": "^7.13.8",
+        "husky": "^7.0.1",
+        "jest": "^27.0.4",
+        "jsdoc": "^3.6.7",
+        "rimraf": "^3.0.0",
+        "sinon": "^11.1.1",
+        "standard": "^16.0.3",
+        "webpack": "^5.24.3"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      },
+      "gitHead": "96b42f40f1c71a8e7ab7de73dadfa30be904c295",
+      "_id": "dotenv-webpack@7.1.0",
+      "_nodeVersion": "12.22.9",
+      "_npmVersion": "6.14.15",
+      "dist": {
+        "integrity": "sha512-+aUOe+nqgLerA/n611oyC15fY79BIkGm2fOxJAcHDonMZ7AtDpnzv/Oe591eHAenIE0t6w03UyxDnLs/YUxx5Q==",
+        "shasum": "211fefac6bf500bf3bb66b286e1b12a23a2a70c0",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-7.1.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 17976,
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh8rOPCRA9TVsSAnZWagAAndYP/jn7D49Lnd/bQiw9JZc8\njm+E6g6w8MCgWz6pYhU/KMjyLmNytPQnVXhfBbEYQOrwYM8rUlolPLuecb+L\nOkFeMKNEU4WO0sdWWC/h67HZbqci0tlVAm2uVY8YCsh+qI/FAvvziHmpIJB6\ngqp2WCEZNmcWAcdpjSwTBUclEGUgYK2kVph9toYnP2zjQ4N0Wiu+x6Q/twgd\neTZWLZZ68HySBp7WpGYqtwDZ9zny8D4VBL2KPZuRj41OwNf1XL9NM8UoXGk2\nmXZImdz6wWf1mzXlAPy132qPIDBctLhelZhE5ZF2KzQCUVu6asMlvJpIHTa/\nB8uTXy92O+WlxwABuw1EUj85YI4URWxHgAEoPE7rW7IAJRD7n50PKTBTpYv3\nsxoIdWWl4TvaL3oTGv5necW/S3uSd8ryYNNuCWgGfIXlQ0eeUMPO4yfUk4YM\nt5KXq4njmK3I96CMNveC3F+6LX9gG6iFa5dgLT1oWv5mMff0IuEBFAz5aP/i\nSJksUw2aMi+a1lOZLgYxp01XBOVn/AIjtgKLrnM+INS4HQGJejEj5OUk7c0W\njGpC4ctE7tlIBRQwg22xHmT9FSG/c8H9GT3Db9hndovJnBrfpxXlcg0e+I7A\n8l3ZIufT9jo+t+mF3zT88qcnLAyAfOfXpEo7uGStNIGIrACWq+kNQ9mZp1Q+\nWAUX\r\n=Hx/l\r\n-----END PGP SIGNATURE-----\r\n",
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIAi2ewV07TPZeSi36gwaWvq509dIiCBEI7Xc6+ETnJqQAiEAuHTdleaVBHx9pBv5sYbUzHbyd907gG4Rtbt8H8VIoQU="
+          }
+        ]
+      },
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matthewsteele1@hotmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matthewsteele1@hotmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_7.1.0_1643295630926_0.4812712101298098"
+      },
+      "_hasShrinkwrap": false
+    },
+    "7.1.1": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "7.1.1",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "jsdoc src/index.js -d docs",
+        "pretest": "npm run build",
+        "test": "jest",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "jest": {
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true,
+        "watchPathIgnorePatterns": [
+          "output/.*?"
+        ]
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "engines": {
+        "node": ">=10"
+      },
+      "peerDependencies": {
+        "webpack": "^4 || ^5"
+      },
+      "dependencies": {
+        "dotenv-defaults": "^2.0.2"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.13.0",
+        "@babel/core": "^7.13.8",
+        "@babel/preset-env": "^7.13.9",
+        "@babel/register": "^7.13.8",
+        "husky": "^7.0.1",
+        "jest": "^27.0.4",
+        "jsdoc": "^3.6.10",
+        "rimraf": "^3.0.0",
+        "sinon": "^11.1.1",
+        "standard": "^16.0.3",
+        "webpack": "^5.24.3"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      },
+      "gitHead": "d66570680356c9692c2faf8f3f8bc75f3631b689",
+      "_id": "dotenv-webpack@7.1.1",
+      "_nodeVersion": "12.22.12",
+      "_npmVersion": "6.14.16",
+      "dist": {
+        "integrity": "sha512-xw/19VqHDkXALtBOJAnnrSU/AZDIQRXczAmJyp0lZv6SH2aBLzUTl96W1MVryJZ7okZ+djZS4Gj4KlZ0xP7deA==",
+        "shasum": "ee8a699e1d736fd8eb9363fbc7054cfff1bd9dbf",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-7.1.1.tgz",
+        "fileCount": 6,
+        "unpackedSize": 18144,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIQDoYr8FvcqDFkeDw8pBK+iUYsu/rifuVycAubXKs5vUggIgW0bFwfXTrhFX06xXonN6nH5U9jmgTNEd90b58HLmqug="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiuSrrACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmo5qQ//XgX1fhK+tmL+jFyztisoJwR1J+ccXtBxBPyX9IYIIN4D1K7c\r\n1f/mV7lkm6YV3Jgbj7CUMnwIFgzzTxVXAiDHf849GmV5bYNkUJmHrLFxlrab\r\nyr0HDy0jXwFlEOBtA3hoe1ic5hPrVeQxECfhA3jdi2jcfzmrqre2MclHjcFG\r\ngrKfUakTiiMmSAHAON4W3aXE2oEGFZNclrQE+4svtfyBtArw+8TZnEMSxD0/\r\nLuSVVZ03ZWcdhu9ZuhKjvoMK4AWBH2a6YYB4o9cxZH/Rc5ey+oOula7ewdj0\r\nK6q5JAvUr75RAHjfBNG3LU/TzWy93xHx/vtkO562OQyV9Mry4AwC0WMDaK+w\r\nuFEPfCjakRVfD2GAPdlPonq3MBDqiAzyZS6sIMJWQF4falDF8TS6l9b07KkA\r\nLafWPVcHgLiX+FdxYgKu3l718K9N7UdzTTikQFAIxicnGNnIMhf+A8/z3OMA\r\nWR5J+y/RDsACB7vun9TcaL397o11S50JqQmRXGx/vNyRqF8la52jJEg0418w\r\nP8qW//u8HIP5zAPQAGxPYo9+VIpLivWtnYORbEDb2INlOQZNGbA72/m+e5jV\r\no0RsCIzVz7J6oYQGCqCFQvJWPBfKOo3tcZZh7U0vrvrQO2gM3t/xK52V40CK\r\njOGdA9xkFSQ0H8JfMoLh/m8bWH9Fr9ubzaQ=\r\n=IQJy\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matthewsteele1@hotmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matthewsteele1@hotmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_7.1.1_1656302314871_0.41017527382578334"
+      },
+      "_hasShrinkwrap": false
+    },
+    "8.0.0": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "8.0.0",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "jsdoc src/index.js -d docs",
+        "pretest": "npm run build",
+        "test": "jest",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "jest": {
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true,
+        "watchPathIgnorePatterns": [
+          "output/.*?"
+        ]
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "engines": {
+        "node": ">=10"
+      },
+      "peerDependencies": {
+        "webpack": "^4 || ^5"
+      },
+      "dependencies": {
+        "dotenv-defaults": "^2.0.2"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.13.0",
+        "@babel/core": "^7.13.8",
+        "@babel/preset-env": "^7.13.9",
+        "@babel/register": "^7.13.8",
+        "husky": "^7.0.1",
+        "jest": "^27.0.4",
+        "jsdoc": "^3.6.10",
+        "rimraf": "^3.0.0",
+        "sinon": "^11.1.1",
+        "standard": "^16.0.3",
+        "webpack": "^5.24.3"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      },
+      "gitHead": "f5d79eefe27d6c8fc62c8a9312f38811b1600623",
+      "_id": "dotenv-webpack@8.0.0",
+      "_nodeVersion": "12.22.12",
+      "_npmVersion": "6.14.16",
+      "dist": {
+        "integrity": "sha512-vsWj11yWbIxLUPcQDbifCGW1+Mp03XfApFHJTC+/Ag9g3D/AnxoaVZcp76LpuBmReRwIJ+YO1fVdhmpzh+LL1A==",
+        "shasum": "bde8750eebda8fd1c6d7134f02bf56ad1f865772",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-8.0.0.tgz",
+        "fileCount": 6,
+        "unpackedSize": 19763,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCICbwN/hhHzU2F5crRTqPpILKGx4/qw6JGSc8h+3eQAnkAiEApaZwAI8s7SKtm7NxJktTDtYa0iDXr1a4ciGXPJwsux4="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiyHxQACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmr5HxAAifDWpqV3UHVktEZyEM9Hvsdq7escJ2VrWtphDBdBO0oXrSeD\r\na5oWcQxAgXnKqfb1mmG8s/FRpeZr+3RohX+X6cI8q1FWDE15vmqbww+Ow3Gd\r\nytfkUmy4zpKwnVv4pFZnFRJ6b5vKLVb717RcobSTHLS/TZXx2kIySPPRV4sf\r\nSkaGmfBANLmnD8d6RaznDZre8C1rNh3rzl8yWjnMOOf5I9K/bK2gKJDq428y\r\nJd5KbekWGaVSoRN8fa76JwHpH08+2pYXOrPl/7XByMELYplnaqcOABi/FORz\r\nVeJcWZx5UIB9WmSooPcuJHidMlTgp/DQgpiVywen9BCZeVR+sL3BtaeN9p8M\r\nAL4cgAtOf1Lnu8rgwQp+yEaOdxLcqX//5rBy7IAyga8nxcsgD5hI3JR5avyX\r\nvRd9KlycuhGIK6gCmAI6uzazqb2unarFOY1CzNpc78o97zKMq7JfyZBrAoCC\r\n67xxK3wyQUdJcFY9me3VubGqSQoL21iu+NpnLoDgcOBCSDbIuM5LqUSGAPQ8\r\n69WdP0WBOHk8KfwsSaX60bsrSdkZAwLRL1x9OoWNHO43ID9bHFLLBlXBBghD\r\ntYz3WwsAOVdqlTVG6kLyyB0rzKHQmW5DovV1kPUC4xFJKucn4N/wDvsWpkzM\r\n8bquMSlpu3wyE3xzW9n53kysRbq0ZqNmA7A=\r\n=bkOl\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matthewsteele1@hotmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matthewsteele1@hotmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_8.0.0_1657306192801_0.9964333832435286"
+      },
+      "_hasShrinkwrap": false
+    },
+    "8.0.1": {
+      "name": "dotenv-webpack",
+      "description": "A simple webpack plugin to support dotenv.",
+      "version": "8.0.1",
+      "main": "index.js",
+      "scripts": {
+        "precommit": "npm run lint",
+        "prepush": "npm t",
+        "lint": "standard",
+        "predoc": "rimraf docs",
+        "doc": "jsdoc src/index.js -d docs",
+        "pretest": "npm run build",
+        "test": "jest",
+        "prebuild": "rimraf dist",
+        "build": "babel --copy-files --out-dir dist src",
+        "travis": "npm run lint && npm t"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+      },
+      "jest": {
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true,
+        "watchPathIgnorePatterns": [
+          "output/.*?"
+        ]
+      },
+      "keywords": [
+        "dotenv",
+        "env",
+        "safe",
+        "environment",
+        "dotenv-safe",
+        "variables",
+        "process",
+        "process.env",
+        "webpack",
+        "plugin"
+      ],
+      "author": {
+        "name": "Matt Steele",
+        "email": "matt@omnionline.us",
+        "url": "http://omnionline.us/"
+      },
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+      },
+      "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+      "engines": {
+        "node": ">=10"
+      },
+      "peerDependencies": {
+        "webpack": "^4 || ^5"
+      },
+      "dependencies": {
+        "dotenv-defaults": "^2.0.2"
+      },
+      "devDependencies": {
+        "@babel/cli": "^7.13.0",
+        "@babel/core": "^7.13.8",
+        "@babel/preset-env": "^7.13.9",
+        "@babel/register": "^7.13.8",
+        "husky": "^7.0.1",
+        "jest": "^27.0.4",
+        "jsdoc": "^3.6.10",
+        "rimraf": "^3.0.0",
+        "sinon": "^11.1.1",
+        "standard": "^16.0.3",
+        "webpack": "^5.24.3"
+      },
+      "browser": "browser.js",
+      "babel": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      },
+      "gitHead": "97a864d72302d25fad0cef618fcd3f09e94bc4e4",
+      "_id": "dotenv-webpack@8.0.1",
+      "_nodeVersion": "12.22.12",
+      "_npmVersion": "6.14.16",
+      "dist": {
+        "integrity": "sha512-CdrgfhZOnx4uB18SgaoP9XHRN2v48BbjuXQsZY5ixs5A8579NxQkmMxRtI7aTwSiSQcM2ao12Fdu+L3ZS3bG4w==",
+        "shasum": "6656550460a8076fab20e5ac2eac867e72478645",
+        "tarball": "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-8.0.1.tgz",
+        "fileCount": 6,
+        "unpackedSize": 19763,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEQCIFWE6O0DodrI4YWeyIsJozbJV/i0vPev/BV3eC5ykhb5AiAR+WNnNsRcTDn43QOIw64SQpLhpam8uhQpiZUmUXHP7w=="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJi+q/NACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmovsQ/+MvVJBNAyaiY5KHkK1dnmTLX020CyRkliEdS9Ufkyg+SiPEmF\r\n9WRB+8IgNX1x813FYdYgjABG/hkVKLFICdQsCg15oJ3/QcFgHpRdnF68xlVG\r\nv3vAV7I2rFgj5v7F3YV6CNy8bzFpOHw0YlyYhM6x4Ds8kBH/oqjjw5UkbKOS\r\n0cZYoqXXPMfbr1rzwuemr7F0J6ePefcUAxbgri3rDXr0Kh8PXJQoJ6gDeQef\r\nkunuMGzflj8jpm6LflgaqYrZZddNw56Oe0670y/jXGbU+eqDsc5UjS2izbGq\r\nYsTLsvM0+UQDRTBiSjCDgJEYskXLOLWZXRlKBomJGlbR1Bs2l91ROcXDra3O\r\nPZU4UW5hXbe4JuZFlQ655of3zhH4dNkD9MZQTZQ9wHD7+H2QXhuXPkV2HqJW\r\nfZw1teIU/cYLtW7nkclLvDLfE/+3W5QWxUrY+CYhncbbJRezTlXvQmK4SM5E\r\nIr3evJrUEiIFw6JIKC26K5QZ5CLCuxIPSfuOej0Uham2fXVz0idZMAcIUoLy\r\n8p13l2da/sgH8E1AEmor3qqE8I6efZJsfXmvAYC2e5fFAoJg64KXNyghcSbJ\r\n1MMOqGp1ZutPD4HMsVogx2W3VtrPeVUTPkiVhngSu2nlKaxb/Sx0jr4s7Bh1\r\n0DxxgCoPcHgtvfMsJAb+uCReAB/bppPoCag=\r\n=C/X+\r\n-----END PGP SIGNATURE-----\r\n"
+      },
+      "_npmUser": {
+        "name": "mrsteele",
+        "email": "matthewsteele1@hotmail.com"
+      },
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "mrsteele",
+          "email": "matthewsteele1@hotmail.com"
+        }
+      ],
+      "_npmOperationalInternal": {
+        "host": "s3://npm-registry-packages",
+        "tmp": "tmp/dotenv-webpack_8.0.1_1660596172950_0.6251519347066243"
+      },
+      "_hasShrinkwrap": false
+    }
+  },
+  "readme": "<h1>\n  <img width=\"30\" height=\"30\" src=\"https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.png\" alt=\"dotenv\" />\n  <img width=\"30\" height=\"30\" src=\"https://webpack.js.org/assets/icon-square-big.svg\" alt=\"webpack\">\n  dotenv-webpack\n</h1>\n\nA secure webpack plugin that supports dotenv and other environment variables and **only exposes what you choose and use**.\n\n<div align=\"center\">\n  <a href=\"https://www.npmjs.com/package/dotenv-webpack\" target=\"_blank\">\n    <img alt=\"npm\" src=\"https://img.shields.io/npm/v/dotenv-webpack.svg?maxAge=0&style=flat\" />\n  </a>\n  <a href=\"https://codecov.io/gh/mrsteele/dotenv-webpack\" target=\"_blank\">\n    <img alt=\"codecov\" src=\"https://codecov.io/gh/mrsteele/dotenv-webpack/branch/master/graph/badge.svg\" />\n  </a>\n  <a href=\"https://github.com/mrsteele/dotenv-webpack/actions/workflows/main.yml\" target=\"_blank\">\n    <img alt=\"Main\" src=\"https://github.com/mrsteele/dotenv-webpack/actions/workflows/main.yml/badge.svg\" />\n  </a>\n  <img alt=\"Vulnerabilities Score\" src=\"https://snyk-widget.herokuapp.com/badge/npm/dotenv-webpack/badge.svg\" />\n  <img alt=\"Known Vulnerabilities\" src=\"https://snyk.io/test/github/mrsteele/dotenv-webpack/badge.svg\" />\n  <object id=\"badge\" data=\"https://snyk-widget.herokuapp.com/badge/npm/dotenv-webpack/badge.svg\" type=\"image/svg+xml\"></object>\n  <a href=\"https://www.dotenv.org/get-started?r=3\" target=\"_blank\">\n    <img alt=\"dotenv-vault\" src=\"https://badge.dotenv.org/works-with.svg?r=3\" />\n  </a>\n</div>\n\n## Installation\n\nInclude the package locally in your repository.\n\n`npm install dotenv-webpack --save-dev`\n\n## Description\n\n`dotenv-webpack` wraps `dotenv` and `Webpack.DefinePlugin`. As such, it does a text replace in the resulting bundle for any instances of `process.env`.\n\nYour `.env` files can include sensitive information. Because of this,`dotenv-webpack` will only expose environment variables that are **explicitly referenced in your code** to your final bundle.\n\nInterested in taking your environments to the next level? Check out the [Dotenv Organization](https://www.dotenv.org/get-started?r=3).\n\n## Usage\n\nThe plugin can be installed with little-to-no configuration needed. Once installed, you can access the variables within your code using `process.env` as you would with `dotenv`.\n\nThe example bellow shows a standard use-case.\n\n### Create a .env file\n\n```dosini\n// .env\nDB_HOST=127.0.0.1\nDB_PASS=foobar\nS3_API=mysecretkey\n\n```\n### Add it to your Webpack config file\n```javascript\n// webpack.config.js\nconst Dotenv = require('dotenv-webpack');\n\nmodule.exports = {\n  ...\n  plugins: [\n    new Dotenv()\n  ]\n  ...\n};\n```\n\n### Use in your code\n\n```javascript\n// file1.js\nconsole.log(process.env.DB_HOST);\n// '127.0.0.1'\n```\n\n### Resulting bundle\n```javascript\n// bundle.js\nconsole.log('127.0.0.1');\n```\n\nNote: the `.env` values for `DB_PASS` and  `S3_API` are **NOT** present in our bundle, as they were never referenced (as `process.env.[VAR_NAME]`) in the code.\n\n## How Secure?\n\nBy allowing you to define exactly where you are loading environment variables from and bundling only variables in your project that are explicitly referenced in your code, you can be sure that only what you need is included and you do not accidentally leak anything sensitive.\n\n### Recommended\n\nAdd `.env` to your `.gitignore` file\n\n## Limitations\n\nDue to the fact that we use `webpack.DefinePlugin` under the hood, we cannot support destructing as that breaks how this plugin is meant to be used. Because of this, please reference your variables without destructing. For more information about this, please review the issue [here](https://github.com/mrsteele/dotenv-webpack/issues/70).\n\n## `process.env` stubbing / replacing\n\n`process.env` is not polyfilled in Webpack 5+, leading to errors in environments where `process` is `null` (browsers).\n\nWe automatically replace any remaining `process.env`s in these environments with `\"MISSING_ENV_VAR\"` to avoid these errors.\n\nWhen the `prefix` option is set, `process.env`s will not be stubbed.\n\nIf you are running into issues where you or another package you use interfaces with `process.env`, it might be best to set `ignoreStub: true` and make sure you always reference variables that exist within your code (See [this issue](https://github.com/mrsteele/dotenv-webpack/issues/271) for more information).\n\n## Properties\n\nUse the following properties to configure your instance.\n\n* **path** (`'./.env'`) - The path to your environment variables. This same path applies to the `.env.example` and `.env.defaults` files. [Read more here](#about-path-settings).\n* **safe** (`false`) - If true, load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.\n* **allowEmptyValues** (`false`) - Whether to allow empty strings in safe mode. If false, will throw an error if any env variables are empty (but only if safe mode is enabled).\n* **systemvars** (`false`) - Set to true if you would rather load all system variables as well (useful for CI purposes).\n* **silent** (`false`) - If true, all warnings will be suppressed.\n* **expand** (`false`) - Allows your variables to be \"expanded\" for reusability within your `.env` file.\n* **defaults** (`false`) - Adds support for `dotenv-defaults`. If set to `true`, uses `./.env.defaults`. If a string, uses that location for a defaults file. Read more at [npm](https://www.npmjs.com/package/dotenv-defaults).\n* **ignoreStub** (`false`) - Override the automatic check whether to stub `process.env`. [Read more here](#user-content-processenv-stubbing--replacing).\n* **prefix** (`'process.env.'`) - The prefix to use before the name of your env variables.\n\nThe following example shows how to set any/all arguments.\n\n```javascript\nmodule.exports = {\n  ...\n  plugins: [\n    new Dotenv({\n      path: './some.other.env', // load this now instead of the ones in '.env'\n      safe: true, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.\n      allowEmptyValues: true, // allow empty variables (e.g. `FOO=`) (treat it as empty string, rather than missing)\n      systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.\n      silent: true, // hide any errors\n      defaults: false, // load '.env.defaults' as the default values if empty.\n      prefix: 'import.meta.env.' // reference your env variables as 'import.meta.env.ENV_VAR'.\n    })\n  ]\n  ...\n};\n```\n## About `path` settings\n\nAs previously mentioned, it is possible to customize the `path` where the `.env` file is located as well as its *filename* from the plugin settings:\n\n```javascript\nmodule.exports = {\n  ...\n  plugins: [\n    new Dotenv({\n      path: './some.other.env',\n    })\n  ]\n  ...\n};\n```\n\nIt is important to mention that this same path and filename will be used for the location of the `.env.example` and `.env.defaults` files if they are configured, this will only add the `.example` and `.defaults` suffixes respectively:\n\n```javascript\nmodule.exports = {\n  ...\n  plugins: [\n    new Dotenv({\n      path: '../../path/to/other.env',\n      safe: true, // load '../../path/to/other.env.example'\n      defaults: true, // load '../../path/to/other.env.defaults'\n    })\n  ]\n  ...\n};\n```\n\nThis is especially useful when working with [Monorepos](https://monorepo.tools/) where the same configuration can be shared within all sub-packages of the repository:\n\n```bash\n.\n├── packages/\n│   ├── app/\n│   │   └── webpack.config.js # { path: '../../.env' }\n│   └── libs/\n│       └── webpack.config.js # { path: '../../.env' }\n├── .env\n├── .env.example\n└── .env.defaults\n```\n\n## LICENSE\n\nMIT\n",
+  "maintainers": [
+    {
+      "name": "mrsteele",
+      "email": "matthewsteele1@hotmail.com"
+    }
+  ],
+  "time": {
+    "modified": "2022-08-15T20:42:53.303Z",
+    "created": "2016-08-03T00:49:52.428Z",
+    "1.0.0": "2016-08-03T00:49:52.428Z",
+    "1.0.1": "2016-08-03T01:46:29.454Z",
+    "1.1.0": "2016-08-06T13:35:14.483Z",
+    "1.2.0": "2016-08-08T16:24:41.381Z",
+    "1.2.1": "2016-09-02T15:45:34.418Z",
+    "1.3.0": "2016-09-09T17:38:29.826Z",
+    "1.3.1": "2016-09-29T21:14:10.752Z",
+    "1.3.2": "2017-01-10T18:20:45.233Z",
+    "1.4.0": "2017-02-04T04:31:00.146Z",
+    "1.4.1": "2017-02-09T16:20:41.401Z",
+    "1.4.2": "2017-02-28T14:15:42.487Z",
+    "1.4.3": "2017-03-07T21:03:49.293Z",
+    "1.4.4": "2017-05-04T14:32:06.103Z",
+    "1.4.5": "2017-05-04T15:07:48.001Z",
+    "1.5.0": "2017-05-30T19:50:22.782Z",
+    "1.5.1": "2017-06-29T16:52:28.913Z",
+    "1.5.2": "2017-07-04T02:13:48.860Z",
+    "1.5.3": "2017-07-10T17:13:02.367Z",
+    "1.5.4": "2017-07-24T15:55:28.108Z",
+    "1.5.5": "2018-02-27T15:15:32.428Z",
+    "1.5.6": "2018-06-04T13:13:24.735Z",
+    "1.5.7": "2018-06-05T18:14:27.772Z",
+    "1.6.0": "2018-12-27T01:44:52.295Z",
+    "1.7.0": "2019-01-18T05:11:57.413Z",
+    "1.8.0": "2020-05-11T14:48:45.686Z",
+    "2.0.0": "2020-07-08T23:10:58.825Z",
+    "3.0.0": "2020-09-19T07:00:59.974Z",
+    "4.0.0": "2020-10-16T13:01:31.045Z",
+    "5.0.0": "2020-10-29T01:01:56.741Z",
+    "5.0.1": "2020-11-03T02:34:21.367Z",
+    "5.1.0": "2020-11-06T13:59:02.435Z",
+    "6.0.0": "2020-11-25T06:41:32.492Z",
+    "6.0.1": "2021-02-22T03:09:41.383Z",
+    "6.0.2": "2021-02-22T03:24:25.141Z",
+    "6.0.3": "2021-03-04T04:11:39.907Z",
+    "6.0.4": "2021-03-04T04:33:46.156Z",
+    "7.0.0": "2021-03-05T16:05:48.039Z",
+    "7.0.1": "2021-03-05T16:14:08.069Z",
+    "7.0.2": "2021-03-16T02:30:34.895Z",
+    "7.0.3": "2021-06-03T05:12:27.512Z",
+    "7.1.0": "2022-01-27T15:00:31.043Z",
+    "7.1.1": "2022-06-27T03:58:35.075Z",
+    "8.0.0": "2022-07-08T18:49:52.961Z",
+    "8.0.1": "2022-08-15T20:42:53.214Z"
+  },
+  "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+  "keywords": [
+    "dotenv",
+    "env",
+    "safe",
+    "environment",
+    "dotenv-safe",
+    "variables",
+    "process",
+    "process.env",
+    "webpack",
+    "plugin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrsteele/dotenv-webpack.git"
+  },
+  "author": {
+    "name": "Matt Steele",
+    "email": "matt@omnionline.us",
+    "url": "http://omnionline.us/"
+  },
+  "bugs": {
+    "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "users": {
+    "sammyteahan": true,
+    "ridermansb": true,
+    "isenricho": true,
+    "aksm": true,
+    "tommyldunn": true,
+    "muhammadghazali": true,
+    "ciro-maciel": true,
+    "usex": true,
+    "nickgogan": true,
+    "heartnett": true
+  }
+}
